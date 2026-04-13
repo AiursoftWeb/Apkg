@@ -169,7 +169,7 @@ public class AptMirrorTests : TestBase
         using (var scope = Server!.Services.CreateScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
-            pkgId = (await db.AptPackages.FirstAsync(p => p.Package == "test-pkg")).Id;
+            pkgId = (await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.FirstAsync(db.AptPackages, p => p.Package == "test-pkg")).Id;
         }
 
         var detailsResponse = await Http.GetAsync($"/Mirrors/PackageDetails/{pkgId}");
