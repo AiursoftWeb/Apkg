@@ -3,6 +3,7 @@ using System;
 using Aiursoft.Apkg.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,144 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.Apkg.Sqlite.Migrations
 {
     [DbContext(typeof(SqliteContext))]
-    partial class SqliteContextModelSnapshot : ModelSnapshot
+    [Migration("20260413075409_AddMirrors")]
+    partial class AddMirrors
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.5");
-
-            modelBuilder.Entity("Aiursoft.Apkg.Entities.AptPackage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Architecture")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Breaks")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Bugs")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Conflicts")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Depends")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("DescriptionMd5")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Extras")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Filename")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Homepage")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("InstalledSize")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("MD5sum")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Maintainer")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("MirrorRepositoryId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("MultiArch")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Origin")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OriginComponent")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OriginSuite")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("OriginalMaintainer")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Package")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Priority")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Provides")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Recommends")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Replaces")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SHA1")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SHA256")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SHA512")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Section")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Size")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Source")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Suggests")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Version")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Filename");
-
-                    b.HasIndex("MirrorRepositoryId");
-
-                    b.HasIndex("Package", "Version", "Architecture", "OriginSuite", "OriginComponent");
-
-                    b.ToTable("AptPackages");
-                });
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.GlobalSetting", b =>
                 {
@@ -394,17 +265,6 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("Aiursoft.Apkg.Entities.AptPackage", b =>
-                {
-                    b.HasOne("Aiursoft.Apkg.Entities.MirrorRepository", "Mirror")
-                        .WithMany()
-                        .HasForeignKey("MirrorRepositoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Mirror");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

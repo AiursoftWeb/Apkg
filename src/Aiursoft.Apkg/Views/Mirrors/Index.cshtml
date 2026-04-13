@@ -1,0 +1,81 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.IndexViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Mirrors Management"]</h3>
+    </div>
+    <div class="col-auto ms-auto text-end">
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="align-middle" data-lucide="plus"></i> @Localizer["Add New Mirror"]
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">@Localizer["APT Mirrors"]</h5>
+        <h6 class="card-subtitle text-muted">@Localizer["Manage upstream APT repositories and suites to mirror."]</h6>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+            <tr>
+                <th>@Localizer["ID"]</th>
+                <th>@Localizer["Base URL"]</th>
+                <th>@Localizer["Suite"]</th>
+                <th>@Localizer["Components"]</th>
+                <th>@Localizer["Packages"]</th>
+                <th class="text-end">@Localizer["Actions"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Mirrors)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td><code>@item.BaseUrl</code></td>
+                    <td><span class="badge bg-info">@item.Suite</span></td>
+                    <td><small>@item.Components</small></td>
+                    <td>
+                        <a asp-action="Packages" asp-route-id="@item.Id" class="badge bg-success text-decoration-none">
+                            @(Model.PackageCounts.GetValueOrDefault(item.Id, 0)) @Localizer["items"]
+                        </a>
+                    </td>
+                    <td class="text-end">
+                        <div class="btn-group">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                                <i class="align-middle" data-lucide="edit"></i>
+                            </a>
+                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-@item.Id">
+                                <i class="align-middle" data-lucide="trash-2"></i>
+                            </button>
+                        </div>
+
+                        <!-- Delete Modal -->
+                        <div class="modal fade" id="deleteModal-@item.Id" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-start">
+                                        @Localizer["Are you sure you want to delete the mirror for suite"] <strong>@item.Suite</strong>?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                        <form asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-danger">@Localizer["Delete"]</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

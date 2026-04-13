@@ -1,0 +1,129 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.PackageDetailsViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Package Details:"] @Model.Package.Package</h3>
+    </div>
+    <div class="col-auto ms-auto text-end">
+        <a asp-action="Packages" asp-route-id="@Model.Package.MirrorRepositoryId" class="btn btn-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to Packages"]
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["General Information"]</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm">
+                    <tr>
+                        <th style="width: 30%;">@Localizer["Version"]</th>
+                        <td>@Model.Package.Version</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Architecture"]</th>
+                        <td>@Model.Package.Architecture</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Maintainer"]</th>
+                        <td>@Model.Package.Maintainer</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Section"]</th>
+                        <td>@Model.Package.Section</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Priority"]</th>
+                        <td>@Model.Package.Priority</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Origin"]</th>
+                        <td>@Model.Package.Origin</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Homepage"]</th>
+                        <td><a href="@Model.Package.Homepage" target="_blank">@Model.Package.Homepage</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Files & Hashes"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">@Localizer["Filename"]</label>
+                    <div class="small"><code>@Model.Package.Filename</code></div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">@Localizer["Size"]</label>
+                    <div>@Model.Package.Size @Localizer["bytes"]</div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label fw-bold">SHA256</label>
+                    <div class="small text-break"><code>@Model.Package.SHA256</code></div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label fw-bold">SHA512</label>
+                    <div class="small text-break"><code>@Model.Package.SHA512</code></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Description"]</h5>
+            </div>
+            <div class="card-body">
+                <p class="text-muted" style="white-space: pre-wrap;">@Model.Package.Description</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Localizer["Dependencies"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">@Localizer["Depends"]</label>
+                    <p class="small">@(string.IsNullOrWhiteSpace(Model.Package.Depends) ? Localizer["None"].Value : Model.Package.Depends)</p>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">@Localizer["Suggests"]</label>
+                    <p class="small">@(string.IsNullOrWhiteSpace(Model.Package.Suggests) ? Localizer["None"].Value : Model.Package.Suggests)</p>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">@Localizer["Conflicts"]</label>
+                    <p class="small">@(string.IsNullOrWhiteSpace(Model.Package.Conflicts) ? Localizer["None"].Value : Model.Package.Conflicts)</p>
+                </div>
+            </div>
+        </div>
+        
+        @if (Model.Package.Extras.Any())
+        {
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">@Localizer["Additional Metadata"]</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm">
+                        @foreach (var extra in Model.Package.Extras)
+                        {
+                            <tr>
+                                <th style="width: 40%;">@extra.Key</th>
+                                <td>@extra.Value</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
+</div>

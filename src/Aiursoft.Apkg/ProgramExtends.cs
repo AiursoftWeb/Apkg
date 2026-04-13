@@ -63,6 +63,8 @@ public static class ProgramExtends
         var settingsService = services.GetRequiredService<GlobalSettingsService>();
         await settingsService.SeedSettingsAsync();
 
+        await host.SeedMirrorsAsync();
+
         var shouldSeed = await ShouldSeedAsync(db);
         if (!shouldSeed)
         {
@@ -108,6 +110,43 @@ public static class ProgramExtends
             await userManager.AddToRoleAsync(user, "Administrators");
         }
 
+        return host;
+    }
+
+    [ExcludeFromCodeCoverage]
+    public static async Task<IHost> SeedMirrorsAsync(this IHost host, bool force = false)
+    {
+        using var scope = host.Services.CreateScope();
+        var services = scope.ServiceProvider;
+        var db = services.GetRequiredService<TemplateDbContext>();
+        var logger = services.GetRequiredService<ILogger<Program>>();
+
+        if (force)
+        {
+            db.MirrorRepositories.RemoveRange(db.MirrorRepositories);
+            await db.SaveChangesAsync();
+        }
+        else if (await db.MirrorRepositories.AnyAsync())
+        {
+            return host;
+        }
+
+        logger.LogInformation("Seeding the database with initial mirror repositories...");
+        var baseUrl = "https://mirror.aiursoft.com/ubuntu/";
+        var components = "main,restricted,universe,multiverse";
+        var suites = new[] { "questing", "questing-updates", "questing-backports", "questing-security" };
+
+        foreach (var suite in suites)
+        {
+            db.MirrorRepositories.Add(new MirrorRepository
+            {
+                BaseUrl = baseUrl,
+                Suite = suite,
+                Components = components
+            });
+        }
+
+        await db.SaveChangesAsync();
         return host;
     }
 }
