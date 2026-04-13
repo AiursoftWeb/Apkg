@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>Aiursoft.AptClient.SampleApp</AssemblyName>
+    <RootNamespace>Aiursoft.AptClient.SampleApp</RootNamespace>
+    <IsTestProject>false</IsTestProject>
+    <IsPackable>false</IsPackable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aiursoft.AptClient\Aiursoft.AptClient.csproj" />
+  </ItemGroup>
+</Project>

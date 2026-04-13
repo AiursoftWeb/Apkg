@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <Version>10.0.4</Version>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>Aiursoft.AptClient</AssemblyName>
+    <RootNamespace>Aiursoft.AptClient</RootNamespace>
+    <IsTestProject>false</IsTestProject>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Company>Aiursoft</Company>
+    <Product>AptClient</Product>
+    <Description>Nuget package of 'AptClient' provided by Aiursoft</Description>
+    <PackageId>Aiursoft.AptClient</PackageId>
+    <PackageTags>nuget package dotnet csproj dependencies</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://gitlab.aiursoft.com/aiursoft/aptclient</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://gitlab.aiursoft.com/aiursoft/aptclient.git</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="." />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aiursoft.AptClient.Abstractions\Aiursoft.AptClient.Abstractions.csproj" />
+  </ItemGroup>
+</Project>
