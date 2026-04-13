@@ -14,6 +14,8 @@ public class FeatureFoldersProvider(StorageRootPathProvider rootPathProvider) : 
 
     public string GetCompressedFolder() => EnsureExists(Path.Combine(BasePath, "Compressed"));
 
+    public string GetMirrorsFolder() => EnsureExists(Path.Combine(BasePath, "Mirrors"));
+
     private string EnsureExists(string path)
     {
         if (!Directory.Exists(path)) Directory.CreateDirectory(path);

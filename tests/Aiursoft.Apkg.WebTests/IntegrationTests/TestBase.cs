@@ -34,6 +34,7 @@ public abstract class TestBase
         Server = await AppAsync<Startup>([], port: Port);
         await Server.UpdateDbAsync<TemplateDbContext>();
         await Server.SeedAsync();
+        await Server.SeedMirrorsAsync(true);
         await Server.StartAsync();
     }
 
@@ -124,6 +125,7 @@ public abstract class TestBase
     protected T GetService<T>() where T : notnull
     {
         if (Server == null) throw new InvalidOperationException("Server is not started.");
-        return Server.Services.GetRequiredService<T>();
+        var scope = Server.Services.CreateScope();
+        return scope.ServiceProvider.GetRequiredService<T>();
     }
 }

@@ -1,0 +1,50 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.PackagesViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["Packages in"] @Model.Mirror.Suite</h3>
+    </div>
+    <div class="col-auto ms-auto text-end">
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to Mirrors"]
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">@Localizer["Indexed Packages"]</h5>
+        <h6 class="card-subtitle text-muted">@Localizer["Showing first 500 packages found in this mirror."]</h6>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+            <tr>
+                <th>@Localizer["Package"]</th>
+                <th>@Localizer["Version"]</th>
+                <th>@Localizer["Arch"]</th>
+                <th>@Localizer["Component"]</th>
+                <th>@Localizer["Section"]</th>
+                <th class="text-end">@Localizer["Actions"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Packages)
+            {
+                <tr>
+                    <td><strong>@item.Package</strong></td>
+                    <td><small class="text-muted">@item.Version</small></td>
+                    <td><span class="badge bg-light text-dark border">@item.Architecture</span></td>
+                    <td>@item.OriginComponent</td>
+                    <td>@item.Section</td>
+                    <td class="text-end">
+                        <a asp-action="PackageDetails" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="@Localizer["Details"]">
+                            <i class="align-middle" data-lucide="info"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
