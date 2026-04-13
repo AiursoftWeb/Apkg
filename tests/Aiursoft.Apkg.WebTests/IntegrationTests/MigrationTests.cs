@@ -2,7 +2,7 @@ using Aiursoft.Apkg.MySql;
 using Aiursoft.Apkg.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 /// <summary>
 /// This test class ensures that the Entity Framework migrations are up-to-date for all supported database providers.

@@ -2,7 +2,7 @@ using System.Net;
 using Aiursoft.Apkg.Entities;
 using Microsoft.AspNetCore.Identity;
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 [TestClass]
 public class UsersControllerTests : TestBase

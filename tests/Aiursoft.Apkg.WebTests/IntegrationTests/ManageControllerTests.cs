@@ -2,7 +2,7 @@ using System.Net;
 using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Services.FileStorage;
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 [TestClass]
 public class ManageControllerTests : TestBase

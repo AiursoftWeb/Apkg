@@ -1,7 +1,7 @@
 using System.Net;
 using Aiursoft.Canon.TaskQueue;
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 /// <summary>
 /// 后台任务队列集成测试：测试ServiceTaskQueue的队列管理、任务执行、并行处理等核心功能

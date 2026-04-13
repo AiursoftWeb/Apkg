@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 [TestClass]
 public class SystemControllerTests : TestBase

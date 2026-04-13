@@ -1,6 +1,6 @@
 using Aiursoft.Apkg.Services.FileStorage;
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 // JB scanner bug. Not a warning.
 #pragma warning disable CS8602

@@ -2,7 +2,7 @@ using System.Net;
 
 [assembly:DoNotParallelize]
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 [TestClass]
 public class BasicTests : TestBase

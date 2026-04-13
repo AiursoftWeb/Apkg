@@ -1,7 +1,7 @@
 using Aiursoft.Apkg.Services.FileStorage;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace Aiursoft.Apkg.Tests;
+namespace Aiursoft.Apkg.WebTests;
 
 [TestClass]
 public class FileLockProviderTests

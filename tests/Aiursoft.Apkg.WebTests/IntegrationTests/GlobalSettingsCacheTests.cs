@@ -3,7 +3,7 @@ using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 [TestClass]
 public class GlobalSettingsCacheTests : TestBase

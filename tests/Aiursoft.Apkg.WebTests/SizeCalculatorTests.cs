@@ -1,6 +1,6 @@
 using Aiursoft.Apkg.Services.FileStorage;
 
-namespace Aiursoft.Apkg.Tests;
+namespace Aiursoft.Apkg.WebTests;
 
 [TestClass]
 public class SizeCalculatorTests

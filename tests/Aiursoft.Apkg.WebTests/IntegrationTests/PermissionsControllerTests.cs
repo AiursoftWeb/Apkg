@@ -1,7 +1,7 @@
 using System.Net;
 using Aiursoft.Apkg.Authorization;
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 [TestClass]
 public class PermissionsControllerTests : TestBase

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Aiursoft.CSTools.Tools;
 using static Aiursoft.WebTools.Extends;
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 [TestClass]
 public class GlobalSettingsTests : TestBase

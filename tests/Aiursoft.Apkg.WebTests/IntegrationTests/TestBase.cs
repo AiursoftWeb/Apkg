@@ -5,7 +5,7 @@ using Aiursoft.DbTools;
 using Aiursoft.Apkg.Entities;
 using static Aiursoft.WebTools.Extends;
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 public abstract class TestBase
 {

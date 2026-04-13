@@ -1,6 +1,6 @@
 using Aiursoft.Apkg.Configuration;
 
-namespace Aiursoft.Apkg.Tests.IntegrationTests;
+namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 [TestClass]
 public class GlobalSettingsControllerTests : TestBase
