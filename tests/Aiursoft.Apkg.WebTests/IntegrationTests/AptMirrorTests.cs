@@ -4,7 +4,6 @@ using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Services.BackgroundJobs;
 using Aiursoft.AptClient;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
