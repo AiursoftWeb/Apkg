@@ -112,21 +112,35 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    public async Task<IActionResult> Packages(int id)
+    public async Task<IActionResult> Packages(int id, string? searchName = null, int page = 1)
     {
         var mirror = await dbContext.MirrorRepositories.FindAsync(id);
         if (mirror == null) return NotFound();
 
-        var packages = await dbContext.AptPackages
-            .Where(p => p.MirrorRepositoryId == id)
+        var query = dbContext.AptPackages
+            .Where(p => p.MirrorRepositoryId == id);
+
+        if (!string.IsNullOrWhiteSpace(searchName))
+        {
+            query = query.Where(p => p.Package.Contains(searchName));
+        }
+
+        var totalCount = await query.CountAsync();
+        const int pageSize = 500;
+        var packages = await query
             .OrderBy(p => p.Package)
-            .Take(500) // Limit for performance in management UI
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync();
 
         var model = new PackagesViewModel
         {
             Mirror = mirror,
             Packages = packages,
+            SearchName = searchName,
+            Page = page,
+            TotalCount = totalCount,
+            PageSize = pageSize,
             PageTitle = $"Packages in {mirror.Suite}"
         };
         return this.StackView(model);

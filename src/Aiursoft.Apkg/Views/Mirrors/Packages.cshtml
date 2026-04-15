@@ -1,4 +1,9 @@
+@using System.Collections.Specialized
+@using Microsoft.AspNetCore.Http.Extensions
 @model Aiursoft.Apkg.Models.MirrorsViewModels.PackagesViewModel
+@{
+    var totalPages = (int)Math.Ceiling((double)Model.TotalCount / Model.PageSize);
+}
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto d-none d-sm-block">
@@ -11,10 +16,43 @@
     </div>
 </div>
 
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="get" class="row g-2 align-items-center">
+            <input type="hidden" name="id" value="@Model.Mirror.Id" />
+            <div class="col-auto">
+                <label for="searchName" class="visually-hidden">@Localizer["Package Name"]</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-light border-end-0">
+                        <i class="align-middle" data-lucide="search" style="width: 16px; height: 16px;"></i>
+                    </span>
+                    <input type="text" class="form-control border-start-0 ps-0" id="searchName" name="searchName" value="@Model.SearchName" placeholder="@Localizer["Search by package name..."]">
+                </div>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">@Localizer["Search"]</button>
+                @if (!string.IsNullOrEmpty(Model.SearchName))
+                {
+                    <a asp-action="Packages" asp-route-id="@Model.Mirror.Id" class="btn btn-outline-secondary">@Localizer["Clear"]</a>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
 <div class="card">
     <div class="card-header">
         <h5 class="card-title">@Localizer["Indexed Packages"]</h5>
-        <h6 class="card-subtitle text-muted">@Localizer["Showing first 500 packages found in this mirror."]</h6>
+        <h6 class="card-subtitle text-muted">
+            @if (Model.TotalCount > 0)
+            {
+                <span>@Localizer["Showing"] @((Model.Page - 1) * Model.PageSize + 1) @Localizer["to"] @Math.Min(Model.Page * Model.PageSize, Model.TotalCount) @Localizer["of"] @Model.TotalCount @Localizer["packages found in this mirror."]</span>
+            }
+            else
+            {
+                <span>@Localizer["No packages found."]</span>
+            }
+        </h6>
     </div>
     <div class="table-responsive">
         <table class="table table-hover mb-0">
@@ -47,4 +85,74 @@
             </tbody>
         </table>
     </div>
+
+    @if (totalPages > 1)
+    {
+        <div class="card-footer d-flex flex-column flex-md-row align-items-center justify-content-between">
+            <nav aria-label="Page navigation" class="mb-3 mb-md-0">
+                <ul class="pagination mb-0">
+                    <li class="page-item @(Model.Page == 1 ? "disabled" : "")">
+                        <a class="page-link" asp-action="Packages" asp-route-id="@Model.Mirror.Id" asp-route-searchName="@Model.SearchName" asp-route-page="@(Model.Page - 1)" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    @{
+                        const int maxPagesToShow = 5;
+                        var startPage = Math.Max(1, Model.Page - maxPagesToShow / 2);
+                        var endPage = Math.Min(totalPages, startPage + maxPagesToShow - 1);
+                        if (endPage - startPage < maxPagesToShow - 1)
+                        {
+                            startPage = Math.Max(1, endPage - maxPagesToShow + 1);
+                        }
+                    }
+
+                    @if (startPage > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Mirror.Id" asp-route-searchName="@Model.SearchName" asp-route-page="1">1</a>
+                        </li>
+                        @if (startPage > 2)
+                        {
+                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                        }
+                    }
+
+                    @for (var i = startPage; i <= endPage; i++)
+                    {
+                        <li class="page-item @(i == Model.Page ? "active" : "")">
+                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Mirror.Id" asp-route-searchName="@Model.SearchName" asp-route-page="@i">@i</a>
+                        </li>
+                    }
+
+                    @if (endPage < totalPages)
+                    {
+                        @if (endPage < totalPages - 1)
+                        {
+                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                        }
+                        <li class="page-item">
+                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Mirror.Id" asp-route-searchName="@Model.SearchName" asp-route-page="@totalPages">@totalPages</a>
+                        </li>
+                    }
+
+                    <li class="page-item @(Model.Page == totalPages ? "disabled" : "")">
+                        <a class="page-link" asp-action="Packages" asp-route-id="@Model.Mirror.Id" asp-route-searchName="@Model.SearchName" asp-route-page="@(Model.Page + 1)" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <form method="get" class="d-flex align-items-center">
+                <input type="hidden" name="id" value="@Model.Mirror.Id" />
+                <input type="hidden" name="searchName" value="@Model.SearchName" />
+                <div class="input-group input-group-sm" style="width: 160px;">
+                    <span class="input-group-text bg-light">@Localizer["Go to"]</span>
+                    <input type="number" name="page" class="form-control" value="@Model.Page" min="1" max="@totalPages" aria-label="Page number">
+                    <button class="btn btn-outline-primary" type="submit">@Localizer["Jump"]</button>
+                </div>
+            </form>
+        </div>
+    }
 </div>
