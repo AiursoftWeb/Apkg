@@ -123,7 +123,9 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
 
         if (!string.IsNullOrWhiteSpace(searchName))
         {
-            query = query.Where(p => p.Package.Contains(searchName));
+            query = query.Where(p => p.Package.Contains(searchName) || 
+                                     (p.Description != null && p.Description.Contains(searchName)) || 
+                                     (p.Filename != null && p.Filename.Contains(searchName)));
         }
 
         var totalCount = await query.CountAsync();
