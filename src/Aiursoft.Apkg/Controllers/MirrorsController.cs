@@ -117,6 +117,7 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
         var mirror = await dbContext.MirrorRepositories.FindAsync(id);
         if (mirror == null) return NotFound();
 
+        page = Math.Max(1, page);
         var query = dbContext.AptPackages
             .Where(p => p.MirrorRepositoryId == id);
 
@@ -126,9 +127,10 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
         }
 
         var totalCount = await query.CountAsync();
-        const int pageSize = 500;
+        const int pageSize = 100;
         var packages = await query
             .OrderBy(p => p.Package)
+            .ThenBy(p => p.Id)
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
