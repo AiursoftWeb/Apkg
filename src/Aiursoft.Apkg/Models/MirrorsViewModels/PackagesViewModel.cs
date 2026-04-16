@@ -11,5 +11,5 @@ public class PackagesViewModel : UiStackLayoutViewModel
     public string? SearchName { get; set; }
     public int Page { get; set; } = 1;
     public int TotalCount { get; set; }
-    public int PageSize { get; set; } = 500;
+    public int PageSize { get; set; } = 100;
 }

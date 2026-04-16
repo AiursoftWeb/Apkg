@@ -102,8 +102,8 @@ public class AptMirrorTests : TestBase
 
         await Server!.SeedMirrorsAsync(true);
         var localServerUrl = $"http://localhost:{Port}/";
-        var repo = new AptRepository(localServerUrl, "questing", null, httpClientFactory: () => new HttpClient { BaseAddress = new Uri(localServerUrl), Timeout = TimeSpan.FromSeconds(30) });
-        var source = new AptPackageSource(repo, "main", "amd64", httpClientFactory: () => new HttpClient { BaseAddress = new Uri(localServerUrl), Timeout = TimeSpan.FromSeconds(30) });
+        var repo = new AptRepository(localServerUrl, "questing", null, httpClientFactory: () => Http);
+        var source = new AptPackageSource(repo, "main", "amd64", httpClientFactory: () => Http);
 
         try
         {
