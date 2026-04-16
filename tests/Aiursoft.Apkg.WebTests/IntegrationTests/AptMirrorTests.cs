@@ -177,11 +177,11 @@ public class AptMirrorTests : TestBase
         var detailsResponse = await Http.GetAsync($"/Mirrors/PackageDetails/{pkgId}");
         var detailsHtml = await response.Content.ReadAsStringAsync();
         Assert.IsTrue(detailsHtml.Contains("Package Details: test-pkg"));
-        }
+    }
 
-        [TestMethod]
-        public async Task TestPackageSearchAndPagination()
-        {
+    [TestMethod]
+    public async Task TestPackageSearchAndPagination()
+    {
         await Server!.SeedMirrorsAsync(true);
         await LoginAsAdmin();
 
@@ -212,7 +212,10 @@ public class AptMirrorTests : TestBase
                     Size = "100",
                     Priority = "optional",
                     Section = "utils",
-                    DescriptionMd5 = "abc"
+                    DescriptionMd5 = "abc",
+                    Maintainer = "Tester",
+                    Origin = "Ubuntu",
+                    Bugs = "none"
                 });
             }
             await db.SaveChangesAsync();
@@ -243,7 +246,7 @@ public class AptMirrorTests : TestBase
         html = await response.Content.ReadAsStringAsync();
         Assert.IsTrue(html.Contains("pkg-050"));
         Assert.IsFalse(html.Contains("pkg-001"));
-        }
+    }
 
     [TestMethod]
     public async Task TestPoolDownload()
