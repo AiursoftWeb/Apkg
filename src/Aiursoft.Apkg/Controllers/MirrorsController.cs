@@ -128,6 +128,12 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
 
         var totalCount = await query.CountAsync();
         const int pageSize = 100;
+        var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+        if (totalPages > 0 && page > totalPages)
+        {
+            page = totalPages;
+        }
+
         var packages = await query
             .OrderBy(p => p.Package)
             .ThenBy(p => p.Id)
