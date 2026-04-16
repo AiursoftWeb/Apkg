@@ -10,13 +10,16 @@ namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 [TestClass]
 public class AptMirrorTests : TestBase
 {
+    private static readonly HttpClient ExternalClient = new HttpClient
+    {
+        Timeout = TimeSpan.FromSeconds(5)
+    };
+
     private async Task<bool> CheckInternet()
     {
         try
         {
-            using var client = new HttpClient();
-            client.Timeout = TimeSpan.FromSeconds(5);
-            var response = await client.GetAsync("https://mirror.aiursoft.com/ubuntu/dists/questing/InRelease");
+            var response = await ExternalClient.GetAsync("https://mirror.aiursoft.com/ubuntu/dists/questing/InRelease");
             return response.IsSuccessStatusCode;
         }
         catch
