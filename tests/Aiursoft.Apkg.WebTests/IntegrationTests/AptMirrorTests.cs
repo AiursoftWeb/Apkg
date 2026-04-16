@@ -175,7 +175,7 @@ public class AptMirrorTests : TestBase
         }
 
         var detailsResponse = await Http.GetAsync($"/Mirrors/PackageDetails/{pkgId}");
-        var detailsHtml = await response.Content.ReadAsStringAsync();
+        var detailsHtml = await detailsResponse.Content.ReadAsStringAsync();
         Assert.IsTrue(detailsHtml.Contains("Package Details: test-pkg"));
     }
 
