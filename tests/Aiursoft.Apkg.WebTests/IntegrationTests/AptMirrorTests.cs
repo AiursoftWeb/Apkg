@@ -175,9 +175,75 @@ public class AptMirrorTests : TestBase
         }
 
         var detailsResponse = await Http.GetAsync($"/Mirrors/PackageDetails/{pkgId}");
-        var detailsHtml = await detailsResponse.Content.ReadAsStringAsync();
+        var detailsHtml = await response.Content.ReadAsStringAsync();
         Assert.IsTrue(detailsHtml.Contains("Package Details: test-pkg"));
-    }
+        }
+
+        [TestMethod]
+        public async Task TestPackageSearchAndPagination()
+        {
+        await Server!.SeedMirrorsAsync(true);
+        await LoginAsAdmin();
+
+        var mirrorService = GetService<AptMirrorService>();
+        var mirror = await mirrorService.GetMirrorForSuite("questing");
+        Assert.IsNotNull(mirror);
+
+        // Seed 105 packages to test pagination (PageSize = 100)
+        using (var scope = Server!.Services.CreateScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            for (int i = 1; i <= 105; i++)
+            {
+                db.AptPackages.Add(new AptPackage
+                {
+                    MirrorRepositoryId = mirror.Id,
+                    Package = $"pkg-{i:D3}",
+                    Version = "1.0.0",
+                    Architecture = "amd64",
+                    OriginSuite = "questing",
+                    OriginComponent = "main",
+                    Description = i == 50 ? "Special Description" : "Normal package",
+                    Filename = $"pool/main/p/pkg-{i:D3}/pkg-{i:D3}_1.0.0_amd64.deb",
+                    MD5sum = "abc",
+                    SHA1 = "abc",
+                    SHA256 = "abc",
+                    SHA512 = "abc",
+                    Size = "100",
+                    Priority = "optional",
+                    Section = "utils",
+                    DescriptionMd5 = "abc"
+                });
+            }
+            await db.SaveChangesAsync();
+        }
+
+        // 1. Test basic list (Page 1)
+        var response = await Http.GetAsync($"/Mirrors/Packages/{mirror.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("pkg-001"));
+        Assert.IsTrue(html.Contains("pkg-100"));
+        Assert.IsFalse(html.Contains("pkg-101")); // On Page 2
+
+        // 2. Test pagination (Page 2)
+        response = await Http.GetAsync($"/Mirrors/Packages/{mirror.Id}?page=2");
+        html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("pkg-101"));
+        Assert.IsTrue(html.Contains("pkg-105"));
+        Assert.IsFalse(html.Contains("pkg-001"));
+
+        // 3. Test Search by Name
+        response = await Http.GetAsync($"/Mirrors/Packages/{mirror.Id}?searchName=pkg-050");
+        html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("pkg-050"));
+        Assert.IsFalse(html.Contains("pkg-001"));
+
+        // 4. Test Search by Description
+        response = await Http.GetAsync($"/Mirrors/Packages/{mirror.Id}?searchName=Special");
+        html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("pkg-050"));
+        Assert.IsFalse(html.Contains("pkg-001"));
+        }
 
     [TestMethod]
     public async Task TestPoolDownload()
