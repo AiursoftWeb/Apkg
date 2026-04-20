@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Aiursoft.AptClient.Abstractions;
@@ -11,12 +12,17 @@ public class DebianPackage
     // ==========================================
 
     // 注入的元数据
+    [MaxLength(128)]
     public required string OriginSuite { get; set; }
+    [MaxLength(128)]
     public required string OriginComponent { get; set; }
 
     // 包核心标识
+    [MaxLength(128)]
     public required string Package { get; set; }
+    [MaxLength(128)]
     public required string Version { get; set; }
+    [MaxLength(128)]
     public required string Architecture { get; set; }
     public required string Maintainer { get; set; }
 
