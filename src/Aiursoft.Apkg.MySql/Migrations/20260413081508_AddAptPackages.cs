@@ -18,15 +18,15 @@ namespace Aiursoft.Apkg.MySql.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     MirrorRepositoryId = table.Column<int>(type: "int", nullable: false),
-                    OriginSuite = table.Column<string>(type: "varchar(255)", nullable: false)
+                    OriginSuite = table.Column<string>(type: "varchar(128)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    OriginComponent = table.Column<string>(type: "varchar(255)", nullable: false)
+                    OriginComponent = table.Column<string>(type: "varchar(128)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Package = table.Column<string>(type: "varchar(255)", nullable: false)
+                    Package = table.Column<string>(type: "varchar(128)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Version = table.Column<string>(type: "varchar(255)", nullable: false)
+                    Version = table.Column<string>(type: "varchar(128)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Architecture = table.Column<string>(type: "varchar(255)", nullable: false)
+                    Architecture = table.Column<string>(type: "varchar(128)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Maintainer = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),

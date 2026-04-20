@@ -32,7 +32,7 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<string>("Architecture")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("Breaks")
                         .HasColumnType("longtext");
@@ -89,18 +89,18 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<string>("OriginComponent")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("OriginSuite")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("OriginalMaintainer")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Package")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("Priority")
                         .IsRequired()
@@ -143,7 +143,7 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<string>("Version")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(128)");
 
                     b.HasKey("Id");
 
