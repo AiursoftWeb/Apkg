@@ -1,0 +1,80 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.PackagesViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@Localizer["Packages in"] @Model.Mirror.Suite</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <form method="get" class="row g-3">
+            <input type="hidden" name="id" value="@Model.Mirror.Id" />
+            <div class="col-auto">
+                <input type="text" name="searchName" class="form-control" placeholder="Search package..." value="@Model.SearchName">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">@Localizer["Search"]</button>
+            </div>
+        </form>
+    </div>
+    <div class="card-body">
+        <table class="table table-sm table-striped">
+            <thead>
+            <tr>
+                <th>@Localizer["Package"]</th>
+                <th>@Localizer["Version"]</th>
+                <th>@Localizer["Component"]</th>
+                <th>@Localizer["Size"]</th>
+                <th>@Localizer["Status"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var pkg in Model.Packages)
+            {
+                <tr>
+                    <td><code>@pkg.Package</code></td>
+                    <td><small>@pkg.Version</small></td>
+                    <td><span class="badge bg-secondary">@pkg.Component</span></td>
+                    <td>@pkg.Size</td>
+                    <td>
+                        @if (pkg.IsVirtual)
+                        {
+                            <span class="badge bg-outline-warning">Virtual</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-success">Physical</span>
+                        }
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        
+        <!-- Basic Pagination -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                @{
+                    var totalPages = (int)Math.Ceiling((double)Model.TotalCount / Model.PageSize);
+                    for (int i = 1; i <= totalPages; i++)
+                    {
+                        if (i > 10)
+                        {
+                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                            break;
+                        }
+                        var p = i;
+                        <li class="page-item @(Model.Page == p ? "active" : "")">
+                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Mirror.Id" asp-route-page="@p" asp-route-searchName="@Model.SearchName">@p</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to Mirrors"]</a>
+</div>
