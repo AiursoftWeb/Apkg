@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Aiursoft.Apkg.Entities;
 using Microsoft.EntityFrameworkCore;
 

@@ -8,10 +8,8 @@ using Aiursoft.Apkg.Configuration;
 using Aiursoft.WebTools.Abstractions.Models;
 using Aiursoft.Apkg.InMemory;
 using Aiursoft.Apkg.MySql;
-using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Services.Authentication;
 using Aiursoft.Apkg.Services.BackgroundJobs;
-using Aiursoft.Apkg.Services.FileStorage;
 using Aiursoft.Apkg.Sqlite;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.UiStack.Navigation;
@@ -56,11 +54,6 @@ public class Startup : IWebStartup
         services.AddHttpClient();
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
         services.AddTransient<IGpgSigningService, GpgSigningService>();
-        services.AddTransient<AptMirrorService>();
-        services.AddTransient<AptMetadataService>();
-        services.AddSingleton<FeatureFoldersProvider>();
-        services.AddSingleton<StorageRootPathProvider>();
-        services.AddSingleton<FileLockProvider>();
         services.AddSingleton<NavigationState<Startup>>();
 
         // Background job infrastructure
