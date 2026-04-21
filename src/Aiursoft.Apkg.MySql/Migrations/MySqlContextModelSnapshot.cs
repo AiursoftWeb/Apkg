@@ -32,6 +32,7 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<string>("Architecture")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("varchar(128)");
 
                     b.Property<string>("Breaks")
@@ -89,10 +90,12 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<string>("OriginComponent")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("varchar(128)");
 
                     b.Property<string>("OriginSuite")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("varchar(128)");
 
                     b.Property<string>("OriginalMaintainer")
@@ -100,6 +103,7 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<string>("Package")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("varchar(128)");
 
                     b.Property<string>("Priority")
@@ -143,6 +147,7 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<string>("Version")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("varchar(128)");
 
                     b.HasKey("Id");
@@ -177,15 +182,20 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Architecture")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
+
                     b.Property<string>("BaseUrl")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("Components")
+                    b.Property<string>("Component")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("SignedBy")
                         .HasColumnType("longtext");

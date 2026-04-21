@@ -25,6 +25,7 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 
                     b.Property<string>("Architecture")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Breaks")
@@ -82,10 +83,12 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 
                     b.Property<string>("OriginComponent")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("OriginSuite")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("OriginalMaintainer")
@@ -93,6 +96,7 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 
                     b.Property<string>("Package")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Priority")
@@ -136,6 +140,7 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 
                     b.Property<string>("Version")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -168,14 +173,19 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Architecture")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("BaseUrl")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Components")
+                    b.Property<string>("Component")
                         .IsRequired()
-                        .HasMaxLength(255)
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SignedBy")

@@ -48,7 +48,8 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
             {
                 BaseUrl = model.BaseUrl,
                 Suite = model.Suite,
-                Components = model.Components,
+                Component = model.Component,
+                Architecture = model.Architecture,
                 SignedBy = model.SignedBy
             };
             dbContext.MirrorRepositories.Add(mirror);
@@ -64,13 +65,14 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
     {
         var mirror = await dbContext.MirrorRepositories.FindAsync(id);
         if (mirror == null) return NotFound();
-        
+
         var model = new EditViewModel
         {
             Id = mirror.Id,
             BaseUrl = mirror.BaseUrl,
             Suite = mirror.Suite,
-            Components = mirror.Components,
+            Component = mirror.Component,
+            Architecture = mirror.Architecture,
             SignedBy = mirror.SignedBy,
             PageTitle = "Edit Mirror"
         };
@@ -88,7 +90,8 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
 
             mirror.BaseUrl = model.BaseUrl;
             mirror.Suite = model.Suite;
-            mirror.Components = model.Components;
+            mirror.Component = model.Component;
+            mirror.Architecture = model.Architecture;
             mirror.SignedBy = model.SignedBy;
 
             dbContext.Update(mirror);

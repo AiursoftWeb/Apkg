@@ -52,7 +52,8 @@ public class AptMirrorTests : TestBase
         {
             { "BaseUrl", "https://mirror.aiursoft.com/ubuntu/" },
             { "Suite", "test-suite" },
-            { "Components", "main" }
+            { "Component", "main" },
+            { "Architecture", "amd64" }
         };
         var createResponse = await PostForm("/Mirrors/Create", createData);
         AssertRedirect(createResponse, "/Mirrors");
@@ -70,7 +71,8 @@ public class AptMirrorTests : TestBase
             { "Id", id },
             { "BaseUrl", "https://mirror.aiursoft.com/ubuntu/" },
             { "Suite", "updated-suite" },
-            { "Components", "main,universe" }
+            { "Component", "universe" },
+            { "Architecture", "amd64" }
         };
         var editResponse = await PostForm($"/Mirrors/Edit/{id}", editData);
         AssertRedirect(editResponse, "/Mirrors");
@@ -246,6 +248,33 @@ public class AptMirrorTests : TestBase
         html = await response.Content.ReadAsStringAsync();
         Assert.IsTrue(html.Contains("pkg-050"));
         Assert.IsFalse(html.Contains("pkg-001"));
+    }
+
+    [TestMethod]
+    public async Task TestMirrorRoutingByComponentAndArch()
+    {
+        await Server!.SeedMirrorsAsync(true);
+        var mirrorService = GetService<AptMirrorService>();
+
+        // 1. Test main component routing
+        var mainPath = await mirrorService.GetLocalMetadataPath("questing", "main/binary-amd64/Packages.gz");
+        Assert.IsNotNull(mainPath);
+        Assert.IsTrue(mainPath.Contains("questing"), "Path should contain suite");
+        Assert.IsTrue(mainPath.Contains("main"), "Path should contain component");
+
+        // 2. Test universe component routing
+        var universePath = await mirrorService.GetLocalMetadataPath("questing", "universe/binary-amd64/Packages.gz");
+        Assert.IsNotNull(universePath);
+        Assert.IsTrue(universePath.Contains("universe"), "Path should contain universe component");
+
+        // 3. Test non-existent component
+        var invalidPath = await mirrorService.GetLocalMetadataPath("questing", "nonexistent/binary-amd64/Packages.gz");
+        Assert.IsNull(invalidPath, "Should return null for non-configured component");
+
+        // 4. Test InRelease routing (suite level)
+        var inReleasePath = await mirrorService.GetLocalMetadataPath("questing", "InRelease");
+        Assert.IsNotNull(inReleasePath);
+        Assert.IsTrue(inReleasePath.EndsWith("InRelease"));
     }
 
     [TestMethod]

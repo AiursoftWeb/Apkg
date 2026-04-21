@@ -23,7 +23,8 @@
                 <th>@Localizer["ID"]</th>
                 <th>@Localizer["Base URL"]</th>
                 <th>@Localizer["Suite"]</th>
-                <th>@Localizer["Components"]</th>
+                <th>@Localizer["Component"]</th>
+                <th>@Localizer["Arch"]</th>
                 <th>@Localizer["Packages"]</th>
                 <th class="text-end">@Localizer["Actions"]</th>
             </tr>
@@ -35,7 +36,8 @@
                     <td>@item.Id</td>
                     <td><code>@item.BaseUrl</code></td>
                     <td><span class="badge bg-info">@item.Suite</span></td>
-                    <td><small>@item.Components</small></td>
+                    <td><span class="badge bg-secondary">@item.Component</span></td>
+                    <td><span class="badge bg-dark">@item.Architecture</span></td>
                     <td>
                         <a asp-action="Packages" asp-route-id="@item.Id" class="badge bg-success text-decoration-none">
                             @(Model.PackageCounts.GetValueOrDefault(item.Id, 0)) @Localizer["items"]

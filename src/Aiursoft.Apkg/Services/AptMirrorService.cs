@@ -16,8 +16,15 @@ public class AptMirrorService(
 
     public async Task<MirrorRepository?> GetMirrorForSuite(string suite)
     {
+        // For suite-level files like InRelease, any mirror for that suite will do as they share the same BaseUrl.
         return await dbContext.MirrorRepositories
             .FirstOrDefaultAsync(m => m.Suite == suite);
+    }
+
+    public async Task<MirrorRepository?> GetMirror(string suite, string component, string arch)
+    {
+        return await dbContext.MirrorRepositories
+            .FirstOrDefaultAsync(m => m.Suite == suite && m.Component == component && m.Architecture == arch);
     }
 
     public async Task<bool> CheckConfiguredAsync(int expectedCount)
@@ -28,7 +35,21 @@ public class AptMirrorService(
 
     public async Task<string?> GetLocalMetadataPath(string suite, string path)
     {
-        var mirror = await GetMirrorForSuite(suite);
+        // Path might be: "InRelease", "main/binary-amd64/Packages.gz"
+        var parts = path.Split('/');
+        MirrorRepository? mirror;
+        if (parts.Length >= 2)
+        {
+            var component = parts[0];
+            var archPart = parts[1]; // e.g., "binary-amd64"
+            var arch = archPart.Replace("binary-", "");
+            mirror = await GetMirror(suite, component, arch);
+        }
+        else
+        {
+            mirror = await GetMirrorForSuite(suite);
+        }
+
         if (mirror == null) return null;
 
         var localPath = Path.Combine(MirrorsRoot, suite, path);
