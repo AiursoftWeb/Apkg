@@ -22,6 +22,40 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.AptCertificate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Fingerprint")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("FriendlyName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("PrivateKey")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PublicKey")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AptCertificates");
+                });
+
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptPackage", b =>
                 {
                     b.Property<int>("Id")
@@ -192,6 +226,9 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
+                    b.Property<int?>("CertificateId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Component")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -206,6 +243,8 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CertificateId");
 
                     b.ToTable("MirrorRepositories");
                 });
@@ -430,6 +469,15 @@ namespace Aiursoft.Apkg.MySql.Migrations
                     b.Navigation("Mirror");
                 });
 
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.MirrorRepository", b =>
+                {
+                    b.HasOne("Aiursoft.Apkg.Entities.AptCertificate", "Certificate")
+                        .WithMany("MirrorRepositories")
+                        .HasForeignKey("CertificateId");
+
+                    b.Navigation("Certificate");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -479,6 +527,11 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.AptCertificate", b =>
+                {
+                    b.Navigation("MirrorRepositories");
                 });
 #pragma warning restore 612, 618
         }

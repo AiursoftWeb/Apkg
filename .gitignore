@@ -9,6 +9,11 @@ bin/
 obj/
 dist/
 node_modules/
+
+# Prevent backslash-named artifacts (e.g. bin\Debug)
+*\\*
+bin\\*
+obj\\*
 Properties/
 npm-debug.log
 bundle.js
