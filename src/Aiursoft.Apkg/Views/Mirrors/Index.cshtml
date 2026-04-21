@@ -45,6 +45,9 @@
                     </td>
                     <td class="text-end">
                         <div class="btn-group">
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="@Localizer["Setup Instructions"]">
+                                <i class="align-middle" data-lucide="info"></i>
+                            </a>
                             <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
                                 <i class="align-middle" data-lucide="edit"></i>
                             </a>
