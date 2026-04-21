@@ -1,5 +1,4 @@
 using Aiursoft.Apkg.Services.FileStorage;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace Aiursoft.Apkg.WebTests;
 
@@ -9,8 +8,7 @@ public class FileLockProviderTests
     [TestMethod]
     public async Task TestGetLock()
     {
-        var cache = new MemoryCache(new MemoryCacheOptions());
-        var provider = new FileLockProvider(cache);
+        var provider = new FileLockProvider();
         
         var lock1 = provider.GetLock("path1");
         var lock2 = provider.GetLock("path1");

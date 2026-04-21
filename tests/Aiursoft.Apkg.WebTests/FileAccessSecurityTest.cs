@@ -1,6 +1,5 @@
 using Aiursoft.Apkg.Services.FileStorage;
 using Microsoft.AspNetCore.DataProtection;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace Aiursoft.Apkg.WebTests;
 
@@ -26,8 +25,7 @@ public class FileAccessSecurityTest
 
         var rootProvider = new StorageRootPathProvider(config);
         var foldersProvider = new FeatureFoldersProvider(rootProvider);
-        var memoryCache = new MemoryCache(new MemoryCacheOptions());
-        var fileLockProvider = new FileLockProvider(memoryCache);
+        var fileLockProvider = new FileLockProvider();
         var dataProtectionProvider = new EphemeralDataProtectionProvider();
 
         _storageService = new StorageService(foldersProvider, fileLockProvider, dataProtectionProvider);

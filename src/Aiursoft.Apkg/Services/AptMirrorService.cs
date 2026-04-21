@@ -13,7 +13,7 @@ public class AptMirrorService(
     IHttpClientFactory httpClientFactory,
     ILogger<AptMirrorService> logger) : ITransientDependency
 {
-    private string PoolRoot => folders.GetMirrorsFolder();
+    private string ObjectsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Objects");
 
     public async Task<string?> GetLocalPoolPath(string path)
     {
@@ -41,7 +41,11 @@ public class AptMirrorService(
         }
 
         logger.LogInformation("Found package {PackageName} in DB. ID: {Id}, Virtual: {IsVirtual}", package.Package, package.Id, package.IsVirtual);
-        var localPath = Path.Combine(PoolRoot, package.Filename);
+        
+        // Use Content-Addressable Storage (CAS) logic for physical path
+        var hash = package.SHA256.ToLowerInvariant();
+        var hashPrefix = hash.Substring(0, 2);
+        var localPath = Path.Combine(ObjectsRoot, hashPrefix, $"{hash}.deb");
 
         if (!package.IsVirtual && File.Exists(localPath))
         {
