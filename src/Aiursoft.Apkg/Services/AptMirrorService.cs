@@ -19,37 +19,37 @@ public class AptMirrorService(
     {
         logger.LogInformation("Lazy Sync requested for path: {Path}", path);
         
-        // 1. Try to find the exact filename
+        // 1. Normalize path: ensure it starts with pool/
+        if (!path.StartsWith("pool/") && !path.StartsWith("/pool/"))
+        {
+            path = "pool/" + path.TrimStart('/');
+        }
+        path = path.TrimStart('/'); // Standard: no leading slash for DB matching
+
+        // 2. Try to find the package
         var package = await dbContext.AptPackages
             .AsNoTracking()
-            .FirstOrDefaultAsync(p => p.Filename == path);
+            .FirstOrDefaultAsync(p => p.Filename == path || p.Filename == "/" + path);
 
         if (package == null)
         {
-            // 2. Try with trailing slash or without
-            var alternativePath = path.StartsWith("/") ? path.TrimStart('/') : "/" + path;
-            package = await dbContext.AptPackages
-                .AsNoTracking()
-                .FirstOrDefaultAsync(p => p.Filename == alternativePath);
-        }
-
-        if (package == null)
-        {
-            var sampleFiles = await dbContext.AptPackages.Take(3).Select(p => p.Filename).ToListAsync();
-            logger.LogWarning("Package not found! Database contains files like: {Samples}. We searched for: {Path}", string.Join(", ", sampleFiles), path);
+            logger.LogWarning("Package with path {Path} not found in database.", path);
             return null;
         }
 
         logger.LogInformation("Found package {PackageName} in DB. ID: {Id}, Virtual: {IsVirtual}", package.Package, package.Id, package.IsVirtual);
         
-        // Use Content-Addressable Storage (CAS) logic for physical path
         var hash = package.SHA256.ToLowerInvariant();
         var hashPrefix = hash.Substring(0, 2);
         var localPath = Path.Combine(ObjectsRoot, hashPrefix, $"{hash}.deb");
 
-        if (!package.IsVirtual && File.Exists(localPath))
+        // 3. Fast path: file already exists
+        if (File.Exists(localPath))
         {
-            logger.LogInformation("Package {PackageName} already physical. Serving from {LocalPath}", package.Package, localPath);
+            if (package.IsVirtual)
+            {
+                await SyncDbStateAsync(package.Filename);
+            }
             return localPath;
         }
 
@@ -59,29 +59,45 @@ public class AptMirrorService(
             return null;
         }
 
+        // 4. Slow path: locked download
         var lockObj = fileLockProvider.GetLock(localPath);
         await lockObj.WaitAsync();
         try
         {
-            if (!File.Exists(localPath))
+            if (File.Exists(localPath))
             {
-                await DownloadAndVerifyAsync(package.RemoteUrl, localPath, package.SHA256);
+                await SyncDbStateAsync(package.Filename);
+                return localPath;
             }
 
-            // Always ensure DB is synced if the file exists physically
-            logger.LogInformation("Updating DB status for all packages named {Filename}...", package.Filename);
-
-            var affectedRows = await dbContext.AptPackages
-                .Where(p => p.Filename == package.Filename)
-                .ExecuteUpdateAsync(s => s.SetProperty(p => p.IsVirtual, false));
-
-            logger.LogInformation("DB update complete. Affected rows: {Count}.", affectedRows);
+            await DownloadAndVerifyAsync(package.RemoteUrl, localPath, package.SHA256);
+            await SyncDbStateAsync(package.Filename);
             return localPath;
         }
         catch (Exception ex)
         {
             logger.LogCritical(ex, "CRITICAL: Lazy Sync failed for {Path} due to an exception!", path);
             throw;
+        }
+        finally
+        {
+            lockObj.Release();
+        }
+    }
+
+    private async Task SyncDbStateAsync(string filename)
+    {
+        try
+        {
+            logger.LogInformation("Updating DB status for all packages named {Filename}...", filename);
+            var count = await dbContext.AptPackages
+                .Where(p => p.Filename == filename || p.Filename == "/" + filename)
+                .ExecuteUpdateAsync(s => s.SetProperty(p => p.IsVirtual, false));
+            logger.LogInformation("DB update complete. Affected rows: {Count}.", count);
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(ex, "Failed to update IsVirtual state in DB for {Filename}.", filename);
         }
     }
 
@@ -96,7 +112,7 @@ public class AptMirrorService(
         var tempPath = localPath + ".downloading";
         try
         {
-            logger.LogInformation("Downloading virtual package from {Url}...", url);
+            logger.LogInformation("Downloading from {Url}...", url);
             using var client = httpClientFactory.CreateClient();
             var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
             response.EnsureSuccessStatusCode();
@@ -106,8 +122,7 @@ public class AptMirrorService(
                 await response.Content.CopyToAsync(fs);
             }
 
-            // Verify SHA256
-            logger.LogInformation("Verifying SHA256 for {Path}...", Path.GetFileName(localPath));
+            logger.LogInformation("Verifying SHA256...");
             await using (var fs = File.OpenRead(tempPath))
             {
                 var hashBytes = await SHA256.HashDataAsync(fs);
@@ -115,17 +130,15 @@ public class AptMirrorService(
 
                 if (!string.Equals(actualHash, expectedHash, StringComparison.OrdinalIgnoreCase))
                 {
-                    throw new Exception($"Hash mismatch for {url}! Expected: {expectedHash}, Actual: {actualHash}");
+                    throw new Exception($"Hash mismatch! Expected: {expectedHash}, Actual: {actualHash}");
                 }
             }
 
             if (File.Exists(localPath)) File.Delete(localPath);
             File.Move(tempPath, localPath);
-            logger.LogInformation("Package {Path} is now physical and verified.", Path.GetFileName(localPath));
         }
-        catch (Exception ex)
+        catch
         {
-            logger.LogError(ex, "Failed to download or verify package from {Url}", url);
             if (File.Exists(tempPath)) File.Delete(tempPath);
             throw;
         }
