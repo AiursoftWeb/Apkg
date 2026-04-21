@@ -123,16 +123,6 @@ public static class ProgramExtends
         var logger = services.GetRequiredService<ILogger<Program>>();
         var signingService = services.GetRequiredService<IGpgSigningService>();
 
-        if (force)
-        {
-            db.MirrorRepositories.RemoveRange(db.MirrorRepositories);
-            await db.SaveChangesAsync();
-        }
-        else if (await db.MirrorRepositories.AnyAsync())
-        {
-            return host;
-        }
-
         logger.LogInformation("Seeding the database with initial mirror repositories and default certificate...");
 
         // 1. Ensure a default certificate exists
@@ -150,6 +140,24 @@ public static class ProgramExtends
             };
             db.AptCertificates.Add(cert);
             await db.SaveChangesAsync();
+        }
+
+        // Link existing mirrors if they don't have one
+        var mirrorsWithoutCert = await db.MirrorRepositories.Where(m => m.CertificateId == null).ToListAsync();
+        foreach (var m in mirrorsWithoutCert)
+        {
+            m.CertificateId = cert.Id;
+        }
+        await db.SaveChangesAsync();
+
+        if (force)
+        {
+            db.MirrorRepositories.RemoveRange(db.MirrorRepositories);
+            await db.SaveChangesAsync();
+        }
+        else if (await db.MirrorRepositories.AnyAsync())
+        {
+            return host;
         }
 
         var baseUrl = "https://mirror.aiursoft.com/ubuntu/";

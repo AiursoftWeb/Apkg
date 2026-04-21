@@ -97,6 +97,7 @@ public class Startup : IWebStartup
         app.UseRouting();
         app.UseAuthentication();
         app.UseAuthorization();
+        app.MapControllers();
         app.MapDefaultControllerRoute();
     }
 }

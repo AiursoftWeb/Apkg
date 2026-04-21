@@ -14,12 +14,13 @@ using System.Text;
 namespace Aiursoft.Apkg.Controllers;
 
 [LimitPerMin]
+[Controller]
 public class AptMirrorController(
     AptMirrorService aptMirrorService,
     AptMetadataService metadataService,
     IGpgSigningService signingService,
     TemplateDbContext dbContext,
-    ILogger<AptMirrorController> logger) : ControllerBase
+    ILogger<AptMirrorController> logger) : Controller
 {
     [HttpGet]
     [Route("ubuntu/dists/{suite}/{**path}")]
@@ -122,6 +123,26 @@ public class AptMirrorController(
         }
 
         return this.WebFile(localPath);
+    }
+
+    [HttpGet]
+    [Route("certs/latest")]
+    [Route("certs/{id:int}")]
+    public async Task<IActionResult> GetCert([FromRoute] int? id)
+    {
+        AptCertificate? cert;
+        if (id == null)
+        {
+            cert = await dbContext.AptCertificates.FirstOrDefaultAsync();
+        }
+        else
+        {
+            cert = await dbContext.AptCertificates.FindAsync(id);
+        }
+        
+        if (cert == null) return NotFound();
+
+        return Content(cert.PublicKey, "application/pgp-keys");
     }
 
     [HttpGet]

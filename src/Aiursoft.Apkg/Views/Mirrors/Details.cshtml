@@ -21,7 +21,7 @@
             
             <h6>1. @Localizer["Download and install the public key:"]</h6>
             <div class="bg-light p-3 rounded mb-3">
-                <pre class="mb-0"><code>curl -sL @(Context.Request.Scheme)://@(Context.Request.Host)/certs/@(cert.Id).asc | sudo tee /etc/apt/trusted.gpg.d/apkg-@(cert.Id).asc > /dev/null</code></pre>
+                <pre class="mb-0"><code>curl -sL @(Context.Request.Scheme)://@(Context.Request.Host)/certs/@(cert.Id) | sudo tee /etc/apt/trusted.gpg.d/apkg-@(cert.Id).asc > /dev/null</code></pre>
             </div>
 
             <h6>2. @Localizer["Add this repository to your sources:"]</h6>
