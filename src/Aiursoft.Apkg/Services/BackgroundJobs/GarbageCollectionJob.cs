@@ -1,0 +1,91 @@
+using Aiursoft.Canon.BackgroundJobs;
+using Aiursoft.Apkg.Entities;
+using Aiursoft.Apkg.Services.FileStorage;
+using Microsoft.EntityFrameworkCore;
+
+namespace Aiursoft.Apkg.Services.BackgroundJobs;
+
+public class GarbageCollectionJob(
+    TemplateDbContext db,
+    FeatureFoldersProvider folders,
+    ILogger<GarbageCollectionJob> logger) : IBackgroundJob
+{
+    private string BucketsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Buckets");
+    private string ObjectsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Objects");
+
+    public string Name => "APT Garbage Collection";
+
+    public string Description => "Cleans up orphaned buckets, packages, and physical files to free up disk and DB space.";
+
+    public async Task ExecuteAsync()
+    {
+        logger.LogInformation("GarbageCollectionJob started.");
+
+        // 1. Identify active buckets
+        var activeMirrors = await db.AptMirrors
+            .Where(m => m.CurrentBucketId != null)
+            .Select(m => m.CurrentBucketId!.Value)
+            .ToListAsync();
+            
+        var activeRepos = await db.AptRepositories
+            .Where(r => r.CurrentBucketId != null)
+            .Select(r => r.CurrentBucketId!.Value)
+            .ToListAsync();
+        
+        var activeBucketIds = activeMirrors.Union(activeRepos).Distinct().ToList();
+
+        // 30 minutes grace period for buckets currently being processed by sync jobs
+        var threshold = DateTime.UtcNow.AddMinutes(-30);
+        
+        var orphanedBuckets = await db.AptBuckets
+            .Where(b => !activeBucketIds.Contains(b.Id) && b.CreatedAt < threshold)
+            .Select(b => b.Id)
+            .ToListAsync();
+
+        logger.LogInformation("Found {Count} orphaned buckets to delete.", orphanedBuckets.Count);
+
+        foreach (var bucketId in orphanedBuckets)
+        {
+            // 1. Delete physical bucket directory (Packages, Packages.gz)
+            var bucketDir = Path.Combine(BucketsRoot, bucketId.ToString());
+            if (Directory.Exists(bucketDir))
+            {
+                Directory.Delete(bucketDir, true);
+            }
+
+            // 2. Delete packages from DB
+            await db.AptPackages.Where(p => p.BucketId == bucketId).ExecuteDeleteAsync();
+
+            // 3. Delete bucket from DB
+            await db.AptBuckets.Where(b => b.Id == bucketId).ExecuteDeleteAsync();
+        }
+
+        // 4. Clean up orphaned CAS physical files (.deb)
+        if (Directory.Exists(ObjectsRoot))
+        {
+            // Get all referenced hashes
+            var referencedHashes = await db.AptPackages
+                .Select(p => p.SHA256)
+                .Distinct()
+                .ToListAsync();
+
+            var hashSet = new HashSet<string>(referencedHashes.Select(h => h.ToLowerInvariant()));
+
+            var debFiles = Directory.GetFiles(ObjectsRoot, "*.deb", SearchOption.AllDirectories);
+            int deletedFiles = 0;
+            foreach (var file in debFiles)
+            {
+                var hash = Path.GetFileNameWithoutExtension(file).ToLowerInvariant();
+                if (!hashSet.Contains(hash))
+                {
+                    File.Delete(file);
+                    deletedFiles++;
+                }
+            }
+            
+            logger.LogInformation("Deleted {Count} orphaned physical .deb files.", deletedFiles);
+        }
+
+        logger.LogInformation("GarbageCollectionJob finished.");
+    }
+}

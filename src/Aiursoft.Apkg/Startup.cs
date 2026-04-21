@@ -65,6 +65,7 @@ public class Startup : IWebStartup
         var orphanAvatarCleanupJob = services.RegisterBackgroundJob<OrphanAvatarCleanupJob>();
         var mirrorSyncJob = services.RegisterBackgroundJob<MirrorSyncJob>();
         var repositorySyncJob = services.RegisterBackgroundJob<RepositorySyncJob>();
+        var garbageCollectionJob = services.RegisterBackgroundJob<GarbageCollectionJob>();
 
         // Scheduled tasks (attach a schedule to any registered background job)
         services.RegisterScheduledTask(
@@ -81,6 +82,11 @@ public class Startup : IWebStartup
             registration: repositorySyncJob,
             period:     TimeSpan.FromMinutes(20),
             startDelay: TimeSpan.FromSeconds(30));
+
+        services.RegisterScheduledTask(
+            registration: garbageCollectionJob,
+            period:     TimeSpan.FromMinutes(70),
+            startDelay: TimeSpan.FromMinutes(15));
 
         // Controllers and localization
         services.AddControllersWithViews()
