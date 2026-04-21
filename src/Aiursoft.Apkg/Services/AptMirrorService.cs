@@ -35,20 +35,30 @@ public class AptMirrorService(
 
     public async Task<string?> GetLocalMetadataPath(string suite, string path)
     {
-        // Path might be: "InRelease", "main/binary-amd64/Packages.gz"
+        // Path might be: 
+        // 1. "InRelease"
+        // 2. "main/binary-amd64/Packages.gz"
+        // 3. "main/cnf/Commands-amd64"
         var parts = path.Split('/');
-        MirrorRepository? mirror;
+        MirrorRepository? mirror = null;
+        
         if (parts.Length >= 2)
         {
             var component = parts[0];
-            var archPart = parts[1]; // e.g., "binary-amd64"
-            var arch = archPart.Replace("binary-", "");
-            mirror = await GetMirror(suite, component, arch);
+            var secondPart = parts[1];
+            
+            if (secondPart.StartsWith("binary-"))
+            {
+                var arch = secondPart.Replace("binary-", "");
+                mirror = await GetMirror(suite, component, arch);
+            }
+            
+            // If arch matching failed or it's auxiliary metadata (cnf, dep11, i18n)
+            mirror ??= await dbContext.MirrorRepositories
+                .FirstOrDefaultAsync(m => m.Suite == suite && m.Component == component);
         }
-        else
-        {
-            mirror = await GetMirrorForSuite(suite);
-        }
+        
+        mirror ??= await GetMirrorForSuite(suite);
 
         if (mirror == null) return null;
 
@@ -62,7 +72,14 @@ public class AptMirrorService(
             if (File.Exists(localPath))
             {
                 var fileName = Path.GetFileName(path);
-                if (fileName is "InRelease" or "Release" or "Packages.gz" or "Packages")
+                var isMetadata = fileName.Contains("Release") || 
+                                 fileName.Contains("Packages") || 
+                                 fileName.Contains("Sources") || 
+                                 fileName.Contains("Commands") || 
+                                 fileName.Contains("Components") || 
+                                 fileName.Contains("Translation");
+
+                if (isMetadata)
                 {
                     if (DateTime.UtcNow - File.GetLastWriteTimeUtc(localPath) > TimeSpan.FromMinutes(30))
                     {

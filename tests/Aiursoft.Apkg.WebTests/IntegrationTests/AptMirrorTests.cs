@@ -278,6 +278,21 @@ public class AptMirrorTests : TestBase
     }
 
     [TestMethod]
+    public async Task TestCommandNotFoundMetadataRouting()
+    {
+        await Server!.SeedMirrorsAsync(true);
+        var mirrorService = GetService<AptMirrorService>();
+
+        // Path structure: {component}/cnf/Commands-{arch}.xz
+        // Use .xz because the raw file might not exist on upstream
+        var cnfPath = await mirrorService.GetLocalMetadataPath("questing", "main/cnf/Commands-amd64.xz");
+        
+        Assert.IsNotNull(cnfPath, "c-n-f path should be resolvable and sync-able");
+        Assert.IsTrue(cnfPath.Contains("main"), "Should match the correct component");
+        Assert.IsTrue(cnfPath.EndsWith("Commands-amd64.xz"), "Should preserve the original path");
+    }
+
+    [TestMethod]
     public async Task TestPoolDownload()
     {
         if (!await CheckInternet()) Assert.Inconclusive("No internet access.");
