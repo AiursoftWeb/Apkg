@@ -1,0 +1,51 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.RepoEditViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@(Model.Id == 0 ? Localizer["Create New Repository"] : Localizer["Edit Repository"])</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="@(Model.Id == 0 ? "Create" : "Edit")" method="post">
+            @if (Model.Id != 0)
+            {
+                <input type="hidden" asp-for="Id" />
+            }
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" placeholder="my-custom-repo" required />
+                    <div class="form-text">The internal identifier and part of the URL path.</div>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Suite" class="form-label"></label>
+                    <input asp-for="Suite" class="form-control" placeholder="stable" required />
+                    <div class="form-text">The APT suite name (e.g. jammy, stable).</div>
+                    <span asp-validation-for="Suite" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="MirrorId" class="form-label"></label>
+                <select asp-for="MirrorId" asp-items="Model.AvailableMirrors" class="form-select">
+                    <option value="">-- None (Standalone) --</option>
+                </select>
+                <div class="form-text">If linked to a mirror, this repository will serve packages from that upstream source.</div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CertificateId" class="form-label"></label>
+                <select asp-for="CertificateId" asp-items="Model.AvailableCertificates" class="form-select" required></select>
+                <div class="form-text">The GPG key used to sign the Release files of this repository.</div>
+            </div>
+
+            <hr />
+            <button type="submit" class="btn btn-primary">@Localizer["Save Repository"]</button>
+            <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>
+        </form>
+    </div>
+</div>

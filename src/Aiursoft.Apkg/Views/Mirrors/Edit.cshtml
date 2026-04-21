@@ -1,0 +1,54 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.MirrorEditViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@(Model.Id == 0 ? Localizer["Add New Mirror"] : Localizer["Edit Mirror"])</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="@(Model.Id == 0 ? "Create" : "Edit")" method="post">
+            @if (Model.Id != 0)
+            {
+                <input type="hidden" asp-for="Id" />
+            }
+
+            <div class="mb-3">
+                <label asp-for="BaseUrl" class="form-label"></label>
+                <input asp-for="BaseUrl" class="form-control" placeholder="https://mirrors.ubuntu.com/ubuntu/" required />
+                <span asp-validation-for="BaseUrl" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Suite" class="form-label"></label>
+                    <input asp-for="Suite" class="form-control" placeholder="jammy" required />
+                    <span asp-validation-for="Suite" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Architecture" class="form-label"></label>
+                    <input asp-for="Architecture" class="form-control" placeholder="amd64" required />
+                    <span asp-validation-for="Architecture" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Components" class="form-label"></label>
+                <input asp-for="Components" class="form-control" placeholder="main,universe,multiverse" required />
+                <div class="form-text">Comma-separated components.</div>
+                <span asp-validation-for="Components" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="SignedBy" class="form-label"></label>
+                <input asp-for="SignedBy" class="form-control" placeholder="https://example.com/public.gpg" />
+                <div class="form-text">Optional URL to the upstream public GPG key for verification.</div>
+            </div>
+
+            <hr />
+            <button type="submit" class="btn btn-primary">@Localizer["Save Changes"]</button>
+            <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>
+        </form>
+    </div>
+</div>

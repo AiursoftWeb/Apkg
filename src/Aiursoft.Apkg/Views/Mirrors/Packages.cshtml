@@ -33,7 +33,11 @@
             @foreach (var pkg in Model.Packages)
             {
                 <tr>
-                    <td><code>@pkg.Package</code></td>
+                    <td>
+                        <a asp-action="PackageDetails" asp-route-id="@pkg.Id">
+                            <code>@pkg.Package</code>
+                        </a>
+                    </td>
                     <td><small>@pkg.Version</small></td>
                     <td><span class="badge bg-secondary">@pkg.Component</span></td>
                     <td>@pkg.Size</td>
