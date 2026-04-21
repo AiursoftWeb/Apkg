@@ -1,0 +1,54 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.RepoDetailsViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@Localizer["Repository Details"] - @Model.Repo.Name</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-header"><h5 class="card-title mb-0">@Localizer["Information"]</h5></div>
+            <div class="card-body">
+                <p><strong>@Localizer["Suite"]:</strong> @Model.Repo.Suite</p>
+                <p><strong>@Localizer["Mirror Source"]:</strong> @(Model.Repo.Mirror?.Suite ?? "None")</p>
+                <p><strong>@Localizer["Live Bucket"]:</strong> #@(Model.Repo.CurrentBucketId)</p>
+                <p><strong>@Localizer["Certificate"]:</strong> @(Model.Repo.Certificate?.FriendlyName ?? "None")</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card h-100">
+            <div class="card-header"><h5 class="card-title mb-0">@Localizer["Client Configuration Guide"]</h5></div>
+            <div class="card-body">
+                @if (Model.Repo.Certificate != null)
+                {
+                    <h6>1. @Localizer["Trust the public key:"]</h6>
+                    <div class="bg-dark text-white p-3 rounded mb-3">
+                        <pre class="mb-0"><code>curl -sL @(Context.Request.Scheme)://@(Context.Request.Host)/certs/latest | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/apkg-@(Model.Repo.Id).gpg > /dev/null</code></pre>
+                    </div>
+
+                    <h6>2. @Localizer["Add source list:"]</h6>
+                    <div class="bg-dark text-white p-3 rounded mb-3">
+                        <pre class="mb-0"><code>echo "deb [signed-by=/etc/apt/trusted.gpg.d/apkg-@(Model.Repo.Id).gpg] @(Context.Request.Scheme)://@(Context.Request.Host)/ubuntu/ @Model.Repo.Suite @(Model.Repo.Mirror?.Components ?? "main")" | sudo tee /etc/apt/sources.list.d/apkg-@(Model.Repo.Id).list</code></pre>
+                    </div>
+
+                    <h6>3. @Localizer["Update:"]</h6>
+                    <div class="bg-dark text-white p-3 rounded">
+                        <pre class="mb-0"><code>sudo apt update</code></pre>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-warning">@Localizer["No certificate associated with this repository. Signing is disabled."]</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to List"]</a>
+</div>
