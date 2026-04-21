@@ -1,0 +1,27 @@
+@model Aiursoft.Apkg.Entities.AptCertificate
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@Localizer["Generate New Certificate"]</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label class="form-label">@Localizer["Friendly Name"]</label>
+                <input name="friendlyName" class="form-control" placeholder="e.g. My Official Repo Key" required />
+                <div class="form-text">This name will be embedded in the GPG key as the User ID.</div>
+            </div>
+            
+            <div class="alert alert-info">
+                <i class="align-middle me-2" data-lucide="info"></i>
+                Generating a 4096-bit RSA key pair may take a few seconds. Please be patient.
+            </div>
+
+            <button type="submit" class="btn btn-primary">@Localizer["Start Generation"]</button>
+            <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>
+        </form>
+    </div>
+</div>

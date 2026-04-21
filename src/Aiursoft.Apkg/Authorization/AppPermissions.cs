@@ -69,7 +69,10 @@ public class AppPermissions
                 localizer["Allows viewing and modifying global application settings."]),
             new(AppPermissionNames.CanManageMirrors,
                 localizer["Manage Mirrors"],
-                localizer["Allows viewing and modifying APT mirror repositories."])
+                localizer["Allows viewing and modifying APT mirror repositories."]),
+            new(AppPermissionNames.CanManageRepositories,
+                localizer["Manage Repositories"],
+                localizer["Allows viewing and modifying APT repositories and signing certificates."])
         ];
         return allPermission;
     }

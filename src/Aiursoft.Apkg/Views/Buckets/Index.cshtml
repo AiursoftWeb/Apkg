@@ -1,0 +1,43 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.BucketsIndexViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@Localizer["Bucket Snapshots History"]</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="alert alert-info">
+            <i class="align-middle me-2" data-lucide="info"></i>
+            Buckets represent point-in-time snapshots of the repository metadata and package lists. 
+            Only the buckets currently referenced by a <strong>Mirror</strong> or <strong>Repository</strong> are actively served.
+        </div>
+        
+        <table class="table table-sm table-striped">
+            <thead>
+            <tr>
+                <th>@Localizer["ID"]</th>
+                <th>@Localizer["Created Time"]</th>
+                <th>@Localizer["Size"]</th>
+                <th>@Localizer["Details"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var bucket in Model.Buckets)
+            {
+                <tr>
+                    <td><span class="badge bg-secondary">#@bucket.Id</span></td>
+                    <td>@bucket.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>
+                        <small>InRelease: @(bucket.InReleaseContent?.Length ?? 0) bytes</small>
+                    </td>
+                    <td>
+                        <small class="text-muted">Content Addressable Cache: SHA256 CAS</small>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
