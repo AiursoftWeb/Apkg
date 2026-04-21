@@ -13,6 +13,7 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
     public DbSet<GlobalSetting> GlobalSettings => Set<GlobalSetting>();
     public DbSet<MirrorRepository> MirrorRepositories => Set<MirrorRepository>();
     public DbSet<AptPackage> AptPackages => Set<AptPackage>();
+    public DbSet<AptCertificate> AptCertificates => Set<AptCertificate>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

@@ -1,5 +1,6 @@
 using Aiursoft.Apkg.Authorization;
 using Aiursoft.Apkg.Entities;
+using Aiursoft.Apkg.Services.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -120,6 +121,7 @@ public static class ProgramExtends
         var services = scope.ServiceProvider;
         var db = services.GetRequiredService<TemplateDbContext>();
         var logger = services.GetRequiredService<ILogger<Program>>();
+        var signingService = services.GetRequiredService<IGpgSigningService>();
 
         if (force)
         {
@@ -131,7 +133,25 @@ public static class ProgramExtends
             return host;
         }
 
-        logger.LogInformation("Seeding the database with initial mirror repositories...");
+        logger.LogInformation("Seeding the database with initial mirror repositories and default certificate...");
+
+        // 1. Ensure a default certificate exists
+        var cert = await db.AptCertificates.FirstOrDefaultAsync();
+        if (cert == null)
+        {
+            logger.LogInformation("Generating default GPG certificate...");
+            var (pub, priv, fpr) = await signingService.GenerateKeyPairAsync("Apkg Default Certificate <support@aiursoft.com>");
+            cert = new AptCertificate
+            {
+                FriendlyName = "Apkg Default Certificate",
+                PublicKey = pub,
+                PrivateKey = priv,
+                Fingerprint = fpr
+            };
+            db.AptCertificates.Add(cert);
+            await db.SaveChangesAsync();
+        }
+
         var baseUrl = "https://mirror.aiursoft.com/ubuntu/";
         var components = new[] { "main", "restricted", "universe", "multiverse" };
         var suites = new[] { "questing", "questing-updates", "questing-backports", "questing-security" };
@@ -145,7 +165,8 @@ public static class ProgramExtends
                     BaseUrl = baseUrl,
                     Suite = suite,
                     Component = component,
-                    Architecture = "amd64"
+                    Architecture = "amd64",
+                    CertificateId = cert.Id
                 });
             }
         }

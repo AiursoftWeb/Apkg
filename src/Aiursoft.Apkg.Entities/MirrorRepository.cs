@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Aiursoft.Apkg.Entities;
@@ -26,4 +27,9 @@ public class MirrorRepository
     public required string Architecture { get; set; }
 
     public string? SignedBy { get; set; }
+
+    public int? CertificateId { get; set; }
+
+    [ForeignKey(nameof(CertificateId))]
+    public AptCertificate? Certificate { get; set; }
 }
