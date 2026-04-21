@@ -133,17 +133,21 @@ public static class ProgramExtends
 
         logger.LogInformation("Seeding the database with initial mirror repositories...");
         var baseUrl = "https://mirror.aiursoft.com/ubuntu/";
-        var components = "main,restricted,universe,multiverse";
+        var components = new[] { "main", "restricted", "universe", "multiverse" };
         var suites = new[] { "questing", "questing-updates", "questing-backports", "questing-security" };
 
         foreach (var suite in suites)
         {
-            db.MirrorRepositories.Add(new MirrorRepository
+            foreach (var component in components)
             {
-                BaseUrl = baseUrl,
-                Suite = suite,
-                Components = components
-            });
+                db.MirrorRepositories.Add(new MirrorRepository
+                {
+                    BaseUrl = baseUrl,
+                    Suite = suite,
+                    Component = component,
+                    Architecture = "amd64"
+                });
+            }
         }
 
         await db.SaveChangesAsync();

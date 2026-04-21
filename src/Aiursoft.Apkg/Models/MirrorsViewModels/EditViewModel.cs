@@ -18,8 +18,12 @@ public class EditViewModel : UiStackLayoutViewModel
     public string Suite { get; set; } = string.Empty;
 
     [Required]
-    [MaxLength(255)]
-    public string Components { get; set; } = string.Empty;
+    [MaxLength(100)]
+    public string Component { get; set; } = string.Empty;
+
+    [Required]
+    [MaxLength(20)]
+    public string Architecture { get; set; } = "amd64";
 
     [Display(Name = "Signed By")]
     public string? SignedBy { get; set; }

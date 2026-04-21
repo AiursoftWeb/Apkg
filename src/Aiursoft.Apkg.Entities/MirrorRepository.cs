@@ -18,8 +18,12 @@ public class MirrorRepository
     public required string Suite { get; set; }
 
     [Required]
-    [MaxLength(255)]
-    public required string Components { get; set; } // Comma separated: main,restricted,universe,multiverse
+    [MaxLength(100)]
+    public required string Component { get; set; }
+
+    [Required]
+    [MaxLength(20)]
+    public required string Architecture { get; set; }
 
     public string? SignedBy { get; set; }
 }

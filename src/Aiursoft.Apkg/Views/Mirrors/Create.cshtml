@@ -20,9 +20,14 @@
                 <span asp-validation-for="Suite" class="text-danger small"></span>
             </div>
             <div class="mb-3">
-                <label asp-for="Components" class="form-label">@Localizer["Components"]</label>
-                <input asp-for="Components" class="form-control" placeholder="main,restricted,universe,multiverse" required />
-                <span asp-validation-for="Components" class="text-danger small"></span>
+                <label asp-for="Component" class="form-label">@Localizer["Component"]</label>
+                <input asp-for="Component" class="form-control" placeholder="main" required />
+                <span asp-validation-for="Component" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Architecture" class="form-label">@Localizer["Architecture"]</label>
+                <input asp-for="Architecture" class="form-control" placeholder="amd64" required />
+                <span asp-validation-for="Architecture" class="text-danger small"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="SignedBy" class="form-label">@Localizer["Signed By (Optional)"]</label>
