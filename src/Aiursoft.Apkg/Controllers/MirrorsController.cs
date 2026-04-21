@@ -13,7 +13,9 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
 {
     public async Task<IActionResult> Index()
     {
-        var mirrors = await dbContext.MirrorRepositories.ToListAsync();
+        var mirrors = await dbContext.MirrorRepositories
+            .Include(m => m.Certificate)
+            .ToListAsync();
         var counts = await dbContext.AptPackages
             .GroupBy(p => p.MirrorRepositoryId)
             .Select(g => new { MirrorId = g.Key, Count = g.Count() })
@@ -25,6 +27,28 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
             PackageCounts = counts,
             PageTitle = "Mirrors Management"
         };
+        return this.StackView(model);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Details(int id)
+    {
+        var mirror = await dbContext.MirrorRepositories
+            .Include(m => m.Certificate)
+            .FirstOrDefaultAsync(m => m.Id == id);
+        if (mirror == null) return NotFound();
+
+        var model = new EditViewModel
+        {
+            Id = mirror.Id,
+            BaseUrl = mirror.BaseUrl,
+            Suite = mirror.Suite,
+            Component = mirror.Component,
+            Architecture = mirror.Architecture,
+            SignedBy = mirror.SignedBy,
+            PageTitle = $"Mirror Details - {mirror.Suite}/{mirror.Component}"
+        };
+        ViewData["Certificate"] = mirror.Certificate;
         return this.StackView(model);
     }
 
