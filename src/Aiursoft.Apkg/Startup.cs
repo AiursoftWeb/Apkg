@@ -8,8 +8,10 @@ using Aiursoft.Apkg.Configuration;
 using Aiursoft.WebTools.Abstractions.Models;
 using Aiursoft.Apkg.InMemory;
 using Aiursoft.Apkg.MySql;
+using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Services.Authentication;
 using Aiursoft.Apkg.Services.BackgroundJobs;
+using Aiursoft.Apkg.Services.FileStorage;
 using Aiursoft.Apkg.Sqlite;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.UiStack.Navigation;
@@ -54,6 +56,11 @@ public class Startup : IWebStartup
         services.AddHttpClient();
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
         services.AddTransient<IGpgSigningService, GpgSigningService>();
+        services.AddTransient<AptMirrorService>();
+        services.AddTransient<AptMetadataService>();
+        services.AddSingleton<FeatureFoldersProvider>();
+        services.AddSingleton<StorageRootPathProvider>();
+        services.AddSingleton<FileLockProvider>();
         services.AddSingleton<NavigationState<Startup>>();
 
         // Background job infrastructure
@@ -64,6 +71,7 @@ public class Startup : IWebStartup
         services.RegisterBackgroundJob<DummyJob>();
         var orphanAvatarCleanupJob = services.RegisterBackgroundJob<OrphanAvatarCleanupJob>();
         var mirrorSyncJob = services.RegisterBackgroundJob<MirrorSyncJob>();
+        var repositorySyncJob = services.RegisterBackgroundJob<RepositorySyncJob>();
 
         // Scheduled tasks (attach a schedule to any registered background job)
         services.RegisterScheduledTask(
@@ -73,8 +81,13 @@ public class Startup : IWebStartup
 
         services.RegisterScheduledTask(
             registration: mirrorSyncJob,
-            period:     TimeSpan.FromHours(12),
-            startDelay: TimeSpan.FromMinutes(1));
+            period:     TimeSpan.FromMinutes(20),
+            startDelay: TimeSpan.FromSeconds(10));
+
+        services.RegisterScheduledTask(
+            registration: repositorySyncJob,
+            period:     TimeSpan.FromMinutes(20),
+            startDelay: TimeSpan.FromSeconds(30));
 
         // Controllers and localization
         services.AddControllersWithViews()

@@ -27,4 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Aiursoft.AptClient.Abstractions\Aiursoft.AptClient.Abstractions.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SharpCompress" Version="0.47.4" />
+  </ItemGroup>
 </Project>

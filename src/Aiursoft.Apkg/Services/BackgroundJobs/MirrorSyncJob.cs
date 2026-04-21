@@ -10,60 +10,91 @@ public class MirrorSyncJob(
     IHttpClientFactory httpClientFactory,
     ILogger<MirrorSyncJob> logger) : IBackgroundJob
 {
-    public string Name => "APT Mirror Sync";
+    public string Name => "APT Mirror Sync V2";
 
-    public string Description => "Synchronizes metadata for all configured APT mirror repositories.";
+    public string Description => "Synchronizes entire suites (multiple components) into versioned buckets.";
 
     public async Task ExecuteAsync()
     {
-        logger.LogInformation("MirrorSyncJob started.");
-        var mirrors = await db.MirrorRepositories.ToListAsync();
+        logger.LogInformation("MirrorSyncJob V2 started.");
+        var mirrors = await db.AptMirrors.ToListAsync();
 
         foreach (var mirror in mirrors)
         {
             try
             {
-                await SyncMirrorAsync(mirror);
+                await SyncMirrorSuiteAsync(mirror);
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, "Failed to sync mirror {BaseUrl} {Suite}", mirror.BaseUrl, mirror.Suite);
+                logger.LogError(ex, "Failed to sync mirror suite {Suite} from {BaseUrl}", mirror.Suite, mirror.BaseUrl);
             }
         }
 
-        logger.LogInformation("MirrorSyncJob finished.");
+        logger.LogInformation("MirrorSyncJob V2 finished.");
     }
 
-    private async Task SyncMirrorAsync(MirrorRepository mirror)
+    private async Task SyncMirrorSuiteAsync(AptMirror mirror)
     {
-        logger.LogInformation("Syncing mirror {BaseUrl} {Suite} {Component} {Arch}...", mirror.BaseUrl, mirror.Suite, mirror.Component, mirror.Architecture);
+        logger.LogInformation("Starting sync for suite {Suite} from {BaseUrl}...", mirror.Suite, mirror.BaseUrl);
 
-        var repo = new AptRepository(mirror.BaseUrl, mirror.Suite, mirror.SignedBy, () => httpClientFactory.CreateClient());
-        var source = new AptPackageSource(repo, mirror.Component, mirror.Architecture, () => httpClientFactory.CreateClient());
-
-        logger.LogInformation("Fetching packages for {Component} {Arch}...", mirror.Component, mirror.Architecture);
-        var packages = await source.FetchPackagesAsync();
-
-        logger.LogInformation("Updating {Count} packages in database...", packages.Count);
-
-        // Clear existing for this specific mirror
-        var existing = db.AptPackages.Where(p => p.MirrorRepositoryId == mirror.Id);
-
-        db.AptPackages.RemoveRange(existing);
+        // 1. Create a new bucket for this sync session
+        var bucket = new AptBucket
+        {
+            CreatedAt = DateTime.UtcNow
+        };
+        db.AptBuckets.Add(bucket);
         await db.SaveChangesAsync();
+
+        var components = mirror.Components.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        var architectures = mirror.Architecture.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+        foreach (var arch in architectures)
+        {
+            foreach (var component in components)
+            {
+                await FetchAndInsertComponentAsync(mirror, bucket, component, arch);
+            }
+        }
+
+        // 2. Atomic swap: Update the mirror's current bucket pointer
+        logger.LogInformation("Sync completed for suite {Suite}. Swapping to Bucket {BucketId}.", mirror.Suite, bucket.Id);
+        
+        // Re-attach the mirror entity because change tracker might have been cleared
+        db.AptMirrors.Update(mirror);
+        mirror.CurrentBucketId = bucket.Id;
+        await db.SaveChangesAsync();
+    }
+
+    private async Task FetchAndInsertComponentAsync(AptMirror mirror, AptBucket bucket, string component, string arch)
+    {
+        logger.LogInformation("Fetching component {Component} [{Arch}] for suite {Suite} from {BaseUrl}...", component, arch, mirror.Suite, mirror.BaseUrl);
+
+        var repo = new AptClient.AptRepository(mirror.BaseUrl, mirror.Suite, mirror.SignedBy, () => httpClientFactory.CreateClient());
+        var source = new AptPackageSource(repo, component, arch, () => httpClientFactory.CreateClient());
+
+        var packages = await source.FetchPackagesAsync();
+        logger.LogInformation("Retrieved {Count} packages. Inserting into database...", packages.Count);
 
         foreach (var pkgFromApt in packages)
         {
             var pkg = pkgFromApt.Package;
+            
+            // Construct the upstream URL for lazy sync
+            var remoteUrl = $"{mirror.BaseUrl.TrimEnd('/')}/{pkg.Filename.TrimStart('/')}";
+
             var entity = new AptPackage
             {
-                MirrorRepositoryId = mirror.Id,
+                BucketId = bucket.Id,
+                Component = component,
+                Architecture = arch,
+                IsVirtual = true,
+                RemoteUrl = remoteUrl,
                 OriginSuite = mirror.Suite,
-                OriginComponent = mirror.Component,
+                OriginComponent = component,
 
                 Package = pkg.Package,
                 Version = pkg.Version,
-                Architecture = pkg.Architecture,
                 Maintainer = pkg.Maintainer,
                 Description = pkg.Description,
                 DescriptionMd5 = pkg.DescriptionMd5,
@@ -93,6 +124,9 @@ public class MirrorSyncJob(
             };
             db.AptPackages.Add(entity);
         }
+        
+        // Save changes per component to keep memory usage under control
         await db.SaveChangesAsync();
+        db.ChangeTracker.Clear(); 
     }
 }

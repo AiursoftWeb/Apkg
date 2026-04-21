@@ -17,6 +17,26 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.5");
 
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.AptBucket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("InReleaseContent")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ReleaseContent")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AptBuckets");
+                });
+
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptCertificate", b =>
                 {
                     b.Property<int>("Id")
@@ -49,6 +69,45 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                     b.ToTable("AptCertificates");
                 });
 
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.AptMirror", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Architecture")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("BaseUrl")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Components")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("CurrentBucketId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("SignedBy")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Suite")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CurrentBucketId");
+
+                    b.ToTable("AptMirrors");
+                });
+
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptPackage", b =>
                 {
                     b.Property<int>("Id")
@@ -63,8 +122,16 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                     b.Property<string>("Breaks")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("BucketId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Bugs")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Component")
+                        .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Conflicts")
@@ -95,6 +162,9 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                     b.Property<string>("InstalledSize")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsVirtual")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("MD5sum")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -102,9 +172,6 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                     b.Property<string>("Maintainer")
                         .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("MirrorRepositoryId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("MultiArch")
                         .HasColumnType("TEXT");
@@ -139,6 +206,9 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Recommends")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RemoteUrl")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Replaces")
@@ -177,13 +247,49 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BucketId");
+
                     b.HasIndex("Filename");
 
-                    b.HasIndex("MirrorRepositoryId");
-
-                    b.HasIndex("Package", "Version", "Architecture", "OriginSuite", "OriginComponent");
+                    b.HasIndex("Package", "Version", "Architecture", "Component");
 
                     b.ToTable("AptPackages");
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.AptRepository", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("CertificateId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("CurrentBucketId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("MirrorId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Suite")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CertificateId");
+
+                    b.HasIndex("CurrentBucketId");
+
+                    b.HasIndex("MirrorId");
+
+                    b.ToTable("AptRepositories");
                 });
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.GlobalSetting", b =>
@@ -197,45 +303,6 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                     b.HasKey("Key");
 
                     b.ToTable("GlobalSettings");
-                });
-
-            modelBuilder.Entity("Aiursoft.Apkg.Entities.MirrorRepository", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Architecture")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("BaseUrl")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("TEXT");
-
-                    b.Property<int?>("CertificateId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Component")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SignedBy")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Suite")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CertificateId");
-
-                    b.ToTable("MirrorRepositories");
                 });
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.User", b =>
@@ -443,24 +510,45 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.AptMirror", b =>
+                {
+                    b.HasOne("Aiursoft.Apkg.Entities.AptBucket", "CurrentBucket")
+                        .WithMany()
+                        .HasForeignKey("CurrentBucketId");
+
+                    b.Navigation("CurrentBucket");
+                });
+
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptPackage", b =>
                 {
-                    b.HasOne("Aiursoft.Apkg.Entities.MirrorRepository", "Mirror")
-                        .WithMany()
-                        .HasForeignKey("MirrorRepositoryId")
+                    b.HasOne("Aiursoft.Apkg.Entities.AptBucket", "Bucket")
+                        .WithMany("Packages")
+                        .HasForeignKey("BucketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Mirror");
+                    b.Navigation("Bucket");
                 });
 
-            modelBuilder.Entity("Aiursoft.Apkg.Entities.MirrorRepository", b =>
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.AptRepository", b =>
                 {
                     b.HasOne("Aiursoft.Apkg.Entities.AptCertificate", "Certificate")
-                        .WithMany("MirrorRepositories")
+                        .WithMany()
                         .HasForeignKey("CertificateId");
 
+                    b.HasOne("Aiursoft.Apkg.Entities.AptBucket", "CurrentBucket")
+                        .WithMany()
+                        .HasForeignKey("CurrentBucketId");
+
+                    b.HasOne("Aiursoft.Apkg.Entities.AptMirror", "Mirror")
+                        .WithMany()
+                        .HasForeignKey("MirrorId");
+
                     b.Navigation("Certificate");
+
+                    b.Navigation("CurrentBucket");
+
+                    b.Navigation("Mirror");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -514,9 +602,9 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Aiursoft.Apkg.Entities.AptCertificate", b =>
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.AptBucket", b =>
                 {
-                    b.Navigation("MirrorRepositories");
+                    b.Navigation("Packages");
                 });
 #pragma warning restore 612, 618
         }

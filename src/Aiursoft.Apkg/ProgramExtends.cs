@@ -111,6 +111,7 @@ public static class ProgramExtends
             await userManager.AddToRoleAsync(user, "Administrators");
         }
 
+        await host.SeedMirrorsAsync();
         return host;
     }
 
@@ -123,7 +124,7 @@ public static class ProgramExtends
         var logger = services.GetRequiredService<ILogger<Program>>();
         var signingService = services.GetRequiredService<IGpgSigningService>();
 
-        logger.LogInformation("Seeding the database with initial mirror repositories and default certificate...");
+        logger.LogInformation("Seeding the database with new Pipeline V2 structure...");
 
         // 1. Ensure a default certificate exists
         var cert = await db.AptCertificates.FirstOrDefaultAsync();
@@ -143,40 +144,47 @@ public static class ProgramExtends
         }
 
         // Link existing mirrors if they don't have one
-        var mirrorsWithoutCert = await db.MirrorRepositories.Where(m => m.CertificateId == null).ToListAsync();
-        foreach (var m in mirrorsWithoutCert)
-        {
-            m.CertificateId = cert.Id;
-        }
-        await db.SaveChangesAsync();
+        // (Simplified for seeder)
 
         if (force)
         {
-            db.MirrorRepositories.RemoveRange(db.MirrorRepositories);
+            db.AptPackages.RemoveRange(db.AptPackages);
+            db.AptBuckets.RemoveRange(db.AptBuckets);
+            db.AptRepositories.RemoveRange(db.AptRepositories);
+            db.AptMirrors.RemoveRange(db.AptMirrors);
             await db.SaveChangesAsync();
         }
-        else if (await db.MirrorRepositories.AnyAsync())
+        else if (await db.AptMirrors.AnyAsync())
         {
             return host;
         }
 
         var baseUrl = "https://mirror.aiursoft.com/ubuntu/";
-        var components = new[] { "main", "restricted", "universe", "multiverse" };
+        var components = "main,restricted,universe,multiverse";
         var suites = new[] { "questing", "questing-updates", "questing-backports", "questing-security" };
 
         foreach (var suite in suites)
         {
-            foreach (var component in components)
+            // Create a mirror for this suite
+            var mirror = new AptMirror
             {
-                db.MirrorRepositories.Add(new MirrorRepository
-                {
-                    BaseUrl = baseUrl,
-                    Suite = suite,
-                    Component = component,
-                    Architecture = "amd64",
-                    CertificateId = cert.Id
-                });
-            }
+                BaseUrl = baseUrl,
+                Suite = suite,
+                Components = components,
+                Architecture = "amd64"
+            };
+            db.AptMirrors.Add(mirror);
+            await db.SaveChangesAsync();
+
+            // Create a repository that uses this mirror
+            var repo = new AptRepository
+            {
+                Name = suite,
+                Suite = suite,
+                CertificateId = cert.Id,
+                MirrorId = mirror.Id
+            };
+            db.AptRepositories.Add(repo);
         }
 
         await db.SaveChangesAsync();

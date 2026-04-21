@@ -24,6 +24,4 @@ public class AptCertificate
     public required string Fingerprint { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-    
-    public List<MirrorRepository> MirrorRepositories { get; set; } = [];
 }

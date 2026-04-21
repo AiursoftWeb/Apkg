@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace Aiursoft.Apkg.Entities;
 
 [ExcludeFromCodeCoverage]
-public class MirrorRepository
+public class AptMirror
 {
     [Key]
     public int Id { get; set; }
@@ -19,17 +19,17 @@ public class MirrorRepository
     public required string Suite { get; set; }
 
     [Required]
-    [MaxLength(100)]
-    public required string Component { get; set; }
+    [MaxLength(255)]
+    public required string Components { get; set; }
 
     [Required]
-    [MaxLength(20)]
+    [MaxLength(100)]
     public required string Architecture { get; set; }
 
     public string? SignedBy { get; set; }
 
-    public int? CertificateId { get; set; }
+    public int? CurrentBucketId { get; set; }
 
-    [ForeignKey(nameof(CertificateId))]
-    public AptCertificate? Certificate { get; set; }
+    [ForeignKey(nameof(CurrentBucketId))]
+    public AptBucket? CurrentBucket { get; set; }
 }

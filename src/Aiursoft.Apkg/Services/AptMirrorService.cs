@@ -2,163 +2,98 @@ using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Services.FileStorage;
 using Aiursoft.Scanner.Abstractions;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
 
 namespace Aiursoft.Apkg.Services;
 
 public class AptMirrorService(
     TemplateDbContext dbContext,
     FeatureFoldersProvider folders,
-    FileLockProvider lockProvider,
+    FileLockProvider fileLockProvider,
     IHttpClientFactory httpClientFactory,
     ILogger<AptMirrorService> logger) : ITransientDependency
 {
-    private string MirrorsRoot => folders.GetMirrorsFolder();
-
-    public async Task<MirrorRepository?> GetMirrorForSuite(string suite)
-    {
-        // For suite-level files like InRelease, any mirror for that suite will do as they share the same BaseUrl.
-        return await dbContext.MirrorRepositories
-            .FirstOrDefaultAsync(m => m.Suite == suite);
-    }
-
-    public async Task<MirrorRepository?> GetMirror(string suite, string component, string arch)
-    {
-        return await dbContext.MirrorRepositories
-            .FirstOrDefaultAsync(m => m.Suite == suite && m.Component == component && m.Architecture == arch);
-    }
-
-    public async Task<bool> CheckConfiguredAsync(int expectedCount)
-    {
-        var count = await dbContext.MirrorRepositories.CountAsync();
-        return count >= expectedCount;
-    }
-
-    public async Task<string?> GetLocalMetadataPath(string suite, string path)
-    {
-        // Path might be: 
-        // 1. "InRelease"
-        // 2. "main/binary-amd64/Packages.gz"
-        // 3. "main/cnf/Commands-amd64"
-        var parts = path.Split('/');
-        MirrorRepository? mirror = null;
-        
-        if (parts.Length >= 2)
-        {
-            var component = parts[0];
-            var secondPart = parts[1];
-            
-            if (secondPart.StartsWith("binary-"))
-            {
-                var arch = secondPart.Replace("binary-", "");
-                mirror = await GetMirror(suite, component, arch);
-            }
-            
-            // If arch matching failed or it's auxiliary metadata (cnf, dep11, i18n)
-            mirror ??= await dbContext.MirrorRepositories
-                .FirstOrDefaultAsync(m => m.Suite == suite && m.Component == component);
-        }
-        
-        mirror ??= await GetMirrorForSuite(suite);
-
-        if (mirror == null) return null;
-
-        var localPath = Path.Combine(MirrorsRoot, suite, path);
-        
-        // Lock this file path to prevent concurrent syncs
-        var fileLock = lockProvider.GetLock(localPath);
-        await fileLock.WaitAsync();
-        try
-        {
-            if (File.Exists(localPath))
-            {
-                var fileName = Path.GetFileName(path);
-                var isMetadata = fileName.Contains("Release") || 
-                                 fileName.Contains("Packages") || 
-                                 fileName.Contains("Sources") || 
-                                 fileName.Contains("Commands") || 
-                                 fileName.Contains("Components") || 
-                                 fileName.Contains("Translation");
-
-                if (isMetadata)
-                {
-                    if (DateTime.UtcNow - File.GetLastWriteTimeUtc(localPath) > TimeSpan.FromMinutes(30))
-                    {
-                        await SyncFromUpstream(mirror.BaseUrl, $"dists/{mirror.Suite}/{path}", localPath);
-                    }
-                }
-                return localPath;
-            }
-
-            await SyncFromUpstream(mirror.BaseUrl, $"dists/{mirror.Suite}/{path}", localPath);
-            return localPath;
-        }
-        catch (Exception ex)
-        {
-            logger.LogError(ex, "Failed to sync metadata {Path} for suite {Suite}", path, suite);
-            return null;
-        }
-        finally
-        {
-            fileLock.Release();
-        }
-    }
+    private string PoolRoot => folders.GetMirrorsFolder();
 
     public async Task<string?> GetLocalPoolPath(string path)
     {
-        // path is like "pool/main/a/abc/abc_1.0_amd64.deb"
-        // Try to find it in our database index first to know which upstream to use.
-        var pkgRecord = await dbContext.AptPackages
-            .Include(p => p.Mirror)
-            .FirstOrDefaultAsync(p => p.Filename == path || ("pool/" + p.Filename) == path);
+        logger.LogInformation("Lazy Sync requested for path: {Path}", path);
+        
+        // 1. Try to find the exact filename
+        var package = await dbContext.AptPackages
+            .AsNoTracking()
+            .FirstOrDefaultAsync(p => p.Filename == path);
 
-        var baseUrl = pkgRecord?.Mirror?.BaseUrl;
-        if (string.IsNullOrEmpty(baseUrl))
+        if (package == null)
         {
-            // Fallback to first mirror if not in index yet (e.g. sync job hasn't run)
-            var firstMirror = await dbContext.MirrorRepositories.FirstOrDefaultAsync();
-            baseUrl = firstMirror?.BaseUrl;
+            // 2. Try with trailing slash or without
+            var alternativePath = path.StartsWith("/") ? path.TrimStart('/') : "/" + path;
+            package = await dbContext.AptPackages
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.Filename == alternativePath);
         }
 
-        if (string.IsNullOrEmpty(baseUrl)) return null;
+        if (package == null)
+        {
+            var sampleFiles = await dbContext.AptPackages.Take(3).Select(p => p.Filename).ToListAsync();
+            logger.LogWarning("Package not found! Database contains files like: {Samples}. We searched for: {Path}", string.Join(", ", sampleFiles), path);
+            return null;
+        }
 
-        var localPath = Path.Combine(MirrorsRoot, path);
-        
-        var fileLock = lockProvider.GetLock(localPath);
-        await fileLock.WaitAsync();
+        logger.LogInformation("Found package {PackageName} in DB. ID: {Id}, Virtual: {IsVirtual}", package.Package, package.Id, package.IsVirtual);
+        var localPath = Path.Combine(PoolRoot, package.Filename);
+
+        if (!package.IsVirtual && File.Exists(localPath))
+        {
+            logger.LogInformation("Package {PackageName} already physical. Serving from {LocalPath}", package.Package, localPath);
+            return localPath;
+        }
+
+        if (string.IsNullOrWhiteSpace(package.RemoteUrl))
+        {
+            logger.LogError("Package {Package} is virtual but has no RemoteUrl!", package.Package);
+            return null;
+        }
+
+        var lockObj = fileLockProvider.GetLock(localPath);
+        await lockObj.WaitAsync();
         try
         {
-            if (File.Exists(localPath))
+            if (!File.Exists(localPath))
             {
-                return localPath;
+                await DownloadAndVerifyAsync(package.RemoteUrl, localPath, package.SHA256);
             }
 
-            await SyncFromUpstream(baseUrl, path, localPath);
+            // Always ensure DB is synced if the file exists physically
+            logger.LogInformation("Updating DB status for all packages named {Filename}...", package.Filename);
+
+            var affectedRows = await dbContext.AptPackages
+                .Where(p => p.Filename == package.Filename)
+                .ExecuteUpdateAsync(s => s.SetProperty(p => p.IsVirtual, false));
+
+            logger.LogInformation("DB update complete. Affected rows: {Count}.", affectedRows);
             return localPath;
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Failed to sync pool file {Path}", path);
-            return null;
-        }
-        finally
-        {
-            fileLock.Release();
+            logger.LogCritical(ex, "CRITICAL: Lazy Sync failed for {Path} due to an exception!", path);
+            throw;
         }
     }
 
-    private async Task SyncFromUpstream(string baseUrl, string relativePath, string localPath)
+    private async Task DownloadAndVerifyAsync(string url, string localPath, string expectedHash)
     {
-        logger.LogInformation("Syncing {Path} from {BaseUrl} to {LocalPath}", relativePath, baseUrl, localPath);
-        var dir = Path.GetDirectoryName(localPath);
-        if (!Directory.Exists(dir)) Directory.CreateDirectory(dir!);
+        var directory = Path.GetDirectoryName(localPath);
+        if (directory != null && !Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
 
-        using var client = httpClientFactory.CreateClient();
-        var url = $"{baseUrl.TrimEnd('/')}/{relativePath.TrimStart('/')}";
-        
-        // Use a temporary file to avoid partial downloads being served
-        var tempPath = localPath + ".tmp";
+        var tempPath = localPath + ".downloading";
         try
         {
+            logger.LogInformation("Downloading virtual package from {Url}...", url);
+            using var client = httpClientFactory.CreateClient();
             var response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
             response.EnsureSuccessStatusCode();
 
@@ -167,12 +102,28 @@ public class AptMirrorService(
                 await response.Content.CopyToAsync(fs);
             }
 
+            // Verify SHA256
+            logger.LogInformation("Verifying SHA256 for {Path}...", Path.GetFileName(localPath));
+            await using (var fs = File.OpenRead(tempPath))
+            {
+                var hashBytes = await SHA256.HashDataAsync(fs);
+                var actualHash = BitConverter.ToString(hashBytes).Replace("-", "").ToLowerInvariant();
+
+                if (!string.Equals(actualHash, expectedHash, StringComparison.OrdinalIgnoreCase))
+                {
+                    throw new Exception($"Hash mismatch for {url}! Expected: {expectedHash}, Actual: {actualHash}");
+                }
+            }
+
             if (File.Exists(localPath)) File.Delete(localPath);
             File.Move(tempPath, localPath);
+            logger.LogInformation("Package {Path} is now physical and verified.", Path.GetFileName(localPath));
         }
-        finally
+        catch (Exception ex)
         {
+            logger.LogError(ex, "Failed to download or verify package from {Url}", url);
             if (File.Exists(tempPath)) File.Delete(tempPath);
+            throw;
         }
     }
 }

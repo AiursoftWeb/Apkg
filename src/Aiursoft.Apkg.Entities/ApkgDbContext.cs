@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Aiursoft.DbTools;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -6,12 +5,12 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Aiursoft.Apkg.Entities;
 
-[ExcludeFromCodeCoverage]
-
 public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbContext<User>(options), ICanMigrate
 {
     public DbSet<GlobalSetting> GlobalSettings => Set<GlobalSetting>();
-    public DbSet<MirrorRepository> MirrorRepositories => Set<MirrorRepository>();
+    public DbSet<AptMirror> AptMirrors => Set<AptMirror>();
+    public DbSet<AptRepository> AptRepositories => Set<AptRepository>();
+    public DbSet<AptBucket> AptBuckets => Set<AptBucket>();
     public DbSet<AptPackage> AptPackages => Set<AptPackage>();
     public DbSet<AptCertificate> AptCertificates => Set<AptCertificate>();
 
@@ -19,7 +18,7 @@ public abstract class TemplateDbContext(DbContextOptions options) : IdentityDbCo
     {
         base.OnModelCreating(builder);
         builder.Entity<AptPackage>()
-            .Property(b => b.Extras)
+            .Property(p => p.Extras)
             .HasConversion(
                 v => Newtonsoft.Json.JsonConvert.SerializeObject(v),
                 v => Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, string>>(v) ?? new Dictionary<string, string>(),

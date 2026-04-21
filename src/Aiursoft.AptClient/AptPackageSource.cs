@@ -30,28 +30,32 @@ public class AptPackageSource
 
     public async Task<List<DebianPackageFromApt>> FetchPackagesAsync(Action<string, long>? progress = null)
     {
-        // 1. Ensure Repository is trusted (this will happen automatically inside GetValidatedStreamAsync but doing explicit call is fine too)
-        // await _repository.EnsureVerifiedAsync(progress);
-
-        // 2. Construct paths
-        // Priority 1: .gz
+        // 1. Construct paths in order of preference
+        var relPathXz = $"{Component}/binary-{Arch}/Packages.xz";
         var relPathGz = $"{Component}/binary-{Arch}/Packages.gz";
         var relPathRaw = $"{Component}/binary-{Arch}/Packages";
 
-        Stream? stream;
+        Stream stream;
+        
+        // Try XZ first (best compression)
         try
         {
-            stream = await _repository.GetValidatedStreamAsync(relPathGz, progress);
-            // It's GZ, wrap it
-            stream = new GZipStream(stream, CompressionMode.Decompress);
+            var rawStream = await _repository.GetValidatedStreamAsync(relPathXz, progress);
+            stream = new SharpCompress.Compressors.Xz.XZStream(rawStream);
         }
-        catch (Exception) // Catching fetch errors to try logic?
+        catch
         {
-            // If GZ fails, try Raw
-            // Specifically we should catch 404 or HashMismatch?
-            // If HashMismatch, we probably shouldn't try Raw unless we clear cache?
-            // For now, simple fallback logic:
-            stream = await _repository.GetValidatedStreamAsync(relPathRaw, progress);
+            // Try GZ
+            try
+            {
+                var rawStream = await _repository.GetValidatedStreamAsync(relPathGz, progress);
+                stream = new GZipStream(rawStream, CompressionMode.Decompress);
+            }
+            catch
+            {
+                // Fallback to Raw
+                stream = await _repository.GetValidatedStreamAsync(relPathRaw, progress);
+            }
         }
 
         // 3. Parse
