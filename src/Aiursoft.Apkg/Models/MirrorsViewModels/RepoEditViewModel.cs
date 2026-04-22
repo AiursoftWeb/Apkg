@@ -19,6 +19,14 @@ public class RepoEditViewModel : UiStackLayoutViewModel
     [MaxLength(100)]
     public string Suite { get; set; } = string.Empty;
 
+    [Required]
+    [MaxLength(255)]
+    public string Components { get; set; } = "main";
+
+    [Required]
+    [MaxLength(100)]
+    public string Architecture { get; set; } = "amd64";
+
     [Display(Name = "Mirror Source")]
     public int? MirrorId { get; set; }
 

@@ -34,8 +34,8 @@ public class JobsController(
         LinkOrder = 2)]
     public IActionResult Index()
     {
-        var oneHourAgo = TimeSpan.FromHours(1);
-        var recentCompleted = taskQueue.GetRecentCompletedTasks(oneHourAgo).Select(ToJobInfo);
+        var oneDayAgo = TimeSpan.FromHours(24);
+        var recentCompleted = taskQueue.GetRecentCompletedTasks(oneDayAgo).Select(ToJobInfo);
         var pending         = taskQueue.GetPendingTasks().Select(ToJobInfo);
         var processing      = taskQueue.GetProcessingTasks().Select(ToJobInfo);
 

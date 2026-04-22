@@ -88,6 +88,8 @@ public class RepositoriesController(TemplateDbContext dbContext) : Controller
                 Distro = model.Distro,
                 Name = model.Name,
                 Suite = model.Suite,
+                Components = model.Components,
+                Architecture = model.Architecture,
                 MirrorId = model.MirrorId,
                 CertificateId = model.CertificateId
             };
@@ -119,6 +121,8 @@ public class RepositoriesController(TemplateDbContext dbContext) : Controller
             Distro = repo.Distro,
             Name = repo.Name,
             Suite = repo.Suite,
+            Components = repo.Components,
+            Architecture = repo.Architecture,
             MirrorId = repo.MirrorId,
             CertificateId = repo.CertificateId,
             AvailableMirrors = mirrors.Select(m => new SelectListItem(m.Suite, m.Id.ToString())).ToList(),
@@ -140,6 +144,8 @@ public class RepositoriesController(TemplateDbContext dbContext) : Controller
             repo.Distro = model.Distro;
             repo.Name = model.Name;
             repo.Suite = model.Suite;
+            repo.Components = model.Components;
+            repo.Architecture = model.Architecture;
             repo.MirrorId = model.MirrorId;
             repo.CertificateId = model.CertificateId;
 

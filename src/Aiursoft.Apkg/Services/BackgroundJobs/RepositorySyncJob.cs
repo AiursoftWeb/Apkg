@@ -29,19 +29,12 @@ public class RepositorySyncJob(
         var repos = await db.AptRepositories
             .Include(r => r.Mirror)
             .Include(r => r.Certificate)
-            .Where(r => r.MirrorId != null)
             .ToListAsync();
 
         foreach (var repo in repos)
         {
             try
             {
-                if (repo.Mirror?.CurrentBucketId == null)
-                {
-                    logger.LogWarning("Repository {RepoName} is linked to mirror {MirrorSuite} which has no active bucket. Skipping.", repo.Name, repo.Mirror?.Suite);
-                    continue;
-                }
-
                 await SyncAndSignRepositoryAsync(repo);
             }
             catch (Exception ex)
@@ -57,34 +50,74 @@ public class RepositorySyncJob(
     {
         logger.LogInformation("Processing and signing repository {RepoName}...", repo.Name);
 
-        // 1. Create a new bucket
+        // 1. Create a new bucket (if needed) or work with existing one
+        // For now, we still create a new bucket to ensure atomicity of the update
         var newBucket = new AptBucket { CreatedAt = DateTime.UtcNow };
         db.AptBuckets.Add(newBucket);
         await db.SaveChangesAsync();
 
-        // 2. Data Transfer (Copy from Mirror)
-        var mirrorBucketId = repo.Mirror!.CurrentBucketId!.Value;
         var newBucketId = newBucket.Id;
+        List<AptPackage> packages;
 
-        // Perform fast copy
-        var packages = await db.AptPackages
-            .AsNoTracking()
-            .Where(p => p.BucketId == mirrorBucketId)
-            .ToListAsync();
-
-        foreach (var pkg in packages)
+        // 2. Data Transfer
+        if (repo.MirrorId != null)
         {
-            pkg.Id = 0; 
-            pkg.BucketId = newBucketId;
-            db.AptPackages.Add(pkg);
+            if (repo.Mirror?.CurrentBucketId == null)
+            {
+                logger.LogWarning("Repository {RepoName} is linked to mirror {MirrorSuite} which has no active bucket. Skipping data copy.", repo.Name, repo.Mirror?.Suite);
+                packages = new List<AptPackage>();
+            }
+            else
+            {
+                var mirrorBucketId = repo.Mirror.CurrentBucketId.Value;
+                logger.LogInformation("Copying packages from Mirror Bucket {MirrorBucketId} to New Bucket {NewBucketId}...", mirrorBucketId, newBucketId);
+                
+                packages = await db.AptPackages
+                    .AsNoTracking()
+                    .Where(p => p.BucketId == mirrorBucketId)
+                    .ToListAsync();
+
+                foreach (var pkg in packages)
+                {
+                    pkg.Id = 0; 
+                    pkg.BucketId = newBucketId;
+                    db.AptPackages.Add(pkg);
+                }
+                await db.SaveChangesAsync();
+            }
         }
-        await db.SaveChangesAsync();
+        else
+        {
+            // Standalone repository. 
+            // In the future, we might copy from repo.CurrentBucket to newBucket if we want to preserve manually added packages.
+            // For now, let's just see if there's anything to copy.
+            if (repo.CurrentBucketId != null)
+            {
+                logger.LogInformation("Standalone repository {RepoName}: Copying packages from Current Bucket {CurrentBucketId} to New Bucket {NewBucketId}...", repo.Name, repo.CurrentBucketId, newBucketId);
+                packages = await db.AptPackages
+                    .AsNoTracking()
+                    .Where(p => p.BucketId == repo.CurrentBucketId)
+                    .ToListAsync();
+                
+                foreach (var pkg in packages)
+                {
+                    pkg.Id = 0;
+                    pkg.BucketId = newBucketId;
+                    db.AptPackages.Add(pkg);
+                }
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                packages = new List<AptPackage>();
+            }
+        }
 
         // 3. Metadata Generation & Signing
         logger.LogInformation("Generating and signing metadata for Bucket {BucketId}...", newBucketId);
         
-        var architectures = repo.Mirror.Architecture.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-        var components = repo.Mirror.Components.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        var architectures = repo.Architecture.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        var components = repo.Components.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
         var releaseSb = new StringBuilder();
         releaseSb.AppendLine($"Origin: Aiursoft Apkg");
