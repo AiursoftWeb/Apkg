@@ -12,7 +12,6 @@ namespace Aiursoft.Apkg.Controllers;
 [Authorize(Policy = AppPermissionNames.CanManageMirrors)]
 public class MirrorsController(TemplateDbContext dbContext) : Controller
 {
-    [Authorize(Policy = AppPermissionNames.CanManageMirrors)]
     [RenderInNavBar(
         NavGroupName = "Package Engine",
         NavGroupOrder = 50,
