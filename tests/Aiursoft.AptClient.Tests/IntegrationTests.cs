@@ -512,7 +512,6 @@ Suites: jammy
 Components: main
 "; // No Signed-By
 
-        var mockData = GenerateMockRepoData();
         var packagesContent = @"Package: fallback-pkg
 Version: 1.0.0
 Architecture: amd64
@@ -530,6 +529,22 @@ Origin: fallback
 Bugs: https://bugs.example.com
 ";
 
+        var packagesBytes = System.Text.Encoding.UTF8.GetBytes(packagesContent);
+        using var sha256 = System.Security.Cryptography.SHA256.Create();
+        var rawHash = BitConverter.ToString(sha256.ComputeHash(packagesBytes)).Replace("-", "").ToLowerInvariant();
+
+        var inRelease = $@"Origin: Mock
+Label: Mock
+Suite: jammy
+Codename: jammy
+Date: Thu, 01 Jan 2024 00:00:00 UTC
+Architectures: amd64
+Components: main
+Description: Mock Repository
+SHA256:
+ {rawHash} {packagesBytes.Length} main/binary-amd64/Packages
+";
+
         var mockHandler = new MockHttpMessageHandler(request =>
         {
             var uri = request.RequestUri?.ToString();
@@ -537,7 +552,7 @@ Bugs: https://bugs.example.com
             {
                 return Task.FromResult(new HttpResponseMessage(System.Net.HttpStatusCode.OK)
                 {
-                    Content = new StringContent(mockData.InRelease)
+                    Content = new StringContent(inRelease)
                 });
             }
             if (uri?.EndsWith("Packages.gz") == true)

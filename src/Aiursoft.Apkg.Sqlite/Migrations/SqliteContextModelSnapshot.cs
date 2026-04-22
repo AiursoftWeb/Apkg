@@ -272,8 +272,18 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Architecture")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("CertificateId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Components")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("CurrentBucketId")
                         .HasColumnType("INTEGER");

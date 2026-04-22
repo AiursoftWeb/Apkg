@@ -33,7 +33,7 @@ curl -sL @(Context.Request.Scheme)://@(Context.Request.Host)/certs/@Model.Repo.C
 echo "Types: deb
 URIs: @(Context.Request.Scheme)://@(Context.Request.Host)/@Model.Repo.Distro/
 Suites: @Model.Repo.Suite
-Components: @(Model.Repo.Components.Replace(",", " "))
+Components: @((string.IsNullOrWhiteSpace(Model.Repo.Components) ? "main" : Model.Repo.Components).Replace(",", " "))
 Signed-By: /usr/share/keyrings/@(Model.Repo.Certificate.Name)-archive-keyring.gpg" | sudo tee /etc/apt/sources.list.d/apkg-@(Model.Repo.Id).sources && \
 sudo apt update</code></pre>
                     </div>
