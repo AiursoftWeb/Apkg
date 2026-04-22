@@ -73,7 +73,7 @@ Signed-By:
             allSources.AddRange(AptSourceExtractor.ExtractSources(content, "amd64"));
         }
 
-        Console.WriteLine($"Extracted {allSources.Count} sources from {fileContents.Count} configs.");
+        Console.WriteLine($@"Extracted {allSources.Count} sources from {fileContents.Count} configs.");
         long totalBytes = 0;
 
         Action<string, long> onProgress = (url, size) =>
@@ -117,7 +117,7 @@ Signed-By:
             var baseUri = new Uri(url);
             var host = $"{baseUri.Scheme}://{baseUri.Host}";
 
-            Console.WriteLine($"Get:{_getCounter++} {host} {display} [{sizeStr}]");
+            Console.WriteLine($@"Get:{_getCounter++} {host} {display} [{sizeStr}]");
         };
 
         var allPackages = new List<DebianPackageFromApt>();
@@ -131,7 +131,7 @@ Signed-By:
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Err:{_getCounter++} {source.ServerUrl} {source.Suite} Error: {ex.Message}");
+                Console.WriteLine($@"Err:{_getCounter++} {source.ServerUrl} {source.Suite} Error: {ex.Message}");
             }
         }
 
@@ -142,7 +142,7 @@ Signed-By:
         if (totalSeconds < 0.001) totalSeconds = 0.001;
         var speed = (totalBytes / 1024.0) / totalSeconds;
 
-        Console.WriteLine($"Fetched {totalSizeStr} in {sw.Elapsed.Seconds}s ({speed:N0} kB/s)");
+        Console.WriteLine($@"Fetched {totalSizeStr} in {sw.Elapsed.Seconds}s ({speed:N0} kB/s)");
 
         if (allPackages.Count != 0)
         {
@@ -153,11 +153,12 @@ Signed-By:
             var fileName = Path.GetFileName(pkg.Filename);
             var dest = Path.GetFullPath(fileName);
 
-            Console.WriteLine($"\nDownloading 0th package of 0th source: {pkg.Package} ({pkg.Version})");
-            Console.WriteLine($"Source: {source.ServerUrl} {source.Suite}");
+            Console.WriteLine($@"
+Downloading 0th package of 0th source: {pkg.Package} ({pkg.Version})");
+            Console.WriteLine($@"Source: {source.ServerUrl} {source.Suite}");
             // Use Extras to avoid lint waning about unused collection
-            Console.WriteLine($"Extras count: {pkg.Extras.Count}");
-            Console.WriteLine($"Target: {dest}");
+            Console.WriteLine($@"Extras count: {pkg.Extras.Count}");
+            Console.WriteLine($@"Target: {dest}");
 
             await source.DownloadPackageAsync(pkg, dest, (downloaded, total) =>
             {
@@ -166,11 +167,12 @@ Signed-By:
                     Console.Write($"\rDownloading... {downloaded * 100 / total}% ({FormatBytes(downloaded)}/{FormatBytes(total)})");
                 }
             });
-            Console.WriteLine("\nDownload and Verification Complete!");
+            Console.WriteLine(@"
+Download and Verification Complete!");
         }
         else
         {
-            Console.WriteLine("No packages found to download.");
+            Console.WriteLine(@"No packages found to download.");
         }
     }
 

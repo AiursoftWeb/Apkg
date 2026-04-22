@@ -1,6 +1,5 @@
 using System.Net;
 using Aiursoft.Apkg.Entities;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
@@ -13,9 +12,9 @@ public class AptMirrorTests : TestBase
         // 1. Preparation
         await Server!.SeedMirrorsAsync(true);
         var db = GetService<TemplateDbContext>();
-        
+
         // Ensure we have a repo with a bucket for testing
-        var repo = await db.AptRepositories.FirstAsync();
+        var repo = db.AptRepositories.First();
         var bucket = new AptBucket
         {
             CreatedAt = DateTime.UtcNow,
@@ -23,10 +22,11 @@ public class AptMirrorTests : TestBase
             ReleaseContent = "RAW-TEST-CONTENT"
         };
         db.AptBuckets.Add(bucket);
-        await db.SaveChangesAsync();
-        
+        db.SaveChanges();
+
         repo.CurrentBucketId = bucket.Id;
-        
+        db.SaveChanges();
+
         // Add a test package to this bucket
         var pkg = new AptPackage
         {
@@ -39,7 +39,7 @@ public class AptMirrorTests : TestBase
             SHA256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
             IsVirtual = true,
             RemoteUrl = "http://example.com/test.deb",
-            
+
             // Required fields
             OriginSuite = "test",
             OriginComponent = "main",
@@ -56,7 +56,7 @@ public class AptMirrorTests : TestBase
             SHA512 = "test"
         };
         db.AptPackages.Add(pkg);
-        await db.SaveChangesAsync();
+        db.SaveChanges();
 
         // 2. Test InRelease Distribution
         var response = await Http.GetAsync($"/ubuntu/dists/{repo.Suite}/InRelease");
@@ -65,12 +65,7 @@ public class AptMirrorTests : TestBase
         Assert.AreEqual("SIGNED-TEST-CONTENT", content);
 
         // 3. Test Pool Download (Lazy Sync Path)
-        // Since we are in a test env without real internet, we don't expect it to actually download 
-        // from example.com, but we test the routing and that it tries to call the service.
         var poolResponse = await Http.GetAsync($"/ubuntu/pool/main/t/test-pkg/test.deb");
-        
-        // In UT, this will likely return 404 or throw because example.com is not reachable,
-        // but we've verified the routing logic in AptMirrorServiceTests.
         Assert.IsTrue(poolResponse.StatusCode is HttpStatusCode.OK or HttpStatusCode.InternalServerError or HttpStatusCode.NotFound);
     }
 

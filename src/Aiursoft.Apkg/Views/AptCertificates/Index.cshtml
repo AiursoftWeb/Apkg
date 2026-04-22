@@ -1,4 +1,4 @@
-@model IEnumerable<Aiursoft.Apkg.Entities.AptCertificate>
+@model Aiursoft.Apkg.Models.MirrorsViewModels.CertIndexViewModel
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto">
@@ -23,7 +23,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Certificates)
             {
                 <tr>
                     <td><strong>@item.FriendlyName</strong></td>

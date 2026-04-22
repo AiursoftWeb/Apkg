@@ -10,30 +10,41 @@
     <div class="card-body">
         <div class="alert alert-info">
             <i class="align-middle me-2" data-lucide="info"></i>
-            Buckets represent point-in-time snapshots of the repository metadata and package lists. 
-            Only the buckets currently referenced by a <strong>Mirror</strong> or <strong>Repository</strong> are actively served.
+            <strong>GC Policy:</strong> Buckets not referenced by any Mirror or Repository for more than 70 minutes will be automatically pruned.
         </div>
         
-        <table class="table table-sm table-striped">
+        <table class="table table-hover table-striped">
             <thead>
             <tr>
                 <th>@Localizer["ID"]</th>
+                <th>@Localizer["Status"]</th>
                 <th>@Localizer["Created Time"]</th>
-                <th>@Localizer["Size"]</th>
-                <th>@Localizer["Details"]</th>
+                <th class="text-end">@Localizer["Packages"]</th>
+                <th class="text-end">@Localizer["Logical Size"]</th>
+                <th>@Localizer["Active Usage"]</th>
             </tr>
             </thead>
             <tbody>
             @foreach (var bucket in Model.Buckets)
             {
+                var isLive = !string.IsNullOrEmpty(Model.InUseBy.GetValueOrDefault(bucket.Id));
                 <tr>
                     <td><span class="badge bg-secondary">#@bucket.Id</span></td>
-                    <td>@bucket.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</td>
                     <td>
-                        <small>InRelease: @(bucket.InReleaseContent?.Length ?? 0) bytes</small>
+                        @if (isLive)
+                        {
+                            <span class="badge bg-success">@Localizer["LIVE"]</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-outline-warning text-warning">@Localizer["Orphaned / Building"]</span>
+                        }
                     </td>
+                    <td>@bucket.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td class="text-end"><strong>@Model.PackageCounts.GetValueOrDefault(bucket.Id, 0).ToString("N0")</strong></td>
+                    <td class="text-end">@((Model.StorageUsage.GetValueOrDefault(bucket.Id, 0) / 1024.0 / 1024.0).ToString("F2")) MB</td>
                     <td>
-                        <small class="text-muted">Content Addressable Cache: SHA256 CAS</small>
+                        <small class="text-primary">@Model.InUseBy.GetValueOrDefault(bucket.Id)</small>
                     </td>
                 </tr>
             }

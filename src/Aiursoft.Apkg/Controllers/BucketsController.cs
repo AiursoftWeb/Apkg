@@ -9,17 +9,18 @@ using Aiursoft.Apkg.Authorization;
 
 namespace Aiursoft.Apkg.Controllers;
 
-[Authorize(Policy = AppPermissionNames.CanManageMirrors)]
+[Authorize(Policy = AppPermissionNames.CanViewBuckets)]
 public class BucketsController(TemplateDbContext dbContext) : Controller
 {
-    [Authorize(Policy = AppPermissionNames.CanManageMirrors)]
+    [Authorize(Policy = AppPermissionNames.CanViewBuckets)]
     [RenderInNavBar(
         NavGroupName = "Package Engine",
-        CascadedLinksGroupName = "Audit",
-        CascadedLinksIcon = "history",
-        CascadedLinksOrder = 40,
-        LinkText = "Bucket Snapshots",
-        LinkOrder = 1)]
+        NavGroupOrder = 50,
+        CascadedLinksGroupName = "Engine",
+        CascadedLinksIcon = "package",
+        CascadedLinksOrder = 10,
+        LinkText = "Snapshots history",
+        LinkOrder = 4)]
     public async Task<IActionResult> Index()
     {
         var buckets = await dbContext.AptBuckets
@@ -27,9 +28,33 @@ public class BucketsController(TemplateDbContext dbContext) : Controller
             .Take(100)
             .ToListAsync();
             
+        // Calculate package counts per bucket
+        var packageCounts = await dbContext.AptPackages
+            .GroupBy(p => p.BucketId)
+            .Select(g => new { BucketId = g.Key, Count = g.Count(), TotalSize = g.Sum(p => long.Parse(p.Size)) })
+            .ToDictionaryAsync(x => x.BucketId, x => new { x.Count, x.TotalSize });
+
+        // Find active usage
+        var mirrorUsage = await dbContext.AptMirrors
+            .Where(m => m.CurrentBucketId != null)
+            .ToDictionaryAsync(m => m.CurrentBucketId!.Value, m => $"Mirror: {m.Suite}");
+
+        var repoUsage = await dbContext.AptRepositories
+            .Where(r => r.CurrentBucketId != null)
+            .ToDictionaryAsync(r => r.CurrentBucketId!.Value, r => $"Repo: {r.Name}");
+
         var model = new BucketsIndexViewModel
         {
             Buckets = buckets,
+            PackageCounts = packageCounts.ToDictionary(k => k.Key, v => v.Value.Count),
+            StorageUsage = packageCounts.ToDictionary(k => k.Key, v => v.Value.TotalSize),
+            InUseBy = buckets.ToDictionary(b => b.Id, b => 
+            {
+                var usages = new List<string>();
+                if (mirrorUsage.TryGetValue(b.Id, out var m)) usages.Add(m);
+                if (repoUsage.TryGetValue(b.Id, out var r)) usages.Add(r);
+                return string.Join(", ", usages);
+            }),
             PageTitle = "Bucket History"
         };
         return this.StackView(model);

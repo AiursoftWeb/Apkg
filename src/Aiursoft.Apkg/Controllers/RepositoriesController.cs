@@ -16,11 +16,12 @@ public class RepositoriesController(TemplateDbContext dbContext) : Controller
     [Authorize(Policy = AppPermissionNames.CanManageRepositories)]
     [RenderInNavBar(
         NavGroupName = "Package Engine",
-        CascadedLinksGroupName = "Repositories",
-        CascadedLinksIcon = "share-2",
-        CascadedLinksOrder = 20,
+        NavGroupOrder = 50,
+        CascadedLinksGroupName = "Engine",
+        CascadedLinksIcon = "package",
+        CascadedLinksOrder = 10,
         LinkText = "Public Repositories",
-        LinkOrder = 1)]
+        LinkOrder = 2)]
     public async Task<IActionResult> Index()
     {
         var repos = await dbContext.AptRepositories
