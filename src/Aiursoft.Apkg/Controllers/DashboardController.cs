@@ -1,13 +1,15 @@
+using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Models.DashboardViewModels;
 using Aiursoft.Apkg.Services;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.Apkg.Controllers;
 
 [LimitPerMin]
-public class DashboardController : Controller
+public class DashboardController(TemplateDbContext db) : Controller
 {
     [RenderInNavBar(
         NavGroupName = "Features",
@@ -17,8 +19,62 @@ public class DashboardController : Controller
         CascadedLinksOrder = 1,
         LinkText = "Index",
         LinkOrder = 1)]
-    public IActionResult Index()
+    public async Task<IActionResult> Index(string? q, int page = 1)
     {
-        return this.StackView(new IndexViewModel());
+        page = Math.Max(1, page);
+
+        // Gather all active repo buckets: repoId -> currentBucketId
+        var activeRepos = await db.AptRepositories
+            .Where(r => r.CurrentBucketId != null)
+            .Select(r => new { r.Id, r.Name, r.CurrentBucketId })
+            .ToListAsync();
+
+        var activeBucketIds = activeRepos
+            .Where(r => r.CurrentBucketId != null)
+            .Select(r => r.CurrentBucketId!.Value)
+            .Distinct()
+            .ToList();
+
+        // Build a lookup from bucketId → (repoId, repoName)
+        var bucketToRepo = activeRepos
+            .Where(r => r.CurrentBucketId != null)
+            .ToDictionary(r => r.CurrentBucketId!.Value, r => new { r.Id, r.Name });
+
+        var query = db.AptPackages.AsNoTracking()
+            .Where(p => activeBucketIds.Contains(p.BucketId));
+
+        if (!string.IsNullOrWhiteSpace(q))
+        {
+            query = query.Where(p => p.Package.Contains(q));
+        }
+
+        var totalResults = await query.CountAsync();
+        var totalPackages = await db.AptPackages.AsNoTracking()
+            .Where(p => activeBucketIds.Contains(p.BucketId))
+            .CountAsync();
+
+        var packages = await query
+            .OrderBy(p => p.Package)
+            .ThenBy(p => p.Version)
+            .Skip((page - 1) * IndexViewModel.PageSize)
+            .Take(IndexViewModel.PageSize)
+            .ToListAsync();
+
+        var results = packages.Select(pkg => new PackageSearchResult
+        {
+            Package = pkg,
+            RepoId = bucketToRepo.TryGetValue(pkg.BucketId, out var r) ? r.Id : 0,
+            RepoName = bucketToRepo.TryGetValue(pkg.BucketId, out var r2) ? r2.Name : "Unknown",
+        }).ToList();
+
+        return this.StackView(new IndexViewModel
+        {
+            Query = q,
+            Results = results,
+            TotalResults = totalResults,
+            TotalPackages = totalPackages,
+            TotalRepos = activeRepos.Count,
+            Page = page,
+        });
     }
 }

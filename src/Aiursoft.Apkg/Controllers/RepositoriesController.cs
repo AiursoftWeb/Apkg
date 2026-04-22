@@ -88,6 +88,7 @@ public class RepositoriesController(TemplateDbContext dbContext) : Controller
         if (package == null) return NotFound();
 
         var repo = await dbContext.AptRepositories
+            .Include(r => r.Certificate)
             .FirstOrDefaultAsync(r => r.CurrentBucketId == package.BucketId);
 
         var allRelNames = new[]
@@ -112,6 +113,7 @@ public class RepositoriesController(TemplateDbContext dbContext) : Controller
         {
             Package = package,
             Repo = repo,
+            BaseUrl = $"{Request.Scheme}://{Request.Host}",
             DepLookup = depLookup,
             PageTitle = $"Package - {package.Package}"
         };

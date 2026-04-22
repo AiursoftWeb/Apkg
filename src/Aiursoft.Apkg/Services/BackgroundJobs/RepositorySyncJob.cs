@@ -203,6 +203,7 @@ public class RepositorySyncJob(
                 logger.LogInformation("Signing with certificate {CertName}...", repo.Certificate.FriendlyName);
                 bucketEntity.InReleaseContent = await signingService.SignClearsignAsync(releaseContent, repo.Certificate.PrivateKey);
             }
+            bucketEntity.BuildFinished = true;
             await db.SaveChangesAsync();
         }
 

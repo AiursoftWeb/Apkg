@@ -34,11 +34,14 @@ public class GarbageCollectionJob(
         
         var activeBucketIds = activeMirrors.Union(activeRepos).Distinct().ToList();
 
-        // 30 minutes grace period for buckets currently being processed by sync jobs
-        var threshold = DateTime.UtcNow.AddMinutes(-30);
+        // Only delete buckets that are fully built (BuildFinished = true) but not referenced.
+        // Buckets with BuildFinished = false are still being constructed — don't touch them.
+        // Safety net: also prune very old unfinished buckets (>2 hours) from crashed jobs.
+        var crashThreshold = DateTime.UtcNow.AddHours(-2);
         
         var orphanedBuckets = await db.AptBuckets
-            .Where(b => !activeBucketIds.Contains(b.Id) && b.CreatedAt < threshold)
+            .Where(b => !activeBucketIds.Contains(b.Id) &&
+                        (b.BuildFinished || b.CreatedAt < crashThreshold))
             .Select(b => b.Id)
             .ToListAsync();
 

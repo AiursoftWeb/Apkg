@@ -79,5 +79,8 @@
 </div>
 
 <div class="mt-3">
-    <a asp-action="Details" asp-route-id="@Model.Repo.Id" class="btn btn-secondary">@Localizer["Back to Repository"]</a>
+    <a asp-action="Details" asp-route-id="@Model.Repo.Id" class="btn btn-outline-secondary">
+        <i class="align-middle me-1" data-lucide="database"></i> @Localizer["View Repository Info"]
+    </a>
+    <a asp-action="Details" asp-route-id="@Model.Repo.Id" class="btn btn-secondary ms-2">@Localizer["Back to Repository"]</a>
 </div>

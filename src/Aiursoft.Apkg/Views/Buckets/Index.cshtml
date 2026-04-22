@@ -10,7 +10,7 @@
     <div class="card-body">
         <div class="alert alert-info">
             <i class="align-middle me-2" data-lucide="info"></i>
-            <strong>GC Policy:</strong> Buckets not referenced by any Mirror or Repository for more than 70 minutes will be automatically pruned.
+            <strong>GC Policy:</strong> Finished buckets not referenced by any Mirror or Repository will be automatically pruned on the next GC run. Unfinished buckets are never deleted (unless they are more than 2 hours old, which indicates a crashed job).
         </div>
         
         <table class="table table-hover table-striped">
@@ -35,9 +35,13 @@
                         {
                             <span class="badge bg-success">@Localizer["LIVE"]</span>
                         }
+                        else if (!bucket.BuildFinished)
+                        {
+                            <span class="badge badge-subtle-info">@Localizer["Building"]</span>
+                        }
                         else
                         {
-                            <span class="badge badge-subtle-warning">@Localizer["Orphaned / Building"]</span>
+                            <span class="badge badge-subtle-warning">@Localizer["Orphaned"]</span>
                         }
                     </td>
                     <td>@bucket.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</td>

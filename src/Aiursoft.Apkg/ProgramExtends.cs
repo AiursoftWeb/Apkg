@@ -182,7 +182,7 @@ public static class ProgramExtends
             var repo = new AptRepository
             {
                 Distro = "anduinos", // 卖货 Distro 改为 anduinos
-                Name = "Anduinos Official", 
+                Name = $"Anduinos Official {suite}", // 卖货 Repository 叫 Anduinos Official questing
                 Suite = suite,      // 卖货 Suite 依然叫 questing
                 Components = components,
                 CertificateId = cert.Id,
