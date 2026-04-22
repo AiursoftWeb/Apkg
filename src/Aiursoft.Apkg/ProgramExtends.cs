@@ -184,6 +184,7 @@ public static class ProgramExtends
                 Distro = "anduinos", // 卖货 Distro 改为 anduinos
                 Name = "Anduinos Official", 
                 Suite = suite,      // 卖货 Suite 依然叫 questing
+                Components = components,
                 CertificateId = cert.Id,
                 MirrorId = mirror.Id
             };

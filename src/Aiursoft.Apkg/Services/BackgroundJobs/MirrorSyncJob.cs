@@ -89,14 +89,10 @@ public class MirrorSyncJob(
         var repo = new AptClient.AptRepository(upstreamRoot, mirror.Suite, mirror.SignedBy, () => httpClientFactory.CreateClient());
         var source = new AptPackageSource(repo, component, arch, () => httpClientFactory.CreateClient());
 
-        var packages = await source.FetchPackagesAsync();
-        logger.LogInformation("Retrieved {Count} packages for {Component} [{Arch}] from {UpstreamRoot}.", packages.Count, component, arch, upstreamRoot);
-
         var count = 0;
-        foreach (var pkgFromApt in packages)
+        await foreach (var pkgFromApt in source.FetchPackagesAsync())
         {
             var pkg = pkgFromApt.Package;
-            logger.LogDebug("Processing package {Package} with architecture {Architecture}...", pkg.Package, pkg.Architecture);
             
             // Check for duplicates within the current bucket
             var key = $"{pkg.Package}|{pkg.Version}|{pkg.Architecture}|{component}";
@@ -149,11 +145,19 @@ public class MirrorSyncJob(
             };
             db.AptPackages.Add(entity);
             count++;
+
+            if (count % 1000 == 0)
+            {
+                await db.SaveChangesAsync();
+                db.ChangeTracker.Clear();
+                logger.LogInformation("Saved {Count} packages for {Component} [{Arch}] so far...", count, component, arch);
+            }
         }
         
-        // Save changes per component to keep memory usage under control
+        // Save remaining packages
         await db.SaveChangesAsync();
         db.ChangeTracker.Clear();
+        logger.LogInformation("Finished syncing {Count} packages for {Component} [{Arch}].", count, component, arch);
         return count;
     }
 }

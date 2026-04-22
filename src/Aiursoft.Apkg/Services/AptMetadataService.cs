@@ -7,69 +7,40 @@ namespace Aiursoft.Apkg.Services;
 
 public class AptMetadataService : ITransientDependency
 {
-    public string GeneratePackagesFile(IEnumerable<AptPackage> packages)
+    public async Task WritePackageEntryAsync(StreamWriter writer, AptPackage pkg)
     {
-        var sb = new StringBuilder();
-        foreach (var pkg in packages)
+        await writer.WriteLineAsync($"Package: {pkg.Package}");
+        await writer.WriteLineAsync($"Architecture: {pkg.Architecture}");
+        await writer.WriteLineAsync($"Version: {pkg.Version}");
+        await writer.WriteLineAsync($"Priority: {pkg.Priority}");
+        await writer.WriteLineAsync($"Section: {pkg.Section}");
+        await writer.WriteLineAsync($"Origin: {pkg.Origin}");
+        await writer.WriteLineAsync($"Maintainer: {pkg.Maintainer}");
+        if (!string.IsNullOrWhiteSpace(pkg.OriginalMaintainer)) await writer.WriteLineAsync($"Original-Maintainer: {pkg.OriginalMaintainer}");
+        await writer.WriteLineAsync($"Bugs: {pkg.Bugs}");
+        await writer.WriteLineAsync($"Installed-Size: {pkg.InstalledSize}");
+        if (!string.IsNullOrWhiteSpace(pkg.Depends)) await writer.WriteLineAsync($"Depends: {pkg.Depends}");
+        if (!string.IsNullOrWhiteSpace(pkg.Recommends)) await writer.WriteLineAsync($"Recommends: {pkg.Recommends}");
+        if (!string.IsNullOrWhiteSpace(pkg.Suggests)) await writer.WriteLineAsync($"Suggests: {pkg.Suggests}");
+        if (!string.IsNullOrWhiteSpace(pkg.Conflicts)) await writer.WriteLineAsync($"Conflicts: {pkg.Conflicts}");
+        if (!string.IsNullOrWhiteSpace(pkg.Breaks)) await writer.WriteLineAsync($"Breaks: {pkg.Breaks}");
+        if (!string.IsNullOrWhiteSpace(pkg.Replaces)) await writer.WriteLineAsync($"Replaces: {pkg.Replaces}");
+        if (!string.IsNullOrWhiteSpace(pkg.Provides)) await writer.WriteLineAsync($"Provides: {pkg.Provides}");
+        if (!string.IsNullOrWhiteSpace(pkg.Source)) await writer.WriteLineAsync($"Source: {pkg.Source}");
+        if (!string.IsNullOrWhiteSpace(pkg.Homepage)) await writer.WriteLineAsync($"Homepage: {pkg.Homepage}");
+        await writer.WriteLineAsync($"Filename: {pkg.Filename}");
+        await writer.WriteLineAsync($"Size: {pkg.Size}");
+        await writer.WriteLineAsync($"MD5sum: {pkg.MD5sum}");
+        await writer.WriteLineAsync($"SHA1: {pkg.SHA1}");
+        await writer.WriteLineAsync($"SHA256: {pkg.SHA256}");
+        if (!string.IsNullOrWhiteSpace(pkg.SHA512)) await writer.WriteLineAsync($"SHA512: {pkg.SHA512}");
+        if (!string.IsNullOrWhiteSpace(pkg.MultiArch)) await writer.WriteLineAsync($"Multi-Arch: {pkg.MultiArch}");
+        await writer.WriteLineAsync($"Description: {pkg.Description}");
+        await writer.WriteLineAsync($"Description-md5: {pkg.DescriptionMd5}");
+        foreach (var extra in pkg.Extras)
         {
-            sb.AppendLine($"Package: {pkg.Package}");
-            sb.AppendLine($"Architecture: {pkg.Architecture}");
-            sb.AppendLine($"Version: {pkg.Version}");
-            sb.AppendLine($"Priority: {pkg.Priority}");
-            sb.AppendLine($"Section: {pkg.Section}");
-            sb.AppendLine($"Origin: {pkg.Origin}");
-            sb.AppendLine($"Maintainer: {pkg.Maintainer}");
-            if (!string.IsNullOrWhiteSpace(pkg.OriginalMaintainer)) sb.AppendLine($"Original-Maintainer: {pkg.OriginalMaintainer}");
-            sb.AppendLine($"Bugs: {pkg.Bugs}");
-            sb.AppendLine($"Installed-Size: {pkg.InstalledSize}");
-            if (!string.IsNullOrWhiteSpace(pkg.Depends)) sb.AppendLine($"Depends: {pkg.Depends}");
-            if (!string.IsNullOrWhiteSpace(pkg.Recommends)) sb.AppendLine($"Recommends: {pkg.Recommends}");
-            if (!string.IsNullOrWhiteSpace(pkg.Suggests)) sb.AppendLine($"Suggests: {pkg.Suggests}");
-            if (!string.IsNullOrWhiteSpace(pkg.Conflicts)) sb.AppendLine($"Conflicts: {pkg.Conflicts}");
-            if (!string.IsNullOrWhiteSpace(pkg.Breaks)) sb.AppendLine($"Breaks: {pkg.Breaks}");
-            if (!string.IsNullOrWhiteSpace(pkg.Replaces)) sb.AppendLine($"Replaces: {pkg.Replaces}");
-            if (!string.IsNullOrWhiteSpace(pkg.Provides)) sb.AppendLine($"Provides: {pkg.Provides}");
-            if (!string.IsNullOrWhiteSpace(pkg.Source)) sb.AppendLine($"Source: {pkg.Source}");
-            if (!string.IsNullOrWhiteSpace(pkg.Homepage)) sb.AppendLine($"Homepage: {pkg.Homepage}");
-            sb.AppendLine($"Filename: {pkg.Filename}");
-            sb.AppendLine($"Size: {pkg.Size}");
-            sb.AppendLine($"MD5sum: {pkg.MD5sum}");
-            sb.AppendLine($"SHA1: {pkg.SHA1}");
-            sb.AppendLine($"SHA256: {pkg.SHA256}");
-            if (!string.IsNullOrWhiteSpace(pkg.SHA512)) sb.AppendLine($"SHA512: {pkg.SHA512}");
-            if (!string.IsNullOrWhiteSpace(pkg.MultiArch)) sb.AppendLine($"Multi-Arch: {pkg.MultiArch}");
-            sb.AppendLine($"Description: {pkg.Description}");
-            sb.AppendLine($"Description-md5: {pkg.DescriptionMd5}");
-            foreach (var extra in pkg.Extras)
-            {
-                sb.AppendLine($"{extra.Key}: {extra.Value}");
-            }
-            sb.AppendLine();
+            await writer.WriteLineAsync($"{extra.Key}: {extra.Value}");
         }
-        return sb.ToString();
-    }
-
-    public string GenerateReleaseFile(string suite, string component, string arch, string packagesContent)
-    {
-        var packagesBytes = Encoding.UTF8.GetBytes(packagesContent);
-        var size = packagesBytes.Length;
-        var md5 = BitConverter.ToString(MD5.HashData(packagesBytes)).Replace("-", "").ToLower();
-        var sha1 = BitConverter.ToString(SHA1.HashData(packagesBytes)).Replace("-", "").ToLower();
-        var sha256 = BitConverter.ToString(SHA256.HashData(packagesBytes)).Replace("-", "").ToLower();
-
-        var sb = new StringBuilder();
-        sb.AppendLine($"Archive: {suite}");
-        sb.AppendLine($"Component: {component}");
-        sb.AppendLine($"Origin: Aiursoft Apkg");
-        sb.AppendLine($"Label: Aiursoft Apkg");
-        sb.AppendLine($"Architecture: {arch}");
-        sb.AppendLine($"Date: {DateTime.UtcNow:R}");
-        sb.AppendLine("MD5Sum:");
-        sb.AppendLine($" {md5} {size} {component}/binary-{arch}/Packages");
-        sb.AppendLine("SHA1:");
-        sb.AppendLine($" {sha1} {size} {component}/binary-{arch}/Packages");
-        sb.AppendLine("SHA256:");
-        sb.AppendLine($" {sha256} {size} {component}/binary-{arch}/Packages");
-        return sb.ToString();
+        await writer.WriteLineAsync();
     }
 }

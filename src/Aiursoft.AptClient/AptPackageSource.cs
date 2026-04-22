@@ -28,7 +28,7 @@ public class AptPackageSource
         _httpClientFactory = httpClientFactory ?? (() => new HttpClient());
     }
 
-    public async Task<List<DebianPackageFromApt>> FetchPackagesAsync(Action<string, long>? progress = null)
+    public async IAsyncEnumerable<DebianPackageFromApt> FetchPackagesAsync(Action<string, long>? progress = null)
     {
         // 1. Get supported files from repository
         var supportedFiles = (await _repository.GetSupportedFilesAsync()).ToList();
@@ -62,17 +62,14 @@ public class AptPackageSource
         }
 
         // 3. Parse
-
         using (stream)
         {
             var dicts = DebianPackageParser.Parse(stream);
-            var result = new List<DebianPackageFromApt>();
             foreach (var dict in dicts)
             {
                 var pkg = DebianPackageParser.MapToPackage(dict, Suite, Component);
-                result.Add(new DebianPackageFromApt { Package = pkg, Source = this });
+                yield return new DebianPackageFromApt { Package = pkg, Source = this };
             }
-            return result;
         }
     }
 

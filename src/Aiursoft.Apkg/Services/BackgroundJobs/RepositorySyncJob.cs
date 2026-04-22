@@ -50,67 +50,71 @@ public class RepositorySyncJob(
     {
         logger.LogInformation("Processing and signing repository {RepoName}...", repo.Name);
 
-        // 1. Create a new bucket (if needed) or work with existing one
-        // For now, we still create a new bucket to ensure atomicity of the update
+        // 1. Create a new bucket
         var newBucket = new AptBucket { CreatedAt = DateTime.UtcNow };
         db.AptBuckets.Add(newBucket);
         await db.SaveChangesAsync();
 
         var newBucketId = newBucket.Id;
-        List<AptPackage> packages;
 
-        // 2. Data Transfer
+        // 2. Data Transfer (Copy from Mirror Bucket to Repo Bucket)
         if (repo.MirrorId != null)
         {
             if (repo.Mirror?.CurrentBucketId == null)
             {
                 logger.LogWarning("Repository {RepoName} is linked to mirror {MirrorSuite} which has no active bucket. Skipping data copy.", repo.Name, repo.Mirror?.Suite);
-                packages = new List<AptPackage>();
             }
             else
             {
                 var mirrorBucketId = repo.Mirror.CurrentBucketId.Value;
                 logger.LogInformation("Copying packages from Mirror Bucket {MirrorBucketId} to New Bucket {NewBucketId}...", mirrorBucketId, newBucketId);
                 
-                packages = await db.AptPackages
+                // Stream from DB and insert to avoid loading all in memory
+                var query = db.AptPackages
                     .AsNoTracking()
                     .Where(p => p.BucketId == mirrorBucketId)
-                    .ToListAsync();
+                    .AsAsyncEnumerable();
 
-                foreach (var pkg in packages)
+                var count = 0;
+                await foreach (var pkg in query)
                 {
                     pkg.Id = 0; 
                     pkg.BucketId = newBucketId;
                     db.AptPackages.Add(pkg);
+                    count++;
+                    if (count % 1000 == 0)
+                    {
+                        await db.SaveChangesAsync();
+                        db.ChangeTracker.Clear();
+                    }
                 }
                 await db.SaveChangesAsync();
+                db.ChangeTracker.Clear();
             }
         }
-        else
+        else if (repo.CurrentBucketId != null)
         {
-            // Standalone repository. 
-            // In the future, we might copy from repo.CurrentBucket to newBucket if we want to preserve manually added packages.
-            // For now, let's just see if there's anything to copy.
-            if (repo.CurrentBucketId != null)
+            logger.LogInformation("Standalone repository {RepoName}: Copying packages from Current Bucket {CurrentBucketId} to New Bucket {NewBucketId}...", repo.Name, repo.CurrentBucketId, newBucketId);
+            var query = db.AptPackages
+                .AsNoTracking()
+                .Where(p => p.BucketId == repo.CurrentBucketId)
+                .AsAsyncEnumerable();
+            
+            var count = 0;
+            await foreach (var pkg in query)
             {
-                logger.LogInformation("Standalone repository {RepoName}: Copying packages from Current Bucket {CurrentBucketId} to New Bucket {NewBucketId}...", repo.Name, repo.CurrentBucketId, newBucketId);
-                packages = await db.AptPackages
-                    .AsNoTracking()
-                    .Where(p => p.BucketId == repo.CurrentBucketId)
-                    .ToListAsync();
-                
-                foreach (var pkg in packages)
+                pkg.Id = 0;
+                pkg.BucketId = newBucketId;
+                db.AptPackages.Add(pkg);
+                count++;
+                if (count % 1000 == 0)
                 {
-                    pkg.Id = 0;
-                    pkg.BucketId = newBucketId;
-                    db.AptPackages.Add(pkg);
+                    await db.SaveChangesAsync();
+                    db.ChangeTracker.Clear();
                 }
-                await db.SaveChangesAsync();
             }
-            else
-            {
-                packages = new List<AptPackage>();
-            }
+            await db.SaveChangesAsync();
+            db.ChangeTracker.Clear();
         }
 
         // 3. Metadata Generation & Signing
@@ -133,62 +137,115 @@ public class RepositorySyncJob(
         {
             foreach (var component in components)
             {
-                var compPackages = packages
-                    .Where(p => p.Component == component && (p.Architecture == arch || p.Architecture == "all"))
-                    .ToList();
-                var pkgsContent = metadataService.GeneratePackagesFile(compPackages);
-                var pkgsBytes = Encoding.UTF8.GetBytes(pkgsContent);
-
-                // Write Packages to disk
                 var relativePath = $"{component}/binary-{arch}";
                 var packageDir = Path.Combine(BucketsRoot, newBucketId.ToString(), relativePath);
                 Directory.CreateDirectory(packageDir);
 
                 var packagesPath = Path.Combine(packageDir, "Packages");
-                await File.WriteAllBytesAsync(packagesPath, pkgsBytes);
-
-                var sha256 = BitConverter.ToString(SHA256.HashData(pkgsBytes)).Replace("-", "").ToLower();
-                
-                // Add entry for raw Packages
-                releaseSb.AppendLine($" {sha256} {pkgsBytes.Length} {relativePath}/Packages");
-                
-                // Write Packages.gz to disk
                 var gzPath = packagesPath + ".gz";
-                using var ms = new MemoryStream();
-                await using (var gs = new GZipStream(ms, CompressionLevel.Optimal))
-                {
-                    await gs.WriteAsync(pkgsBytes);
-                }
-                var gzBytes = ms.ToArray();
-                await File.WriteAllBytesAsync(gzPath, gzBytes);
 
-                var gzSha256 = BitConverter.ToString(SHA256.HashData(gzBytes)).Replace("-", "").ToLower();
-                releaseSb.AppendLine($" {gzSha256} {gzBytes.Length} {relativePath}/Packages.gz");
+                string rawSha256;
+                long rawSize;
+                string gzSha256;
+                long gzSize;
+
+                // Open file streams
+                await using (var rawFs = new FileStream(packagesPath, FileMode.Create, FileAccess.Write, FileShare.None))
+                await using (var gzFs = new FileStream(gzPath, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    using (var rawHasher = IncrementalHash.CreateHash(HashAlgorithmName.SHA256))
+                    using (var gzHasher = IncrementalHash.CreateHash(HashAlgorithmName.SHA256))
+                    {
+                        // Use wrappers to hash while writing
+                        await using (var rawHashingStream = new HashingStream(rawFs, rawHasher))
+                        await using (var gzHashingStream = new HashingStream(gzFs, gzHasher))
+                        await using (var gzipStream = new GZipStream(gzHashingStream, CompressionLevel.Optimal))
+                        {
+                            var rawWriter = new StreamWriter(rawHashingStream, Encoding.UTF8, leaveOpen: true);
+                            var gzWriter = new StreamWriter(gzipStream, Encoding.UTF8, leaveOpen: true);
+
+                            var query = db.AptPackages
+                                .AsNoTracking()
+                                .Where(p => p.BucketId == newBucketId && p.Component == component && (p.Architecture == arch || p.Architecture == "all"))
+                                .AsAsyncEnumerable();
+
+                            await foreach (var pkg in query)
+                            {
+                                await metadataService.WritePackageEntryAsync(rawWriter, pkg);
+                                await metadataService.WritePackageEntryAsync(gzWriter, pkg);
+                            }
+
+                            await rawWriter.FlushAsync();
+                            await gzWriter.FlushAsync();
+                        }
+                        rawSha256 = BitConverter.ToString(rawHasher.GetHashAndReset()).Replace("-", "").ToLower();
+                        gzSha256 = BitConverter.ToString(gzHasher.GetHashAndReset()).Replace("-", "").ToLower();
+                    }
+                    rawSize = rawFs.Length;
+                    gzSize = gzFs.Length;
+                }
+
+                releaseSb.AppendLine($" {rawSha256} {rawSize} {relativePath}/Packages");
+                releaseSb.AppendLine($" {gzSha256} {gzSize} {relativePath}/Packages.gz");
             }
         }
 
         var releaseContent = releaseSb.ToString();
-        newBucket.ReleaseContent = releaseContent;
-
-        // 4. GPG Sign
-        if (repo.Certificate != null)
+        
+        // Fetch newBucket again to avoid tracking issues
+        var bucketEntity = await db.AptBuckets.FindAsync(newBucketId);
+        if (bucketEntity != null)
         {
-            logger.LogInformation("Signing with certificate {CertName}...", repo.Certificate.FriendlyName);
-            newBucket.InReleaseContent = await signingService.SignClearsignAsync(releaseContent, repo.Certificate.PrivateKey);
-        }
-        else
-        {
-            logger.LogWarning("No certificate configured for repository {RepoName}. InRelease will be empty.", repo.Name);
+            bucketEntity.ReleaseContent = releaseContent;
+            if (repo.Certificate != null)
+            {
+                logger.LogInformation("Signing with certificate {CertName}...", repo.Certificate.FriendlyName);
+                bucketEntity.InReleaseContent = await signingService.SignClearsignAsync(releaseContent, repo.Certificate.PrivateKey);
+            }
+            await db.SaveChangesAsync();
         }
 
         // 5. Commit and Swap
-        await db.SaveChangesAsync();
-
         db.AptRepositories.Update(repo);
         repo.CurrentBucketId = newBucketId;
         await db.SaveChangesAsync();
         
         db.ChangeTracker.Clear();
         logger.LogInformation("Repository {RepoName} is now live with Bucket {BucketId}.", repo.Name, newBucketId);
+    }
+}
+
+internal class HashingStream(Stream baseStream, IncrementalHash hasher) : Stream
+{
+    public override bool CanRead => false;
+    public override bool CanSeek => false;
+    public override bool CanWrite => true;
+    public override long Length => baseStream.Length;
+    public override long Position { get => baseStream.Position; set => throw new NotSupportedException(); }
+
+    public override void Flush() => baseStream.Flush();
+
+    public override int Read(byte[] buffer, int offset, int count) => throw new NotSupportedException();
+
+    public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
+
+    public override void SetLength(long value) => baseStream.SetLength(value);
+
+    public override void Write(byte[] buffer, int offset, int count)
+    {
+        hasher.AppendData(buffer, offset, count);
+        baseStream.Write(buffer, offset, count);
+    }
+
+    public override async Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+    {
+        hasher.AppendData(buffer, offset, count);
+        await baseStream.WriteAsync(buffer.AsMemory(offset, count), cancellationToken);
+    }
+
+    public override async ValueTask WriteAsync(ReadOnlyMemory<byte> buffer, CancellationToken cancellationToken = default)
+    {
+        hasher.AppendData(buffer.Span);
+        await baseStream.WriteAsync(buffer, cancellationToken);
     }
 }
