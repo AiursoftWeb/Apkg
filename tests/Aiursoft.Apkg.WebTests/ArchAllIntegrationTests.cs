@@ -7,10 +7,6 @@ using Aiursoft.Apkg.Services.FileStorage;
 using Aiursoft.Apkg.Sqlite;
 using Aiursoft.Apkg.Services.Authentication;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Aiursoft.Apkg.WebTests;
 

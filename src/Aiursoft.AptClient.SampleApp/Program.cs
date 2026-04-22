@@ -126,7 +126,7 @@ Signed-By:
         {
             try
             {
-                var packages = await source.FetchPackagesAsync(onProgress);
+                var packages = await source.FetchPackagesAsync(onProgress).ToListAsync();
                 allPackages.AddRange(packages);
             }
             catch (Exception ex)

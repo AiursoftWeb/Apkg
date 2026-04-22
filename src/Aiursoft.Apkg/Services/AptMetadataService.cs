@@ -1,5 +1,3 @@
-using System.Security.Cryptography;
-using System.Text;
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Scanner.Abstractions;
 

@@ -87,7 +87,7 @@ Components: main
         var allPackages = new List<DebianPackageFromApt>();
         foreach (var source in sources)
         {
-            var packages = await source.FetchPackagesAsync();
+            var packages = await source.FetchPackagesAsync().ToListAsync();
             allPackages.AddRange(packages);
         }
 
@@ -139,7 +139,7 @@ Cgkyr330gZviGGcQtRQAAPjID/9+ABCDEF1234567890ABCDEF1234567890ABCD
         // Act & Assert
         try
         {
-            await source.FetchPackagesAsync();
+            await source.FetchPackagesAsync().ToListAsync();
             Assert.Fail("Expected exception was not thrown.");
         }
         catch (Exception)
@@ -180,7 +180,7 @@ THIS_IS_TOTAL_GARBAGE_NOT_EVEN_BASE64
         // Act & Assert
         try
         {
-            await source.FetchPackagesAsync();
+            await source.FetchPackagesAsync().ToListAsync();
             Assert.Fail("Expected exception was not thrown.");
 
         }
@@ -216,7 +216,7 @@ SHA256:
         // Act & Assert
         try
         {
-            await source.FetchPackagesAsync();
+            await source.FetchPackagesAsync().ToListAsync();
             Assert.Fail("Expected exception was not thrown.");
         }
         catch (Exception)
@@ -265,7 +265,7 @@ SHA256:
         // Act & Assert
         try
         {
-            await source.FetchPackagesAsync();
+            await source.FetchPackagesAsync().ToListAsync();
             Assert.Fail("Expected exception was not thrown.");
         }
         catch (Exception)
@@ -326,7 +326,7 @@ Components: main
         var sources = AptSourceExtractor.ExtractSources(deb822, "amd64", () => new HttpClient(mockHandler));
 
         var source = sources.First();
-        var packages = await source.FetchPackagesAsync();
+        var packages = await source.FetchPackagesAsync().ToListAsync();
 
         var pkgInfo = packages.FirstOrDefault(p => p.Package.Package == "hostname");
         Assert.IsNotNull(pkgInfo, "Should find hostname package");
@@ -395,7 +395,7 @@ Signed-By:
         var allPackages = new List<DebianPackageFromApt>();
         foreach (var source in sources)
         {
-            var packages = await source.FetchPackagesAsync();
+            var packages = await source.FetchPackagesAsync().ToListAsync();
             allPackages.AddRange(packages);
         }
 
@@ -496,7 +496,7 @@ Signed-By:
         Assert.HasCount(1, sources);
         foreach (var aptSource in sources)
         {
-            var packages = await aptSource.FetchPackagesAsync();
+            var packages = await aptSource.FetchPackagesAsync().ToListAsync();
             Console.WriteLine($@"Found {packages.Count} packages in {aptSource.Suite}");
             Assert.IsNotEmpty(packages);
         }
@@ -574,7 +574,7 @@ SHA256:
         var source = sources.First();
 
         // Act
-        var packages = await source.FetchPackagesAsync();
+        var packages = await source.FetchPackagesAsync().ToListAsync();
 
         // Assert
         Assert.HasCount(1, packages);

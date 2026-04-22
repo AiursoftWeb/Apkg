@@ -161,8 +161,9 @@ public class RepositorySyncJob(
                         await using (var gzHashingStream = new HashingStream(gzFs, gzHasher))
                         await using (var gzipStream = new GZipStream(gzHashingStream, CompressionLevel.Optimal))
                         {
-                            var rawWriter = new StreamWriter(rawHashingStream, Encoding.UTF8, leaveOpen: true);
-                            var gzWriter = new StreamWriter(gzipStream, Encoding.UTF8, leaveOpen: true);
+                            var utf8NoBom = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
+                            var rawWriter = new StreamWriter(rawHashingStream, utf8NoBom, leaveOpen: true);
+                            var gzWriter = new StreamWriter(gzipStream, utf8NoBom, leaveOpen: true);
 
                             var query = db.AptPackages
                                 .AsNoTracking()
