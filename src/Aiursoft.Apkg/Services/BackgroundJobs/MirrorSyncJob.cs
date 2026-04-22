@@ -50,13 +50,14 @@ public class MirrorSyncJob(
         var architectures = mirror.Architecture.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
         var totalInserted = 0;
+        var insertedKeys = new HashSet<string>();
         foreach (var arch in architectures)
         {
             foreach (var component in components)
             {
                 try
                 {
-                    totalInserted += await FetchAndInsertComponentAsync(mirror, bucket, component, arch);
+                    totalInserted += await FetchAndInsertComponentAsync(mirror, bucket, component, arch, insertedKeys);
                 }
                 catch (Exception ex)
                 {
@@ -80,7 +81,7 @@ public class MirrorSyncJob(
         await db.SaveChangesAsync();
     }
 
-    private async Task<int> FetchAndInsertComponentAsync(AptMirror mirror, AptBucket bucket, string component, string arch)
+    private async Task<int> FetchAndInsertComponentAsync(AptMirror mirror, AptBucket bucket, string component, string arch, HashSet<string> insertedKeys)
     {
         var upstreamRoot = $"{mirror.BaseUrl.TrimEnd('/')}/{mirror.Distro.TrimStart('/')}";
         logger.LogInformation("Fetching component {Component} [{Arch}] for suite {Suite} from {UpstreamRoot}...", component, arch, mirror.Suite, upstreamRoot);
@@ -89,12 +90,21 @@ public class MirrorSyncJob(
         var source = new AptPackageSource(repo, component, arch, () => httpClientFactory.CreateClient());
 
         var packages = await source.FetchPackagesAsync();
-        logger.LogInformation("Retrieved {Count} packages for {Component} [{Arch}]. Inserting into database...", packages.Count, component, arch);
+        logger.LogInformation("Retrieved {Count} packages for {Component} [{Arch}] from {UpstreamRoot}.", packages.Count, component, arch, upstreamRoot);
 
+        var count = 0;
         foreach (var pkgFromApt in packages)
         {
             var pkg = pkgFromApt.Package;
+            logger.LogDebug("Processing package {Package} with architecture {Architecture}...", pkg.Package, pkg.Architecture);
             
+            // Check for duplicates within the current bucket
+            var key = $"{pkg.Package}|{pkg.Version}|{pkg.Architecture}|{component}";
+            if (!insertedKeys.Add(key))
+            {
+                continue;
+            }
+
             // Construct the upstream URL for lazy sync using the combined upstream root
             var remoteUrl = $"{upstreamRoot.TrimEnd('/')}/{pkg.Filename.TrimStart('/')}";
 
@@ -102,7 +112,7 @@ public class MirrorSyncJob(
             {
                 BucketId = bucket.Id,
                 Component = component,
-                Architecture = arch,
+                Architecture = pkg.Architecture,
                 IsVirtual = true,
                 RemoteUrl = remoteUrl,
                 OriginSuite = mirror.Suite,
@@ -138,11 +148,12 @@ public class MirrorSyncJob(
                 Extras = pkg.Extras
             };
             db.AptPackages.Add(entity);
+            count++;
         }
         
         // Save changes per component to keep memory usage under control
         await db.SaveChangesAsync();
         db.ChangeTracker.Clear();
-        return packages.Count;
+        return count;
     }
 }

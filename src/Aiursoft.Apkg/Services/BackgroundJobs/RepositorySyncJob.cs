@@ -133,7 +133,9 @@ public class RepositorySyncJob(
         {
             foreach (var component in components)
             {
-                var compPackages = packages.Where(p => p.Component == component && p.Architecture == arch).ToList();
+                var compPackages = packages
+                    .Where(p => p.Component == component && (p.Architecture == arch || p.Architecture == "all"))
+                    .ToList();
                 var pkgsContent = metadataService.GeneratePackagesFile(compPackages);
                 var pkgsBytes = Encoding.UTF8.GetBytes(pkgsContent);
 
