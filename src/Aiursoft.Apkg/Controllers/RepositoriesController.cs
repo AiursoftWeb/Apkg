@@ -136,17 +136,17 @@ public class RepositoriesController(TemplateDbContext dbContext) : Controller
         var result = candidates
             .Select(p => new
             {
-                p.Id,
-                p.Package,
-                p.Version,
-                RelTypes = new[]
+                id = p.Id,
+                package = p.Package,
+                version = p.Version,
+                relTypes = new[]
                 {
                     p.Depends != null && ParsePackageNames(p.Depends).Contains(name) ? "Depends" : null,
                     p.Recommends != null && ParsePackageNames(p.Recommends).Contains(name) ? "Recommends" : null,
                     p.Suggests != null && ParsePackageNames(p.Suggests).Contains(name) ? "Suggests" : null
                 }.Where(r => r != null).ToArray()
             })
-            .Where(p => p.RelTypes.Length > 0)
+            .Where(p => p.relTypes.Length > 0)
             .ToList();
 
         return Json(result);
