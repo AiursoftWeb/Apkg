@@ -79,6 +79,20 @@ public class ViewModelArgsInjector(
         _ = localizer["Not Found"];
         _ = localizer["Permission Details"];
         _ = localizer["Register"];
+    
+        _ = localizer["Add New Mirror"];
+        _ = localizer["Bucket History"];
+        _ = localizer["Certificates"];
+        _ = localizer["Create Repository"];
+        _ = localizer["Edit Mirror"];
+        _ = localizer["Edit Repository"];
+        _ = localizer["Engine"];
+        _ = localizer["Generate New Key"];
+        _ = localizer["Package Engine"];
+        _ = localizer["Public Repositories"];
+        _ = localizer["Signing Certificates"];
+        _ = localizer["Snapshots history"];
+        _ = localizer["Upstream Mirrors"];
     }
 
     public void InjectSimple(

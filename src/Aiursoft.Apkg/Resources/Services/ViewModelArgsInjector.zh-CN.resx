@@ -24,6 +24,9 @@
   <data name="Account Settings" xml:space="preserve">
     <value>账户设置</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>添加新镜像</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>管理员</value>
   </data>
@@ -42,6 +45,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>错误的请求</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>桶历史</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>证书</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>更换头像</value>
   </data>
@@ -53,6 +62,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>点击登录</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>创建仓库</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>创建角色</value>
@@ -72,17 +84,29 @@
   <data name="Directory" xml:space="preserve">
     <value>目录</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>编辑镜像</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>编辑仓库</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>编辑角色</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>编辑用户</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>引擎</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>错误</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>功能</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>生成新密钥</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>全局设置</value>
@@ -114,6 +138,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>未找到</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>包引擎</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>权限详情</value>
   </data>
@@ -128,6 +155,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>资料设置</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>公共仓库</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>注册</value>
@@ -144,6 +174,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>退出登录</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>签名证书</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>快照历史</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>系统</value>
   </data>
@@ -155,6 +191,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>未授权</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>上游镜像</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>用户详情</value>

@@ -53,5 +53,8 @@ sudo apt update</code></pre>
 </div>
 
 <div class="mt-3">
+    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" class="btn btn-primary">
+        <i class="align-middle me-1" data-lucide="package-search"></i> @Localizer["Browse Packages"]
+    </a>
     <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to List"]</a>
 </div>

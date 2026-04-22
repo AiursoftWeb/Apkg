@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Доступ запрещён</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Добавить новое зеркало</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Администратор</value>
   </data>
@@ -39,6 +42,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Неверный запрос</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>История бакетов</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Сертификаты</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Сменить аватар</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Нажмите для входа</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Создать репозиторий</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>Создать роль</value>
@@ -69,17 +81,29 @@
   <data name="Directory" xml:space="preserve">
     <value>Каталог</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Редактировать зеркало</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Редактировать репозиторий</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Редактировать роль</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Редактировать пользователя</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Движок</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Ошибка</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Возможности</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Сгенерировать новый ключ</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Глобальные настройки</value>
@@ -111,6 +135,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>Не найдено</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Пакетный движок</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Сведения о разрешениях</value>
   </data>
@@ -125,6 +152,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>Настройки профиля</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Публичные репозитории</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Зарегистрироваться</value>
@@ -141,6 +171,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>Выйти</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Сертификаты подписи</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>История снимков</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>Система</value>
   </data>
@@ -152,6 +188,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Неавторизованный</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Верхние зеркала</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Данные пользователя</value>

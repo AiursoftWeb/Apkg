@@ -24,6 +24,9 @@
   <data name="Account Settings" xml:space="preserve">
     <value>Cài đặt Tài khoản</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Thêm Mới Mirror</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Quản trị viên</value>
   </data>
@@ -42,6 +45,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Yêu cầu sai</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>Lịch sử Bucket</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Chứng chỉ</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Thay đổi Ảnh đại diện</value>
   </data>
@@ -53,6 +62,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Nhấp để đăng nhập</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Tạo Repository</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>Tạo Vai Trò</value>
@@ -72,17 +84,29 @@
   <data name="Directory" xml:space="preserve">
     <value>Thư mục</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Sửa Mirror</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Sửa kho lưu trữ</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Chỉnh sửa Vai trò</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Chỉnh sửa Người dùng</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Động cơ</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Lỗi</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Tính năng</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Tạo Khóa Mới</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Cài đặt chung</value>
@@ -114,6 +138,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>Không tìm thấy</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Động cơ Gói</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Chi tiết quyền hạn</value>
   </data>
@@ -128,6 +155,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>Cài đặt Hồ sơ</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Kho lưu trữ Công khai</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Đăng ký</value>
@@ -144,6 +174,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>Đăng xuất</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Chứng chỉ ký</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>Lịch sử Snapshot</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>Hệ thống</value>
   </data>
@@ -155,6 +191,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Không được ủy quyền</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Các bản sao upstream</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Thông tin người dùng</value>

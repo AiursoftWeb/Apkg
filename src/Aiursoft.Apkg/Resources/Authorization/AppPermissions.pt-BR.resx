@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Permite atribuir ou remover funções para qualquer usuário.</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>Permite auditar o histórico de instantâneos do repositório e o uso do disco.</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>Permite gerar e gerenciar certificados de assinatura GPG.</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Permite a modificação dos nomes das funções e de suas permissões atribuídas.</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Permite a exclusão permanente de contas de usuário.</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>Permite visualizar e modificar repositórios de espelhos APT.</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>Permite visualizar e modificar repositórios APT.</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Permite visualizar e modificar as configurações globais da aplicação.</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Concede permissão para reiniciar a instância do aplicativo. Pode causar interrupções na disponibilidade, mas todas as configurações e o cache serão recarregados.</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>Gerenciar Certificados</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Gerenciar Configurações Globais</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>Gerenciar Espelhos</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>Gerenciar Repositórios</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>Ler Permissões</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Visualizar Tarefas em Segundo Plano</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>Visualizar Buckets</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Visualizar Contexto do Sistema</value>

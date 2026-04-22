@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Consente di assegnare o rimuovere ruoli per qualsiasi utente.</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>Consente di verificare la cronologia degli snapshot del repository e l&apos;utilizzo del disco.</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>Consente la generazione e la gestione dei certificati di firma GPG.</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Consente la modifica dei nomi dei ruoli e dei permessi assegnati.</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Consente l&apos;eliminazione permanente degli account utente.</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>Consente di visualizzare e modificare i repository degli mirror APT.</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>Consente la visualizzazione e la modifica dei repository APT.</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Consente di visualizzare e modificare le impostazioni globali dell&apos;applicazione.</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Concede il permesso di riavviare l&apos;istanza dell&apos;applicazione. Potrebbe causare interruzioni della disponibilità, ma tutte le impostazioni e la cache verranno ricaricate.</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>Gestisci certificati</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Gestisci Impostazioni Globali</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>Gestisci mirror</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>Gestisci repository</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>Leggere Permessi</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Visualizza i processi in background</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>Visualizza bucket</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Visualizza Contesto di Sistema</value>

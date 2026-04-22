@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Acces respins</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Adaugă oglindă nouă</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Administrator</value>
   </data>
@@ -39,6 +42,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Cerere greșită</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>Istoric bucket</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Certificate</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Schimbă Avatarul</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Apasă pentru a te autentifica</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Creează depozit</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>Creează Rol</value>
@@ -69,17 +81,29 @@
   <data name="Directory" xml:space="preserve">
     <value>Director</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Editare oglindă</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Editează depozitul</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Editează Rol</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Editează Utilizator</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Motor</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Eroare</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Caracteristici</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Generează cheie nouă</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Setări globale</value>
@@ -111,6 +135,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>Nu a fost găsit</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Motor de pachete</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Detalii permisiuni</value>
   </data>
@@ -125,6 +152,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>Setări Profil</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Repozitoare Publice</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Înregistrare</value>
@@ -141,6 +171,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>Deconectare</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Certificate de semnare</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>Istoric instantanee</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>Sistem</value>
   </data>
@@ -152,6 +188,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Neautorizat</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Repozitorii amonte</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Detalii Utilizator</value>

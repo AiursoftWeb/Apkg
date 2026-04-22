@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Mahdollistaa roolien määrittämisen tai poistamisen mille tahansa käyttäjälle.</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>Mahdollistaa arkiston kuvahistorian ja levytilankäytön tarkastelun.</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>Mahdollistaa GPG-allekirjoitusvarmenteiden luomisen ja hallinnan.</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Sallii roolien nimien ja niihin liitettyjen käyttöoikeuksien muokkaamisen.</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Sallii käyttäjätilien pysyvän poistamisen.</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>Mahdollistaa APT-peilirepositorioiden tarkastelun ja muokkaamisen.</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>Mahdollistaa APT-repositorioiden tarkastelun ja muokkaamisen.</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Salli näytön ja muokkaus yleiset sovelluksen asetukset.</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Antaa luvan sovelluksen uudelleenkäynnistämiseen. Saattaa aiheuttaa käyttökatkoksia, mutta kaikki asetukset ja välimuisti ladataan uudelleen.</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>Hallinnoi varmenteita</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Hallinnoi yleisiä asetuksia</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>Hallitse peilejä</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>Hallitse arkistoja</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>Lue käyttöoikeudet</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Näytä taustatehtävät</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>Näytä ämpärit</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Näytä järjestelmän konteksti</value>

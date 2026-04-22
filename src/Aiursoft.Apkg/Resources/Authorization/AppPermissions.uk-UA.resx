@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Дозволяє призначати або знімати ролі для будь-кого користувача.</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>Дозволяє перевіряти історію знімків сховища та використання диска.</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>Дозволяє створювати та керувати сертифікатами підпису GPG.</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Дозволяє змінювати назви ролей та призначені для них дозволи.</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Дозволяє остаточне видалення облікових записів користувачів.</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>Дозволяє переглядати та змінювати дзеркала APT-репозиторіїв.</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>Дозволяє переглядати та змінювати сховища APT.</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Дозволяє переглядати та змінювати глобальні налаштування додатку.</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Надає дозвіл на перезапуск екземпляра програми. Може призвести до перерв у доступності, але всі налаштування та кеш буде перезавантажено.</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>Керувати сертифікатами</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Керування загальними параметрами</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>Керування дзеркалами</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>Керування сховищами</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>Читати дозволи</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Переглянути фонові завдання</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>Переглянути сегменти</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Перегляд системного контексту</value>

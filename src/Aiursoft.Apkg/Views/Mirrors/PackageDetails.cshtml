@@ -44,7 +44,7 @@
                     <div class="d-flex flex-wrap gap-1">
                         @foreach (var dep in pkg.Depends.Split(','))
                         {
-                            <span class="badge bg-outline-primary">@dep.Trim()</span>
+                            <span class="badge badge-subtle-primary">@dep.Trim()</span>
                         }
                     </div>
                 }
@@ -80,11 +80,17 @@
             </div>
         </div>
         
-        <div class="card mt-3 text-center">
-            <div class="card-body">
-                <a href="@pkg.RemoteUrl" target="_blank" class="btn btn-outline-secondary w-100">
-                    <i class="align-middle" data-lucide="external-link"></i> @Localizer["Upstream URL"]
+        <div class="card mt-3">
+            <div class="card-body d-grid gap-2">
+                <a href="/@pkg.Filename" class="btn btn-primary">
+                    <i class="align-middle me-1" data-lucide="download"></i> @Localizer["Download .deb"]
                 </a>
+                @if (!string.IsNullOrWhiteSpace(pkg.RemoteUrl))
+                {
+                    <a href="@pkg.RemoteUrl" target="_blank" class="btn btn-outline-secondary">
+                        <i class="align-middle me-1" data-lucide="external-link"></i> @Localizer["Upstream URL"]
+                    </a>
+                }
             </div>
         </div>
     </div>

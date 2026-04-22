@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Herhangi bir kullanıcıya rol atanmasına veya kaldırılmasına izin verir.</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>Depo anlık görüntüsü geçmişini ve disk kullanımını denetlemeye olanak tanır.</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>GPG imza sertifikalarının oluşturulmasına ve yönetilmesine izin verir.</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Rol isimlerinin ve atanmış izinlerin değiştirilmesine izin verir.</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Kullanıcı hesaplarının kalıcı olarak silinmesine izin verir.</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>APT ayna depolarını görüntüleme ve değiştirme izni verir.</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>APT depolarını görüntülemeyi ve değiştirmeyi sağlar.</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Genel uygulama ayarlarını görüntüleme ve değiştirme izni verir.</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Uygulama örneğini yeniden başlatma iznini verir. Kullanılabilirlik kesintilerine neden olabilir ancak tüm ayarlar ve önbellek yeniden yüklenecektir.</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>Sertifikaları Yönet</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Genel Ayarları Yönet</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>Aynaları Yönet</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>Depoları Yönet</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>İzinleri Oku</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Arka Plan İşlerini Görüntüle</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>Kovaları Görüntüle</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Sistem Bağlamını Görüntüle</value>

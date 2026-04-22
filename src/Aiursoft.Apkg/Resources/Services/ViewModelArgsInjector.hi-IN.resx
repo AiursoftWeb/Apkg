@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>प्रवेश अस्वीकृत</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>नया मिरर जोड़ें</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>प्रशासक</value>
   </data>
@@ -39,6 +42,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>खराब अनुरोध</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>बकेट इतिहास</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>प्रमाणपत्र</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>अवतार बदलें</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>लॉगिन करने के लिए क्लिक करें</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>रिपॉजिटरी बनाएं</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>भूमिका बनाएं</value>
@@ -69,17 +81,29 @@
   <data name="Directory" xml:space="preserve">
     <value>निर्देशिका</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>दर्पण संपादित करें</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>रिपॉजिटरी संपादित करें</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>भूमिका संपादित करें</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>उपयोगकर्ता संपादित करें</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>इंजन</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>त्रुटि</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>विशेषताएँ</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>नया कुंजी उत्पन्न करें</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>सार्वभौम सेटिंग्स</value>
@@ -111,6 +135,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>नहीं मिला</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>पैकेज इंजन</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>अनुमति विवरण</value>
   </data>
@@ -125,6 +152,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>प्रोफ़ाइल सेटिंग्स</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>सार्वजनिक भंडार</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>पंजीकरण करें</value>
@@ -141,6 +171,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>साइन आउट</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>साइनिंग प्रमाणपत्र</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>स्नैपशॉट इतिहास</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>सिस्टम</value>
   </data>
@@ -152,6 +188,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>अनधिकृत</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>अपस्ट्रीम मिरर</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>उपयोगकर्ता विवरण</value>

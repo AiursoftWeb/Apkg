@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>किसी भी उपयोगकर्ता को भूमिकाएँ सौंपने या हटाने की अनुमति देता है।</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>रेपॉजिटरी स्नैपशॉट इतिहास और डिस्क उपयोग की जांच करने की अनुमति देता है।</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>GPG साइनिंग प्रमाणपत्रों को उत्पन्न करने और प्रबंधित करने की अनुमति देता है।</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>रोल नामों और उनके सौंपे गए अनुमतियों में संशोधन की अनुमति देता है।</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>उपयोगकर्ता खातों को स्थायी रूप से हटाने की अनुमति देता है।</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>APT मिरर रिपॉजिटरी देखने और संशोधित करने की अनुमति देता है।</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>APT रिपॉजिटरी देखने और संशोधित करने की अनुमति देता है।</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>सभी अनुप्रयोग सेटिंग्स को देखने और संशोधित करने की अनुमति देता है।</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>एप्लिकेशन इंस्टेंस को पुनरारंभ करने की अनुमति प्रदान करता है। इससे उपलब्धता में व्यवधान हो सकता है, लेकिन सभी सेटिंग्स और कैश पुनः लोड हो जाएंगे।</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>प्रमाणपत्र प्रबंधित करें</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>ग्लोबल सेटिंग्स प्रबंधित करें</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>दर्पण प्रबंधित करें</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>भंडार प्रबंधित करें</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>अनुमतियाँ पढ़ें</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>बैकग्राउंड जॉब्स देखें</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>बकेट देखें</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>सिस्टम संदर्भ देखें</value>

@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Cho phép gán hoặc gỡ bỏ vai trò cho bất kỳ người dùng nào.</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>Cho phép kiểm tra lịch sử snapshot của kho lưu trữ và việc sử dụng đĩa.</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>Cho phép tạo và quản lý chứng chỉ ký GPG.</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Cho phép sửa đổi tên vai trò và các quyền đã được gán.</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Cho phép xóa vĩnh viễn tài khoản người dùng.</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>Cho phép xem và sửa đổi kho lưu trữ gương APT.</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>Cho phép xem và sửa đổi các kho lưu trữ APT.</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Cho phép xem và chỉnh sửa cài đặt toàn cục của ứng dụng.</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Cấp quyền khởi động lại phiên bản ứng dụng. Có thể gây ra gián đoạn về tính khả dụng nhưng tất cả cài đặt và bộ nhớ đệm sẽ được tải lại.</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>Quản lý chứng chỉ</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Quản lý Cài đặt Toàn cầu</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>Quản lý Mirrors</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>Quản lý Kho lưu trữ</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>Đọc Quyền</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Xem các nhiệm vụ nền</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>Xem các Bucket</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Xem Ngữ cảnh Hệ thống</value>

@@ -1,0 +1,234 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.RepoPackageDetailsViewModel
+@functions {
+    // Split "libc6 (>= 2.17), curl | wget" into alternation groups
+    // Returns e.g. [["libc6 (>= 2.17)"], ["curl", "wget"]]
+    static IEnumerable<string[]> SplitDepEntries(string depString) =>
+        depString.Split(',')
+            .Select(entry => entry.Split('|')
+                .Select(a => a.Trim())
+                .Where(a => !string.IsNullOrEmpty(a))
+                .ToArray())
+            .Where(alts => alts.Length > 0);
+
+    static string PkgName(string entry) =>
+        entry.Trim().Split(new[] { ' ', '\t' }, 2)[0].Trim();
+}
+@{
+    var pkg = Model.Package;
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@Localizer["Package Details"] - <code>@pkg.Package</code></h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header"><h5 class="card-title mb-0">@Localizer["Metadata"]</h5></div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">@Localizer["Version"]</dt>
+                    <dd class="col-sm-9"><span class="badge bg-success">@pkg.Version</span></dd>
+
+                    <dt class="col-sm-3">@Localizer["Architecture"]</dt>
+                    <dd class="col-sm-9"><code>@pkg.Architecture</code></dd>
+
+                    <dt class="col-sm-3">@Localizer["Section"]</dt>
+                    <dd class="col-sm-9"><code>@pkg.Section</code></dd>
+
+                    <dt class="col-sm-3">@Localizer["Priority"]</dt>
+                    <dd class="col-sm-9"><code>@pkg.Priority</code></dd>
+
+                    @if (!string.IsNullOrWhiteSpace(pkg.Source))
+                    {
+                        <dt class="col-sm-3">@Localizer["Source"]</dt>
+                        <dd class="col-sm-9"><code>@pkg.Source</code></dd>
+                    }
+
+                    <dt class="col-sm-3">@Localizer["Origin"]</dt>
+                    <dd class="col-sm-9">@pkg.Origin</dd>
+
+                    <dt class="col-sm-3">@Localizer["Maintainer"]</dt>
+                    <dd class="col-sm-9">@pkg.Maintainer</dd>
+
+                    @if (!string.IsNullOrWhiteSpace(pkg.OriginalMaintainer))
+                    {
+                        <dt class="col-sm-3">@Localizer["Original Maintainer"]</dt>
+                        <dd class="col-sm-9">@pkg.OriginalMaintainer</dd>
+                    }
+
+                    @if (!string.IsNullOrWhiteSpace(pkg.Bugs))
+                    {
+                        <dt class="col-sm-3">@Localizer["Bugs"]</dt>
+                        <dd class="col-sm-9"><a href="@pkg.Bugs" target="_blank">@pkg.Bugs</a></dd>
+                    }
+
+                    @if (!string.IsNullOrWhiteSpace(pkg.Homepage))
+                    {
+                        <dt class="col-sm-3">@Localizer["Homepage"]</dt>
+                        <dd class="col-sm-9"><a href="@pkg.Homepage" target="_blank">@pkg.Homepage</a></dd>
+                    }
+
+                    <dt class="col-sm-3">@Localizer["Description"]</dt>
+                    <dd class="col-sm-9"><p class="text-muted mb-0">@pkg.Description</p></dd>
+                </dl>
+            </div>
+        </div>
+
+        @* ── Relations card ── *@
+        <div class="card mt-3">
+            <div class="card-header"><h5 class="card-title mb-0">@Localizer["Relations"]</h5></div>
+            <div class="card-body">
+                @{
+                    var relations = new[]
+                    {
+                        ("Depends",   pkg.Depends,   "badge-subtle-primary"),
+                        ("Recommends",pkg.Recommends, "badge-subtle-info"),
+                        ("Suggests",  pkg.Suggests,  "badge-subtle-secondary"),
+                        ("Conflicts", pkg.Conflicts, "badge-subtle-danger"),
+                        ("Breaks",    pkg.Breaks,    "badge-subtle-danger"),
+                        ("Replaces",  pkg.Replaces,  "badge-subtle-warning"),
+                        ("Provides",  pkg.Provides,  "badge-subtle-success"),
+                    };
+                    bool anyRelation = false;
+                }
+                @foreach (var (label, value, css) in relations)
+                {
+                    if (!string.IsNullOrWhiteSpace(value))
+                    {
+                        anyRelation = true;
+                        <h6 class="mt-2 mb-1">@Localizer[label]</h6>
+                        <div class="d-flex flex-wrap gap-1 mb-2">
+                            @foreach (var alts in SplitDepEntries(value))
+                            {
+                                @for (int i = 0; i < alts.Length; i++)
+                                {
+                                    var alt = alts[i];
+                                    var name = PkgName(alt);
+                                    if (Model.DepLookup.TryGetValue(name, out var pkgId))
+                                    {
+                                        <a href="@Url.Action("PackageDetails", "Repositories", new { id = pkgId })"
+                                           class="badge @css text-decoration-none"
+                                           title="@alt">@alt</a>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge @css" title="@alt">@alt</span>
+                                    }
+                                    if (i < alts.Length - 1)
+                                    {
+                                        <span class="text-muted small align-self-center">|</span>
+                                    }
+                                }
+                            }
+                        </div>
+                    }
+                }
+                @if (!anyRelation)
+                {
+                    <p class="text-muted mb-0">@Localizer["No relations."]</p>
+                }
+            </div>
+        </div>
+
+        @* ── Reverse dependencies (async) ── *@
+        <div class="card mt-3">
+            <div class="card-header"><h5 class="card-title mb-0">@Localizer["Reverse Dependencies"]</h5></div>
+            <div class="card-body">
+                <div id="rev-deps-loading">
+                    <span class="spinner-border spinner-border-sm me-1" role="status"></span>
+                    <span class="text-muted">@Localizer["Loading…"]</span>
+                </div>
+                <div id="rev-deps-content" style="display:none"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header"><h5 class="card-title mb-0">@Localizer["Status & Files"]</h5></div>
+            <div class="card-body">
+                <p>
+                    <strong>@Localizer["Storage State"]:</strong>
+                    @if (pkg.IsVirtual)
+                    {
+                        <span class="badge bg-warning">@Localizer["Virtual (Lazy Sync)"]</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">@Localizer["Physical (Cached)"]</span>
+                    }
+                </p>
+                <p><strong>@Localizer["Download Size"]:</strong> @(long.Parse(pkg.Size) / 1024) KB</p>
+                @if (!string.IsNullOrWhiteSpace(pkg.InstalledSize))
+                {
+                    <p><strong>@Localizer["Installed Size"]:</strong> @pkg.InstalledSize B</p>
+                }
+                <p><strong>@Localizer["Component"]:</strong> @pkg.Component</p>
+                @if (!string.IsNullOrWhiteSpace(pkg.MultiArch))
+                {
+                    <p><strong>@Localizer["Multi-Arch"]:</strong> @pkg.MultiArch</p>
+                }
+                <hr />
+                <h6>@Localizer["Hashes"]</h6>
+                <small class="d-block text-break"><strong>SHA256:</strong> @pkg.SHA256</small>
+                <small class="d-block text-break"><strong>SHA1:</strong> @pkg.SHA1</small>
+                <small class="d-block text-break"><strong>MD5:</strong> @pkg.MD5sum</small>
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body d-grid gap-2">
+                <a href="/@pkg.Filename" class="btn btn-primary">
+                    <i class="align-middle me-1" data-lucide="download"></i> @Localizer["Download .deb"]
+                </a>
+                @if (!string.IsNullOrWhiteSpace(pkg.RemoteUrl))
+                {
+                    <a href="@pkg.RemoteUrl" target="_blank" class="btn btn-outline-secondary">
+                        <i class="align-middle me-1" data-lucide="external-link"></i> @Localizer["Upstream URL"]
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a href="javascript:history.back()" class="btn btn-secondary">@Localizer["Back"]</a>
+</div>
+
+@section scripts {
+<script>
+(function () {
+    fetch('@Url.Action("ReverseDepends", "Repositories", new { id = pkg.Id })')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+            var loading = document.getElementById('rev-deps-loading');
+            var content = document.getElementById('rev-deps-content');
+            loading.style.display = 'none';
+            if (!data || data.length === 0) {
+                content.innerHTML = '<p class="text-muted mb-0">@Localizer["No packages depend on this package."]</p>';
+            } else {
+                var html = '<div class="d-flex flex-wrap gap-1">';
+                data.forEach(function (p) {
+                    var types = (p.relTypes || []).join(', ');
+                    html += '<a href="/Repositories/PackageDetails/' + p.id + '" '
+                          + 'class="badge badge-subtle-primary text-decoration-none" '
+                          + 'title="' + p.version + ' [' + types + ']">'
+                          + p.package + '</a>';
+                });
+                html += '</div>';
+                html += '<p class="text-muted small mt-2 mb-0">' + data.length + ' package(s)</p>';
+                content.innerHTML = html;
+            }
+            content.style.display = '';
+        })
+        .catch(function () {
+            document.getElementById('rev-deps-loading').innerHTML =
+                '<p class="text-danger mb-0">@Localizer["Failed to load reverse dependencies."]</p>';
+        });
+})();
+</script>
+}

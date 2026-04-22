@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Доступ заборонено</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Додати нове дзеркало</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Адмін</value>
   </data>
@@ -39,6 +42,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Помилковий запит</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>Історія кошика</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Сертифікати</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Змінити аватар</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Натисніть, щоб увійти</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Створити сховище</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>Створити роль</value>
@@ -69,17 +81,29 @@
   <data name="Directory" xml:space="preserve">
     <value>Каталог</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Редагувати дзеркало</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Редагувати репозиторій</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Редагувати роль</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Редагувати користувача</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Двигун</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Помилка</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Функції</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Згенерувати новий ключ</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Глобальні налаштування</value>
@@ -111,6 +135,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>Не знайдено</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Пакетний рушій</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Деталі дозволів</value>
   </data>
@@ -125,6 +152,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>Налаштування профілю</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Публічні сховища</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Реєстрація</value>
@@ -141,6 +171,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>Вийти</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Сертифікати підпису</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>Історія знімків</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>Система</value>
   </data>
@@ -152,6 +188,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Неавторизовано</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Джерела дзеркал</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Деталі користувача</value>

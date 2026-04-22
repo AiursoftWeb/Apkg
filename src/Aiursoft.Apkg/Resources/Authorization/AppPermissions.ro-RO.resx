@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Permite atribuirea sau eliminarea rolurilor pentru orice utilizator.</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>Permite auditarea istoricului instantaneilor depozitului și a utilizării discului.</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>Permite generarea și gestionarea certificatelor de semnare GPG.</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Permite modificarea numelor rolurilor și a permisiunilor atribuite acestora.</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Permite ștergerea permanentă a conturilor de utilizator.</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>Permite vizualizarea și modificarea depozitelor de oglindă APT.</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>Permite vizualizarea și modificarea depozitelor APT.</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Permite vizualizarea și modificarea setărilor globale ale aplicației.</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Acordă permisiunea de a reporni instanța aplicației. Poate cauza întreruperi de disponibilitate, dar toate setările și memoria cache vor fi reîncărcate.</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>Gestionați certificatele</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Gestionare setări globale</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>Gestionați oglinzile</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>Gestionați depozitele</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>Citește Permisiuni</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Vizualizează sarcinile în fundal</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>Vizualizare Secțiuni</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Vizualizare Context Sistem</value>

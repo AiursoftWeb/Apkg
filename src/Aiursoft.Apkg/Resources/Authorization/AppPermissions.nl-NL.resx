@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Stelt in staat om rollen toe te wijzen of te verwijderen voor elke gebruiker.</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>Staat toe om de geschiedenis van repository-snapshots en het schijfgebruik te controleren.</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>Maakt het genereren en beheren van GPG-handtekeningcertificaten mogelijk.</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Staat aanpassing van rolnamen en hun toegewezen machtigingen toe.</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Staat het permanent verwijderen van gebruikersaccounts toe.</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>Staat het bekijken en wijzigen van APT-mirrorrepositories toe.</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>Staat het bekijken en wijzigen van APT-repositories toe.</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Staats het bekijken en wijzigen van globale toepassingsinstellingen toe.</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Verleent toestemming om de applicatie-instantie opnieuw op te starten. Kan beschikbaarheidsonderbrekingen veroorzaken, maar alle instellingen en cache worden opnieuw geladen.</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>Certificaten beheren</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Algemene instellingen beheren</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>Mirrors beheren</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>Repositories beheren</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>Leesmachtigingen</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Achtergrondtaken weergeven</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>Buckets bekijken</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Systeemcontext weergeven</value>

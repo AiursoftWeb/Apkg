@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>允許為任何用戶分配或移除角色。</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>允許審計倉庫快照歷史記錄及磁碟使用情況。</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>允許生成和管理 GPG 簽名證書。</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>允許修改角色名稱及其分配的權限。</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>允許永久刪除用戶帳戶。</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>允許查看和修改 APT 鏡像存儲庫。</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>允許查看和修改 APT 儲存庫。</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>容許檢視及修改應用程式的全域設定。</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>授予重啟應用程式實例嘅權限。可能會導致服務中斷，但所有設定同快取將會重新載入。</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>管理憑證</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>管理全域設定</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>管理鏡像</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>管理程式庫</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>讀取權限</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>檢視背景作業</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>查看存儲桶</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>檢視系統內容</value>

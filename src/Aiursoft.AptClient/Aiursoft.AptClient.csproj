@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <Version>10.0.4</Version>
+    <Version>10.0.5</Version>
     <TargetFramework>net10.0</TargetFramework>
     <AssemblyName>Aiursoft.AptClient</AssemblyName>
     <RootNamespace>Aiursoft.AptClient</RootNamespace>
@@ -28,6 +28,6 @@
     <ProjectReference Include="..\Aiursoft.AptClient.Abstractions\Aiursoft.AptClient.Abstractions.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="SharpCompress" Version="0.47.4" />
+    <PackageReference Include="SharpCompress" Version="1.0.0" />
   </ItemGroup>
 </Project>

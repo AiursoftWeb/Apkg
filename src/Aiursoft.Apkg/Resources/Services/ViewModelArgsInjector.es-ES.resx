@@ -24,6 +24,9 @@
   <data name="Account Settings" xml:space="preserve">
     <value>Configuración de la cuenta</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Añadir nuevo espejo</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Administrador</value>
   </data>
@@ -42,6 +45,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Solicitud incorrecta</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>Historial del contenedor</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Certificados</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Cambiar avatar</value>
   </data>
@@ -53,6 +62,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Haga clic para iniciar sesión</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Crear repositorio</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>Crear Rol</value>
@@ -72,17 +84,29 @@
   <data name="Directory" xml:space="preserve">
     <value>Directorio</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Editar espejo</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Editar repositorio</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Editar rol</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Editar Usuario</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Motor</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Características</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Generar nueva clave</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Ajustes globales</value>
@@ -114,6 +138,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>No encontrado</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Motor de paquetes</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Detalles de permisos</value>
   </data>
@@ -128,6 +155,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>Configuración del perfil</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Repositorios públicos</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Registrarse</value>
@@ -144,6 +174,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>Cerrar sesión</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Certificados de firma</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>Historial de instantáneas</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>Sistema</value>
   </data>
@@ -155,6 +191,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>No autorizado</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Espejos de origen</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Detalles del usuario</value>

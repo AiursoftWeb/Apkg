@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Επιτρέπει την ανάθεση ή την κατάργηση ρόλων για οποιονδήποτε χρήστη.</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>Επιτρέπει τον έλεγχο της ιστορικής καταγραφής στιγμιότυπων των αποθετηρίων και της χρήσης του δίσκου.</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>Επιτρέπει τη δημιουργία και διαχείριση πιστοποιητικών υπογραφής GPG.</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Επιτρέπει την τροποποίηση των ονομάτων ρόλων και των αντιστοιχισμένων δικαιωμάτων πρόσβασης.</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Επιτρέπει τη μόνιμη διαγραφή των λογαριασμών χρηστών.</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>Επιτρέπει την προβολή και τον χειρισμό των αποθετηρίων κατόπτρων APT.</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>Επιτρέπει την προβολή και την τροποποίηση των αποθετηρίων APT.</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Επιτρέπει την προβολή και την τροποποίηση των γενικών ρυθμίσεων της εφαρμογής.</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Παρέχει άδεια για επανεκκίνηση της εφαρμογής. Μπορεί να προκαλέσει διακοπές στη διαθεσιμότητα, αλλά όλες οι ρυθμίσεις και η προσωρινή μνήμη θα φορτωθούν εκ νέου.</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>Διαχείριση Πιστοποιητικών</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Διαχείριση Γενικών Ρυθμίσεων</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>Διαχείριση Καθρεπτισμών</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>Διαχείριση Αποθετηρίων</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>Διαβάστε Δικαιώματα</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Προβολή Εργασιών Παρασκηνίου</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>Προβολή Κάδων</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Προβολή Συστημικού Περιεχομένου</value>

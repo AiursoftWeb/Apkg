@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>Ermöglicht das Zuweisen oder Entfernen von Rollen für beliebige Benutzer.</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>Ermöglicht die Überprüfung der Repository-Snapshot-Verlauf und der Plattennutzung.</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>Ermöglicht das Erzeugen und Verwalten von GPG-Signaturzertifikaten.</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>Ermöglicht die Änderung von Rollennamen und deren zugewiesenen Berechtigungen.</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Ermöglicht das dauerhafte Löschen von Benutzerkonten.</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>Ermöglicht das Anzeigen und Ändern von APT-Mirror-Repositories.</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>Ermöglicht das Anzeigen und Ändern von APT-Quellen.</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>Erlaubt das Anzeigen und Ändern von globalen Anwendungseinstellungen.</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>Erteilt die Berechtigung, die Anwendungsinstanz neu zu starten. Kann zu Verfügbarkeitsunterbrechungen führen, aber alle Einstellungen und der Cache werden neu geladen.</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>Zertifikate verwalten</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>Globale Einstellungen verwalten</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>Spiegelserver verwalten</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>Repositorys verwalten</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>Berechtigungen lesen</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Hintergrundaufträge anzeigen</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>Buckets anzeigen</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>Systemkontext anzeigen</value>

@@ -24,6 +24,9 @@
   <data name="Account Settings" xml:space="preserve">
     <value>Paramètres du compte</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Ajouter un nouveau miroir</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Administrateur</value>
   </data>
@@ -42,6 +45,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Requête incorrecte</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>Historique du compartiment</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Certificats</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Changer l&apos;avatar</value>
   </data>
@@ -53,6 +62,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Cliquez pour vous connecter</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Créer un dépôt</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>Créer un rôle</value>
@@ -72,17 +84,29 @@
   <data name="Directory" xml:space="preserve">
     <value>Répertoire</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Modifier le miroir</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Modifier le dépôt</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Modifier le rôle</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Modifier l&apos;utilisateur</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Moteur</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Erreur</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Fonctionnalités</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Générer une nouvelle clé</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Paramètres globaux</value>
@@ -114,6 +138,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>Non trouvé</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Moteur de packages</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Détails des autorisations</value>
   </data>
@@ -128,6 +155,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>Paramètres du profil</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Dépôts publics</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>S&apos;inscrire</value>
@@ -144,6 +174,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>Se déconnecter</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Certificats de signature</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>Historique des instantanés</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>Système</value>
   </data>
@@ -155,6 +191,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Non autorisé</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Miroirs amont</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Détails de l&apos;utilisateur</value>

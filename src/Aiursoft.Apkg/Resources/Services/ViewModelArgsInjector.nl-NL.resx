@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Toegang geweigerd</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Nieuwe mirror toevoegen</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Beheerder</value>
   </data>
@@ -39,6 +42,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Ongeldige aanvraag</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>Bucketgeschiedenis</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Certificaten</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Avatar wijzigen</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Klik om in te loggen</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Repository aanmaken</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>Rol aanmaken</value>
@@ -69,17 +81,29 @@
   <data name="Directory" xml:space="preserve">
     <value>Map</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Mirror bewerken</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Repository bewerken</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Rol bewerken</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Gebruiker bewerken</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Motor</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Fout</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Functionaliteiten</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Genereer nieuwe sleutel</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Algemene instellingen</value>
@@ -111,6 +135,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>Niet gevonden</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Pakketmotor</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Toegangsdetails</value>
   </data>
@@ -125,6 +152,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>Profielinstellingen</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Openbare repositories</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Registreren</value>
@@ -141,6 +171,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>Uitloggen</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Ondertekeningscertificaten</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>Geschiedenis van snapshots</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>Systeem</value>
   </data>
@@ -152,6 +188,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Niet geautoriseerd</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Upstream-mirrors</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Gebruikersgegevens</value>

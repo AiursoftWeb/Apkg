@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Erişim Reddedildi</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Yeni Ayna Ekle</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Yönetici</value>
   </data>
@@ -39,6 +42,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Geçersiz İstek</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>Bucket Geçmişi</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Sertifikalar</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Profil Resmini Değiştir</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Giriş yapmak için tıklayın</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Depo Oluştur</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>Rol Oluştur</value>
@@ -69,17 +81,29 @@
   <data name="Directory" xml:space="preserve">
     <value>Dizin</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Aynayı Düzenle</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Depoyu Düzenle</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Rolü Düzenle</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Kullanıcıyı Düzenle</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Motor</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Hata</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Özellikler</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Yeni Anahtar Oluştur</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Genel Ayarlar</value>
@@ -111,6 +135,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>Bulunamadı</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Paket Motoru</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>İzin Detayları</value>
   </data>
@@ -125,6 +152,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>Profil Ayarları</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Halka Açık Depolar</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Kayıt Ol</value>
@@ -141,6 +171,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>Çıkış Yap</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>İmzalama Sertifikaları</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>Yedekleme Geçmişi</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>Sistem</value>
   </data>
@@ -152,6 +188,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Yetkisiz</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Üst Düzey Aynalar</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Kullanıcı Detayları</value>

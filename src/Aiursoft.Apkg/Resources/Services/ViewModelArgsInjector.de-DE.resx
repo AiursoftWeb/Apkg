@@ -24,6 +24,9 @@
   <data name="Account Settings" xml:space="preserve">
     <value>Kontoeinstellungen</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Neuen Mirror hinzufügen</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Administrator</value>
   </data>
@@ -42,6 +45,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Ungültige Anforderung</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>Eimer-Verlauf</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Zertifikate</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Avatar ändern</value>
   </data>
@@ -53,6 +62,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Zum Anmelden klicken</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Repository erstellen</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>Rolle erstellen</value>
@@ -72,17 +84,29 @@
   <data name="Directory" xml:space="preserve">
     <value>Verzeichnis</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Spiegel bearbeiten</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Repository bearbeiten</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Rolle bearbeiten</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Benutzer bearbeiten</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Engine</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Fehler</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Funktionen</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Neuen Schlüssel generieren</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Globale Einstellungen</value>
@@ -114,6 +138,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>Nicht gefunden</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Paket-Engine</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Berechtigungsdetails</value>
   </data>
@@ -128,6 +155,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>Profileinstellungen</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Öffentliche Repositorys</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Registrieren</value>
@@ -144,6 +174,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>Abmelden</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Unterschriftszertifikate</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>Verlauf der Snapshots</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>System</value>
   </data>
@@ -155,6 +191,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Nicht autorisiert</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Upstream-Spiegel</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Benutzerdetails</value>

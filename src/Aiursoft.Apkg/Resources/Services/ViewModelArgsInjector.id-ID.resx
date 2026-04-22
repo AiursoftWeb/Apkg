@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Akses Ditolak</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Tambahkan Cermin Baru</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Administrator</value>
   </data>
@@ -39,6 +42,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Permintaan Salah</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>Riwayat Bucket</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Sertifikat</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Ubah Avatar</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Klik untuk masuk</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Buat Repositori</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>Buat Peran</value>
@@ -69,17 +81,29 @@
   <data name="Directory" xml:space="preserve">
     <value>Direktori</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Edit Cermin</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Edit Repository</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Edit Peran</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Edit Pengguna</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Mesin</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Kesalahan</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Fitur</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Buat Kunci Baru</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Pengaturan Global</value>
@@ -111,6 +135,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>Tidak Ditemukan</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Mesin Paket</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Detail Izin</value>
   </data>
@@ -125,6 +152,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>Pengaturan Profil</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Repositori Publik</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Daftar</value>
@@ -141,6 +171,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>Keluar</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Sertifikat Penandatangan</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>Riwayat Snapshot</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>Sistem</value>
   </data>
@@ -152,6 +188,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Tidak Diizinkan</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Cermin Hulu</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Detail Pengguna</value>

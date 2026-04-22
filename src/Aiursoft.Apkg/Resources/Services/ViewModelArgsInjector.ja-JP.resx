@@ -24,6 +24,9 @@
   <data name="Account Settings" xml:space="preserve">
     <value>アカウント設定</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>ミラーを新規追加</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>管理者</value>
   </data>
@@ -42,6 +45,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Bad Request</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>バケット履歴</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>証明書</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>アバターを変更</value>
   </data>
@@ -53,6 +62,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>ログインするにはクリック</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>リポジトリの作成</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>ロールの作成</value>
@@ -72,17 +84,29 @@
   <data name="Directory" xml:space="preserve">
     <value>ディレクトリ</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>ミラーを編集</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>リポジトリを編集</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>ロールを編集</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>ユーザー編集</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>エンジン</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>エラー</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>機能</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>新しいキーを生成</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>グローバル設定</value>
@@ -114,6 +138,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>Not Found</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>パッケージエンジン</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>権限の詳細</value>
   </data>
@@ -128,6 +155,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>プロフィール設定</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>公開リポジトリ</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>登録</value>
@@ -144,6 +174,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>サインアウト</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>署名証明書</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>スナップショット履歴</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>システム</value>
   </data>
@@ -155,6 +191,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>権限がありません</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>アップストリームミラー</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>ユーザー詳細</value>

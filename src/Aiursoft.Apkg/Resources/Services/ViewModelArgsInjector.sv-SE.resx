@@ -21,6 +21,9 @@
       <data name="Access Denied" xml:space="preserve">
     <value>Åtkomst nekad</value>
   </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Lägg till ny spegel</value>
+  </data>
   <data name="Admin" xml:space="preserve">
     <value>Administratör</value>
   </data>
@@ -39,6 +42,12 @@
   <data name="Bad Request" xml:space="preserve">
     <value>Felaktig begäran</value>
   </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>Buckethistorik</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Certifikat</value>
+  </data>
   <data name="Change Avatar" xml:space="preserve">
     <value>Byt avatar</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Klicka för att logga in</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Skapa arkiv</value>
   </data>
   <data name="Create Role" xml:space="preserve">
     <value>Skapa roll</value>
@@ -69,17 +81,29 @@
   <data name="Directory" xml:space="preserve">
     <value>Katalog</value>
   </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Redigera spegel</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Redigera arkiv</value>
+  </data>
   <data name="Edit Role" xml:space="preserve">
     <value>Redigera roll</value>
   </data>
   <data name="Edit User" xml:space="preserve">
     <value>Redigera användare</value>
   </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Motor</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>Fel</value>
   </data>
   <data name="Features" xml:space="preserve">
     <value>Funktioner</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Skapa ny nyckel</value>
   </data>
   <data name="Global Settings" xml:space="preserve">
     <value>Globala inställningar</value>
@@ -111,6 +135,9 @@
   <data name="Not Found" xml:space="preserve">
     <value>Inte hittat</value>
   </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Paketeringsmotor</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Behörighetsdetaljer</value>
   </data>
@@ -125,6 +152,9 @@
   </data>
   <data name="Profile Settings" xml:space="preserve">
     <value>Profilinställningar</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Publika arkiv</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Registrera</value>
@@ -141,6 +171,12 @@
   <data name="Sign out" xml:space="preserve">
     <value>Logga ut</value>
   </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Signeringscertifikat</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>Översikt över ögonblicksbilder</value>
+  </data>
   <data name="System" xml:space="preserve">
     <value>System</value>
   </data>
@@ -152,6 +188,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Obehörig</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Uppströms-speglingar</value>
   </data>
   <data name="User Details" xml:space="preserve">
     <value>Användardetaljer</value>

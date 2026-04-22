@@ -27,6 +27,12 @@
   <data name="Allows assigning or removing roles for any user." xml:space="preserve">
     <value>อนุญาตให้กำหนดหรือลบบทบาทสำหรับผู้ใช้ใดๆ</value>
   </data>
+  <data name="Allows auditing the repository snapshot history and disk usage." xml:space="preserve">
+    <value>อนุญาตให้ตรวจสอบประวัติสแนปชอตของรีโพซิทอรีและการใช้งานดิสก์</value>
+  </data>
+  <data name="Allows generating and managing GPG signing certificates." xml:space="preserve">
+    <value>อนุญาตให้สร้างและจัดการใบรับรองการลงนาม GPG</value>
+  </data>
   <data name="Allows modification of role names and their assigned permissions." xml:space="preserve">
     <value>อนุญาตให้แก้ไขชื่อบทบาทและสิทธิ์ที่กำหนดให้</value>
   </data>
@@ -38,6 +44,12 @@
   </data>
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>อนุญาตให้ลบบัญชีผู้ใช้อย่างถาวร</value>
+  </data>
+  <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
+    <value>อนุญาตให้ดูและแก้ไขที่เก็บ_mirror_ APT</value>
+  </data>
+  <data name="Allows viewing and modifying APT repositories." xml:space="preserve">
+    <value>อนุญาตให้ดูและแก้ไขแหล่งข้อมูล APT</value>
   </data>
   <data name="Allows viewing and modifying global application settings." xml:space="preserve">
     <value>อนุญาตให้ดูและแก้ไขการตั้งค่าแอปพลิเคชันระดับโลก</value>
@@ -81,8 +93,17 @@
   <data name="Grants permission to restart the application instance. May cause availability interruptions but all settings and cache will be reloaded." xml:space="preserve">
     <value>ให้สิทธิ์ในการรีสตาร์ทอินสแตนซ์แอปพลิเคชัน อาจทำให้เกิดการขัดจังหวะในการให้บริการ แต่การตั้งค่าและแคชทั้งหมดจะถูกโหลดใหม่</value>
   </data>
+  <data name="Manage Certificates" xml:space="preserve">
+    <value>จัดการใบรับรอง</value>
+  </data>
   <data name="Manage Global Settings" xml:space="preserve">
     <value>จัดการการตั้งค่าทั่วโลก</value>
+  </data>
+  <data name="Manage Mirrors" xml:space="preserve">
+    <value>จัดการกระจก</value>
+  </data>
+  <data name="Manage Repositories" xml:space="preserve">
+    <value>จัดการที่เก็บข้อมูล</value>
   </data>
   <data name="Read Permissions" xml:space="preserve">
     <value>อ่านสิทธิ์</value>
@@ -98,6 +119,9 @@
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>ดูงานเบื้องหลัง</value>
+  </data>
+  <data name="View Buckets" xml:space="preserve">
+    <value>ดู Bucket</value>
   </data>
   <data name="View System Context" xml:space="preserve">
     <value>ดูบริบทของระบบ</value>
