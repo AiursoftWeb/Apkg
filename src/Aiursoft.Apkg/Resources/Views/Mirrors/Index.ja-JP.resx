@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>ミラーを新規追加</value>
+  </data>
+  <data name="Arch" xml:space="preserve">
+    <value>アーキテクチャ</value>
+  </data>
+  <data name="Base URL" xml:space="preserve">
+    <value>基本URL</value>
+  </data>
+  <data name="Bucket" xml:space="preserve">
+    <value>バケット</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>コンポーネント</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>ディストリビューション</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>アイテム</value>
+  </data>
+  <data name="Never Synced" xml:space="preserve">
+    <value>未同期</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>パッケージ</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>スーテ</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>アップストリームミラー</value>
+  </data>
+
+</root>

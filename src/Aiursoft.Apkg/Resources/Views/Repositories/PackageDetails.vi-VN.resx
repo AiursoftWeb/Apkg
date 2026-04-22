@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Architecture" xml:space="preserve">
+    <value>Kiến trúc</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Quay lại</value>
+  </data>
+  <data name="Bugs" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Thành phần</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="Download .deb" xml:space="preserve">
+    <value>Tải xuống .deb</value>
+  </data>
+  <data name="Download Size" xml:space="preserve">
+    <value>Kích thước tải xuống</value>
+  </data>
+  <data name="Failed to load reverse dependencies." xml:space="preserve">
+    <value>Không thể tải các phụ thuộc ngược.</value>
+  </data>
+  <data name="Hashes" xml:space="preserve">
+    <value>Các mã băm</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Trang chủ</value>
+  </data>
+  <data name="Installed Size" xml:space="preserve">
+    <value>Kích thước đã cài đặt</value>
+  </data>
+  <data name="Loading…" xml:space="preserve">
+    <value>Đang tải…</value>
+  </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Người bảo trì</value>
+  </data>
+  <data name="Metadata" xml:space="preserve">
+    <value>Dữ liệu siêu dữ liệu</value>
+  </data>
+  <data name="Multi-Arch" xml:space="preserve">
+    <value>Đa kiến trúc</value>
+  </data>
+  <data name="No packages depend on this package." xml:space="preserve">
+    <value>Không có gói nào phụ thuộc vào gói này.</value>
+  </data>
+  <data name="No relations." xml:space="preserve">
+    <value>Không có mối quan hệ nào.</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>Nguồn</value>
+  </data>
+  <data name="Original Maintainer" xml:space="preserve">
+    <value>Người bảo trì gốc</value>
+  </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Chi tiết Gói</value>
+  </data>
+  <data name="Physical (Cached)" xml:space="preserve">
+    <value>Vật lý (Đã lưu vào bộ nhớ đệm)</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Ưu tiên</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>Mối quan hệ</value>
+  </data>
+  <data name="Reverse Dependencies" xml:space="preserve">
+    <value>Phụ thuộc ngược</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>Phân loại</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Nguồn</value>
+  </data>
+  <data name="Status &amp; Files" xml:space="preserve">
+    <value>Trạng thái &amp; Tệp tin</value>
+  </data>
+  <data name="Storage State" xml:space="preserve">
+    <value>Trạng thái Lưu trữ</value>
+  </data>
+  <data name="Upstream URL" xml:space="preserve">
+    <value>URL gốc</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Phiên bản</value>
+  </data>
+  <data name="Virtual (Lazy Sync)" xml:space="preserve">
+    <value>Ảo (Đồng bộ Lười)</value>
+  </data>
+
+</root>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to List" xml:space="preserve">
+    <value>목록으로 돌아가기</value>
+  </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>패키지 둘러보기</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>인증서</value>
+  </data>
+  <data name="Client Configuration Guide" xml:space="preserve">
+    <value>클라이언트 구성 가이드</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>배포판</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>정보</value>
+  </data>
+  <data name="Live Bucket" xml:space="preserve">
+    <value>실시간 버킷</value>
+  </data>
+  <data name="Mirror Source" xml:space="preserve">
+    <value>미러 소스</value>
+  </data>
+  <data name="No certificate associated with this repository. Signing is disabled." xml:space="preserve">
+    <value>이 저장소에는 인증서가 연결되어 있지 않습니다. 서명이 비활성화되었습니다.</value>
+  </data>
+  <data name="One-line Setup:" xml:space="preserve">
+    <value>원라인 설정:</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>저장소 세부 정보</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+  <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
+    <value>이 방법은 최대 보안과 신뢰성을 위해 현대적인 DEB822 형식과 범위가 지정된 키링을 사용합니다.</value>
+  </data>
+
+</root>

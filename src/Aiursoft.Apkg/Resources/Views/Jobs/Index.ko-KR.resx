@@ -42,6 +42,9 @@
   <data name="Job Name" xml:space="preserve">
     <value>작업 이름</value>
   </data>
+  <data name="last 24 hours" xml:space="preserve">
+    <value>지난 24시간</value>
+  </data>
   <data name="last hour" xml:space="preserve">
     <value>지난 1 시간</value>
   </data>
@@ -68,6 +71,9 @@
   </data>
   <data name="No jobs" xml:space="preserve">
     <value>작업 없음</value>
+  </data>
+  <data name="No jobs have run in the last 24 hours." xml:space="preserve">
+    <value>지난 24시간 동안 실행된 작업이 없습니다.</value>
   </data>
   <data name="No jobs have run in the last hour." xml:space="preserve">
     <value>지난 1 시간 동안 실행된 작업이 없습니다.</value>

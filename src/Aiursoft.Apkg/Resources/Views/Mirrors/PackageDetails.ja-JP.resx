@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Architecture" xml:space="preserve">
+    <value>アーキテクチャ</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>コンポーネント</value>
+  </data>
+  <data name="Dependencies" xml:space="preserve">
+    <value>依存関係</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="Download .deb" xml:space="preserve">
+    <value>.deb をダウンロード</value>
+  </data>
+  <data name="Hashes" xml:space="preserve">
+    <value>ハッシュ値</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>ホームページ</value>
+  </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>メンテナー</value>
+  </data>
+  <data name="Metadata" xml:space="preserve">
+    <value>メタデータ</value>
+  </data>
+  <data name="No dependencies." xml:space="preserve">
+    <value>依存関係はありません。</value>
+  </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>パッケージの詳細</value>
+  </data>
+  <data name="Physical (Cached)" xml:space="preserve">
+    <value>物理（キャッシュ済み）</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>サイズ</value>
+  </data>
+  <data name="Status &amp; Files" xml:space="preserve">
+    <value>ステータスとファイル</value>
+  </data>
+  <data name="Storage State" xml:space="preserve">
+    <value>ストレージ状態</value>
+  </data>
+  <data name="Upstream URL" xml:space="preserve">
+    <value>アップストリームURL</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>バージョン</value>
+  </data>
+  <data name="Virtual (Lazy Sync)" xml:space="preserve">
+    <value>仮想 (遅延同期)</value>
+  </data>
+
+</root>

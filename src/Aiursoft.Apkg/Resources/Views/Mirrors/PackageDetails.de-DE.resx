@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Architecture" xml:space="preserve">
+    <value>Architektur</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Zurück</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Komponente</value>
+  </data>
+  <data name="Dependencies" xml:space="preserve">
+    <value>Abhängigkeiten</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="Download .deb" xml:space="preserve">
+    <value>.deb-Datei herunterladen</value>
+  </data>
+  <data name="Hashes" xml:space="preserve">
+    <value>Hashes</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Homepage</value>
+  </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Aufbewahrer</value>
+  </data>
+  <data name="Metadata" xml:space="preserve">
+    <value>Metadaten</value>
+  </data>
+  <data name="No dependencies." xml:space="preserve">
+    <value>Keine Abhängigkeiten.</value>
+  </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Paketdetails</value>
+  </data>
+  <data name="Physical (Cached)" xml:space="preserve">
+    <value>Physisch (Zwischengespeichert)</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Größe</value>
+  </data>
+  <data name="Status &amp; Files" xml:space="preserve">
+    <value>Status &amp; Dateien</value>
+  </data>
+  <data name="Storage State" xml:space="preserve">
+    <value>Speicherstatus</value>
+  </data>
+  <data name="Upstream URL" xml:space="preserve">
+    <value>Upstream-URL</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Virtual (Lazy Sync)" xml:space="preserve">
+    <value>Virtuell (Träge Synchronisierung)</value>
+  </data>
+
+</root>

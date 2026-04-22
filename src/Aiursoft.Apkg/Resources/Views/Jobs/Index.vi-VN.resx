@@ -42,6 +42,9 @@
   <data name="Job Name" xml:space="preserve">
     <value>Tên công việc</value>
   </data>
+  <data name="last 24 hours" xml:space="preserve">
+    <value>24 giờ qua</value>
+  </data>
   <data name="last hour" xml:space="preserve">
     <value>giờ qua</value>
   </data>
@@ -68,6 +71,9 @@
   </data>
   <data name="No jobs" xml:space="preserve">
     <value>Không có công việc nào</value>
+  </data>
+  <data name="No jobs have run in the last 24 hours." xml:space="preserve">
+    <value>Không có công việc nào được chạy trong 24 giờ qua.</value>
   </data>
   <data name="No jobs have run in the last hour." xml:space="preserve">
     <value>Không có công việc nào được chạy trong giờ qua.</value>
