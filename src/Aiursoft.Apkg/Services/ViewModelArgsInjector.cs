@@ -1,5 +1,4 @@
 using Aiursoft.Scanner.Abstractions;
-using Aiursoft.Apkg.Authorization;
 using Aiursoft.Apkg.Configuration;
 using Aiursoft.Apkg.Controllers;
 using Aiursoft.Apkg.Entities;
@@ -152,21 +151,6 @@ public class ViewModelArgsInjector(
                         });
                     }
                 }
-
-                // Manually inject Mirrors if we are in Administration/System group
-                if (itemDef.Text == "System" && groupDef.Name == "Administration")
-                {
-                    var authResult = authorizationService.AuthorizeAsync(context.User, AppPermissionNames.CanManageMirrors).GetAwaiter().GetResult();
-                    if (authResult.Succeeded)
-                    {
-                        linksForView.Add(new CascadedLink
-                        {
-                            Href = "/Mirrors",
-                            Text = localizer["Mirrors"]
-                        });
-                    }
-                }
-
                 if (linksForView.Any())
                 {
                     itemsForView.Add(new CascadedSideBarItem
