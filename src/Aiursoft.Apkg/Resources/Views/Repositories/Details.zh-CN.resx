@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to List" xml:space="preserve">
+    <value>返回列表</value>
+  </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>浏览软件包</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>证书</value>
+  </data>
+  <data name="Client Configuration Guide" xml:space="preserve">
+    <value>客户端配置指南</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>发行版</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>信息</value>
+  </data>
+  <data name="Live Bucket" xml:space="preserve">
+    <value>实时存储桶</value>
+  </data>
+  <data name="Mirror Source" xml:space="preserve">
+    <value>镜像源</value>
+  </data>
+  <data name="No certificate associated with this repository. Signing is disabled." xml:space="preserve">
+    <value>此仓库未关联证书。签名已禁用。</value>
+  </data>
+  <data name="One-line Setup:" xml:space="preserve">
+    <value>一键配置：</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>仓库详情</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>套件</value>
+  </data>
+  <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
+    <value>此配置采用现代的 DEB822 格式和受限范围的密钥环，以实现最高的安全性和可靠性。</value>
+  </data>
+
+</root>

@@ -42,6 +42,9 @@
   <data name="Job Name" xml:space="preserve">
     <value>任务名称</value>
   </data>
+  <data name="last 24 hours" xml:space="preserve">
+    <value>最近24小时</value>
+  </data>
   <data name="last hour" xml:space="preserve">
     <value>最近一小时</value>
   </data>
@@ -68,6 +71,9 @@
   </data>
   <data name="No jobs" xml:space="preserve">
     <value>暂无任务</value>
+  </data>
+  <data name="No jobs have run in the last 24 hours." xml:space="preserve">
+    <value>过去 24 小时内没有任务运行。</value>
   </data>
   <data name="No jobs have run in the last hour." xml:space="preserve">
     <value>过去一小时内没有任务运行。</value>
