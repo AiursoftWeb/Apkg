@@ -29,10 +29,14 @@ public class BucketsController(TemplateDbContext dbContext) : Controller
             .ToListAsync();
             
         // Calculate package counts per bucket
-        var packageCounts = await dbContext.AptPackages
+        var rawData = await dbContext.AptPackages
             .GroupBy(p => p.BucketId)
-            .Select(g => new { BucketId = g.Key, Count = g.Count(), TotalSize = g.Sum(p => long.Parse(p.Size)) })
-            .ToDictionaryAsync(x => x.BucketId, x => new { x.Count, x.TotalSize });
+            .Select(g => new { BucketId = g.Key, Count = g.Count(), Sizes = g.Select(p => p.Size).ToList() })
+            .ToListAsync();
+
+        var packageCounts = rawData.ToDictionary(
+            x => x.BucketId, 
+            x => new { x.Count, TotalSize = x.Sizes.Sum(s => long.TryParse(s, out var l) ? l : 0) });
 
         // Find active usage
         var mirrorUsage = await dbContext.AptMirrors

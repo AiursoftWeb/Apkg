@@ -14,6 +14,13 @@
                 <input type="hidden" asp-for="Id" />
             }
 
+            <div class="mb-3">
+                <label asp-for="Distro" class="form-label"></label>
+                <input asp-for="Distro" class="form-control" placeholder="ubuntu" required />
+                <div class="form-text">The URL prefix for this repository (e.g. 'ubuntu').</div>
+                <span asp-validation-for="Distro" class="text-danger"></span>
+            </div>
+
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label asp-for="Name" class="form-label"></label>
@@ -26,6 +33,21 @@
                     <input asp-for="Suite" class="form-control" placeholder="stable" required />
                     <div class="form-text">The APT suite name (e.g. jammy, stable).</div>
                     <span asp-validation-for="Suite" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Components" class="form-label"></label>
+                    <input asp-for="Components" class="form-control" placeholder="main,universe" required />
+                    <div class="form-text">Comma-separated components.</div>
+                    <span asp-validation-for="Components" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Architecture" class="form-label"></label>
+                    <input asp-for="Architecture" class="form-control" placeholder="amd64" required />
+                    <div class="form-text">Comma-separated architectures.</div>
+                    <span asp-validation-for="Architecture" class="text-danger"></span>
                 </div>
             </div>
 

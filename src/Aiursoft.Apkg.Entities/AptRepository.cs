@@ -22,6 +22,14 @@ public class AptRepository
     [MaxLength(100)]
     public required string Suite { get; set; } // The suite name (e.g. "questing")
 
+    [Required]
+    [MaxLength(255)]
+    public string Components { get; set; } = "main";
+
+    [Required]
+    [MaxLength(100)]
+    public string Architecture { get; set; } = "amd64";
+
     public int? CertificateId { get; set; }
 
     [ForeignKey(nameof(CertificateId))]
