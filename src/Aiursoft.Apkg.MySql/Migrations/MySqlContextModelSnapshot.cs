@@ -65,6 +65,11 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<string>("PrivateKey")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -103,6 +108,11 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<int?>("CurrentBucketId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Distro")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("SignedBy")
                         .HasColumnType("longtext");
@@ -282,6 +292,11 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<int?>("CurrentBucketId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Distro")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<int?>("MirrorId")
                         .HasColumnType("int");

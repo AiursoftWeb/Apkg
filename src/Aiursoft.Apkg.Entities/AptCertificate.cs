@@ -11,6 +11,11 @@ public class AptCertificate
 
     [Required]
     [MaxLength(100)]
+    [RegularExpression(@"^[a-z0-9]+$", ErrorMessage = "Only lowercase letters and numbers are allowed.")]
+    public required string Name { get; set; }
+
+    [Required]
+    [MaxLength(100)]
     public required string FriendlyName { get; set; }
 
     [Required]

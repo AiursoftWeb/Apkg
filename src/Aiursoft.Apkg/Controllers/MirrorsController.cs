@@ -111,6 +111,7 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
         {
             var mirror = new AptMirror
             {
+                Distro = model.Distro,
                 BaseUrl = model.BaseUrl,
                 Suite = model.Suite,
                 Components = model.Components,
@@ -134,6 +135,7 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
         var model = new MirrorEditViewModel
         {
             Id = mirror.Id,
+            Distro = mirror.Distro,
             BaseUrl = mirror.BaseUrl,
             Suite = mirror.Suite,
             Components = mirror.Components,
@@ -153,6 +155,7 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
             var mirror = await dbContext.AptMirrors.FindAsync(model.Id);
             if (mirror == null) return NotFound();
 
+            mirror.Distro = model.Distro;
             mirror.BaseUrl = model.BaseUrl;
             mirror.Suite = model.Suite;
             mirror.Components = model.Components;

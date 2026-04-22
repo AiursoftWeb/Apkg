@@ -16,6 +16,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
+                <th>@Localizer["Name"]</th>
                 <th>@Localizer["Friendly Name"]</th>
                 <th>@Localizer["Fingerprint"]</th>
                 <th>@Localizer["Created"]</th>
@@ -26,6 +27,7 @@
             @foreach (var item in Model.Certificates)
             {
                 <tr>
+                    <td><code>@item.Name</code></td>
                     <td><strong>@item.FriendlyName</strong></td>
                     <td><code>@item.Fingerprint</code></td>
                     <td>@item.CreatedAt.ToShortDateString()</td>

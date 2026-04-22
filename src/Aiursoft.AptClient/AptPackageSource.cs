@@ -30,32 +30,35 @@ public class AptPackageSource
 
     public async Task<List<DebianPackageFromApt>> FetchPackagesAsync(Action<string, long>? progress = null)
     {
-        // 1. Construct paths in order of preference
+        // 1. Get supported files from repository
+        var supportedFiles = (await _repository.GetSupportedFilesAsync()).ToList();
+
+        // 2. Construct paths in order of preference
         var relPathXz = $"{Component}/binary-{Arch}/Packages.xz";
         var relPathGz = $"{Component}/binary-{Arch}/Packages.gz";
         var relPathRaw = $"{Component}/binary-{Arch}/Packages";
 
-        Stream stream;
+        Stream? stream = null;
         
         // Try XZ first (best compression)
-        try
+        if (supportedFiles.Contains(relPathXz, StringComparer.OrdinalIgnoreCase))
         {
             var rawStream = await _repository.GetValidatedStreamAsync(relPathXz, progress);
             stream = new SharpCompress.Compressors.Xz.XZStream(rawStream);
         }
-        catch
+        else if (supportedFiles.Contains(relPathGz, StringComparer.OrdinalIgnoreCase))
         {
-            // Try GZ
-            try
-            {
-                var rawStream = await _repository.GetValidatedStreamAsync(relPathGz, progress);
-                stream = new GZipStream(rawStream, CompressionMode.Decompress);
-            }
-            catch
-            {
-                // Fallback to Raw
-                stream = await _repository.GetValidatedStreamAsync(relPathRaw, progress);
-            }
+            var rawStream = await _repository.GetValidatedStreamAsync(relPathGz, progress);
+            stream = new GZipStream(rawStream, CompressionMode.Decompress);
+        }
+        else if (supportedFiles.Contains(relPathRaw, StringComparer.OrdinalIgnoreCase))
+        {
+            stream = await _repository.GetValidatedStreamAsync(relPathRaw, progress);
+        }
+
+        if (stream == null)
+        {
+            throw new FileNotFoundException($"None of the supported package formats (xz, gz, raw) were found in the repository for {Component}/{Arch} in suite {_repository.Suite}. Available files: {string.Join(", ", supportedFiles.Where(f => f.Contains($"{Component}/binary-{Arch}")))}");
         }
 
         // 3. Parse

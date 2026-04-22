@@ -11,6 +11,7 @@
         <div class="card h-100">
             <div class="card-header"><h5 class="card-title mb-0">@Localizer["Information"]</h5></div>
             <div class="card-body">
+                <p><strong>@Localizer["Distro"]:</strong> @Model.Repo.Distro</p>
                 <p><strong>@Localizer["Suite"]:</strong> @Model.Repo.Suite</p>
                 <p><strong>@Localizer["Mirror Source"]:</strong> @(Model.Repo.Mirror?.Suite ?? "None")</p>
                 <p><strong>@Localizer["Live Bucket"]:</strong> #@(Model.Repo.CurrentBucketId)</p>
@@ -27,12 +28,12 @@
                 {
                     <h6>1. @Localizer["Trust the public key:"]</h6>
                     <div class="bg-dark text-white p-3 rounded mb-3">
-                        <pre class="mb-0"><code>curl -sL @(Context.Request.Scheme)://@(Context.Request.Host)/certs/latest | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/apkg-@(Model.Repo.Id).gpg > /dev/null</code></pre>
+                        <pre class="mb-0"><code>curl -sL @(Context.Request.Scheme)://@(Context.Request.Host)/certs/@Model.Repo.Certificate.Name | gpg --dearmor | sudo tee /usr/share/keyrings/@(Model.Repo.Certificate.Name)-archive-keyring.gpg > /dev/null</code></pre>
                     </div>
 
                     <h6>2. @Localizer["Add source list:"]</h6>
                     <div class="bg-dark text-white p-3 rounded mb-3">
-                        <pre class="mb-0"><code>echo "deb [signed-by=/etc/apt/trusted.gpg.d/apkg-@(Model.Repo.Id).gpg] @(Context.Request.Scheme)://@(Context.Request.Host)/ubuntu/ @Model.Repo.Suite @(Model.Repo.Mirror?.Components ?? "main")" | sudo tee /etc/apt/sources.list.d/apkg-@(Model.Repo.Id).list</code></pre>
+                        <pre class="mb-0"><code>echo "deb [signed-by=/usr/share/keyrings/@(Model.Repo.Certificate.Name)-archive-keyring.gpg] @(Context.Request.Scheme)://@(Context.Request.Host)/@Model.Repo.Distro/ @Model.Repo.Suite @(Model.Repo.Mirror?.Components ?? "main")" | sudo tee /etc/apt/sources.list.d/apkg-@(Model.Repo.Id).list</code></pre>
                     </div>
 
                     <h6>3. @Localizer["Update:"]</h6>

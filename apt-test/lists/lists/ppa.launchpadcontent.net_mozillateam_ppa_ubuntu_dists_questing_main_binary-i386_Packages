@@ -1,0 +1,544 @@
+Package: thunderbird-locale-bn-bd
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-bn
+Filename: pool/main/t/thunderbird/thunderbird-locale-bn-bd_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18808
+MD5sum: f5a002db14a802ae93aa08f7581a681d
+SHA1: dd7ab993f74c4c44d2c38aa0b47f7734bf61f903
+SHA256: b6c40d7feddb608bb9b091f4cbeaaac94e695d938a285c0273ef92b44c42bb48
+Description: Transitional Bengali language pack for Thunderbird
+Description-md5: 0c16945c4912b109ad1b9a29c3548a82
+
+Package: thunderbird-locale-bn-bd
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-bn
+Filename: pool/main/t/thunderbird/thunderbird-locale-bn-bd_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18816
+MD5sum: dcf02ccabaf775107f798f5fd81b0236
+SHA1: f19b0ebf0573ff719a5016a06735f9d7ce103ddb
+SHA256: 68850d23add31d430c5397d31b5dd4a5e782f79dfc295fb5300b621b6939c233
+Description: Transitional Bengali language pack for Thunderbird
+Description-md5: 0c16945c4912b109ad1b9a29c3548a82
+
+Package: thunderbird-locale-en-gb
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-en
+Filename: pool/main/t/thunderbird/thunderbird-locale-en-gb_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18814
+MD5sum: 939d8019cf3d91a22601e85f9705da6f
+SHA1: 619d4abbc382594d35b3e5b22154da95bdfabdeb
+SHA256: 6654f2be1c36405342d3da564634a4d026098afd79c14abd075df4039dca2cd3
+Description: Transitional English language pack for Thunderbird
+Description-md5: 8b798a69e82f8ec9cbb2e264601a14fb
+
+Package: thunderbird-locale-en-gb
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-en
+Filename: pool/main/t/thunderbird/thunderbird-locale-en-gb_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18814
+MD5sum: a0694d42a486e17062c40c1b6a85108c
+SHA1: d5d5a5bca8c77c38112231e3ab1ecf2d8b34af5c
+SHA256: 3d541869d323a0862593e5341dbb5a0c5ada6bac316f51085b10ff64481bf37c
+Description: Transitional English language pack for Thunderbird
+Description-md5: 8b798a69e82f8ec9cbb2e264601a14fb
+
+Package: thunderbird-locale-en-us
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-en
+Filename: pool/main/t/thunderbird/thunderbird-locale-en-us_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18814
+MD5sum: c679e1054ec8d3f41dfdfc8cde2e27cf
+SHA1: be6cf31b81409530a4e35a94d3ee482f3c4c5b83
+SHA256: 066874df3cb03be8303a813748cb011e319dda3f8ca2846bab00f04a29f011a0
+Description: Transitional English language pack for Thunderbird
+Description-md5: 8b798a69e82f8ec9cbb2e264601a14fb
+
+Package: thunderbird-locale-en-us
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-en
+Filename: pool/main/t/thunderbird/thunderbird-locale-en-us_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18810
+MD5sum: 43cee7cddaf9a4b07b6e7499f855b014
+SHA1: f7b05cf5b6f056ff7ca6d43cd658ef8c208afff8
+SHA256: 50a676edcf6d11f11f9b9491febfbc8febeda61f6e310e60c1cda2947b364f77
+Description: Transitional English language pack for Thunderbird
+Description-md5: 8b798a69e82f8ec9cbb2e264601a14fb
+
+Package: thunderbird-locale-es-ar
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-es
+Filename: pool/main/t/thunderbird/thunderbird-locale-es-ar_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18810
+MD5sum: 71e23542f94f37a413fc75315ecc1467
+SHA1: 54bab46f596881dd61cd920f4bbc3877b2f106a2
+SHA256: db7834a05c56fd4f4ad00a76750fbd6db393f33fb12747c4b91dfc9080770667
+Description: Transitional Spanish language pack for Thunderbird
+Description-md5: 869be0de01bca3f9f7bda73441e37a8d
+
+Package: thunderbird-locale-es-ar
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-es
+Filename: pool/main/t/thunderbird/thunderbird-locale-es-ar_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18808
+MD5sum: 785a56d4da274303c3459818a60dd84b
+SHA1: 5a406dae4ca7a511dcbd5b65307db947f0c98d1c
+SHA256: fc5cacb4800ff4b9b1a3d3d30ec99ca068dd7ae643adc5c48a483cf44c199291
+Description: Transitional Spanish language pack for Thunderbird
+Description-md5: 869be0de01bca3f9f7bda73441e37a8d
+
+Package: thunderbird-locale-es-es
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-es
+Filename: pool/main/t/thunderbird/thunderbird-locale-es-es_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18806
+MD5sum: a0f6798c47f207d7a9c64cf712b5ec1f
+SHA1: bc5f94e9f2bbaa700b72c699dd2b57377fb11d42
+SHA256: 435b627303c70f1eac9347dfed44b1e0997d081353dc1f705fb5fb60223c6afe
+Description: Transitional Spanish language pack for Thunderbird
+Description-md5: 869be0de01bca3f9f7bda73441e37a8d
+
+Package: thunderbird-locale-es-es
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-es
+Filename: pool/main/t/thunderbird/thunderbird-locale-es-es_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18812
+MD5sum: 4bef5479e435589c64b8fcab9f26d20f
+SHA1: 4b6908c486c6dee2e23c1cea4d0c337358a78b25
+SHA256: fe48049a6509c77dde75fa81aa5749cb2aa5e27d90761eac85199f3cd462df63
+Description: Transitional Spanish language pack for Thunderbird
+Description-md5: 869be0de01bca3f9f7bda73441e37a8d
+
+Package: thunderbird-locale-fy-nl
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-fy
+Filename: pool/main/t/thunderbird/thunderbird-locale-fy-nl_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18820
+MD5sum: 31c4d0c049b7cef6373d243e8394722d
+SHA1: 114fb5e378e570766eda849abfc537b2baacaa2f
+SHA256: d53e79c9c0291ea060ed180444575ad45a73f7328120967c202696f3c89faecd
+Description: Transitional Western Frisian language pack for Thunderbird
+Description-md5: 23b74cfcdfb3628d4066cc962572e125
+
+Package: thunderbird-locale-fy-nl
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-fy
+Filename: pool/main/t/thunderbird/thunderbird-locale-fy-nl_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18824
+MD5sum: 9c12a5b444ab3493b51cb36735c7024d
+SHA1: df93f1b83868ac65e18901c1416885e86897ecef
+SHA256: 670a4a8e598982f07c8c74eb4cf34c67ccd3c4fe4217d2773c26e2d236efeabd
+Description: Transitional Western Frisian language pack for Thunderbird
+Description-md5: 23b74cfcdfb3628d4066cc962572e125
+
+Package: thunderbird-locale-ga-ie
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-ga
+Filename: pool/main/t/thunderbird/thunderbird-locale-ga-ie_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18816
+MD5sum: 4c63920729ecf9ee01bfe8cd30903bce
+SHA1: 2e086befecd285042564e2057276fdf4447dcd87
+SHA256: 11cc863b5a5c6bb3b67ab1321d11da7102620046fa9b7ed4218a8b01d18ba117
+Description: Transitional Irish language pack for Thunderbird
+Description-md5: 8fe591c24be723b831c5e4f9b5e007ba
+
+Package: thunderbird-locale-ga-ie
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-ga
+Filename: pool/main/t/thunderbird/thunderbird-locale-ga-ie_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18808
+MD5sum: a092ffed6506afebbecb4b92f8126177
+SHA1: 8e6ea8ab8e8435c9ea373f3eb986ce1fc4d6114f
+SHA256: e92191eaeac810a182529971dc4231c66c79c65ba17af8efd9d52b3e4af5f847
+Description: Transitional Irish language pack for Thunderbird
+Description-md5: 8fe591c24be723b831c5e4f9b5e007ba
+
+Package: thunderbird-locale-nb-no
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-nb
+Filename: pool/main/t/thunderbird/thunderbird-locale-nb-no_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18812
+MD5sum: 3d1682172c3df2f8e51a789c11e430b1
+SHA1: f43b749d4d90574ddde185330d8dddaaecf3d481
+SHA256: fa327d0f63d15e59f5a9c538cf839cec706bd5dda9cf313101031d5e55d6b9dc
+Description: Transitional Norwegian language pack for Thunderbird
+Description-md5: 07372224f7f0b015610d5e3f1ac02f57
+
+Package: thunderbird-locale-nb-no
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-nb
+Filename: pool/main/t/thunderbird/thunderbird-locale-nb-no_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18808
+MD5sum: efe2ae55a7210b1ce5398508a697aea5
+SHA1: 4d1ee3bbb3b0bd30fd25d706712456e021fe9333
+SHA256: 282e60f1ebdbe3760a1a4520e79a62f7c6eb10de977a50e3d78f084f85e448ee
+Description: Transitional Norwegian language pack for Thunderbird
+Description-md5: 07372224f7f0b015610d5e3f1ac02f57
+
+Package: thunderbird-locale-nn-no
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-nn
+Filename: pool/main/t/thunderbird/thunderbird-locale-nn-no_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18812
+MD5sum: 686cdfcba7a3d579ae9513856979b897
+SHA1: b3b56c9b7cb883c6d0765b42e87ce2d28975c3a0
+SHA256: 51cb7be6491198fe2d66a794c3694808aed14e53facadccdbadea5aa93cbc6b0
+Description: Transitional Norwegian language pack for Thunderbird
+Description-md5: 07372224f7f0b015610d5e3f1ac02f57
+
+Package: thunderbird-locale-nn-no
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-nn
+Filename: pool/main/t/thunderbird/thunderbird-locale-nn-no_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18812
+MD5sum: 5140de00f0a510e1c64f25434dd5f0cd
+SHA1: 7466c5af82cc8766b9b274f16925509b75362ee8
+SHA256: 602fd49fba2a2aa55c37aca6db7d59e0eec45e75be23098a05fe14e8ac928485
+Description: Transitional Norwegian language pack for Thunderbird
+Description-md5: 07372224f7f0b015610d5e3f1ac02f57
+
+Package: thunderbird-locale-pa-in
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-pa
+Filename: pool/main/t/thunderbird/thunderbird-locale-pa-in_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18814
+MD5sum: fb0a9e7334ba099b051e0df6b41c1fa5
+SHA1: 13da9f4cd1fb0510b4b6fe4dd321197eac6c4f9a
+SHA256: 10de6c49c3a34fae9307d94941f2f09d129b72556d2b7ada4adbf13b0918d6a5
+Description: Transitional Punjabi language pack for Thunderbird
+Description-md5: 4f99cd6218380edd7d419f7754843622
+
+Package: thunderbird-locale-pa-in
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-pa
+Filename: pool/main/t/thunderbird/thunderbird-locale-pa-in_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18812
+MD5sum: 2319f5155809b04fc614a51ebe68366a
+SHA1: 3287a17c8d5c9b2f2979d88fc726fba603a284ae
+SHA256: aedb994e6fa8508f21f71980dca07d84d85ea4ccd2d237b4e5a382dff5741d11
+Description: Transitional Punjabi language pack for Thunderbird
+Description-md5: 4f99cd6218380edd7d419f7754843622
+
+Package: thunderbird-locale-pt-br
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-pt
+Filename: pool/main/t/thunderbird/thunderbird-locale-pt-br_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18812
+MD5sum: aa6b571c3470a170886bda60c499046c
+SHA1: 581d6281f9eb0437f0c3ff8148777c7ed99898c4
+SHA256: bfa8f8ed8bed147fe447d559b4cec34612b4d3071c6198088952b54c078d5388
+Description: Transitional Portugese language pack for Thunderbird
+Description-md5: 063e3e81e79a8a10b5ce2b5d56714bfe
+
+Package: thunderbird-locale-pt-br
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-pt
+Filename: pool/main/t/thunderbird/thunderbird-locale-pt-br_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18810
+MD5sum: d68749915c6049e93aa367742c507eaf
+SHA1: b5e52e63a7f7cb9979fabf91bd152cde5d357dcb
+SHA256: cf32b1228a249e5dd677fd38e7fab94be2e79f322ad97cd3c0e23c40b1752d2a
+Description: Transitional Portugese language pack for Thunderbird
+Description-md5: 063e3e81e79a8a10b5ce2b5d56714bfe
+
+Package: thunderbird-locale-pt-pt
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-pt
+Filename: pool/main/t/thunderbird/thunderbird-locale-pt-pt_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18812
+MD5sum: ed63db2fd6daa8fd3a151d0e2b13e5a9
+SHA1: ab4ba07027315e2faa9ff36aafde276a0d572fde
+SHA256: d52d05dfc72a5b0d50f8e3499c83f295c99b2ea62af7da3134c5a5e4ff394db4
+Description: Transitional Portugese language pack for Thunderbird
+Description-md5: 063e3e81e79a8a10b5ce2b5d56714bfe
+
+Package: thunderbird-locale-pt-pt
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-pt
+Filename: pool/main/t/thunderbird/thunderbird-locale-pt-pt_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18812
+MD5sum: 821b2debdf328c5744853134ec093e0c
+SHA1: 86b4b4519cc2edb2145ecf2d478a0459838ec4d4
+SHA256: e10f29fe766f6a4fae3ffce811593a283d542c4d8a797ceaee59c82a19328bb1
+Description: Transitional Portugese language pack for Thunderbird
+Description-md5: 063e3e81e79a8a10b5ce2b5d56714bfe
+
+Package: thunderbird-locale-sv-se
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-sv
+Filename: pool/main/t/thunderbird/thunderbird-locale-sv-se_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18810
+MD5sum: f9dbe2ec566cc584c8e0755678344348
+SHA1: cef49228d26a5fdede12e24895fcabb4185fe0cc
+SHA256: 2e317b86d8d31b9c2afddf6b4226de10b0d8bfe67a1eadcef343e5af3e55d25f
+Description: Transitional Swedish language pack for Thunderbird
+Description-md5: f013f0346741e935e8ea6e28d12bc5e1
+
+Package: thunderbird-locale-sv-se
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-sv
+Filename: pool/main/t/thunderbird/thunderbird-locale-sv-se_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18808
+MD5sum: e27ac843e9363856483e6661a8660025
+SHA1: 24f146b96e2deebf60a2091710be9f53c7b0bba0
+SHA256: e5b0fbeed1d581fbdeeb0b765ab89110325337e602a77371513621ce4d66f9d3
+Description: Transitional Swedish language pack for Thunderbird
+Description-md5: f013f0346741e935e8ea6e28d12bc5e1
+
+Package: thunderbird-locale-ta-lk
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-ta
+Filename: pool/main/t/thunderbird/thunderbird-locale-ta-lk_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18812
+MD5sum: 1c1b08c5e306fad3c895bef3c2c2ff90
+SHA1: efe79862af303e3e217b7d2accf854fb6da059c5
+SHA256: 84c0dac07941597537371c91c48be8a582004779c789d66dcd0aca264741f499
+Description: Transitional Tamil language pack for Thunderbird
+Description-md5: 1a0bc948aeb218ec6560b280e4af0dd4
+
+Package: thunderbird-locale-ta-lk
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-ta
+Filename: pool/main/t/thunderbird/thunderbird-locale-ta-lk_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18810
+MD5sum: 5bb97001d6e0f1026d2e2cf4aa5609db
+SHA1: f590df8ddc90b0b1048bdfd5a7cc11aadb69eaa8
+SHA256: ce0ab52abc9e29c345d89f64933ca26a7968bc4e4158d623a0ff2ea722050ba7
+Description: Transitional Tamil language pack for Thunderbird
+Description-md5: 1a0bc948aeb218ec6560b280e4af0dd4
+
+Package: thunderbird-locale-zh-cn
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/main/t/thunderbird/thunderbird-locale-zh-cn_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18822
+MD5sum: 23c09d804a6d206490efb5a7f0cb81db
+SHA1: b42a53f14bfc0b8b380ada000fe508b7c2899b04
+SHA256: d4bbdf2270b695fa351ebe3907f81e7e824642c0ec843124cc223ad238f7e6eb
+Description: Transitional Simplified Chinese language pack for Thunderbird
+Description-md5: 3a9fcde509c5d2504fb3f5bcdc7f4b7a
+
+Package: thunderbird-locale-zh-cn
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-zh-hans
+Filename: pool/main/t/thunderbird/thunderbird-locale-zh-cn_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18826
+MD5sum: 0e0413f327a541f5a2ef0cc972f629ca
+SHA1: 1a63db397c762ef686bdd6731aeef88ce763cf34
+SHA256: 6b45c10c55d62453b9f07733fdf03343ac69b20a837af1feb7b2127794d03c95
+Description: Transitional Simplified Chinese language pack for Thunderbird
+Description-md5: 3a9fcde509c5d2504fb3f5bcdc7f4b7a
+
+Package: thunderbird-locale-zh-tw
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.0+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/main/t/thunderbird/thunderbird-locale-zh-tw_140.9.0+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18824
+MD5sum: 4647ca3db7b442fdc45273e6ae411fff
+SHA1: ad55894164b0946dc189e092c6237664c227462c
+SHA256: c2fc2844a3ae873bec99c802534190c6376ea3a32f60f3cfb63353e9702882af
+Description: Transitional Traditional Chinese language pack for Thunderbird
+Description-md5: 153d368d7ff06df3219842e1b9490761
+
+Package: thunderbird-locale-zh-tw
+Source: thunderbird
+Priority: optional
+Section: web
+Installed-Size: 48
+Maintainer: Ubuntu Mozilla Team <ubuntu-mozillateam@lists.ubuntu.com>
+Architecture: all
+Version: 1:140.9.1+build1-0ubuntu0.25.10.1~mt1
+Depends: thunderbird-locale-zh-hant
+Filename: pool/main/t/thunderbird/thunderbird-locale-zh-tw_140.9.1+build1-0ubuntu0.25.10.1~mt1_all.deb
+Size: 18828
+MD5sum: 97f57712d23b0ed1170c1a62b2a23475
+SHA1: bae182f4e63fef5976d33b1d8e6deb1ff96eb4b2
+SHA256: 1d7e4a33832bbafaa99e5df17ceece6fe2187332a54764f8de62c95d79fb3be5
+Description: Transitional Traditional Chinese language pack for Thunderbird
+Description-md5: 153d368d7ff06df3219842e1b9490761
+

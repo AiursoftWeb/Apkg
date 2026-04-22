@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Origin: Google LLC
+Label: Google
+Suite: stable
+Codename: stable
+Version: 1.0
+Date: Wed, 22 Apr 2026 08:34:06 UTC
+Architectures: amd64
+Components: main
+Description: Google chrome-linux software repository
+MD5Sum:
+ b08f2f0e8404aed670bf142116face28 5510 main/binary-amd64/Packages
+ 0a2594eb00b919c5cf451d93babcdd04 1218 main/binary-amd64/Packages.gz
+ 156e5ea7a0c6bed5973a68a45e546dc9 151 main/binary-amd64/Release
+SHA1:
+ 0e733f6df7fd26ee3f6673d295e8c88b7f8a9a90 5510 main/binary-amd64/Packages
+ 0e4274175aea75830350c6a7c26a1d26e3770dc7 1218 main/binary-amd64/Packages.gz
+ 0f4348c2d4d7cc1f8e59b5934d87f1ca872f6e34 151 main/binary-amd64/Release
+SHA256:
+ fa32c84ae79fff73487f6ba190ba3eeb1f59849e0c404345093a8cbf3c581cc4 5510 main/binary-amd64/Packages
+ f2fb8711beda61e951447e537fe5eb613a0e5895ff39b9f02091308083086773 1218 main/binary-amd64/Packages.gz
+ c1e3c9318381862306adcdc4fd4fe2d85be8aa4c4f3dcbb40fce80413f588286 151 main/binary-amd64/Release
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEDwb/hr7q9OcYZu5SMu5TVaa8bkIFAmnoiAAACgkQMu5TVaa8
+bkIuTg/+O03tIBUzhIH7XTFtHPBVvXvC/jR0snGLN13iepvOTWoHZrz0Dd+8bhaE
+hFkuXoveqdn4VYhroseFL7LZzPZBIW6+b6fuBZAOQAyWKF+bdjdDA9S1nwqBLHQP
+W9b2ZKtmcN/D3XvhxdHl3bRLO3lTJ74ovTAgnWmxlFoVjY/bQEv8dZYgGoMZ3N9b
+hWMQJt8rNy/qjUdolDqmNAzFgPQ6UKhQ7VDQ3Hs12cjcpWlxy5XkHaHna6b9IygM
+shlVdd+OyTPgvXsqnKMWlObo4ECosfm9ErQnjmCRRo82anfiRhY6ig0cdvkv4yOZ
+c46eP0pX3UyYR6VSxyu+z3FMHA9wPRqqapFr/AQH3DLKeiSV8pvce0rUT2Br1lvs
+NT0N7uMZSuMSO7rSIXWeGI6eERw2J2JNloPaPux/wiBOgjTfKr81XWQK66eik1sd
+EYfaHpFSLAGAmnabIjqcW21poDmFTHwJSnCf2M8A3mSP2XAIRzIB1R8kfDOG9+Oh
+aDVZzaERt4FPSTDM/8rHrdgdcM9NGIagJkEErE9T+zbwuSnPDCT8+MVge1ynEwvh
+tuWnVTrroLF+qWXspfSW+kPFiRUuSa35ZrW91kvjn8Kxr8iqhvy15cFz6sWJ1TUm
+UYxAtehmxAEIcNg8ByJCvHb2L5Cjw1vKuK/8kXRXYrOMs3Uf2ZA=
+=+G7s
+-----END PGP SIGNATURE-----

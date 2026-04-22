@@ -49,16 +49,30 @@ public class MirrorSyncJob(
         var components = mirror.Components.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         var architectures = mirror.Architecture.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
+        var totalInserted = 0;
         foreach (var arch in architectures)
         {
             foreach (var component in components)
             {
-                await FetchAndInsertComponentAsync(mirror, bucket, component, arch);
+                try
+                {
+                    totalInserted += await FetchAndInsertComponentAsync(mirror, bucket, component, arch);
+                }
+                catch (Exception ex)
+                {
+                    logger.LogWarning(ex, "Failed to fetch component {Component} [{Arch}] for suite {Suite}. Skipping...", component, arch, mirror.Suite);
+                }
             }
         }
 
+        if (totalInserted == 0)
+        {
+            logger.LogWarning("No packages were found for any component in suite {Suite}. The sync is considered failed and the bucket will not be swapped.", mirror.Suite);
+            return;
+        }
+
         // 2. Atomic swap: Update the mirror's current bucket pointer
-        logger.LogInformation("Sync completed for suite {Suite}. Swapping to Bucket {BucketId}.", mirror.Suite, bucket.Id);
+        logger.LogInformation("Sync completed for suite {Suite}. Swapped {Count} packages to Bucket {BucketId}.", mirror.Suite, totalInserted, bucket.Id);
         
         // Re-attach the mirror entity because change tracker might have been cleared
         db.AptMirrors.Update(mirror);
@@ -66,22 +80,23 @@ public class MirrorSyncJob(
         await db.SaveChangesAsync();
     }
 
-    private async Task FetchAndInsertComponentAsync(AptMirror mirror, AptBucket bucket, string component, string arch)
+    private async Task<int> FetchAndInsertComponentAsync(AptMirror mirror, AptBucket bucket, string component, string arch)
     {
-        logger.LogInformation("Fetching component {Component} [{Arch}] for suite {Suite} from {BaseUrl}...", component, arch, mirror.Suite, mirror.BaseUrl);
+        var upstreamRoot = $"{mirror.BaseUrl.TrimEnd('/')}/{mirror.Distro.TrimStart('/')}";
+        logger.LogInformation("Fetching component {Component} [{Arch}] for suite {Suite} from {UpstreamRoot}...", component, arch, mirror.Suite, upstreamRoot);
 
-        var repo = new AptClient.AptRepository(mirror.BaseUrl, mirror.Suite, mirror.SignedBy, () => httpClientFactory.CreateClient());
+        var repo = new AptClient.AptRepository(upstreamRoot, mirror.Suite, mirror.SignedBy, () => httpClientFactory.CreateClient());
         var source = new AptPackageSource(repo, component, arch, () => httpClientFactory.CreateClient());
 
         var packages = await source.FetchPackagesAsync();
-        logger.LogInformation("Retrieved {Count} packages. Inserting into database...", packages.Count);
+        logger.LogInformation("Retrieved {Count} packages for {Component} [{Arch}]. Inserting into database...", packages.Count, component, arch);
 
         foreach (var pkgFromApt in packages)
         {
             var pkg = pkgFromApt.Package;
             
-            // Construct the upstream URL for lazy sync
-            var remoteUrl = $"{mirror.BaseUrl.TrimEnd('/')}/{pkg.Filename.TrimStart('/')}";
+            // Construct the upstream URL for lazy sync using the combined upstream root
+            var remoteUrl = $"{upstreamRoot.TrimEnd('/')}/{pkg.Filename.TrimStart('/')}";
 
             var entity = new AptPackage
             {
@@ -127,6 +142,7 @@ public class MirrorSyncJob(
         
         // Save changes per component to keep memory usage under control
         await db.SaveChangesAsync();
-        db.ChangeTracker.Clear(); 
+        db.ChangeTracker.Clear();
+        return packages.Count;
     }
 }

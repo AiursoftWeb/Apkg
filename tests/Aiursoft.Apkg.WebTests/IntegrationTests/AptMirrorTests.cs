@@ -59,13 +59,13 @@ public class AptMirrorTests : TestBase
         db.SaveChanges();
 
         // 2. Test InRelease Distribution
-        var response = await Http.GetAsync($"/ubuntu/dists/{repo.Suite}/InRelease");
+        var response = await Http.GetAsync($"/{repo.Distro}/dists/{repo.Suite}/InRelease");
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         var content = await response.Content.ReadAsStringAsync();
         Assert.AreEqual("SIGNED-TEST-CONTENT", content);
 
         // 3. Test Pool Download (Lazy Sync Path)
-        var poolResponse = await Http.GetAsync($"/ubuntu/pool/main/t/test-pkg/test.deb");
+        var poolResponse = await Http.GetAsync($"/{repo.Distro}/pool/main/t/test-pkg/test.deb");
         Assert.IsTrue(poolResponse.StatusCode is HttpStatusCode.OK or HttpStatusCode.InternalServerError or HttpStatusCode.NotFound);
     }
 
@@ -73,7 +73,7 @@ public class AptMirrorTests : TestBase
     public async Task TestCertificateDistribution()
     {
         await Server!.SeedMirrorsAsync(true);
-        var response = await Http.GetAsync("/certs/latest");
+        var response = await Http.GetAsync("/certs/anduinos");
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
         var content = await response.Content.ReadAsStringAsync();
         Assert.IsTrue(content.Contains("BEGIN PGP PUBLIC KEY BLOCK"));

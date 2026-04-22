@@ -15,8 +15,16 @@
             }
 
             <div class="mb-3">
+                <label asp-for="Distro" class="form-label"></label>
+                <input asp-for="Distro" class="form-control" placeholder="ubuntu" required />
+                <div class="form-text">The URL prefix for this mirror (e.g. 'ubuntu').</div>
+                <span asp-validation-for="Distro" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
                 <label asp-for="BaseUrl" class="form-label"></label>
-                <input asp-for="BaseUrl" class="form-control" placeholder="https://mirrors.ubuntu.com/ubuntu/" required />
+                <input asp-for="BaseUrl" class="form-control" placeholder="https://mirrors.ubuntu.com/" required />
+                <div class="form-text">The base URL of the upstream server (e.g. 'https://mirrors.ubuntu.com/'). Distro name will be appended automatically.</div>
                 <span asp-validation-for="BaseUrl" class="text-danger"></span>
             </div>
 

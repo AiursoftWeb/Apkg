@@ -11,6 +11,10 @@ public class AptMirror
     public int Id { get; set; }
 
     [Required]
+    [MaxLength(100)]
+    public string Distro { get; set; } = "ubuntu";
+
+    [Required]
     [MaxLength(255)]
     public required string BaseUrl { get; set; }
 

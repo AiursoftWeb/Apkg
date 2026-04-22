@@ -53,6 +53,7 @@ public class AptCertificatesController(
             var (pub, priv, fpr) = await signingService.GenerateKeyPairAsync(model.FriendlyName);
             var cert = new AptCertificate
             {
+                Name = model.Name,
                 FriendlyName = model.FriendlyName,
                 PublicKey = pub,
                 PrivateKey = priv,

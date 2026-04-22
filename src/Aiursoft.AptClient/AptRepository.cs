@@ -69,6 +69,12 @@ public class AptRepository
         _isVerified = true;
     }
 
+    public async Task<IEnumerable<string>> GetSupportedFilesAsync()
+    {
+        if (!_isVerified) await EnsureVerifiedAsync();
+        return _trustedHashes?.Keys ?? Enumerable.Empty<string>();
+    }
+
     /// <summary>
     /// Downloads a file that MUST exist in the trusted hash list.
     /// </summary>

@@ -56,6 +56,11 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PrivateKey")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -92,6 +97,11 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 
                     b.Property<int?>("CurrentBucketId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Distro")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("SignedBy")
                         .HasColumnType("TEXT");
@@ -267,6 +277,11 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 
                     b.Property<int?>("CurrentBucketId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Distro")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("MirrorId")
                         .HasColumnType("INTEGER");

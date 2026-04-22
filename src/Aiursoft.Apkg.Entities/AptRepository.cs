@@ -12,6 +12,10 @@ public class AptRepository
 
     [Required]
     [MaxLength(100)]
+    public string Distro { get; set; } = "ubuntu";
+
+    [Required]
+    [MaxLength(100)]
     public required string Name { get; set; } // The name used in the URL (e.g. "ubuntu")
 
     [Required]

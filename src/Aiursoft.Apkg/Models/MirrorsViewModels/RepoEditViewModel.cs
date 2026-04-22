@@ -9,6 +9,10 @@ public class RepoEditViewModel : UiStackLayoutViewModel
 
     [Required]
     [MaxLength(100)]
+    public string Distro { get; set; } = "ubuntu";
+
+    [Required]
+    [MaxLength(100)]
     public string Name { get; set; } = string.Empty;
 
     [Required]

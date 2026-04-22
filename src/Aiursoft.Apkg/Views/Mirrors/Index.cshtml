@@ -16,6 +16,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>@Localizer["Distro"]</th>
                 <th>@Localizer["Suite"]</th>
                 <th>@Localizer["Base URL"]</th>
                 <th>@Localizer["Components"]</th>
@@ -29,6 +30,7 @@
             @foreach (var item in Model.Mirrors)
             {
                 <tr>
+                    <td><span class="badge bg-outline-primary text-primary">@item.Distro</span></td>
                     <td><span class="badge bg-info">@item.Suite</span></td>
                     <td><small>@item.BaseUrl</small></td>
                     <td><small>@item.Components</small></td>

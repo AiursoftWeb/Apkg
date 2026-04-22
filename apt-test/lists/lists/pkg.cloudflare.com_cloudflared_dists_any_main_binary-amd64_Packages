@@ -1,0 +1,17 @@
+Package: cloudflared
+Version: 2026.3.0
+License: Apache License Version 2.0
+Vendor: Cloudflare
+Architecture: amd64
+Maintainer: Cloudflare <support@cloudflare.com>
+Installed-Size: 38738
+Homepage: https://github.com/cloudflare/cloudflared
+Priority: optional
+Section: default
+Filename: pool/main/c/cloudflared/cloudflared_2026.3.0_amd64.deb
+Size: 19308942
+SHA256: 00f2475bad5874e9a110c2f5b8d1ce8a1bf5b6280628886a68bdc4ee76fd376c
+SHA1: 756f5c56251d5e0d054962c36eb2a0cc5db13199
+MD5sum: 312f36d5f95a63a3c42ccb59ca5774c4
+Description: Cloudflare Tunnel daemon
+

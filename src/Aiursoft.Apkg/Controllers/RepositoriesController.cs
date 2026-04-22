@@ -85,6 +85,7 @@ public class RepositoriesController(TemplateDbContext dbContext) : Controller
         {
             var repo = new AptRepository
             {
+                Distro = model.Distro,
                 Name = model.Name,
                 Suite = model.Suite,
                 MirrorId = model.MirrorId,
@@ -115,6 +116,7 @@ public class RepositoriesController(TemplateDbContext dbContext) : Controller
         var model = new RepoEditViewModel
         {
             Id = repo.Id,
+            Distro = repo.Distro,
             Name = repo.Name,
             Suite = repo.Suite,
             MirrorId = repo.MirrorId,
@@ -135,6 +137,7 @@ public class RepositoriesController(TemplateDbContext dbContext) : Controller
             var repo = await dbContext.AptRepositories.FindAsync(model.Id);
             if (repo == null) return NotFound();
 
+            repo.Distro = model.Distro;
             repo.Name = model.Name;
             repo.Suite = model.Suite;
             repo.MirrorId = model.MirrorId;

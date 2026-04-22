@@ -8,6 +8,10 @@ public class MirrorEditViewModel : UiStackLayoutViewModel
     public int Id { get; set; }
 
     [Required]
+    [MaxLength(100)]
+    public string Distro { get; set; } = "ubuntu";
+
+    [Required]
     [MaxLength(255)]
     [Display(Name = "Base URL")]
     public string BaseUrl { get; set; } = string.Empty;

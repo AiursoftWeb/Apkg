@@ -17,18 +17,29 @@ public class AptMirrorController(
     private string BucketsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Buckets");
 
     [HttpGet]
-    [Route("ubuntu/dists/{suite}/{**path}")]
+    [Route("{distro}/dists/{suite}/{**path}")]
     [Route("repo/{repoName}/dists/{suite}/{**path}")]
     [Route("dists/{suite}/{**path}")]
-    public async Task<IActionResult> GetDists([FromRoute] string? repoName, [FromRoute] string suite, [FromRoute] string path)
+    public async Task<IActionResult> GetDists(
+        [FromRoute] string? distro,
+        [FromRoute] string? repoName, 
+        [FromRoute] string suite, 
+        [FromRoute] string path)
     {
         repoName ??= suite; 
         path = path.TrimStart('/');
 
-        var repo = await dbContext.AptRepositories
+        var repoQuery = dbContext.AptRepositories
             .AsNoTracking()
             .Include(r => r.CurrentBucket)
-            .FirstOrDefaultAsync(r => r.Name == repoName || r.Suite == suite);
+            .AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(distro))
+        {
+            repoQuery = repoQuery.Where(r => r.Distro == distro);
+        }
+
+        var repo = await repoQuery.FirstOrDefaultAsync(r => r.Name == repoName || r.Suite == suite);
 
         if (repo?.CurrentBucket == null) return NotFound();
 
@@ -50,23 +61,24 @@ public class AptMirrorController(
     }
 
     [HttpGet]
-    [Route("certs/latest")]
-    [Route("certs/{id:int}")]
-    public async Task<IActionResult> GetCert([FromRoute] int? id)
+    [Route("certs/{name}")]
+    public async Task<IActionResult> GetCert([FromRoute] string name)
     {
-        var cert = id == null 
-            ? await dbContext.AptCertificates.AsNoTracking().FirstOrDefaultAsync()
-            : await dbContext.AptCertificates.FindAsync(id);
+        var cert = await dbContext.AptCertificates
+            .AsNoTracking()
+            .FirstOrDefaultAsync(c => c.Name == name);
         
         if (cert == null) return NotFound();
         return Content(cert.PublicKey, "application/pgp-keys");
     }
 
     [HttpGet]
-    [Route("ubuntu/pool/{**path}")]
+    [Route("{distro}/pool/{**path}")]
     [Route("repo/{repoName}/pool/{**path}")]
     [Route("pool/{**path}")]
-    public async Task<IActionResult> GetPool([FromRoute] string path)
+    public async Task<IActionResult> GetPool(
+        [FromRoute] string? distro,
+        [FromRoute] string path)
     {
         var dbPath = "pool/" + path; 
         var localPath = await aptMirrorService.GetLocalPoolPath(dbPath);

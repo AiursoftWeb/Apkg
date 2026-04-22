@@ -16,6 +16,7 @@
         <table class="table table-hover">
             <thead>
             <tr>
+                <th>@Localizer["Distro"]</th>
                 <th>@Localizer["Name"]</th>
                 <th>@Localizer["Suite"]</th>
                 <th>@Localizer["Certificate"]</th>
@@ -28,6 +29,7 @@
             @foreach (var item in Model.Repositories)
             {
                 <tr>
+                    <td><span class="badge bg-outline-primary text-primary">@item.Distro</span></td>
                     <td><strong>@item.Name</strong></td>
                     <td><span class="badge bg-primary">@item.Suite</span></td>
                     <td>

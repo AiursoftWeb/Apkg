@@ -134,7 +134,8 @@ public static class ProgramExtends
             var (pub, priv, fpr) = await signingService.GenerateKeyPairAsync("Apkg Default Certificate <support@aiursoft.com>");
             cert = new AptCertificate
             {
-                FriendlyName = "Apkg Default Certificate",
+                Name = "anduinos",
+                FriendlyName = "Anduinos Official Key",
                 PublicKey = pub,
                 PrivateKey = priv,
                 Fingerprint = fpr
@@ -159,28 +160,30 @@ public static class ProgramExtends
             return host;
         }
 
-        var baseUrl = "https://mirror.aiursoft.com/ubuntu/";
+        var baseUrl = "https://mirror.aiursoft.com/";
         var components = "main,restricted,universe,multiverse";
         var suites = new[] { "questing", "questing-updates", "questing-backports", "questing-security" };
 
         foreach (var suite in suites)
         {
-            // Create a mirror for this suite
+            // Create a mirror for the upstream ubuntu suite
             var mirror = new AptMirror
             {
                 BaseUrl = baseUrl,
-                Suite = suite,
+                Distro = "ubuntu", // 进货 Distro 是 ubuntu
+                Suite = suite,    // 进货 Suite 是 questing
                 Components = components,
                 Architecture = "amd64"
             };
             db.AptMirrors.Add(mirror);
             await db.SaveChangesAsync();
 
-            // Create a repository that uses this mirror
+            // Create a repository that presents as 'anduinos' distro but keeps the original suite name
             var repo = new AptRepository
             {
-                Name = suite,
-                Suite = suite,
+                Distro = "anduinos", // 卖货 Distro 改为 anduinos
+                Name = "Anduinos Official", 
+                Suite = suite,      // 卖货 Suite 依然叫 questing
                 CertificateId = cert.Id,
                 MirrorId = mirror.Id
             };
