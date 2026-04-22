@@ -497,7 +497,7 @@ Signed-By:
         foreach (var aptSource in sources)
         {
             var packages = await aptSource.FetchPackagesAsync();
-            Console.WriteLine($"Found {packages.Count} packages in {aptSource.Suite}");
+            Console.WriteLine($@"Found {packages.Count} packages in {aptSource.Suite}");
             Assert.IsNotEmpty(packages);
         }
     }

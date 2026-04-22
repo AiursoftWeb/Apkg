@@ -16,8 +16,8 @@ public class MirrorsController(TemplateDbContext dbContext) : Controller
     [RenderInNavBar(
         NavGroupName = "Package Engine",
         NavGroupOrder = 50,
-        CascadedLinksGroupName = "Mirrors",
-        CascadedLinksIcon = "server",
+        CascadedLinksGroupName = "Engine",
+        CascadedLinksIcon = "package",
         CascadedLinksOrder = 10,
         LinkText = "Upstream Mirrors",
         LinkOrder = 1)]

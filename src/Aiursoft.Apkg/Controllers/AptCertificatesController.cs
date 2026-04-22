@@ -10,19 +10,19 @@ using Aiursoft.Apkg.Authorization;
 
 namespace Aiursoft.Apkg.Controllers;
 
-[Authorize(Policy = AppPermissionNames.CanManageRepositories)]
+[Authorize(Policy = AppPermissionNames.CanManageCertificates)]
 public class AptCertificatesController(
     TemplateDbContext dbContext,
     IGpgSigningService signingService) : Controller
 {
-    [Authorize(Policy = AppPermissionNames.CanManageRepositories)]
     [RenderInNavBar(
         NavGroupName = "Package Engine",
-        CascadedLinksGroupName = "Certificates",
-        CascadedLinksIcon = "key",
-        CascadedLinksOrder = 30,
-        LinkText = "Signing Certificates",
-        LinkOrder = 1)]
+        NavGroupOrder = 50,
+        CascadedLinksGroupName = "Engine",
+        CascadedLinksIcon = "package",
+        CascadedLinksOrder = 10,
+        LinkText = "Certificates",
+        LinkOrder = 3)]
     public async Task<IActionResult> Index()
     {
         var certs = await dbContext.AptCertificates.ToListAsync();

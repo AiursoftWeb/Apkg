@@ -28,4 +28,6 @@ public static class AppPermissionNames
     public const string CanManageGlobalSettings = nameof(CanManageGlobalSettings);
     public const string CanManageMirrors = nameof(CanManageMirrors);
     public const string CanManageRepositories = nameof(CanManageRepositories);
+    public const string CanManageCertificates = nameof(CanManageCertificates);
+    public const string CanViewBuckets = nameof(CanViewBuckets);
 }

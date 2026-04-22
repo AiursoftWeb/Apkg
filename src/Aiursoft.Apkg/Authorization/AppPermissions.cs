@@ -72,7 +72,13 @@ public class AppPermissions
                 localizer["Allows viewing and modifying APT mirror repositories."]),
             new(AppPermissionNames.CanManageRepositories,
                 localizer["Manage Repositories"],
-                localizer["Allows viewing and modifying APT repositories and signing certificates."])
+                localizer["Allows viewing and modifying APT repositories."]),
+            new(AppPermissionNames.CanManageCertificates,
+                localizer["Manage Certificates"],
+                localizer["Allows generating and managing GPG signing certificates."]),
+            new(AppPermissionNames.CanViewBuckets,
+                localizer["View Buckets"],
+                localizer["Allows auditing the repository snapshot history and disk usage."])
         ];
         return allPermission;
     }

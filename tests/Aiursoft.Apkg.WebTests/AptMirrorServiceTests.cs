@@ -35,7 +35,7 @@ public class AptMirrorServiceTests
         var services = new ServiceCollection();
         services.AddLogging();
         services.AddMemoryCache();
-        
+
         var config = new ConfigurationBuilder()
             .AddInMemoryCollection(new Dictionary<string, string>
             {
@@ -43,14 +43,14 @@ public class AptMirrorServiceTests
             }!)
             .Build();
         services.AddSingleton<IConfiguration>(config);
-        
+
         var dbName = $"DataSource=file:{Guid.NewGuid()}?mode=memory&cache=shared";
         var connection = new Microsoft.Data.Sqlite.SqliteConnection(dbName);
         connection.Open(); // Keep DB alive
-        
+
         services.AddDbContext<TemplateDbContext, SqliteContext>(options =>
             options.UseSqlite(dbName)); // Let EF manage its own connections from the pool
-            
+
         services.AddSingleton<StorageRootPathProvider>();
         services.AddSingleton<FeatureFoldersProvider>();
         services.AddSingleton<FileLockProvider>();
@@ -63,11 +63,11 @@ public class AptMirrorServiceTests
         services.AddTransient<AptMirrorService>();
 
         var provider = services.BuildServiceProvider();
-        
+
         // 2. Prepare Database
         var db = provider.GetRequiredService<TemplateDbContext>();
         await db.Database.EnsureCreatedAsync();
-        
+
         var sha256 = BitConverter.ToString(SHA256.HashData(fileContent)).Replace("-", "").ToLowerInvariant();
 
         var bucket = new AptBucket { CreatedAt = DateTime.UtcNow };
@@ -83,7 +83,7 @@ public class AptMirrorServiceTests
             RemoteUrl = "http://example.com/test.deb",
             Filename = "pool/main/test.deb",
             SHA256 = sha256,
-            
+
             // Required DebianPackage fields
             Package = "test-pkg",
             Version = "1.0",
@@ -119,11 +119,11 @@ public class AptMirrorServiceTests
 
         // 3. Act: Fire concurrent requests
         // A reduced task count of 10 avoids connection exhaustion but is enough to test SemaphoreSlim queueing
-        var taskCount = 10; 
+        var taskCount = 10;
         var tasks = new Task<string?>[taskCount];
         for (int i = 0; i < taskCount; i++)
         {
-            tasks[i] = Task.Run(async () => 
+            tasks[i] = Task.Run(async () =>
             {
                 using var scope = provider.CreateScope();
                 var scopedService = scope.ServiceProvider.GetRequiredService<AptMirrorService>();
@@ -135,21 +135,21 @@ public class AptMirrorServiceTests
         var results = await Task.WhenAll(tasks).WaitAsync(TimeSpan.FromSeconds(3));
 
         // 4. Assert
-        Console.WriteLine($"Tasks completed. First result path: {results[0]}");
+        Console.WriteLine($@"Tasks completed. First result path: {results[0]}");
         var firstResult = results[0];
         Assert.IsNotNull(firstResult, "The returned local path should not be null.");
 
         // DB State Verification
         using var finalScope = provider.CreateScope();
         var freshDb = finalScope.ServiceProvider.GetRequiredService<TemplateDbContext>();
-        
+
         // Use AsNoTracking to bypass any internal EF caching
         var updatedPkg = await freshDb.AptPackages
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.Id == pkg.Id);
-        
-        Console.WriteLine($"Verification - Package: {updatedPkg?.Package}, IsVirtual: {updatedPkg?.IsVirtual}, Filename: {updatedPkg?.Filename}");
-        
+
+        Console.WriteLine($@"Verification - Package: {updatedPkg?.Package}, IsVirtual: {updatedPkg?.IsVirtual}, Filename: {updatedPkg?.Filename}");
+
         Assert.IsNotNull(updatedPkg);
         Assert.IsFalse(updatedPkg.IsVirtual, $"Database state was not updated to IsVirtual=false! Filename in DB: {updatedPkg.Filename}");
     }
