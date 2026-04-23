@@ -16,7 +16,7 @@ public class RepositorySyncJob(
 {
     private string BucketsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Buckets");
 
-    public string Name => "Seed All APT repository as pending job";
+    public string Name => "Seed All repo, sign and swap";
 
     public string Description => "Fetches packages from all configured mirrors and builds new pending buckets. Does NOT swap them live — triggers 'Sign Pending bucket and swap' to sign and promote.";
 
