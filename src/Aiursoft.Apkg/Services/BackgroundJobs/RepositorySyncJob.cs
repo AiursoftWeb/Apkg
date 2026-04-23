@@ -48,21 +48,14 @@ public class RepositorySyncJob(
     {
         logger.LogInformation("Processing and signing repository {RepoName}...", repo.Name);
 
-        // 1. Create a new bucket and immediately link it as SecondaryBucketId so it is
-        //    protected from GC and visible as "Building" in the UI throughout the sync.
-        //    RepositorySignJob guards against signing incomplete buckets by checking
-        //    that ReleaseContent is not null before proceeding.
+        // 1. Create a new bucket and immediately link it as SecondaryBucketId in a single
+        //    SaveChanges call. Using the navigation property lets EF Core resolve the INSERT
+        //    order automatically (INSERT bucket first, then UPDATE repo.SecondaryBucketId),
+        //    eliminating any window where GC could delete the unreferenced new bucket.
         var newBucket = new AptBucket { CreatedAt = DateTime.UtcNow };
-        db.AptBuckets.Add(newBucket);
         db.AptRepositories.Update(repo);
-        repo.SecondaryBucketId = null; // clear any previous secondary reference
-        await db.SaveChangesAsync();
-        
-        // Assign new bucket as secondary before any long-running work.
-        // This makes it immediately visible to GC as "Building", eliminating
-        // the window where a freshly-created bucket could appear as "Orphaned".
-        repo.SecondaryBucketId = newBucket.Id;
-        await db.SaveChangesAsync();
+        repo.SecondaryBucket = newBucket;
+        await db.SaveChangesAsync(); // atomic: bucket inserted + SecondaryBucketId updated in one round-trip
 
         var newBucketId = newBucket.Id;
 
