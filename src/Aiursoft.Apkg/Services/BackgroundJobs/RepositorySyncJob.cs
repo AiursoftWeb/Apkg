@@ -48,9 +48,20 @@ public class RepositorySyncJob(
     {
         logger.LogInformation("Processing and signing repository {RepoName}...", repo.Name);
 
-        // 1. Create a new bucket
+        // 1. Create a new bucket and immediately link it as SecondaryBucketId so it is
+        //    protected from GC and visible as "Building" in the UI throughout the sync.
+        //    RepositorySignJob guards against signing incomplete buckets by checking
+        //    that ReleaseContent is not null before proceeding.
         var newBucket = new AptBucket { CreatedAt = DateTime.UtcNow };
         db.AptBuckets.Add(newBucket);
+        db.AptRepositories.Update(repo);
+        repo.SecondaryBucketId = null; // clear any previous secondary reference
+        await db.SaveChangesAsync();
+        
+        // Assign new bucket as secondary before any long-running work.
+        // This makes it immediately visible to GC as "Building", eliminating
+        // the window where a freshly-created bucket could appear as "Orphaned".
+        repo.SecondaryBucketId = newBucket.Id;
         await db.SaveChangesAsync();
 
         var newBucketId = newBucket.Id;
@@ -199,11 +210,8 @@ public class RepositorySyncJob(
             await db.SaveChangesAsync();
         }
 
-        // 5. Stage for signing (do NOT swap PrimaryBucketId yet — RepositorySignJob will sign and swap atomically)
-        db.AptRepositories.Update(repo);
-        repo.SecondaryBucketId = newBucketId;
-        await db.SaveChangesAsync();
-
+        // SecondaryBucketId was already set at the top of this method; no change needed here.
+        // RepositorySignJob will detect ReleaseContent != null and promote it.
         db.ChangeTracker.Clear();
         logger.LogInformation("Repository {RepoName} bucket {BucketId} is staged and awaiting signing.", repo.Name, newBucketId);
     }

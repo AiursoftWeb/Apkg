@@ -247,7 +247,80 @@ public class GcSignRaceConditionTests : TestBase
             "A bucket with no PrimaryBucketId or SecondaryBucketId reference must be deleted by GC.");
     }
 
-    // ── Defensive cleanup in SignJob ──────────────────────────────────
+    // ── Bucket exposed immediately as Secondary (no Orphan window) ───────
+
+    /// <summary>
+    /// Regression for the "orphan window" bug:
+    /// Before the fix, SyncJob created a bucket and only set SecondaryBucketId
+    /// AFTER the long package-copy phase, leaving the bucket unreferenced
+    /// (and showing "Orphaned" in the UI) for up to minutes.
+    ///
+    /// After the fix, SecondaryBucketId is set immediately after bucket creation.
+    /// This test verifies that a bucket with SecondaryBucketId set but ReleaseContent
+    /// still null (build in progress) is NOT deleted by GC.
+    /// </summary>
+    [TestMethod]
+    public async Task GC_WhenSecondaryBucketHasNoReleaseContent_MustNotDeleteIt()
+    {
+        // Arrange: simulate the "just created, still building" state
+        var repo = _db.AptRepositories.First();
+        var buildingBucket = new AptBucket
+        {
+            CreatedAt = DateTime.UtcNow,
+            ReleaseContent = null  // not yet finished building
+        };
+        _db.AptBuckets.Add(buildingBucket);
+        _db.SaveChanges();
+
+        repo.SecondaryBucketId = buildingBucket.Id;
+        _db.SaveChanges();
+
+        // Act: GC fires while the bucket is still being built
+        var gc = GetService<GarbageCollectionJob>();
+        await gc.ExecuteAsync();
+
+        // Assert: building bucket must survive
+        _db.ChangeTracker.Clear();
+        var stillExists = await _db.AptBuckets.AnyAsync(b => b.Id == buildingBucket.Id);
+        Assert.IsTrue(stillExists,
+            "A bucket referenced as SecondaryBucketId must NOT be deleted by GC even if ReleaseContent is null.");
+    }
+
+    /// <summary>
+    /// SignJob must NOT promote a bucket whose ReleaseContent is null —
+    /// that bucket is still being built by SyncJob and is not ready for signing.
+    /// </summary>
+    [TestMethod]
+    public async Task SignJob_WhenSecondaryBucketHasNoReleaseContent_MustSkipIt()
+    {
+        // Arrange
+        var repo = await _db.AptRepositories.FirstAsync(r => r.CertificateId != null);
+        var originalPrimaryId = repo.PrimaryBucketId;
+
+        var buildingBucket = new AptBucket
+        {
+            CreatedAt = DateTime.UtcNow,
+            ReleaseContent = null  // still building
+        };
+        _db.AptBuckets.Add(buildingBucket);
+        _db.SaveChanges();
+
+        repo.SecondaryBucketId = buildingBucket.Id;
+        _db.SaveChanges();
+
+        // Act: SignJob fires while bucket is incomplete
+        var signJob = GetService<RepositorySignJob>();
+        await signJob.ExecuteAsync();
+
+        // Assert: PrimaryBucketId must be unchanged — incomplete bucket must NOT be promoted
+        _db.ChangeTracker.Clear();
+        var finalRepo = await _db.AptRepositories.FindAsync(repo.Id);
+        Assert.AreEqual(originalPrimaryId, finalRepo!.PrimaryBucketId,
+            "SignJob must not promote a bucket whose ReleaseContent is null (still building).");
+        Assert.AreEqual(buildingBucket.Id, finalRepo.SecondaryBucketId,
+            "SecondaryBucketId must remain set so the in-progress bucket is still protected.");
+    }
+
 
     /// <summary>
     /// If (despite the GC fix) a pending bucket is somehow externally deleted
