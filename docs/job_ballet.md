@@ -36,7 +36,24 @@ AptBucket
 
 ---
 
-## 完整工作流程（以 Repository 为例）
+## 完整工作流程
+
+### Mirror 流程
+
+```
+[MirrorSyncJob]
+  1. 创建新 AptBucket
+  2. 立即（单次 SaveChanges）将 mirror.SecondaryBucket = 新 bucket
+     → GC 立即知道这个 bucket 是活跃的，不会删除
+  3. 从上游 Ubuntu 拉取所有包（可能耗时数分钟）
+  4. 将旧 Primary 保留在 Secondary（防止 RepositorySyncJob 的游标被截断）：
+       oldPrimary = mirror.PrimaryBucketId
+       mirror.PrimaryBucketId = mirror.SecondaryBucketId  ← 新 bucket 上线
+       mirror.SecondaryBucketId = oldPrimary              ← 旧 bucket 继续受保护
+  5. 下次 MirrorSyncJob 运行时，新 bucket 覆写 SecondaryBucketId，旧 bucket 变 orphan
+```
+
+### Repository 流程
 
 ```
 [RepositorySyncJob]
@@ -127,6 +144,7 @@ if (bucketEntity == null)
 | SignJob 和 GC 同时运行（Mode A） | GC active set 包含 Secondary，不会删；SignJob 继续正常运行 |
 | SignJob 和 GC 同时运行（Mode B） | SignJob 升级后，旧 bucket 才失去引用；GC 此轮已计算好 active set，不会误删新 Primary |
 | 用户在 SignJob 运行期间 apt update | APT 读 Primary，SignJob 写的是 Secondary；无冲突，用户读到一致的旧版 |
+| MirrorSyncJob 升级期间 RepositorySyncJob 正在流式读取旧 Mirror Primary | MirrorSyncJob 把旧 Primary 保留在 Mirror.Secondary；GC 不删它；RepositorySyncJob 游标不被截断 |
 
 ---
 
@@ -173,8 +191,9 @@ APT 客户端（apt update / apt install）
 
 ## 设计原则总结
 
-1. **只有 SignJob 能写 PrimaryBucketId**：这是整个系统安全的根基。
+1. **只有 SignJob 能写 Repo.PrimaryBucketId**：这是整个系统安全的根基。
 2. **Secondary 是保护区，不是公开区**：任何处于 Secondary 位置的 bucket 对 APT 客户端不可见。
 3. **GC 的边界由引用关系决定，不依赖时间戳**：彻底消除了"2小时猶予"这类时间魔法数字。
 4. **导航属性单次 SaveChanges**：EF Core 保证 bucket 插入和外键更新在同一事务，消除孤儿窗口。
 5. **每个任务独立可重试**：任何任务崩溃后重新运行，都能从正确的状态继续。
+6. **Mirror 升级时旧 Primary 留在 Secondary**：防止正在流式读取旧 Mirror 数据的 RepositorySyncJob 的游标被 GC 截断。旧 Primary 在下一轮 MirrorSyncJob 开始时自然变成 orphan，届时 RepositorySyncJob 早已结束。

@@ -77,13 +77,27 @@ public class MirrorSyncJob(
             return;
         }
 
-        // 2. Promote secondary → primary (atomic swap)
+        // 2. Promote secondary → primary, keeping the old primary in secondary.
+        //
+        // Why keep the old primary in secondary instead of setting secondary to null?
+        //
+        // RepositorySyncJob streams packages from the mirror's primary bucket using an async
+        // cursor (AsAsyncEnumerable). That cursor may stay open for minutes on large mirrors.
+        // If we set secondary to null here, GC would immediately classify the old primary as
+        // orphaned and delete it — truncating RepositorySyncJob's cursor mid-stream and
+        // producing a partial (or empty) repo bucket.
+        //
+        // By moving the old primary into secondary we keep it in GC's active set until the
+        // NEXT MirrorSyncJob run, which overwrites secondary with the new build bucket.
+        // At that point RepositorySyncJob is guaranteed to have finished, and the old primary
+        // is finally safe to orphan and collect.
         logger.LogInformation("Sync completed for suite {Suite}. Swapped {Count} packages to Bucket {BucketId}.", mirror.Suite, totalInserted, bucket.Id);
         
         // Re-attach the mirror entity because change tracker might have been cleared
         db.AptMirrors.Update(mirror);
-        mirror.PrimaryBucketId = mirror.SecondaryBucketId;
-        mirror.SecondaryBucketId = null;
+        var retiredPrimaryId = mirror.PrimaryBucketId; // keep old primary alive (see comment above)
+        mirror.PrimaryBucketId = mirror.SecondaryBucketId; // promote new bucket
+        mirror.SecondaryBucketId = retiredPrimaryId;       // protect old bucket from GC
         await db.SaveChangesAsync();
     }
 
