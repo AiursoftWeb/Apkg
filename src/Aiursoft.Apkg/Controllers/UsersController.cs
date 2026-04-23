@@ -19,7 +19,7 @@ namespace Aiursoft.Apkg.Controllers;
 public class UsersController(
     RoleManager<IdentityRole> roleManager,
     UserManager<User> userManager,
-    TemplateDbContext context)
+    ApkgDbContext context)
     : Controller
 {
     [Authorize(Policy = AppPermissionNames.CanReadUsers)]

@@ -6,4 +6,4 @@ namespace Aiursoft.Apkg.MySql;
 
 [ExcludeFromCodeCoverage]
 
-public class MySqlContext(DbContextOptions<MySqlContext> options) : TemplateDbContext(options);
+public class MySqlContext(DbContextOptions<MySqlContext> options) : ApkgDbContext(options);

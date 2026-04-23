@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Aiursoft.Apkg.Sqlite;
 
 [ExcludeFromCodeCoverage]
-public class SqliteSupportedDb(bool allowCache, bool splitQuery) : SupportedDatabaseType<TemplateDbContext>
+public class SqliteSupportedDb(bool allowCache, bool splitQuery) : SupportedDatabaseType<ApkgDbContext>
 {
     public override string DbType => "Sqlite";
 
@@ -19,7 +19,7 @@ public class SqliteSupportedDb(bool allowCache, bool splitQuery) : SupportedData
             allowCache: allowCache);
     }
 
-    public override TemplateDbContext ContextResolver(IServiceProvider serviceProvider)
+    public override ApkgDbContext ContextResolver(IServiceProvider serviceProvider)
     {
         return serviceProvider.GetRequiredService<SqliteContext>();
     }

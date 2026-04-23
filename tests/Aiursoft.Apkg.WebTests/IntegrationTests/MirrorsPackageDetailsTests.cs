@@ -6,7 +6,7 @@ namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 [TestClass]
 public class MirrorsPackageDetailsTests : TestBase
 {
-    private TemplateDbContext _db = null!;
+    private ApkgDbContext _db = null!;
     private AptMirror _mirror = null!;
     private AptBucket _bucket = null!;
 
@@ -16,7 +16,7 @@ public class MirrorsPackageDetailsTests : TestBase
         await base.CreateServer();
         await LoginAsAdmin();
 
-        _db = GetService<TemplateDbContext>();
+        _db = GetService<ApkgDbContext>();
         _mirror = _db.AptMirrors.First();
 
         _bucket = new AptBucket

@@ -98,7 +98,7 @@ SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c
         var services = new ServiceCollection();
         services.AddLogging();
         services.AddMemoryCache();
-        services.AddDbContext<TemplateDbContext, SqliteContext>(options => options.UseSqlite(dbName));
+        services.AddDbContext<ApkgDbContext, SqliteContext>(options => options.UseSqlite(dbName));
         
         var storagePath = Path.Combine(Path.GetTempPath(), "apkg-test-arch-" + Guid.NewGuid());
         var config = new ConfigurationBuilder()
@@ -118,7 +118,7 @@ SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c
         
         var provider = services.BuildServiceProvider();
         using var scope = provider.CreateScope();
-        var db = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var db = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
         await db.Database.EnsureCreatedAsync();
 
         // 3. Setup Mirror and Repository metadata in DB

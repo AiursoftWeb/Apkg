@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Aiursoft.Apkg.Services.BackgroundJobs;
 
 public class GarbageCollectionJob(
-    TemplateDbContext db,
+    ApkgDbContext db,
     FeatureFoldersProvider folders,
     ILogger<GarbageCollectionJob> logger) : IBackgroundJob
 {

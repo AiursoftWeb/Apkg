@@ -13,7 +13,7 @@ public abstract class Program
     {
         var app = await AppAsync<Startup>(args);
         await app.Services.InitLoggingTableAsync();
-        await app.UpdateDbAsync<TemplateDbContext>();
+        await app.UpdateDbAsync<ApkgDbContext>();
         await app.SeedAsync();
         await app.CopyAvatarFileAsync();
         await app.RunAsync();

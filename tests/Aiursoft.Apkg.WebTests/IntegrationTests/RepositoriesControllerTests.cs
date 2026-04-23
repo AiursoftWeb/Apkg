@@ -6,7 +6,7 @@ namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 [TestClass]
 public class RepositoriesControllerTests : TestBase
 {
-    private TemplateDbContext _db = null!;
+    private ApkgDbContext _db = null!;
     private AptRepository _repo = null!;
     private AptBucket _bucket = null!;
 
@@ -16,7 +16,7 @@ public class RepositoriesControllerTests : TestBase
         await base.CreateServer();
         await LoginAsAdmin();
 
-        _db = GetService<TemplateDbContext>();
+        _db = GetService<ApkgDbContext>();
         _repo = _db.AptRepositories.First();
 
         _bucket = new AptBucket

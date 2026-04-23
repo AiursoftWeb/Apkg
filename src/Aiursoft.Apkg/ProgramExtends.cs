@@ -14,7 +14,7 @@ namespace Aiursoft.Apkg;
 public static class ProgramExtends
 {
     [ExcludeFromCodeCoverage]
-    private static async Task<bool> ShouldSeedAsync(TemplateDbContext dbContext)
+    private static async Task<bool> ShouldSeedAsync(ApkgDbContext dbContext)
     {
         var haveUsers = await dbContext.Users.AnyAsync();
         var haveRoles = await dbContext.Roles.AnyAsync();
@@ -58,7 +58,7 @@ public static class ProgramExtends
     {
         using var scope = host.Services.CreateScope();
         var services = scope.ServiceProvider;
-        var db = services.GetRequiredService<TemplateDbContext>();
+        var db = services.GetRequiredService<ApkgDbContext>();
         var logger = services.GetRequiredService<ILogger<Program>>();
         
         var settingsService = services.GetRequiredService<GlobalSettingsService>();
@@ -105,7 +105,12 @@ public static class ProgramExtends
                 DisplayName = "Super Administrator",
                 Email = "admin@default.com",
             };
-            _ = await userManager.CreateAsync(user, "admin123");
+            var createResult = await userManager.CreateAsync(user, "admin123");
+            if (!createResult.Succeeded)
+            {
+                var errors = string.Join(", ", createResult.Errors.Select(e => e.Description));
+                throw new InvalidOperationException($"Failed to create the default admin user: {errors}");
+            }
             await userManager.AddToRoleAsync(user, "Administrators");
         }
 
@@ -118,7 +123,7 @@ public static class ProgramExtends
     {
         using var scope = host.Services.CreateScope();
         var services = scope.ServiceProvider;
-        var db = services.GetRequiredService<TemplateDbContext>();
+        var db = services.GetRequiredService<ApkgDbContext>();
         var logger = services.GetRequiredService<ILogger<Program>>();
         var signingService = services.GetRequiredService<IGpgSigningService>();
 
