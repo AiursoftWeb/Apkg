@@ -141,6 +141,9 @@
   <data name="Package Engine" xml:space="preserve">
     <value>패키지 엔진</value>
   </data>
+  <data name="Package Search" xml:space="preserve">
+    <value>패키지 검색</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>권한 세부 정보</value>
   </data>

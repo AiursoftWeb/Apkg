@@ -138,6 +138,9 @@
   <data name="Package Engine" xml:space="preserve">
     <value>Motor de pachete</value>
   </data>
+  <data name="Package Search" xml:space="preserve">
+    <value>Căutare pachete</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Detalii permisiuni</value>
   </data>

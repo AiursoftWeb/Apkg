@@ -138,6 +138,9 @@
   <data name="Package Engine" xml:space="preserve">
     <value>Пакетный движок</value>
   </data>
+  <data name="Package Search" xml:space="preserve">
+    <value>Поиск пакетов</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Сведения о разрешениях</value>
   </data>
