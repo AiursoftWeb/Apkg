@@ -43,7 +43,14 @@ public class RepositorySignJob(
         var bucketEntity = await db.AptBuckets.FindAsync(repo.PendingBucketId);
         if (bucketEntity == null)
         {
-            logger.LogWarning("Repository {RepoName} has no pending bucket. Skipping.", repo.Name);
+            // Bucket was deleted externally (should never happen after GC fix, but defend anyway).
+            // Clear the dangling FK so the repo doesn't remain permanently stuck.
+            logger.LogWarning(
+                "Repository {RepoName}: pending bucket {BucketId} no longer exists. Clearing dangling PendingBucketId.",
+                repo.Name, repo.PendingBucketId);
+            repo.PendingBucketId = null;
+            db.AptRepositories.Update(repo);
+            await db.SaveChangesAsync();
             return;
         }
 
