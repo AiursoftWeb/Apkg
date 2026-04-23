@@ -105,7 +105,7 @@ public static class ProgramExtends
                 DisplayName = "Super Administrator",
                 Email = "admin@default.com",
             };
-            var createResult = await userManager.CreateAsync(user, "admin123");
+            var createResult = await userManager.CreateAsync(user, "Admin@123456!");
             if (!createResult.Succeeded)
             {
                 var errors = string.Join(", ", createResult.Errors.Select(e => e.Description));
