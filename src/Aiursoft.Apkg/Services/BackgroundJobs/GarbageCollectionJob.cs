@@ -51,13 +51,12 @@ public class GarbageCollectionJob(
             .Distinct()
             .ToList();
 
-        // Unreferenced buckets older than 2 hours are safe to delete.
-        // In-progress builds are protected either by being referenced as SecondaryBucketId
-        // or by the 2-hour grace period (for mirrors and edge cases).
-        var crashThreshold = DateTime.UtcNow.AddHours(-2);
-        
+        // Unreferenced buckets are definitively orphaned and safe to delete immediately.
+        // Both MirrorSyncJob and RepositorySyncJob set SecondaryBucketId right after bucket
+        // creation (before any long-running work), so any bucket not in the active set is
+        // either a crash remnant or a completed old build — both are safe to remove.
         var orphanedBuckets = await db.AptBuckets
-            .Where(b => !activeBucketIds.Contains(b.Id) && b.CreatedAt < crashThreshold)
+            .Where(b => !activeBucketIds.Contains(b.Id))
             .Select(b => b.Id)
             .ToListAsync();
 

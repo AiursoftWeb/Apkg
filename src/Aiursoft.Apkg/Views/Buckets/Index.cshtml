@@ -10,7 +10,7 @@
     <div class="card-body">
         <div class="alert alert-info">
             <i class="align-middle me-2" data-lucide="info"></i>
-            <strong>GC Policy:</strong> Unreferenced buckets (not current or pending in any Mirror/Repository) are automatically pruned after 2 hours. In-progress builds are protected by their pending reference or the 2-hour grace period.
+            <strong>GC Policy:</strong> Unreferenced buckets (not primary or secondary in any Mirror/Repository) are immediately pruned on the next GC run. In-progress builds are protected because both SyncJobs set <code>SecondaryBucketId</code> immediately upon bucket creation.
         </div>
         
         <table class="table table-hover table-striped">

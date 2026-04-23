@@ -187,7 +187,7 @@ public class GcSignRaceConditionTests : TestBase
     {
         // Arrange
         var repo = await _db.AptRepositories.FirstAsync(r => r.CertificateId != null);
-        var oldBucket = CreateFinishedBucket("old-gen", createdAt: DateTime.UtcNow.AddHours(-3));
+        var oldBucket = CreateFinishedBucket("old-gen");
         var pending   = CreateFinishedBucket("new-gen");
         repo.PrimaryBucketId = oldBucket.Id;
         repo.SecondaryBucketId = pending.Id;
@@ -227,13 +227,13 @@ public class GcSignRaceConditionTests : TestBase
     /// <summary>
     /// Sanity check: the fix must not make GC too conservative.
     /// Buckets that are neither PrimaryBucketId nor SecondaryBucketId
-    /// (i.e., truly orphaned) must still be collected.
+    /// (i.e., truly orphaned) must be collected immediately, regardless of age.
     /// </summary>
     [TestMethod]
     public async Task GC_TrulyOrphanedBucket_IsDeleted()
     {
-        // Arrange: bucket that has no reference from any repo — created 3 hours ago
-        var orphan = CreateFinishedBucket("orphan", createdAt: DateTime.UtcNow.AddHours(-3));
+        // Arrange: bucket that has no reference from any repo — even a brand-new one
+        var orphan = CreateFinishedBucket("orphan");
         // Do NOT link it to any repo
 
         // Act
@@ -244,7 +244,7 @@ public class GcSignRaceConditionTests : TestBase
         _db.ChangeTracker.Clear();
         var stillExists = await _db.AptBuckets.AnyAsync(b => b.Id == orphan.Id);
         Assert.IsFalse(stillExists,
-            "A bucket with no PrimaryBucketId or SecondaryBucketId reference must be deleted by GC.");
+            "A bucket with no PrimaryBucketId or SecondaryBucketId reference must be deleted by GC immediately.");
     }
 
     // ── Bucket exposed immediately as Secondary (no Orphan window) ───────
