@@ -73,20 +73,37 @@ public class Startup : IWebStartup
             period:     TimeSpan.FromHours(6),
             startDelay: TimeSpan.FromMinutes(5));
 
+        // Mirror Job runs every 20 minutes, delay 10 minutes.
         services.RegisterScheduledTask(
             registration: mirrorSyncJob,
             period:     TimeSpan.FromMinutes(20),
-            startDelay: TimeSpan.FromSeconds(10));
+            startDelay: TimeSpan.FromMinutes(10));
 
+        // Repository Sync Job runs every 20 minutes, delay 20 minutes.
         services.RegisterScheduledTask(
             registration: repositorySyncJob,
             period:     TimeSpan.FromMinutes(20),
-            startDelay: TimeSpan.FromSeconds(30));
+            startDelay: TimeSpan.FromMinutes(20));
 
+        // Garbage Collection Job runs every 70 minutes, delay 15 minutes.
         services.RegisterScheduledTask(
             registration: garbageCollectionJob,
             period:     TimeSpan.FromMinutes(70),
             startDelay: TimeSpan.FromMinutes(15));
+
+        // So an idea run steps are:
+        // 1. At 10:00, Mirror Sync Job runs
+        // 2. At 10:15, Garbage Collection Job runs
+        // 3. At 10:20, Repository Sync Job runs
+        // 4. At 10:30, Mirror Sync Job runs again
+        // 5. At 10:40, Repository Sync Job runs again
+        // 6. At 10:50, Mirror Sync Job runs again
+        // 7. At 11:00, Repository Sync Job runs again
+        // 8. At 11:10, Mirror Sync Job runs again
+        // 9. At 11:20, Repository Sync Job runs again
+        // 10. At 11:25, Garbage Collection Job runs again
+        // 11. At 11:30, Mirror Sync Job runs again
+        // 12. At 11:40, Repository Sync Job runs again
 
         // Controllers and localization
         services.AddControllersWithViews()
