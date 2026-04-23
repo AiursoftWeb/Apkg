@@ -10,8 +10,7 @@ namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 ///
 /// Root cause (fixed):
 ///   GarbageCollectionJob only included CurrentBucketId in its "active" set.
-///   PendingBucketId buckets (BuildFinished=true, not yet promoted) were
-///   classified as orphaned and deleted.
+///   PendingBucketId buckets (not yet promoted) were classified as orphaned and deleted.
 ///
 /// This caused two failure modes:
 ///
@@ -45,12 +44,11 @@ public class GcSignRaceConditionTests : TestBase
 
     // ── Helpers ──────────────────────────────────────────────────────
 
-    private AptBucket CreateFinishedBucket(string origin = "Test")
+    private AptBucket CreateFinishedBucket(string origin = "Test", DateTime? createdAt = null)
     {
         var b = new AptBucket
         {
-            CreatedAt = DateTime.UtcNow,
-            BuildFinished = true,
+            CreatedAt = createdAt ?? DateTime.UtcNow,
             ReleaseContent = $"Origin: {origin}\nSuite: test\n"
         };
         _db.AptBuckets.Add(b);
@@ -189,7 +187,7 @@ public class GcSignRaceConditionTests : TestBase
     {
         // Arrange
         var repo = await _db.AptRepositories.FirstAsync(r => r.CertificateId != null);
-        var oldBucket = CreateFinishedBucket("old-gen");
+        var oldBucket = CreateFinishedBucket("old-gen", createdAt: DateTime.UtcNow.AddHours(-3));
         var pending   = CreateFinishedBucket("new-gen");
         repo.CurrentBucketId = oldBucket.Id;
         repo.PendingBucketId = pending.Id;
@@ -234,8 +232,8 @@ public class GcSignRaceConditionTests : TestBase
     [TestMethod]
     public async Task GC_TrulyOrphanedBucket_IsDeleted()
     {
-        // Arrange: bucket that has no reference from any repo
-        var orphan = CreateFinishedBucket("orphan");
+        // Arrange: bucket that has no reference from any repo — created 3 hours ago
+        var orphan = CreateFinishedBucket("orphan", createdAt: DateTime.UtcNow.AddHours(-3));
         // Do NOT link it to any repo
 
         // Act

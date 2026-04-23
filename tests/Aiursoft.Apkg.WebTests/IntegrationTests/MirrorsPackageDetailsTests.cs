@@ -22,7 +22,6 @@ public class MirrorsPackageDetailsTests : TestBase
         _bucket = new AptBucket
         {
             CreatedAt = DateTime.UtcNow,
-            BuildFinished = true,
             InReleaseContent = "TEST-INRELEASE",
             ReleaseContent = "TEST-RELEASE"
         };

@@ -45,14 +45,13 @@ public class GarbageCollectionJob(
             .Distinct()
             .ToList();
 
-        // Only delete buckets that are fully built (BuildFinished = true) but not referenced.
-        // Buckets with BuildFinished = false are still being constructed — don't touch them.
-        // Safety net: also prune very old unfinished buckets (>2 hours) from crashed jobs.
+        // Unreferenced buckets older than 2 hours are safe to delete.
+        // In-progress builds are protected either by being referenced as PendingBucketId
+        // or by the 2-hour grace period (for mirrors and edge cases).
         var crashThreshold = DateTime.UtcNow.AddHours(-2);
         
         var orphanedBuckets = await db.AptBuckets
-            .Where(b => !activeBucketIds.Contains(b.Id) &&
-                        (b.BuildFinished || b.CreatedAt < crashThreshold))
+            .Where(b => !activeBucketIds.Contains(b.Id) && b.CreatedAt < crashThreshold)
             .Select(b => b.Id)
             .ToListAsync();
 

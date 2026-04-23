@@ -196,7 +196,6 @@ public class RepositorySyncJob(
         if (bucketEntity != null)
         {
             bucketEntity.ReleaseContent = releaseContent;
-            bucketEntity.BuildFinished = true;
             await db.SaveChangesAsync();
         }
 

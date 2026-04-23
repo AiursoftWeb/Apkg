@@ -30,7 +30,6 @@ public class RepositorySignJobTests : TestBase
         var bucket = new AptBucket
         {
             CreatedAt = DateTime.UtcNow,
-            BuildFinished = true,
             ReleaseContent = releaseContent
         };
         _db.AptBuckets.Add(bucket);

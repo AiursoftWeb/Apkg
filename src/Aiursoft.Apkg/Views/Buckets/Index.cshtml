@@ -10,7 +10,7 @@
     <div class="card-body">
         <div class="alert alert-info">
             <i class="align-middle me-2" data-lucide="info"></i>
-            <strong>GC Policy:</strong> Finished buckets not referenced by any Mirror or Repository will be automatically pruned on the next GC run. Unfinished buckets are never deleted (unless they are more than 2 hours old, which indicates a crashed job).
+            <strong>GC Policy:</strong> Unreferenced buckets (not current or pending in any Mirror/Repository) are automatically pruned after 2 hours. In-progress builds are protected by their pending reference or the 2-hour grace period.
         </div>
         
         <table class="table table-hover table-striped">
@@ -28,6 +28,7 @@
             @foreach (var bucket in Model.Buckets)
             {
                 var isLive = !string.IsNullOrEmpty(Model.InUseBy.GetValueOrDefault(bucket.Id));
+                var isPending = Model.PendingBucketIds.Contains(bucket.Id);
                 <tr>
                     <td><span class="badge bg-secondary">#@bucket.Id</span></td>
                     <td>
@@ -35,7 +36,7 @@
                         {
                             <span class="badge bg-success">@Localizer["LIVE"]</span>
                         }
-                        else if (!bucket.BuildFinished)
+                        else if (isPending)
                         {
                             <span class="badge badge-subtle-info">@Localizer["Building"]</span>
                         }

@@ -73,13 +73,6 @@ public class MirrorSyncJob(
         }
 
         // 2. Mark bucket as fully built, then atomic swap
-        var bucketEntity = await db.AptBuckets.FindAsync(bucket.Id);
-        if (bucketEntity != null)
-        {
-            bucketEntity.BuildFinished = true;
-            await db.SaveChangesAsync();
-        }
-
         logger.LogInformation("Sync completed for suite {Suite}. Swapped {Count} packages to Bucket {BucketId}.", mirror.Suite, totalInserted, bucket.Id);
         
         // Re-attach the mirror entity because change tracker might have been cleared
