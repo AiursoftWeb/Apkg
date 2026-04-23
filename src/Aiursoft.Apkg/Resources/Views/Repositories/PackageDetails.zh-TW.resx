@@ -48,6 +48,9 @@
   <data name="Homepage" xml:space="preserve">
     <value>首頁</value>
   </data>
+  <data name="How to Install" xml:space="preserve">
+    <value>安裝方式</value>
+  </data>
   <data name="Installed Size" xml:space="preserve">
     <value>已安裝大小</value>
   </data>
@@ -98,6 +101,12 @@
   </data>
   <data name="Status &amp; Files" xml:space="preserve">
     <value>狀態與檔案</value>
+  </data>
+  <data name="Step 1: Add this APT server" xml:space="preserve">
+    <value>步驟 1：新增此 APT 伺服器</value>
+  </data>
+  <data name="Step 2: Install the package" xml:space="preserve">
+    <value>步驟 2：安裝套件</value>
   </data>
   <data name="Storage State" xml:space="preserve">
     <value>儲存狀態</value>

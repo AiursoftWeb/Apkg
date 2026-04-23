@@ -36,8 +36,23 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="No Certificate" xml:space="preserve">
+    <value>No Certificate</value>
+  </data>
   <data name="Public Repositories" xml:space="preserve">
     <value>Public Repositories</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>Secondary Bucket</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>Signature</value>
+  </data>
+  <data name="Signed" xml:space="preserve">
+    <value>Signed</value>
+  </data>
+  <data name="Signed at" xml:space="preserve">
+    <value>Signed at</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>

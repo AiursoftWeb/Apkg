@@ -48,6 +48,12 @@
   <data name="Packages" xml:space="preserve">
     <value>패키지</value>
   </data>
+  <data name="Primary Bucket" xml:space="preserve">
+    <value>기본 버킷</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>보조 버킷</value>
+  </data>
   <data name="Suite" xml:space="preserve">
     <value>스위트</value>
   </data>

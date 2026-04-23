@@ -42,5 +42,8 @@
   <data name="Version" xml:space="preserve">
     <value>バージョン</value>
   </data>
+  <data name="View Repository Info" xml:space="preserve">
+    <value>リポジトリ情報を表示</value>
+  </data>
 
 </root>
