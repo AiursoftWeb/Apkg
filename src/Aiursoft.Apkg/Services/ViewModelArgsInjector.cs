@@ -93,6 +93,8 @@ public class ViewModelArgsInjector(
         _ = localizer["Signing Certificates"];
         _ = localizer["Snapshots history"];
         _ = localizer["Upstream Mirrors"];
+    
+        _ = localizer["Package Search"];
     }
 
     public void InjectSimple(

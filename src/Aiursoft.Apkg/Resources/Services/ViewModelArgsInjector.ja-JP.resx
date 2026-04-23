@@ -141,6 +141,9 @@
   <data name="Package Engine" xml:space="preserve">
     <value>パッケージエンジン</value>
   </data>
+  <data name="Package Search" xml:space="preserve">
+    <value>パッケージ検索</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>権限の詳細</value>
   </data>
