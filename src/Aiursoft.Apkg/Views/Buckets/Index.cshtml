@@ -22,6 +22,7 @@
                 <th class="text-end">@Localizer["Packages"]</th>
                 <th class="text-end">@Localizer["Logical Size"]</th>
                 <th>@Localizer["Active Usage"]</th>
+                <th class="text-end">@Localizer["Actions"]</th>
             </tr>
             </thead>
             <tbody>
@@ -58,6 +59,11 @@
                         {
                             <small class="text-info">@pendingFor <span class="text-muted">(pending)</span></small>
                         }
+                    </td>
+                    <td class="text-end">
+                        <a asp-action="Packages" asp-route-id="@bucket.Id" class="btn btn-sm btn-outline-info">
+                            <i class="align-middle" data-lucide="package"></i>
+                        </a>
                     </td>
                 </tr>
             }
