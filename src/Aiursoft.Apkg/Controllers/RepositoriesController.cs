@@ -49,21 +49,26 @@ public class RepositoriesController(ApkgDbContext dbContext) : Controller
         var repo = await dbContext.AptRepositories.FindAsync(id);
         if (repo?.CurrentBucketId == null) return NotFound();
 
-        var query = dbContext.AptPackages
+        var baseQuery = dbContext.AptPackages
             .Where(p => p.BucketId == repo.CurrentBucketId);
+
+        const int pageSize = 100;
+        List<AptPackage> items;
+        int totalCount;
 
         if (!string.IsNullOrWhiteSpace(searchName))
         {
-            query = query.Where(p => p.Package.Contains(searchName));
+            (items, totalCount) = await PackageSearchService.SearchAsync(baseQuery, searchName, page, pageSize);
         }
-
-        const int pageSize = 100;
-        var totalCount = await query.CountAsync();
-        var items = await query
-            .OrderBy(p => p.Package)
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
-            .ToListAsync();
+        else
+        {
+            totalCount = await baseQuery.CountAsync();
+            items = await baseQuery
+                .OrderBy(p => p.Package)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+        }
 
         var model = new RepoPackagesViewModel
         {

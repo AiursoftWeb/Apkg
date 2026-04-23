@@ -65,6 +65,7 @@ public class Startup : IWebStartup
         var orphanAvatarCleanupJob = services.RegisterBackgroundJob<OrphanAvatarCleanupJob>();
         var mirrorSyncJob = services.RegisterBackgroundJob<MirrorSyncJob>();
         var repositorySyncJob = services.RegisterBackgroundJob<RepositorySyncJob>();
+        var repositorySignJob = services.RegisterBackgroundJob<RepositorySignJob>();
         var garbageCollectionJob = services.RegisterBackgroundJob<GarbageCollectionJob>();
 
         // Scheduled tasks (attach a schedule to any registered background job)
@@ -84,6 +85,12 @@ public class Startup : IWebStartup
             registration: repositorySyncJob,
             period:     TimeSpan.FromMinutes(20),
             startDelay: TimeSpan.FromMinutes(20));
+
+        // Repository Sign Job runs every 5 minutes (signs and promotes any pending buckets after sync).
+        services.RegisterScheduledTask(
+            registration: repositorySignJob,
+            period:     TimeSpan.FromMinutes(5),
+            startDelay: TimeSpan.FromMinutes(25));
 
         // Garbage Collection Job runs every 70 minutes, delay 15 minutes.
         services.RegisterScheduledTask(

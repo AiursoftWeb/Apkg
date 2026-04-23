@@ -13,7 +13,7 @@ namespace Aiursoft.Apkg.WebTests;
 public class FakeGpgSigningService : IGpgSigningService
 {
     public Task<string> SignClearsignAsync(string content, string privateKey) => Task.FromResult("SIGNED-CONTENT");
-    public Task<(string publicKey, string privateKey, string fingerprint)> GenerateKeyPairAsync(string identity) => 
+    public Task<(string publicKey, string privateKey, string fingerprint)> GenerateKeyPairAsync(string identity) =>
         Task.FromResult(("PUB", "PRIV", "FPR"));
 }
 
@@ -93,13 +93,13 @@ SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
 ";
         var packagesHash = BitConverter.ToString(SHA256.HashData(Encoding.UTF8.GetBytes(upstreamPackages))).Replace("-", "").ToLower();
-        
+
         // 2. Setup services
         var services = new ServiceCollection();
         services.AddLogging();
         services.AddMemoryCache();
         services.AddDbContext<ApkgDbContext, SqliteContext>(options => options.UseSqlite(dbName));
-        
+
         var storagePath = Path.Combine(Path.GetTempPath(), "apkg-test-arch-" + Guid.NewGuid());
         var config = new ConfigurationBuilder()
             .AddInMemoryCollection(new Dictionary<string, string> { ["Storage:Path"] = storagePath }!)
@@ -112,10 +112,11 @@ SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c
         services.AddSingleton<IGpgSigningService, FakeGpgSigningService>();
         services.AddTransient<MirrorSyncJob>();
         services.AddTransient<RepositorySyncJob>();
-        
+        services.AddTransient<RepositorySignJob>();
+
         services.AddHttpClient(Microsoft.Extensions.Options.Options.DefaultName)
             .ConfigurePrimaryHttpMessageHandler(() => new FakeHttpMessageHandler(upstreamPackages, packagesHash));
-        
+
         var provider = services.BuildServiceProvider();
         using var scope = provider.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
@@ -128,11 +129,11 @@ SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c
             Distro = "ubuntu",
             Suite = "focal",
             Components = "main",
-            Architecture = "amd64", 
+            Architecture = "amd64",
             SignedBy = null // Disable GPG check
         };
         db.AptMirrors.Add(mirror);
-        
+
         var repo = new AptRepository
         {
             Name = "My Repo",
@@ -158,23 +159,27 @@ SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c
         Assert.IsNotNull(amd64Pkg, "Arch:amd64 package should be synced to DB");
         Assert.AreEqual("amd64", amd64Pkg.Architecture, "Architecture should be 'amd64'!");
 
-        // 5. Run RepositorySyncJob
+        // 5. Run RepositorySyncJob (builds pending buckets)
         var repoJob = scope.ServiceProvider.GetRequiredService<RepositorySyncJob>();
         await repoJob.ExecuteAsync();
 
-        // 6. Verify generated index file
+        // 6. Run RepositorySignJob (signs and promotes pending buckets to CurrentBucketId)
+        var signJob = scope.ServiceProvider.GetRequiredService<RepositorySignJob>();
+        await signJob.ExecuteAsync();
+
+        // 7. Verify generated index file
         var folders = scope.ServiceProvider.GetRequiredService<FeatureFoldersProvider>();
         var updatedRepo = await db.AptRepositories.Include(r => r.CurrentBucket).FirstAsync(r => r.Id == repo.Id);
         var currentBucketId = updatedRepo.CurrentBucketId;
-        Assert.IsNotNull(currentBucketId);
-        
+        Assert.IsNotNull(currentBucketId, "SignJob should have promoted the pending bucket to CurrentBucketId.");
+
         var packagesFilePath = Path.Combine(folders.GetWorkspaceFolder(), "Buckets", currentBucketId.ToString()!, "main/binary-amd64/Packages");
         Assert.IsTrue(File.Exists(packagesFilePath), "Packages file should be generated for amd64");
-        
+
         var packagesContent = await File.ReadAllTextAsync(packagesFilePath);
         Assert.IsTrue(packagesContent.Contains("Package: test-all-pkg"), "The amd64 index should contain the 'all' architecture package!");
         Assert.IsTrue(packagesContent.Contains("Package: test-amd64-pkg"), "The amd64 index should contain the 'amd64' architecture package!");
-        
+
         var gzPath = packagesFilePath + ".gz";
         Assert.IsTrue(File.Exists(gzPath), "Gzipped packages file should be generated!");
     }

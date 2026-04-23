@@ -21,6 +21,7 @@
                 <th>@Localizer["Suite"]</th>
                 <th>@Localizer["Certificate"]</th>
                 <th>@Localizer["Live Bucket"]</th>
+                <th>@Localizer["Signature"]</th>
                 <th>@Localizer["Total Packages"]</th>
                 <th class="text-end">@Localizer["Actions"]</th>
             </tr>
@@ -42,6 +43,29 @@
                         @if (item.CurrentBucketId != null)
                         {
                             <span class="badge bg-success">#@item.CurrentBucketId</span>
+                        }
+                    </td>
+                    <td>
+                        @if (item.CurrentBucket?.SignedAt != null)
+                        {
+                            <span class="badge bg-success" title="Signed at @item.CurrentBucket.SignedAt.Value.ToString("u")">
+                                <i class="align-middle" data-lucide="shield-check"></i>
+                                @Localizer["Signed at"] @item.CurrentBucket.SignedAt.Value.ToString("yyyy-MM-dd HH:mm") UTC
+                            </span>
+                        }
+                        else if (item.CurrentBucket?.InReleaseContent != null)
+                        {
+                            <span class="badge bg-success">
+                                <i class="align-middle" data-lucide="shield-check"></i>
+                                @Localizer["Signed"]
+                            </span>
+                        }
+                        else if (item.CurrentBucketId != null)
+                        {
+                            <span class="badge bg-secondary">
+                                <i class="align-middle" data-lucide="shield-off"></i>
+                                @Localizer["No Certificate"]
+                            </span>
                         }
                     </td>
                     <td>

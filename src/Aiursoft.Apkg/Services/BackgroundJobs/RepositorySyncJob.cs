@@ -1,10 +1,9 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.IO.Compression;
-using Aiursoft.Canon.BackgroundJobs;
 using Aiursoft.Apkg.Entities;
-using Aiursoft.Apkg.Services.Authentication;
 using Aiursoft.Apkg.Services.FileStorage;
+using Aiursoft.Canon.BackgroundJobs;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.Apkg.Services.BackgroundJobs;
@@ -12,20 +11,19 @@ namespace Aiursoft.Apkg.Services.BackgroundJobs;
 public class RepositorySyncJob(
     ApkgDbContext db,
     AptMetadataService metadataService,
-    IGpgSigningService signingService,
     FeatureFoldersProvider folders,
     ILogger<RepositorySyncJob> logger) : IBackgroundJob
 {
     private string BucketsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Buckets");
 
-    public string Name => "APT Repository Sync V2";
+    public string Name => "Seed All APT repository as pending job";
 
-    public string Description => "Processes and signs packages from mirrors into repository-specific buckets.";
+    public string Description => "Fetches packages from all configured mirrors and builds new pending buckets. Does NOT swap them live — triggers 'Sign Pending bucket and swap' to sign and promote.";
 
     public async Task ExecuteAsync()
     {
         logger.LogInformation("RepositorySyncJob V2 started.");
-        
+
         var repos = await db.AptRepositories
             .Include(r => r.Mirror)
             .Include(r => r.Certificate)
@@ -43,7 +41,7 @@ public class RepositorySyncJob(
             }
         }
 
-        logger.LogInformation("RepositorySyncJob V2 finished.");
+        logger.LogInformation("RepositorySyncJob V2 finished. Pending buckets are staged; RepositorySignJob will sign and promote them.");
     }
 
     private async Task SyncAndSignRepositoryAsync(AptRepository repo)
@@ -68,7 +66,7 @@ public class RepositorySyncJob(
             {
                 var mirrorBucketId = repo.Mirror.CurrentBucketId.Value;
                 logger.LogInformation("Copying packages from Mirror Bucket {MirrorBucketId} to New Bucket {NewBucketId}...", mirrorBucketId, newBucketId);
-                
+
                 // Stream from DB and insert to avoid loading all in memory
                 var query = db.AptPackages
                     .AsNoTracking()
@@ -78,7 +76,7 @@ public class RepositorySyncJob(
                 var count = 0;
                 await foreach (var pkg in query)
                 {
-                    pkg.Id = 0; 
+                    pkg.Id = 0;
                     pkg.BucketId = newBucketId;
                     db.AptPackages.Add(pkg);
                     count++;
@@ -99,7 +97,7 @@ public class RepositorySyncJob(
                 .AsNoTracking()
                 .Where(p => p.BucketId == repo.CurrentBucketId)
                 .AsAsyncEnumerable();
-            
+
             var count = 0;
             await foreach (var pkg in query)
             {
@@ -119,7 +117,7 @@ public class RepositorySyncJob(
 
         // 3. Metadata Generation & Signing
         logger.LogInformation("Generating and signing metadata for Bucket {BucketId}...", newBucketId);
-        
+
         var architectures = repo.Architecture.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         var components = repo.Components.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
@@ -192,28 +190,23 @@ public class RepositorySyncJob(
         }
 
         var releaseContent = releaseSb.ToString();
-        
+
         // Fetch newBucket again to avoid tracking issues
         var bucketEntity = await db.AptBuckets.FindAsync(newBucketId);
         if (bucketEntity != null)
         {
             bucketEntity.ReleaseContent = releaseContent;
-            if (repo.Certificate != null)
-            {
-                logger.LogInformation("Signing with certificate {CertName}...", repo.Certificate.FriendlyName);
-                bucketEntity.InReleaseContent = await signingService.SignClearsignAsync(releaseContent, repo.Certificate.PrivateKey);
-            }
             bucketEntity.BuildFinished = true;
             await db.SaveChangesAsync();
         }
 
-        // 5. Commit and Swap
+        // 5. Stage for signing (do NOT swap CurrentBucketId yet — RepositorySignJob will sign and swap atomically)
         db.AptRepositories.Update(repo);
-        repo.CurrentBucketId = newBucketId;
+        repo.PendingBucketId = newBucketId;
         await db.SaveChangesAsync();
-        
+
         db.ChangeTracker.Clear();
-        logger.LogInformation("Repository {RepoName} is now live with Bucket {BucketId}.", repo.Name, newBucketId);
+        logger.LogInformation("Repository {RepoName} bucket {BucketId} is staged and awaiting signing.", repo.Name, newBucketId);
     }
 }
 

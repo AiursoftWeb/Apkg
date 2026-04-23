@@ -23,5 +23,11 @@ public class AptBucket
     public string? InReleaseContent { get; set; }
     public string? ReleaseContent { get; set; }
 
+    /// <summary>
+    /// Set by <c>RepositorySignJob</c> when the bucket's Release file is GPG-signed.
+    /// Null means the bucket has not been signed yet.
+    /// </summary>
+    public DateTime? SignedAt { get; set; }
+
     public List<AptPackage> Packages { get; set; } = [];
 }
