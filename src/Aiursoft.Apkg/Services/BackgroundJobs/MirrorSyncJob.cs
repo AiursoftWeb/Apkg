@@ -38,18 +38,14 @@ public class MirrorSyncJob(
     {
         logger.LogInformation("Starting sync for suite {Suite} from {BaseUrl}...", mirror.Suite, mirror.BaseUrl);
 
-        // 1. Create a new bucket and immediately link it as SecondaryBucketId.
-        var bucket = new AptBucket
-        {
-            CreatedAt = DateTime.UtcNow
-        };
-        db.AptBuckets.Add(bucket);
+        // 1. Create a new bucket and link it as SecondaryBucketId in a single SaveChanges call.
+        //    Using the navigation property lets EF Core resolve the INSERT order automatically
+        //    (INSERT bucket first to get its Id, then UPDATE mirror.SecondaryBucketId),
+        //    eliminating any window between two saves where GC could delete the new bucket.
+        var bucket = new AptBucket { CreatedAt = DateTime.UtcNow };
         db.AptMirrors.Update(mirror);
-        mirror.SecondaryBucketId = null; // clear any stale secondary reference
-        await db.SaveChangesAsync();
-
-        mirror.SecondaryBucketId = bucket.Id;
-        await db.SaveChangesAsync();
+        mirror.SecondaryBucket = bucket;
+        await db.SaveChangesAsync(); // atomic: bucket inserted + SecondaryBucketId updated in one round-trip
 
         var components = mirror.Components.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         var architectures = mirror.Architecture.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
@@ -74,7 +70,7 @@ public class MirrorSyncJob(
         if (totalInserted == 0)
         {
             logger.LogWarning("No packages were found for any component in suite {Suite}. The sync is considered failed and the bucket will not be swapped.", mirror.Suite);
-            // Clear secondary so the empty bucket becomes orphaned and gets GC'd after 2 hours.
+            // Clear secondary so the empty bucket becomes orphaned and will be collected by the next GC run.
             db.AptMirrors.Update(mirror);
             mirror.SecondaryBucketId = null;
             await db.SaveChangesAsync();
