@@ -24,6 +24,7 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
     {
         var mirrors = await dbContext.AptMirrors
             .Include(m => m.PrimaryBucket)
+            .Include(m => m.SecondaryBucket)
             .ToListAsync();
             
         var packageCounts = await dbContext.AptPackages

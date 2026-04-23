@@ -51,6 +51,14 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
             .Where(r => r.SecondaryBucketId != null)
             .ToDictionaryAsync(r => r.SecondaryBucketId!.Value, r => $"Repo: {r.Name}");
 
+        var pendingMirrorUsage = await dbContext.AptMirrors
+            .Where(m => m.SecondaryBucketId != null)
+            .ToDictionaryAsync(m => m.SecondaryBucketId!.Value, m => $"Mirror: {m.Suite}");
+
+        var pendingUsage = pendingRepoUsage
+            .Concat(pendingMirrorUsage)
+            .ToDictionary(kv => kv.Key, kv => kv.Value);
+
         var model = new BucketsIndexViewModel
         {
             Buckets = buckets,
@@ -63,7 +71,7 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
                 if (repoUsage.TryGetValue(b.Id, out var r)) usages.Add(r);
                 return string.Join(", ", usages);
             }),
-            PendingUsage = pendingRepoUsage,
+            PendingUsage = pendingUsage,
             PageTitle = "Bucket History"
         };
         return this.StackView(model);

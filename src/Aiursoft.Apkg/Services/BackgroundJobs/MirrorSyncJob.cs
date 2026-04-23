@@ -38,12 +38,17 @@ public class MirrorSyncJob(
     {
         logger.LogInformation("Starting sync for suite {Suite} from {BaseUrl}...", mirror.Suite, mirror.BaseUrl);
 
-        // 1. Create a new bucket for this sync session
+        // 1. Create a new bucket and immediately link it as SecondaryBucketId.
         var bucket = new AptBucket
         {
             CreatedAt = DateTime.UtcNow
         };
         db.AptBuckets.Add(bucket);
+        db.AptMirrors.Update(mirror);
+        mirror.SecondaryBucketId = null; // clear any stale secondary reference
+        await db.SaveChangesAsync();
+
+        mirror.SecondaryBucketId = bucket.Id;
         await db.SaveChangesAsync();
 
         var components = mirror.Components.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
@@ -69,15 +74,20 @@ public class MirrorSyncJob(
         if (totalInserted == 0)
         {
             logger.LogWarning("No packages were found for any component in suite {Suite}. The sync is considered failed and the bucket will not be swapped.", mirror.Suite);
+            // Clear secondary so the empty bucket becomes orphaned and gets GC'd after 2 hours.
+            db.AptMirrors.Update(mirror);
+            mirror.SecondaryBucketId = null;
+            await db.SaveChangesAsync();
             return;
         }
 
-        // 2. Mark bucket as fully built, then atomic swap
+        // 2. Promote secondary → primary (atomic swap)
         logger.LogInformation("Sync completed for suite {Suite}. Swapped {Count} packages to Bucket {BucketId}.", mirror.Suite, totalInserted, bucket.Id);
         
         // Re-attach the mirror entity because change tracker might have been cleared
         db.AptMirrors.Update(mirror);
-        mirror.PrimaryBucketId = bucket.Id;
+        mirror.PrimaryBucketId = mirror.SecondaryBucketId;
+        mirror.SecondaryBucketId = null;
         await db.SaveChangesAsync();
     }
 

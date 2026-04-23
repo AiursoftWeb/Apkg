@@ -36,4 +36,9 @@ public class AptMirror
 
     [ForeignKey(nameof(PrimaryBucketId))]
     public AptBucket? PrimaryBucket { get; set; }
+
+    public int? SecondaryBucketId { get; set; }
+
+    [ForeignKey(nameof(SecondaryBucketId))]
+    public AptBucket? SecondaryBucket { get; set; }
 }

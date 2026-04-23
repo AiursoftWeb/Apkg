@@ -22,9 +22,14 @@ public class GarbageCollectionJob(
         logger.LogInformation("GarbageCollectionJob started.");
 
         // 1. Identify active buckets
-        var activeMirrors = await db.AptMirrors
+        var activeMirrorPrimary = await db.AptMirrors
             .Where(m => m.PrimaryBucketId != null)
             .Select(m => m.PrimaryBucketId!.Value)
+            .ToListAsync();
+
+        var activeMirrorSecondary = await db.AptMirrors
+            .Where(m => m.SecondaryBucketId != null)
+            .Select(m => m.SecondaryBucketId!.Value)
             .ToListAsync();
             
         var activeRepoPrimaryBuckets = await db.AptRepositories
@@ -39,7 +44,8 @@ public class GarbageCollectionJob(
             .Select(r => r.SecondaryBucketId!.Value)
             .ToListAsync();
 
-        var activeBucketIds = activeMirrors
+        var activeBucketIds = activeMirrorPrimary
+            .Union(activeMirrorSecondary)
             .Union(activeRepoPrimaryBuckets)
             .Union(activeRepoSecondaryBuckets)
             .Distinct()

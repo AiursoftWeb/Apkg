@@ -117,6 +117,9 @@ namespace Aiursoft.Apkg.MySql.Migrations
                     b.Property<int?>("PrimaryBucketId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SecondaryBucketId")
+                        .HasColumnType("int");
+
                     b.Property<string>("SignedBy")
                         .HasColumnType("longtext");
 
@@ -128,6 +131,8 @@ namespace Aiursoft.Apkg.MySql.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("PrimaryBucketId");
+
+                    b.HasIndex("SecondaryBucketId");
 
                     b.ToTable("AptMirrors");
                 });
@@ -568,7 +573,13 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .WithMany()
                         .HasForeignKey("PrimaryBucketId");
 
+                    b.HasOne("Aiursoft.Apkg.Entities.AptBucket", "SecondaryBucket")
+                        .WithMany()
+                        .HasForeignKey("SecondaryBucketId");
+
                     b.Navigation("PrimaryBucket");
+
+                    b.Navigation("SecondaryBucket");
                 });
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptPackage", b =>

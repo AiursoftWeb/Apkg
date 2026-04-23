@@ -22,6 +22,7 @@
                 <th>@Localizer["Components"]</th>
                 <th>@Localizer["Arch"]</th>
                 <th>@Localizer["Primary Bucket"]</th>
+                <th>@Localizer["Secondary Bucket"]</th>
                 <th>@Localizer["Packages"]</th>
                 <th class="text-end">@Localizer["Actions"]</th>
             </tr>
@@ -43,6 +44,16 @@
                         else
                         {
                             <span class="badge bg-warning">@Localizer["Never Synced"]</span>
+                        }
+                    </td>
+                    <td>
+                        @if (item.SecondaryBucketId != null)
+                        {
+                            <a asp-controller="Buckets" asp-action="Packages" asp-route-id="@item.SecondaryBucketId" class="badge bg-info text-decoration-none">#@item.SecondaryBucketId</a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">—</span>
                         }
                     </td>
                     <td>
