@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Aiursoft.Apkg.Controllers;
 
 [LimitPerMin]
-public class DashboardController(TemplateDbContext db) : Controller
+public class DashboardController(ApkgDbContext db) : Controller
 {
     [RenderInNavBar(
         NavGroupName = "Features",

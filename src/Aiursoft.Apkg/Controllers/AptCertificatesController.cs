@@ -12,7 +12,7 @@ namespace Aiursoft.Apkg.Controllers;
 
 [Authorize(Policy = AppPermissionNames.CanManageCertificates)]
 public class AptCertificatesController(
-    TemplateDbContext dbContext,
+    ApkgDbContext dbContext,
     IGpgSigningService signingService) : Controller
 {
     [RenderInNavBar(

@@ -10,7 +10,7 @@ using Aiursoft.UiStack.Navigation;
 namespace Aiursoft.Apkg.Controllers;
 
 [Authorize(Policy = AppPermissionNames.CanManageMirrors)]
-public class MirrorsController(TemplateDbContext dbContext) : Controller
+public class MirrorsController(ApkgDbContext dbContext) : Controller
 {
     [RenderInNavBar(
         NavGroupName = "Package Engine",

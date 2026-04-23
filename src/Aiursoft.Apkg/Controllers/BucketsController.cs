@@ -10,7 +10,7 @@ using Aiursoft.Apkg.Authorization;
 namespace Aiursoft.Apkg.Controllers;
 
 [Authorize(Policy = AppPermissionNames.CanViewBuckets)]
-public class BucketsController(TemplateDbContext dbContext) : Controller
+public class BucketsController(ApkgDbContext dbContext) : Controller
 {
     [Authorize(Policy = AppPermissionNames.CanViewBuckets)]
     [RenderInNavBar(

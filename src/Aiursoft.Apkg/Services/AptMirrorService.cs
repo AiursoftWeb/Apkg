@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 namespace Aiursoft.Apkg.Services;
 
 public class AptMirrorService(
-    TemplateDbContext dbContext,
+    ApkgDbContext dbContext,
     FeatureFoldersProvider folders,
     FileLockProvider fileLockProvider,
     IHttpClientFactory httpClientFactory,

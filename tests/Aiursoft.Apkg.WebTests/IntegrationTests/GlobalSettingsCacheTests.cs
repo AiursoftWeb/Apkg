@@ -24,7 +24,7 @@ public class GlobalSettingsCacheTests : TestBase
         // 2. Modify database directly (bypass service/cache)
         using (var scope = Server!.Services.CreateScope())
         {
-            var dbContext = scope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+            var dbContext = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
             var dbSetting = await dbContext.GlobalSettings.FirstAsync(s => s.Key == key);
             dbSetting.Value = initialValue == "True" ? "False" : "True";
             await dbContext.SaveChangesAsync();

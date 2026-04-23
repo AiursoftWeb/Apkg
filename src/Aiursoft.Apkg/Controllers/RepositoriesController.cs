@@ -11,7 +11,7 @@ using Aiursoft.Apkg.Authorization;
 namespace Aiursoft.Apkg.Controllers;
 
 [Authorize(Policy = AppPermissionNames.CanManageRepositories)]
-public class RepositoriesController(TemplateDbContext dbContext) : Controller
+public class RepositoriesController(ApkgDbContext dbContext) : Controller
 {
     [Authorize(Policy = AppPermissionNames.CanManageRepositories)]
     [RenderInNavBar(

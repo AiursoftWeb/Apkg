@@ -11,7 +11,7 @@ public class AptMirrorTests : TestBase
     {
         // 1. Preparation
         await Server!.SeedMirrorsAsync(true);
-        var db = GetService<TemplateDbContext>();
+        var db = GetService<ApkgDbContext>();
 
         // Ensure we have a repo with a bucket for testing
         var repo = db.AptRepositories.First();

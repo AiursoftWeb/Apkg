@@ -11,7 +11,7 @@ namespace Aiursoft.Apkg.Controllers;
 [ApiController]
 public class AptMirrorController(
     AptMirrorService aptMirrorService,
-    TemplateDbContext dbContext,
+    ApkgDbContext dbContext,
     FeatureFoldersProvider folders) : ControllerBase
 {
     private string BucketsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Buckets");

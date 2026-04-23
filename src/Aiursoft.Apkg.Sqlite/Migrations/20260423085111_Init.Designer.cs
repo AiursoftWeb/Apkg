@@ -11,19 +11,22 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.Apkg.Sqlite.Migrations
 {
     [DbContext(typeof(SqliteContext))]
-    [Migration("20260422125420_AddDistro")]
-    partial class AddDistro
+    [Migration("20260423085111_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "10.0.5");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.7");
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptBucket", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("BuildFinished")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("CreatedAt")
@@ -55,6 +58,11 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FriendlyName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
@@ -270,8 +278,18 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Architecture")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("CertificateId")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Components")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("CurrentBucketId")
                         .HasColumnType("INTEGER");

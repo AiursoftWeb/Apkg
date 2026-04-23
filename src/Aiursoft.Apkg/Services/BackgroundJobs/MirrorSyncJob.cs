@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Aiursoft.Apkg.Services.BackgroundJobs;
 
 public class MirrorSyncJob(
-    TemplateDbContext db,
+    ApkgDbContext db,
     IHttpClientFactory httpClientFactory,
     ILogger<MirrorSyncJob> logger) : IBackgroundJob
 {

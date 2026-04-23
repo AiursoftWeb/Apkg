@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Aiursoft.Apkg.Services.BackgroundJobs;
 
 public class RepositorySyncJob(
-    TemplateDbContext db,
+    ApkgDbContext db,
     AptMetadataService metadataService,
     IGpgSigningService signingService,
     FeatureFoldersProvider folders,

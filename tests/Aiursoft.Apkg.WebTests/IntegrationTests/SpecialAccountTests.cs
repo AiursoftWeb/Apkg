@@ -33,7 +33,7 @@ public class SpecialAccountTests
         Environment.SetEnvironmentVariable("AppSettings__DefaultRole", "Administrators");
         
         _server = await AppAsync<Startup>([], port: _port);
-        await _server.UpdateDbAsync<TemplateDbContext>();
+        await _server.UpdateDbAsync<ApkgDbContext>();
         await _server.SeedAsync();
         await _server.StartAsync();
     }

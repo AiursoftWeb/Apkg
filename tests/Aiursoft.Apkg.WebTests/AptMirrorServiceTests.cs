@@ -48,7 +48,7 @@ public class AptMirrorServiceTests
         var connection = new Microsoft.Data.Sqlite.SqliteConnection(dbName);
         connection.Open(); // Keep DB alive
 
-        services.AddDbContext<TemplateDbContext, SqliteContext>(options =>
+        services.AddDbContext<ApkgDbContext, SqliteContext>(options =>
             options.UseSqlite(dbName)); // Let EF manage its own connections from the pool
 
         services.AddSingleton<StorageRootPathProvider>();
@@ -65,7 +65,7 @@ public class AptMirrorServiceTests
         var provider = services.BuildServiceProvider();
 
         // 2. Prepare Database
-        var db = provider.GetRequiredService<TemplateDbContext>();
+        var db = provider.GetRequiredService<ApkgDbContext>();
         await db.Database.EnsureCreatedAsync();
 
         var sha256 = BitConverter.ToString(SHA256.HashData(fileContent)).Replace("-", "").ToLowerInvariant();
@@ -141,7 +141,7 @@ public class AptMirrorServiceTests
 
         // DB State Verification
         using var finalScope = provider.CreateScope();
-        var freshDb = finalScope.ServiceProvider.GetRequiredService<TemplateDbContext>();
+        var freshDb = finalScope.ServiceProvider.GetRequiredService<ApkgDbContext>();
 
         // Use AsNoTracking to bypass any internal EF caching
         var updatedPkg = await freshDb.AptPackages

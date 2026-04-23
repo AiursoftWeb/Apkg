@@ -19,7 +19,7 @@ namespace Aiursoft.Apkg.Controllers;
 [LimitPerMin]
 public class RolesController(
     UserManager<User> userManager,
-    TemplateDbContext context,
+    ApkgDbContext context,
     RoleManager<IdentityRole> roleManager)
     : Controller
 {

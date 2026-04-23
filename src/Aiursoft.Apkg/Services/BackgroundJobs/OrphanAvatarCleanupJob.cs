@@ -12,7 +12,7 @@ namespace Aiursoft.Apkg.Services.BackgroundJobs;
 /// whose avatar was subsequently replaced.
 /// </summary>
 public class OrphanAvatarCleanupJob(
-    TemplateDbContext db,
+    ApkgDbContext db,
     FeatureFoldersProvider folders,
     ILogger<OrphanAvatarCleanupJob> logger) : IBackgroundJob
 {
