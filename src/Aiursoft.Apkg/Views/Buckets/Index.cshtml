@@ -28,9 +28,9 @@
             @foreach (var bucket in Model.Buckets)
             {
                 var isLive = !string.IsNullOrEmpty(Model.InUseBy.GetValueOrDefault(bucket.Id));
-                var isPending = Model.PendingBucketIds.Contains(bucket.Id);
+                var isPending = Model.SecondaryBucketIds.Contains(bucket.Id);
                 <tr>
-                    <td><span class="badge bg-secondary">#@bucket.Id</span></td>
+                    <td><a asp-action="Packages" asp-route-id="@bucket.Id" class="badge bg-secondary text-decoration-none">#@bucket.Id</a></td>
                     <td>
                         @if (isLive)
                         {

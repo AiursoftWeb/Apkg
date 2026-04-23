@@ -21,7 +21,7 @@
                 <th>@Localizer["Base URL"]</th>
                 <th>@Localizer["Components"]</th>
                 <th>@Localizer["Arch"]</th>
-                <th>@Localizer["Bucket"]</th>
+                <th>@Localizer["Primary Bucket"]</th>
                 <th>@Localizer["Packages"]</th>
                 <th class="text-end">@Localizer["Actions"]</th>
             </tr>
@@ -36,9 +36,9 @@
                     <td><small>@item.Components</small></td>
                     <td><span class="badge bg-dark">@item.Architecture</span></td>
                     <td>
-                        @if (item.CurrentBucketId != null)
+                        @if (item.PrimaryBucketId != null)
                         {
-                            <span class="badge bg-success">#@item.CurrentBucketId</span>
+                            <a asp-controller="Buckets" asp-action="Packages" asp-route-id="@item.PrimaryBucketId" class="badge bg-success text-decoration-none">#@item.PrimaryBucketId</a>
                         }
                         else
                         {
@@ -46,10 +46,10 @@
                         }
                     </td>
                     <td>
-                        @if (item.CurrentBucketId != null)
+                        @if (item.PrimaryBucketId != null)
                         {
                             <a asp-action="Packages" asp-route-id="@item.Id" class="badge bg-secondary text-decoration-none">
-                                @(Model.PackageCounts.GetValueOrDefault(item.CurrentBucketId.Value, 0)) @Localizer["items"]
+                                @(Model.PackageCounts.GetValueOrDefault(item.PrimaryBucketId.Value, 0)) @Localizer["items"]
                             </a>
                         }
                     </td>

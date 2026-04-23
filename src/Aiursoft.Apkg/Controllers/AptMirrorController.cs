@@ -31,7 +31,7 @@ public class AptMirrorController(
 
         var repoQuery = dbContext.AptRepositories
             .AsNoTracking()
-            .Include(r => r.CurrentBucket)
+            .Include(r => r.PrimaryBucket)
             .AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(distro))
@@ -41,9 +41,9 @@ public class AptMirrorController(
 
         var repo = await repoQuery.FirstOrDefaultAsync(r => r.Name == repoName || r.Suite == suite);
 
-        if (repo?.CurrentBucket == null) return NotFound();
+        if (repo?.PrimaryBucket == null) return NotFound();
 
-        var bucket = repo.CurrentBucket;
+        var bucket = repo.PrimaryBucket;
 
         if (path.EndsWith("InRelease")) return Content(bucket.InReleaseContent ?? string.Empty, "text/plain");
         if (path.EndsWith("Release")) return Content(bucket.ReleaseContent ?? string.Empty, "text/plain");

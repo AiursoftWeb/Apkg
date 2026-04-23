@@ -25,7 +25,7 @@ public class RepositoriesController(ApkgDbContext dbContext) : Controller
     public async Task<IActionResult> Index()
     {
         var repos = await dbContext.AptRepositories
-            .Include(r => r.CurrentBucket)
+            .Include(r => r.PrimaryBucket)
             .Include(r => r.Certificate)
             .ToListAsync();
             
@@ -47,10 +47,10 @@ public class RepositoriesController(ApkgDbContext dbContext) : Controller
     public async Task<IActionResult> Packages(int id, string? searchName, int page = 1)
     {
         var repo = await dbContext.AptRepositories.FindAsync(id);
-        if (repo?.CurrentBucketId == null) return NotFound();
+        if (repo?.PrimaryBucketId == null) return NotFound();
 
         var baseQuery = dbContext.AptPackages
-            .Where(p => p.BucketId == repo.CurrentBucketId);
+            .Where(p => p.BucketId == repo.PrimaryBucketId);
 
         const int pageSize = 100;
         List<AptPackage> items;
@@ -94,7 +94,7 @@ public class RepositoriesController(ApkgDbContext dbContext) : Controller
 
         var repo = await dbContext.AptRepositories
             .Include(r => r.Certificate)
-            .FirstOrDefaultAsync(r => r.CurrentBucketId == package.BucketId);
+            .FirstOrDefaultAsync(r => r.PrimaryBucketId == package.BucketId);
 
         var allRelNames = new[]
             {
@@ -169,7 +169,7 @@ public class RepositoriesController(ApkgDbContext dbContext) : Controller
     public async Task<IActionResult> Details(int id)
     {
         var repo = await dbContext.AptRepositories
-            .Include(r => r.CurrentBucket)
+            .Include(r => r.PrimaryBucket)
             .Include(r => r.Certificate)
             .Include(r => r.Mirror)
             .FirstOrDefaultAsync(r => r.Id == id);

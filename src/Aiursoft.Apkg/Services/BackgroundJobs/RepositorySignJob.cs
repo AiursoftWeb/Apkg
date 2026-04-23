@@ -12,7 +12,7 @@ public class RepositorySignJob(
 {
     public string Name => "Sign Pending bucket and swap";
 
-    public string Description => "Signs all pending buckets with their configured GPG certificate, then atomically swaps them into the live slot (CurrentBucketId). Until this job completes, pending buckets are invisible to APT clients.";
+    public string Description => "Signs all pending buckets with their configured GPG certificate, then atomically swaps them into the live slot (PrimaryBucketId). Until this job completes, pending buckets are invisible to APT clients.";
 
     public async Task ExecuteAsync()
     {
@@ -20,7 +20,7 @@ public class RepositorySignJob(
 
         var repos = await db.AptRepositories
             .Include(r => r.Certificate)
-            .Where(r => r.PendingBucketId != null)
+            .Where(r => r.SecondaryBucketId != null)
             .ToListAsync();
 
         foreach (var repo in repos)
@@ -40,15 +40,15 @@ public class RepositorySignJob(
 
     private async Task SignAndPromoteRepositoryAsync(AptRepository repo)
     {
-        var bucketEntity = await db.AptBuckets.FindAsync(repo.PendingBucketId);
+        var bucketEntity = await db.AptBuckets.FindAsync(repo.SecondaryBucketId);
         if (bucketEntity == null)
         {
             // Bucket was deleted externally (should never happen after GC fix, but defend anyway).
             // Clear the dangling FK so the repo doesn't remain permanently stuck.
             logger.LogWarning(
-                "Repository {RepoName}: pending bucket {BucketId} no longer exists. Clearing dangling PendingBucketId.",
-                repo.Name, repo.PendingBucketId);
-            repo.PendingBucketId = null;
+                "Repository {RepoName}: pending bucket {BucketId} no longer exists. Clearing dangling SecondaryBucketId.",
+                repo.Name, repo.SecondaryBucketId);
+            repo.SecondaryBucketId = null;
             db.AptRepositories.Update(repo);
             await db.SaveChangesAsync();
             return;
@@ -56,7 +56,7 @@ public class RepositorySignJob(
 
         if (string.IsNullOrEmpty(bucketEntity.ReleaseContent))
         {
-            logger.LogWarning("Repository {RepoName} pending bucket {BucketId} has no Release content. Skipping.", repo.Name, repo.PendingBucketId);
+            logger.LogWarning("Repository {RepoName} pending bucket {BucketId} has no Release content. Skipping.", repo.Name, repo.SecondaryBucketId);
             return;
         }
 
@@ -69,11 +69,11 @@ public class RepositorySignJob(
         }
 
         // Atomically promote: only now is the signed bucket exposed to apt clients
-        repo.CurrentBucketId = repo.PendingBucketId;
-        repo.PendingBucketId = null;
+        repo.PrimaryBucketId = repo.SecondaryBucketId;
+        repo.SecondaryBucketId = null;
         db.AptRepositories.Update(repo);
         await db.SaveChangesAsync();
 
-        logger.LogInformation("Repository {RepoName} is now live with signed bucket {BucketId}.", repo.Name, repo.CurrentBucketId);
+        logger.LogInformation("Repository {RepoName} is now live with signed bucket {BucketId}.", repo.Name, repo.PrimaryBucketId);
     }
 }

@@ -40,17 +40,17 @@ public class AptRepository
     [ForeignKey(nameof(MirrorId))]
     public AptMirror? Mirror { get; set; }
 
-    public int? CurrentBucketId { get; set; }
+    public int? PrimaryBucketId { get; set; }
 
-    [ForeignKey(nameof(CurrentBucketId))]
-    public AptBucket? CurrentBucket { get; set; }
+    [ForeignKey(nameof(PrimaryBucketId))]
+    public AptBucket? PrimaryBucket { get; set; }
 
     /// <summary>
-    /// The bucket that has been built and is awaiting GPG signing before being promoted to <see cref="CurrentBucketId"/>.
-    /// Set by <c>RepositorySyncJob</c>; cleared and promoted to <see cref="CurrentBucketId"/> by <c>RepositorySignJob</c>.
+    /// The bucket that has been built and is awaiting GPG signing before being promoted to <see cref="PrimaryBucketId"/>.
+    /// Set by <c>RepositorySyncJob</c>; cleared and promoted to <see cref="PrimaryBucketId"/> by <c>RepositorySignJob</c>.
     /// </summary>
-    public int? PendingBucketId { get; set; }
+    public int? SecondaryBucketId { get; set; }
 
-    [ForeignKey(nameof(PendingBucketId))]
-    public AptBucket? PendingBucket { get; set; }
+    [ForeignKey(nameof(SecondaryBucketId))]
+    public AptBucket? SecondaryBucket { get; set; }
 }

@@ -1,0 +1,70 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.BucketPackagesViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@Localizer["Packages in Bucket"] <span class="badge bg-secondary">#@Model.Bucket.Id</span></h3>
+    </div>
+    <div class="col-auto ms-auto text-end">
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to Buckets"]
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <p class="text-muted">
+            @Localizer["Showing"] @((Model.Page - 1) * Model.PageSize + 1)–@(Math.Min(Model.Page * Model.PageSize, Model.TotalCount)) @Localizer["of"] @Model.TotalCount.ToString("N0") @Localizer["packages"]
+        </p>
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>@Localizer["Package"]</th>
+                <th>@Localizer["Version"]</th>
+                <th>@Localizer["Architecture"]</th>
+                <th>@Localizer["Component"]</th>
+                <th class="text-end">@Localizer["Size"]</th>
+                <th>@Localizer["Virtual"]</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var pkg in Model.Packages)
+            {
+                <tr>
+                    <td><strong>@pkg.Package</strong></td>
+                    <td><code>@pkg.Version</code></td>
+                    <td><span class="badge bg-dark">@pkg.Architecture</span></td>
+                    <td><span class="badge badge-subtle-primary">@pkg.Component</span></td>
+                    <td class="text-end">@((long.TryParse(pkg.Size, out var sz) ? sz / 1024.0 : 0).ToString("F1")) KB</td>
+                    <td>
+                        @if (pkg.IsVirtual)
+                        {
+                            <span class="badge badge-subtle-info">@Localizer["Virtual"]</span>
+                        }
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        @if (Model.TotalCount > Model.PageSize)
+        {
+            <nav>
+                <ul class="pagination">
+                    @if (Model.Page > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Bucket.Id" asp-route-page="@(Model.Page - 1)">@Localizer["Previous"]</a>
+                        </li>
+                    }
+                    @if (Model.Page * Model.PageSize < Model.TotalCount)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Bucket.Id" asp-route-page="@(Model.Page + 1)">@Localizer["Next"]</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        }
+    </div>
+</div>

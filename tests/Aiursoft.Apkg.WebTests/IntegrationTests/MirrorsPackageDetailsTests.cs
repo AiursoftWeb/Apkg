@@ -28,7 +28,7 @@ public class MirrorsPackageDetailsTests : TestBase
         _db.AptBuckets.Add(_bucket);
         _db.SaveChanges();
 
-        _mirror.CurrentBucketId = _bucket.Id;
+        _mirror.PrimaryBucketId = _bucket.Id;
         _db.SaveChanges();
     }
 

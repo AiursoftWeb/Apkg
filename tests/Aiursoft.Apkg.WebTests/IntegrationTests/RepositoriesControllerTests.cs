@@ -28,7 +28,7 @@ public class RepositoriesControllerTests : TestBase
         _db.AptBuckets.Add(_bucket);
         _db.SaveChanges();
 
-        _repo.CurrentBucketId = _bucket.Id;
+        _repo.PrimaryBucketId = _bucket.Id;
         _db.SaveChanges();
     }
 
@@ -130,9 +130,9 @@ public class RepositoriesControllerTests : TestBase
     }
 
     [TestMethod]
-    public async Task Packages_ReturnsNotFound_WhenRepoHasNoCurrentBucket()
+    public async Task Packages_ReturnsNotFound_WhenRepoHasNoPrimaryBucket()
     {
-        _repo.CurrentBucketId = null;
+        _repo.PrimaryBucketId = null;
         _db.SaveChanges();
 
         var response = await Http.GetAsync($"/Repositories/Packages?id={_repo.Id}");

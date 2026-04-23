@@ -21,6 +21,7 @@
                 <th>@Localizer["Suite"]</th>
                 <th>@Localizer["Certificate"]</th>
                 <th>@Localizer["Live Bucket"]</th>
+                <th>@Localizer["Secondary Bucket"]</th>
                 <th>@Localizer["Signature"]</th>
                 <th>@Localizer["Total Packages"]</th>
                 <th class="text-end">@Localizer["Actions"]</th>
@@ -40,27 +41,37 @@
                         }
                     </td>
                     <td>
-                        @if (item.CurrentBucketId != null)
+                        @if (item.PrimaryBucketId != null)
                         {
-                            <span class="badge bg-success">#@item.CurrentBucketId</span>
+                            <a asp-controller="Buckets" asp-action="Packages" asp-route-id="@item.PrimaryBucketId" class="badge bg-success text-decoration-none">#@item.PrimaryBucketId</a>
                         }
                     </td>
                     <td>
-                        @if (item.CurrentBucket?.SignedAt != null)
+                        @if (item.SecondaryBucketId != null)
                         {
-                            <span class="badge bg-success" title="Signed at @item.CurrentBucket.SignedAt.Value.ToString("u")">
+                            <a asp-controller="Buckets" asp-action="Packages" asp-route-id="@item.SecondaryBucketId" class="badge bg-warning text-decoration-none">#@item.SecondaryBucketId</a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">-</span>
+                        }
+                    </td>
+                    <td>
+                        @if (item.PrimaryBucket?.SignedAt != null)
+                        {
+                            <span class="badge bg-success" title="Signed at @item.PrimaryBucket.SignedAt.Value.ToString("u")">
                                 <i class="align-middle" data-lucide="shield-check"></i>
-                                @Localizer["Signed at"] @item.CurrentBucket.SignedAt.Value.ToString("yyyy-MM-dd HH:mm") UTC
+                                @Localizer["Signed at"] @item.PrimaryBucket.SignedAt.Value.ToString("yyyy-MM-dd HH:mm") UTC
                             </span>
                         }
-                        else if (item.CurrentBucket?.InReleaseContent != null)
+                        else if (item.PrimaryBucket?.InReleaseContent != null)
                         {
                             <span class="badge bg-success">
                                 <i class="align-middle" data-lucide="shield-check"></i>
                                 @Localizer["Signed"]
                             </span>
                         }
-                        else if (item.CurrentBucketId != null)
+                        else if (item.PrimaryBucketId != null)
                         {
                             <span class="badge bg-secondary">
                                 <i class="align-middle" data-lucide="shield-off"></i>
@@ -69,7 +80,7 @@
                         }
                     </td>
                     <td>
-                        @(item.CurrentBucketId.HasValue ? Model.PackageCounts.GetValueOrDefault(item.CurrentBucketId.Value, 0) : 0)
+                        @(item.PrimaryBucketId.HasValue ? Model.PackageCounts.GetValueOrDefault(item.PrimaryBucketId.Value, 0) : 0)
                     </td>
                     <td class="text-end">
                         <div class="btn-group">

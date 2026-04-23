@@ -40,16 +40,16 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
 
         // Find active usage
         var mirrorUsage = await dbContext.AptMirrors
-            .Where(m => m.CurrentBucketId != null)
-            .ToDictionaryAsync(m => m.CurrentBucketId!.Value, m => $"Mirror: {m.Suite}");
+            .Where(m => m.PrimaryBucketId != null)
+            .ToDictionaryAsync(m => m.PrimaryBucketId!.Value, m => $"Mirror: {m.Suite}");
 
         var repoUsage = await dbContext.AptRepositories
-            .Where(r => r.CurrentBucketId != null)
-            .ToDictionaryAsync(r => r.CurrentBucketId!.Value, r => $"Repo: {r.Name}");
+            .Where(r => r.PrimaryBucketId != null)
+            .ToDictionaryAsync(r => r.PrimaryBucketId!.Value, r => $"Repo: {r.Name}");
 
         var pendingBucketIds = await dbContext.AptRepositories
-            .Where(r => r.PendingBucketId != null)
-            .Select(r => r.PendingBucketId!.Value)
+            .Where(r => r.SecondaryBucketId != null)
+            .Select(r => r.SecondaryBucketId!.Value)
             .Distinct()
             .ToListAsync();
 
@@ -65,8 +65,35 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
                 if (repoUsage.TryGetValue(b.Id, out var r)) usages.Add(r);
                 return string.Join(", ", usages);
             }),
-            PendingBucketIds = pendingBucketIds.ToHashSet(),
+            SecondaryBucketIds = pendingBucketIds.ToHashSet(),
             PageTitle = "Bucket History"
+        };
+        return this.StackView(model);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Packages(int id, int page = 1)
+    {
+        var bucket = await dbContext.AptBuckets.FindAsync(id);
+        if (bucket == null) return NotFound();
+
+        const int pageSize = 100;
+        var totalCount = await dbContext.AptPackages.Where(p => p.BucketId == id).CountAsync();
+        var packages = await dbContext.AptPackages
+            .Where(p => p.BucketId == id)
+            .OrderBy(p => p.Package)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        var model = new BucketPackagesViewModel
+        {
+            Bucket = bucket,
+            Packages = packages,
+            Page = page,
+            TotalCount = totalCount,
+            PageSize = pageSize,
+            PageTitle = $"Packages in Bucket #{id}"
         };
         return this.StackView(model);
     }

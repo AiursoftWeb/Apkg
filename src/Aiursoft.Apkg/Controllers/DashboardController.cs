@@ -25,20 +25,20 @@ public class DashboardController(ApkgDbContext db) : Controller
 
         // Gather all active repo buckets: repoId -> currentBucketId
         var activeRepos = await db.AptRepositories
-            .Where(r => r.CurrentBucketId != null)
-            .Select(r => new { r.Id, r.Name, r.CurrentBucketId })
+            .Where(r => r.PrimaryBucketId != null)
+            .Select(r => new { r.Id, r.Name, r.PrimaryBucketId })
             .ToListAsync();
 
         var activeBucketIds = activeRepos
-            .Where(r => r.CurrentBucketId != null)
-            .Select(r => r.CurrentBucketId!.Value)
+            .Where(r => r.PrimaryBucketId != null)
+            .Select(r => r.PrimaryBucketId!.Value)
             .Distinct()
             .ToList();
 
         // Build a lookup from bucketId → (repoId, repoName)
         var bucketToRepo = activeRepos
-            .Where(r => r.CurrentBucketId != null)
-            .ToDictionary(r => r.CurrentBucketId!.Value, r => new { r.Id, r.Name });
+            .Where(r => r.PrimaryBucketId != null)
+            .ToDictionary(r => r.PrimaryBucketId!.Value, r => new { r.Id, r.Name });
 
         var baseQuery = db.AptPackages.AsNoTracking()
             .Where(p => activeBucketIds.Contains(p.BucketId));

@@ -77,7 +77,7 @@ public class MirrorSyncJob(
         
         // Re-attach the mirror entity because change tracker might have been cleared
         db.AptMirrors.Update(mirror);
-        mirror.CurrentBucketId = bucket.Id;
+        mirror.PrimaryBucketId = bucket.Id;
         await db.SaveChangesAsync();
     }
 

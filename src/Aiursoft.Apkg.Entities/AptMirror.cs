@@ -32,8 +32,8 @@ public class AptMirror
 
     public string? SignedBy { get; set; }
 
-    public int? CurrentBucketId { get; set; }
+    public int? PrimaryBucketId { get; set; }
 
-    [ForeignKey(nameof(CurrentBucketId))]
-    public AptBucket? CurrentBucket { get; set; }
+    [ForeignKey(nameof(PrimaryBucketId))]
+    public AptBucket? PrimaryBucket { get; set; }
 }

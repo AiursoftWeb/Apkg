@@ -58,13 +58,13 @@ public class RepositorySyncJob(
         // 2. Data Transfer (Copy from Mirror Bucket to Repo Bucket)
         if (repo.MirrorId != null)
         {
-            if (repo.Mirror?.CurrentBucketId == null)
+            if (repo.Mirror?.PrimaryBucketId == null)
             {
                 logger.LogWarning("Repository {RepoName} is linked to mirror {MirrorSuite} which has no active bucket. Skipping data copy.", repo.Name, repo.Mirror?.Suite);
             }
             else
             {
-                var mirrorBucketId = repo.Mirror.CurrentBucketId.Value;
+                var mirrorBucketId = repo.Mirror.PrimaryBucketId.Value;
                 logger.LogInformation("Copying packages from Mirror Bucket {MirrorBucketId} to New Bucket {NewBucketId}...", mirrorBucketId, newBucketId);
 
                 // Stream from DB and insert to avoid loading all in memory
@@ -90,12 +90,12 @@ public class RepositorySyncJob(
                 db.ChangeTracker.Clear();
             }
         }
-        else if (repo.CurrentBucketId != null)
+        else if (repo.PrimaryBucketId != null)
         {
-            logger.LogInformation("Standalone repository {RepoName}: Copying packages from Current Bucket {CurrentBucketId} to New Bucket {NewBucketId}...", repo.Name, repo.CurrentBucketId, newBucketId);
+            logger.LogInformation("Standalone repository {RepoName}: Copying packages from Current Bucket {PrimaryBucketId} to New Bucket {NewBucketId}...", repo.Name, repo.PrimaryBucketId, newBucketId);
             var query = db.AptPackages
                 .AsNoTracking()
-                .Where(p => p.BucketId == repo.CurrentBucketId)
+                .Where(p => p.BucketId == repo.PrimaryBucketId)
                 .AsAsyncEnumerable();
 
             var count = 0;
@@ -199,9 +199,9 @@ public class RepositorySyncJob(
             await db.SaveChangesAsync();
         }
 
-        // 5. Stage for signing (do NOT swap CurrentBucketId yet — RepositorySignJob will sign and swap atomically)
+        // 5. Stage for signing (do NOT swap PrimaryBucketId yet — RepositorySignJob will sign and swap atomically)
         db.AptRepositories.Update(repo);
-        repo.PendingBucketId = newBucketId;
+        repo.SecondaryBucketId = newBucketId;
         await db.SaveChangesAsync();
 
         db.ChangeTracker.Clear();

@@ -23,30 +23,30 @@ public class GarbageCollectionJob(
 
         // 1. Identify active buckets
         var activeMirrors = await db.AptMirrors
-            .Where(m => m.CurrentBucketId != null)
-            .Select(m => m.CurrentBucketId!.Value)
+            .Where(m => m.PrimaryBucketId != null)
+            .Select(m => m.PrimaryBucketId!.Value)
             .ToListAsync();
             
-        var activeRepoCurrentBuckets = await db.AptRepositories
-            .Where(r => r.CurrentBucketId != null)
-            .Select(r => r.CurrentBucketId!.Value)
+        var activeRepoPrimaryBuckets = await db.AptRepositories
+            .Where(r => r.PrimaryBucketId != null)
+            .Select(r => r.PrimaryBucketId!.Value)
             .ToListAsync();
 
-        // PendingBucketId buckets are being staged for signing — they must never be deleted,
-        // even though they are not yet referenced by CurrentBucketId.
-        var activeRepoPendingBuckets = await db.AptRepositories
-            .Where(r => r.PendingBucketId != null)
-            .Select(r => r.PendingBucketId!.Value)
+        // SecondaryBucketId buckets are being staged for signing — they must never be deleted,
+        // even though they are not yet referenced by PrimaryBucketId.
+        var activeRepoSecondaryBuckets = await db.AptRepositories
+            .Where(r => r.SecondaryBucketId != null)
+            .Select(r => r.SecondaryBucketId!.Value)
             .ToListAsync();
 
         var activeBucketIds = activeMirrors
-            .Union(activeRepoCurrentBuckets)
-            .Union(activeRepoPendingBuckets)
+            .Union(activeRepoPrimaryBuckets)
+            .Union(activeRepoSecondaryBuckets)
             .Distinct()
             .ToList();
 
         // Unreferenced buckets older than 2 hours are safe to delete.
-        // In-progress builds are protected either by being referenced as PendingBucketId
+        // In-progress builds are protected either by being referenced as SecondaryBucketId
         // or by the 2-hour grace period (for mirrors and edge cases).
         var crashThreshold = DateTime.UtcNow.AddHours(-2);
         

@@ -109,13 +109,13 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
-                    b.Property<int?>("CurrentBucketId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Distro")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
+
+                    b.Property<int?>("PrimaryBucketId")
+                        .HasColumnType("int");
 
                     b.Property<string>("SignedBy")
                         .HasColumnType("longtext");
@@ -127,7 +127,7 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CurrentBucketId");
+                    b.HasIndex("PrimaryBucketId");
 
                     b.ToTable("AptMirrors");
                 });
@@ -303,9 +303,6 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
-                    b.Property<int?>("CurrentBucketId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Distro")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -319,7 +316,10 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<int?>("PendingBucketId")
+                    b.Property<int?>("PrimaryBucketId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SecondaryBucketId")
                         .HasColumnType("int");
 
                     b.Property<string>("Suite")
@@ -331,11 +331,11 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.HasIndex("CertificateId");
 
-                    b.HasIndex("CurrentBucketId");
-
                     b.HasIndex("MirrorId");
 
-                    b.HasIndex("PendingBucketId");
+                    b.HasIndex("PrimaryBucketId");
+
+                    b.HasIndex("SecondaryBucketId");
 
                     b.ToTable("AptRepositories");
                 });
@@ -564,11 +564,11 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptMirror", b =>
                 {
-                    b.HasOne("Aiursoft.Apkg.Entities.AptBucket", "CurrentBucket")
+                    b.HasOne("Aiursoft.Apkg.Entities.AptBucket", "PrimaryBucket")
                         .WithMany()
-                        .HasForeignKey("CurrentBucketId");
+                        .HasForeignKey("PrimaryBucketId");
 
-                    b.Navigation("CurrentBucket");
+                    b.Navigation("PrimaryBucket");
                 });
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptPackage", b =>
@@ -588,25 +588,25 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .WithMany()
                         .HasForeignKey("CertificateId");
 
-                    b.HasOne("Aiursoft.Apkg.Entities.AptBucket", "CurrentBucket")
-                        .WithMany()
-                        .HasForeignKey("CurrentBucketId");
-
                     b.HasOne("Aiursoft.Apkg.Entities.AptMirror", "Mirror")
                         .WithMany()
                         .HasForeignKey("MirrorId");
 
-                    b.HasOne("Aiursoft.Apkg.Entities.AptBucket", "PendingBucket")
+                    b.HasOne("Aiursoft.Apkg.Entities.AptBucket", "PrimaryBucket")
                         .WithMany()
-                        .HasForeignKey("PendingBucketId");
+                        .HasForeignKey("PrimaryBucketId");
+
+                    b.HasOne("Aiursoft.Apkg.Entities.AptBucket", "SecondaryBucket")
+                        .WithMany()
+                        .HasForeignKey("SecondaryBucketId");
 
                     b.Navigation("Certificate");
 
-                    b.Navigation("CurrentBucket");
-
                     b.Navigation("Mirror");
 
-                    b.Navigation("PendingBucket");
+                    b.Navigation("PrimaryBucket");
+
+                    b.Navigation("SecondaryBucket");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

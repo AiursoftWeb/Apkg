@@ -24,7 +24,7 @@ public class AptMirrorTests : TestBase
         db.AptBuckets.Add(bucket);
         db.SaveChanges();
 
-        repo.CurrentBucketId = bucket.Id;
+        repo.PrimaryBucketId = bucket.Id;
         db.SaveChanges();
 
         // Add a test package to this bucket

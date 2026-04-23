@@ -23,7 +23,7 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
     public async Task<IActionResult> Index()
     {
         var mirrors = await dbContext.AptMirrors
-            .Include(m => m.CurrentBucket)
+            .Include(m => m.PrimaryBucket)
             .ToListAsync();
             
         var packageCounts = await dbContext.AptPackages
@@ -44,10 +44,10 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
     public async Task<IActionResult> Packages(int id, string? searchName, int page = 1)
     {
         var mirror = await dbContext.AptMirrors.FindAsync(id);
-        if (mirror?.CurrentBucketId == null) return NotFound();
+        if (mirror?.PrimaryBucketId == null) return NotFound();
 
         var baseQuery = dbContext.AptPackages
-            .Where(p => p.BucketId == mirror.CurrentBucketId);
+            .Where(p => p.BucketId == mirror.PrimaryBucketId);
 
         const int pageSize = 100;
         List<AptPackage> items;

@@ -163,15 +163,15 @@ SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c
         var repoJob = scope.ServiceProvider.GetRequiredService<RepositorySyncJob>();
         await repoJob.ExecuteAsync();
 
-        // 6. Run RepositorySignJob (signs and promotes pending buckets to CurrentBucketId)
+        // 6. Run RepositorySignJob (signs and promotes pending buckets to PrimaryBucketId)
         var signJob = scope.ServiceProvider.GetRequiredService<RepositorySignJob>();
         await signJob.ExecuteAsync();
 
         // 7. Verify generated index file
         var folders = scope.ServiceProvider.GetRequiredService<FeatureFoldersProvider>();
-        var updatedRepo = await db.AptRepositories.Include(r => r.CurrentBucket).FirstAsync(r => r.Id == repo.Id);
-        var currentBucketId = updatedRepo.CurrentBucketId;
-        Assert.IsNotNull(currentBucketId, "SignJob should have promoted the pending bucket to CurrentBucketId.");
+        var updatedRepo = await db.AptRepositories.Include(r => r.PrimaryBucket).FirstAsync(r => r.Id == repo.Id);
+        var currentBucketId = updatedRepo.PrimaryBucketId;
+        Assert.IsNotNull(currentBucketId, "SignJob should have promoted the pending bucket to PrimaryBucketId.");
 
         var packagesFilePath = Path.Combine(folders.GetWorkspaceFolder(), "Buckets", currentBucketId.ToString()!, "main/binary-amd64/Packages");
         Assert.IsTrue(File.Exists(packagesFilePath), "Packages file should be generated for amd64");
