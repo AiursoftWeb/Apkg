@@ -28,7 +28,8 @@
             @foreach (var bucket in Model.Buckets)
             {
                 var isLive = !string.IsNullOrEmpty(Model.InUseBy.GetValueOrDefault(bucket.Id));
-                var isPending = Model.SecondaryBucketIds.Contains(bucket.Id);
+                var pendingFor = Model.PendingUsage.GetValueOrDefault(bucket.Id);
+                var isPending = !string.IsNullOrEmpty(pendingFor);
                 <tr>
                     <td><a asp-action="Packages" asp-route-id="@bucket.Id" class="badge bg-secondary text-decoration-none">#@bucket.Id</a></td>
                     <td>
@@ -38,7 +39,7 @@
                         }
                         else if (isPending)
                         {
-                            <span class="badge badge-subtle-info">@Localizer["Building"]</span>
+                            <span class="badge badge-subtle-info">@Localizer["Pending"]</span>
                         }
                         else
                         {
@@ -49,7 +50,14 @@
                     <td class="text-end"><strong>@Model.PackageCounts.GetValueOrDefault(bucket.Id, 0).ToString("N0")</strong></td>
                     <td class="text-end">@((Model.StorageUsage.GetValueOrDefault(bucket.Id, 0) / 1024.0 / 1024.0).ToString("F2")) MB</td>
                     <td>
-                        <small class="text-primary">@Model.InUseBy.GetValueOrDefault(bucket.Id)</small>
+                        @if (isLive)
+                        {
+                            <small class="text-primary">@Model.InUseBy.GetValueOrDefault(bucket.Id)</small>
+                        }
+                        else if (isPending)
+                        {
+                            <small class="text-info">@pendingFor <span class="text-muted">(pending)</span></small>
+                        }
                     </td>
                 </tr>
             }

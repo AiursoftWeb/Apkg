@@ -47,11 +47,9 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
             .Where(r => r.PrimaryBucketId != null)
             .ToDictionaryAsync(r => r.PrimaryBucketId!.Value, r => $"Repo: {r.Name}");
 
-        var pendingBucketIds = await dbContext.AptRepositories
+        var pendingRepoUsage = await dbContext.AptRepositories
             .Where(r => r.SecondaryBucketId != null)
-            .Select(r => r.SecondaryBucketId!.Value)
-            .Distinct()
-            .ToListAsync();
+            .ToDictionaryAsync(r => r.SecondaryBucketId!.Value, r => $"Repo: {r.Name}");
 
         var model = new BucketsIndexViewModel
         {
@@ -65,7 +63,7 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
                 if (repoUsage.TryGetValue(b.Id, out var r)) usages.Add(r);
                 return string.Join(", ", usages);
             }),
-            SecondaryBucketIds = pendingBucketIds.ToHashSet(),
+            PendingUsage = pendingRepoUsage,
             PageTitle = "Bucket History"
         };
         return this.StackView(model);
