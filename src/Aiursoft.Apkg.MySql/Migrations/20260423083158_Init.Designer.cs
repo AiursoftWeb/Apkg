@@ -12,15 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.Apkg.MySql.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    [Migration("20260421181704_PipelineV2")]
-    partial class PipelineV2
+    [Migration("20260423083158_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.5")
+                .HasAnnotation("ProductVersion", "10.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -32,6 +32,9 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("BuildFinished")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
@@ -64,6 +67,11 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("FriendlyName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
@@ -106,6 +114,11 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<int?>("CurrentBucketId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Distro")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("SignedBy")
                         .HasColumnType("longtext");
@@ -280,11 +293,26 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Architecture")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
                     b.Property<int?>("CertificateId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Components")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
                     b.Property<int?>("CurrentBucketId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Distro")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<int?>("MirrorId")
                         .HasColumnType("int");

@@ -64,8 +64,6 @@ public static class ProgramExtends
         var settingsService = services.GetRequiredService<GlobalSettingsService>();
         await settingsService.SeedSettingsAsync();
 
-        await host.SeedMirrorsAsync();
-
         var shouldSeed = await ShouldSeedAsync(db);
         if (!shouldSeed)
         {
