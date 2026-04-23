@@ -27,12 +27,23 @@ public class GarbageCollectionJob(
             .Select(m => m.CurrentBucketId!.Value)
             .ToListAsync();
             
-        var activeRepos = await db.AptRepositories
+        var activeRepoCurrentBuckets = await db.AptRepositories
             .Where(r => r.CurrentBucketId != null)
             .Select(r => r.CurrentBucketId!.Value)
             .ToListAsync();
-        
-        var activeBucketIds = activeMirrors.Union(activeRepos).Distinct().ToList();
+
+        // PendingBucketId buckets are being staged for signing — they must never be deleted,
+        // even though they are not yet referenced by CurrentBucketId.
+        var activeRepoPendingBuckets = await db.AptRepositories
+            .Where(r => r.PendingBucketId != null)
+            .Select(r => r.PendingBucketId!.Value)
+            .ToListAsync();
+
+        var activeBucketIds = activeMirrors
+            .Union(activeRepoCurrentBuckets)
+            .Union(activeRepoPendingBuckets)
+            .Distinct()
+            .ToList();
 
         // Only delete buckets that are fully built (BuildFinished = true) but not referenced.
         // Buckets with BuildFinished = false are still being constructed — don't touch them.
