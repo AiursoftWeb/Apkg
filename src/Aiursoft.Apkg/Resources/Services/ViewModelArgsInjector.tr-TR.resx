@@ -138,6 +138,9 @@
   <data name="Package Engine" xml:space="preserve">
     <value>Paket Motoru</value>
   </data>
+  <data name="Package Search" xml:space="preserve">
+    <value>Paket Arama</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>İzin Detayları</value>
   </data>

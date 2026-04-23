@@ -141,6 +141,9 @@
   <data name="Package Engine" xml:space="preserve">
     <value>包引擎</value>
   </data>
+  <data name="Package Search" xml:space="preserve">
+    <value>包搜索</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>权限详情</value>
   </data>

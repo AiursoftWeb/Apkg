@@ -141,6 +141,9 @@
   <data name="Package Engine" xml:space="preserve">
     <value>Motor de paquetes</value>
   </data>
+  <data name="Package Search" xml:space="preserve">
+    <value>Búsqueda de paquetes</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Detalles de permisos</value>
   </data>

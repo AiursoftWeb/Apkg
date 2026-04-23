@@ -138,6 +138,9 @@
   <data name="Package Engine" xml:space="preserve">
     <value>Pakettimoottori</value>
   </data>
+  <data name="Package Search" xml:space="preserve">
+    <value>Paketinhaku</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Oikeuksien tiedot</value>
   </data>

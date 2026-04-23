@@ -138,6 +138,9 @@
   <data name="Package Engine" xml:space="preserve">
     <value>पैकेज इंजन</value>
   </data>
+  <data name="Package Search" xml:space="preserve">
+    <value>पैकेज खोज</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>अनुमति विवरण</value>
   </data>

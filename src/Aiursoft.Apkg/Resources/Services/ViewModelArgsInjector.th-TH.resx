@@ -141,6 +141,9 @@
   <data name="Package Engine" xml:space="preserve">
     <value>เครื่องจัดการแพ็กเกจ</value>
   </data>
+  <data name="Package Search" xml:space="preserve">
+    <value>ค้นหาแพ็กเกจ</value>
+  </data>
   <data name="Permission Details" xml:space="preserve">
     <value>รายละเอียดสิทธิ์การใช้งาน</value>
   </data>
