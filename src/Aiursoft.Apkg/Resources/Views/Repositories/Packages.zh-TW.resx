@@ -42,5 +42,8 @@
   <data name="Version" xml:space="preserve">
     <value>版本</value>
   </data>
+  <data name="View Repository Info" xml:space="preserve">
+    <value>查看儲存庫資訊</value>
+  </data>
 
 </root>

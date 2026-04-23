@@ -24,6 +24,9 @@
   <data name="Back" xml:space="preserve">
     <value>返回</value>
   </data>
+  <data name="Bugs" xml:space="preserve">
+    <value>错误</value>
+  </data>
   <data name="Component" xml:space="preserve">
     <value>组件</value>
   </data>
@@ -36,11 +39,23 @@
   <data name="Download .deb" xml:space="preserve">
     <value>下载 .deb</value>
   </data>
+  <data name="Download Size" xml:space="preserve">
+    <value>下载大小</value>
+  </data>
+  <data name="Failed to load reverse dependencies." xml:space="preserve">
+    <value>加载反向依赖项失败。</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>哈希值</value>
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>主页</value>
+  </data>
+  <data name="Installed Size" xml:space="preserve">
+    <value>已安装大小</value>
+  </data>
+  <data name="Loading…" xml:space="preserve">
+    <value>加载中…</value>
   </data>
   <data name="Maintainer" xml:space="preserve">
     <value>维护者</value>
@@ -48,8 +63,23 @@
   <data name="Metadata" xml:space="preserve">
     <value>元数据</value>
   </data>
+  <data name="Multi-Arch" xml:space="preserve">
+    <value>多架构</value>
+  </data>
   <data name="No dependencies." xml:space="preserve">
     <value>无依赖项。</value>
+  </data>
+  <data name="No packages depend on this package." xml:space="preserve">
+    <value>没有软件包依赖于此软件包。</value>
+  </data>
+  <data name="No relations." xml:space="preserve">
+    <value>无关联。</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>来源</value>
+  </data>
+  <data name="Original Maintainer" xml:space="preserve">
+    <value>原维护者</value>
   </data>
   <data name="Package Details" xml:space="preserve">
     <value>软件包详情</value>
@@ -57,8 +87,23 @@
   <data name="Physical (Cached)" xml:space="preserve">
     <value>物理（已缓存）</value>
   </data>
+  <data name="Priority" xml:space="preserve">
+    <value>优先级</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>关系</value>
+  </data>
+  <data name="Reverse Dependencies" xml:space="preserve">
+    <value>反向依赖</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>分类</value>
+  </data>
   <data name="Size" xml:space="preserve">
     <value>大小</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>源</value>
   </data>
   <data name="Status &amp; Files" xml:space="preserve">
     <value>状态与文件</value>

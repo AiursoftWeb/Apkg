@@ -48,6 +48,12 @@
   <data name="Packages" xml:space="preserve">
     <value>软件包</value>
   </data>
+  <data name="Primary Bucket" xml:space="preserve">
+    <value>主存储桶</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>次要存储桶</value>
+  </data>
   <data name="Suite" xml:space="preserve">
     <value>套件</value>
   </data>

@@ -24,6 +24,9 @@
   <data name="Back" xml:space="preserve">
     <value>戻る</value>
   </data>
+  <data name="Bugs" xml:space="preserve">
+    <value>バグ</value>
+  </data>
   <data name="Component" xml:space="preserve">
     <value>コンポーネント</value>
   </data>
@@ -36,11 +39,23 @@
   <data name="Download .deb" xml:space="preserve">
     <value>.deb をダウンロード</value>
   </data>
+  <data name="Download Size" xml:space="preserve">
+    <value>ダウンロードサイズ</value>
+  </data>
+  <data name="Failed to load reverse dependencies." xml:space="preserve">
+    <value>逆依存関係の読み込みに失敗しました。</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>ハッシュ値</value>
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>ホームページ</value>
+  </data>
+  <data name="Installed Size" xml:space="preserve">
+    <value>インストール済みサイズ</value>
+  </data>
+  <data name="Loading…" xml:space="preserve">
+    <value>読み込み中…</value>
   </data>
   <data name="Maintainer" xml:space="preserve">
     <value>メンテナー</value>
@@ -48,8 +63,23 @@
   <data name="Metadata" xml:space="preserve">
     <value>メタデータ</value>
   </data>
+  <data name="Multi-Arch" xml:space="preserve">
+    <value>マルチアーキ</value>
+  </data>
   <data name="No dependencies." xml:space="preserve">
     <value>依存関係はありません。</value>
+  </data>
+  <data name="No packages depend on this package." xml:space="preserve">
+    <value>このパッケージに依存するパッケージはありません。</value>
+  </data>
+  <data name="No relations." xml:space="preserve">
+    <value>関連なし。</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>元</value>
+  </data>
+  <data name="Original Maintainer" xml:space="preserve">
+    <value>元のメンテナ</value>
   </data>
   <data name="Package Details" xml:space="preserve">
     <value>パッケージの詳細</value>
@@ -57,8 +87,23 @@
   <data name="Physical (Cached)" xml:space="preserve">
     <value>物理（キャッシュ済み）</value>
   </data>
+  <data name="Priority" xml:space="preserve">
+    <value>優先度</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>関係</value>
+  </data>
+  <data name="Reverse Dependencies" xml:space="preserve">
+    <value>逆依存関係</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>セクション</value>
+  </data>
   <data name="Size" xml:space="preserve">
     <value>サイズ</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>ソース</value>
   </data>
   <data name="Status &amp; Files" xml:space="preserve">
     <value>ステータスとファイル</value>

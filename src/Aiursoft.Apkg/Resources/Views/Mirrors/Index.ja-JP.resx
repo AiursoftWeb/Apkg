@@ -48,6 +48,12 @@
   <data name="Packages" xml:space="preserve">
     <value>パッケージ</value>
   </data>
+  <data name="Primary Bucket" xml:space="preserve">
+    <value>主要バケット</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>セカンダリバケット</value>
+  </data>
   <data name="Suite" xml:space="preserve">
     <value>スーテ</value>
   </data>
