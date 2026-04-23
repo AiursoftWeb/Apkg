@@ -3,6 +3,7 @@ using System;
 using Aiursoft.Apkg.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.Apkg.Sqlite.Migrations
 {
     [DbContext(typeof(SqliteContext))]
-    partial class SqliteContextModelSnapshot : ModelSnapshot
+    [Migration("20260423090602_AddPendingBucketId")]
+    partial class AddPendingBucketId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.7");
@@ -33,9 +36,6 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ReleaseContent")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime?>("SignedAt")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

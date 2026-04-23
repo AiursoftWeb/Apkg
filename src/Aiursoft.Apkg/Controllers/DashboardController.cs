@@ -40,25 +40,29 @@ public class DashboardController(ApkgDbContext db) : Controller
             .Where(r => r.CurrentBucketId != null)
             .ToDictionary(r => r.CurrentBucketId!.Value, r => new { r.Id, r.Name });
 
-        var query = db.AptPackages.AsNoTracking()
+        var baseQuery = db.AptPackages.AsNoTracking()
             .Where(p => activeBucketIds.Contains(p.BucketId));
+
+        var totalPackages = await baseQuery.CountAsync();
+
+        List<AptPackage> packages;
+        int totalResults;
 
         if (!string.IsNullOrWhiteSpace(q))
         {
-            query = query.Where(p => p.Package.Contains(q));
+            (packages, totalResults) = await PackageSearchService.SearchAsync(
+                baseQuery, q, page, IndexViewModel.PageSize);
         }
-
-        var totalResults = await query.CountAsync();
-        var totalPackages = await db.AptPackages.AsNoTracking()
-            .Where(p => activeBucketIds.Contains(p.BucketId))
-            .CountAsync();
-
-        var packages = await query
-            .OrderBy(p => p.Package)
-            .ThenBy(p => p.Version)
-            .Skip((page - 1) * IndexViewModel.PageSize)
-            .Take(IndexViewModel.PageSize)
-            .ToListAsync();
+        else
+        {
+            totalResults = totalPackages;
+            packages = await baseQuery
+                .OrderBy(p => p.Package)
+                .ThenBy(p => p.Version)
+                .Skip((page - 1) * IndexViewModel.PageSize)
+                .Take(IndexViewModel.PageSize)
+                .ToListAsync();
+        }
 
         var results = packages.Select(pkg => new PackageSearchResult
         {

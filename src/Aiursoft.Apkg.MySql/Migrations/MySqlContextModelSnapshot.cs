@@ -42,6 +42,9 @@ namespace Aiursoft.Apkg.MySql.Migrations
                     b.Property<string>("ReleaseContent")
                         .HasColumnType("longtext");
 
+                    b.Property<DateTime?>("SignedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.HasKey("Id");
 
                     b.ToTable("AptBuckets");
@@ -319,6 +322,9 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<int?>("PendingBucketId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Suite")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -331,6 +337,8 @@ namespace Aiursoft.Apkg.MySql.Migrations
                     b.HasIndex("CurrentBucketId");
 
                     b.HasIndex("MirrorId");
+
+                    b.HasIndex("PendingBucketId");
 
                     b.ToTable("AptRepositories");
                 });
@@ -591,11 +599,17 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .WithMany()
                         .HasForeignKey("MirrorId");
 
+                    b.HasOne("Aiursoft.Apkg.Entities.AptBucket", "PendingBucket")
+                        .WithMany()
+                        .HasForeignKey("PendingBucketId");
+
                     b.Navigation("Certificate");
 
                     b.Navigation("CurrentBucket");
 
                     b.Navigation("Mirror");
+
+                    b.Navigation("PendingBucket");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
