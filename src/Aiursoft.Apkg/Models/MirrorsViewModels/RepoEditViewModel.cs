@@ -30,7 +30,9 @@ public class RepoEditViewModel : UiStackLayoutViewModel
     [Display(Name = "Mirror Source")]
     public int? MirrorId { get; set; }
 
-    [Required]
+    [Display(Name = "Automatic GPG Sign")]
+    public bool EnableGpgSign { get; set; } = true;
+
     [Display(Name = "Signing Certificate")]
     public int? CertificateId { get; set; }
     

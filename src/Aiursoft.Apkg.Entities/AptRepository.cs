@@ -35,6 +35,8 @@ public class AptRepository
     [ForeignKey(nameof(CertificateId))]
     public AptCertificate? Certificate { get; set; }
 
+    public bool EnableGpgSign { get; set; } = true;
+
     public int? MirrorId { get; set; }
 
     [ForeignKey(nameof(MirrorId))]

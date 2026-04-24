@@ -60,8 +60,16 @@
             </div>
 
             <div class="mb-3">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" asp-for="EnableGpgSign" id="enableGpgSign">
+                    <label class="form-check-label" asp-for="EnableGpgSign"></label>
+                </div>
+                <div class="form-text">Automatically sign the Release files of this repository.</div>
+            </div>
+
+            <div class="mb-3" id="certSelection">
                 <label asp-for="CertificateId" class="form-label"></label>
-                <select asp-for="CertificateId" asp-items="Model.AvailableCertificates" class="form-select" required></select>
+                <select asp-for="CertificateId" asp-items="Model.AvailableCertificates" class="form-select" id="certificateIdSelect"></select>
                 <div class="form-text">The GPG key used to sign the Release files of this repository.</div>
             </div>
 
@@ -71,3 +79,24 @@
         </form>
     </div>
 </div>
+
+@section scripts {
+    <script>
+        const enableGpgSign = document.getElementById('enableGpgSign');
+        const certSelection = document.getElementById('certSelection');
+        const certificateIdSelect = document.getElementById('certificateIdSelect');
+
+        function updateCertVisibility() {
+            if (enableGpgSign.checked) {
+                certSelection.style.display = 'block';
+                certificateIdSelect.required = true;
+            } else {
+                certSelection.style.display = 'none';
+                certificateIdSelect.required = false;
+            }
+        }
+
+        enableGpgSign.addEventListener('change', updateCertVisibility);
+        updateCertVisibility();
+    </script>
+}

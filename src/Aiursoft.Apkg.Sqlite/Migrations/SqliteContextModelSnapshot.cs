@@ -298,6 +298,9 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("EnableGpgSign")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int?>("MirrorId")
                         .HasColumnType("INTEGER");
 
