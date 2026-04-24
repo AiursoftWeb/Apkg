@@ -42,6 +42,9 @@
   <data name="Failed" xml:space="preserve">
     <value>失敗</value>
   </data>
+  <data name="Insecure Source" xml:space="preserve">
+    <value>安全でないソース</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>アイテム</value>
   </data>
@@ -51,14 +54,26 @@
   <data name="Never Synced" xml:space="preserve">
     <value>未同期</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>なし</value>
+  </data>
   <data name="Packages" xml:space="preserve">
     <value>パッケージ</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>合格</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>保留中</value>
   </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>主要バケット</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
     <value>セカンダリバケット</value>
+  </data>
+  <data name="Signature Verification Disabled" xml:space="preserve">
+    <value>署名検証が無効</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>ステータス</value>

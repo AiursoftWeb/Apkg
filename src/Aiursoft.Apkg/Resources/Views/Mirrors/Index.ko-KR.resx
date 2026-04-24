@@ -42,6 +42,9 @@
   <data name="Failed" xml:space="preserve">
     <value>실패</value>
   </data>
+  <data name="Insecure Source" xml:space="preserve">
+    <value>보안되지 않은 소스</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>개</value>
   </data>
@@ -51,14 +54,26 @@
   <data name="Never Synced" xml:space="preserve">
     <value>동기화되지 않음</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>없음</value>
+  </data>
   <data name="Packages" xml:space="preserve">
     <value>패키지</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>검증 완료</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>대기 중</value>
   </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>기본 버킷</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
     <value>보조 버킷</value>
+  </data>
+  <data name="Signature Verification Disabled" xml:space="preserve">
+    <value>서명 검증 비활성화됨</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>상태</value>

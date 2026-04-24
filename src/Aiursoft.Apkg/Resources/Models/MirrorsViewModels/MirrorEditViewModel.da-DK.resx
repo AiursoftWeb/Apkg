@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Base URL" xml:space="preserve">
+      <data name="Allow Insecure Source" xml:space="preserve">
+    <value>Tillad usikker kilde</value>
+  </data>
+  <data name="Base URL" xml:space="preserve">
     <value>Base-URL</value>
   </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
