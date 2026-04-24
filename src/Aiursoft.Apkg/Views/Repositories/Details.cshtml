@@ -33,7 +33,7 @@ else
         <div class="card h-100">
             <div class="card-header"><h5 class="card-title mb-0">@Localizer["Client Configuration Guide"]</h5></div>
             <div class="card-body">
-                @if (Model.Repo.Certificate != null)
+                @if (Model.Repo.EnableGpgSign && Model.Repo.Certificate != null)
                 {
                     <h6>@Localizer["One-line Setup:"]</h6>
                     <div class="bg-dark text-white p-3 rounded mb-4">
@@ -54,7 +54,20 @@ sudo apt update</code></pre>
                 }
                 else
                 {
-                    <div class="alert alert-warning">@Localizer["No certificate associated with this repository. Signing is disabled."]</div>
+                    <h6>@Localizer["One-line Setup (Unsigned):"]</h6>
+                    <div class="bg-dark text-white p-3 rounded mb-4">
+                        <pre class="mb-0" style="white-space: pre-wrap; word-break: break-all;"><code>echo "Types: deb
+URIs: @(Context.Request.Scheme)://@(Context.Request.Host)/@Model.Repo.Distro/
+Suites: @Model.Repo.Suite
+Components: @((string.IsNullOrWhiteSpace(Model.Repo.Components) ? "main" : Model.Repo.Components).Replace(",", " "))
+Trusted: yes" | sudo tee /etc/apt/sources.list.d/apkg-@(Model.Repo.Id).sources && \
+sudo apt update</code></pre>
+                    </div>
+
+                    <div class="alert alert-warning py-2">
+                        <i class="align-middle me-1" data-lucide="alert-triangle" style="width:14px;height:14px;"></i>
+                        <small>@Localizer["This repository is not signed. We are using 'Trusted: yes' to bypass security checks. Use with caution!"]</small>
+                    </div>
                 }
             </div>
         </div>

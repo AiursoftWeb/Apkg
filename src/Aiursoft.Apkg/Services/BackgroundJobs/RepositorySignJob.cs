@@ -60,12 +60,16 @@ public class RepositorySignJob(
             return;
         }
 
-        if (repo.Certificate != null)
+        if (repo.EnableGpgSign && repo.Certificate != null)
         {
             logger.LogInformation("Signing repository {RepoName} with certificate {CertName}...", repo.Name, repo.Certificate.FriendlyName);
             bucketEntity.InReleaseContent = await signingService.SignClearsignAsync(bucketEntity.ReleaseContent, repo.Certificate.PrivateKey);
             bucketEntity.SignedAt = DateTime.UtcNow;
             await db.SaveChangesAsync();
+        }
+        else
+        {
+            logger.LogInformation("Repository {RepoName} signing is disabled or no certificate found. Skipping signing.", repo.Name);
         }
 
         // Atomically promote: only now is the signed bucket exposed to apt clients
