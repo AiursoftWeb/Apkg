@@ -2,9 +2,6 @@ using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Services.BackgroundJobs;
 using Aiursoft.Apkg.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text;
 using System.Security.Cryptography;
 
