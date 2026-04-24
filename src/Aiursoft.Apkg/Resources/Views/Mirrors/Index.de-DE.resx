@@ -39,8 +39,14 @@
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>
   </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Fehlgeschlagen</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>Artikel</value>
+  </data>
+  <data name="Never Pull" xml:space="preserve">
+    <value>Nie gezogen</value>
   </data>
   <data name="Never Synced" xml:space="preserve">
     <value>Noch nie synchronisiert</value>
@@ -53,6 +59,12 @@
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
     <value>Sekundärer Bucket</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Erfolg</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Version</value>

@@ -81,6 +81,9 @@
   <data name="Package Details" xml:space="preserve">
     <value>パッケージ詳細</value>
   </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>パッケージ</value>
+  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>物理（キャッシュ済み）</value>
   </data>
@@ -92,6 +95,15 @@
   </data>
   <data name="Reverse Dependencies" xml:space="preserve">
     <value>逆依存関係</value>
+  </data>
+  <data name="Reverse Depends" xml:space="preserve">
+    <value>逆依存関係</value>
+  </data>
+  <data name="Reverse Recommends" xml:space="preserve">
+    <value>逆推奨</value>
+  </data>
+  <data name="Reverse Suggests" xml:space="preserve">
+    <value>逆提案</value>
   </data>
   <data name="Section" xml:space="preserve">
     <value>セクション</value>

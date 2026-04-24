@@ -39,8 +39,14 @@
   <data name="Distro" xml:space="preserve">
     <value>Phân phối</value>
   </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Thất bại</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>mục</value>
+  </data>
+  <data name="Never Pull" xml:space="preserve">
+    <value>Chưa từng kéo</value>
   </data>
   <data name="Never Synced" xml:space="preserve">
     <value>Chưa đồng bộ hóa</value>
@@ -53,6 +59,12 @@
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
     <value>Thùng chứa phụ</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Thành công</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Phiên bản</value>

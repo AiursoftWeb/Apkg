@@ -45,6 +45,9 @@
   <data name="No certificate associated with this repository. Signing is disabled." xml:space="preserve">
     <value>ไม่มีใบรับรองที่เกี่ยวข้องกับที่เก็บข้อมูลนี้ การลงนามถูกปิดใช้งาน</value>
   </data>
+  <data name="One-line Setup (Unsigned):" xml:space="preserve">
+    <value>การติดตั้งแบบบรรทัดเดียว (ไม่มีลายเซ็น):</value>
+  </data>
   <data name="One-line Setup:" xml:space="preserve">
     <value>การติดตั้งแบบบรรทัดเดียว:</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>ชุด</value>
+  </data>
+  <data name="This repository is not signed. We are using &apos;Trusted: yes&apos; to bypass security checks. Use with caution!" xml:space="preserve">
+    <value>ที่เก็บข้อมูลนี้ไม่ได้ลงนาม เราใช้ &apos;Trusted: yes&apos; เพื่อข้ามการตรวจสอบความปลอดภัย โปรดใช้ด้วยความระมัดระวัง!</value>
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>สิ่งนี้ใช้รูปแบบ DEB822 รุ่นใหม่และ keyring แบบ scoped เพื่อความปลอดภัยและความน่าเชื่อถือสูงสุด</value>

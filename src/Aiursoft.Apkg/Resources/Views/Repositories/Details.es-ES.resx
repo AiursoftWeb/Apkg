@@ -19,49 +19,46 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Back to List" xml:space="preserve">
-    <value>목록으로 돌아가기</value>
+    <value>Volver a la lista</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
-    <value>패키지 둘러보기</value>
+    <value>Explorar paquetes</value>
   </data>
   <data name="Certificate" xml:space="preserve">
-    <value>인증서</value>
+    <value>Certificado</value>
   </data>
   <data name="Client Configuration Guide" xml:space="preserve">
-    <value>클라이언트 구성 가이드</value>
+    <value>Guía de configuración del cliente</value>
   </data>
   <data name="Distro" xml:space="preserve">
-    <value>배포판</value>
+    <value>Distribución</value>
   </data>
   <data name="Information" xml:space="preserve">
-    <value>정보</value>
+    <value>Información</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
-    <value>실시간 버킷</value>
+    <value>Cubo en vivo</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
-    <value>미러 소스</value>
-  </data>
-  <data name="No certificate associated with this repository. Signing is disabled." xml:space="preserve">
-    <value>이 저장소에는 인증서가 연결되어 있지 않습니다. 서명이 비활성화되었습니다.</value>
+    <value>Fuente del espejo</value>
   </data>
   <data name="One-line Setup (Unsigned):" xml:space="preserve">
-    <value>일괄 설정 (서명 없음):</value>
+    <value>Configuración en una línea (sin firmar):</value>
   </data>
   <data name="One-line Setup:" xml:space="preserve">
-    <value>원라인 설정:</value>
+    <value>Configuración en una sola línea:</value>
   </data>
   <data name="Repository Details" xml:space="preserve">
-    <value>저장소 세부 정보</value>
+    <value>Detalles del repositorio</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>
   </data>
   <data name="This repository is not signed. We are using &apos;Trusted: yes&apos; to bypass security checks. Use with caution!" xml:space="preserve">
-    <value>이 저장소는 서명되지 않았습니다. 보안 검사를 우회하기 위해 &apos;Trusted: yes&apos;를 사용하고 있습니다. 주의해서 사용하십시오!</value>
+    <value>Este repositorio no está firmado. Estamos utilizando &apos;Trusted: yes&apos; para omitir las comprobaciones de seguridad. ¡Úselo con precaución!</value>
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
-    <value>이 방법은 최대 보안과 신뢰성을 위해 현대적인 DEB822 형식과 범위가 지정된 키링을 사용합니다.</value>
+    <value>Esto utiliza el formato moderno DEB822 y un anillo de claves limitado para garantizar la máxima seguridad y fiabilidad.</value>
   </data>
 
 </root>

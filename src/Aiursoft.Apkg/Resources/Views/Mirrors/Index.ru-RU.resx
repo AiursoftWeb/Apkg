@@ -19,58 +19,55 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Actions" xml:space="preserve">
-    <value>Actions</value>
+    <value>Действия</value>
   </data>
   <data name="Add New Mirror" xml:space="preserve">
-    <value>Add New Mirror</value>
+    <value>Добавить новое зеркало</value>
   </data>
   <data name="Arch" xml:space="preserve">
-    <value>Architecture</value>
+    <value>Архитектура</value>
   </data>
   <data name="Base URL" xml:space="preserve">
-    <value>Base URL</value>
-  </data>
-  <data name="Bucket" xml:space="preserve">
-    <value>Bucket</value>
+    <value>Базовый URL</value>
   </data>
   <data name="Components" xml:space="preserve">
-    <value>Components</value>
+    <value>Компоненты</value>
   </data>
   <data name="Distro" xml:space="preserve">
-    <value>Distribution</value>
+    <value>Дистрибутив</value>
   </data>
   <data name="Failed" xml:space="preserve">
-    <value>Failed</value>
+    <value>Ошибка</value>
   </data>
   <data name="items" xml:space="preserve">
-    <value>items</value>
+    <value>элементов</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
-    <value>Never Pulled</value>
+    <value>Никогда не синхронизировалось</value>
   </data>
   <data name="Never Synced" xml:space="preserve">
-    <value>Never Synced</value>
+    <value>Никогда не синхронизировано</value>
   </data>
   <data name="Packages" xml:space="preserve">
-    <value>Packages</value>
+    <value>Пакеты</value>
   </data>
   <data name="Primary Bucket" xml:space="preserve">
-    <value>Primary Bucket</value>
+    <value>Основное хранилище</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
-    <value>Secondary Bucket</value>
+    <value>Вторичный бакет</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Status</value>
+    <value>Статус</value>
   </data>
   <data name="Success" xml:space="preserve">
-    <value>Success</value>
+    <value>Успешно</value>
   </data>
   <data name="Suite" xml:space="preserve">
-    <value>Suite</value>
+    <value>Версия</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
-    <value>Upstream Mirrors</value>
+    <value>Вышестоящие зеркала</value>
   </data>
 
 </root>

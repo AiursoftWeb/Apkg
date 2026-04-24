@@ -51,6 +51,9 @@
   <data name="Size" xml:space="preserve">
     <value>Kích thước</value>
   </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
   <data name="Version" xml:space="preserve">
     <value>Phiên bản</value>
   </data>

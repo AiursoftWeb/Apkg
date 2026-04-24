@@ -39,8 +39,14 @@
   <data name="Distro" xml:space="preserve">
     <value>ディストリビューション</value>
   </data>
+  <data name="Failed" xml:space="preserve">
+    <value>失敗</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>アイテム</value>
+  </data>
+  <data name="Never Pull" xml:space="preserve">
+    <value>未プル</value>
   </data>
   <data name="Never Synced" xml:space="preserve">
     <value>未同期</value>
@@ -53,6 +59,12 @@
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
     <value>セカンダリバケット</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>成功</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>スーテ</value>

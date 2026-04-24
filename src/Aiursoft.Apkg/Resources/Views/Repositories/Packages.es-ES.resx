@@ -18,14 +18,32 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Automatic GPG Sign" xml:space="preserve">
-    <value>Automatyczne podpisywanie GPG</value>
+      <data name="Back to Repository" xml:space="preserve">
+    <value>Volver al repositorio</value>
   </data>
-  <data name="Mirror Source" xml:space="preserve">
-    <value>Źródło Lustra</value>
+  <data name="Component" xml:space="preserve">
+    <value>Componente</value>
   </data>
-  <data name="Signing Certificate" xml:space="preserve">
-    <value>Certyfikat podpisywania</value>
+  <data name="Package" xml:space="preserve">
+    <value>Paquete</value>
+  </data>
+  <data name="Packages in" xml:space="preserve">
+    <value>Paquetes en</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Tamaño</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versión</value>
+  </data>
+  <data name="View Repository Info" xml:space="preserve">
+    <value>Ver información del repositorio</value>
   </data>
 
 </root>
