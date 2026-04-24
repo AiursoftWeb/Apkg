@@ -21,20 +21,29 @@ public class MirrorSyncJob(
 
         foreach (var mirror in mirrors)
         {
+            mirror.LastPullTime = DateTime.UtcNow;
             try
             {
-                await SyncMirrorSuiteAsync(mirror);
+                var count = await SyncMirrorSuiteAsync(mirror);
+                mirror.LastPullSuccess = true;
+                mirror.LastPullResult = $"Successfully pulled {count} packages.";
+                mirror.LastPullErrorStack = null;
             }
             catch (Exception ex)
             {
                 logger.LogError(ex, "Failed to sync mirror suite {Suite} from {BaseUrl}", mirror.Suite, mirror.BaseUrl);
+                mirror.LastPullSuccess = false;
+                mirror.LastPullResult = ex.Message;
+                mirror.LastPullErrorStack = ex.StackTrace;
             }
+            db.AptMirrors.Update(mirror);
+            await db.SaveChangesAsync();
         }
 
         logger.LogInformation("MirrorSyncJob V2 finished.");
     }
 
-    private async Task SyncMirrorSuiteAsync(AptMirror mirror)
+    private async Task<int> SyncMirrorSuiteAsync(AptMirror mirror)
     {
         logger.LogInformation("Starting sync for suite {Suite} from {BaseUrl}...", mirror.Suite, mirror.BaseUrl);
 
@@ -52,6 +61,7 @@ public class MirrorSyncJob(
 
         var totalInserted = 0;
         var insertedKeys = new HashSet<string>();
+        Exception? lastException = null;
         foreach (var arch in architectures)
         {
             foreach (var component in components)
@@ -63,6 +73,7 @@ public class MirrorSyncJob(
                 catch (Exception ex)
                 {
                     logger.LogWarning(ex, "Failed to fetch component {Component} [{Arch}] for suite {Suite}. Skipping...", component, arch, mirror.Suite);
+                    lastException = ex;
                 }
             }
         }
@@ -74,7 +85,12 @@ public class MirrorSyncJob(
             db.AptMirrors.Update(mirror);
             mirror.SecondaryBucketId = null;
             await db.SaveChangesAsync();
-            return;
+            
+            if (lastException != null)
+            {
+                throw new Exception("No packages were found for any component in this suite! Last error: " + lastException.Message, lastException);
+            }
+            throw new Exception("No packages were found for any component in this suite! Please check your mirror settings and upstream status.");
         }
 
         // 2. Promote secondary → primary, keeping the old primary in secondary.
@@ -99,6 +115,7 @@ public class MirrorSyncJob(
         mirror.PrimaryBucketId = mirror.SecondaryBucketId; // promote new bucket
         mirror.SecondaryBucketId = retiredPrimaryId;       // protect old bucket from GC
         await db.SaveChangesAsync();
+        return totalInserted;
     }
 
     private async Task<int> FetchAndInsertComponentAsync(AptMirror mirror, AptBucket bucket, string component, string arch, HashSet<string> insertedKeys)

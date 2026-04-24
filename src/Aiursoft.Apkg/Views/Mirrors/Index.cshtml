@@ -21,6 +21,7 @@
                 <th>@Localizer["Base URL"]</th>
                 <th>@Localizer["Components"]</th>
                 <th>@Localizer["Arch"]</th>
+                <th>@Localizer["Status"]</th>
                 <th>@Localizer["Primary Bucket"]</th>
                 <th>@Localizer["Secondary Bucket"]</th>
                 <th>@Localizer["Packages"]</th>
@@ -36,6 +37,46 @@
                     <td><small>@item.BaseUrl</small></td>
                     <td><small>@item.Components</small></td>
                     <td><span class="badge bg-dark">@item.Architecture</span></td>
+                    <td>
+                        @if (item.LastPullTime != null)
+                        {
+                            <small class="d-block text-muted">@item.LastPullTime.Value.ToLocalTime().ToString("g")</small>
+                            @if (item.LastPullSuccess == true)
+                            {
+                                <span class="badge bg-success">@Localizer["Success"]</span>
+                                <small class="text-success d-block">@item.LastPullResult</small>
+                            }
+                            else if (item.LastPullSuccess == false)
+                            {
+                                <span class="badge bg-danger cursor-pointer" data-bs-toggle="modal" data-bs-target="#errorModal-@item.Id">
+                                    @Localizer["Failed"]
+                                </span>
+                                <small class="text-danger d-block">@item.LastPullResult</small>
+
+                                <!-- Error Stack Modal -->
+                                <div class="modal fade" id="errorModal-@item.Id" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content text-start">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Sync Error Stack Trace</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="alert alert-danger">
+                                                    <strong>Error:</strong> @item.LastPullResult
+                                                </div>
+                                                <pre class="bg-light p-3 border rounded"><code>@item.LastPullErrorStack</code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">@Localizer["Never Pull"]</span>
+                        }
+                    </td>
                     <td>
                         @if (item.PrimaryBucketId != null)
                         {
