@@ -231,16 +231,37 @@ sudo apt update</code></pre>
             if (!data || data.length === 0) {
                 content.innerHTML = '<p class="text-muted mb-0">@Localizer["No packages depend on this package."]</p>';
             } else {
-                var html = '<div class="d-flex flex-wrap gap-1">';
+                var depends = [];
+                var recommends = [];
+                var suggests = [];
+                
                 data.forEach(function (p) {
-                    var types = (p.relTypes || []).join(', ');
-                    html += '<a href="/Repositories/PackageDetails/' + p.id + '" '
-                          + 'class="badge badge-subtle-primary text-decoration-none" '
-                          + 'title="' + p.version + ' [' + types + ']">'
-                          + p.package + '</a>';
+                    if (p.relTypes.indexOf('Depends') !== -1) depends.push(p);
+                    if (p.relTypes.indexOf('Recommends') !== -1) recommends.push(p);
+                    if (p.relTypes.indexOf('Suggests') !== -1) suggests.push(p);
                 });
-                html += '</div>';
-                html += '<p class="text-muted small mt-2 mb-0">' + data.length + ' package(s)</p>';
+
+                var html = '';
+                
+                function renderSection(title, list, cssClass) {
+                    if (list.length === 0) return '';
+                    var sectionHtml = '<h6 class="mt-3 mb-2">' + title + '</h6>';
+                    sectionHtml += '<div class="d-flex flex-wrap gap-1">';
+                    list.forEach(function (p) {
+                        sectionHtml += '<a href="/Repositories/PackageDetails/' + p.id + '" '
+                              + 'class="badge ' + cssClass + ' text-decoration-none" '
+                              + 'title="' + p.version + '">'
+                              + p.package + '</a>';
+                    });
+                    sectionHtml += '</div>';
+                    return sectionHtml;
+                }
+
+                html += renderSection('@Localizer["Reverse Depends"]', depends, 'badge-subtle-primary');
+                html += renderSection('@Localizer["Reverse Recommends"]', recommends, 'badge-subtle-info');
+                html += renderSection('@Localizer["Reverse Suggests"]', suggests, 'badge-subtle-secondary');
+                
+                html += '<p class="text-muted small mt-3 mb-0">' + data.length + ' @Localizer["package(s)"]</p>';
                 content.innerHTML = html;
             }
             content.style.display = '';
