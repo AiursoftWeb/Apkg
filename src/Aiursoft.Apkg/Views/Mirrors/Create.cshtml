@@ -48,7 +48,13 @@
                 <span asp-validation-for="Components" class="text-danger"></span>
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 form-check">
+                <input asp-for="AllowInsecure" class="form-check-input" />
+                <label asp-for="AllowInsecure" class="form-check-label"></label>
+                <div class="form-text">If checked, no signature verification will be performed. Use at your own risk.</div>
+            </div>
+
+            <div class="mb-3" id="signed-by-container">
                 <label asp-for="SignedBy" class="form-label"></label>
                 <input asp-for="SignedBy" class="form-control" placeholder="https://example.com/public.gpg" />
                 <div class="form-text">Optional URL to the upstream public GPG key for verification.</div>
@@ -60,3 +66,16 @@
         </form>
     </div>
 </div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        const allowInsecure = document.getElementById('AllowInsecure');
+        const signedByContainer = document.getElementById('signed-by-container');
+        const updateSignedByVisibility = () => {
+            signedByContainer.style.display = allowInsecure.checked ? 'none' : 'block';
+        };
+        allowInsecure.addEventListener('change', updateSignedByVisibility);
+        updateSignedByVisibility();
+    </script>
+}

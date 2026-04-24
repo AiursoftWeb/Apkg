@@ -193,7 +193,8 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
                 Suite = model.Suite,
                 Components = model.Components,
                 Architecture = model.Architecture,
-                SignedBy = model.SignedBy
+                SignedBy = model.SignedBy,
+                AllowInsecure = model.AllowInsecure
             };
             dbContext.AptMirrors.Add(mirror);
             await dbContext.SaveChangesAsync();
@@ -218,6 +219,7 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
             Components = mirror.Components,
             Architecture = mirror.Architecture,
             SignedBy = mirror.SignedBy,
+            AllowInsecure = mirror.AllowInsecure,
             PageTitle = "Edit Mirror"
         };
         return this.StackView(model);
@@ -238,6 +240,7 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
             mirror.Components = model.Components;
             mirror.Architecture = model.Architecture;
             mirror.SignedBy = model.SignedBy;
+            mirror.AllowInsecure = model.AllowInsecure;
 
             dbContext.Update(mirror);
             await dbContext.SaveChangesAsync();
