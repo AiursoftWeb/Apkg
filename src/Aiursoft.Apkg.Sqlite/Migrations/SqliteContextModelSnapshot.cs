@@ -103,6 +103,18 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("LastPullErrorStack")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastPullResult")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool?>("LastPullSuccess")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("LastPullTime")
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("PrimaryBucketId")
                         .HasColumnType("INTEGER");
 
