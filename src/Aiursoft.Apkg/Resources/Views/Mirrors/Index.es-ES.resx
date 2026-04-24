@@ -39,6 +39,9 @@
   <data name="Failed" xml:space="preserve">
     <value>Fallido</value>
   </data>
+  <data name="Insecure Source" xml:space="preserve">
+    <value>Origen inseguro</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>elementos</value>
   </data>
@@ -48,14 +51,26 @@
   <data name="Never Synced" xml:space="preserve">
     <value>Nunca sincronizado</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
   <data name="Packages" xml:space="preserve">
     <value>Paquetes</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Aprobado</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pendiente</value>
   </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Cubo Principal</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
     <value>Cubeta secundaria</value>
+  </data>
+  <data name="Signature Verification Disabled" xml:space="preserve">
+    <value>Verificación de firma deshabilitada</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Estado</value>

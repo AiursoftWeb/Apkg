@@ -42,6 +42,9 @@
   <data name="Failed" xml:space="preserve">
     <value>失败</value>
   </data>
+  <data name="Insecure Source" xml:space="preserve">
+    <value>不安全源</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>项</value>
   </data>
@@ -51,14 +54,26 @@
   <data name="Never Synced" xml:space="preserve">
     <value>从未同步</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>无</value>
+  </data>
   <data name="Packages" xml:space="preserve">
     <value>软件包</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>通过</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>待验证</value>
   </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>主存储桶</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
     <value>次要存储桶</value>
+  </data>
+  <data name="Signature Verification Disabled" xml:space="preserve">
+    <value>签名验证已禁用</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>状态</value>

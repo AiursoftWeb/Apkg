@@ -42,6 +42,9 @@
   <data name="Failed" xml:space="preserve">
     <value>Échec</value>
   </data>
+  <data name="Insecure Source" xml:space="preserve">
+    <value>Source non sécurisé</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>éléments</value>
   </data>
@@ -51,14 +54,26 @@
   <data name="Never Synced" xml:space="preserve">
     <value>Jamais synchronisé</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Aucun</value>
+  </data>
   <data name="Packages" xml:space="preserve">
     <value>Paquets</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Réussi</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>En attente</value>
   </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Seconde enveloppe</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
     <value>Seconde zone de stockage</value>
+  </data>
+  <data name="Signature Verification Disabled" xml:space="preserve">
+    <value>Vérification de la signature désactivée</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>État</value>

@@ -42,6 +42,9 @@
   <data name="Failed" xml:space="preserve">
     <value>Thất bại</value>
   </data>
+  <data name="Insecure Source" xml:space="preserve">
+    <value>Nguồn không an toàn</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>mục</value>
   </data>
@@ -51,14 +54,26 @@
   <data name="Never Synced" xml:space="preserve">
     <value>Chưa đồng bộ hóa</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Không</value>
+  </data>
   <data name="Packages" xml:space="preserve">
     <value>Gói phần mềm</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Đã vượt qua</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Chờ xử lý</value>
   </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Thùng chính</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
     <value>Thùng chứa phụ</value>
+  </data>
+  <data name="Signature Verification Disabled" xml:space="preserve">
+    <value>Đã tắt xác minh chữ ký</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Trạng thái</value>
