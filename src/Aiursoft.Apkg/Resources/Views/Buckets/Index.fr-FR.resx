@@ -18,32 +18,38 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Repository" xml:space="preserve">
-    <value>Quay lại Kho lưu trữ</value>
+      <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
   </data>
-  <data name="Component" xml:space="preserve">
-    <value>Thành phần</value>
+  <data name="Active Usage" xml:space="preserve">
+    <value>Utilisation active</value>
   </data>
-  <data name="Package" xml:space="preserve">
-    <value>Gói</value>
+  <data name="Bucket Snapshots History" xml:space="preserve">
+    <value>Historique des instantanés de bucket</value>
   </data>
-  <data name="Packages in" xml:space="preserve">
-    <value>Các gói trong</value>
+  <data name="Created Time" xml:space="preserve">
+    <value>Heure de création</value>
   </data>
-  <data name="Search" xml:space="preserve">
-    <value>Tìm kiếm</value>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
   </data>
-  <data name="Size" xml:space="preserve">
-    <value>Kích thước</value>
+  <data name="LIVE" xml:space="preserve">
+    <value>ACTIF</value>
+  </data>
+  <data name="Logical Size" xml:space="preserve">
+    <value>Taille logique</value>
+  </data>
+  <data name="Orphaned" xml:space="preserve">
+    <value>Orphelin</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Paquets</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>En attente</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Trạng thái</value>
-  </data>
-  <data name="Version" xml:space="preserve">
-    <value>Phiên bản</value>
-  </data>
-  <data name="View Repository Info" xml:space="preserve">
-    <value>Xem thông tin kho lưu trữ</value>
+    <value>État</value>
   </data>
 
 </root>

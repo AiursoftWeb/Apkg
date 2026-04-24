@@ -48,6 +48,12 @@
   <data name="Packages" xml:space="preserve">
     <value>Gói phần mềm</value>
   </data>
+  <data name="Primary Bucket" xml:space="preserve">
+    <value>Thùng chính</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>Thùng chứa phụ</value>
+  </data>
   <data name="Suite" xml:space="preserve">
     <value>Phiên bản</value>
   </data>

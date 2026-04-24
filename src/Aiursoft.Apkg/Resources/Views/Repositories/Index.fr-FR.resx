@@ -19,46 +19,46 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Actions" xml:space="preserve">
-    <value>การดำเนินการ</value>
+    <value>Actions</value>
   </data>
   <data name="Certificate" xml:space="preserve">
-    <value>ใบรับรอง</value>
+    <value>Certificat</value>
   </data>
   <data name="Create New Repository" xml:space="preserve">
-    <value>สร้างที่เก็บข้อมูลใหม่</value>
+    <value>Créer un nouveau dépôt</value>
   </data>
   <data name="Distro" xml:space="preserve">
-    <value>ดิสโตร</value>
+    <value>Distribution</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
-    <value>บักเก็ตสด</value>
+    <value>Bucket en direct</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>ชื่อ</value>
+    <value>Nom</value>
   </data>
   <data name="No Certificate" xml:space="preserve">
-    <value>ไม่มีใบรับรอง</value>
+    <value>Pas de certificat</value>
   </data>
   <data name="Public Repositories" xml:space="preserve">
-    <value>คลังสาธารณะ</value>
+    <value>Dépôts publics</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
-    <value>ถังสำรอง</value>
+    <value>Seconde Bucket</value>
   </data>
   <data name="Signature" xml:space="preserve">
-    <value>ลายเซ็น</value>
+    <value>Signature</value>
   </data>
   <data name="Signed" xml:space="preserve">
-    <value>ลงนาม</value>
+    <value>Signé</value>
   </data>
   <data name="Signed at" xml:space="preserve">
-    <value>ลงนามเมื่อ</value>
+    <value>Signé le</value>
   </data>
   <data name="Suite" xml:space="preserve">
-    <value>ชุด</value>
+    <value>Suite</value>
   </data>
   <data name="Total Packages" xml:space="preserve">
-    <value>จำนวนแพ็กเกจทั้งหมด</value>
+    <value>Total des packages</value>
   </data>
 
 </root>

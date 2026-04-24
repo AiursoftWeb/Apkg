@@ -48,6 +48,12 @@
   <data name="Packages" xml:space="preserve">
     <value>แพ็กเกจ</value>
   </data>
+  <data name="Primary Bucket" xml:space="preserve">
+    <value>ถังหลัก</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>ถังสำรอง</value>
+  </data>
   <data name="Suite" xml:space="preserve">
     <value>ชุด</value>
   </data>

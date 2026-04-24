@@ -48,6 +48,12 @@
   <data name="Packages" xml:space="preserve">
     <value>Paquets</value>
   </data>
+  <data name="Primary Bucket" xml:space="preserve">
+    <value>Seconde enveloppe</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>Seconde zone de stockage</value>
+  </data>
   <data name="Suite" xml:space="preserve">
     <value>Version</value>
   </data>

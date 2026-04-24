@@ -24,6 +24,9 @@
   <data name="Back" xml:space="preserve">
     <value>뒤로</value>
   </data>
+  <data name="Bugs" xml:space="preserve">
+    <value>버그</value>
+  </data>
   <data name="Component" xml:space="preserve">
     <value>구성 요소</value>
   </data>
@@ -36,11 +39,23 @@
   <data name="Download .deb" xml:space="preserve">
     <value>.deb 다운로드</value>
   </data>
+  <data name="Download Size" xml:space="preserve">
+    <value>다운로드 크기</value>
+  </data>
+  <data name="Failed to load reverse dependencies." xml:space="preserve">
+    <value>역수존 의존성을 로드하는 데 실패했습니다.</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>해시</value>
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>홈페이지</value>
+  </data>
+  <data name="Installed Size" xml:space="preserve">
+    <value>설치 크기</value>
+  </data>
+  <data name="Loading…" xml:space="preserve">
+    <value>로딩 중…</value>
   </data>
   <data name="Maintainer" xml:space="preserve">
     <value>관리자</value>
@@ -48,8 +63,23 @@
   <data name="Metadata" xml:space="preserve">
     <value>메타데이터</value>
   </data>
+  <data name="Multi-Arch" xml:space="preserve">
+    <value>다중 아키텍처</value>
+  </data>
   <data name="No dependencies." xml:space="preserve">
     <value>의존성 없음.</value>
+  </data>
+  <data name="No packages depend on this package." xml:space="preserve">
+    <value>이 패키지를 의존하는 패키지가 없습니다.</value>
+  </data>
+  <data name="No relations." xml:space="preserve">
+    <value>관련 항목 없음.</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>기원</value>
+  </data>
+  <data name="Original Maintainer" xml:space="preserve">
+    <value>원래 유지 관리자</value>
   </data>
   <data name="Package Details" xml:space="preserve">
     <value>패키지 세부 정보</value>
@@ -57,8 +87,23 @@
   <data name="Physical (Cached)" xml:space="preserve">
     <value>물리적 (캐시됨)</value>
   </data>
+  <data name="Priority" xml:space="preserve">
+    <value>우선순위</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>연관성</value>
+  </data>
+  <data name="Reverse Dependencies" xml:space="preserve">
+    <value>역방향 의존성</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>섹션</value>
+  </data>
   <data name="Size" xml:space="preserve">
     <value>크기</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>소스</value>
   </data>
   <data name="Status &amp; Files" xml:space="preserve">
     <value>상태 및 파일</value>

@@ -19,46 +19,43 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Actions" xml:space="preserve">
-    <value>작업</value>
+    <value>Acciones</value>
   </data>
-  <data name="Certificate" xml:space="preserve">
-    <value>인증서</value>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Añadir nuevo espejo</value>
   </data>
-  <data name="Create New Repository" xml:space="preserve">
-    <value>새 저장소 만들기</value>
+  <data name="Arch" xml:space="preserve">
+    <value>Arquitectura</value>
+  </data>
+  <data name="Base URL" xml:space="preserve">
+    <value>URL base</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Componentes</value>
   </data>
   <data name="Distro" xml:space="preserve">
-    <value>배포판</value>
+    <value>Distribución</value>
   </data>
-  <data name="Live Bucket" xml:space="preserve">
-    <value>실시간 버킷</value>
+  <data name="items" xml:space="preserve">
+    <value>elementos</value>
   </data>
-  <data name="Name" xml:space="preserve">
-    <value>이름</value>
+  <data name="Never Synced" xml:space="preserve">
+    <value>Nunca sincronizado</value>
   </data>
-  <data name="No Certificate" xml:space="preserve">
-    <value>인증서 없음</value>
+  <data name="Packages" xml:space="preserve">
+    <value>Paquetes</value>
   </data>
-  <data name="Public Repositories" xml:space="preserve">
-    <value>공개 저장소</value>
+  <data name="Primary Bucket" xml:space="preserve">
+    <value>Cubo Principal</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
-    <value>보조 버킷</value>
-  </data>
-  <data name="Signature" xml:space="preserve">
-    <value>서명</value>
-  </data>
-  <data name="Signed" xml:space="preserve">
-    <value>서명됨</value>
-  </data>
-  <data name="Signed at" xml:space="preserve">
-    <value>서명일</value>
+    <value>Cubeta secundaria</value>
   </data>
   <data name="Suite" xml:space="preserve">
-    <value>스위트</value>
+    <value>Suite</value>
   </data>
-  <data name="Total Packages" xml:space="preserve">
-    <value>총 패키지 수</value>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Repositorios upstream</value>
   </data>
 
 </root>
