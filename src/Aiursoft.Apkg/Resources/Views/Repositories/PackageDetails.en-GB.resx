@@ -90,6 +90,18 @@
   <data name="Relations" xml:space="preserve">
     <value>Relations</value>
   </data>
+  <data name="Reverse Depends" xml:space="preserve">
+    <value>Reverse Depends</value>
+  </data>
+  <data name="Reverse Recommends" xml:space="preserve">
+    <value>Reverse Recommends</value>
+  </data>
+  <data name="Reverse Suggests" xml:space="preserve">
+    <value>Reverse Suggests</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>package(s)</value>
+  </data>
   <data name="Reverse Dependencies" xml:space="preserve">
     <value>Reverse Dependencies</value>
   </data>
