@@ -171,6 +171,24 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
             .Where(n => !string.IsNullOrWhiteSpace(n));
 
     [HttpGet]
+    public async Task<IActionResult> VerifyDetails(int id)
+    {
+        var mirror = await dbContext.AptMirrors
+            .Include(m => m.PrimaryBucket)
+            .Include(m => m.SecondaryBucket)
+            .FirstOrDefaultAsync(m => m.Id == id);
+            
+        if (mirror == null) return NotFound();
+
+        var model = new VerifyDetailsViewModel
+        {
+            Mirror = mirror,
+            PageTitle = $"GPG Verify Details - {mirror.Suite}"
+        };
+        return this.StackView(model);
+    }
+
+    [HttpGet]
     public IActionResult Create()
     {
         var model = new MirrorEditViewModel
