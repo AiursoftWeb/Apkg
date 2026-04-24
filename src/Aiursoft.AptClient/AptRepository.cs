@@ -8,17 +8,19 @@ public class AptRepository
     public string BaseUrl { get; }
     public string Suite { get; }
     public string? SignedBy { get; }
+    public bool AllowInsecure { get; }
 
     private Dictionary<string, string>? _trustedHashes;
     private bool _isVerified;
 
 
-    public AptRepository(string baseUrl, string suite, string? signedBy, Func<HttpClient>? httpClientFactory = null)
+    public AptRepository(string baseUrl, string suite, string? signedBy, bool allowInsecure = false, Func<HttpClient>? httpClientFactory = null)
     {
         // Ensure BaseUrl ends with /
         BaseUrl = baseUrl.EndsWith("/") ? baseUrl : baseUrl + "/";
         Suite = suite;
         SignedBy = signedBy;
+        AllowInsecure = allowInsecure;
         _httpClientFactory = httpClientFactory ?? (() => new HttpClient());
     }
 
@@ -33,38 +35,43 @@ public class AptRepository
         if (_isVerified && _trustedHashes != null) return;
 
         var inReleaseUrl = $"{BaseUrl}dists/{Suite}/InRelease";
+        var releaseUrl = $"{BaseUrl}dists/{Suite}/Release";
         using var client = _httpClientFactory();
 
-        // 1. Download InRelease data as bytes to preserve exact signature
-        byte[] inReleaseBytes;
+        // 1. Download InRelease or Release data
+        byte[] releaseBytes;
         try
         {
             var response = await client.GetAsync(inReleaseUrl, HttpCompletionOption.ResponseHeadersRead);
+            if (!response.IsSuccessStatusCode)
+            {
+                response = await client.GetAsync(releaseUrl, HttpCompletionOption.ResponseHeadersRead);
+            }
             response.EnsureSuccessStatusCode();
             var length = response.Content.Headers.ContentLength ?? 0;
             progress?.Invoke(inReleaseUrl, length);
 
-            inReleaseBytes = await response.Content.ReadAsByteArrayAsync();
+            releaseBytes = await response.Content.ReadAsByteArrayAsync();
         }
         catch (HttpRequestException ex)
         {
-            throw new Exception($"Failed to download InRelease for {Suite}", ex);
+            throw new Exception($"Failed to download InRelease or Release for {Suite}", ex);
         }
 
         // 2. Verify Signature
-        if (!string.IsNullOrWhiteSpace(SignedBy))
+        if (!string.IsNullOrWhiteSpace(SignedBy) && !AllowInsecure)
         {
             // Assuming AptGpgVerifier is available
-            var isValid = await AptGpgVerifier.VerifyInReleaseAsync(inReleaseBytes, SignedBy);
+            var isValid = await AptGpgVerifier.VerifyInReleaseAsync(releaseBytes, SignedBy);
             if (!isValid)
             {
-                throw new Exception($"GPG Verification failed for {InReleaseUrl} using key {SignedBy}");
+                throw new Exception($"GPG Verification failed for {Suite} using key {SignedBy}");
             }
         }
 
         // 3. Parse Hashes
         // InRelease is UTF8 text signed.
-        var content = System.Text.Encoding.UTF8.GetString(inReleaseBytes);
+        var content = System.Text.Encoding.UTF8.GetString(releaseBytes);
         _trustedHashes = DebianPackageParser.ParseInRelease(content);
         _isVerified = true;
     }

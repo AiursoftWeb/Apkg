@@ -123,7 +123,7 @@ public class MirrorSyncJob(
         var upstreamRoot = $"{mirror.BaseUrl.TrimEnd('/')}/{mirror.Distro.TrimStart('/')}";
         logger.LogInformation("Fetching component {Component} [{Arch}] for suite {Suite} from {UpstreamRoot}...", component, arch, mirror.Suite, upstreamRoot);
 
-        var repo = new AptClient.AptRepository(upstreamRoot, mirror.Suite, mirror.SignedBy, () => httpClientFactory.CreateClient());
+        var repo = new AptClient.AptRepository(upstreamRoot, mirror.Suite, mirror.SignedBy, mirror.AllowInsecure, () => httpClientFactory.CreateClient());
         var source = new AptPackageSource(repo, component, arch, () => httpClientFactory.CreateClient());
 
         var count = 0;
