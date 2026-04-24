@@ -138,9 +138,6 @@ public class AptRepository
         return new MemoryStream(data);
     }
 
-    // Helper to get InRelease URL solely for error reporting
-    private string InReleaseUrl => $"{BaseUrl}dists/{Suite}/InRelease";
-
     [ExcludeFromCodeCoverage]
     public override string ToString() => $"{BaseUrl} ({Suite})";
 }
