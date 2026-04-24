@@ -32,6 +32,8 @@ public class AptMirror
 
     public string? SignedBy { get; set; }
 
+    public bool AllowInsecure { get; set; }
+
     public int? PrimaryBucketId { get; set; }
 
     [ForeignKey(nameof(PrimaryBucketId))]

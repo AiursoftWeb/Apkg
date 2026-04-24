@@ -30,4 +30,7 @@ public class MirrorEditViewModel : UiStackLayoutViewModel
 
     [Display(Name = "GPG Public Key URL (Optional)")]
     public string? SignedBy { get; set; }
+
+    [Display(Name = "Allow Insecure Source")]
+    public bool AllowInsecure { get; set; }
 }

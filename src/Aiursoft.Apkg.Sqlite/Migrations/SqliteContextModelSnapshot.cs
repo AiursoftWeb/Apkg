@@ -83,6 +83,9 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("AllowInsecure")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Architecture")
                         .IsRequired()
                         .HasMaxLength(100)
