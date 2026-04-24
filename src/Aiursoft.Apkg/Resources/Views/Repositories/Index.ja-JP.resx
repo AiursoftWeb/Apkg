@@ -36,8 +36,23 @@
   <data name="Name" xml:space="preserve">
     <value>名前</value>
   </data>
+  <data name="No Certificate" xml:space="preserve">
+    <value>証明書なし</value>
+  </data>
   <data name="Public Repositories" xml:space="preserve">
     <value>公開リポジトリ</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>セカンダリバケット</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>署名</value>
+  </data>
+  <data name="Signed" xml:space="preserve">
+    <value>署名済み</value>
+  </data>
+  <data name="Signed at" xml:space="preserve">
+    <value>署名日時</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>スート</value>
