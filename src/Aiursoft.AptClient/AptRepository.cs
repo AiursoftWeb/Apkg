@@ -13,6 +13,8 @@ public class AptRepository
     private Dictionary<string, string>? _trustedHashes;
     private bool _isVerified;
 
+    public string? VerificationLog { get; private set; }
+
 
     public AptRepository(string baseUrl, string suite, string? signedBy, bool allowInsecure = false, Func<HttpClient>? httpClientFactory = null)
     {
@@ -62,11 +64,16 @@ public class AptRepository
         if (!string.IsNullOrWhiteSpace(SignedBy) && !AllowInsecure)
         {
             // Assuming AptGpgVerifier is available
-            var isValid = await AptGpgVerifier.VerifyInReleaseAsync(releaseBytes, SignedBy);
+            var (isValid, log) = await AptGpgVerifier.VerifyInReleaseAsync(releaseBytes, SignedBy);
+            VerificationLog = log;
             if (!isValid)
             {
                 throw new Exception($"GPG Verification failed for {Suite} using key {SignedBy}");
             }
+        }
+        else
+        {
+            VerificationLog = "Verification skipped: Signature check not enabled or AllowInsecure is true.";
         }
 
         // 3. Parse Hashes

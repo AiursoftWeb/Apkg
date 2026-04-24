@@ -10,14 +10,15 @@ public class AptGpgVerifier
     /// Verifies the signature of a given content using the specified keyring.
     /// InRelease files contain the signature inline (clear-signed).
     /// </summary>
-    public static async Task<bool> VerifyInReleaseAsync(byte[] inReleaseData, string keyringPath)
+    public static async Task<(bool IsValid, string Log)> VerifyInReleaseAsync(byte[] inReleaseData, string keyringPath)
     {
-        if (string.IsNullOrWhiteSpace(keyringPath)) return true;
+        if (string.IsNullOrWhiteSpace(keyringPath)) return (true, "Keyring not specified, verification skipped.");
 
         if (!File.Exists(keyringPath))
         {
-            Console.Error.WriteLine($"[Warning] Keyring not found: {keyringPath}");
-            return false;
+            var err = $"[Warning] Keyring not found: {keyringPath}";
+            Console.Error.WriteLine(err);
+            return (false, err);
         }
 
         // Write content to a temp file
@@ -35,7 +36,7 @@ public class AptGpgVerifier
 
     // String overload for compatibility if needed (but we prefer byte[])
     [ExcludeFromCodeCoverage]
-    public static async Task<bool> VerifyInReleaseAsync(string inReleaseContent, string keyringPath)
+    public static async Task<(bool IsValid, string Log)> VerifyInReleaseAsync(string inReleaseContent, string keyringPath)
     {
         return await VerifyInReleaseAsync(Encoding.UTF8.GetBytes(inReleaseContent), keyringPath);
     }
@@ -43,7 +44,7 @@ public class AptGpgVerifier
     /// <summary>
     /// Verifies a file (InRelease or detached signature pair) using gpgv.
     /// </summary>
-    public static async Task<bool> VerifyFileAsync(string signedFilePath, string keyringPath)
+    public static async Task<(bool IsValid, string Log)> VerifyFileAsync(string signedFilePath, string keyringPath)
     {
         var startInfo = new ProcessStartInfo
         {
@@ -59,7 +60,7 @@ public class AptGpgVerifier
         try
         {
             using var process = Process.Start(startInfo);
-            if (process == null) return false;
+            if (process == null) return (false, "Failed to start gpgv process.");
 
             var outputTask = process.StandardOutput.ReadToEndAsync();
             var errorTask = process.StandardError.ReadToEndAsync();
@@ -67,21 +68,24 @@ public class AptGpgVerifier
             await process.WaitForExitAsync();
 
             var output = await outputTask;
+            var err = await errorTask;
+            var log = $"Output:\n{output}\nError:\n{err}";
+
             // Check for GOODSIG. gpgv might return non-zero if othersigs fail, but GOODSIG means at least one is valid.
-            if (output.Contains("[GNUPG:] GOODSIG")) return true;
+            if (output.Contains("[GNUPG:] GOODSIG")) return (true, log);
 
             // If we are here, verification failed.
-            var err = await errorTask;
             if (!string.IsNullOrWhiteSpace(err))
             {
                 Console.Error.WriteLine($"[GPG Error on {signedFilePath}] code {process.ExitCode}:\n{err}");
             }
-            return false;
+            return (false, log);
         }
         catch (Exception ex)
         {
-            Console.Error.WriteLine($"Error running gpgv: {ex.Message}");
-            return false;
+            var msg = $"Error running gpgv: {ex.Message}";
+            Console.Error.WriteLine(msg);
+            return (false, msg);
         }
     }
 }

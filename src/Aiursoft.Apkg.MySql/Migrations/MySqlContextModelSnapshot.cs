@@ -117,6 +117,9 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<DateTime?>("LastPrimaryReplacedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("LastPullErrorStack")
                         .HasColumnType("longtext");
 
@@ -128,6 +131,9 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<DateTime?>("LastPullTime")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<string>("LastVerifyLog")
+                        .HasColumnType("longtext");
 
                     b.Property<int?>("PrimaryBucketId")
                         .HasColumnType("int");

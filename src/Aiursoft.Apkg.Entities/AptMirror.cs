@@ -51,4 +51,8 @@ public class AptMirror
     public string? LastPullResult { get; set; }
 
     public string? LastPullErrorStack { get; set; }
+
+    public string? LastVerifyLog { get; set; }
+
+    public DateTime? LastPrimaryReplacedAt { get; set; }
 }

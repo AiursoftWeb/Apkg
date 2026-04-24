@@ -1,0 +1,107 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.VerifyDetailsViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h3>@Localizer["GPG Verify Details"] - @Model.Mirror.Suite</h3>
+    </div>
+    <div class="col-auto ms-auto text-end">
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="align-middle" data-lucide="arrow-left"></i> @Localizer["Back to Mirrors"]
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-xl-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Verification Target"]</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-4">@Localizer["Target"]</dt>
+                    <dd class="col-sm-8">InRelease @Localizer["file"]</dd>
+
+                    <dt class="col-sm-4">@Localizer["Keyring"]</dt>
+                    <dd class="col-sm-8">@(Model.Mirror.SignedBy ?? "None")</dd>
+
+                    <dt class="col-sm-4">@Localizer["Status"]</dt>
+                    <dd class="col-sm-8">
+                        @if (!string.IsNullOrWhiteSpace(Model.Mirror.SignedBy) && !Model.Mirror.AllowInsecure)
+                        {
+                            if (Model.Mirror.LastVerifyLog != null && Model.Mirror.LastVerifyLog.Contains("[GNUPG:] GOODSIG"))
+                            {
+                                <span class="badge bg-success">@Localizer["Passed"]</span>
+                            }
+                            else if (Model.Mirror.LastVerifyLog != null)
+                            {
+                                <span class="badge bg-danger">@Localizer["Failed"]</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">@Localizer["Pending"]</span>
+                            }
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">@Localizer["Disabled"]</span>
+                        }
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">@Localizer["Bucket Replacements"]</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row mb-0">
+                    <dt class="col-sm-6">@Localizer["Last Replaced Primary Bucket Time"]</dt>
+                    <dd class="col-sm-6">
+                        @if (Model.Mirror.LastPrimaryReplacedAt.HasValue)
+                        {
+                            @Model.Mirror.LastPrimaryReplacedAt.Value.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss")
+                        }
+                        else
+                        {
+                            <span class="text-muted">@Localizer["Never"]</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-6">@Localizer["Current Primary Bucket Seeded At"]</dt>
+                    <dd class="col-sm-6">
+                        @if (Model.Mirror.PrimaryBucket != null)
+                        {
+                            @Model.Mirror.PrimaryBucket.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss")
+                        }
+                        else
+                        {
+                            <span class="text-muted">@Localizer["No Primary Bucket"]</span>
+                        }
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">@Localizer["Verification Log"] (@Localizer["Matched / Mismatched"])</h5>
+    </div>
+    <div class="card-body">
+        @if (string.IsNullOrWhiteSpace(Model.Mirror.LastVerifyLog))
+        {
+            <div class="alert alert-info mb-0">
+                @Localizer["No verification log available. Has the sync job run yet?"]
+            </div>
+        }
+        else
+        {
+            <pre class="bg-light p-3 border rounded" style="white-space: pre-wrap; font-family: monospace;">@Model.Mirror.LastVerifyLog</pre>
+        }
+    </div>
+</div>

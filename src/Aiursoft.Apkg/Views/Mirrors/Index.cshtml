@@ -46,6 +46,31 @@
                     <td><small>@item.Components</small></td>
                     <td><span class="badge bg-dark">@item.Architecture</span></td>
                     <td>
+                        @if (!string.IsNullOrWhiteSpace(item.SignedBy) && !item.AllowInsecure)
+                        {
+                            if (item.LastVerifyLog != null && item.LastVerifyLog.Contains("[GNUPG:] GOODSIG"))
+                            {
+                                <a asp-action="VerifyDetails" asp-route-id="@item.Id" class="badge bg-success text-decoration-none">
+                                    <i class="align-middle" data-lucide="shield-check" style="width: 14px; height: 14px;"></i> @Localizer["Passed"]
+                                </a>
+                            }
+                            else if (item.LastVerifyLog != null)
+                            {
+                                <a asp-action="VerifyDetails" asp-route-id="@item.Id" class="badge bg-danger text-decoration-none">
+                                    <i class="align-middle" data-lucide="shield-alert" style="width: 14px; height: 14px;"></i> @Localizer["Failed"]
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">@Localizer["Pending"]</span>
+                            }
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary" title="@Localizer["Signature Verification Disabled"]">@Localizer["None"]</span>
+                        }
+                    </td>
+                    <td>
                         @if (item.LastPullTime != null)
                         {
                             <small class="d-block text-muted">@item.LastPullTime.Value.ToLocalTime().ToString("g")</small>
