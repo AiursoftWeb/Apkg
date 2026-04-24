@@ -45,6 +45,9 @@
   <data name="No certificate associated with this repository. Signing is disabled." xml:space="preserve">
     <value>Không có chứng chỉ nào liên kết với kho lưu trữ này. Việc ký đã bị vô hiệu hóa.</value>
   </data>
+  <data name="One-line Setup (Unsigned):" xml:space="preserve">
+    <value>Thiết lập một dòng (Không ký số):</value>
+  </data>
   <data name="One-line Setup:" xml:space="preserve">
     <value>Thiết lập một dòng:</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Phiên bản</value>
+  </data>
+  <data name="This repository is not signed. We are using &apos;Trusted: yes&apos; to bypass security checks. Use with caution!" xml:space="preserve">
+    <value>Kho lưu trữ này không được ký. Chúng tôi đang sử dụng &apos;Trusted: yes&apos; để bỏ qua các kiểm tra bảo mật. Hãy sử dụng với sự thận trọng!</value>
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>Điều này sử dụng định dạng DEB822 hiện đại và một kho khóa được giới hạn để đảm bảo bảo mật và độ tin cậy tối đa.</value>

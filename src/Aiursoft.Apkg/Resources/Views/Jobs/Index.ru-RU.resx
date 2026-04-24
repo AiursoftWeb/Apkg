@@ -42,6 +42,9 @@
   <data name="Job Name" xml:space="preserve">
     <value>Имя задания</value>
   </data>
+  <data name="last 24 hours" xml:space="preserve">
+    <value>за последние 24 часа</value>
+  </data>
   <data name="last hour" xml:space="preserve">
     <value>последний час</value>
   </data>
@@ -68,6 +71,9 @@
   </data>
   <data name="No jobs" xml:space="preserve">
     <value>Нет заданий</value>
+  </data>
+  <data name="No jobs have run in the last 24 hours." xml:space="preserve">
+    <value>Нет выполненных заданий за последние 24 часа.</value>
   </data>
   <data name="No jobs have run in the last hour." xml:space="preserve">
     <value>Нет выполненных заданий за последний час.</value>

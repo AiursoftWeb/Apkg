@@ -81,6 +81,9 @@
   <data name="Package Details" xml:space="preserve">
     <value>Détails du package</value>
   </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>paquet(s)</value>
+  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>Physique (mis en cache)</value>
   </data>
@@ -92,6 +95,15 @@
   </data>
   <data name="Reverse Dependencies" xml:space="preserve">
     <value>Dépendances inverses</value>
+  </data>
+  <data name="Reverse Depends" xml:space="preserve">
+    <value>Dépendances inverses</value>
+  </data>
+  <data name="Reverse Recommends" xml:space="preserve">
+    <value>Recommandations inverses</value>
+  </data>
+  <data name="Reverse Suggests" xml:space="preserve">
+    <value>Suggestions inverses</value>
   </data>
   <data name="Section" xml:space="preserve">
     <value>Section</value>

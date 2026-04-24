@@ -19,46 +19,43 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Architecture" xml:space="preserve">
-    <value>架构</value>
+    <value>Архитектура</value>
   </data>
   <data name="Back to Buckets" xml:space="preserve">
-    <value>返回桶列表</value>
+    <value>Назад к контейнерам</value>
   </data>
   <data name="Component" xml:space="preserve">
-    <value>组件</value>
+    <value>Компонент</value>
   </data>
   <data name="Next" xml:space="preserve">
-    <value>下一项</value>
+    <value>Далее</value>
   </data>
   <data name="of" xml:space="preserve">
-    <value>的</value>
+    <value>из</value>
   </data>
   <data name="Package" xml:space="preserve">
-    <value>软件包</value>
+    <value>Пакет</value>
   </data>
   <data name="packages" xml:space="preserve">
-    <value>软件包</value>
+    <value>пакетов</value>
   </data>
   <data name="Packages in Bucket" xml:space="preserve">
-    <value>存储桶中的软件包</value>
+    <value>Пакеты в контейнере</value>
   </data>
   <data name="Previous" xml:space="preserve">
-    <value>上一页</value>
+    <value>Предыдущая</value>
   </data>
   <data name="Showing" xml:space="preserve">
-    <value>显示</value>
+    <value>Показано</value>
   </data>
   <data name="Size" xml:space="preserve">
-    <value>大小</value>
+    <value>Размер</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>状态</value>
+    <value>Статус</value>
   </data>
   <data name="Version" xml:space="preserve">
-    <value>版本</value>
-  </data>
-  <data name="Virtual" xml:space="preserve">
-    <value>虚拟</value>
+    <value>Версия</value>
   </data>
 
 </root>

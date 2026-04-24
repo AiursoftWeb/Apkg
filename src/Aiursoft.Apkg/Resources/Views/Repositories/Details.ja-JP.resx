@@ -45,6 +45,9 @@
   <data name="No certificate associated with this repository. Signing is disabled." xml:space="preserve">
     <value>このリポジトリには証明書が関連付けられていません。署名は無効です。</value>
   </data>
+  <data name="One-line Setup (Unsigned):" xml:space="preserve">
+    <value>1行セットアップ（署名なし）:</value>
+  </data>
   <data name="One-line Setup:" xml:space="preserve">
     <value>ワンライナー設定:</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>スート</value>
+  </data>
+  <data name="This repository is not signed. We are using &apos;Trusted: yes&apos; to bypass security checks. Use with caution!" xml:space="preserve">
+    <value>このリポジトリは署名されていません。セキュリティチェックを回避するために「Trusted: yes」を使用しています。注意して使用してください。</value>
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>これは最大限のセキュリティと信頼性を実現するため、最新のDEB822形式とスコープ付きキーリングを使用しています。</value>
