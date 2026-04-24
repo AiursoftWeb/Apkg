@@ -10,6 +10,7 @@
     <div class="card-header">
         <form method="get" class="row g-3">
             <input type="hidden" name="id" value="@Model.Repo.Id" />
+            <input type="hidden" name="sortOrder" value="@Model.SortOrder" />
             <div class="col-auto">
                 <input type="text" name="searchName" class="form-control" placeholder="Search package..." value="@Model.SearchName">
             </div>
@@ -22,11 +23,27 @@
         <table class="table table-sm table-striped">
             <thead>
             <tr>
-                <th>@Localizer["Package"]</th>
+                <th>
+                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "name_asc" ? "name_desc" : "name_asc")" asp-route-searchName="@Model.SearchName">
+                        @Localizer["Package"]
+                    </a>
+                </th>
                 <th>@Localizer["Version"]</th>
-                <th>@Localizer["Component"]</th>
-                <th>@Localizer["Size"]</th>
-                <th>@Localizer["Status"]</th>
+                <th>
+                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "component_asc" ? "component_desc" : "component_asc")" asp-route-searchName="@Model.SearchName">
+                        @Localizer["Component"]
+                    </a>
+                </th>
+                <th>
+                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "size_asc" ? "size_desc" : "size_asc")" asp-route-searchName="@Model.SearchName">
+                        @Localizer["Size"]
+                    </a>
+                </th>
+                <th>
+                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "status_asc" ? "status_desc" : "status_asc")" asp-route-searchName="@Model.SearchName">
+                        @Localizer["Status"]
+                    </a>
+                </th>
             </tr>
             </thead>
             <tbody>
@@ -69,7 +86,7 @@
                         }
                         var p = i;
                         <li class="page-item @(Model.Page == p ? "active" : "")">
-                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-page="@p" asp-route-searchName="@Model.SearchName">@p</a>
+                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-page="@p" asp-route-searchName="@Model.SearchName" asp-route-sortOrder="@Model.SortOrder">@p</a>
                         </li>
                     }
                 }

@@ -42,7 +42,7 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> Packages(int id, string? searchName, int page = 1)
+    public async Task<IActionResult> Packages(int id, string? searchName, string? sortOrder, int page = 1)
     {
         var mirror = await dbContext.AptMirrors.FindAsync(id);
         if (mirror?.PrimaryBucketId == null) return NotFound();
@@ -56,13 +56,25 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
 
         if (!string.IsNullOrWhiteSpace(searchName))
         {
-            (items, totalCount) = await PackageSearchService.SearchAsync(baseQuery, searchName, page, pageSize);
+            (items, totalCount) = await PackageSearchService.SearchAsync(baseQuery, searchName, page, pageSize, sortOrder);
         }
         else
         {
             totalCount = await baseQuery.CountAsync();
-            items = await baseQuery
-                .OrderBy(p => p.Package)
+            var query = baseQuery;
+            query = sortOrder switch
+            {
+                "name_desc" => query.OrderByDescending(p => p.Package),
+                "size_asc" => query.OrderBy(p => p.Size.Length).ThenBy(p => p.Size),
+                "size_desc" => query.OrderByDescending(p => p.Size.Length).ThenByDescending(p => p.Size),
+                "component_asc" => query.OrderBy(p => p.Component),
+                "component_desc" => query.OrderByDescending(p => p.Component),
+                "status_asc" => query.OrderBy(p => p.IsVirtual),
+                "status_desc" => query.OrderByDescending(p => p.IsVirtual),
+                _ => query.OrderBy(p => p.Package)
+            };
+
+            items = await query
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
@@ -73,6 +85,7 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
             Mirror = mirror,
             Packages = items,
             SearchName = searchName,
+            SortOrder = sortOrder,
             Page = page,
             TotalCount = totalCount,
             PageSize = pageSize,

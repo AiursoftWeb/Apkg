@@ -78,16 +78,29 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> Packages(int id, int page = 1)
+    public async Task<IActionResult> Packages(int id, string? sortOrder, int page = 1)
     {
         var bucket = await dbContext.AptBuckets.FindAsync(id);
         if (bucket == null) return NotFound();
 
         const int pageSize = 100;
-        var totalCount = await dbContext.AptPackages.Where(p => p.BucketId == id).CountAsync();
-        var packages = await dbContext.AptPackages
-            .Where(p => p.BucketId == id)
-            .OrderBy(p => p.Package)
+        var baseQuery = dbContext.AptPackages.Where(p => p.BucketId == id);
+        var totalCount = await baseQuery.CountAsync();
+        
+        var query = baseQuery;
+        query = sortOrder switch
+        {
+            "name_desc" => query.OrderByDescending(p => p.Package),
+            "size_asc" => query.OrderBy(p => p.Size.Length).ThenBy(p => p.Size),
+            "size_desc" => query.OrderByDescending(p => p.Size.Length).ThenByDescending(p => p.Size),
+            "component_asc" => query.OrderBy(p => p.Component),
+            "component_desc" => query.OrderByDescending(p => p.Component),
+            "status_asc" => query.OrderBy(p => p.IsVirtual),
+            "status_desc" => query.OrderByDescending(p => p.IsVirtual),
+            _ => query.OrderBy(p => p.Package)
+        };
+
+        var packages = await query
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
@@ -96,6 +109,7 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
         {
             Bucket = bucket,
             Packages = packages,
+            SortOrder = sortOrder,
             Page = page,
             TotalCount = totalCount,
             PageSize = pageSize,

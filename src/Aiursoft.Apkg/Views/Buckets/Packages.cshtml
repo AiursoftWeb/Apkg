@@ -19,12 +19,28 @@
         <table class="table table-hover table-striped">
             <thead>
             <tr>
-                <th>@Localizer["Package"]</th>
+                <th>
+                    <a asp-action="Packages" asp-route-id="@Model.Bucket.Id" asp-route-sortOrder="@(Model.SortOrder == "name_asc" ? "name_desc" : "name_asc")">
+                        @Localizer["Package"]
+                    </a>
+                </th>
                 <th>@Localizer["Version"]</th>
                 <th>@Localizer["Architecture"]</th>
-                <th>@Localizer["Component"]</th>
-                <th class="text-end">@Localizer["Size"]</th>
-                <th>@Localizer["Virtual"]</th>
+                <th>
+                    <a asp-action="Packages" asp-route-id="@Model.Bucket.Id" asp-route-sortOrder="@(Model.SortOrder == "component_asc" ? "component_desc" : "component_asc")">
+                        @Localizer["Component"]
+                    </a>
+                </th>
+                <th class="text-end">
+                    <a asp-action="Packages" asp-route-id="@Model.Bucket.Id" asp-route-sortOrder="@(Model.SortOrder == "size_asc" ? "size_desc" : "size_asc")">
+                        @Localizer["Size"]
+                    </a>
+                </th>
+                <th>
+                    <a asp-action="Packages" asp-route-id="@Model.Bucket.Id" asp-route-sortOrder="@(Model.SortOrder == "status_asc" ? "status_desc" : "status_asc")">
+                        @Localizer["Status"]
+                    </a>
+                </th>
             </tr>
             </thead>
             <tbody>
@@ -39,7 +55,11 @@
                     <td>
                         @if (pkg.IsVirtual)
                         {
-                            <span class="badge badge-subtle-info">@Localizer["Virtual"]</span>
+                            <span class="badge badge-subtle-warning">Virtual</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-success">Physical</span>
                         }
                     </td>
                 </tr>
@@ -54,13 +74,13 @@
                     @if (Model.Page > 1)
                     {
                         <li class="page-item">
-                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Bucket.Id" asp-route-page="@(Model.Page - 1)">@Localizer["Previous"]</a>
+                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Bucket.Id" asp-route-page="@(Model.Page - 1)" asp-route-sortOrder="@Model.SortOrder">@Localizer["Previous"]</a>
                         </li>
                     }
                     @if (Model.Page * Model.PageSize < Model.TotalCount)
                     {
                         <li class="page-item">
-                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Bucket.Id" asp-route-page="@(Model.Page + 1)">@Localizer["Next"]</a>
+                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Bucket.Id" asp-route-page="@(Model.Page + 1)" asp-route-sortOrder="@Model.SortOrder">@Localizer["Next"]</a>
                         </li>
                     }
                 </ul>
