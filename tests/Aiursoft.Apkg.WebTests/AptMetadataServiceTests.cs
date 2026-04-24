@@ -122,4 +122,21 @@ public class AptMetadataServiceTests
         Assert.IsTrue(text.EndsWith("\n\n") || text.EndsWith("\r\n\r\n"),
             "Each package stanza must be terminated by a blank line.");
     }
+
+    [TestMethod]
+    public async Task WritePackageEntry_MultilineDescription()
+    {
+        var pkg = MakePackage();
+        pkg.Description = "Summary\nLine 1\nLine 2";
+        
+        await using var ms = new MemoryStream();
+        await using (var writer = new StreamWriter(ms, leaveOpen: true))
+        {
+            await _service.WritePackageEntryAsync(writer, pkg);
+        }
+
+        var text = Encoding.UTF8.GetString(ms.ToArray());
+        Assert.IsTrue(text.Contains("Description: Summary\n Line 1\n Line 2"), 
+            "Multiline description should be written with continuation spaces added. Actual:\n" + text);
+    }
 }

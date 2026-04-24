@@ -34,7 +34,7 @@ public static class DebianPackageParser
 
             if (line.StartsWith(" ") || line.StartsWith("\t"))
             {
-                if (currentKey != null) currentValue.Append('\n').Append(line);
+                if (currentKey != null) currentValue.Append('\n').Append(line[1..]);
                 continue;
             }
 
@@ -46,7 +46,7 @@ public static class DebianPackageParser
 
                 currentKey = line.Substring(0, separatorIndex).Trim();
                 currentValue.Clear();
-                currentValue.Append(line.Substring(separatorIndex + 1));
+                currentValue.Append(line.Substring(separatorIndex + 1).TrimStart(' ', '\t'));
             }
         }
 
@@ -129,6 +129,7 @@ public static class DebianPackageParser
                                 "Section", "Priority", "Origin", "Bugs", "Filename", "Size", "MD5sum", "SHA1", "SHA256", "SHA512",
                                 "Installed-Size", "Original-Maintainer", "Homepage", "Depends", "Source", "Multi-Arch",
                                 "Provides", "Suggests", "Recommends", "Conflicts", "Breaks", "Replaces" };
+
 
         foreach (var key in knownKeys) dict.Remove(key);
         foreach (var kvp in dict) pkg.Extras[kvp.Key] = kvp.Value;
