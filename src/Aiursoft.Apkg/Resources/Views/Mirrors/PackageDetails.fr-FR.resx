@@ -24,6 +24,9 @@
   <data name="Back" xml:space="preserve">
     <value>Retour</value>
   </data>
+  <data name="Bugs" xml:space="preserve">
+    <value>Bugs</value>
+  </data>
   <data name="Component" xml:space="preserve">
     <value>Composant</value>
   </data>
@@ -36,11 +39,23 @@
   <data name="Download .deb" xml:space="preserve">
     <value>Télécharger .deb</value>
   </data>
+  <data name="Download Size" xml:space="preserve">
+    <value>Taille du téléchargement</value>
+  </data>
+  <data name="Failed to load reverse dependencies." xml:space="preserve">
+    <value>Impossible de charger les dépendances inverses.</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>Hachages</value>
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>Page d&apos;accueil</value>
+  </data>
+  <data name="Installed Size" xml:space="preserve">
+    <value>Taille installée</value>
+  </data>
+  <data name="Loading…" xml:space="preserve">
+    <value>Chargement…</value>
   </data>
   <data name="Maintainer" xml:space="preserve">
     <value>Mainteneur</value>
@@ -48,8 +63,23 @@
   <data name="Metadata" xml:space="preserve">
     <value>Métadonnées</value>
   </data>
+  <data name="Multi-Arch" xml:space="preserve">
+    <value>Multi-Arch</value>
+  </data>
   <data name="No dependencies." xml:space="preserve">
     <value>Aucune dépendance.</value>
+  </data>
+  <data name="No packages depend on this package." xml:space="preserve">
+    <value>Aucun paquet ne dépend de ce paquet.</value>
+  </data>
+  <data name="No relations." xml:space="preserve">
+    <value>Aucune relation.</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>Origine</value>
+  </data>
+  <data name="Original Maintainer" xml:space="preserve">
+    <value>Mainteneur d&apos;origine</value>
   </data>
   <data name="Package Details" xml:space="preserve">
     <value>Détails du package</value>
@@ -57,8 +87,23 @@
   <data name="Physical (Cached)" xml:space="preserve">
     <value>Physique (en cache)</value>
   </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priorité</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>Relations</value>
+  </data>
+  <data name="Reverse Dependencies" xml:space="preserve">
+    <value>Dépendances inverses</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>Section</value>
+  </data>
   <data name="Size" xml:space="preserve">
     <value>Taille</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
   </data>
   <data name="Status &amp; Files" xml:space="preserve">
     <value>État et fichiers</value>

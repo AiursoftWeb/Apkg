@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Active Usage" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
+    <value>Aktionen</value>
+  </data>
+  <data name="Active Usage" xml:space="preserve">
     <value>Aktive Nutzung</value>
   </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
@@ -36,11 +39,17 @@
   <data name="Logical Size" xml:space="preserve">
     <value>Logische Größe</value>
   </data>
+  <data name="Orphaned" xml:space="preserve">
+    <value>Verwaist</value>
+  </data>
   <data name="Orphaned / Building" xml:space="preserve">
     <value>Verwaist / Im Aufbau</value>
   </data>
   <data name="Packages" xml:space="preserve">
     <value>Pakete</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Ausstehend</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>

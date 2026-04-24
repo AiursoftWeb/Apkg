@@ -48,6 +48,9 @@
   <data name="Homepage" xml:space="preserve">
     <value>홈페이지</value>
   </data>
+  <data name="How to Install" xml:space="preserve">
+    <value>설치 방법</value>
+  </data>
   <data name="Installed Size" xml:space="preserve">
     <value>설치 크기</value>
   </data>
@@ -98,6 +101,12 @@
   </data>
   <data name="Status &amp; Files" xml:space="preserve">
     <value>상태 및 파일</value>
+  </data>
+  <data name="Step 1: Add this APT server" xml:space="preserve">
+    <value>1단계: 이 APT 서버 추가</value>
+  </data>
+  <data name="Step 2: Install the package" xml:space="preserve">
+    <value>2단계: 패키지 설치</value>
   </data>
   <data name="Storage State" xml:space="preserve">
     <value>저장소 상태</value>

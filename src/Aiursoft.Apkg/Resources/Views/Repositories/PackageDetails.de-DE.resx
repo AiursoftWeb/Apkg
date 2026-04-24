@@ -48,6 +48,9 @@
   <data name="Homepage" xml:space="preserve">
     <value>Webseite</value>
   </data>
+  <data name="How to Install" xml:space="preserve">
+    <value>Installation</value>
+  </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Installierte Größe</value>
   </data>
@@ -98,6 +101,12 @@
   </data>
   <data name="Status &amp; Files" xml:space="preserve">
     <value>Status &amp; Dateien</value>
+  </data>
+  <data name="Step 1: Add this APT server" xml:space="preserve">
+    <value>Schritt 1: Fügen Sie diesen APT-Server hinzu</value>
+  </data>
+  <data name="Step 2: Install the package" xml:space="preserve">
+    <value>Schritt 2: Paket installieren</value>
   </data>
   <data name="Storage State" xml:space="preserve">
     <value>Speicherstatus</value>

@@ -18,32 +18,26 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Repository" xml:space="preserve">
-    <value>Quay lại Kho lưu trữ</value>
+      <data name="Actions" xml:space="preserve">
+    <value>Acciones</value>
   </data>
-  <data name="Component" xml:space="preserve">
-    <value>Thành phần</value>
+  <data name="Created" xml:space="preserve">
+    <value>Fecha de creación</value>
   </data>
-  <data name="Package" xml:space="preserve">
-    <value>Gói</value>
+  <data name="Fingerprint" xml:space="preserve">
+    <value>Huella digital</value>
   </data>
-  <data name="Packages in" xml:space="preserve">
-    <value>Các gói trong</value>
+  <data name="Friendly Name" xml:space="preserve">
+    <value>Nombre para mostrar</value>
   </data>
-  <data name="Search" xml:space="preserve">
-    <value>Tìm kiếm</value>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Generar nueva clave</value>
   </data>
-  <data name="Size" xml:space="preserve">
-    <value>Kích thước</value>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>Trạng thái</value>
-  </data>
-  <data name="Version" xml:space="preserve">
-    <value>Phiên bản</value>
-  </data>
-  <data name="View Repository Info" xml:space="preserve">
-    <value>Xem thông tin kho lưu trữ</value>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Certificados de firma</value>
   </data>
 
 </root>

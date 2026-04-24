@@ -18,32 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Repository" xml:space="preserve">
-    <value>กลับไปยังที่เก็บ</value>
+      <data name="Architecture" xml:space="preserve">
+    <value>สถาปัตยกรรม</value>
+  </data>
+  <data name="Back to Buckets" xml:space="preserve">
+    <value>กลับไปยังถังเก็บ</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>ส่วนประกอบ</value>
   </data>
+  <data name="Next" xml:space="preserve">
+    <value>ถัดไป</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>ของ</value>
+  </data>
   <data name="Package" xml:space="preserve">
     <value>แพ็กเกจ</value>
   </data>
-  <data name="Packages in" xml:space="preserve">
-    <value>แพ็กเกจใน</value>
+  <data name="packages" xml:space="preserve">
+    <value>แพ็กเกจ</value>
   </data>
-  <data name="Search" xml:space="preserve">
-    <value>ค้นหา</value>
+  <data name="Packages in Bucket" xml:space="preserve">
+    <value>แพ็กเกจในบักเก็ต</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>ก่อนหน้า</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>แสดง</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>ขนาด</value>
   </data>
-  <data name="Status" xml:space="preserve">
-    <value>สถานะ</value>
-  </data>
   <data name="Version" xml:space="preserve">
     <value>เวอร์ชัน</value>
   </data>
-  <data name="View Repository Info" xml:space="preserve">
-    <value>ดูข้อมูล Repository</value>
+  <data name="Virtual" xml:space="preserve">
+    <value>เสมือน</value>
   </data>
 
 </root>

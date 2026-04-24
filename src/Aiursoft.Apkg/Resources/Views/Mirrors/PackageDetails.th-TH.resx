@@ -24,6 +24,9 @@
   <data name="Back" xml:space="preserve">
     <value>ย้อนกลับ</value>
   </data>
+  <data name="Bugs" xml:space="preserve">
+    <value>รายงานข้อบกพร่อง</value>
+  </data>
   <data name="Component" xml:space="preserve">
     <value>ส่วนประกอบ</value>
   </data>
@@ -36,11 +39,23 @@
   <data name="Download .deb" xml:space="preserve">
     <value>ดาวน์โหลด .deb</value>
   </data>
+  <data name="Download Size" xml:space="preserve">
+    <value>ขนาดดาวน์โหลด</value>
+  </data>
+  <data name="Failed to load reverse dependencies." xml:space="preserve">
+    <value>ล้มเหลวในการโหลด dependencies ย้อนกลับ</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>แฮช</value>
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>หน้าหลัก</value>
+  </data>
+  <data name="Installed Size" xml:space="preserve">
+    <value>ขนาดที่ติดตั้ง</value>
+  </data>
+  <data name="Loading…" xml:space="preserve">
+    <value>กำลังโหลด…</value>
   </data>
   <data name="Maintainer" xml:space="preserve">
     <value>ผู้ดูแล</value>
@@ -48,8 +63,23 @@
   <data name="Metadata" xml:space="preserve">
     <value>ข้อมูลเมตา</value>
   </data>
+  <data name="Multi-Arch" xml:space="preserve">
+    <value>หลายสถาปัตยกรรม</value>
+  </data>
   <data name="No dependencies." xml:space="preserve">
     <value>ไม่มี dependencies</value>
+  </data>
+  <data name="No packages depend on this package." xml:space="preserve">
+    <value>ไม่มีแพ็กเกจใดที่ขึ้นกับแพ็กเกจนี้</value>
+  </data>
+  <data name="No relations." xml:space="preserve">
+    <value>ไม่มีความสัมพันธ์</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>แหล่งที่มา</value>
+  </data>
+  <data name="Original Maintainer" xml:space="preserve">
+    <value>ผู้ดูแลระบบเดิม</value>
   </data>
   <data name="Package Details" xml:space="preserve">
     <value>รายละเอียดแพ็กเกจ</value>
@@ -57,8 +87,23 @@
   <data name="Physical (Cached)" xml:space="preserve">
     <value>ทางกายภาพ (แคช)</value>
   </data>
+  <data name="Priority" xml:space="preserve">
+    <value>ลำดับความสำคัญ</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>ความสัมพันธ์</value>
+  </data>
+  <data name="Reverse Dependencies" xml:space="preserve">
+    <value>การพึ่งพาแบบย้อนกลับ</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>ส่วน</value>
+  </data>
   <data name="Size" xml:space="preserve">
     <value>ขนาด</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>แหล่งที่มา</value>
   </data>
   <data name="Status &amp; Files" xml:space="preserve">
     <value>สถานะและไฟล์</value>

@@ -18,32 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Repository" xml:space="preserve">
-    <value>Quay lại Kho lưu trữ</value>
+      <data name="Back to Mirrors" xml:space="preserve">
+    <value>Volver a los espejos</value>
   </data>
   <data name="Component" xml:space="preserve">
-    <value>Thành phần</value>
+    <value>Componente</value>
   </data>
   <data name="Package" xml:space="preserve">
-    <value>Gói</value>
+    <value>Paquete</value>
   </data>
   <data name="Packages in" xml:space="preserve">
-    <value>Các gói trong</value>
+    <value>Paquetes en</value>
   </data>
   <data name="Search" xml:space="preserve">
-    <value>Tìm kiếm</value>
+    <value>Buscar</value>
   </data>
   <data name="Size" xml:space="preserve">
-    <value>Kích thước</value>
+    <value>Tamaño</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Trạng thái</value>
+    <value>Estado</value>
   </data>
   <data name="Version" xml:space="preserve">
-    <value>Phiên bản</value>
-  </data>
-  <data name="View Repository Info" xml:space="preserve">
-    <value>Xem thông tin kho lưu trữ</value>
+    <value>Versión</value>
   </data>
 
 </root>
