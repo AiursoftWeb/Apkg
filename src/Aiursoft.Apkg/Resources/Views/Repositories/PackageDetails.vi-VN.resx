@@ -81,6 +81,9 @@
   <data name="Package Details" xml:space="preserve">
     <value>Chi tiết Gói</value>
   </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>gói hàng</value>
+  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>Vật lý (Đã lưu vào bộ nhớ đệm)</value>
   </data>
@@ -92,6 +95,15 @@
   </data>
   <data name="Reverse Dependencies" xml:space="preserve">
     <value>Phụ thuộc ngược</value>
+  </data>
+  <data name="Reverse Depends" xml:space="preserve">
+    <value>Phụ thuộc Ngược</value>
+  </data>
+  <data name="Reverse Recommends" xml:space="preserve">
+    <value>Khuyến nghị Ngược</value>
+  </data>
+  <data name="Reverse Suggests" xml:space="preserve">
+    <value>Đề xuất Ngược</value>
   </data>
   <data name="Section" xml:space="preserve">
     <value>Phân loại</value>

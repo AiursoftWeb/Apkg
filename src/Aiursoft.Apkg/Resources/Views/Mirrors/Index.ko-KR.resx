@@ -39,8 +39,14 @@
   <data name="Distro" xml:space="preserve">
     <value>배포판</value>
   </data>
+  <data name="Failed" xml:space="preserve">
+    <value>실패</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>개</value>
+  </data>
+  <data name="Never Pull" xml:space="preserve">
+    <value>Pull 시도 없음</value>
   </data>
   <data name="Never Synced" xml:space="preserve">
     <value>동기화되지 않음</value>
@@ -53,6 +59,12 @@
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
     <value>보조 버킷</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>성공</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>스위트</value>

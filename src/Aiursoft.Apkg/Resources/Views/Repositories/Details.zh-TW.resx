@@ -45,6 +45,9 @@
   <data name="No certificate associated with this repository. Signing is disabled." xml:space="preserve">
     <value>此儲存庫未關聯憑證。已停用簽章。</value>
   </data>
+  <data name="One-line Setup (Unsigned):" xml:space="preserve">
+    <value>一行式設定（未簽署）：</value>
+  </data>
   <data name="One-line Setup:" xml:space="preserve">
     <value>一鍵設定：</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>套件</value>
+  </data>
+  <data name="This repository is not signed. We are using &apos;Trusted: yes&apos; to bypass security checks. Use with caution!" xml:space="preserve">
+    <value>此儲存庫未簽署。我們使用「Trusted: yes」來繞過安全檢查。請謹慎使用！</value>
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>此功能採用現代的 DEB822 格式與受限金鑰環，以提供最高的安全性與可靠性。</value>

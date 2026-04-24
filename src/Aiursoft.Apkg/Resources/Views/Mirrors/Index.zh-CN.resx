@@ -39,8 +39,14 @@
   <data name="Distro" xml:space="preserve">
     <value>发行版</value>
   </data>
+  <data name="Failed" xml:space="preserve">
+    <value>失败</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>项</value>
+  </data>
+  <data name="Never Pull" xml:space="preserve">
+    <value>从未拉取</value>
   </data>
   <data name="Never Synced" xml:space="preserve">
     <value>从未同步</value>
@@ -53,6 +59,12 @@
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
     <value>次要存储桶</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>成功</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>套件</value>

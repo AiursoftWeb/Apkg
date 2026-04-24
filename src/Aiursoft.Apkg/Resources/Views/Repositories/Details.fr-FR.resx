@@ -45,6 +45,9 @@
   <data name="No certificate associated with this repository. Signing is disabled." xml:space="preserve">
     <value>Aucun certificat n&apos;est associé à ce dépôt. La signature est désactivée.</value>
   </data>
+  <data name="One-line Setup (Unsigned):" xml:space="preserve">
+    <value>Configuration en une ligne (non signé) :</value>
+  </data>
   <data name="One-line Setup:" xml:space="preserve">
     <value>Configuration en une ligne :</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>
+  </data>
+  <data name="This repository is not signed. We are using &apos;Trusted: yes&apos; to bypass security checks. Use with caution!" xml:space="preserve">
+    <value>Ce dépôt n&apos;est pas signé. Nous utilisons « Trusted: yes » pour contourner les vérifications de sécurité. À utiliser avec prudence !</value>
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>Cela utilise le format DEB822 moderne et un trousseau de clés limité pour une sécurité et une fiabilité maximales.</value>

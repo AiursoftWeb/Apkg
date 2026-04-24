@@ -51,6 +51,9 @@
   <data name="Size" xml:space="preserve">
     <value>크기</value>
   </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
   <data name="Version" xml:space="preserve">
     <value>버전</value>
   </data>

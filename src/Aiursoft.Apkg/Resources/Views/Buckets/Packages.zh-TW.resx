@@ -51,6 +51,9 @@
   <data name="Size" xml:space="preserve">
     <value>大小</value>
   </data>
+  <data name="Status" xml:space="preserve">
+    <value>狀態</value>
+  </data>
   <data name="Version" xml:space="preserve">
     <value>版本</value>
   </data>

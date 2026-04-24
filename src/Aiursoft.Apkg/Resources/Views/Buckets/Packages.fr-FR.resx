@@ -51,6 +51,9 @@
   <data name="Size" xml:space="preserve">
     <value>Taille</value>
   </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
   <data name="Version" xml:space="preserve">
     <value>Version</value>
   </data>

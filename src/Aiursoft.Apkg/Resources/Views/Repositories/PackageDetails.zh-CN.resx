@@ -81,6 +81,9 @@
   <data name="Package Details" xml:space="preserve">
     <value>软件包详情</value>
   </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>个软件包</value>
+  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>物理（已缓存）</value>
   </data>
@@ -90,6 +93,9 @@
   <data name="Relations" xml:space="preserve">
     <value>关系</value>
   </data>
+  <data name="Reverse Dependencies" xml:space="preserve">
+    <value>反向依赖</value>
+  </data>
   <data name="Reverse Depends" xml:space="preserve">
     <value>反向依赖</value>
   </data>
@@ -98,12 +104,6 @@
   </data>
   <data name="Reverse Suggests" xml:space="preserve">
     <value>反向建议</value>
-  </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>个软件包</value>
-  </data>
-  <data name="Reverse Dependencies" xml:space="preserve">
-    <value>反向依赖</value>
   </data>
   <data name="Section" xml:space="preserve">
     <value>部分</value>
