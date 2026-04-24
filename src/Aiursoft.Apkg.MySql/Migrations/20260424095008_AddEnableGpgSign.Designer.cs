@@ -4,6 +4,7 @@ using Aiursoft.Apkg.MySql;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aiursoft.Apkg.MySql.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    partial class MySqlContextModelSnapshot : ModelSnapshot
+    [Migration("20260424095008_AddEnableGpgSign")]
+    partial class AddEnableGpgSign
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,18 +116,6 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
-
-                    b.Property<string>("LastPullErrorStack")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("LastPullResult")
-                        .HasColumnType("longtext");
-
-                    b.Property<bool?>("LastPullSuccess")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<DateTime?>("LastPullTime")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<int?>("PrimaryBucketId")
                         .HasColumnType("int");
