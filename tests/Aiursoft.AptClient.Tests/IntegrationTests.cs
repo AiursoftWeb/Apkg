@@ -404,6 +404,41 @@ Signed-By:
         Assert.IsFalse(string.IsNullOrWhiteSpace(firstPkg.Package.Package));
     }
 
+    [TestMethod]
+    public void TestParseMultilineDescription()
+    {
+        var content = @"Package: dotnet10
+Version: 10.0.100-10.0.0~rc1-0ubuntu1
+Architecture: amd64
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Description: .NET CLI tools and runtime
+ The .NET platform is a fast, lightweight and modular, enabling the creation of
+ cross platform applications that work on GNU/Linux, macOS and Windows.
+ .
+ It particularly focuses on creating console applications, web
+ applications, and micro-services.
+Description-md5: 5d41402abc4b2a76b9719d911017c592
+";
+        using var ms = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(content));
+        var dicts = DebianPackageParser.Parse(ms).ToList();
+
+        Assert.AreEqual(1, dicts.Count);
+        var pkg = dicts[0];
+
+        Assert.AreEqual("dotnet10", pkg["Package"]);
+        var description = pkg["Description"];
+
+        // Check if it contains multiple lines
+        Assert.IsTrue(description.Contains(".NET CLI tools and runtime"), "Should contain first line");
+        Assert.IsTrue(description.Contains("The .NET platform is a fast"), "Should contain second line (without leading space)");
+        Assert.IsFalse(description.Contains(" The .NET platform is a fast"), "Should NOT contain leading space on second line");
+        Assert.IsTrue(description.Contains("micro-services"), "Should contain last line");
+
+        // Verify it has newlines
+        var lines = description.Split('\n');
+        Assert.IsTrue(lines.Length > 1, $"Description should have multiple lines, but got: {lines.Length}");
+    }
+
     private (string PublicKey, string SignedContent) GenerateGpgKeyAndSignedContent(string content)
     {
         var tempHome = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
