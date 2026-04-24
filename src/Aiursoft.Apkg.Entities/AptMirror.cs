@@ -41,4 +41,12 @@ public class AptMirror
 
     [ForeignKey(nameof(SecondaryBucketId))]
     public AptBucket? SecondaryBucket { get; set; }
+
+    public DateTime? LastPullTime { get; set; }
+
+    public bool? LastPullSuccess { get; set; }
+
+    public string? LastPullResult { get; set; }
+
+    public string? LastPullErrorStack { get; set; }
 }
