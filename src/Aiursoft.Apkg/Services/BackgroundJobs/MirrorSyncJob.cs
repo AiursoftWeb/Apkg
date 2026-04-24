@@ -59,6 +59,20 @@ public class MirrorSyncJob(
         var components = mirror.Components.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         var architectures = mirror.Architecture.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
+        var upstreamRoot = $"{mirror.BaseUrl.TrimEnd('/')}/{mirror.Distro.TrimStart('/')}";
+        var repo = new AptClient.AptRepository(upstreamRoot, mirror.Suite, mirror.SignedBy, mirror.AllowInsecure, () => httpClientFactory.CreateClient());
+
+        try
+        {
+            await repo.EnsureVerifiedAsync();
+            mirror.LastVerifyLog = repo.VerificationLog;
+        }
+        catch (Exception ex)
+        {
+            mirror.LastVerifyLog = repo.VerificationLog ?? ex.Message;
+            throw; // Re-throw to be caught by the outer loop
+        }
+
         var totalInserted = 0;
         var insertedKeys = new HashSet<string>();
         Exception? lastException = null;
@@ -68,7 +82,7 @@ public class MirrorSyncJob(
             {
                 try
                 {
-                    totalInserted += await FetchAndInsertComponentAsync(mirror, bucket, component, arch, insertedKeys);
+                    totalInserted += await FetchAndInsertComponentAsync(mirror, bucket, repo, component, arch, insertedKeys, upstreamRoot);
                 }
                 catch (Exception ex)
                 {
@@ -114,16 +128,15 @@ public class MirrorSyncJob(
         var retiredPrimaryId = mirror.PrimaryBucketId; // keep old primary alive (see comment above)
         mirror.PrimaryBucketId = mirror.SecondaryBucketId; // promote new bucket
         mirror.SecondaryBucketId = retiredPrimaryId;       // protect old bucket from GC
+        mirror.LastPrimaryReplacedAt = DateTime.UtcNow;    // track when the bucket swap occurred
         await db.SaveChangesAsync();
         return totalInserted;
     }
 
-    private async Task<int> FetchAndInsertComponentAsync(AptMirror mirror, AptBucket bucket, string component, string arch, HashSet<string> insertedKeys)
+    private async Task<int> FetchAndInsertComponentAsync(AptMirror mirror, AptBucket bucket, AptClient.AptRepository repo, string component, string arch, HashSet<string> insertedKeys, string upstreamRoot)
     {
-        var upstreamRoot = $"{mirror.BaseUrl.TrimEnd('/')}/{mirror.Distro.TrimStart('/')}";
         logger.LogInformation("Fetching component {Component} [{Arch}] for suite {Suite} from {UpstreamRoot}...", component, arch, mirror.Suite, upstreamRoot);
 
-        var repo = new AptClient.AptRepository(upstreamRoot, mirror.Suite, mirror.SignedBy, mirror.AllowInsecure, () => httpClientFactory.CreateClient());
         var source = new AptPackageSource(repo, component, arch, () => httpClientFactory.CreateClient());
 
         var count = 0;
