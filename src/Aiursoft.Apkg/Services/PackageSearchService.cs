@@ -24,14 +24,15 @@ public static class PackageSearchService
         string keyword,
         int page,
         int pageSize,
+        string? sortOrder = null,
         CancellationToken ct = default)
     {
         var terms = SplitTerms(keyword);
         if (terms.Length == 0) return ([], 0);
 
         return terms.Length == 1
-            ? await SingleTermSqlSearch(baseQuery, terms[0], page, pageSize, ct)
-            : await MultiTermHybridSearch(baseQuery, terms, page, pageSize, ct);
+            ? await SingleTermSqlSearch(baseQuery, terms[0], page, pageSize, sortOrder, ct)
+            : await MultiTermHybridSearch(baseQuery, terms, page, pageSize, sortOrder, ct);
     }
 
     /// <summary>
@@ -50,6 +51,7 @@ public static class PackageSearchService
         string term,
         int page,
         int pageSize,
+        string? sortOrder,
         CancellationToken ct)
     {
         var termLower = term.ToLower();
@@ -67,15 +69,36 @@ public static class PackageSearchService
                     + (p.Package.Contains(term) ? 10 : 0)
                     // Description mentions the term
                     + (p.Description.Contains(term) ? 1 : 0)
-            })
-            .OrderByDescending(x => x.Score)
-            .ThenBy(x => x.Package.Package);
+            });
 
-        var total = await scoreQuery.CountAsync(ct);
-        var items = await scoreQuery
+        IQueryable<AptPackage> ordered;
+        if (string.IsNullOrWhiteSpace(sortOrder))
+        {
+            ordered = scoreQuery
+                .OrderByDescending(x => x.Score)
+                .ThenBy(x => x.Package.Package)
+                .Select(x => x.Package);
+        }
+        else
+        {
+            var pQuery = scoreQuery.Select(x => x.Package);
+            ordered = sortOrder switch
+            {
+                "name_desc" => pQuery.OrderByDescending(p => p.Package),
+                "size_asc" => pQuery.OrderBy(p => p.Size.Length).ThenBy(p => p.Size),
+                "size_desc" => pQuery.OrderByDescending(p => p.Size.Length).ThenByDescending(p => p.Size),
+                "component_asc" => pQuery.OrderBy(p => p.Component),
+                "component_desc" => pQuery.OrderByDescending(p => p.Component),
+                "status_asc" => pQuery.OrderBy(p => p.IsVirtual),
+                "status_desc" => pQuery.OrderByDescending(p => p.IsVirtual),
+                _ => pQuery.OrderBy(p => p.Package)
+            };
+        }
+
+        var total = await ordered.CountAsync(ct);
+        var items = await ordered
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
-            .Select(x => x.Package)
             .ToListAsync(ct);
 
         return (items, total);
@@ -90,6 +113,7 @@ public static class PackageSearchService
         string[] terms,
         int page,
         int pageSize,
+        string? sortOrder,
         CancellationToken ct)
     {
         // EF Core translates terms.Any(t => p.Field.Contains(t)) to
@@ -102,16 +126,37 @@ public static class PackageSearchService
 
         var scored = filtered
             .Select(p => (Package: p, Score: ComputeScore(p, terms)))
-            .Where(x => x.Score > 0)
-            .OrderByDescending(x => x.Score)
-            .ThenBy(x => x.Package.Package)
-            .ToList();
+            .Where(x => x.Score > 0);
 
-        var total = scored.Count;
-        var items = scored
+        IEnumerable<AptPackage> ordered;
+        if (string.IsNullOrWhiteSpace(sortOrder))
+        {
+            ordered = scored
+                .OrderByDescending(x => x.Score)
+                .ThenBy(x => x.Package.Package)
+                .Select(x => x.Package);
+        }
+        else
+        {
+            ordered = sortOrder switch
+            {
+                "name_asc" => scored.OrderBy(x => x.Package.Package).Select(x => x.Package),
+                "name_desc" => scored.OrderByDescending(x => x.Package.Package).Select(x => x.Package),
+                "size_asc" => scored.OrderBy(x => x.Package.Size.Length).ThenBy(x => x.Package.Size).Select(x => x.Package),
+                "size_desc" => scored.OrderByDescending(x => x.Package.Size.Length).ThenByDescending(x => x.Package.Size).Select(x => x.Package),
+                "component_asc" => scored.OrderBy(x => x.Package.Component).Select(x => x.Package),
+                "component_desc" => scored.OrderByDescending(x => x.Package.Component).Select(x => x.Package),
+                "status_asc" => scored.OrderBy(x => x.Package.IsVirtual).Select(x => x.Package),
+                "status_desc" => scored.OrderByDescending(x => x.Package.IsVirtual).Select(x => x.Package),
+                _ => scored.OrderBy(x => x.Package.Package).Select(x => x.Package)
+            };
+        }
+
+        var list = ordered.ToList();
+        var total = list.Count;
+        var items = list
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
-            .Select(x => x.Package)
             .ToList();
 
         return (items, total);
