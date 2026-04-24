@@ -62,7 +62,7 @@ public class AptSourceExtractor
                     var repoKey = $"{uri}|{suite}";
                     if (!repoCache.TryGetValue(repoKey, out var repo))
                     {
-                        repo = new AptRepository(uri, suite, signedBy, httpClientFactory);
+                        repo = new AptRepository(uri, suite, signedBy, false, httpClientFactory);
                         repoCache[repoKey] = repo;
                     }
 
@@ -126,7 +126,7 @@ public class AptSourceExtractor
             var repoKey = $"{uri}|{suite}";
             if (!repoCache.TryGetValue(repoKey, out var repo))
             {
-                repo = new AptRepository(uri, suite, signedBy, httpClientFactory);
+                repo = new AptRepository(uri, suite, signedBy, false, httpClientFactory);
                 repoCache[repoKey] = repo;
             }
 
