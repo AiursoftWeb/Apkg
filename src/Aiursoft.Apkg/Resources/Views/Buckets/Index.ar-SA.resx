@@ -19,40 +19,37 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Actions" xml:space="preserve">
-    <value>Ações</value>
+    <value>الإجراءات</value>
   </data>
   <data name="Active Usage" xml:space="preserve">
-    <value>Utilização Ativa</value>
+    <value>الاستخدام النشط</value>
   </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
-    <value>Histórico de Capturas do Bucket</value>
-  </data>
-  <data name="Building" xml:space="preserve">
-    <value>A construir</value>
+    <value>سجل لقطات السلة</value>
   </data>
   <data name="Created Time" xml:space="preserve">
-    <value>Data de Criação</value>
+    <value>وقت الإنشاء</value>
   </data>
   <data name="ID" xml:space="preserve">
-    <value>ID</value>
+    <value>المعرف</value>
   </data>
   <data name="LIVE" xml:space="preserve">
-    <value>ATIVO</value>
+    <value>مباشر</value>
   </data>
   <data name="Logical Size" xml:space="preserve">
-    <value>Tamanho Lógico</value>
+    <value>الحجم المنطقي</value>
   </data>
   <data name="Orphaned" xml:space="preserve">
-    <value>Órfão</value>
+    <value>مهملة</value>
   </data>
   <data name="Packages" xml:space="preserve">
-    <value>Pacotes</value>
+    <value>الحزم</value>
   </data>
   <data name="Pending" xml:space="preserve">
-    <value>Pendente</value>
+    <value>قيد الانتظار</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Estado</value>
+    <value>الحالة</value>
   </data>
 
 </root>

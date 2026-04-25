@@ -18,41 +18,32 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
-    <value>Ações</value>
+      <data name="Back to Repository" xml:space="preserve">
+    <value>Voltar ao Repositório</value>
   </data>
-  <data name="Active Usage" xml:space="preserve">
-    <value>Uso Ativo</value>
+  <data name="Component" xml:space="preserve">
+    <value>Componente</value>
   </data>
-  <data name="Bucket Snapshots History" xml:space="preserve">
-    <value>Histórico de Snapshots do Bucket</value>
+  <data name="Package" xml:space="preserve">
+    <value>Pacote</value>
   </data>
-  <data name="Building" xml:space="preserve">
-    <value>Construção</value>
+  <data name="Packages in" xml:space="preserve">
+    <value>Pacotes em</value>
   </data>
-  <data name="Created Time" xml:space="preserve">
-    <value>Data de Criação</value>
+  <data name="Search" xml:space="preserve">
+    <value>Pesquisar</value>
   </data>
-  <data name="ID" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="LIVE" xml:space="preserve">
-    <value>ATIVO</value>
-  </data>
-  <data name="Logical Size" xml:space="preserve">
-    <value>Tamanho Lógico</value>
-  </data>
-  <data name="Orphaned" xml:space="preserve">
-    <value>Órfão</value>
-  </data>
-  <data name="Packages" xml:space="preserve">
-    <value>Pacotes</value>
-  </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Pendente</value>
+  <data name="Size" xml:space="preserve">
+    <value>Tamanho</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versão</value>
+  </data>
+  <data name="View Repository Info" xml:space="preserve">
+    <value>Ver informações do repositório</value>
   </data>
 
 </root>
