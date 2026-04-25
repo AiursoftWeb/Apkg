@@ -37,7 +37,7 @@
     <value>信息</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
-    <value>实时存储桶</value>
+    <value>主存储桶</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>镜像源</value>

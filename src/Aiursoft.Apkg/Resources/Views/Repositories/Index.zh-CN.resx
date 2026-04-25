@@ -31,7 +31,7 @@
     <value>发行版</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
-    <value>实时存储桶</value>
+    <value>主存储桶</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>名称</value>
@@ -43,7 +43,7 @@
     <value>公共仓库</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
-    <value>辅助存储桶</value>
+    <value>备用存储桶</value>
   </data>
   <data name="Signature" xml:space="preserve">
     <value>签名</value>

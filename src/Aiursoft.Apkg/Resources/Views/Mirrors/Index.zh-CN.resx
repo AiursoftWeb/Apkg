@@ -70,7 +70,7 @@
     <value>主存储桶</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
-    <value>次要存储桶</value>
+    <value>备用存储桶</value>
   </data>
   <data name="Signature Verification Disabled" xml:space="preserve">
     <value>签名验证已禁用</value>
