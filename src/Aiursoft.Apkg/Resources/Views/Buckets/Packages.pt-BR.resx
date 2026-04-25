@@ -18,41 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
-    <value>Ações</value>
+      <data name="Architecture" xml:space="preserve">
+    <value>Arquitetura</value>
   </data>
-  <data name="Active Usage" xml:space="preserve">
-    <value>Utilização Ativa</value>
+  <data name="Back to Buckets" xml:space="preserve">
+    <value>Voltar para os Baldes</value>
   </data>
-  <data name="Bucket Snapshots History" xml:space="preserve">
-    <value>Histórico de Capturas do Bucket</value>
+  <data name="Component" xml:space="preserve">
+    <value>Componente</value>
   </data>
-  <data name="Building" xml:space="preserve">
-    <value>A construir</value>
+  <data name="Next" xml:space="preserve">
+    <value>Próximo</value>
   </data>
-  <data name="Created Time" xml:space="preserve">
-    <value>Data de Criação</value>
+  <data name="of" xml:space="preserve">
+    <value>de</value>
   </data>
-  <data name="ID" xml:space="preserve">
-    <value>ID</value>
+  <data name="Package" xml:space="preserve">
+    <value>Pacote</value>
   </data>
-  <data name="LIVE" xml:space="preserve">
-    <value>ATIVO</value>
+  <data name="packages" xml:space="preserve">
+    <value>pacotes</value>
   </data>
-  <data name="Logical Size" xml:space="preserve">
-    <value>Tamanho Lógico</value>
+  <data name="Packages in Bucket" xml:space="preserve">
+    <value>Pacotes no Bucket</value>
   </data>
-  <data name="Orphaned" xml:space="preserve">
-    <value>Órfão</value>
+  <data name="Previous" xml:space="preserve">
+    <value>Anterior</value>
   </data>
-  <data name="Packages" xml:space="preserve">
-    <value>Pacotes</value>
+  <data name="Showing" xml:space="preserve">
+    <value>Exibindo</value>
   </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Pendente</value>
+  <data name="Size" xml:space="preserve">
+    <value>Tamanho</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Estado</value>
+    <value>Status</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versão</value>
   </data>
 
 </root>

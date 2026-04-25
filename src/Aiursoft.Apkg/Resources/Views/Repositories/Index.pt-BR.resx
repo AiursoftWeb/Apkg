@@ -43,7 +43,7 @@
     <value>Repositórios Públicos</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
-    <value>Cubação Secundária</value>
+    <value>Bucket Secundário</value>
   </data>
   <data name="Signature" xml:space="preserve">
     <value>Assinatura</value>
@@ -55,7 +55,7 @@
     <value>Assinado em</value>
   </data>
   <data name="Suite" xml:space="preserve">
-    <value>Suite</value>
+    <value>Versão</value>
   </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Total de Pacotes</value>

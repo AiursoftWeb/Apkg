@@ -25,7 +25,7 @@
     <value>Voltar</value>
   </data>
   <data name="Bugs" xml:space="preserve">
-    <value>Avisos</value>
+    <value>Relatórios de bugs</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Componente</value>
@@ -34,13 +34,13 @@
     <value>Descrição</value>
   </data>
   <data name="Download .deb" xml:space="preserve">
-    <value>Transferir .deb</value>
+    <value>Baixar .deb</value>
   </data>
   <data name="Download Size" xml:space="preserve">
     <value>Tamanho do Download</value>
   </data>
   <data name="Failed to load reverse dependencies." xml:space="preserve">
-    <value>Falha ao carregar as dependências reversas.</value>
+    <value>Falha ao carregar dependências reversas.</value>
   </data>
   <data name="Hashes" xml:space="preserve">
     <value>Hashes</value>
@@ -49,16 +49,16 @@
     <value>Página inicial</value>
   </data>
   <data name="How to Install" xml:space="preserve">
-    <value>Como Instalar</value>
+    <value>Como instalar</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Tamanho Instalado</value>
   </data>
   <data name="Loading…" xml:space="preserve">
-    <value>A carregar…</value>
+    <value>Carregando…</value>
   </data>
   <data name="Maintainer" xml:space="preserve">
-    <value>Responsável</value>
+    <value>Mantenedor</value>
   </data>
   <data name="Metadata" xml:space="preserve">
     <value>Metadados</value>
@@ -106,31 +106,31 @@
     <value>Sugestões Reversas</value>
   </data>
   <data name="Section" xml:space="preserve">
-    <value>Secção</value>
+    <value>Seção</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>Origem</value>
   </data>
   <data name="Status &amp; Files" xml:space="preserve">
-    <value>Estado e Ficheiros</value>
+    <value>Status &amp; Arquivos</value>
   </data>
   <data name="Step 1: Add this APT server" xml:space="preserve">
-    <value>Passo 1: Adicionar este servidor APT</value>
+    <value>Passo 1: Adicione este servidor APT</value>
   </data>
   <data name="Step 2: Install the package" xml:space="preserve">
-    <value>Passo 2: Instalar o pacote</value>
+    <value>Passo 2: Instale o pacote</value>
   </data>
   <data name="Storage State" xml:space="preserve">
-    <value>Estado de Armazenamento</value>
+    <value>Estado do Armazenamento</value>
   </data>
   <data name="Upstream URL" xml:space="preserve">
-    <value>URL do projeto</value>
+    <value>URL do repositório original</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>Versão</value>
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
-    <value>Virtual (Sincronização Preterida)</value>
+    <value>Virtual (Sincronização Preguiçosa)</value>
   </data>
 
 </root>

@@ -19,40 +19,25 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Actions" xml:space="preserve">
-    <value>Ações</value>
+    <value>الإجراءات</value>
   </data>
-  <data name="Active Usage" xml:space="preserve">
-    <value>Utilização Ativa</value>
+  <data name="Created" xml:space="preserve">
+    <value>تاريخ الإنشاء</value>
   </data>
-  <data name="Bucket Snapshots History" xml:space="preserve">
-    <value>Histórico de Capturas do Bucket</value>
+  <data name="Fingerprint" xml:space="preserve">
+    <value>بصمة الإصبع</value>
   </data>
-  <data name="Building" xml:space="preserve">
-    <value>A construir</value>
+  <data name="Friendly Name" xml:space="preserve">
+    <value>الاسم المستعار</value>
   </data>
-  <data name="Created Time" xml:space="preserve">
-    <value>Data de Criação</value>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>توليد مفتاح جديد</value>
   </data>
-  <data name="ID" xml:space="preserve">
-    <value>ID</value>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
   </data>
-  <data name="LIVE" xml:space="preserve">
-    <value>ATIVO</value>
-  </data>
-  <data name="Logical Size" xml:space="preserve">
-    <value>Tamanho Lógico</value>
-  </data>
-  <data name="Orphaned" xml:space="preserve">
-    <value>Órfão</value>
-  </data>
-  <data name="Packages" xml:space="preserve">
-    <value>Pacotes</value>
-  </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Pendente</value>
-  </data>
-  <data name="Status" xml:space="preserve">
-    <value>Estado</value>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>شهادات التوقيع</value>
   </data>
 
 </root>
