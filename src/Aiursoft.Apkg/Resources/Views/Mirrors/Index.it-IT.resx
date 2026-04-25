@@ -19,70 +19,70 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Actions" xml:space="preserve">
-    <value>Действия</value>
+    <value>Azioni</value>
   </data>
   <data name="Add New Mirror" xml:space="preserve">
-    <value>Добавить новое зеркало</value>
+    <value>Aggiungi nuovo mirror</value>
   </data>
   <data name="Arch" xml:space="preserve">
-    <value>Архитектура</value>
+    <value>Architettura</value>
   </data>
   <data name="Base URL" xml:space="preserve">
-    <value>Базовый URL</value>
+    <value>URL di base</value>
   </data>
   <data name="Components" xml:space="preserve">
-    <value>Компоненты</value>
+    <value>Componenti</value>
   </data>
   <data name="Distro" xml:space="preserve">
-    <value>Дистрибутив</value>
+    <value>Distribuzione</value>
   </data>
   <data name="Failed" xml:space="preserve">
-    <value>Ошибка</value>
+    <value>Fallito</value>
   </data>
   <data name="Insecure Source" xml:space="preserve">
-    <value>Небезопасный источник</value>
+    <value>Sorgente non sicura</value>
   </data>
   <data name="items" xml:space="preserve">
-    <value>элементов</value>
+    <value>oggetti</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
-    <value>Никогда не синхронизировалось</value>
+    <value>Mai eseguito il pull</value>
   </data>
   <data name="Never Synced" xml:space="preserve">
-    <value>Никогда не синхронизировано</value>
+    <value>Mai sincronizzato</value>
   </data>
   <data name="None" xml:space="preserve">
-    <value>Нет</value>
+    <value>Nessuno</value>
   </data>
   <data name="Packages" xml:space="preserve">
-    <value>Пакеты</value>
+    <value>Pacchetti</value>
   </data>
   <data name="Passed" xml:space="preserve">
-    <value>Пройдена</value>
+    <value>Passato</value>
   </data>
   <data name="Pending" xml:space="preserve">
-    <value>Ожидание</value>
+    <value>In attesa</value>
   </data>
   <data name="Primary Bucket" xml:space="preserve">
-    <value>Основное хранилище</value>
+    <value>Bucket Primaria</value>
   </data>
   <data name="Secondary Bucket" xml:space="preserve">
-    <value>Вторичный бакет</value>
+    <value>Bucket secondario</value>
   </data>
   <data name="Signature Verification Disabled" xml:space="preserve">
-    <value>Проверка подписи отключена</value>
+    <value>Verifica della firma disabilitata</value>
   </data>
   <data name="Status" xml:space="preserve">
-    <value>Статус</value>
+    <value>Stato</value>
   </data>
   <data name="Success" xml:space="preserve">
-    <value>Успешно</value>
+    <value>Riuscito</value>
   </data>
   <data name="Suite" xml:space="preserve">
-    <value>Версия</value>
+    <value>Suite</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
-    <value>Вышестоящие зеркала</value>
+    <value>Specchi upstream</value>
   </data>
 
 </root>
