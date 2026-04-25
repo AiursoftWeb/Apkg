@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Acties</value>
+  </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Nieuwe mirror toevoegen</value>
+  </data>
+  <data name="Arch" xml:space="preserve">
+    <value>Architectuur</value>
+  </data>
+  <data name="Base URL" xml:space="preserve">
+    <value>Basis-URL</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Componenten</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distributie</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Mislukt</value>
+  </data>
+  <data name="Insecure Source" xml:space="preserve">
+    <value>Onveilige bron</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>items</value>
+  </data>
+  <data name="Never Pull" xml:space="preserve">
+    <value>Nooit opgehaald</value>
+  </data>
+  <data name="Never Synced" xml:space="preserve">
+    <value>Nooit gesynchroniseerd</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Geen</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Pakketten</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Geslaagd</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>In afwachting</value>
+  </data>
+  <data name="Primary Bucket" xml:space="preserve">
+    <value>Primaire bucket</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>Secundair Bucket</value>
+  </data>
+  <data name="Signature Verification Disabled" xml:space="preserve">
+    <value>Handtekeningverificatie uitgeschakeld</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Succes</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Versie</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Upstream-mirrors</value>
+  </data>
+
+</root>
