@@ -42,6 +42,9 @@
   <data name="Job Name" xml:space="preserve">
     <value>Nome attività</value>
   </data>
+  <data name="last 24 hours" xml:space="preserve">
+    <value>ultime 24 ore</value>
+  </data>
   <data name="last hour" xml:space="preserve">
     <value>ultima ora</value>
   </data>
@@ -68,6 +71,9 @@
   </data>
   <data name="No jobs" xml:space="preserve">
     <value>Nessun lavoro</value>
+  </data>
+  <data name="No jobs have run in the last 24 hours." xml:space="preserve">
+    <value>Nessun job è stato eseguito nelle ultime 24 ore.</value>
   </data>
   <data name="No jobs have run in the last hour." xml:space="preserve">
     <value>Nessun lavoro è stato eseguito nell&apos;ultima ora.</value>
