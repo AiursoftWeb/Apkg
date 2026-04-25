@@ -19,49 +19,46 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
       <data name="Back to List" xml:space="preserve">
-    <value>Voltar à lista</value>
+    <value>Torna all&apos;elenco</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
-    <value>Navegar nos Pacotes</value>
+    <value>Esplora i pacchetti</value>
   </data>
   <data name="Certificate" xml:space="preserve">
-    <value>Certificado</value>
+    <value>Certificato</value>
   </data>
   <data name="Client Configuration Guide" xml:space="preserve">
-    <value>Guia de Configuração do Cliente</value>
+    <value>Guida alla configurazione del client</value>
   </data>
   <data name="Distro" xml:space="preserve">
-    <value>Distribuição</value>
+    <value>Distribuzione</value>
   </data>
   <data name="Information" xml:space="preserve">
-    <value>Informação</value>
+    <value>Informazioni</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
-    <value>Carrinho ao Vivo</value>
+    <value>Bucket Live</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
-    <value>Origem do Espelho</value>
-  </data>
-  <data name="No certificate associated with this repository. Signing is disabled." xml:space="preserve">
-    <value>Nenhum certificado associado a este repositório. A assinatura está desativada.</value>
+    <value>Sorgente mirror</value>
   </data>
   <data name="One-line Setup (Unsigned):" xml:space="preserve">
-    <value>Configuração em uma linha (Sem assinatura):</value>
+    <value>Configurazione in una riga (non firmata):</value>
   </data>
   <data name="One-line Setup:" xml:space="preserve">
-    <value>Configuração de uma linha:</value>
+    <value>Configurazione in una sola riga:</value>
   </data>
   <data name="Repository Details" xml:space="preserve">
-    <value>Detalhes do Repositório</value>
+    <value>Dettagli repository</value>
   </data>
   <data name="Suite" xml:space="preserve">
-    <value>Versão</value>
+    <value>Suite</value>
   </data>
   <data name="This repository is not signed. We are using &apos;Trusted: yes&apos; to bypass security checks. Use with caution!" xml:space="preserve">
-    <value>Este repositório não está assinado. Estamos a utilizar &apos;Trusted: yes&apos; para ignorar as verificações de segurança. Utilize com cautela!</value>
+    <value>Questo repository non è firmato. Stiamo utilizzando &apos;Trusted: yes&apos; per bypassare i controlli di sicurezza. Utilizzare con cautela!</value>
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
-    <value>Isto utiliza o formato DEB822 moderno e um keyring com escopo para máxima segurança e fiabilidade.</value>
+    <value>Questo utilizza il moderno formato DEB822 e un anello di chiavi limitato per garantire massima sicurezza e affidabilità.</value>
   </data>
 
 </root>

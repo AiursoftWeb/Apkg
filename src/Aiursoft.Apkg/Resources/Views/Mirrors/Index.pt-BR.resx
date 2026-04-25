@@ -39,14 +39,47 @@
   <data name="Distro" xml:space="preserve">
     <value>Distribuição</value>
   </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Falhou</value>
+  </data>
+  <data name="Insecure Source" xml:space="preserve">
+    <value>Fonte insegura</value>
+  </data>
   <data name="items" xml:space="preserve">
     <value>itens</value>
+  </data>
+  <data name="Never Pull" xml:space="preserve">
+    <value>Nunca sincronizado</value>
   </data>
   <data name="Never Synced" xml:space="preserve">
     <value>Nunca sincronizado</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Nenhum</value>
+  </data>
   <data name="Packages" xml:space="preserve">
     <value>Pacotes</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>Aprovado</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Pendente</value>
+  </data>
+  <data name="Primary Bucket" xml:space="preserve">
+    <value>Bucket Primário</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>Bucket Secundário</value>
+  </data>
+  <data name="Signature Verification Disabled" xml:space="preserve">
+    <value>Verificação de Assinatura Desativada</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Sucesso</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Versão</value>
