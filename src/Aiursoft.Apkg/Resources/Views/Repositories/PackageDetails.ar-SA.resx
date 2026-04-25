@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Architecture" xml:space="preserve">
+    <value>البنية</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>رجوع</value>
+  </data>
+  <data name="Bugs" xml:space="preserve">
+    <value>الأخطاء</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>المكون</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>الوصف</value>
+  </data>
+  <data name="Download .deb" xml:space="preserve">
+    <value>تحميل .deb</value>
+  </data>
+  <data name="Download Size" xml:space="preserve">
+    <value>حجم التنزيل</value>
+  </data>
+  <data name="Failed to load reverse dependencies." xml:space="preserve">
+    <value>فشل في تحميل التبعيات العكسية.</value>
+  </data>
+  <data name="Hashes" xml:space="preserve">
+    <value>التجزئات</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>الصفحة الرئيسية</value>
+  </data>
+  <data name="How to Install" xml:space="preserve">
+    <value>كيفية التثبيت</value>
+  </data>
+  <data name="Installed Size" xml:space="preserve">
+    <value>حجم التثبيت</value>
+  </data>
+  <data name="Loading…" xml:space="preserve">
+    <value>جارٍ التحميل…</value>
+  </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>المُصِين</value>
+  </data>
+  <data name="Metadata" xml:space="preserve">
+    <value>البيانات الوصفية</value>
+  </data>
+  <data name="Multi-Arch" xml:space="preserve">
+    <value>البنية المتعددة</value>
+  </data>
+  <data name="No packages depend on this package." xml:space="preserve">
+    <value>لا توجد حزم تعتمد على هذه الحزمة.</value>
+  </data>
+  <data name="No relations." xml:space="preserve">
+    <value>لا توجد علاقات.</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>الأصل</value>
+  </data>
+  <data name="Original Maintainer" xml:space="preserve">
+    <value>المُصِين الأصلي</value>
+  </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>تفاصيل الحزمة</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>حزمة(حزم)</value>
+  </data>
+  <data name="Physical (Cached)" xml:space="preserve">
+    <value>مادي (مخزن مؤقت)</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>الأولوية</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>العلاقات</value>
+  </data>
+  <data name="Reverse Dependencies" xml:space="preserve">
+    <value>التبعيات العكسية</value>
+  </data>
+  <data name="Reverse Depends" xml:space="preserve">
+    <value>التبعيات العكسية</value>
+  </data>
+  <data name="Reverse Recommends" xml:space="preserve">
+    <value>يوصي عكسياً</value>
+  </data>
+  <data name="Reverse Suggests" xml:space="preserve">
+    <value>المقترحات العكسية</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>القسم</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>المصدر</value>
+  </data>
+  <data name="Status &amp; Files" xml:space="preserve">
+    <value>الحالة والملفات</value>
+  </data>
+  <data name="Step 1: Add this APT server" xml:space="preserve">
+    <value>الخطوة 1: أضف هذا الخادم APT</value>
+  </data>
+  <data name="Step 2: Install the package" xml:space="preserve">
+    <value>الخطوة 2: تثبيت الحزمة</value>
+  </data>
+  <data name="Storage State" xml:space="preserve">
+    <value>حالة التخزين</value>
+  </data>
+  <data name="Upstream URL" xml:space="preserve">
+    <value>رابط المصدر</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>الإصدار</value>
+  </data>
+  <data name="Virtual (Lazy Sync)" xml:space="preserve">
+    <value>افتراضي (مزامنة كسولة)</value>
+  </data>
+
+</root>
