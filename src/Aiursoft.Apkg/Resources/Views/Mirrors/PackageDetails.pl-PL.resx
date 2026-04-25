@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Architecture" xml:space="preserve">
+    <value>Architektura</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Powrót</value>
+  </data>
+  <data name="Bugs" xml:space="preserve">
+    <value>Błędy</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Komponent</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="Download .deb" xml:space="preserve">
+    <value>Pobierz .deb</value>
+  </data>
+  <data name="Download Size" xml:space="preserve">
+    <value>Rozmiar pobierania</value>
+  </data>
+  <data name="Failed to load reverse dependencies." xml:space="preserve">
+    <value>Nie udało się załadować zależności odwrotnych.</value>
+  </data>
+  <data name="Hashes" xml:space="preserve">
+    <value>Skróty</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Strona główna</value>
+  </data>
+  <data name="Installed Size" xml:space="preserve">
+    <value>Rozmiar zainstalowany</value>
+  </data>
+  <data name="Loading…" xml:space="preserve">
+    <value>Ładowanie…</value>
+  </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Opiekun</value>
+  </data>
+  <data name="Metadata" xml:space="preserve">
+    <value>Metadane</value>
+  </data>
+  <data name="Multi-Arch" xml:space="preserve">
+    <value>Wieloarchitektura</value>
+  </data>
+  <data name="No packages depend on this package." xml:space="preserve">
+    <value>Żadne pakiety nie zależą od tego pakietu.</value>
+  </data>
+  <data name="No relations." xml:space="preserve">
+    <value>Brak powiązań.</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>Pochodzenie</value>
+  </data>
+  <data name="Original Maintainer" xml:space="preserve">
+    <value>Oryginalny opiekun</value>
+  </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Szczegóły pakietu</value>
+  </data>
+  <data name="Physical (Cached)" xml:space="preserve">
+    <value>Fizyczny (Zapisany w pamięci podręcznej)</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Priorytet</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>Zależności</value>
+  </data>
+  <data name="Reverse Dependencies" xml:space="preserve">
+    <value>Zależności wsteczne</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>Sekcja</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Źródło</value>
+  </data>
+  <data name="Status &amp; Files" xml:space="preserve">
+    <value>Status i pliki</value>
+  </data>
+  <data name="Storage State" xml:space="preserve">
+    <value>Stan magazynu</value>
+  </data>
+  <data name="Upstream URL" xml:space="preserve">
+    <value>Adres URL źródła</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Wersja</value>
+  </data>
+  <data name="Virtual (Lazy Sync)" xml:space="preserve">
+    <value>Wirtualny (leniwa synchronizacja)</value>
+  </data>
+
+</root>
