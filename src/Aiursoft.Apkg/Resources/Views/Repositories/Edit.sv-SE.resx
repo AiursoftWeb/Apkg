@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- Ingen (Självständig) --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arkitektur</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>Signera automatiskt Release-filerna för detta arkiv.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>Avbryt</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponenter</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Styr vilka binary-{arch}/Packages-indexfiler som genereras. Paket med icke-matchande arkitekturer (förutom &apos;all&apos;) lagras men är osynliga för apt-klienter. Anger även Architectures: raden i klientkonfigurationsguiden. Ändringar träder i kraft vid nästa körning av Repository Sync-jobbet.</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Styr vilka komponentundermappar som inkluderas vid generering av Packages-indexet. Paket i ej listade komponenter lagras men är osynliga för apt-klienter. Anger även Components-raden i klientkonfigurationsguiden. Ändringar träder i kraft vid nästa körning av Repository Sync-jobbet.</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>Om den är länkad till en spegel, kommer detta arkiv att leverera paket från den ursprungliga källan.</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>Spara arkivet</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>Namnet på APT-suiten (t.ex. jammy, stable).</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>GPG-nyckeln som används för att signera Release-filerna för detta arkiv.</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>Det interna identifikatorn och en del av URL-vägen.</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>URL-prefixen för detta arkiv (t.ex. &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

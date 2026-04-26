@@ -21,8 +21,17 @@
       <data name="Friendly Name" xml:space="preserve">
     <value>Kullanıcı Adı</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ad</value>
+  </data>
   <data name="Only lowercase letters and numbers are allowed." xml:space="preserve">
     <value>Yalnızca küçük harfler ve sayılara izin verilir.</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} en fazla {1} karakter olabilir.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} alanı zorunludur.</value>
   </data>
 
 </root>

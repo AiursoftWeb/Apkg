@@ -27,17 +27,32 @@
   <data name="Arch" xml:space="preserve">
     <value>아키텍처</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>미러를 삭제하시겠습니까?</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>기본 URL</value>
   </data>
   <data name="Bucket" xml:space="preserve">
     <value>버킷</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
   <data name="Components" xml:space="preserve">
     <value>컴포넌트</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>삭제 확인</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>미러 삭제</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>배포판</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>오류:</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>실패</value>
@@ -83,6 +98,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>스위트</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>동기화 오류 스택 추적</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>이 작업은 모든 관련 패키지와 버킷도 삭제합니다!</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>상위 미러</value>

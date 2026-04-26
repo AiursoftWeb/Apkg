@@ -21,11 +21,23 @@
       <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
+  <data name="Are you sure you want to delete repository" xml:space="preserve">
+    <value>您确定要删除存储库吗</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
   <data name="Certificate" xml:space="preserve">
     <value>证书</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>确认删除</value>
+  </data>
   <data name="Create New Repository" xml:space="preserve">
     <value>创建新仓库</value>
+  </data>
+  <data name="Delete Repository" xml:space="preserve">
+    <value>删除存储库</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>发行版</value>

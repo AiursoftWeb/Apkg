@@ -21,11 +21,29 @@
       <data name="Allow Insecure Source" xml:space="preserve">
     <value>Izinkan Sumber Tidak Aman</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arsitektur</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>URL Dasar</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponen</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distro</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>URL Kunci Publik GPG (Opsional)</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Rilis</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} tidak boleh melebihi {1} karakter.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} wajib diisi.</value>
   </data>
 
 </root>

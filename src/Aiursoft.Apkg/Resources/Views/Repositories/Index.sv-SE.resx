@@ -21,11 +21,23 @@
       <data name="Actions" xml:space="preserve">
     <value>Åtgärder</value>
   </data>
+  <data name="Are you sure you want to delete repository" xml:space="preserve">
+    <value>Är du säker på att du vill ta bort arkivet</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
   <data name="Certificate" xml:space="preserve">
     <value>Certifikat</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Bekräfta radering</value>
+  </data>
   <data name="Create New Repository" xml:space="preserve">
     <value>Skapa nytt arkiv</value>
+  </data>
+  <data name="Delete Repository" xml:space="preserve">
+    <value>Ta bort arkiv</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>

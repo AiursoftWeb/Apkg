@@ -21,11 +21,29 @@
       <data name="Allow Insecure Source" xml:space="preserve">
     <value>Güvensiz Kaynağa İzin Ver</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Mimari</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>Ana URL</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>Bileşenler</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Dağıtım</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>GPG Genel Anahtar URL&apos;si (İsteğe Bağlı)</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Sürüm</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0}, {1} karakteri aşamaz.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} alanı gereklidir.</value>
   </data>
 
 </root>

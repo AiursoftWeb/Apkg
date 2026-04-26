@@ -27,14 +27,29 @@
   <data name="Arch" xml:space="preserve">
     <value>Архитектура</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>Вы уверены, что хотите удалить зеркало</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>Базовый URL</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
   </data>
   <data name="Components" xml:space="preserve">
     <value>Компоненты</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Подтвердить удаление</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>Удалить зеркало</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Дистрибутив</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Ошибка:</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Ошибка</value>
@@ -80,6 +95,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Версия</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>Трассировка стека ошибки синхронизации</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>Это также удалит все связанные пакеты и корзины!</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Вышестоящие зеркала</value>

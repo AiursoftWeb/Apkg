@@ -21,8 +21,20 @@
       <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
+  <data name="Are you sure you want to delete certificate" xml:space="preserve">
+    <value>您確定要刪除憑證嗎</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>確認刪除</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>建立日期</value>
+  </data>
+  <data name="Delete Forever" xml:space="preserve">
+    <value>永久刪除</value>
   </data>
   <data name="Fingerprint" xml:space="preserve">
     <value>指紋</value>
@@ -38,6 +50,9 @@
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>簽署憑證</value>
+  </data>
+  <data name="This will break all repositories using it!" xml:space="preserve">
+    <value>這將導致所有使用此憑證的程式庫無法運作！</value>
   </data>
 
 </root>

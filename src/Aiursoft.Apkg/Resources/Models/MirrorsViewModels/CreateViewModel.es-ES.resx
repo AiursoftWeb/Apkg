@@ -18,11 +18,26 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Base URL" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>Arquitectura</value>
+  </data>
+  <data name="Base URL" xml:space="preserve">
     <value>URL base</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Componentes</value>
   </data>
   <data name="Signed By" xml:space="preserve">
     <value>Firmado por</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>El {0} no puede superar los {1} caracteres.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Se requiere {0}.</value>
   </data>
 
 </root>

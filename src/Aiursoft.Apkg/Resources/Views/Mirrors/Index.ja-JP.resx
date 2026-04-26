@@ -27,17 +27,32 @@
   <data name="Arch" xml:space="preserve">
     <value>アーキテクチャ</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>ミラーを削除してもよろしいですか？</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>基本URL</value>
   </data>
   <data name="Bucket" xml:space="preserve">
     <value>バケット</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
   <data name="Components" xml:space="preserve">
     <value>コンポーネント</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>削除の確認</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>ミラーを削除</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>ディストリビューション</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>エラー:</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>失敗</value>
@@ -83,6 +98,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>スーテ</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>同期エラースタックトレース</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>これにより、関連するすべてのパッケージとバケットも削除されます！</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>アップストリームミラー</value>

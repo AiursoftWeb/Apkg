@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Sebelumnya</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Dukungan &quot;fire-and-forget&quot; untuk tugas berjalan lama (seperti email atau AI), dilengkapi antarmuka GUI untuk manajemen antrian, pemrosesan paralel, dan pembatalan.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,11 +39,23 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Sebuah fondasi yang modern, kaya fitur, dan sangat dapat diperluas untuk aplikasi web Anda berikutnya.</value>
   </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Tambahkan repositori ke dalam</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Terjemahan Berbasis AI</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Semua dependensi terdaftar secara otomatis dan selalu tersedia melalui constructor injection.</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>dan jelajahi paket mereka secara individual.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>dan jalankan</value>
+  </data>
+  <data name="APT Package Search" xml:space="preserve">
+    <value>Pencarian Paket APT</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Mode Gelap Otomatis</value>
@@ -60,8 +75,14 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>Pemrosesan Tugas Latar Belakang</value>
   </data>
+  <data name="Browse Repositories" xml:space="preserve">
+    <value>Jelajahi Repositori</value>
+  </data>
   <data name="Built-in User Management" xml:space="preserve">
     <value>Manajemen Pengguna Bawaan</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Bersihkan</value>
   </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>Datang dengan dukungan Docker untuk penyebaran yang disederhanakan dan konsisten.</value>
@@ -102,11 +123,17 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Fitur sistem manajemen file bawaan dengan kompresi avatar otomatis.</value>
   </data>
+  <data name="Find Packages" xml:space="preserve">
+    <value>Temukan Paket</value>
+  </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Kelola pekerjaan berulang seperti pembersihan dan sinkronisasi dengan antarmuka grafis komprehensif untuk memantau riwayat eksekusi dan log.</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>Halo Dunia!</value>
+  </data>
+  <data name="How to Use" xml:space="preserve">
+    <value>Cara Menggunakan</value>
   </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>Mencakup dokumentasi yang luas dan contoh-contoh praktis untuk memudahkan Anda memulai dengan cepat.</value>
@@ -123,8 +150,17 @@
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Dukungan Banyak Basis Data</value>
   </data>
+  <data name="Next ›" xml:space="preserve">
+    <value>Berikutnya ›</value>
+  </data>
+  <data name="No packages found matching" xml:space="preserve">
+    <value>Tidak ada paket yang cocok</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Integrasi OpenID Connect</value>
+  </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fisik</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Otorisasi RBAC</value>
@@ -143,6 +179,12 @@
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Terintegrasi dengan mulus bersama penyedia OpenID Connect apa pun, dengan sinkronisasi peran otomatis.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Cari</value>
+  </data>
+  <data name="Search packages (e.g. curl, python3, vim…)" xml:space="preserve">
+    <value>Cari paket (mis. curl, python3, vim…)</value>
   </data>
   <data name="Smart Configuration Overrides" xml:space="preserve">
     <value>Penggantian Konfigurasi Cerdas</value>
@@ -164,6 +206,21 @@
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Ini adalah proyek templat, di mana kita memulai perjalanan...</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>untuk memulai.</value>
+  </data>
+  <data name="Try a shorter name or check spelling." xml:space="preserve">
+    <value>Coba gunakan nama yang lebih pendek atau periksa ejaannya.</value>
+  </data>
+  <data name="Type a package name above to search across all active repositories in real-time." xml:space="preserve">
+    <value>Ketikkan nama paket di atas untuk mencari di semua repositori aktif secara real-time.</value>
+  </data>
+  <data name="View all repositories" xml:space="preserve">
+    <value>Lihat semua repositori</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtual</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Selamat datang</value>

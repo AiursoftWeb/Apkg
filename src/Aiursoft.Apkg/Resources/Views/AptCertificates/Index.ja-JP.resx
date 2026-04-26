@@ -21,8 +21,20 @@
       <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
+  <data name="Are you sure you want to delete certificate" xml:space="preserve">
+    <value>証明書「@item.FriendlyName」を削除してもよろしいですか</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>削除の確認</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>作成日</value>
+  </data>
+  <data name="Delete Forever" xml:space="preserve">
+    <value>完全に削除</value>
   </data>
   <data name="Fingerprint" xml:space="preserve">
     <value>指紋</value>
@@ -38,6 +50,9 @@
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>署名証明書</value>
+  </data>
+  <data name="This will break all repositories using it!" xml:space="preserve">
+    <value>これを使用しているすべてのリポジトリが壊れます！</value>
   </data>
 
 </root>

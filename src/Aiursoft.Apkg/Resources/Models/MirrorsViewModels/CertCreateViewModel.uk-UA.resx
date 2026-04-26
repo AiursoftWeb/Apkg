@@ -21,8 +21,17 @@
       <data name="Friendly Name" xml:space="preserve">
     <value>Дружня назва</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ім&apos;я</value>
+  </data>
   <data name="Only lowercase letters and numbers are allowed." xml:space="preserve">
     <value>Дозволені лише малі літери та цифри.</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>Поле «{0}» не може містити більше {1} символів.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Поле «{0}» є обов&apos;язковим.</value>
   </data>
 
 </root>

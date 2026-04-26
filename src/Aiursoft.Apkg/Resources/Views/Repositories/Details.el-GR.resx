@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to List" xml:space="preserve">
+    <value>Επιστροφή στη λίστα</value>
+  </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Περιήγηση Πακέτων</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>Πιστοποιητικό</value>
+  </data>
+  <data name="Client Configuration Guide" xml:space="preserve">
+    <value>Οδηγός Διαμόρφωσης Πελάτη</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Κατανομή</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Πληροφορίες</value>
+  </data>
+  <data name="Live Bucket" xml:space="preserve">
+    <value>Ζωντανό Bucket</value>
+  </data>
+  <data name="Mirror Source" xml:space="preserve">
+    <value>Πηγή Καθρέφτη</value>
+  </data>
+  <data name="One-line Setup (Unsigned):" xml:space="preserve">
+    <value>Ρύθμιση μιας γραμμής (Μη υπογεγραμμένη):</value>
+  </data>
+  <data name="One-line Setup:" xml:space="preserve">
+    <value>Ρύθμιση σε μία γραμμή:</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Λεπτομέρειες Αποθετηρίου</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Κατανομή</value>
+  </data>
+  <data name="This repository is not signed. We are using &apos;Trusted: yes&apos; to bypass security checks. Use with caution!" xml:space="preserve">
+    <value>Αυτό το αποθετήριο δεν είναι υπογεγραμμένο. Χρησιμοποιούμε το &apos;Trusted: yes&apos; για να παρακάμψουμε τους ελέγχους ασφαλείας. Χρησιμοποιήστε το με προσοχή!</value>
+  </data>
+  <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
+    <value>Αυτό χρησιμοποιεί τη σύγχρονη μορφή DEB822 και ένα εστιασμένο keyring για μέγιστη ασφάλεια και αξιοπιστία.</value>
+  </data>
+
+</root>

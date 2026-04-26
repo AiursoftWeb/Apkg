@@ -21,8 +21,20 @@
       <data name="Actions" xml:space="preserve">
     <value>Azioni</value>
   </data>
+  <data name="Are you sure you want to delete certificate" xml:space="preserve">
+    <value>Sei sicuro di voler eliminare il certificato</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Conferma eliminazione</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Data di creazione</value>
+  </data>
+  <data name="Delete Forever" xml:space="preserve">
+    <value>Elimina definitivamente</value>
   </data>
   <data name="Fingerprint" xml:space="preserve">
     <value>Impronta digitale</value>
@@ -38,6 +50,9 @@
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>Certificati di firma</value>
+  </data>
+  <data name="This will break all repositories using it!" xml:space="preserve">
+    <value>Questo interromperà tutti i repository che lo utilizzano!</value>
   </data>
 
 </root>

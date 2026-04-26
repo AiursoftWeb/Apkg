@@ -21,11 +21,29 @@
       <data name="Allow Insecure Source" xml:space="preserve">
     <value>Permitir Fonte Insegura</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arquitetura</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>URL Base</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>Componentes</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distribuição</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>URL da Chave Pública GPG (Opcional)</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Versão</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>O {0} não pode exceder os {1} caracteres.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>O {0} é obrigatório.</value>
   </data>
 
 </root>

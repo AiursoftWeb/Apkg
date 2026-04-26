@@ -33,6 +33,9 @@
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>Farklı kuyruklarda test işleri oluşturur (15-30 saniye bekleme, %10 hata oranı). Farklı kuyruklardaki işler paralel olarak çalışır.</value>
   </data>
+  <data name="Every {0}, first run in {1}" xml:space="preserve">
+    <value>Every {0}, first run in {1}</value>
+  </data>
   <data name="Failed" xml:space="preserve">
     <value>Başarısız</value>
   </data>
@@ -59,6 +62,9 @@
   </data>
   <data name="Never executed" xml:space="preserve">
     <value>Hiç çalıştırılmadı</value>
+  </data>
+  <data name="Never run" xml:space="preserve">
+    <value>Never run</value>
   </data>
   <data name="New Job A" xml:space="preserve">
     <value>Yeni Görev A</value>

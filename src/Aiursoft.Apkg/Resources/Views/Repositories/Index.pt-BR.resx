@@ -21,11 +21,23 @@
       <data name="Actions" xml:space="preserve">
     <value>Ações</value>
   </data>
+  <data name="Are you sure you want to delete repository" xml:space="preserve">
+    <value>Tem certeza que deseja excluir o repositório</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
   <data name="Certificate" xml:space="preserve">
     <value>Certificado</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Confirmar Exclusão</value>
+  </data>
   <data name="Create New Repository" xml:space="preserve">
     <value>Criar Novo Repositório</value>
+  </data>
+  <data name="Delete Repository" xml:space="preserve">
+    <value>Excluir Repositório</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribuição</value>

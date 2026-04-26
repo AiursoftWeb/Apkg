@@ -18,11 +18,32 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>สถาปัตยกรรม</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>ยกเลิก</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>ส่วนประกอบ</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>ตัวกรองแบบเข้มถูกนำไปใช้ระหว่างกระบวนการ Mirror Sync: จะดาวน์โหลดและจัดเก็บเฉพาะแพ็กเกจที่อยู่ในหนึ่งในองค์ประกอบเหล่านี้เท่านั้น คั่นด้วยเครื่องหมายจุลภาค (เช่น main,universe,multiverse,restricted) การเปลี่ยนแปลงจะมีผลในการดำเนินการ Mirror Sync ครั้งถัดไป</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>ตัวกรองแบบเข้มถูกใช้งานระหว่างกระบวนการ Mirror Sync: จะดาวน์โหลดและจัดเก็บเฉพาะแพ็กเกจที่มีสถาปัตยกรรมตรงกับค่าใดค่าหนึ่งจากรายการนี้เท่านั้น กรอกค่าคั่นด้วยเครื่องหมายจุลภาค (เช่น amd64,arm64) การเปลี่ยนแปลงจะมีผลเมื่อทำงาน Mirror Sync ครั้งถัดไป</value>
+  </data>
+  <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
+    <value>หากเลือกตัวเลือกนี้ จะไม่มีการตรวจสอบลายเซ็น ใช้ตามความเสี่ยงของคุณเอง</value>
+  </data>
+  <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
+    <value>URL ที่เลือกได้สำหรับกุญแจสาธารณะ GPG จากต้นทางเพื่อใช้ในการตรวจสอบ</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>บันทึกการเปลี่ยนแปลง</value>
+  </data>
+  <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>คำนำหน้า URL สำหรับกระจกนี้ (เช่น &apos;ubuntu&apos;)</value>
   </data>
 
 </root>

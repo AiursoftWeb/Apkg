@@ -21,11 +21,29 @@
       <data name="Allow Insecure Source" xml:space="preserve">
     <value>允許不安全的來源</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>架構</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>基礎網址</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>組件</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>發行版</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>GPG 公開金鑰 URL（可選）</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} 不得超過 {1} 個字元。</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>必須填寫 {0}。</value>
   </data>
 
 </root>

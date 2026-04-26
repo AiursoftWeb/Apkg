@@ -18,11 +18,32 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>Arquitetura</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Componentes</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Filtro rígido aplicado durante a Sincronização do Espelho: apenas os pacotes pertencentes a um destes componentes são transferidos e armazenados. Separados por vírgulas (por exemplo, main,universe,multiverse,restricted). As alterações entram em vigor na próxima execução da tarefa de Sincronização do Espelho.</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Filtro rígido aplicado durante a sincronização do espelho: apenas os pacotes cuja arquitetura corresponda a um destes valores são transferidos e armazenados. Separados por vírgulas (ex. amd64,arm64). As alterações entram em vigor na próxima execução do trabalho de sincronização do espelho.</value>
+  </data>
+  <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
+    <value>Se estiver marcada, não será efetuada qualquer verificação de assinatura. Utilize por sua conta e risco.</value>
+  </data>
+  <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
+    <value>URL opcional para a chave pública GPG original para verificação.</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Guardar Alterações</value>
+  </data>
+  <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>O prefixo da URL para este espelho (ex.: &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

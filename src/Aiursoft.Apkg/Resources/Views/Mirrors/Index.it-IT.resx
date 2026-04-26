@@ -27,14 +27,29 @@
   <data name="Arch" xml:space="preserve">
     <value>Architettura</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>Sei sicuro di voler eliminare lo specchio?</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>URL di base</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
   </data>
   <data name="Components" xml:space="preserve">
     <value>Componenti</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Conferma eliminazione</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>Elimina specchio</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribuzione</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Errore:</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Fallito</value>
@@ -80,6 +95,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>Traccia dello stack dell&apos;errore di sincronizzazione</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>Questo eliminerà anche tutti i pacchetti e i bucket associati!</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Specchi upstream</value>

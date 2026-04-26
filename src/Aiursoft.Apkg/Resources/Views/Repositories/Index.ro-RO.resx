@@ -21,11 +21,23 @@
       <data name="Actions" xml:space="preserve">
     <value>Acțiuni</value>
   </data>
+  <data name="Are you sure you want to delete repository" xml:space="preserve">
+    <value>Sunteți sigur că doriți să ștergeți depozitul</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulează</value>
+  </data>
   <data name="Certificate" xml:space="preserve">
     <value>Certificat</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Confirmare ștergere</value>
+  </data>
   <data name="Create New Repository" xml:space="preserve">
     <value>Creează un depozit nou</value>
+  </data>
+  <data name="Delete Repository" xml:space="preserve">
+    <value>Șterge depozitul</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribuție</value>

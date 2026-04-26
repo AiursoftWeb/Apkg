@@ -21,11 +21,29 @@
       <data name="Allow Insecure Source" xml:space="preserve">
     <value>Cho phép Nguồn Không An Toàn</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Kiến trúc</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>URL cơ sở</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>Thành phần</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Phân phối</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>URL Khóa Công Khai GPG (Tùy chọn)</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Bản phát hành</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} không được vượt quá {1} ký tự.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} là bắt buộc.</value>
   </data>
 
 </root>

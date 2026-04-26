@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- Tidak ada (Standalone) --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arsitektur</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>Tandatangani file Release dari repositori ini secara otomatis.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponen</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Mengontrol file indeks binary-{arch}/Packages yang dihasilkan. Paket dengan arsitektur yang tidak cocok (kecuali &apos;all&apos;) disimpan tetapi tidak terlihat oleh klien apt. Juga mengatur baris Architectures: di panduan pengaturan klien. Perubahan akan berlaku pada menjalankan job Sinkronisasi Repositori berikutnya.</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Mengontrol direktori komponen mana yang disertakan saat membuat indeks Packages. Paket dalam komponen yang tidak terdaftar disimpan tetapi tidak terlihat oleh klien apt. Juga mengatur baris Components: di panduan konfigurasi klien. Perubahan akan berlaku pada job Repository Sync berikutnya.</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>Jika terhubung ke mirror, repositori ini akan menyediakan paket dari sumber upstream tersebut.</value>
+  </data>
+  <data name="Save Repository" xml:space="preserve">
+    <value>Simpan Repositori</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>Nama suite APT (misalnya jammy, stable).</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>Kunci GPG yang digunakan untuk menandatangani file Rilis dari repositori ini.</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>Pengenal internal dan bagian dari jalur URL.</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>Awalan URL untuk repositori ini (misalnya &apos;ubuntu&apos;).</value>
+  </data>
+
+</root>

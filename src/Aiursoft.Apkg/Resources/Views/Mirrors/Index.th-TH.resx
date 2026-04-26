@@ -27,17 +27,32 @@
   <data name="Arch" xml:space="preserve">
     <value>สถาปัตยกรรม</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการลบมิเรอร์</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>URL พื้นฐาน</value>
   </data>
   <data name="Bucket" xml:space="preserve">
     <value>บักเก็ต</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
   <data name="Components" xml:space="preserve">
     <value>ส่วนประกอบ</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>ยืนยันการลบ</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>ลบกระจก</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>ระบบปฏิบัติการ</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>ข้อผิดพลาด:</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>ล้มเหลว</value>
@@ -83,6 +98,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>ชุด</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>ติดตามรอยต่อข้อผิดพลาดในการซิงค์</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>สิ่งนี้จะลบแพ็กเกจและบักเก็ตที่เกี่ยวข้องทั้งหมดด้วย!</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>แหล่งสะท้อนข้อมูลต้นทาง</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Föregående</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Stöd för &quot;fire-and-forget&quot; för långvariga uppgifter (t.ex. e-post eller AI), med en GUI för köhantering, parallell bearbetning och avbrott.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,11 +39,23 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>En modern, funktionsrik och mycket utbyggbar grund för ditt nästa webbprogram.</value>
   </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Lägg till ett arkiv i dina</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AI-drivna översättningar</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Alla beroenden registreras automatiskt och är alltid tillgängliga via konstruktorinjektion.</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>och bläddra igenom deras paket individuellt.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>och kör</value>
+  </data>
+  <data name="APT Package Search" xml:space="preserve">
+    <value>Sök i APT-paket</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Automatiskt mörkt läge</value>
@@ -60,8 +75,14 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>Bakgrundsjobbshantering</value>
   </data>
+  <data name="Browse Repositories" xml:space="preserve">
+    <value>Utforska arkiv</value>
+  </data>
   <data name="Built-in User Management" xml:space="preserve">
     <value>Inbyggd användarhantering</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Rensa</value>
   </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>Kommer med Docker-stöd för enklare och konsekventa distributioner.</value>
@@ -102,11 +123,17 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Har ett inbyggt filhanteringssystem med automatisk komprimering av avatarer.</value>
   </data>
+  <data name="Find Packages" xml:space="preserve">
+    <value>Hitta paket</value>
+  </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Hantera återkommande jobb som rengöring och synkronisering med en omfattande GUI för att övervaka utförandehistorik och loggar.</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>Hej Världen!</value>
+  </data>
+  <data name="How to Use" xml:space="preserve">
+    <value>Så här använder du</value>
   </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>Innehåller omfattande dokumentation och praktiska exempel för att du snabbt ska komma igång.</value>
@@ -123,8 +150,17 @@
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Stöd för flera databaser</value>
   </data>
+  <data name="Next ›" xml:space="preserve">
+    <value>Nästa ›</value>
+  </data>
+  <data name="No packages found matching" xml:space="preserve">
+    <value>Inga paket som matchar hittades</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect-integration</value>
+  </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fysisk</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-auktorisering</value>
@@ -143,6 +179,12 @@
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Integrera sömlöst med valfri OpenID Connect-leverantör, med automatisk rollsynkronisering.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Sök</value>
+  </data>
+  <data name="Search packages (e.g. curl, python3, vim…)" xml:space="preserve">
+    <value>Sök paket (t.ex. curl, python3, vim…)</value>
   </data>
   <data name="Smart Configuration Overrides" xml:space="preserve">
     <value>Smart Configuration Overrides</value>
@@ -164,6 +206,21 @@
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Det här är ett mallprojekt, där vi börjar resan...</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>för att komma igång.</value>
+  </data>
+  <data name="Try a shorter name or check spelling." xml:space="preserve">
+    <value>Prova ett kortare namn eller kontrollera stavningen.</value>
+  </data>
+  <data name="Type a package name above to search across all active repositories in real-time." xml:space="preserve">
+    <value>Skriv ett paketnamn ovan för att söka i alla aktiva arkiv i realtid.</value>
+  </data>
+  <data name="View all repositories" xml:space="preserve">
+    <value>Visa alla arkiv</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtuell</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Välkommen</value>

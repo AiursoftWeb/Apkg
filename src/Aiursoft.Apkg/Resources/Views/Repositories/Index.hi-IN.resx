@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>कार्रियाँ</value>
+  </data>
+  <data name="Are you sure you want to delete repository" xml:space="preserve">
+    <value>क्या आप वाकई रिपॉजिटरी को हटाना चाहते हैं</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>प्रमाणपत्र</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>हटाने की पुष्टि करें</value>
+  </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>नया रिपॉजिटरी बनाएं</value>
+  </data>
+  <data name="Delete Repository" xml:space="preserve">
+    <value>रेपॉजिटरी हटाएं</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>वितरण</value>
+  </data>
+  <data name="Live Bucket" xml:space="preserve">
+    <value>लाइव बकेट</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>नाम</value>
+  </data>
+  <data name="No Certificate" xml:space="preserve">
+    <value>कोई प्रमाणपत्र नहीं</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>सार्वजनिक रिपॉजिटरी</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>द्वितीयक बकेट</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>हस्ताक्षर</value>
+  </data>
+  <data name="Signed" xml:space="preserve">
+    <value>हस्ताक्षरित</value>
+  </data>
+  <data name="Signed at" xml:space="preserve">
+    <value>हस्ताक्षरित तिथि</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>सूट</value>
+  </data>
+  <data name="Total Packages" xml:space="preserve">
+    <value>कुल पैकेज</value>
+  </data>
+
+</root>

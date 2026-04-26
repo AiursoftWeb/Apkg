@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- Niciunul (Standalone) --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitectură</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>Semnează automat fișierele Release ale acestui depozit.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>Anulare</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Componente</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Controlează fișierele index ale pachetelor generate pentru arhitectura binară-{arch}/Packages. Pachetele cu arhitecturi neconforme (cu excepția &apos;all&apos;) sunt stocate, dar invizibile pentru clienții apt. Setează, de asemenea, linia Architectures: în ghidul de configurare a clientului. Modificările devin efective la următoarea execuție a job-ului de sincronizare a depozitului.</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Controlează care subdirectoare de componente sunt incluse la generarea indexului Packages. Pachetele din componente neînlistate sunt stocate, dar invizibile pentru clienții apt. De asemenea, setează linia Components: în ghidul de configurare a clientului. Modificările devin efective la următoarea execuție a job-ului de sincronizare a repository-ului.</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>Dacă este legat de un mirror, acest depozit va servi pachete din acea sursă upstream.</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>Salvează depozitul</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>Numele suitei APT (de ex. jammy, stable).</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>Cheia GPG utilizată pentru a semna fișierele de lansare ale acestui depozit.</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>Identificatorul intern și parte din calea URL-ului.</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>Prefixul URL pentru acest depozit (de ex. &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

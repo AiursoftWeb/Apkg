@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="Are you sure you want to delete certificate" xml:space="preserve">
+    <value>Ви впевнені, що хочете видалити сертифікат</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Підтвердити видалення</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Створено</value>
+  </data>
+  <data name="Delete Forever" xml:space="preserve">
+    <value>Видалити назавжди</value>
+  </data>
+  <data name="Fingerprint" xml:space="preserve">
+    <value>Відбиток пальця</value>
+  </data>
+  <data name="Friendly Name" xml:space="preserve">
+    <value>Зручна назва</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Створити новий ключ</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ім&apos;я</value>
+  </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Сертифікати підпису</value>
+  </data>
+  <data name="This will break all repositories using it!" xml:space="preserve">
+    <value>Це призведе до поломки всіх репозиторіїв, які його використовують!</value>
+  </data>
+
+</root>

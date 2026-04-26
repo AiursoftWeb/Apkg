@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="‹ Prev" xml:space="preserve">
+    <value>‹ السابق</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>دعم &quot;إطلاق ونسي&quot; للمهام الطويلة (مثل البريد الإلكتروني أو الذكاء الاصطناعي)، يشمل واجهة رسومية لإدارة الطابور، والمعالجة المتوازية، والإلغاء.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,11 +39,23 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>أساس حديث، غني بالميزات، وقابل للتوسعة بشكل كبير لتطبيق الويب القادم الخاص بك.</value>
   </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>أضف مستودعًا إلى</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>الترجمات المدعومة بالذكاء الاصطناعي</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>يتم تسجيل جميع التبعيات تلقائيًا وهي متاحة دائمًا عبر حقن المُنشئ.</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>وتصفح حزمها بشكل فردي.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>وشغّل</value>
+  </data>
+  <data name="APT Package Search" xml:space="preserve">
+    <value>البحث عن حزم APT</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>الوضع الداكن التلقائي</value>
@@ -60,8 +75,14 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>معالجة المهام الخلفية</value>
   </data>
+  <data name="Browse Repositories" xml:space="preserve">
+    <value>تصفح المستودعات</value>
+  </data>
   <data name="Built-in User Management" xml:space="preserve">
     <value>إدارة المستخدمين المدمجة</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>مسح</value>
   </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>يأتي مع دعم دوكير لDeployment مبسطة وموحدة.</value>
@@ -102,11 +123,17 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>يتميز بنظام مدمج لإدارة الملفات مع ضغط تلقائي للصور الشخصية.</value>
   </data>
+  <data name="Find Packages" xml:space="preserve">
+    <value>ابحث عن الحزم</value>
+  </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>قم بإدارة المهام المتكررة مثل التنظيف والمزامنة باستخدام واجهة رسومية شاملة لمراقبة سجلات تاريخ التنفيذ والسجلات.</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>مرحباً أيها العالم!</value>
+  </data>
+  <data name="How to Use" xml:space="preserve">
+    <value>كيفية الاستخدام</value>
   </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>يحتوي على وثائق شاملة وأمثلة عملية لمساعدتك على البدء بسرعة.</value>
@@ -123,8 +150,17 @@
   <data name="Multiple Database Support" xml:space="preserve">
     <value>دعم قواعد بيانات متعددة</value>
   </data>
+  <data name="Next ›" xml:space="preserve">
+    <value>التالي ›</value>
+  </data>
+  <data name="No packages found matching" xml:space="preserve">
+    <value>لم يتم العثور على حزم مطابقة</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>دمج OpenID Connect</value>
+  </data>
+  <data name="Physical" xml:space="preserve">
+    <value>مادي</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>الترخيص القائم على الأدوار (RBAC)</value>
@@ -143,6 +179,12 @@
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>التكامل السلس مع أي موفر OpenID Connect، مع مزامنة تلقائية للأدوار.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="Search packages (e.g. curl, python3, vim…)" xml:space="preserve">
+    <value>ابحث عن الحزم (مثل curl, python3, vim…)</value>
   </data>
   <data name="Smart Configuration Overrides" xml:space="preserve">
     <value>الإعادة تعيين الإعدادات الذكية</value>
@@ -164,6 +206,21 @@
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>هذا مشروع قالب، حيث نبدأ رحلة المستكشف...</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>للبدء.</value>
+  </data>
+  <data name="Try a shorter name or check spelling." xml:space="preserve">
+    <value>جرّب اسماً أقصر أو تحقق من الإملاء.</value>
+  </data>
+  <data name="Type a package name above to search across all active repositories in real-time." xml:space="preserve">
+    <value>اكتب اسم حزمة أعلاه للبحث عبر جميع المستودعات النشطة في الوقت الفعلي.</value>
+  </data>
+  <data name="View all repositories" xml:space="preserve">
+    <value>عرض جميع المستودعات</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>افتراضي</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>مرحباً</value>

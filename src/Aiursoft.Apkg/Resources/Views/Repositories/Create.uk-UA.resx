@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- Жоден (автономний) --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Архітектура</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>Автоматично підписувати файли Release цього сховища.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Компоненти</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Визначає, які індексні файли binary-{arch}/Packages генеруються. Пакети з несумісними архітектурами (окрім &apos;all&apos;) зберігаються, але є невидимими для клієнтів apt. Також встановлює рядок Architectures: у посібнику з налаштування клієнта. Зміни набувають чинності під час наступного запуску завдання синхронізації сховища.</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Визначає, які підкаталоги компонентів включаються під час генерації індексу Packages. Пакети з неперелічених компонентів зберігаються, але стають невидимими для клієнтів apt. Також встановлює рядок Components: у посібнику з налаштування клієнта. Зміни набувають чинності під час наступного запуску завдання синхронізації сховища.</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>Якщо підключено до дзеркала, цей репозиторій надаватиме пакунки з цього первинного джерела.</value>
+  </data>
+  <data name="Save Repository" xml:space="preserve">
+    <value>Зберегти сховище</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>Назва комплекту APT (наприклад, jammy, stable).</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>GPG-ключ, який використовується для підписання файлів Release цього сховища.</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>Внутрішній ідентифікатор і частина шляху URL.</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>Префікс URL для цього сховища (наприклад, &apos;ubuntu&apos;).</value>
+  </data>
+
+</root>

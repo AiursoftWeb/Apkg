@@ -18,14 +18,35 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Automatic GPG Sign" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>Архітектура</value>
+  </data>
+  <data name="Automatic GPG Sign" xml:space="preserve">
     <value>Автоматичне підписування GPG</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Компоненти</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Дистрибутив</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>Джерело дзеркала</value>
   </data>
+  <data name="Repository Name" xml:space="preserve">
+    <value>Назва репозиторію</value>
+  </data>
   <data name="Signing Certificate" xml:space="preserve">
     <value>Сертифікат підпису</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Вид</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>Значення {0} не може перевищувати {1} символів.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Поле &quot;{0}&quot; є обов&apos;язковим.</value>
   </data>
 
 </root>

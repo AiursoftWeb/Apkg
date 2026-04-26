@@ -33,6 +33,9 @@
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>Crea trabajos de prueba en colas diferentes (dormir entre 15-30s, tasa de fallo del 10%). Los trabajos en colas diferentes se ejecutan en paralelo.</value>
   </data>
+  <data name="Every {0}, first run in {1}" xml:space="preserve">
+    <value>Every {0}, first run in {1}</value>
+  </data>
   <data name="Failed" xml:space="preserve">
     <value>Fallido</value>
   </data>
@@ -59,6 +62,9 @@
   </data>
   <data name="Never executed" xml:space="preserve">
     <value>Nunca ejecutado</value>
+  </data>
+  <data name="Never run" xml:space="preserve">
+    <value>Never run</value>
   </data>
   <data name="New Job A" xml:space="preserve">
     <value>Nuevo trabajo A</value>

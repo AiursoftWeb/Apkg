@@ -18,14 +18,35 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Automatic GPG Sign" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>Kiến trúc</value>
+  </data>
+  <data name="Automatic GPG Sign" xml:space="preserve">
     <value>Ký GPG Tự động</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Thành phần</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Hệ điều hành</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>Nguồn Gương</value>
   </data>
+  <data name="Repository Name" xml:space="preserve">
+    <value>Tên Kho Lưu Trữ</value>
+  </data>
   <data name="Signing Certificate" xml:space="preserve">
     <value>Chứng chỉ Ký</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Bản phân phối</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} không được vượt quá {1} ký tự.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} là bắt buộc.</value>
   </data>
 
 </root>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Zurück</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>&quot;Fire-and-forget&quot;-Unterstützung für langlaufende Aufgaben (z. B. E-Mails oder KI), mit einer GUI zur Warteschlangenverwaltung, paralleler Verarbeitung und Abbruchfunktion.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,11 +39,23 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Eine moderne, funktionsreiche und hochgradig erweiterbare Grundlage für Ihre nächste Webanwendung.</value>
   </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Fügen Sie ein Repository zu Ihren</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>KI-gestützte Übersetzungen</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Alle Abhängigkeiten werden automatisch registriert und sind stets über Constructor Injection verfügbar.</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>und durchsuchen Sie deren Pakete einzeln.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>und führen Sie</value>
+  </data>
+  <data name="APT Package Search" xml:space="preserve">
+    <value>APT-Paketsuche</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Automatischer Dunkelmodus</value>
@@ -60,8 +75,14 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>Hintergrund-Aufgabenverarbeitung</value>
   </data>
+  <data name="Browse Repositories" xml:space="preserve">
+    <value>Repositories durchsuchen</value>
+  </data>
   <data name="Built-in User Management" xml:space="preserve">
     <value>Integrierte Benutzerverwaltung</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Löschen</value>
   </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>Kommt mit Docker-Unterstützung für vereinfachte und konsistente Bereitstellungen.</value>
@@ -102,11 +123,17 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Verfügt über ein integriertes Dateiverwaltungssystem mit automatischer Avatar-Komprimierung.</value>
   </data>
+  <data name="Find Packages" xml:space="preserve">
+    <value>Pakete finden</value>
+  </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Verwalten Sie wiederkehrende Aufgaben wie Bereinigung und Synchronisation mit einer umfassenden GUI zur Überwachung der Ausführungsverlauf und Protokolle.</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>Hallo Welt!</value>
+  </data>
+  <data name="How to Use" xml:space="preserve">
+    <value>So verwenden Sie es</value>
   </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>Umfangreiche Dokumentation und praktische Beispiele für einen schnellen Einstieg.</value>
@@ -123,8 +150,17 @@
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Unterstützung mehrerer Datenbanken</value>
   </data>
+  <data name="Next ›" xml:space="preserve">
+    <value>Weiter ›</value>
+  </data>
+  <data name="No packages found matching" xml:space="preserve">
+    <value>Keine Pakete gefunden, die übereinstimmen</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect-Integration</value>
+  </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Physisch</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-Autorisierung</value>
@@ -143,6 +179,12 @@
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Nahtlose Integration mit jedem OpenID Connect-Anbieter, mit automatischer Rollensynchronisation.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Suchen</value>
+  </data>
+  <data name="Search packages (e.g. curl, python3, vim…)" xml:space="preserve">
+    <value>Pakete durchsuchen (z. B. curl, python3, vim…)</value>
   </data>
   <data name="Smart Configuration Overrides" xml:space="preserve">
     <value>Intelligente Konfigurationsoverrides</value>
@@ -164,6 +206,21 @@
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Dies ist ein Template-Projekt, in dem wir die Reise beginnen...</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>um zu beginnen.</value>
+  </data>
+  <data name="Try a shorter name or check spelling." xml:space="preserve">
+    <value>Versuchen Sie einen kürzeren Namen oder überprüfen Sie die Rechtschreibung.</value>
+  </data>
+  <data name="Type a package name above to search across all active repositories in real-time." xml:space="preserve">
+    <value>Geben Sie oben einen Paketnamen ein, um in Echtzeit in allen aktiven Repositories zu suchen.</value>
+  </data>
+  <data name="View all repositories" xml:space="preserve">
+    <value>Alle Repositories anzeigen</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtuell</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Willkommen</value>

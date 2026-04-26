@@ -18,11 +18,32 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>Architektur</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>Abbrechen</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponenten</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Harter Filter während der Spiegel-Synchronisierung angewendet: Es werden nur Pakete heruntergeladen und gespeichert, die zu einer dieser Komponenten gehören. Komma-getrennt (z. B. main,universe,multiverse,restricted). Änderungen werden bei der nächsten Ausführung des Spiegel-Synchronisierungsauftrags wirksam.</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Harter Filter während der Spiegelung angewendet: Nur Pakete, deren Architektur mit einem dieser Werte übereinstimmt, werden heruntergeladen und gespeichert. Komma-getrennt (z. B. amd64,arm64). Änderungen wirken sich bei der nächsten Ausführung des Spiegelungsauftrags aus.</value>
+  </data>
+  <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
+    <value>Wenn aktiviert, wird keine Signaturenüberprüfung durchgeführt. Verwendung auf eigene Gefahr.</value>
+  </data>
+  <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
+    <value>Optionale URL zum öffentlichen upstream-GPG-Schlüssel zur Überprüfung.</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Änderungen speichern</value>
+  </data>
+  <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>Das URL-Präfix für diesen Mirror (z. B. &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

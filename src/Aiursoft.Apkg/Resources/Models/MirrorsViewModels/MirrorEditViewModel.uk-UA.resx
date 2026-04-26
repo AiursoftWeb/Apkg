@@ -21,11 +21,29 @@
       <data name="Allow Insecure Source" xml:space="preserve">
     <value>Дозволити ненадійне джерело</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Архітектура</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>Базовий URL</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>Компоненти</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Дистрибутив</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>URL публічного ключа GPG (необов&apos;язково)</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Вид</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>Поле {0} не може перевищувати {1} символів.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>Поле {0} є обов&apos;язковим.</value>
   </data>
 
 </root>

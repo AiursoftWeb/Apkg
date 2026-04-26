@@ -18,11 +18,35 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>Arhitectură</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>Anulare</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Componente</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Filtru strict aplicat în timpul sincronizării mirror: doar pachetele care aparțin uneia dintre aceste componente sunt descărcate și stocate. Separate prin virgulă (de ex. main,universe,multiverse,restricted). Modificările intră în vigoare la următoarea execuție a job-ului de sincronizare mirror.</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Filtru strict aplicat în timpul sincronizării oglinzii: sunt descărcate și stocate doar pachetele ale căror arhitectură corespunde uneia dintre aceste valori. Separate prin virgulă (de ex. amd64,arm64). Modificările intră în vigoare la următoarea execuție a job-ului de sincronizare a oglinzii.</value>
+  </data>
+  <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
+    <value>Dacă este bifată, nu se va efectua nicio verificare a semnăturii. Utilizați pe propria răspundere.</value>
+  </data>
+  <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
+    <value>URL opțional către cheia publică GPG upstream pentru verificare.</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Salvare modificări</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>URL-ul de bază al serverului upstream (de ex. &apos;https://mirrors.ubuntu.com/&apos;). Numele distribuției va fi adăugat automat.</value>
+  </data>
+  <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>Prefixul URL pentru acest mirror (de ex. &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

@@ -21,11 +21,29 @@
       <data name="Allow Insecure Source" xml:space="preserve">
     <value>Tillåt osäkra källor</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arkitektur</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>Bas-URL</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponenter</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distribution</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>GPG-publicnyckel-URL (valfritt)</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} får inte överskrida {1} tecken.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} krävs.</value>
   </data>
 
 </root>

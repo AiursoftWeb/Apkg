@@ -21,8 +21,17 @@
       <data name="Friendly Name" xml:space="preserve">
     <value>सहज नाम</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>नाम</value>
+  </data>
   <data name="Only lowercase letters and numbers are allowed." xml:space="preserve">
     <value>केवल छोटे अक्षर और संख्याएँ अनुमत हैं।</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} {1} वर्णों से अधिक नहीं हो सकता।</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} आवश्यक है।</value>
   </data>
 
 </root>

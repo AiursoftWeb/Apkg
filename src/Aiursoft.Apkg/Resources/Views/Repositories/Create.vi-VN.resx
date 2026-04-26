@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- Không có (Độc lập) --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Kiến trúc</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>Tự động ký các tệp Release của kho lưu trữ này.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>Hủy bỏ</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Các thành phần</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Kiểm soát các tệp chỉ mục Packages của binary-{arch} được tạo ra. Các gói có kiến trúc không khớp (ngoại trừ &apos;all&apos;) được lưu trữ nhưng ẩn đối với các khách hàng apt. Cũng thiết lập dòng Architectures: trong hướng dẫn thiết lập khách hàng. Các thay đổi có hiệu lực khi chạy tác nghiệp Đồng bộ hóa Kho tiếp theo.</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Kiểm soát các thư mục con của thành phần nào được bao gồm khi tạo chỉ mục Packages. Các gói trong các thành phần không được liệt kê sẽ được lưu trữ nhưng không hiển thị đối với các khách hàng apt. Đồng thời thiết lập dòng Components: trong hướng dẫn thiết lập khách hàng. Các thay đổi có hiệu lực khi chạy tác nghiệp Đồng bộ Kho lưu trữ tiếp theo.</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>Nếu được liên kết với một máy phản chiếu, kho lưu trữ này sẽ cung cấp các gói từ nguồn gốc upstream đó.</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>Lưu Kho lưu trữ</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>Tên suite APT (ví dụ: jammy, stable).</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>Khóa GPG được sử dụng để ký các tệp Release của kho lưu trữ này.</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>Mã định danh nội bộ và một phần của đường dẫn URL.</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>Tiền tố URL cho kho lưu trữ này (ví dụ: &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

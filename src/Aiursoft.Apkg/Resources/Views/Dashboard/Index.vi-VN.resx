@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Trước</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Hỗ trợ &quot;Fire-and-forget&quot; cho các tác vụ dài hạn (như email hoặc AI), đi kèm giao diện người dùng (GUI) để quản lý hàng đợi, xử lý song song và hủy bỏ.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,11 +39,23 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Một nền tảng hiện đại, đầy đủ tính năng và có khả năng mở rộng cao cho ứng dụng web tiếp theo của bạn.</value>
   </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Thêm một kho lưu trữ vào</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Bản dịch hỗ trợ bởi AI</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Tất cả các dependency đều được tự động đăng ký và luôn sẵn sàng để sử dụng thông qua constructor injection.</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>và duyệt các gói của chúng một cách riêng lẻ.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>và chạy</value>
+  </data>
+  <data name="APT Package Search" xml:space="preserve">
+    <value>Tìm kiếm Gói APT</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Chế độ Tối Tự động</value>
@@ -60,8 +75,14 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>Xử lý công việc nền</value>
   </data>
+  <data name="Browse Repositories" xml:space="preserve">
+    <value>Duyệt kho lưu trữ</value>
+  </data>
   <data name="Built-in User Management" xml:space="preserve">
     <value>Quản lý Người dùng Tích hợp sẵn</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Xóa</value>
   </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>Được tích hợp hỗ trợ Docker để triển khai đơn giản và nhất quán.</value>
@@ -102,11 +123,17 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Tích hợp hệ thống quản lý tập tin với tính năng nén avatar tự động.</value>
   </data>
+  <data name="Find Packages" xml:space="preserve">
+    <value>Tìm Gói</value>
+  </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Xử lý các công việc lặp lại như dọn dẹp và đồng bộ hóa với giao diện người dùng toàn diện để theo dõi lịch sử thực thi và nhật ký.</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>Xin chào Thế giới!</value>
+  </data>
+  <data name="How to Use" xml:space="preserve">
+    <value>Hướng dẫn sử dụng</value>
   </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>Bao gồm tài liệu phong phú và các ví dụ thực tế để giúp bạn bắt đầu nhanh chóng.</value>
@@ -123,8 +150,17 @@
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Hỗ trợ Đa Cơ sở Dữ liệu</value>
   </data>
+  <data name="Next ›" xml:space="preserve">
+    <value>Tiếp ›</value>
+  </data>
+  <data name="No packages found matching" xml:space="preserve">
+    <value>Không tìm thấy gói nào phù hợp</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Tích hợp OpenID Connect</value>
+  </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Vật lý</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Ủy quyền RBAC</value>
@@ -143,6 +179,12 @@
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Tích hợp liền mạch với mọi nhà cung cấp OpenID Connect, kèm theo đồng bộ hóa vai trò tự động.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="Search packages (e.g. curl, python3, vim…)" xml:space="preserve">
+    <value>Tìm kiếm gói (ví dụ: curl, python3, vim…)</value>
   </data>
   <data name="Smart Configuration Overrides" xml:space="preserve">
     <value>Ghi đè cấu hình thông minh</value>
@@ -164,6 +206,21 @@
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Đây là một dự án mẫu, nơi chúng ta bắt đầu hành trình khám phá...</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>để bắt đầu.</value>
+  </data>
+  <data name="Try a shorter name or check spelling." xml:space="preserve">
+    <value>Hãy thử tên ngắn hơn hoặc kiểm tra chính tả.</value>
+  </data>
+  <data name="Type a package name above to search across all active repositories in real-time." xml:space="preserve">
+    <value>Nhập tên gói ở trên để tìm kiếm trên tất cả các kho lưu trữ đang hoạt động theo thời gian thực.</value>
+  </data>
+  <data name="View all repositories" xml:space="preserve">
+    <value>Xem tất cả kho lưu trữ</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Ảo</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Chào mừng</value>
