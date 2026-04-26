@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="‹ Prev" xml:space="preserve">
+    <value>‹ 上一頁</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>「即發即忘」支援長時間執行的工作（如電子郵件或人工智慧），具備圖形使用者介面以管理佇列、平行處理及取消作業。</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,11 +39,23 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>一個現代化、功能豐富且高度可擴展的基礎架構，為您的下一個網路應用程式奠定根基。</value>
   </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>將套件庫新增至您的</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AI 驅動翻譯</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>所有相依元件都會自動註冊，並始終可透過建構函式注入使用。</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>並個別瀏覽其套件。</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>並執行</value>
+  </data>
+  <data name="APT Package Search" xml:space="preserve">
+    <value>APT 套件搜尋</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>自動深色模式</value>
@@ -60,8 +75,14 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>背景工作處理</value>
   </data>
+  <data name="Browse Repositories" xml:space="preserve">
+    <value>瀏覽程式庫</value>
+  </data>
   <data name="Built-in User Management" xml:space="preserve">
     <value>內建使用者管理</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>清除</value>
   </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>內建 Docker 支援，讓部署更簡化且一致。</value>
@@ -102,11 +123,17 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>具備內建檔案管理系統，並支援自動頭像壓縮功能。</value>
   </data>
+  <data name="Find Packages" xml:space="preserve">
+    <value>尋找套件</value>
+  </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>處理如清理與同步等重複性工作，並透過功能齊全的圖形介面監控執行歷程與記錄。</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>世界，你好！</value>
+  </data>
+  <data name="How to Use" xml:space="preserve">
+    <value>使用方式</value>
   </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>包含豐富的文件與實用範例，助您快速上手。</value>
@@ -123,8 +150,17 @@
   <data name="Multiple Database Support" xml:space="preserve">
     <value>多種資料庫支援</value>
   </data>
+  <data name="Next ›" xml:space="preserve">
+    <value>下一頁 ›</value>
+  </data>
+  <data name="No packages found matching" xml:space="preserve">
+    <value>找不到符合的套件</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 整合</value>
+  </data>
+  <data name="Physical" xml:space="preserve">
+    <value>實體</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC 授權</value>
@@ -143,6 +179,12 @@
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>無縫整合任何 OpenID Connect 提供者，並自動同步角色權限。</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜尋</value>
+  </data>
+  <data name="Search packages (e.g. curl, python3, vim…)" xml:space="preserve">
+    <value>搜尋套件（例如 curl、python3、vim…）</value>
   </data>
   <data name="Smart Configuration Overrides" xml:space="preserve">
     <value>智慧型設定覆寫</value>
@@ -164,6 +206,21 @@
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>這是一個模板專案，我們將在此開啟探索之旅...</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>以開始使用。</value>
+  </data>
+  <data name="Try a shorter name or check spelling." xml:space="preserve">
+    <value>請嘗試使用較短的名稱或檢查拼字。</value>
+  </data>
+  <data name="Type a package name above to search across all active repositories in real-time." xml:space="preserve">
+    <value>在上方輸入套件名稱，即可即時搜尋所有活躍的程式庫。</value>
+  </data>
+  <data name="View all repositories" xml:space="preserve">
+    <value>查看所有程式庫</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>虛擬</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>歡迎</value>

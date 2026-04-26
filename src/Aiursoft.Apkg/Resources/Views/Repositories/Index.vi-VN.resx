@@ -21,11 +21,23 @@
       <data name="Actions" xml:space="preserve">
     <value>Hành động</value>
   </data>
+  <data name="Are you sure you want to delete repository" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn xóa kho lưu trữ</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
   <data name="Certificate" xml:space="preserve">
     <value>Chứng chỉ</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Xác nhận xóa</value>
+  </data>
   <data name="Create New Repository" xml:space="preserve">
     <value>Tạo Kho Mới</value>
+  </data>
+  <data name="Delete Repository" xml:space="preserve">
+    <value>Xóa Kho lưu trữ</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Hệ điều hành</value>

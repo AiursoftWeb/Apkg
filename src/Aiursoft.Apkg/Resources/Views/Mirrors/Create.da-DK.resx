@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Architecture" xml:space="preserve">
+    <value>Arkitektur</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuller</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponenter</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Hård filter anvendt under Mirror Sync: kun pakker, der tilhører en af disse komponenter, downloades og gemmes. Komma-adskilt (f.eks. main,universe,multiverse,restricted). Ændringer træder i kraft ved næste kørsel af Mirror Sync-jobbet.</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Hård filter anvendt under Mirror Sync: kun pakker, hvis arkitektur matcher en af disse værdier, downloades og gemmes. Komma-adskilt (f.eks. amd64,arm64). Ændringer træder i kraft ved næste kørsel af Mirror Sync-jobbet.</value>
+  </data>
+  <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
+    <value>Hvis afkrydset, udføres ingen signaturverifikation. Brug på eget ansvar.</value>
+  </data>
+  <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
+    <value>Valgfri URL til den offentlige GPG-nøgle fra upstream til verifikation.</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Gem ændringer</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>Den grundlæggende URL for upstream-serveren (f.eks. &apos;https://mirrors.ubuntu.com/&apos;). Distro-navnet tilføjes automatisk.</value>
+  </data>
+  <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>URL-præfikset for dette spejl (f.eks. &apos;ubuntu&apos;).</value>
+  </data>
+
+</root>

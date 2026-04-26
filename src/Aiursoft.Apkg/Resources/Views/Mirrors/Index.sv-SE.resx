@@ -27,14 +27,29 @@
   <data name="Arch" xml:space="preserve">
     <value>Arkitektur</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>Är du säker på att du vill ta bort speglingen?</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>Bas-URL</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Avbryt</value>
   </data>
   <data name="Components" xml:space="preserve">
     <value>Komponenter</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Bekräfta radering</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>Ta bort spegel</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Fel:</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Misslyckades</value>
@@ -80,6 +95,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Version</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>Stackspårning för synkroniseringsfel</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>Detta kommer också att ta bort alla associerade paket och bucketar!</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Uppströms-speglingar</value>

@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- Yok (Bağımsız) --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Mimari</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>Bu havuzun Yayın dosyalarını otomatik olarak imzalayın.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Bileşenler</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Oluşturulan binary-{arch}/Packages dizin dosyalarını kontrol eder. Uyumsuz mimarilere sahip paketler (sadece &apos;all&apos; hariç) depolanır ancak apt istemcileri tarafından görünmez hale getirilir. Ayrıca istemci kurulum kılavuzundaki Architectures: satırını ayarlar. Değişiklikler bir sonraki Repository Sync işlemi çalıştırıldığında geçerli olur.</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Packages indeksini oluştururken dahil edilecek bileşen alt dizinlerini kontrol eder. Listelenmeyen bileşenlerdeki paketler saklanır ancak apt istemcileri için görünmez. Ayrıca istemci kurulum kılavuzundaki Components: satırını ayarlar. Değişiklikler bir sonraki Repository Sync işi çalıştırıldığında geçerli olur.</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>Bir aynaya bağlanırsa, bu depo paketleri o yukarı akış kaynağından sunacaktır.</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>Depoyu Kaydet</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>APT sürüm adı (örn. jammy, stable).</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>Bu depodaki Release dosyalarını imzalamak için kullanılan GPG anahtarı.</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>Dahili tanımlayıcı ve URL yolunun bir parçası.</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>Bu depo için URL ön eki (örn. &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

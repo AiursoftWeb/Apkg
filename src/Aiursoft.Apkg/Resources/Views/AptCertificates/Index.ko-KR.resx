@@ -21,8 +21,20 @@
       <data name="Actions" xml:space="preserve">
     <value>작업</value>
   </data>
+  <data name="Are you sure you want to delete certificate" xml:space="preserve">
+    <value>인증서를 삭제하시겠습니까</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>삭제 확인</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>생성일</value>
+  </data>
+  <data name="Delete Forever" xml:space="preserve">
+    <value>영구 삭제</value>
   </data>
   <data name="Fingerprint" xml:space="preserve">
     <value>지문</value>
@@ -38,6 +50,9 @@
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>서명 인증서</value>
+  </data>
+  <data name="This will break all repositories using it!" xml:space="preserve">
+    <value>이 인증서를 사용하는 모든 저장소가 손상됩니다!</value>
   </data>
 
 </root>

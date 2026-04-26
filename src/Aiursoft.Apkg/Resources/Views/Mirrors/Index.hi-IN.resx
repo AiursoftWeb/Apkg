@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>क्रियाएँ</value>
+  </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>नया मिरर जोड़ें</value>
+  </data>
+  <data name="Arch" xml:space="preserve">
+    <value>आर्किटेक्चर</value>
+  </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>क्या आप वाकई मिरर हटाना चाहते हैं?</value>
+  </data>
+  <data name="Base URL" xml:space="preserve">
+    <value>मूल URL</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>घटक</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>हटाई की पुष्टि करें</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>मिरर हटाएं</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>वितरण</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>त्रुटि:</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>असफल</value>
+  </data>
+  <data name="Insecure Source" xml:space="preserve">
+    <value>असुरक्षित स्रोत</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>आइटम</value>
+  </data>
+  <data name="Never Pull" xml:space="preserve">
+    <value>कभी खींचा नहीं</value>
+  </data>
+  <data name="Never Synced" xml:space="preserve">
+    <value>कभी सिंक नहीं हुआ</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>कोई नहीं</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>पैकेज</value>
+  </data>
+  <data name="Passed" xml:space="preserve">
+    <value>पास</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>प्रतीक्षा</value>
+  </data>
+  <data name="Primary Bucket" xml:space="preserve">
+    <value>प्राथमिक बकेट</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>माध्यमिक बकेट</value>
+  </data>
+  <data name="Signature Verification Disabled" xml:space="preserve">
+    <value>साइनचिह्न सत्यापन अक्षम</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>सफल</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>सूट</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>सिंक त्रुटि स्टैक ट्रेस</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>इससे सभी संबंधित पैकेज और बकेट भी हट जाएंगे!</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>अपस्ट्रीम मिरर</value>
+  </data>
+
+</root>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Înapoi</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Suport „fire-and-forget” pentru sarcini de lungă durată (cum ar fi emailurile sau AI), cu o interfață grafică pentru gestionarea cozii, procesare paralelă și anulare.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,11 +39,23 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>O fundație modernă, bogată în funcționalități și extrem de extensibilă pentru următoarea ta aplicație web.</value>
   </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Adăugați un depozit la</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Traduceri alimentate de Inteligență Artificială</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Toate dependențele sunt înregistrate automat și sunt întotdeauna disponibile prin injectare în constructor.</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>și răsfoiți pachetele lor individual.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>și rulează</value>
+  </data>
+  <data name="APT Package Search" xml:space="preserve">
+    <value>Căutare pachete APT</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Mod Întunecat Automat</value>
@@ -60,8 +75,14 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>Procesare sarcini în fundal</value>
   </data>
+  <data name="Browse Repositories" xml:space="preserve">
+    <value>Răsfoiește depozitele</value>
+  </data>
   <data name="Built-in User Management" xml:space="preserve">
     <value>Gestionare Utilizatori Integrată</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Șterge</value>
   </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>Include suport pentru Docker pentru implementări simplificate și consistente.</value>
@@ -102,11 +123,17 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Dispune de un sistem integrat de gestionare a fișierelor cu compresie automată a avatarurilor.</value>
   </data>
+  <data name="Find Packages" xml:space="preserve">
+    <value>Găsește pachete</value>
+  </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Gestionează sarcinile periodice, cum ar fi curățarea și sincronizarea, cu o interfață grafică completă pentru monitorizarea istoricului de execuție și a jurnalelor.</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>Salut Lume!</value>
+  </data>
+  <data name="How to Use" xml:space="preserve">
+    <value>Cum se utilizează</value>
   </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>Include documentație extinsă și exemple practice pentru a te pune rapid pe drum.</value>
@@ -123,8 +150,17 @@
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Suport pentru Multiple Baze de Date</value>
   </data>
+  <data name="Next ›" xml:space="preserve">
+    <value>Următorul ›</value>
+  </data>
+  <data name="No packages found matching" xml:space="preserve">
+    <value>Nu s-au găsit pachete care să se potrivească</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Integrare OpenID Connect</value>
+  </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fizic</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Autorizare RBAC</value>
@@ -143,6 +179,12 @@
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Integrați-vă fără probleme cu orice furnizor OpenID Connect, cu sincronizare automată a rolurilor.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Caută</value>
+  </data>
+  <data name="Search packages (e.g. curl, python3, vim…)" xml:space="preserve">
+    <value>Caută pachete (de ex. curl, python3, vim…)</value>
   </data>
   <data name="Smart Configuration Overrides" xml:space="preserve">
     <value>Supravățuiri inteligente de configurare</value>
@@ -164,6 +206,21 @@
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Acesta este un proiect tip, de unde începem călătoria...</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>pentru a începe.</value>
+  </data>
+  <data name="Try a shorter name or check spelling." xml:space="preserve">
+    <value>Încercați un nume mai scurt sau verificați ortografia.</value>
+  </data>
+  <data name="Type a package name above to search across all active repositories in real-time." xml:space="preserve">
+    <value>Introduceți un nume de pachet mai sus pentru a căuta în toate depozitele active în timp real.</value>
+  </data>
+  <data name="View all repositories" xml:space="preserve">
+    <value>Vizualizați toate depozitele</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtual</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Bun venit</value>

@@ -27,14 +27,29 @@
   <data name="Arch" xml:space="preserve">
     <value>Architektura</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>Czy na pewno chcesz usunąć lustro</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>Podstawowy URL</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
   </data>
   <data name="Components" xml:space="preserve">
     <value>Komponenty</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Potwierdź usunięcie</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>Usuń lustro</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Dystrybucja</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Błąd:</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Nie powiodło się</value>
@@ -80,6 +95,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Wersja</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>Ślad stosu błędu synchronizacji</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>Spowoduje to również usunięcie wszystkich powiązanych pakietów i wiader!</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Lustrzane odbicia źródłowe</value>

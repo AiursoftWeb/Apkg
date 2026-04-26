@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- なし（スタンドアロン） --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>アーキテクチャ</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>このリポジトリのReleaseファイルを自動的に署名します。</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>キャンセル</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>コンポーネント</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>binary-{arch}/Packages インデックスファイルの生成対象を制御します。アーキテクチャが一致しないパッケージ（&apos;all&apos; を除く）は保存されますが、apt クライアントからは見えません。また、クライアント設定ガイドの Architectures: 行にも設定されます。変更は次のリポジトリ同期ジョブの実行時に有効になります。</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Packagesインデックスの生成時に含めるコンポーネントのサブディレクトリを制御します。リストされていないコンポーネントのパッケージは保存されますが、aptクライアントからは見えません。また、クライアント設定ガイドのComponents:行を設定します。変更は次のRepository Syncジョブの実行時に有効になります。</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>ミラーにリンクされている場合、このリポジトリはそのアップストリームソースからパッケージを提供します。</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>リポジトリを保存</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>APT スイート名（例：jammy、stable）。</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>このリポジトリのReleaseファイルに署名するために使用されるGPGキー。</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>内部識別子であり、URLパスの一部です。</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>このリポジトリのURLプレフィックス（例：&apos;ubuntu&apos;）。</value>
   </data>
 
 </root>

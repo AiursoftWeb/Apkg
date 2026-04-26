@@ -21,8 +21,20 @@
       <data name="Actions" xml:space="preserve">
     <value>Thao tác</value>
   </data>
+  <data name="Are you sure you want to delete certificate" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn xóa chứng chỉ</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Xác nhận xóa</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Ngày tạo</value>
+  </data>
+  <data name="Delete Forever" xml:space="preserve">
+    <value>Xóa vĩnh viễn</value>
   </data>
   <data name="Fingerprint" xml:space="preserve">
     <value>Dấu vân tay</value>
@@ -38,6 +50,9 @@
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>Chứng chỉ ký</value>
+  </data>
+  <data name="This will break all repositories using it!" xml:space="preserve">
+    <value>Điều này sẽ làm hỏng tất cả các kho lưu trữ đang sử dụng nó!</value>
   </data>
 
 </root>

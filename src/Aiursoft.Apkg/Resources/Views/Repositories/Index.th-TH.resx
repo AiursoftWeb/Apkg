@@ -21,11 +21,23 @@
       <data name="Actions" xml:space="preserve">
     <value>การดำเนินการ</value>
   </data>
+  <data name="Are you sure you want to delete repository" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการลบที่เก็บรหัส</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
   <data name="Certificate" xml:space="preserve">
     <value>ใบรับรอง</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>ยืนยันการลบ</value>
+  </data>
   <data name="Create New Repository" xml:space="preserve">
     <value>สร้างที่เก็บข้อมูลใหม่</value>
+  </data>
+  <data name="Delete Repository" xml:space="preserve">
+    <value>ลบคลังเก็บข้อมูล</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>ดิสโตร</value>

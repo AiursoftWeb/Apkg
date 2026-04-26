@@ -21,11 +21,29 @@
       <data name="Allow Insecure Source" xml:space="preserve">
     <value>비보안 소스 허용</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>아키텍처</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>기본 URL</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>구성 요소</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>배포판</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>GPG 공개 키 URL (선택 사항)</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>스위트</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0}은(는) {1}자를 초과할 수 없습니다.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0}은(는) 필수 항목입니다.</value>
   </data>
 
 </root>

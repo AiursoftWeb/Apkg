@@ -21,11 +21,29 @@
       <data name="Allow Insecure Source" xml:space="preserve">
     <value>असुरक्षित स्रोत की अनुमति दें</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>आर्किटेक्चर</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>मूल URL</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>घटक</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>वितरण</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>GPG सार्वजनिक कुंजी URL (वैकल्पिक)</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>सूट</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} {1} अक्षरों से अधिक नहीं हो सकता।</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} आवश्यक है।</value>
   </data>
 
 </root>

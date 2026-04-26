@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- Nessuno (Standalone) --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Architettura</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>Firma automaticamente i file Release di questo repository.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>Annulla</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Componenti</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Controlla quali file di indice Packages/binary-{arch} vengono generati. I pacchetti con architetture non corrispondenti (eccetto &apos;all&apos;) vengono memorizzati ma sono invisibili ai client apt. Imposta anche la riga Architectures: nella guida di configurazione del client. Le modifiche entrano in vigore alla prossima esecuzione del lavoro di sincronizzazione del repository.</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Controlla quali sottodirectory dei componenti sono incluse durante la generazione dell&apos;indice Packages. I pacchetti nei componenti non elencati vengono archiviati ma non sono visibili ai client apt. Imposta anche la riga Components: nella guida di configurazione del client. Le modifiche entrano in vigore alla prossima esecuzione del job di sincronizzazione del repository.</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>Se collegato a uno specchio, questo repository servirà i pacchetti da tale sorgente upstream.</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>Salva repository</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>Il nome della suite APT (ad esempio jammy, stable).</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>La chiave GPG utilizzata per firmare i file Release di questo repository.</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>L&apos;identificatore interno e parte del percorso dell&apos;URL.</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>Il prefisso URL per questo repository (ad es. &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

@@ -21,8 +21,17 @@
       <data name="Friendly Name" xml:space="preserve">
     <value>الاسم المستعار</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
   <data name="Only lowercase letters and numbers are allowed." xml:space="preserve">
     <value>يُسمح فقط بالأحرف الصغيرة والأرقام.</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>لا يمكن أن يتجاوز {0} {1} حرفًا.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} مطلوب.</value>
   </data>
 
 </root>

@@ -18,11 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Base URL" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>アーキテクチャ</value>
+  </data>
+  <data name="Base URL" xml:space="preserve">
     <value>基本URL</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>コンポーネント</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
   </data>
   <data name="Signed By" xml:space="preserve">
     <value>署名者</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>スイート</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} は {1} 文字を超えることはできません。</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} は必須です。</value>
   </data>
 
 </root>

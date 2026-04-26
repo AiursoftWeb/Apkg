@@ -18,14 +18,35 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Automatic GPG Sign" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>아키텍처</value>
+  </data>
+  <data name="Automatic GPG Sign" xml:space="preserve">
     <value>자동 GPG 서명</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>구성 요소</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>디스트로</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>미러 소스</value>
   </data>
+  <data name="Repository Name" xml:space="preserve">
+    <value>저장소 이름</value>
+  </data>
   <data name="Signing Certificate" xml:space="preserve">
     <value>서명 인증서</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0}은(는) {1}자를 초과할 수 없습니다.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0}이(가) 필요합니다.</value>
   </data>
 
 </root>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>क्रियाएँ</value>
+  </data>
+  <data name="Active Usage" xml:space="preserve">
+    <value>सक्रिय उपयोग</value>
+  </data>
+  <data name="Bucket Snapshots History" xml:space="preserve">
+    <value>बकेट स्नैपशॉट इतिहास</value>
+  </data>
+  <data name="Created Time" xml:space="preserve">
+    <value>निर्माण समय</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="LIVE" xml:space="preserve">
+    <value>लाइव</value>
+  </data>
+  <data name="Logical Size" xml:space="preserve">
+    <value>तार्किक आकार</value>
+  </data>
+  <data name="Orphaned" xml:space="preserve">
+    <value>अनाथ</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>पैकेज</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>लंबित</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+
+</root>

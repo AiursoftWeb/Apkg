@@ -18,14 +18,23 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="A unique, URL-friendly identifier for this key (a-z0-9)." xml:space="preserve">
+    <value>此金鑰的唯一、對 URL 友善的識別碼 (a-z0-9)。</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>生成新憑證</value>
   </data>
+  <data name="Generating a 4096-bit RSA key pair may take a few seconds. Please be patient." xml:space="preserve">
+    <value>生成 4096 位 RSA 金鑰對可能需要數秒時間，敬請耐心等待。</value>
+  </data>
   <data name="Start Generation" xml:space="preserve">
     <value>開始生成</value>
+  </data>
+  <data name="This name will be embedded in the GPG key as the User ID." xml:space="preserve">
+    <value>此名稱將作為用戶 ID 嵌入至 GPG 金鑰中。</value>
   </data>
 
 </root>

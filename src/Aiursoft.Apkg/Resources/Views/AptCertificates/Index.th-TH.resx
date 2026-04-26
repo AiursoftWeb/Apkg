@@ -21,8 +21,20 @@
       <data name="Actions" xml:space="preserve">
     <value>การดำเนินการ</value>
   </data>
+  <data name="Are you sure you want to delete certificate" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการลบใบรับรอง</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>ยืนยันการลบ</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>วันที่สร้าง</value>
+  </data>
+  <data name="Delete Forever" xml:space="preserve">
+    <value>ลบถาวร</value>
   </data>
   <data name="Fingerprint" xml:space="preserve">
     <value>ลายนิ้วมือ</value>
@@ -38,6 +50,9 @@
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>ใบรับรองการลงนาม</value>
+  </data>
+  <data name="This will break all repositories using it!" xml:space="preserve">
+    <value>สิ่งนี้จะทำให้รีพอสิตอรีทั้งหมดที่ใช้สิ่งนี้ใช้งานไม่ได้!</value>
   </data>
 
 </root>

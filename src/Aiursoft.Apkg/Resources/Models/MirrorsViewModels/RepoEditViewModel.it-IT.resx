@@ -18,14 +18,35 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Automatic GPG Sign" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>Architettura</value>
+  </data>
+  <data name="Automatic GPG Sign" xml:space="preserve">
     <value>Firma GPG automatica</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Componenti</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distribuzione</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>Sorgente Mirror</value>
   </data>
+  <data name="Repository Name" xml:space="preserve">
+    <value>Nome del repository</value>
+  </data>
   <data name="Signing Certificate" xml:space="preserve">
     <value>Certificato di firma</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} non può superare {1} caratteri.</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} è obbligatorio.</value>
   </data>
 
 </root>

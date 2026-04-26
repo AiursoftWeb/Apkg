@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Forrige</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>&quot;Fire-and-forget&quot;-støtte til langvarende opgaver (som emails eller AI), med en brugergrænseflade til køstyring, parallell behandling og annullering.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,11 +39,23 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Et moderne, funktionsrigt og højgradigt udvideligt fundament til din næste webapplikation.</value>
   </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Tilføj et depot til din</value>
+  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AI-drevne oversættelser</value>
   </data>
   <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
     <value>Alle afhængigheder registreres automatisk og er altid tilgængelige via konstruktor-injektion.</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>og gennemse deres pakker individuelt.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>og kør</value>
+  </data>
+  <data name="APT Package Search" xml:space="preserve">
+    <value>Søg i APT-pakker</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Automatisk Mørk Tilstand</value>
@@ -60,8 +75,14 @@
   <data name="Background Job Processing" xml:space="preserve">
     <value>Baggrundsjobbebehandling</value>
   </data>
+  <data name="Browse Repositories" xml:space="preserve">
+    <value>Gennemse arkiver</value>
+  </data>
   <data name="Built-in User Management" xml:space="preserve">
     <value>Indbygget brugeradministration</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Ryd</value>
   </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>Kommer med Docker-understøttelse til forenklet og konsistent implementering.</value>
@@ -102,11 +123,17 @@
   <data name="Features a built-in file management system with automatic avatar compression." xml:space="preserve">
     <value>Har et indbygget filstyringssystem med automatisk avatar-komprimering.</value>
   </data>
+  <data name="Find Packages" xml:space="preserve">
+    <value>Find pakker</value>
+  </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Håndtér gentagende opgaver som rydning og synkronisering med en omfattende brugergrænseflade til overvågning af udførelseshistorik og logfiler.</value>
   </data>
   <data name="Hello World!" xml:space="preserve">
     <value>Hej Verden!</value>
+  </data>
+  <data name="How to Use" xml:space="preserve">
+    <value>Sådan bruger du</value>
   </data>
   <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
     <value>Inkluderer omfattende dokumentation og praktiske eksempler, så du kan komme i gang hurtigt.</value>
@@ -123,8 +150,17 @@
   <data name="Multiple Database Support" xml:space="preserve">
     <value>Understøttelse af flere databaser</value>
   </data>
+  <data name="Next ›" xml:space="preserve">
+    <value>Næste ›</value>
+  </data>
+  <data name="No packages found matching" xml:space="preserve">
+    <value>Ingen pakker fundet, der matcher</value>
+  </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect-integration</value>
+  </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fysisk</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-godkendelse</value>
@@ -143,6 +179,12 @@
   </data>
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Integrer problemfrit med enhver OpenID Connect-udbyder, med automatisk rolle-synkronisering.</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Søg</value>
+  </data>
+  <data name="Search packages (e.g. curl, python3, vim…)" xml:space="preserve">
+    <value>Søg efter pakker (f.eks. curl, python3, vim…)</value>
   </data>
   <data name="Smart Configuration Overrides" xml:space="preserve">
     <value>Smarte konfigurations-overskrivninger</value>
@@ -164,6 +206,21 @@
   </data>
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Dette er et skabelonprojekt, hvor vi begynder rejsen...</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>for at komme i gang.</value>
+  </data>
+  <data name="Try a shorter name or check spelling." xml:space="preserve">
+    <value>Prøv et kortere navn eller tjek stavingen.</value>
+  </data>
+  <data name="Type a package name above to search across all active repositories in real-time." xml:space="preserve">
+    <value>Indtast et pakkenavn ovenfor for at søge på tværs af alle aktive arkiver i realtid.</value>
+  </data>
+  <data name="View all repositories" xml:space="preserve">
+    <value>Se alle arkiver</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtuel</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Velkommen</value>

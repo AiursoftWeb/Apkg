@@ -18,11 +18,35 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>Архитектура</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Компоненты</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Жесткий фильтр применяется во время синхронизации зеркала: загружаются и сохраняются только пакеты, принадлежащие к одному из этих компонентов. Разделены запятыми (например, main,universe,multiverse,restricted). Изменения вступят в силу при следующем запуске задачи синхронизации зеркала.</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Жёсткий фильтр применяется во время синхронизации зеркала: загружаются и сохраняются только пакеты, архитектура которых совпадает с одним из указанных значений. Перечислите через запятую (например, amd64,arm64). Изменения вступят в силу при следующем запуске задания синхронизации зеркала.</value>
+  </data>
+  <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
+    <value>Если флажок установлен, проверка подписей выполняться не будет. Используйте на свой страх и риск.</value>
+  </data>
+  <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
+    <value>Необязательный URL для публичного GPG-ключа источника для проверки.</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Сохранить изменения</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>Базовый URL-адрес вышестоящего сервера (например, &apos;https://mirrors.ubuntu.com/&apos;). Имя дистрибутива будет добавлено автоматически.</value>
+  </data>
+  <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>Префикс URL для этого зеркала (например, &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

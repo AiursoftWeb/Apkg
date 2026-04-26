@@ -21,8 +21,17 @@
       <data name="Friendly Name" xml:space="preserve">
     <value>顯示名稱</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>名稱</value>
+  </data>
   <data name="Only lowercase letters and numbers are allowed." xml:space="preserve">
     <value>僅允許小寫字母和數字。</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} 不得超過 {1} 個字元。</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>{0} 為必填項。</value>
   </data>
 
 </root>

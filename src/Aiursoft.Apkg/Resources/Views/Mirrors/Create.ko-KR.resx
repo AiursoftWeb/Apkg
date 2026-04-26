@@ -18,11 +18,35 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>아키텍처</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>취소</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>구성 요소</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Mirror Sync 중 하드 필터 적용됨: 이 컴포넌트 중 하나에 속하는 패키지만 다운로드되고 저장됩니다. 쉼표로 구분 (예: main,universe,multiverse,restricted). 변경 사항은 다음 Mirror Sync 작업 실행 시 적용됩니다.</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Mirror Sync 중 하드 필터 적용: 아키텍처가 이 값 중 하나와 일치하는 패키지만 다운로드 및 저장됩니다. 쉼표로 구분 (예: amd64,arm64). 변경 사항은 다음 Mirror Sync 작업 실행 시 적용됩니다.</value>
+  </data>
+  <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
+    <value>선택할 경우 서명 검증이 수행되지 않습니다. 이 설정 사용 시 발생하는 모든 위험은 사용자에게 있습니다.</value>
+  </data>
+  <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
+    <value>검증을 위한 상위 공개 GPG 키의 선택적 URL</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>변경 사항 저장</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>업스트림 서버의 기본 URL(예: &apos;https://mirrors.ubuntu.com/&apos;). 디스트로 이름은 자동으로 붙여집니다.</value>
+  </data>
+  <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>이 미러의 URL 접두사 (예: &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

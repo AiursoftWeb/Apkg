@@ -27,14 +27,29 @@
   <data name="Arch" xml:space="preserve">
     <value>Mimari</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>Aynayı silmek istediğinizden emin misiniz</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>Temel URL</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
   </data>
   <data name="Components" xml:space="preserve">
     <value>Bileşenler</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Silme İşlemini Onayla</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>Aynayı Sil</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Dağıtım</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Hata:</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Başarısız</value>
@@ -80,6 +95,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Sürüm</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>Senkronizasyon Hatası Yığın İzleme</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>Bu işlem, ilişkili tüm paketleri ve sepetleri de silecektir!</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Üst Düzey Aynalar</value>

@@ -27,14 +27,29 @@
   <data name="Arch" xml:space="preserve">
     <value>Arhitectură</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>Sunteți sigur că doriți să ștergeți oglinda?</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>URL de bază</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulare</value>
   </data>
   <data name="Components" xml:space="preserve">
     <value>Componente</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Confirmare ștergere</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>Șterge oglindă</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribuție</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Eroare:</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Eșuat</value>
@@ -80,6 +95,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>Harta de erori de sincronizare</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>Aceasta va șterge și toate pachetele și containerele asociate!</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Repozitoare upstream</value>

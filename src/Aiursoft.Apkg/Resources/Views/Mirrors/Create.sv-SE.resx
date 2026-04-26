@@ -18,11 +18,35 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>Arkitektur</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>Avbryt</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponenter</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Hård filter tillämpad under Mirror Sync: endast paket som tillhör någon av dessa komponenter laddas ner och lagras. Kommaseparerat (t.ex. main,universe,multiverse,restricted). Ändringarna träder i kraft vid nästa körning av Mirror Sync-jobbet.</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Strikt filter tillämpas under Mirror Sync: endast paket vars arkitektur matchar ett av dessa värden laddas ner och lagras. Kommaseparerat (t.ex. amd64,arm64). Ändringar träder i kraft vid nästa körning av Mirror Sync-jobbet.</value>
+  </data>
+  <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
+    <value>Om den här kryssrutan är markerad utförs ingen signatur verifiering. Använd på egen risk.</value>
+  </data>
+  <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
+    <value>Valfri URL till den offentliga GPG-nyckeln för verifiering.</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Spara ändringar</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>Den bas-URL som pekar på upstream-servern (t.ex. &apos;https://mirrors.ubuntu.com/&apos;). Distro-namn läggs till automatiskt.</value>
+  </data>
+  <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>URL-prefixen för denna spegel (t.ex. &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

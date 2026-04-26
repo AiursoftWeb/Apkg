@@ -21,11 +21,29 @@
       <data name="Allow Insecure Source" xml:space="preserve">
     <value>อนุญาตให้ใช้แหล่งข้อมูลที่ไม่ปลอดภัย</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>สถาปัตยกรรม</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>URL พื้นฐาน</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>ส่วนประกอบ</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>ระบบปฏิบัติการ</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>URL กุญแจสาธารณะ GPG (ไม่บังคับ)</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>ชุด</value>
+  </data>
+  <data name="The {0} cannot exceed {1} characters." xml:space="preserve">
+    <value>{0} ไม่สามารถมีจำนวนตัวอักษรเกิน {1} ตัวได้</value>
+  </data>
+  <data name="The {0} is required." xml:space="preserve">
+    <value>จำเป็นต้องกรอก {0}</value>
   </data>
 
 </root>

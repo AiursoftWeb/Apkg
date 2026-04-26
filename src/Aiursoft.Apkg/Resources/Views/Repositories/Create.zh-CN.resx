@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- 无（独立） --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>架构</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>自动签署此仓库的 Release 文件。</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>取消</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>组件</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>控制生成哪些 binary-{arch}/Packages 索引文件。架构不匹配的软件包（&apos;all&apos; 除外）将被存储但对 apt 客户端不可见。同时设置客户端配置指南中的 Architectures: 行。更改将在下次运行仓库同步作业时生效。</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>控制生成 Packages 索引时包含哪些组件子目录。未列出的组件中的包会被存储，但对 apt 客户端不可见。同时设置客户端安装指南中的 Components: 行。更改将在下次运行 Repository Sync 任务时生效。</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>如果链接到镜像，此仓库将从该上游源提供软件包。</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>保存仓库</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>APT 套件名称（例如 jammy、stable）。</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>用于签署此仓库的 Release 文件的 GPG 密钥。</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>内部标识符及 URL 路径的一部分。</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>此仓库的 URL 前缀（例如 &apos;ubuntu&apos;）。</value>
   </data>
 
 </root>

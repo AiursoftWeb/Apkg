@@ -33,6 +33,9 @@
   <data name="Creates test jobs in different queues (15-30s sleep, 10% failure rate). Jobs in different queues run in parallel." xml:space="preserve">
     <value>Створює тестові завдання в різних чергах (затримка 15-30 с, 10% відсоток помилок). Завдання в різних чергах виконуються паралельно.</value>
   </data>
+  <data name="Every {0}, first run in {1}" xml:space="preserve">
+    <value>Every {0}, first run in {1}</value>
+  </data>
   <data name="Failed" xml:space="preserve">
     <value>Помилка</value>
   </data>
@@ -41,6 +44,9 @@
   </data>
   <data name="Job Name" xml:space="preserve">
     <value>Назва завдання</value>
+  </data>
+  <data name="last 24 hours" xml:space="preserve">
+    <value>останні 24 години</value>
   </data>
   <data name="last hour" xml:space="preserve">
     <value>останньої години</value>
@@ -57,6 +63,9 @@
   <data name="Never executed" xml:space="preserve">
     <value>Ніколи не виконувалося</value>
   </data>
+  <data name="Never run" xml:space="preserve">
+    <value>Never run</value>
+  </data>
   <data name="New Job A" xml:space="preserve">
     <value>Нове завдання А</value>
   </data>
@@ -68,6 +77,9 @@
   </data>
   <data name="No jobs" xml:space="preserve">
     <value>Немає завдань</value>
+  </data>
+  <data name="No jobs have run in the last 24 hours." xml:space="preserve">
+    <value>Жодне завдання не виконувалося протягом останніх 24 годин.</value>
   </data>
   <data name="No jobs have run in the last hour." xml:space="preserve">
     <value>За останню годину не було виконано жодного завдання.</value>

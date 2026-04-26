@@ -27,17 +27,32 @@
   <data name="Arch" xml:space="preserve">
     <value>Kiến trúc</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn xóa bản sao không</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>URL cơ sở</value>
   </data>
   <data name="Bucket" xml:space="preserve">
     <value>Thùng</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
   <data name="Components" xml:space="preserve">
     <value>Các thành phần</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Xác nhận Xóa</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>Xóa Gương</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Phân phối</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Lỗi:</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Thất bại</value>
@@ -83,6 +98,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Phiên bản</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>Dấu vết ngăn xếp lỗi đồng bộ</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>Điều này cũng sẽ xóa tất cả các gói và bucket liên quan!</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Máy chủ phản chiếu gốc</value>

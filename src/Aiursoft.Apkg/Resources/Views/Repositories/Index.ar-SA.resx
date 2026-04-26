@@ -21,11 +21,23 @@
       <data name="Actions" xml:space="preserve">
     <value>الإجراءات</value>
   </data>
+  <data name="Are you sure you want to delete repository" xml:space="preserve">
+    <value>هل أنت متأكد من أنك تريد حذف المستودع</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
   <data name="Certificate" xml:space="preserve">
     <value>الشهادة</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>تأكيد الحذف</value>
+  </data>
   <data name="Create New Repository" xml:space="preserve">
     <value>إنشاء مستودع جديد</value>
+  </data>
+  <data name="Delete Repository" xml:space="preserve">
+    <value>حذف المستودع</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>توزيع</value>

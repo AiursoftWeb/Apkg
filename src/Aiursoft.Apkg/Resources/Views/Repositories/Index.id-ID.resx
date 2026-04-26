@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Aksi</value>
+  </data>
+  <data name="Are you sure you want to delete repository" xml:space="preserve">
+    <value>Apakah Anda yakin ingin menghapus repositori</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>Sertifikat</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Konfirmasi Hapus</value>
+  </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>Buat Repositori Baru</value>
+  </data>
+  <data name="Delete Repository" xml:space="preserve">
+    <value>Hapus Repositori</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distro</value>
+  </data>
+  <data name="Live Bucket" xml:space="preserve">
+    <value>Bucket Langsung</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nama</value>
+  </data>
+  <data name="No Certificate" xml:space="preserve">
+    <value>Tidak Ada Sertifikat</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Repositori Publik</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>Bucket Sekunder</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>Tanda Tangan</value>
+  </data>
+  <data name="Signed" xml:space="preserve">
+    <value>Ditandatangani</value>
+  </data>
+  <data name="Signed at" xml:space="preserve">
+    <value>Ditandatangani pada</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Rilisan</value>
+  </data>
+  <data name="Total Packages" xml:space="preserve">
+    <value>Total Paket</value>
+  </data>
+
+</root>

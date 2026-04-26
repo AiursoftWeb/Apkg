@@ -18,14 +18,23 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="A unique, URL-friendly identifier for this key (a-z0-9)." xml:space="preserve">
+    <value>Уникальный идентификатор, удобный для использования в URL, для этого ключа (a-z0-9).</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>Создать новый сертификат</value>
   </data>
+  <data name="Generating a 4096-bit RSA key pair may take a few seconds. Please be patient." xml:space="preserve">
+    <value>Генерация пары ключей RSA длиной 4096 бит может занять несколько секунд. Пожалуйста, подождите.</value>
+  </data>
   <data name="Start Generation" xml:space="preserve">
     <value>Начать генерацию</value>
+  </data>
+  <data name="This name will be embedded in the GPG key as the User ID." xml:space="preserve">
+    <value>Это имя будет встроено в ключ GPG в качестве идентификатора пользователя.</value>
   </data>
 
 </root>

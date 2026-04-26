@@ -18,11 +18,44 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- 없음 (독립형) --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>아키텍처</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>이 저장소의 Release 파일을 자동으로 서명합니다.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>취소</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>구성 요소</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>binary-{arch}/Packages 인덱스 파일 생성을 제어합니다. 아키텍처가 일치하지 않는 패키지는 저장되지만 apt 클라이언트에서 보이지 않습니다. 또한 클라이언트 설정 가이드의 &apos;Architectures:&apos; 행을 설정합니다. 변경 사항은 다음 Repository Sync 작업 실행 시 적용됩니다.</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Packages 인덱스를 생성할 때 포함될 구성 요소 하위 디렉토리를 제어합니다. 나열되지 않은 구성 요소의 패키지는 저장되지만 apt 클라이언트에게는 보이지 않습니다. 또한 클라이언트 설정 가이드의 Components: 행을 설정합니다. 변경 사항은 다음 Repository Sync 작업 실행 시 적용됩니다.</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>미러에 연결된 경우 이 저장소는 해당 상위 소스에서 패키지를 제공합니다.</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>저장소 저장</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>APT 스위트 이름(예: jammy, stable).</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>이 저장소의 Release 파일을 서명하는 데 사용되는 GPG 키입니다.</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>이 저장소의 내부 식별자이자 URL 경로의 일부입니다.</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>이 저장소의 URL 접두사 (예: &apos;ubuntu&apos;).</value>
   </data>
 
 </root>

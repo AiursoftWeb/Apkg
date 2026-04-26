@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- Ingen (Standalone) --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arkitektur</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>Automatisk signering af udgivelsesfilerne for dette depot.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuller</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponenter</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Styrer, hvilke binary-{arch}/Packages-indeksfiler der genereres. Pakker med ikke-matchende arkitekturer (undtagen &apos;all&apos;) gemmes, men er usynlige for apt-klienter. Indstiller også Architectures: linjen i klientens opsætningsguide. Ændringer træder i kraft ved næste kørsel af Repository Sync-jobbet.</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Styrer, hvilke undermapper til komponenter der inkludereres ved generering af Packages-indekset. Pakker i ikke-opførte komponenter gemmes, men er usynlige for apt-klienter. Indstiller også Components:-linjen i klientopsætningsguiden. Ændringer træder i kraft ved næste kørsel af Repository Sync-jobbet.</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>Hvis den er knyttet til et spejl, vil dette arkiv levere pakker fra denne overordnede kilde.</value>
+  </data>
+  <data name="Save Repository" xml:space="preserve">
+    <value>Gem repository</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>Navnet på APT-suiten (f.eks. jammy, stable).</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>Den GPG-nøgle, der bruges til at signere udgivelsesfilerne for dette arkiv.</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>Den interne identifikator og en del af URL-stien.</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>URL-præfikset til dette lager (f.eks. &apos;ubuntu&apos;).</value>
+  </data>
+
+</root>

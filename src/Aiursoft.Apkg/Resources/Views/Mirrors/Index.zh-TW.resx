@@ -27,17 +27,32 @@
   <data name="Arch" xml:space="preserve">
     <value>架構</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>您確定要刪除鏡像嗎</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>基本 URL</value>
   </data>
   <data name="Bucket" xml:space="preserve">
     <value>儲存區</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
   <data name="Components" xml:space="preserve">
     <value>元件</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>確認刪除</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>刪除鏡像</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>發行版</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>錯誤：</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>失敗</value>
@@ -83,6 +98,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>套件</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>同步錯誤堆疊追蹤</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>這也會刪除所有關聯的套件和儲存區！</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>上游鏡像</value>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- कोई नहीं (स्टैंडअलोन) --</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>वास्तुकला</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>इस रिपॉजिटरी के रिलीज़ फ़ाइलों को स्वचालित रूप से हस्ताक्षरित करें।</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>घटक</value>
+  </data>
+  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>यह नियंत्रित करता है कि कौन से binary-{arch}/Packages सूची फ़ाइलें उत्पन्न की जाएँगी। गैर-मेल खाने वाले आर्किटेक्चर वाले पैकेज (सिवाय &apos;all&apos; के) संग्रहीत किए जाएंगे लेकिन apt क्लाइंट्स के लिए अदृश्य रहेंगे। यह क्लाइंट सेटअप गाइड में Architectures: पंक्ति को भी सेट करता है। परिवर्तन अगले Repository Sync कार्य चलाए जाने पर प्रभावी होते हैं।</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Packages index बनाते समय किन घटक सबडायरेक्टरी को शामिल किया जाता है, यह नियंत्रित करता है। सूचीबद्ध न होने वाले घटकों में मौजूद Packages संग्रहीत किए जाते हैं लेकिन apt क्लाइंट के लिए अदृश्य होते हैं। यह क्लाइंट सेटअप गाइड में Components: पंक्ति को भी सेट करता है। परिवर्तन अगले Repository Sync कार्य चलाए जाने पर प्रभावी होते हैं।</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>यदि यह किसी मिरर से लिंक किया गया है, तो यह रेपॉजिटरी उस अपस्ट्रीम स्रोत से पैकेज प्रदान करेगी।</value>
+  </data>
+  <data name="Save Repository" xml:space="preserve">
+    <value>रेपॉजिटरी सहेजें</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>APT सूट का नाम (जैसे jammy, stable)।</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>इस रिपॉजिटरी के रिलीज़ फ़ाइलों को साइन करने के लिए उपयोग किया जाने वाला GPG कुंजी।</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>आंतरिक पहचानकर्ता और URL पथ का हिस्सा।</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>इस रिपॉजिटरी के लिए URL उपसर्ग (उदाहरण के लिए &apos;ubuntu&apos;)।</value>
+  </data>
+
+</root>

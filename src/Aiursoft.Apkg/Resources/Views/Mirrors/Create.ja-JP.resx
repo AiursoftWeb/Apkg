@@ -18,11 +18,35 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Cancel" xml:space="preserve">
+      <data name="Architecture" xml:space="preserve">
+    <value>アーキテクチャ</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
     <value>キャンセル</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>コンポーネント</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>ミラー同期中にハードフィルターが適用されます：指定されたコンポーネントのいずれかに属するパッケージのみがダウンロードされ、保存されます。コンマ区切りで指定してください（例：main,universe,multiverse,restricted）。変更は次のミラー同期ジョブの実行時に有効になります。</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>ミラー同期中に適用されるハードフィルター：アーキテクチャがこの値のいずれかに一致するパッケージのみがダウンロードおよび保存されます。コンマ区切り（例：amd64,arm64）。変更は次のミラー同期ジョブの実行時に有効になります。</value>
+  </data>
+  <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
+    <value>チェックすると、署名の検証が行われません。自己責任でご利用ください。</value>
+  </data>
+  <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
+    <value>検証用のアップストリームの公開GPGキーへの任意のURL</value>
   </data>
   <data name="Save Changes" xml:space="preserve">
     <value>変更を保存</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>アップストリームサーバーのベースURL（例：&apos;https://mirrors.ubuntu.com/&apos;）。ディストロ名は自動的に付加されます。</value>
+  </data>
+  <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>このミラーのURLプレフィックス（例：&apos;ubuntu&apos;）。</value>
   </data>
 
 </root>

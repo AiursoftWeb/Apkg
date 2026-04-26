@@ -27,17 +27,32 @@
   <data name="Arch" xml:space="preserve">
     <value>Architecture</value>
   </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer le miroir</value>
+  </data>
   <data name="Base URL" xml:space="preserve">
     <value>URL de base</value>
   </data>
   <data name="Bucket" xml:space="preserve">
     <value>Seau</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
   <data name="Components" xml:space="preserve">
     <value>Composants</value>
   </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Confirmer la suppression</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>Supprimer le miroir</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Erreur :</value>
   </data>
   <data name="Failed" xml:space="preserve">
     <value>Échec</value>
@@ -83,6 +98,12 @@
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Version</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>Pile d&apos;erreur de synchronisation</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>Cela supprimera également tous les packages et compartiments associés !</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Miroirs amont</value>
