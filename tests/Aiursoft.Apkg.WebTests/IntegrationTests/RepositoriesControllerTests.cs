@@ -551,6 +551,38 @@ public class RepositoriesControllerTests : TestBase
             "How to Install URI must not use the repo Name field.");
     }
 
+    [TestMethod]
+    public async Task PackageDetails_HowToInstall_UsesRepoIdForFilename()
+    {
+        var pkg = AddPackage("awk");
+        var response = await Http.GetAsync($"/Repositories/PackageDetails/{pkg.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsTrue(html.Contains($"apkg-{_repo.Id}.sources"),
+            "sources.list filename must use apkg-{id}.sources to avoid spaces or collisions.");
+        Assert.IsFalse(html.Contains($"{_repo.Name}.sources"),
+            "sources.list filename must not use the repo Name (may contain spaces).");
+    }
+
+    [TestMethod]
+    public async Task PackageDetails_HowToInstall_UnsignedRepo_ShowsTrustedYes_NoCerts()
+    {
+        _repo.EnableGpgSign = false;
+        _repo.CertificateId = null;
+        _db.SaveChanges();
+
+        var pkg = AddPackage("sed-unsigned");
+        var response = await Http.GetAsync($"/Repositories/PackageDetails/{pkg.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsTrue(html.Contains("Trusted: yes"),
+            "Unsigned repo How to Install must include 'Trusted: yes'.");
+        Assert.IsFalse(html.Contains("/artifacts/certs/"),
+            "Unsigned repo How to Install must not emit a certs curl command.");
+        Assert.IsTrue(html.Contains($"/artifacts/{_repo.Distro}/"),
+            "Unsigned repo How to Install must still have the correct APT source URI.");
+    }
+
     // ──────────────────────────────────────────────────────────────────────
     // APT routes — /artifacts prefix enforced, bare paths rejected
     // ──────────────────────────────────────────────────────────────────────

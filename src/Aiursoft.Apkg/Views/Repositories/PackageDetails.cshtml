@@ -153,14 +153,26 @@
                 <div class="card-header"><h5 class="card-title mb-0">@Localizer["How to Install"]</h5></div>
                 <div class="card-body">
                     <p class="text-muted small mb-2">@Localizer["Step 1: Add this APT server"]</p>
-                    <pre class="bg-light p-2 rounded small text-break" style="white-space:pre-wrap;"><code>sudo mkdir -p /usr/share/keyrings &amp;&amp; \
-curl -sL @(Model.BaseUrl)/artifacts/certs/@(Model.Repo.Certificate?.Name ?? "apkg") | gpg --dearmor | sudo tee /usr/share/keyrings/@(Model.Repo.Certificate?.Name ?? "apkg")-archive-keyring.gpg &gt; /dev/null &amp;&amp; \
+                    @if (Model.Repo.EnableGpgSign && Model.Repo.Certificate != null)
+                    {
+                        <pre class="bg-light p-2 rounded small text-break" style="white-space:pre-wrap;"><code>sudo mkdir -p /usr/share/keyrings &amp;&amp; \
+curl -sL @(Model.BaseUrl)/artifacts/certs/@(Model.Repo.Certificate.Name) | gpg --dearmor | sudo tee /usr/share/keyrings/@(Model.Repo.Certificate.Name)-archive-keyring.gpg &gt; /dev/null &amp;&amp; \
 echo "Types: deb
 URIs: @(Model.BaseUrl)/artifacts/@(Model.Repo.Distro)/
 Suites: @(Model.Repo.Suite)
-Components: @(Model.Repo.Components)
-Signed-By: /usr/share/keyrings/@(Model.Repo.Certificate?.Name ?? "apkg")-archive-keyring.gpg" | sudo tee /etc/apt/sources.list.d/@(Model.Repo.Name).sources &amp;&amp; \
+Components: @((string.IsNullOrWhiteSpace(Model.Repo.Components) ? "main" : Model.Repo.Components).Replace(",", " "))
+Signed-By: /usr/share/keyrings/@(Model.Repo.Certificate.Name)-archive-keyring.gpg" | sudo tee /etc/apt/sources.list.d/apkg-@(Model.Repo.Id).sources &amp;&amp; \
 sudo apt update</code></pre>
+                    }
+                    else
+                    {
+                        <pre class="bg-light p-2 rounded small text-break" style="white-space:pre-wrap;"><code>echo "Types: deb
+URIs: @(Model.BaseUrl)/artifacts/@(Model.Repo.Distro)/
+Suites: @(Model.Repo.Suite)
+Components: @((string.IsNullOrWhiteSpace(Model.Repo.Components) ? "main" : Model.Repo.Components).Replace(",", " "))
+Trusted: yes" | sudo tee /etc/apt/sources.list.d/apkg-@(Model.Repo.Id).sources &amp;&amp; \
+sudo apt update</code></pre>
+                    }
                     <p class="text-muted small mb-2 mt-3">@Localizer["Step 2: Install the package"]</p>
                     <pre class="bg-light p-2 rounded small"><code>sudo apt install @pkg.Package</code></pre>
                 </div>
