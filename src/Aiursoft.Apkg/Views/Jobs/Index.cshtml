@@ -56,8 +56,8 @@
         {
             var hasSchedule = scheduledTaskByType.TryGetValue(job.JobType, out var schedule);
             var scheduleText = hasSchedule
-                ? $"Every {ToFriendlyDuration(schedule!.Period)}, first run in {ToFriendlyDuration(schedule.StartDelay)}"
-                : "Never run";
+                ? Localizer["Every {0}, first run in {1}", ToFriendlyDuration(schedule!.Period), ToFriendlyDuration(schedule.StartDelay)].Value
+                : Localizer["Never run"].Value;
             var hasLastRun = lastRunAtByType.TryGetValue(job.JobType, out var lastRunAt);
 
             <div class="col-12 col-md-6 col-xl-4">

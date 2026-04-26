@@ -17,14 +17,14 @@
             <div class="mb-3">
                 <label asp-for="Distro" class="form-label"></label>
                 <input asp-for="Distro" class="form-control" placeholder="ubuntu" required />
-                <div class="form-text">The URL prefix for this mirror (e.g. 'ubuntu').</div>
+                <div class="form-text">@Localizer["The URL prefix for this mirror (e.g. 'ubuntu')."]</div>
                 <span asp-validation-for="Distro" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
                 <label asp-for="BaseUrl" class="form-label"></label>
                 <input asp-for="BaseUrl" class="form-control" placeholder="https://mirrors.ubuntu.com/" required />
-                <div class="form-text">The base URL of the upstream server (e.g. 'https://mirrors.ubuntu.com/'). Distro name will be appended automatically.</div>
+                <div class="form-text">@Localizer["The base URL of the upstream server (e.g. 'https://mirrors.ubuntu.com/'). Distro name will be appended automatically."]</div>
                 <span asp-validation-for="BaseUrl" class="text-danger"></span>
             </div>
 
@@ -36,10 +36,10 @@
                 </div>
                 <div class="col-md-6 mb-3">
                     <label asp-for="Architecture" class="form-label">
-                        Architecture
+                        @Localizer["Architecture"]
                         <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
                            data-bs-toggle="tooltip" data-bs-placement="top"
-                           data-bs-title="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run."></i>
+                           data-bs-title="@Localizer["Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run."]"></i>
                     </label>
                     <input asp-for="Architecture" class="form-control" placeholder="amd64" required />
                     <span asp-validation-for="Architecture" class="text-danger"></span>
@@ -48,10 +48,10 @@
 
             <div class="mb-3">
                 <label asp-for="Components" class="form-label">
-                    Components
+                    @Localizer["Components"]
                     <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
                        data-bs-toggle="tooltip" data-bs-placement="top"
-                       data-bs-title="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run."></i>
+                       data-bs-title="@Localizer["Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run."]"></i>
                 </label>
                 <input asp-for="Components" class="form-control" placeholder="main,universe,multiverse,restricted" required />
                 <span asp-validation-for="Components" class="text-danger"></span>
@@ -60,13 +60,13 @@
             <div class="mb-3 form-check">
                 <input asp-for="AllowInsecure" class="form-check-input" />
                 <label asp-for="AllowInsecure" class="form-check-label"></label>
-                <div class="form-text">If checked, no signature verification will be performed. Use at your own risk.</div>
+                <div class="form-text">@Localizer["If checked, no signature verification will be performed. Use at your own risk."]</div>
             </div>
 
             <div class="mb-3" id="signed-by-container">
                 <label asp-for="SignedBy" class="form-label"></label>
                 <input asp-for="SignedBy" class="form-control" placeholder="https://example.com/public.gpg" />
-                <div class="form-text">Optional URL to the upstream public GPG key for verification.</div>
+                <div class="form-text">@Localizer["Optional URL to the upstream public GPG key for verification."]</div>
             </div>
 
             <hr />

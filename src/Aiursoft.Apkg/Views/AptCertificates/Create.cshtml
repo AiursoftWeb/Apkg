@@ -11,21 +11,21 @@
         <div class="mb-3">
             <label asp-for="Name" class="form-label"></label>
             <input asp-for="Name" class="form-control" placeholder="e.g. anduinos" required />
-            <div class="form-text">A unique, URL-friendly identifier for this key (a-z0-9).</div>
+            <div class="form-text">@Localizer["A unique, URL-friendly identifier for this key (a-z0-9)."]</div>
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
             <label asp-for="FriendlyName" class="form-label"></label>
             <input asp-for="FriendlyName" class="form-control" placeholder="e.g. Anduinos Official Key" required />
-            <div class="form-text">This name will be embedded in the GPG key as the User ID.</div>
+            <div class="form-text">@Localizer["This name will be embedded in the GPG key as the User ID."]</div>
             <span asp-validation-for="FriendlyName" class="text-danger"></span>
         </div>
 
         <div class="alert alert-info">
 ...
                 <i class="align-middle me-2" data-lucide="info"></i>
-                Generating a 4096-bit RSA key pair may take a few seconds. Please be patient.
+                @Localizer["Generating a 4096-bit RSA key pair may take a few seconds. Please be patient."]
             </div>
 
             <button type="submit" class="btn btn-primary">@Localizer["Start Generation"]</button>

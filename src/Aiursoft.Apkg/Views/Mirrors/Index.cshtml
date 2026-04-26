@@ -91,12 +91,12 @@
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content text-start">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Sync Error Stack Trace</h5>
+                                                <h5 class="modal-title">@Localizer["Sync Error Stack Trace"]</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="alert alert-danger">
-                                                    <strong>Error:</strong> @item.LastPullResult
+                                                    <strong>@Localizer["Error:"]</strong> @item.LastPullResult
                                                 </div>
                                                 <pre class="bg-light p-3 border rounded"><code>@item.LastPullErrorStack</code></pre>
                                             </div>
@@ -155,17 +155,17 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Confirm Delete</h5>
+                                        <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Are you sure you want to delete mirror <strong>@item.Suite</strong>? 
-                                        This will also delete all associated packages and buckets!
+                                        @Localizer["Are you sure you want to delete mirror"] <strong>@item.Suite</strong>? 
+                                        @Localizer["This will also delete all associated packages and buckets!"]
                                     </div>
                                     <div class="modal-footer">
                                         <form asp-action="Delete" asp-route-id="@item.Id" method="post">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                            <button type="submit" class="btn btn-danger">Delete Mirror</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                            <button type="submit" class="btn btn-danger">@Localizer["Delete Mirror"]</button>
                                         </form>
                                     </div>
                                 </div>

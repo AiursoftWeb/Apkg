@@ -22,6 +22,7 @@ public class ChangePasswordViewModel : UiStackLayoutViewModel
     [Display(Name = "New password")]
     public string? NewPassword { get; set; }
 
+    [Required(ErrorMessage = "The {0} is required.")]
     [DataType(DataType.Password)]
     [Display(Name = "Confirm new password")]
     [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
