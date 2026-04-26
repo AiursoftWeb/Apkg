@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to List" xml:space="preserve">
+    <value>Powrót do listy</value>
+  </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Przeglądaj pakiety</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>Certyfikat</value>
+  </data>
+  <data name="Client Configuration Guide" xml:space="preserve">
+    <value>Przewodnik konfiguracji klienta</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Dystrybucja</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Informacje</value>
+  </data>
+  <data name="Live Bucket" xml:space="preserve">
+    <value>Żywy Bucket</value>
+  </data>
+  <data name="Mirror Source" xml:space="preserve">
+    <value>Źródło lustrzane</value>
+  </data>
+  <data name="One-line Setup (Unsigned):" xml:space="preserve">
+    <value>Konfiguracja w jednym wierszu (bez podpisu):</value>
+  </data>
+  <data name="One-line Setup:" xml:space="preserve">
+    <value>Konfiguracja w jednej linii:</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Szczegóły repozytorium</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Wersja</value>
+  </data>
+  <data name="This repository is not signed. We are using &apos;Trusted: yes&apos; to bypass security checks. Use with caution!" xml:space="preserve">
+    <value>To repozytorium nie jest podpisane. Używamy opcji &apos;Trusted: yes&apos;, aby pominąć sprawdzania bezpieczeństwa. Używaj z ostrożnością!</value>
+  </data>
+  <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
+    <value>Wykorzystuje to nowoczesny format DEB822 oraz ograniczony klucz do przechowywania kluczy dla maksymalnego bezpieczeństwa i niezawodności.</value>
+  </data>
+
+</root>
