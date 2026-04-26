@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Architecture" xml:space="preserve">
+    <value>Arhitectură</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Înapoi</value>
+  </data>
+  <data name="Bugs" xml:space="preserve">
+    <value>Bugs</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Component</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descriere</value>
+  </data>
+  <data name="Download .deb" xml:space="preserve">
+    <value>Descarcă .deb</value>
+  </data>
+  <data name="Download Size" xml:space="preserve">
+    <value>Dimensiune descărcare</value>
+  </data>
+  <data name="Failed to load reverse dependencies." xml:space="preserve">
+    <value>Nu s-a putut încărca dependențele inverse.</value>
+  </data>
+  <data name="Hashes" xml:space="preserve">
+    <value>Hash-uri</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Pagina principală</value>
+  </data>
+  <data name="Installed Size" xml:space="preserve">
+    <value>Dimensiune instalată</value>
+  </data>
+  <data name="Loading…" xml:space="preserve">
+    <value>Se încarcă…</value>
+  </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Întreținător</value>
+  </data>
+  <data name="Metadata" xml:space="preserve">
+    <value>Metadate</value>
+  </data>
+  <data name="Multi-Arch" xml:space="preserve">
+    <value>Multi-Arch</value>
+  </data>
+  <data name="No packages depend on this package." xml:space="preserve">
+    <value>Niciun pachet nu depinde de acest pachet.</value>
+  </data>
+  <data name="No relations." xml:space="preserve">
+    <value>Nicio relație.</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>Origine</value>
+  </data>
+  <data name="Original Maintainer" xml:space="preserve">
+    <value>Întreținător original</value>
+  </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Detalii pachet</value>
+  </data>
+  <data name="Physical (Cached)" xml:space="preserve">
+    <value>Fizic (În cache)</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Prioritate</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>Relații</value>
+  </data>
+  <data name="Reverse Dependencies" xml:space="preserve">
+    <value>Dependențe inverse</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>Secțiune</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Sursă</value>
+  </data>
+  <data name="Status &amp; Files" xml:space="preserve">
+    <value>Stare &amp; Fișiere</value>
+  </data>
+  <data name="Storage State" xml:space="preserve">
+    <value>Starea stocării</value>
+  </data>
+  <data name="Upstream URL" xml:space="preserve">
+    <value>URL sursă</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versiune</value>
+  </data>
+  <data name="Virtual (Lazy Sync)" xml:space="preserve">
+    <value>Virtual (Sincronizare Leneșă)</value>
+  </data>
+
+</root>
