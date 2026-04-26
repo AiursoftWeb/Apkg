@@ -17,9 +17,9 @@ public class AptMirrorController(
     private string BucketsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Buckets");
 
     [HttpGet]
-    [Route("{distro}/dists/{suite}/{**path}")]
-    [Route("repo/{repoName}/dists/{suite}/{**path}")]
-    [Route("dists/{suite}/{**path}")]
+    [Route("artifacts/{distro}/dists/{suite}/{**path}")]
+    [Route("artifacts/repo/{repoName}/dists/{suite}/{**path}")]
+    [Route("artifacts/dists/{suite}/{**path}")]
     public async Task<IActionResult> GetDists(
         [FromRoute] string? distro,
         [FromRoute] string? repoName, 
@@ -61,7 +61,7 @@ public class AptMirrorController(
     }
 
     [HttpGet]
-    [Route("certs/{name}")]
+    [Route("artifacts/certs/{name}")]
     public async Task<IActionResult> GetCert([FromRoute] string name)
     {
         var cert = await dbContext.AptCertificates
@@ -73,9 +73,9 @@ public class AptMirrorController(
     }
 
     [HttpGet]
-    [Route("{distro}/pool/{**path}")]
-    [Route("repo/{repoName}/pool/{**path}")]
-    [Route("pool/{**path}")]
+    [Route("artifacts/{distro}/pool/{**path}")]
+    [Route("artifacts/repo/{repoName}/pool/{**path}")]
+    [Route("artifacts/pool/{**path}")]
     public async Task<IActionResult> GetPool(
         [FromRoute] string? distro,
         [FromRoute] string path)

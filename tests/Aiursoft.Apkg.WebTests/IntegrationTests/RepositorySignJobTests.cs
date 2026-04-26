@@ -134,7 +134,7 @@ public class RepositorySignJobTests : TestBase
         _db.SaveChanges();
 
         // Act: APT client requests InRelease before sign job has run
-        var response = await Http.GetAsync($"/{repo.Distro}/dists/{repo.Suite}/InRelease");
+        var response = await Http.GetAsync($"/artifacts/{repo.Distro}/dists/{repo.Suite}/InRelease");
 
         // Assert: the unsigned, unswapped bucket must NOT be reachable
         Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode,
@@ -151,7 +151,7 @@ public class RepositorySignJobTests : TestBase
         _db.SaveChanges();
 
         // Pre-condition: endpoint returns 404 before the sign job runs
-        var before = await Http.GetAsync($"/{repo.Distro}/dists/{repo.Suite}/InRelease");
+        var before = await Http.GetAsync($"/artifacts/{repo.Distro}/dists/{repo.Suite}/InRelease");
         Assert.AreEqual(HttpStatusCode.NotFound, before.StatusCode,
             "Pre-condition failed: endpoint should be unreachable before sign job.");
 
@@ -160,7 +160,7 @@ public class RepositorySignJobTests : TestBase
         await job.ExecuteAsync();
 
         // Assert: endpoint now returns a GPG-signed InRelease
-        var after = await Http.GetAsync($"/{repo.Distro}/dists/{repo.Suite}/InRelease");
+        var after = await Http.GetAsync($"/artifacts/{repo.Distro}/dists/{repo.Suite}/InRelease");
         after.EnsureSuccessStatusCode();
         var content = await after.Content.ReadAsStringAsync();
         Assert.IsTrue(content.Contains("-----BEGIN PGP SIGNED MESSAGE-----"),
