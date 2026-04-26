@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>Danh sách gói trong</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Vật lý</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Tìm kiếm</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>Tìm kiếm gói...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>Kích thước</value>
@@ -41,6 +47,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Phiên bản</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Ảo</value>
   </data>
 
 </root>

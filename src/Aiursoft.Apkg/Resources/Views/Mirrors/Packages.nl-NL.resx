@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>Pakketten in</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fysiek</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Zoeken</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>Zoek pakket...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>Grootte</value>
@@ -41,6 +47,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Versie</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtueel</value>
   </data>
 
 </root>

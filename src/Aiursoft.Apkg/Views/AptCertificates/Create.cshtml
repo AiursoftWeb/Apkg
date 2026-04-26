@@ -10,14 +10,14 @@
     <form asp-action="Create" method="post">
         <div class="mb-3">
             <label asp-for="Name" class="form-label"></label>
-            <input asp-for="Name" class="form-control" placeholder="e.g. anduinos" required />
+            <input asp-for="Name" class="form-control" placeholder="@Localizer["e.g. anduinos"]" required />
             <div class="form-text">@Localizer["A unique, URL-friendly identifier for this key (a-z0-9)."]</div>
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
             <label asp-for="FriendlyName" class="form-label"></label>
-            <input asp-for="FriendlyName" class="form-control" placeholder="e.g. Anduinos Official Key" required />
+            <input asp-for="FriendlyName" class="form-control" placeholder="@Localizer["e.g. Anduinos Official Key"]" required />
             <div class="form-text">@Localizer["This name will be embedded in the GPG key as the User ID."]</div>
             <span asp-validation-for="FriendlyName" class="text-danger"></span>
         </div>

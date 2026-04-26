@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>Pakete in</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Physisch</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Suchen</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>Paket suchen...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>Größe</value>
@@ -44,6 +50,9 @@
   </data>
   <data name="View Repository Info" xml:space="preserve">
     <value>Repository-Informationen anzeigen</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtuell</value>
   </data>
 
 </root>

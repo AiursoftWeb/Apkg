@@ -42,6 +42,9 @@
   <data name="Packages in Bucket" xml:space="preserve">
     <value>Πακέτα στο Bucket</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Φυσικό</value>
+  </data>
   <data name="Previous" xml:space="preserve">
     <value>Προηγούμενη</value>
   </data>
@@ -56,6 +59,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Έκδοση</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Εικονικό</value>
   </data>
 
 </root>

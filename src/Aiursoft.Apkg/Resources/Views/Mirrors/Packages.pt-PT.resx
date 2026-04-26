@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>Pacotes em</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Físico</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Pesquisar</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>Pesquisar pacote...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>Tamanho</value>
@@ -41,6 +47,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Versão</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtual</value>
   </data>
 
 </root>

@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>软件包在</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>实体</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>搜索</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>搜索软件包...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>大小</value>
@@ -44,6 +50,9 @@
   </data>
   <data name="View Repository Info" xml:space="preserve">
     <value>查看仓库信息</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>虚拟</value>
   </data>
 
 </root>

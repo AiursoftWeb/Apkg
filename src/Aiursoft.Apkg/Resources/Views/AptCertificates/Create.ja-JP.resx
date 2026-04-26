@@ -24,6 +24,12 @@
   <data name="Cancel" xml:space="preserve">
     <value>キャンセル</value>
   </data>
+  <data name="e.g. anduinos" xml:space="preserve">
+    <value>例：anduinos</value>
+  </data>
+  <data name="e.g. Anduinos Official Key" xml:space="preserve">
+    <value>例：Anduinos Official Key</value>
+  </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>新しい証明書を生成</value>
   </data>

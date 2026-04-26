@@ -42,6 +42,9 @@
   <data name="Packages in Bucket" xml:space="preserve">
     <value>Gói trong Bucket</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Vật lý</value>
+  </data>
   <data name="Previous" xml:space="preserve">
     <value>Trước</value>
   </data>

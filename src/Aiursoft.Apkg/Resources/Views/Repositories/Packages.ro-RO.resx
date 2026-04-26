@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>Pachete în</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fizic</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Caută</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>Caută pachet...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>Dimensiune</value>
@@ -44,6 +50,9 @@
   </data>
   <data name="View Repository Info" xml:space="preserve">
     <value>Vizualizați informațiile depozitului</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtual</value>
   </data>
 
 </root>

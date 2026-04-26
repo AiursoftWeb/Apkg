@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>Paketler</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fiziksel</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Ara</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>Paket ara...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>Boyut</value>
@@ -41,6 +47,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Sürüm</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Sanal</value>
   </data>
 
 </root>

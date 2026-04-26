@@ -24,6 +24,12 @@
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
+  <data name="e.g. anduinos" xml:space="preserve">
+    <value>p. ej. anduinos</value>
+  </data>
+  <data name="e.g. Anduinos Official Key" xml:space="preserve">
+    <value>p. ej. Clave oficial de Anduinos</value>
+  </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>Generar nuevo certificado</value>
   </data>

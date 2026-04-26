@@ -24,6 +24,12 @@
   <data name="Cancel" xml:space="preserve">
     <value>Peruuta</value>
   </data>
+  <data name="e.g. anduinos" xml:space="preserve">
+    <value>esim. anduinos</value>
+  </data>
+  <data name="e.g. Anduinos Official Key" xml:space="preserve">
+    <value>esim. Anduinos virallinen avain</value>
+  </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>Luo uusi sertifikaatti</value>
   </data>

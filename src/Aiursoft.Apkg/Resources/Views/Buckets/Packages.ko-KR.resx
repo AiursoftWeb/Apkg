@@ -42,6 +42,9 @@
   <data name="Packages in Bucket" xml:space="preserve">
     <value>버킷의 패키지</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>물리</value>
+  </data>
   <data name="Previous" xml:space="preserve">
     <value>이전</value>
   </data>
