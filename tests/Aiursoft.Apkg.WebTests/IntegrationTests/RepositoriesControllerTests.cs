@@ -520,6 +520,30 @@ public class RepositoriesControllerTests : TestBase
             "Unsigned repo config must not emit a certs URL.");
     }
 
+    [TestMethod]
+    public async Task Details_ConfigGuide_SignedRepo_ContainsArchitecturesLine()
+    {
+        var response = await Http.GetAsync($"/Repositories/Details/{_repo.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsTrue(html.Contains($"Architectures: {_repo.Architecture}"),
+            "Signed repo config guide must include the Architectures: field.");
+    }
+
+    [TestMethod]
+    public async Task Details_ConfigGuide_UnsignedRepo_ContainsArchitecturesLine()
+    {
+        _repo.EnableGpgSign = false;
+        _repo.CertificateId = null;
+        _db.SaveChanges();
+
+        var response = await Http.GetAsync($"/Repositories/Details/{_repo.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsTrue(html.Contains($"Architectures: {_repo.Architecture}"),
+            "Unsigned repo config guide must also include the Architectures: field.");
+    }
+
     // ──────────────────────────────────────────────────────────────────────
     // PackageDetails — How to Install URL correctness
     // ──────────────────────────────────────────────────────────────────────
@@ -581,6 +605,32 @@ public class RepositoriesControllerTests : TestBase
             "Unsigned repo How to Install must not emit a certs curl command.");
         Assert.IsTrue(html.Contains($"/artifacts/{_repo.Distro}/"),
             "Unsigned repo How to Install must still have the correct APT source URI.");
+    }
+
+    [TestMethod]
+    public async Task PackageDetails_HowToInstall_SignedRepo_ContainsArchitecturesLine()
+    {
+        var pkg = AddPackage("curl");
+        var response = await Http.GetAsync($"/Repositories/PackageDetails/{pkg.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsTrue(html.Contains($"Architectures: {_repo.Architecture}"),
+            "Signed repo How to Install must include the Architectures: field.");
+    }
+
+    [TestMethod]
+    public async Task PackageDetails_HowToInstall_UnsignedRepo_ContainsArchitecturesLine()
+    {
+        _repo.EnableGpgSign = false;
+        _repo.CertificateId = null;
+        _db.SaveChanges();
+
+        var pkg = AddPackage("wget-unsigned");
+        var response = await Http.GetAsync($"/Repositories/PackageDetails/{pkg.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsTrue(html.Contains($"Architectures: {_repo.Architecture}"),
+            "Unsigned repo How to Install must also include the Architectures: field.");
     }
 
     // ──────────────────────────────────────────────────────────────────────

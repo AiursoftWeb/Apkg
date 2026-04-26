@@ -161,6 +161,7 @@ echo "Types: deb
 URIs: @(Model.BaseUrl)/artifacts/@(Model.Repo.Distro)/
 Suites: @(Model.Repo.Suite)
 Components: @((string.IsNullOrWhiteSpace(Model.Repo.Components) ? "main" : Model.Repo.Components).Replace(",", " "))
+Architectures: @(Model.Repo.Architecture)
 Signed-By: /usr/share/keyrings/@(Model.Repo.Certificate.Name)-archive-keyring.gpg" | sudo tee /etc/apt/sources.list.d/apkg-@(Model.Repo.Id).sources &amp;&amp; \
 sudo apt update</code></pre>
                     }
@@ -170,6 +171,7 @@ sudo apt update</code></pre>
 URIs: @(Model.BaseUrl)/artifacts/@(Model.Repo.Distro)/
 Suites: @(Model.Repo.Suite)
 Components: @((string.IsNullOrWhiteSpace(Model.Repo.Components) ? "main" : Model.Repo.Components).Replace(",", " "))
+Architectures: @(Model.Repo.Architecture)
 Trusted: yes" | sudo tee /etc/apt/sources.list.d/apkg-@(Model.Repo.Id).sources &amp;&amp; \
 sudo apt update</code></pre>
                     }
