@@ -154,9 +154,9 @@
                 <div class="card-body">
                     <p class="text-muted small mb-2">@Localizer["Step 1: Add this APT server"]</p>
                     <pre class="bg-light p-2 rounded small text-break" style="white-space:pre-wrap;"><code>sudo mkdir -p /usr/share/keyrings &amp;&amp; \
-curl -sL @(Model.BaseUrl)/certs/@(Model.Repo.Certificate?.Name ?? "apkg") | gpg --dearmor | sudo tee /usr/share/keyrings/@(Model.Repo.Certificate?.Name ?? "apkg")-archive-keyring.gpg &gt; /dev/null &amp;&amp; \
+curl -sL @(Model.BaseUrl)/artifacts/certs/@(Model.Repo.Certificate?.Name ?? "apkg") | gpg --dearmor | sudo tee /usr/share/keyrings/@(Model.Repo.Certificate?.Name ?? "apkg")-archive-keyring.gpg &gt; /dev/null &amp;&amp; \
 echo "Types: deb
-URIs: @(Model.BaseUrl)/@(Model.Repo.Name)/
+URIs: @(Model.BaseUrl)/artifacts/@(Model.Repo.Distro)/
 Suites: @(Model.Repo.Suite)
 Components: @(Model.Repo.Components)
 Signed-By: /usr/share/keyrings/@(Model.Repo.Certificate?.Name ?? "apkg")-archive-keyring.gpg" | sudo tee /etc/apt/sources.list.d/@(Model.Repo.Name).sources &amp;&amp; \
