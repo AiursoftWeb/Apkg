@@ -220,7 +220,7 @@ public class MirrorsPackageDetailsTests : TestBase
         var response = await Http.GetAsync($"/Mirrors/PackageDetails/{pkg.Id}");
         var html = await response.Content.ReadAsStringAsync();
 
-        Assert.IsTrue(html.Contains($"/{pkg.Filename}"),
+        Assert.IsTrue(html.Contains($"/artifacts/{pkg.Filename}"),
             $"Download button should link to '/{pkg.Filename}'.");
     }
 
@@ -299,5 +299,35 @@ public class MirrorsPackageDetailsTests : TestBase
         Assert.IsTrue(html.Contains("rev-deps-loading"), "Loading spinner div should be present.");
         Assert.IsTrue(html.Contains("rev-deps-content"), "Content div for AJAX result should be present.");
         Assert.IsTrue(html.Contains("ReverseDepends"), "AJAX fetch URL should reference the endpoint.");
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // PackageDetails — download link uses /artifacts prefix
+    // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task MirrorPackageDetails_DownloadButton_ContainsArtifactsPrefix()
+    {
+        var pkg = AddPackage("nmap-mirror");
+        var response = await Http.GetAsync($"/Mirrors/PackageDetails/{pkg.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsTrue(html.Contains($"/artifacts/{pkg.Filename}"),
+            "Download button must link to /artifacts/{filename}, not bare /{filename}.");
+        Assert.IsFalse(html.Contains($"href=\"/{pkg.Filename}\""),
+            "Download button must not use the old bare pool path without /artifacts prefix.");
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // APT routes — /artifacts prefix enforced, bare pool path rejected
+    // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task AptRoute_BarePoolPath_Returns404()
+    {
+        // Old route /pool/{**path} must no longer exist
+        var response = await Http.GetAsync("/pool/main/t/test-pkg/test.deb");
+        Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode,
+            "Bare /pool/... route must not be reachable after adding /artifacts prefix.");
     }
 }

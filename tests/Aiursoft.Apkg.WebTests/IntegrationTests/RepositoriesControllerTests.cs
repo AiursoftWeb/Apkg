@@ -338,8 +338,8 @@ public class RepositoriesControllerTests : TestBase
         var response = await Http.GetAsync($"/Repositories/PackageDetails/{pkg.Id}");
         var html = await response.Content.ReadAsStringAsync();
 
-        Assert.IsTrue(html.Contains($"/{pkg.Filename}"),
-            $"Download button should link to '/{pkg.Filename}'.");
+        Assert.IsTrue(html.Contains($"/artifacts/{pkg.Filename}"),
+            $"Download button should link to '/artifacts/{pkg.Filename}'.");
     }
 
     [TestMethod]
@@ -466,5 +466,109 @@ public class RepositoriesControllerTests : TestBase
         Assert.IsTrue(html.Contains("rev-deps-loading"), "Loading spinner div should be present.");
         Assert.IsTrue(html.Contains("rev-deps-content"), "Content div for AJAX result should be present.");
         Assert.IsTrue(html.Contains("ReverseDepends"), "AJAX fetch URL should reference the endpoint.");
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Details page — configuration guide URL correctness
+    // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task Details_ReturnsOk()
+    {
+        var response = await Http.GetAsync($"/Repositories/Details/{_repo.Id}");
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+    }
+
+    [TestMethod]
+    public async Task Details_ConfigGuide_SignedRepo_ContainsArtifactsPrefix()
+    {
+        // Seeded repo has EnableGpgSign = true and CertificateId is set
+        var response = await Http.GetAsync($"/Repositories/Details/{_repo.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsTrue(html.Contains("/artifacts/certs/"),
+            "Cert download URL must contain /artifacts/certs/ prefix.");
+        Assert.IsTrue(html.Contains($"/artifacts/{_repo.Distro}/"),
+            "APT source URIs line must contain /artifacts/{distro}/ prefix.");
+    }
+
+    [TestMethod]
+    public async Task Details_ConfigGuide_SignedRepo_DoesNotContainBareDistroPath()
+    {
+        var response = await Http.GetAsync($"/Repositories/Details/{_repo.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsFalse(html.Contains($"URIs: http://localhost/{_repo.Distro}/"),
+            "sources.list URIs line must not omit the /artifacts prefix.");
+        Assert.IsFalse(html.Contains($"URIs: https://localhost/{_repo.Distro}/"),
+            "sources.list URIs line must not omit the /artifacts prefix.");
+    }
+
+    [TestMethod]
+    public async Task Details_ConfigGuide_UnsignedRepo_ContainsArtifactsPrefixWithoutCerts()
+    {
+        _repo.EnableGpgSign = false;
+        _repo.CertificateId = null;
+        _db.SaveChanges();
+
+        var response = await Http.GetAsync($"/Repositories/Details/{_repo.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsTrue(html.Contains($"/artifacts/{_repo.Distro}/"),
+            "Unsigned APT source URI must still use /artifacts/{distro}/ prefix.");
+        Assert.IsFalse(html.Contains("/certs/"),
+            "Unsigned repo config must not emit a certs URL.");
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // PackageDetails — How to Install URL correctness
+    // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task PackageDetails_HowToInstall_ContainsArtifactsPrefix()
+    {
+        var pkg = AddPackage("zlib1g");
+        var response = await Http.GetAsync($"/Repositories/PackageDetails/{pkg.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsTrue(html.Contains("/artifacts/certs/"),
+            "How to Install must use /artifacts/certs/ for cert download URL.");
+        Assert.IsTrue(html.Contains($"/artifacts/{_repo.Distro}/"),
+            "How to Install must use /artifacts/{distro}/ for the APT source URIs line.");
+    }
+
+    [TestMethod]
+    public async Task PackageDetails_HowToInstall_UsesDistroNotName()
+    {
+        // Repo.Distro = "anduinos", Repo.Name = "Anduinos Official questing" (with spaces, different value)
+        var pkg = AddPackage("grep");
+        var response = await Http.GetAsync($"/Repositories/PackageDetails/{pkg.Id}");
+        var html = await response.Content.ReadAsStringAsync();
+
+        Assert.IsTrue(html.Contains($"/artifacts/{_repo.Distro}/"),
+            "How to Install URI must use the Distro field.");
+        Assert.IsFalse(html.Contains($"/artifacts/{_repo.Name}/"),
+            "How to Install URI must not use the repo Name field.");
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // APT routes — /artifacts prefix enforced, bare paths rejected
+    // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task AptRoute_BareDistroPath_Returns404()
+    {
+        // Old route /{distro}/dists/... must no longer exist
+        var response = await Http.GetAsync($"/{_repo.Distro}/dists/{_repo.Suite}/InRelease");
+        Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode,
+            "Bare /{distro}/dists/... route must not be reachable after adding /artifacts prefix.");
+    }
+
+    [TestMethod]
+    public async Task AptRoute_BareCertsPath_Returns404()
+    {
+        var response = await Http.GetAsync("/certs/anduinos");
+        Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode,
+            "Bare /certs/{name} route must not be reachable after adding /artifacts prefix.");
     }
 }
