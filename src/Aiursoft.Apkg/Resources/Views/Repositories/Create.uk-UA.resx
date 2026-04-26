@@ -39,6 +39,12 @@
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Визначає, які підкаталоги компонентів включаються під час генерації індексу Packages. Пакети з неперелічених компонентів зберігаються, але стають невидимими для клієнтів apt. Також встановлює рядок Components: у посібнику з налаштування клієнта. Зміни набувають чинності під час наступного запуску завдання синхронізації сховища.</value>
   </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>Створити новий репозиторій</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Редагувати сховище</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Якщо підключено до дзеркала, цей репозиторій надаватиме пакунки з цього первинного джерела.</value>
   </data>

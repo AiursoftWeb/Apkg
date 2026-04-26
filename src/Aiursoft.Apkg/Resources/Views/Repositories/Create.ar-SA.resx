@@ -39,6 +39,12 @@
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>يحدد دليل المكونات الفرعية المدرجة عند إنشاء فهرس الحزم. يتم تخزين الحزم الموجودة في المكونات غير المدرجة لكنها غير مرئية لعملاء apt. يحدد أيضًا سطر المكونات: في دليل إعداد العميل. تدخل التغييرات حيز التنفيذ عند تشغيل مهمة مزامنة المستودع التالية.</value>
   </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>إنشاء مستودع جديد</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>تعديل المستودع</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>إذا تم ربطه بمرآة، ستقوم مستودع هذا بتقديم الحزم من ذلك المصدر الخارجي.</value>
   </data>

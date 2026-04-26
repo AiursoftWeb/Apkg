@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="Add New Mirror" xml:space="preserve">
+    <value>添加新镜像</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>架构</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -26,6 +29,9 @@
   </data>
   <data name="Components" xml:space="preserve">
     <value>组件</value>
+  </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>编辑镜像</value>
   </data>
   <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
     <value>镜像同步期间应用了硬性过滤器：仅下载并存储属于这些组件之一的软件包。使用逗号分隔（例如 main,universe,multiverse,restricted）。更改将在下次运行镜像同步任务时生效。</value>

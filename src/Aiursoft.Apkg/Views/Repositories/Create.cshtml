@@ -2,7 +2,7 @@
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto">
-        <h3>@(Model.Id == 0 ? Localizer["Create New Repository"] : Localizer["Edit Repository"])</h3>
+        <h3>@if (Model.Id == 0) { @Localizer["Create New Repository"] } else { @Localizer["Edit Repository"] }</h3>
     </div>
 </div>
 

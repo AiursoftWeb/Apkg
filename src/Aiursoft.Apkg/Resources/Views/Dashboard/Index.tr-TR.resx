@@ -153,6 +153,9 @@
   <data name="Next ›" xml:space="preserve">
     <value>Sonraki ›</value>
   </data>
+  <data name="No description." xml:space="preserve">
+    <value>Açıklama yok.</value>
+  </data>
   <data name="No packages found matching" xml:space="preserve">
     <value>Eşleşen paket bulunamadı</value>
   </data>

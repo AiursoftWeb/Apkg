@@ -153,6 +153,9 @@
   <data name="Next ›" xml:space="preserve">
     <value>Наступна ›</value>
   </data>
+  <data name="No description." xml:space="preserve">
+    <value>Немає опису.</value>
+  </data>
   <data name="No packages found matching" xml:space="preserve">
     <value>Пакетів не знайдено за збігом</value>
   </data>

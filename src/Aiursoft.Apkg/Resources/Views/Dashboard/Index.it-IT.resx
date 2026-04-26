@@ -153,6 +153,9 @@
   <data name="Next ›" xml:space="preserve">
     <value>Avanti ›</value>
   </data>
+  <data name="No description." xml:space="preserve">
+    <value>Nessuna descrizione.</value>
+  </data>
   <data name="No packages found matching" xml:space="preserve">
     <value>Nessun pacchetto trovato corrispondente a</value>
   </data>

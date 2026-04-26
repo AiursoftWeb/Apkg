@@ -39,6 +39,12 @@
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Packages 인덱스를 생성할 때 포함될 구성 요소 하위 디렉토리를 제어합니다. 나열되지 않은 구성 요소의 패키지는 저장되지만 apt 클라이언트에서는 보이지 않습니다. 또한 클라이언트 설정 가이드의 Components: 줄을 설정합니다. 변경 사항은 다음 Repository Sync 작업 실행 시 적용됩니다.</value>
   </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>새 저장소 만들기</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>저장소 편집</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>미러에 연결된 경우 이 저장소는 해당 업스트림 소스에서 패키지를 제공합니다.</value>
   </data>

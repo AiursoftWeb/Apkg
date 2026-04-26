@@ -153,6 +153,9 @@
   <data name="Next ›" xml:space="preserve">
     <value>Berikutnya ›</value>
   </data>
+  <data name="No description." xml:space="preserve">
+    <value>Tidak ada deskripsi.</value>
+  </data>
   <data name="No packages found matching" xml:space="preserve">
     <value>Tidak ada paket yang cocok</value>
   </data>

@@ -153,6 +153,9 @@
   <data name="Next ›" xml:space="preserve">
     <value>Далее ›</value>
   </data>
+  <data name="No description." xml:space="preserve">
+    <value>Нет описания.</value>
+  </data>
   <data name="No packages found matching" xml:space="preserve">
     <value>Пакеты, соответствующие запросу, не найдены</value>
   </data>

@@ -153,6 +153,9 @@
   <data name="Next ›" xml:space="preserve">
     <value>下一頁 ›</value>
   </data>
+  <data name="No description." xml:space="preserve">
+    <value>無描述。</value>
+  </data>
   <data name="No packages found matching" xml:space="preserve">
     <value>找不到符合的套件</value>
   </data>

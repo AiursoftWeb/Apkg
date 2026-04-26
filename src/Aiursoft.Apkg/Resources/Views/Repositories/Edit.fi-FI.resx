@@ -39,6 +39,12 @@
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Määrittää, mitkä komponenttien alihakemistot sisällytetään Packages-indeksiä luotaessa. Paketeja ei-listatuissa komponenteissa tallennetaan, mutta ne ovat näkymättömiä apt-asiakkaille. Asettaa myös Components-rivin asiakkaan asennusoppaaseen. Muutokset tulevat voimaan seuraavan Repository Sync -tehtävän suorituksen yhteydessä.</value>
   </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>Luo uusi arkisto</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Muokkaa arkistoa</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Jos yhdistetty peiliin, tämä arkisto palvelee paketteja tuosta ylävirtalähteestä.</value>
   </data>

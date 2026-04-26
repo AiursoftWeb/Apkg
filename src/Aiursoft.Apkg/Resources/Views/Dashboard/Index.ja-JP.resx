@@ -153,6 +153,9 @@
   <data name="Next ›" xml:space="preserve">
     <value>次へ ›</value>
   </data>
+  <data name="No description." xml:space="preserve">
+    <value>説明なし。</value>
+  </data>
   <data name="No packages found matching" xml:space="preserve">
     <value>一致するパッケージが見つかりません</value>
   </data>

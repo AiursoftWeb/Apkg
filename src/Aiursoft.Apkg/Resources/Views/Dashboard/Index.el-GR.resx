@@ -153,6 +153,9 @@
   <data name="Next ›" xml:space="preserve">
     <value>Επόμενο ›</value>
   </data>
+  <data name="No description." xml:space="preserve">
+    <value>Δεν υπάρχει περιγραφή.</value>
+  </data>
   <data name="No packages found matching" xml:space="preserve">
     <value>Δεν βρέθηκαν πακέτα που να ταιριάζουν</value>
   </data>

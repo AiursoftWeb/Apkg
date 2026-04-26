@@ -39,6 +39,12 @@
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>控制生成 Packages 索引時包含哪些組件子目錄。未列出的組件中的套件會被儲存，但對 apt 客戶端不可見。同時設定客戶端設定指南中的 Components: 行。更改在下一次 Repository Sync 作業執行時生效。</value>
   </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>建立新存放區</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>編輯儲存庫</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>若連結至鏡像伺服器，此存放區將提供來自該上游來源的套件。</value>
   </data>

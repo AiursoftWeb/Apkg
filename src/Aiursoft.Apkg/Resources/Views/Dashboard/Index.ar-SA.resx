@@ -153,6 +153,9 @@
   <data name="Next ›" xml:space="preserve">
     <value>التالي ›</value>
   </data>
+  <data name="No description." xml:space="preserve">
+    <value>لا يوجد وصف.</value>
+  </data>
   <data name="No packages found matching" xml:space="preserve">
     <value>لم يتم العثور على حزم مطابقة</value>
   </data>

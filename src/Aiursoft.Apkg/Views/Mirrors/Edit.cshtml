@@ -2,7 +2,7 @@
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto">
-        <h3>@(Model.Id == 0 ? Localizer["Add New Mirror"] : Localizer["Edit Mirror"])</h3>
+        <h3>@if (Model.Id == 0) { @Localizer["Add New Mirror"] } else { @Localizer["Edit Mirror"] }</h3>
     </div>
 </div>
 

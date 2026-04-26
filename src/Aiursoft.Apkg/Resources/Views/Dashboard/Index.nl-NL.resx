@@ -153,6 +153,9 @@
   <data name="Next ›" xml:space="preserve">
     <value>Volgende ›</value>
   </data>
+  <data name="No description." xml:space="preserve">
+    <value>Geen beschrijving.</value>
+  </data>
   <data name="No packages found matching" xml:space="preserve">
     <value>Geen pakketten gevonden die overeenkomen met</value>
   </data>

@@ -39,6 +39,12 @@
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Controlla quali sottodirectory dei componenti sono incluse durante la generazione dell&apos;indice Packages. I pacchetti nei componenti non elencati vengono archiviati ma non sono visibili ai client apt. Imposta anche la riga Components: nella guida di configurazione del client. Le modifiche entrano in vigore alla prossima esecuzione del job di sincronizzazione del repository.</value>
   </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>Crea nuovo repository</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Modifica repository</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Se collegato a uno specchio, questo repository servirà i pacchetti da tale sorgente upstream.</value>
   </data>

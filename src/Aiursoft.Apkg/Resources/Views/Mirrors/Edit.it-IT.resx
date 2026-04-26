@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="Add New Mirror" xml:space="preserve">
+    <value>Aggiungi nuovo mirror</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Architettura</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -26,6 +29,9 @@
   </data>
   <data name="Components" xml:space="preserve">
     <value>Componenti</value>
+  </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Modifica mirror</value>
   </data>
   <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
     <value>Filtro rigido applicato durante la sincronizzazione dello specchio: vengono scaricati e archiviati solo i pacchetti appartenenti a uno di questi componenti. Separati da virgole (ad esempio main,universe,multiverse,restricted). Le modifiche avranno effetto alla prossima esecuzione del lavoro di sincronizzazione dello specchio.</value>

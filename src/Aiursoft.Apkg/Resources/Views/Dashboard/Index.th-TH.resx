@@ -153,6 +153,9 @@
   <data name="Next ›" xml:space="preserve">
     <value>ถัดไป ›</value>
   </data>
+  <data name="No description." xml:space="preserve">
+    <value>ไม่มีคำอธิบาย</value>
+  </data>
   <data name="No packages found matching" xml:space="preserve">
     <value>ไม่พบแพ็กเกจที่ตรงกับ</value>
   </data>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="Add New Mirror" xml:space="preserve">
+    <value>إضافة مرآة جديدة</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>البنية</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -26,6 +29,9 @@
   </data>
   <data name="Components" xml:space="preserve">
     <value>المكونات</value>
+  </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>تعديل المرآة</value>
   </data>
   <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
     <value>تم تطبيق التصفية الصارمة أثناء مزامنة المرآة: يتم تنزيل وتخزين الحزم التي تنتمي إلى أحد مكونات هذه القائمة فقط. مفصولة بفواصل (على سبيل المثال: main,universe,multiverse,restricted). تدخل التغييرات حيز التنفيذ عند تشغيل مهمة مزامنة المرآة التالية.</value>

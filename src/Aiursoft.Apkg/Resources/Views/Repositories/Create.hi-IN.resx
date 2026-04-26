@@ -39,6 +39,12 @@
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Packages index बनाते समय कौन से घटक उपनिर्देशिकाएँ शामिल की जाएँगी, यह नियंत्रित करता है। अनु सूचीबद्ध घटकों में पैकेज संग्रहीत किए जाते हैं लेकिन apt क्लाइंटों के लिए अदृश्य होते हैं। यह क्लाइंट सेटअप गाइड में Components: पंक्ति को भी सेट करता है। परिवर्तन अगले Repository Sync कार्य चलाए जाने पर प्रभावी हो जाते हैं।</value>
   </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>नया रिपॉजिटरी बनाएं</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>रेपॉजिटरी संपादित करें</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>यदि किसी मिरर से जुड़ा है, तो यह रिपॉजिटरी उस अपस्ट्रीम स्रोत से पैकेज प्रदान करेगा।</value>
   </data>

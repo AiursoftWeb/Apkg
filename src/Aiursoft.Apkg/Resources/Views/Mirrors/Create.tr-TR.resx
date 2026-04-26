@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="Add New Mirror" xml:space="preserve">
+    <value>Yeni Ayna Ekle</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Mimari</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -26,6 +29,9 @@
   </data>
   <data name="Components" xml:space="preserve">
     <value>Bileşenler</value>
+  </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Aynayı Düzenle</value>
   </data>
   <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
     <value>Ayna Senkronizasyonu sırasında katı filtre uygulandı: yalnızca bu bileşenlerden birine ait paketler indirilir ve depolanır. Virgülle ayrılmış (örn. main,universe,multiverse,restricted). Değişiklikler bir sonraki Ayna Senkronizasyonu işi çalıştırmasında geçerli olur.</value>

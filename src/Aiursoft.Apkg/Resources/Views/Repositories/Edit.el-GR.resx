@@ -39,6 +39,12 @@
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Ελέγχει ποιους υποκαταλόγους των components περιλαμβάνονται κατά τη δημιουργία του ευρετηρίου Packages. Τα πακέτα σε μη καταγεγραμμένα components αποθηκεύονται αλλά είναι αόρατα στους πελάτες apt. Επίσης ορίζει τη γραμμή Components: στον οδηγό ρύθμισης του πελάτη. Οι αλλαγές τίθενται σε ισχύ κατά την εκτέλεση της επόμενης εργασίας Συγχρονισμού Αποθετηρίου.</value>
   </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>Δημιουργία Νέου Αποθετηρίου</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Επεξεργασία Αποθετηρίου</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Αν συνδεθεί με καθρέφτη, αυτό το αποθετήριο θα παρέχει πακέτα από την πηγή-ανώτερου επιπέδου.</value>
   </data>

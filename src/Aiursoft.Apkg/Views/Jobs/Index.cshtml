@@ -55,9 +55,6 @@
         @foreach (var job in Model.RegisteredJobs)
         {
             var hasSchedule = scheduledTaskByType.TryGetValue(job.JobType, out var schedule);
-            var scheduleText = hasSchedule
-                ? Localizer["Every {0}, first run in {1}", ToFriendlyDuration(schedule!.Period), ToFriendlyDuration(schedule.StartDelay)].Value
-                : Localizer["Never run"].Value;
             var hasLastRun = lastRunAtByType.TryGetValue(job.JobType, out var lastRunAt);
 
             <div class="col-12 col-md-6 col-xl-4">
@@ -70,7 +67,14 @@
                         <p class="card-text text-muted small mb-3 flex-grow-1">@job.Description</p>
                         <p class="card-text mb-3">
                             <span class="badge @(hasSchedule ? "bg-info-subtle text-info" : "bg-secondary-subtle text-secondary")" style="font-size: 0.75rem;">
-                                @scheduleText
+                                @if (hasSchedule)
+                                {
+                                    @Localizer["Every {0}, first run in {1}", ToFriendlyDuration(schedule!.Period), ToFriendlyDuration(schedule.StartDelay)]
+                                }
+                                else
+                                {
+                                    @Localizer["Never run"]
+                                }
                             </span>
                         </p>
                         <p class="card-text text-muted small mb-3">

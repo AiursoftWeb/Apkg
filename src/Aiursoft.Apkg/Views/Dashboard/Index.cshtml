@@ -90,7 +90,14 @@
                                 }
                             </div>
                             <p class="text-muted mb-1 small text-truncate">
-                                @(string.IsNullOrWhiteSpace(pkg.Description) ? Localizer["No description."].Value : pkg.Description)
+                                @if (string.IsNullOrWhiteSpace(pkg.Description))
+                                {
+                                    @Localizer["No description."]
+                                }
+                                else
+                                {
+                                    @pkg.Description
+                                }
                             </p>
                             <div class="d-flex flex-wrap gap-3 small text-muted">
                                 @if (!string.IsNullOrWhiteSpace(pkg.Maintainer))

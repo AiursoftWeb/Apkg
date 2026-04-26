@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="Add New Mirror" xml:space="preserve">
+    <value>Dodaj nową lustrzaną kopię</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Architektura</value>
   </data>
   <data name="Cancel" xml:space="preserve">
@@ -26,6 +29,9 @@
   </data>
   <data name="Components" xml:space="preserve">
     <value>Komponenty</value>
+  </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Edytuj lustrzane odbicie</value>
   </data>
   <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
     <value>Sztywne filtrowanie stosowane podczas synchronizacji lustra: pobierane i przechowywane są tylko pakiety należące do jednego z tych komponentów. Rozdzielane przecinkami (np. main,universe,multiverse,restricted). Zmiany zostaną uwzględnione podczas następnego uruchomienia zadania synchronizacji lustra.</value>
