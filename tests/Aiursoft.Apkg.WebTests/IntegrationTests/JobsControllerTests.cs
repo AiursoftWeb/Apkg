@@ -12,10 +12,10 @@ public class JobsControllerTests : TestBase
         var indexResponse = await Http.GetAsync("/Jobs/Index");
         indexResponse.EnsureSuccessStatusCode();
 
-        // 2. Trigger DummyJob
+        // 2. Trigger GarbageCollectionJob
         var triggerAResponse = await PostForm("/Jobs/Trigger", new Dictionary<string, string>
         {
-            { "jobTypeName", "DummyJob" }
+            { "jobTypeName", "GarbageCollectionJob" }
         }, tokenUrl: "/Jobs");
         AssertRedirect(triggerAResponse, "/Jobs");
 

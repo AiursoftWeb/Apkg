@@ -244,10 +244,10 @@ public class BackgroundJobsTests : TestBase
         var queue = Server!.Services.GetRequiredService<ServiceTaskQueue>();
         var initialTaskCount = queue.GetAllTasks().Count();
 
-        // Step 2: 通过 Trigger 端点触发 DummyJob
+        // Step 2: 通过 Trigger 端点触发 GarbageCollectionJob
         var triggerResponse = await PostForm("/Jobs/Trigger", new Dictionary<string, string>
         {
-            { "jobTypeName", "DummyJob" }
+            { "jobTypeName", "GarbageCollectionJob" }
         }, tokenUrl: "/Jobs");
 
         // Step 3: 应该重定向回Jobs页面
@@ -260,9 +260,9 @@ public class BackgroundJobsTests : TestBase
         var currentTaskCount = queue.GetAllTasks().Count();
         Assert.IsGreaterThan(initialTaskCount, currentTaskCount);
 
-        // Step 5: 验证创建的是 DummyJob 队列的任务
+        // Step 5: 验证创建的是 GarbageCollectionJob 队列的任务
         var tasks = queue.GetAllTasks().ToList();
-        var dummyTask = tasks.FirstOrDefault(t => t.QueueName == "DummyJob");
+        var dummyTask = tasks.FirstOrDefault(t => t.QueueName == "GarbageCollectionJob");
         Assert.IsNotNull(dummyTask);
         Assert.AreEqual(TaskTriggerSource.Manual, dummyTask.TriggerSource);
     }
@@ -275,10 +275,10 @@ public class BackgroundJobsTests : TestBase
 
         var queue = Server!.Services.GetRequiredService<ServiceTaskQueue>();
 
-        // Step 2: 触发 DummyJob
+        // Step 2: 触发 GarbageCollectionJob
         await PostForm("/Jobs/Trigger", new Dictionary<string, string>
         {
-            { "jobTypeName", "DummyJob" }
+            { "jobTypeName", "GarbageCollectionJob" }
         }, tokenUrl: "/Jobs");
 
         // Step 3: 触发 OrphanAvatarCleanupJob
@@ -292,10 +292,10 @@ public class BackgroundJobsTests : TestBase
 
         // Step 5: 验证两个队列都有任务
         var tasks = queue.GetAllTasks().ToList();
-        var dummyTasks   = tasks.Where(t => t.QueueName == "DummyJob").ToList();
+        var gcTasks      = tasks.Where(t => t.QueueName == "GarbageCollectionJob").ToList();
         var orphanTasks  = tasks.Where(t => t.QueueName == "OrphanAvatarCleanupJob").ToList();
 
-        Assert.IsNotEmpty(dummyTasks,  "DummyJob queue should have at least one task");
+        Assert.IsNotEmpty(gcTasks,     "GarbageCollectionJob queue should have at least one task");
         Assert.IsNotEmpty(orphanTasks, "OrphanAvatarCleanupJob queue should have at least one task");
     }
 

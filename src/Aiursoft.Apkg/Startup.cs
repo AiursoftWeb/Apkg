@@ -61,7 +61,6 @@ public class Startup : IWebStartup
         services.AddScheduledTaskEngine();
 
         // Background jobs
-        services.RegisterBackgroundJob<DummyJob>();
         var orphanAvatarCleanupJob = services.RegisterBackgroundJob<OrphanAvatarCleanupJob>();
         var mirrorSyncJob = services.RegisterBackgroundJob<MirrorSyncJob>();
         var repositorySyncJob = services.RegisterBackgroundJob<RepositorySyncJob>();
