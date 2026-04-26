@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Back to List" xml:space="preserve">
+    <value>Înapoi la listă</value>
+  </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Răsfoiește pachetele</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>Certificat</value>
+  </data>
+  <data name="Client Configuration Guide" xml:space="preserve">
+    <value>Ghid de configurare a clientului</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distribuție</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Informații</value>
+  </data>
+  <data name="Live Bucket" xml:space="preserve">
+    <value>Bucket Live</value>
+  </data>
+  <data name="Mirror Source" xml:space="preserve">
+    <value>Sursa de replicare</value>
+  </data>
+  <data name="One-line Setup (Unsigned):" xml:space="preserve">
+    <value>Configurare pe o singură linie (Nesemnată):</value>
+  </data>
+  <data name="One-line Setup:" xml:space="preserve">
+    <value>Configurare într-o singură linie:</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Detalii depozit</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+  <data name="This repository is not signed. We are using &apos;Trusted: yes&apos; to bypass security checks. Use with caution!" xml:space="preserve">
+    <value>Acest depozit nu este semnat. Folosim &apos;Trusted: yes&apos; pentru a ocoli verificările de securitate. Folosiți cu prudență!</value>
+  </data>
+  <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
+    <value>Acest lucru utilizează formatul modern DEB822 și un inel de chei limitat pentru o securitate și fiabilitate maxime.</value>
+  </data>
+
+</root>
