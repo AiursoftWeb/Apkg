@@ -36,9 +36,31 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Components" class="form-label">
+                        Components
+                        <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           data-bs-title="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run."></i>
+                    </label>
+                    <input asp-for="Components" class="form-control" placeholder="main,universe,multiverse,restricted" required />
+                    <span asp-validation-for="Components" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Architecture" class="form-label">
+                        Architecture
+                        <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           data-bs-title="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except 'all') are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run."></i>
+                    </label>
+                    <input asp-for="Architecture" class="form-control" placeholder="amd64" required />
+                    <span asp-validation-for="Architecture" class="text-danger"></span>
+                </div>
+            </div>
+
             <div class="mb-3">
-                <label asp-for="MirrorId" class="form-label"></label>
-                <select asp-for="MirrorId" asp-items="Model.AvailableMirrors" class="form-select">
+                <label asp-for="MirrorId" class="form-label"></label>                <select asp-for="MirrorId" asp-items="Model.AvailableMirrors" class="form-select">
                     <option value="">-- None (Standalone) --</option>
                 </select>
                 <div class="form-text">If linked to a mirror, this repository will serve packages from that upstream source.</div>
@@ -84,5 +106,6 @@
 
         enableGpgSign.addEventListener('change', updateCertVisibility);
         updateCertVisibility();
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
     </script>
 }

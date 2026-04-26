@@ -34,16 +34,25 @@
                     <span asp-validation-for="Suite" class="text-danger"></span>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label asp-for="Architecture" class="form-label"></label>
+                    <label asp-for="Architecture" class="form-label">
+                        Architecture
+                        <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           data-bs-title="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run."></i>
+                    </label>
                     <input asp-for="Architecture" class="form-control" placeholder="amd64" required />
                     <span asp-validation-for="Architecture" class="text-danger"></span>
                 </div>
             </div>
 
             <div class="mb-3">
-                <label asp-for="Components" class="form-label"></label>
+                <label asp-for="Components" class="form-label">
+                    Components
+                    <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                       data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-title="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run."></i>
+                </label>
                 <input asp-for="Components" class="form-control" placeholder="main,universe,multiverse,restricted" required />
-                <div class="form-text">Comma-separated components.</div>
                 <span asp-validation-for="Components" class="text-danger"></span>
             </div>
 
@@ -76,5 +85,6 @@
         };
         allowInsecure.addEventListener('change', updateSignedByVisibility);
         updateSignedByVisibility();
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
     </script>
 }
