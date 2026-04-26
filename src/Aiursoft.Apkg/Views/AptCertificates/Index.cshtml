@@ -40,16 +40,16 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Confirm Delete</h5>
+                                        <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Are you sure you want to delete certificate <strong>@item.FriendlyName</strong>? This will break all repositories using it!
+                                        @Localizer["Are you sure you want to delete certificate"] <strong>@item.FriendlyName</strong>? @Localizer["This will break all repositories using it!"]
                                     </div>
                                     <div class="modal-footer">
                                         <form asp-action="Delete" asp-route-id="@item.Id" method="post">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                            <button type="submit" class="btn btn-danger">Delete Forever</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                            <button type="submit" class="btn btn-danger">@Localizer["Delete Forever"]</button>
                                         </form>
                                     </div>
                                 </div>

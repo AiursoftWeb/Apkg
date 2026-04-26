@@ -8,7 +8,7 @@
 <div class="jumbotron p-4 mb-4" style="background: linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%); border-radius:.75rem;">
     <div class="container text-center py-3">
         <h1 class="display-5 fw-bold text-white mb-1">
-            <i class="align-middle me-2" data-lucide="package-search"></i> APT Package Search
+            <i class="align-middle me-2" data-lucide="package-search"></i> @Localizer["APT Package Search"]
         </h1>
         <p class="text-white-50 mb-4">Search across <strong class="text-white">@Model.TotalPackages.ToString("N0")</strong> packages in <strong class="text-white">@Model.TotalRepos</strong> active repositor@(Model.TotalRepos == 1 ? "y" : "ies")</p>
         <form method="get" asp-action="Index" asp-controller="Dashboard">
@@ -19,10 +19,10 @@
                 <input type="text"
                        name="q"
                        class="form-control border-start-0 ps-0"
-                       placeholder="Search packages (e.g. curl, python3, vim…)"
+                       placeholder="@Localizer["Search packages (e.g. curl, python3, vim…)"]"
                        value="@Model.Query"
                        autofocus />
-                <button class="btn btn-primary px-4" type="submit">Search</button>
+                <button class="btn btn-primary px-4" type="submit">@Localizer["Search"]</button>
             </div>
         </form>
     </div>
@@ -33,11 +33,11 @@
 {
     <div class="d-flex align-items-center mb-3 gap-2">
         <span class="text-muted">
-            @Model.TotalResults.ToString("N0") result@(Model.TotalResults == 1 ? "" : "s") for
+            @Model.TotalResults.ToString("N0") @Localizer[Model.TotalResults == 1 ? "result for" : "results for"]
         </span>
         <code class="fs-6">"@Model.Query"</code>
         <a asp-action="Index" asp-controller="Dashboard" class="btn btn-sm btn-outline-secondary ms-auto">
-            <i class="align-middle me-1" data-lucide="x"></i> Clear
+            <i class="align-middle me-1" data-lucide="x"></i> @Localizer["Clear"]
         </a>
     </div>
 
@@ -46,8 +46,8 @@
         <div class="card">
             <div class="card-body text-center py-5">
                 <i data-lucide="package-x" style="width:48px;height:48px;" class="text-muted mb-3"></i>
-                <h5 class="text-muted">No packages found matching <code>@Model.Query</code></h5>
-                <p class="text-muted small mb-0">Try a shorter name or check spelling.</p>
+                <h5 class="text-muted">@Localizer["No packages found matching"] <code>@Model.Query</code></h5>
+                <p class="text-muted small mb-0">@Localizer["Try a shorter name or check spelling."]</p>
             </div>
         </div>
     }
@@ -82,15 +82,15 @@
                                 <span class="badge badge-subtle-info">@pkg.Architecture</span>
                                 @if (pkg.IsVirtual)
                                 {
-                                    <span class="badge badge-subtle-warning">Virtual</span>
+                                    <span class="badge badge-subtle-warning">@Localizer["Virtual"]</span>
                                 }
                                 else
                                 {
-                                    <span class="badge badge-subtle-success">Physical</span>
+                                    <span class="badge badge-subtle-success">@Localizer["Physical"]</span>
                                 }
                             </div>
                             <p class="text-muted mb-1 small text-truncate">
-                                @(string.IsNullOrWhiteSpace(pkg.Description) ? "No description." : pkg.Description)
+                                @(string.IsNullOrWhiteSpace(pkg.Description) ? Localizer["No description."].Value : pkg.Description)
                             </p>
                             <div class="d-flex flex-wrap gap-3 small text-muted">
                                 @if (!string.IsNullOrWhiteSpace(pkg.Maintainer))
@@ -118,7 +118,7 @@
             <nav class="mt-3" aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
                     <li class="page-item @(Model.Page <= 1 ? "disabled" : "")">
-                        <a class="page-link" asp-action="Index" asp-route-q="@Model.Query" asp-route-page="@(Model.Page - 1)">‹ Prev</a>
+                        <a class="page-link" asp-action="Index" asp-route-q="@Model.Query" asp-route-page="@(Model.Page - 1)">@Localizer["‹ Prev"]</a>
                     </li>
                     @for (var p = Math.Max(1, Model.Page - 2); p <= Math.Min(totalPages, Model.Page + 2); p++)
                     {
@@ -128,7 +128,7 @@
                         </li>
                     }
                     <li class="page-item @(Model.Page >= totalPages ? "disabled" : "")">
-                        <a class="page-link" asp-action="Index" asp-route-q="@Model.Query" asp-route-page="@(Model.Page + 1)">Next ›</a>
+                        <a class="page-link" asp-action="Index" asp-route-q="@Model.Query" asp-route-page="@(Model.Page + 1)">@Localizer["Next ›"]</a>
                     </li>
                 </ul>
             </nav>
@@ -143,8 +143,8 @@ else
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body text-center py-4">
                     <i data-lucide="search" style="width:36px;height:36px;" class="text-primary mb-2"></i>
-                    <h6 class="fw-semibold">Find Packages</h6>
-                    <p class="text-muted small mb-0">Type a package name above to search across all active repositories in real-time.</p>
+                    <h6 class="fw-semibold">@Localizer["Find Packages"]</h6>
+                    <p class="text-muted small mb-0">@Localizer["Type a package name above to search across all active repositories in real-time."]</p>
                 </div>
             </div>
         </div>
@@ -152,9 +152,9 @@ else
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body text-center py-4">
                     <i data-lucide="layers" style="width:36px;height:36px;" class="text-success mb-2"></i>
-                    <h6 class="fw-semibold">Browse Repositories</h6>
+                    <h6 class="fw-semibold">@Localizer["Browse Repositories"]</h6>
                     <p class="text-muted small mb-0">
-                        <a asp-controller="Repositories" asp-action="Index">View all repositories</a> and browse their packages individually.
+                        <a asp-controller="Repositories" asp-action="Index">@Localizer["View all repositories"]</a> @Localizer["and browse their packages individually."]
                     </p>
                 </div>
             </div>
@@ -163,8 +163,8 @@ else
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body text-center py-4">
                     <i data-lucide="info" style="width:36px;height:36px;" class="text-info mb-2"></i>
-                    <h6 class="fw-semibold">How to Use</h6>
-                    <p class="text-muted small mb-0">Add a repository to your <code>sources.list</code> and run <code>apt update</code> to get started.</p>
+                    <h6 class="fw-semibold">@Localizer["How to Use"]</h6>
+                    <p class="text-muted small mb-0">@Localizer["Add a repository to your"] <code>sources.list</code> @Localizer["and run"] <code>apt update</code> @Localizer["to get started."]</p>
                 </div>
             </div>
         </div>
