@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>Paketit kohteessa</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fyysinen</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Hae</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>Hae pakettia...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>Koko</value>
@@ -44,6 +50,9 @@
   </data>
   <data name="View Repository Info" xml:space="preserve">
     <value>Näytä repositorion tiedot</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtuaalinen</value>
   </data>
 
 </root>

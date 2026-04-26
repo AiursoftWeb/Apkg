@@ -42,6 +42,9 @@
   <data name="Packages in Bucket" xml:space="preserve">
     <value>儲存桶中的套件</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>實體</value>
+  </data>
   <data name="Previous" xml:space="preserve">
     <value>上一頁</value>
   </data>

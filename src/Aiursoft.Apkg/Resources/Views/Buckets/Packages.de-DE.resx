@@ -42,6 +42,9 @@
   <data name="Packages in Bucket" xml:space="preserve">
     <value>Pakete im Eimer</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Physisch</value>
+  </data>
   <data name="Previous" xml:space="preserve">
     <value>Vorherige</value>
   </data>

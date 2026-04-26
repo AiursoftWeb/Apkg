@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>แพ็กเกจใน</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>จริง</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>ค้นหา</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>ค้นหาแพ็กเกจ...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>ขนาด</value>
@@ -41,6 +47,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>เวอร์ชัน</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>เสมือนจริง</value>
   </data>
 
 </root>

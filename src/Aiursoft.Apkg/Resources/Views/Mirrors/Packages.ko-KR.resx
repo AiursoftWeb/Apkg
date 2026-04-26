@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>패키지 목록</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>물리</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>검색</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>패키지 검색...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>크기</value>
@@ -41,6 +47,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>버전</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>가상</value>
   </data>
 
 </root>

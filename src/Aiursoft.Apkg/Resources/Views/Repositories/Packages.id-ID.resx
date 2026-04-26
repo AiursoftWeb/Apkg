@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>Paket di</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fisik</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Cari</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>Cari paket...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>Ukuran</value>
@@ -44,6 +50,9 @@
   </data>
   <data name="View Repository Info" xml:space="preserve">
     <value>Lihat Informasi Repositori</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtual</value>
   </data>
 
 </root>

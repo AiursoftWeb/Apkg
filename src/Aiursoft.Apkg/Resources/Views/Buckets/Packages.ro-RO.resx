@@ -42,6 +42,9 @@
   <data name="Packages in Bucket" xml:space="preserve">
     <value>Pachete în Bucket</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fizic</value>
+  </data>
   <data name="Previous" xml:space="preserve">
     <value>Anterior</value>
   </data>
@@ -56,6 +59,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Versiune</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtual</value>
   </data>
 
 </root>

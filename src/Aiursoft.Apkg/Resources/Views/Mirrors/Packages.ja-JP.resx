@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>パッケージ一覧</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>物理</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>検索</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>パッケージを検索...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>サイズ</value>
@@ -41,6 +47,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>バージョン</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>仮想</value>
   </data>
 
 </root>

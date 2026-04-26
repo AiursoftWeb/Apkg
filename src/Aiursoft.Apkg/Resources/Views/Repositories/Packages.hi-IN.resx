@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>पैकेज</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>भौतिक</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>खोजें</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>पैकेज खोजें...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>आकार</value>
@@ -44,6 +50,9 @@
   </data>
   <data name="View Repository Info" xml:space="preserve">
     <value>रिपॉजिटरी की जानकारी देखें</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>आभासी</value>
   </data>
 
 </root>

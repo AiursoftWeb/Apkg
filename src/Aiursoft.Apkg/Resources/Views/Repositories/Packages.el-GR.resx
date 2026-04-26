@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>Πακέτα στο</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Φυσικό</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Αναζήτηση</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>Αναζήτηση πακέτου...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>Μέγεθος</value>
@@ -44,6 +50,9 @@
   </data>
   <data name="View Repository Info" xml:space="preserve">
     <value>Προβολή Πληροφοριών Αποθετηρίου</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Εικονικό</value>
   </data>
 
 </root>

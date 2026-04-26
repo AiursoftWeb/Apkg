@@ -24,6 +24,12 @@
   <data name="Cancel" xml:space="preserve">
     <value>Hủy</value>
   </data>
+  <data name="e.g. anduinos" xml:space="preserve">
+    <value>ví dụ: anduinos</value>
+  </data>
+  <data name="e.g. Anduinos Official Key" xml:space="preserve">
+    <value>ví dụ: Khóa chính thức của Anduinos</value>
+  </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>Tạo Chứng Chỉ Mới</value>
   </data>

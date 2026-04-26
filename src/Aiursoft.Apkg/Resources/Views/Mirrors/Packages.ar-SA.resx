@@ -30,8 +30,14 @@
   <data name="Packages in" xml:space="preserve">
     <value>الحزم في</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>مادي</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>بحث</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>ابحث عن الحزمة...</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>الحجم</value>
@@ -41,6 +47,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>الإصدار</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>افتراضي</value>
   </data>
 
 </root>

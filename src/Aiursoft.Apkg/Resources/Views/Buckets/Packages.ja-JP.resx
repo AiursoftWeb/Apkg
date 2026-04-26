@@ -42,6 +42,9 @@
   <data name="Packages in Bucket" xml:space="preserve">
     <value>バケット内のパッケージ</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>実体</value>
+  </data>
   <data name="Previous" xml:space="preserve">
     <value>前へ</value>
   </data>

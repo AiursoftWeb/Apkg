@@ -12,7 +12,7 @@
             <input type="hidden" name="id" value="@Model.Repo.Id" />
             <input type="hidden" name="sortOrder" value="@Model.SortOrder" />
             <div class="col-auto">
-                <input type="text" name="searchName" class="form-control" placeholder="Search package..." value="@Model.SearchName">
+                <input type="text" name="searchName" class="form-control" placeholder="@Localizer["Search package..."]" value="@Model.SearchName">
             </div>
             <div class="col-auto">
                 <button type="submit" class="btn btn-primary">@Localizer["Search"]</button>
@@ -61,11 +61,11 @@
                     <td>
                         @if (pkg.IsVirtual)
                         {
-                            <span class="badge badge-subtle-warning">Virtual</span>
+                            <span class="badge badge-subtle-warning">@Localizer["Virtual"]</span>
                         }
                         else
                         {
-                            <span class="badge bg-success">Physical</span>
+                            <span class="badge bg-success">@Localizer["Physical"]</span>
                         }
                     </td>
                 </tr>

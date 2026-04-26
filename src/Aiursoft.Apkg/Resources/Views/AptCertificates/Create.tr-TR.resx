@@ -24,6 +24,12 @@
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
+  <data name="e.g. anduinos" xml:space="preserve">
+    <value>örn. anduinos</value>
+  </data>
+  <data name="e.g. Anduinos Official Key" xml:space="preserve">
+    <value>ör. Anduinos Resmi Anahtarı</value>
+  </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>Yeni Sertifika Oluştur</value>
   </data>

@@ -42,6 +42,9 @@
   <data name="Packages in Bucket" xml:space="preserve">
     <value>E Paketleri</value>
   </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fiziksel</value>
+  </data>
   <data name="Previous" xml:space="preserve">
     <value>Önceki</value>
   </data>
@@ -56,6 +59,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Sürüm</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Sanal</value>
   </data>
 
 </root>
