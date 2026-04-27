@@ -78,7 +78,10 @@ public class AppPermissions
                 localizer["Allows generating and managing GPG signing certificates."]),
             new(AppPermissionNames.CanViewBuckets,
                 localizer["View Buckets"],
-                localizer["Allows auditing the repository snapshot history and disk usage."])
+                localizer["Allows auditing the repository snapshot history and disk usage."]),
+            new(AppPermissionNames.CanUploadToRestrictedRepositories,
+                localizer["Upload to Restricted Repositories"],
+                localizer["Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled."])
         ];
         return allPermission;
     }

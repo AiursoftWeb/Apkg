@@ -81,6 +81,19 @@
                 <div class="form-text">@Localizer["The GPG key used to sign the Release files of this repository."]</div>
             </div>
 
+            <div class="mb-3">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" asp-for="AllowAnyoneToUpload" id="allowAnyoneToUpload">
+                    <label class="form-check-label" asp-for="AllowAnyoneToUpload">
+                        @Localizer["Allow Anyone to Upload"]
+                        <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           data-bs-title="@Localizer["If unchecked, only users with the 'Upload to Restricted Repositories' permission can publish packages to this repository."]"></i>
+                    </label>
+                </div>
+                <div class="form-text">@Localizer["Allows any logged-in user to upload LocalPackages to this repository."]</div>
+            </div>
+
             <hr />
             <button type="submit" class="btn btn-primary">@Localizer["Save Repository"]</button>
             <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>

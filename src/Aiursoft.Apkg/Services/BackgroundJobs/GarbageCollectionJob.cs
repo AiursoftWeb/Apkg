@@ -94,7 +94,13 @@ public class GarbageCollectionJob(
                 .Distinct()
                 .ToListAsync();
 
-            var hashSet = new HashSet<string>(referencedHashes.Select(h => h.ToLowerInvariant()));
+            var localPackageHashes = await db.LocalPackages
+                .Select(lp => lp.SHA256)
+                .Distinct()
+                .ToListAsync();
+
+            var hashSet = new HashSet<string>(
+                referencedHashes.Concat(localPackageHashes).Select(h => h.ToLowerInvariant()));
 
             var debFiles = Directory.GetFiles(ObjectsRoot, "*.deb", SearchOption.AllDirectories);
             int deletedFiles = 0;

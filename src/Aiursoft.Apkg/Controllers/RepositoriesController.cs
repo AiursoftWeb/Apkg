@@ -227,7 +227,8 @@ public class RepositoriesController(ApkgDbContext dbContext) : Controller
                 Architecture = model.Architecture,
                 MirrorId = model.MirrorId,
                 EnableGpgSign = model.EnableGpgSign,
-                CertificateId = model.EnableGpgSign ? model.CertificateId : null
+                CertificateId = model.EnableGpgSign ? model.CertificateId : null,
+                AllowAnyoneToUpload = model.AllowAnyoneToUpload
             };
             dbContext.AptRepositories.Add(repo);
             await dbContext.SaveChangesAsync();
@@ -262,6 +263,7 @@ public class RepositoriesController(ApkgDbContext dbContext) : Controller
             MirrorId = repo.MirrorId,
             EnableGpgSign = repo.EnableGpgSign,
             CertificateId = repo.CertificateId,
+            AllowAnyoneToUpload = repo.AllowAnyoneToUpload,
             AvailableMirrors = mirrors.Select(m => new SelectListItem(m.Suite, m.Id.ToString())).ToList(),
             AvailableCertificates = certs.Select(c => new SelectListItem(c.FriendlyName, c.Id.ToString())).ToList(),
             PageTitle = "Edit Repository"
@@ -286,6 +288,7 @@ public class RepositoriesController(ApkgDbContext dbContext) : Controller
             repo.MirrorId = model.MirrorId;
             repo.EnableGpgSign = model.EnableGpgSign;
             repo.CertificateId = model.EnableGpgSign ? model.CertificateId : null;
+            repo.AllowAnyoneToUpload = model.AllowAnyoneToUpload;
 
             dbContext.Update(repo);
             await dbContext.SaveChangesAsync();

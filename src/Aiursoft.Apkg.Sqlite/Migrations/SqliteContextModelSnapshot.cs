@@ -301,6 +301,9 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("AllowAnyoneToUpload")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Architecture")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -365,6 +368,128 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                     b.HasKey("Key");
 
                     b.ToTable("GlobalSettings");
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.LocalPackage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Architecture")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Breaks")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Component")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Conflicts")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Depends")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Filename")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Homepage")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("InstalledSize")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MD5sum")
+                        .HasMaxLength(32)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Maintainer")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MultiArch")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OriginalMaintainer")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Package")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Priority")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Provides")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Recommends")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Replaces")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("RepositoryId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("SHA1")
+                        .HasMaxLength(40)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SHA256")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SHA512")
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Section")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Size")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Source")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Suggests")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UploadedByUserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Version")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UploadedByUserId");
+
+                    b.HasIndex("RepositoryId", "Package", "Architecture");
+
+                    b.ToTable("LocalPackages");
                 });
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.User", b =>
@@ -623,6 +748,25 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                     b.Navigation("PrimaryBucket");
 
                     b.Navigation("SecondaryBucket");
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.LocalPackage", b =>
+                {
+                    b.HasOne("Aiursoft.Apkg.Entities.AptRepository", "Repository")
+                        .WithMany()
+                        .HasForeignKey("RepositoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Aiursoft.Apkg.Entities.User", "UploadedByUser")
+                        .WithMany()
+                        .HasForeignKey("UploadedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Repository");
+
+                    b.Navigation("UploadedByUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

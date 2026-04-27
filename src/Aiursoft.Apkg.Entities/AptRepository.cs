@@ -55,4 +55,6 @@ public class AptRepository
 
     [ForeignKey(nameof(SecondaryBucketId))]
     public AptBucket? SecondaryBucket { get; set; }
+
+    public bool AllowAnyoneToUpload { get; set; }
 }

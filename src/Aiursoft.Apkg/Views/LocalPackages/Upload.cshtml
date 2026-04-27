@@ -1,0 +1,52 @@
+@model Aiursoft.Apkg.Models.LocalPackagesViewModels.LocalPackagesUploadViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@Localizer["Upload Package"]</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Upload" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                <label asp-for="RepositoryId" class="form-label"></label>
+                <select asp-for="RepositoryId" asp-items="Model.AvailableRepositories" class="form-select">
+                    <option value="">@Localizer["-- Select Repository --"]</option>
+                </select>
+                <span asp-validation-for="RepositoryId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Component" class="form-label">
+                    @Localizer["Component"]
+                    <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                       data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-title="@Localizer["The APT component this package belongs to (e.g. main, universe, restricted, multiverse)."]"></i>
+                </label>
+                <input asp-for="Component" class="form-control" placeholder="main" />
+                <span asp-validation-for="Component" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="DebFile" class="form-label"></label>
+                <input asp-for="DebFile" type="file" class="form-control" accept=".deb" />
+                <div class="form-text">@Localizer["Select a .deb package file to upload. Package metadata will be extracted automatically."]</div>
+                <span asp-validation-for="DebFile" class="text-danger"></span>
+            </div>
+
+            <hr />
+            <button type="submit" class="btn btn-primary">@Localizer["Upload"]</button>
+            <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>
+        </form>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+    </script>
+}

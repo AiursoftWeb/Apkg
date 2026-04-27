@@ -119,6 +119,71 @@ public class RepositorySyncJob(
             db.ChangeTracker.Clear();
         }
 
+        // 2b. Merge LocalPackages: override all upstream (Package, Architecture) pairs
+        var localPackages = await db.LocalPackages
+            .AsNoTracking()
+            .Where(lp => lp.RepositoryId == repo.Id && lp.IsEnabled)
+            .ToListAsync();
+
+        if (localPackages.Count > 0)
+        {
+            logger.LogInformation("Merging {Count} local packages into Bucket {BucketId}...", localPackages.Count, newBucketId);
+
+            // Remove all upstream packages that conflict with a LocalPackage by (Package, Architecture)
+            foreach (var lp in localPackages)
+            {
+                var toRemove = db.AptPackages
+                    .Where(p => p.BucketId == newBucketId && p.Package == lp.Package && p.Architecture == lp.Architecture);
+                db.AptPackages.RemoveRange(toRemove);
+            }
+            await db.SaveChangesAsync();
+            db.ChangeTracker.Clear();
+
+            // Insert LocalPackages as AptPackages in the new bucket
+            foreach (var lp in localPackages)
+            {
+                db.AptPackages.Add(new AptPackage
+                {
+                    BucketId = newBucketId,
+                    Component = lp.Component,
+                    OriginSuite = repo.Suite,
+                    OriginComponent = lp.Component,
+                    Package = lp.Package,
+                    Version = lp.Version,
+                    Architecture = lp.Architecture,
+                    Maintainer = lp.Maintainer,
+                    OriginalMaintainer = lp.OriginalMaintainer,
+                    Description = lp.Description ?? string.Empty,
+                    DescriptionMd5 = string.Empty,
+                    Section = lp.Section ?? string.Empty,
+                    Priority = lp.Priority ?? string.Empty,
+                    Origin = "LocalPackage",
+                    Bugs = string.Empty,
+                    Homepage = lp.Homepage,
+                    InstalledSize = lp.InstalledSize,
+                    Depends = lp.Depends,
+                    Recommends = lp.Recommends,
+                    Suggests = lp.Suggests,
+                    Conflicts = lp.Conflicts,
+                    Breaks = lp.Breaks,
+                    Replaces = lp.Replaces,
+                    Provides = lp.Provides,
+                    Source = lp.Source,
+                    MultiArch = lp.MultiArch,
+                    Filename = lp.Filename,
+                    Size = lp.Size,
+                    MD5sum = lp.MD5sum ?? string.Empty,
+                    SHA1 = lp.SHA1 ?? string.Empty,
+                    SHA256 = lp.SHA256,
+                    SHA512 = lp.SHA512 ?? string.Empty,
+                    IsVirtual = false,
+                    RemoteUrl = null
+                });
+            }
+            await db.SaveChangesAsync();
+            db.ChangeTracker.Clear();
+        }
+
         // 3. Metadata Generation & Signing
         logger.LogInformation("Generating and signing metadata for Bucket {BucketId}...", newBucketId);
 

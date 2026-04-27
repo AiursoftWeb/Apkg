@@ -63,5 +63,14 @@
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>The URL prefix for this repository (e.g. &apos;ubuntu&apos;).</value>
   </data>
+  <data name="Allow Anyone to Upload" xml:space="preserve">
+    <value>Allow Anyone to Upload</value>
+  </data>
+  <data name="If unchecked, only users with the 'Upload to Restricted Repositories' permission can publish packages to this repository." xml:space="preserve">
+    <value>If unchecked, only users with the 'Upload to Restricted Repositories' permission can publish packages to this repository.</value>
+  </data>
+  <data name="Allows any logged-in user to upload LocalPackages to this repository." xml:space="preserve">
+    <value>Allows any logged-in user to upload LocalPackages to this repository.</value>
+  </data>
 
 </root>

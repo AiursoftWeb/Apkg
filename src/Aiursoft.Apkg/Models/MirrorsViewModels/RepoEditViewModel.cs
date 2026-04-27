@@ -43,4 +43,7 @@ public class RepoEditViewModel : UiStackLayoutViewModel
     
     public List<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>? AvailableMirrors { get; set; }
     public List<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>? AvailableCertificates { get; set; }
+
+    [Display(Name = "Allow Anyone to Upload")]
+    public bool AllowAnyoneToUpload { get; set; }
 }

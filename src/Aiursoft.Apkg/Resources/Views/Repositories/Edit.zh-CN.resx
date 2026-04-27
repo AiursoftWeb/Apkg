@@ -63,5 +63,14 @@
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>此仓库的 URL 前缀（例如 &apos;ubuntu&apos;）。</value>
   </data>
+  <data name="Allow Anyone to Upload" xml:space="preserve">
+    <value>允许任何人上传</value>
+  </data>
+  <data name="If unchecked, only users with the 'Upload to Restricted Repositories' permission can publish packages to this repository." xml:space="preserve">
+    <value>如果未勾选，只有拥有"上传到受限仓库"权限的用户才能向此仓库发布软件包。</value>
+  </data>
+  <data name="Allows any logged-in user to upload LocalPackages to this repository." xml:space="preserve">
+    <value>允许任何已登录用户向此仓库上传本地软件包。</value>
+  </data>
 
 </root>

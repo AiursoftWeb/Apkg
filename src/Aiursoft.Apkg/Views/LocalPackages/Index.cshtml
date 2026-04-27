@@ -1,0 +1,110 @@
+@model Aiursoft.Apkg.Models.LocalPackagesViewModels.LocalPackagesIndexViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@Localizer["My Packages"]</h3>
+    </div>
+    <div class="col-auto ms-auto">
+        <a asp-action="Upload" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="upload" class="lucide lucide-upload align-middle me-1"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" x2="12" y1="3" y2="15"></line></svg>
+            @Localizer["Upload Package"]
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        @if (!Model.Packages.Any())
+        {
+            <p class="text-muted">@Localizer["No packages uploaded yet."]</p>
+        }
+        else
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>@Localizer["Package"]</th>
+                        <th>@Localizer["Version"]</th>
+                        <th>@Localizer["Architecture"]</th>
+                        <th>@Localizer["Component"]</th>
+                        <th>@Localizer["Repository"]</th>
+                        @if (Model.IsAdmin)
+                        {
+                            <th>@Localizer["Uploader"]</th>
+                        }
+                        <th>@Localizer["Uploaded"]</th>
+                        <th>@Localizer["Status"]</th>
+                        <th class="text-end">@Localizer["Actions"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var pkg in Model.Packages)
+                    {
+                        <tr>
+                            <td><strong>@pkg.Package</strong></td>
+                            <td><span class="badge bg-info">@pkg.Version</span></td>
+                            <td><span class="badge bg-dark">@pkg.Architecture</span></td>
+                            <td><small>@pkg.Component</small></td>
+                            <td><small>@(pkg.Repository?.Suite ?? "—")</small></td>
+                            @if (Model.IsAdmin)
+                            {
+                                <td><small>@(pkg.UploadedByUser?.UserName ?? "—")</small></td>
+                            }
+                            <td><small class="text-muted">@pkg.CreatedAt.ToString("yyyy/M/d HH:mm")</small></td>
+                            <td>
+                                @if (pkg.IsEnabled)
+                                {
+                                    <span class="badge bg-success">@Localizer["Enabled"]</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@Localizer["Disabled"]</span>
+                                }
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group">
+                                    <form method="post" asp-action="Toggle" asp-route-id="@pkg.Id">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-sm @(pkg.IsEnabled ? "btn-outline-warning" : "btn-outline-success")">
+                                            @if (pkg.IsEnabled)
+                                            {
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="pause-circle" class="lucide lucide-pause-circle align-middle"><circle cx="12" cy="12" r="10"></circle><line x1="10" x2="10" y1="15" y2="9"></line><line x1="14" x2="14" y1="15" y2="9"></line></svg>
+                                            }
+                                            else
+                                            {
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play-circle" class="lucide lucide-play-circle align-middle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                                            }
+                                        </button>
+                                    </form>
+                                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletePackage-@pkg.Id">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trash-2" class="lucide lucide-trash-2 align-middle"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>
+                                    </button>
+                                </div>
+                                <div class="modal fade" id="deletePackage-@pkg.Id" tabindex="-1" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                @Localizer["Are you sure you want to delete"] <strong>@pkg.Package (@pkg.Version)</strong>?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form method="post" asp-action="Delete" asp-route-id="@pkg.Id">
+                                                    @Html.AntiForgeryToken()
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                                    <button type="submit" class="btn btn-danger">@Localizer["Delete"]</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

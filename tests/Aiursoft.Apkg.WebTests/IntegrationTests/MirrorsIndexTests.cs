@@ -73,7 +73,7 @@ public class MirrorsIndexTests : TestBase
 
         var lastPullHeaderIndex = html.IndexOf("Last Pull", StringComparison.Ordinal);
         var primaryBucketHeaderIndex = html.IndexOf("Primary Bucket", StringComparison.Ordinal);
-        var packagesHeaderIndex = html.IndexOf("Packages", StringComparison.Ordinal);
+        var packagesHeaderIndex = html.IndexOf(">Packages<", StringComparison.Ordinal);
         var primaryBucketLinkIndex = html.IndexOf($"/Buckets/Packages/{_bucket.Id}", StringComparison.Ordinal);
         var packagesLinkIndex = html.IndexOf($"/Mirrors/Packages/{_mirror.Id}", StringComparison.Ordinal);
 
