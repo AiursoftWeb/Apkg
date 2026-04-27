@@ -36,9 +36,9 @@ public class GcSignRaceConditionTests : TestBase
     private ApkgDbContext _db = null!;
 
     [TestInitialize]
-    public override async Task CreateServer()
+    public override async Task SetupTestContext()
     {
-        await base.CreateServer();
+        await base.SetupTestContext();
         _db = GetService<ApkgDbContext>();
     }
 

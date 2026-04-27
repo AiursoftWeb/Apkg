@@ -3,17 +3,46 @@ using System.Text.RegularExpressions;
 using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.Apkg.Entities;
+using Aiursoft.WebTools.Attributes;
 using static Aiursoft.WebTools.Extends;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 public abstract class TestBase
 {
-    protected readonly int Port;
-    protected readonly HttpClient Http;
-    protected IHost? Server;
+    // Shared for the lifetime of each test class. Safe because
+    // [assembly:DoNotParallelize] ensures only one class runs at a time,
+    // so ClassSetup/ClassTeardown never overlap across different classes.
+    private static IHost? _host;
+    private static int _port;
 
-    protected TestBase()
+    protected HttpClient Http = null!;
+    protected IHost? Server => _host;
+
+    [ClassInitialize(InheritanceBehavior.BeforeEachDerivedClass)]
+    public static async Task ClassSetup(TestContext _)
+    {
+        LimitPerMin.GlobalEnabled = false;
+        _port = Network.GetAvailablePort();
+        _host = await AppAsync<Startup>([], port: _port);
+        await _host.UpdateDbAsync<ApkgDbContext>();
+        await _host.SeedAsync();
+        await _host.SeedMirrorsAsync(true);
+        await _host.StartAsync();
+    }
+
+    [ClassCleanup(InheritanceBehavior.BeforeEachDerivedClass)]
+    public static async Task ClassTeardown()
+    {
+        if (_host == null) return;
+        await _host.StopAsync();
+        _host.Dispose();
+        _host = null;
+    }
+
+    // Recreated per test to give each test an isolated cookie jar / session.
+    [TestInitialize]
+    public virtual Task SetupTestContext()
     {
         var cookieContainer = new CookieContainer();
         var handler = new HttpClientHandler
@@ -21,29 +50,17 @@ public abstract class TestBase
             CookieContainer = cookieContainer,
             AllowAutoRedirect = false
         };
-        Port = Network.GetAvailablePort();
         Http = new HttpClient(handler)
         {
-            BaseAddress = new Uri($"http://localhost:{Port}")
+            BaseAddress = new Uri($"http://localhost:{_port}")
         };
-    }
-
-    [TestInitialize]
-    public virtual async Task CreateServer()
-    {
-        Server = await AppAsync<Startup>([], port: Port);
-        await Server.UpdateDbAsync<ApkgDbContext>();
-        await Server.SeedAsync();
-        await Server.SeedMirrorsAsync(true);
-        await Server.StartAsync();
+        return Task.CompletedTask;
     }
 
     [TestCleanup]
-    public virtual async Task CleanServer()
+    public virtual void CleanTestContext()
     {
-        if (Server == null) return;
-        await Server.StopAsync();
-        Server.Dispose();
+        Http?.Dispose();
     }
 
     protected async Task<string> GetAntiCsrfToken(string url)
@@ -124,8 +141,8 @@ public abstract class TestBase
 
     protected T GetService<T>() where T : notnull
     {
-        if (Server == null) throw new InvalidOperationException("Server is not started.");
-        var scope = Server.Services.CreateScope();
+        if (_host == null) throw new InvalidOperationException("Server is not started.");
+        var scope = _host.Services.CreateScope();
         return scope.ServiceProvider.GetRequiredService<T>();
     }
 }

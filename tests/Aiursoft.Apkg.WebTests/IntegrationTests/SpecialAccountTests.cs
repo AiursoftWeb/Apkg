@@ -3,6 +3,7 @@ using Aiursoft.DbTools;
 using Aiursoft.Apkg.Entities;
 using Microsoft.AspNetCore.Identity;
 using Aiursoft.CSTools.Tools;
+using Aiursoft.WebTools.Attributes;
 using static Aiursoft.WebTools.Extends;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
@@ -10,14 +11,37 @@ namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 [TestClass]
 public class SpecialAccountTests
 {
+    private static IHost _server = null!;
+    private static int _port;
+
     private HttpClient _http = null!;
-    private IHost _server = null!;
-    private int _port;
+
+    [ClassInitialize]
+    public static async Task ClassSetup(TestContext _)
+    {
+        LimitPerMin.GlobalEnabled = false;
+        _port = Network.GetAvailablePort();
+
+        // Must be set before AppAsync so Startup reads the value during SeedAsync.
+        Environment.SetEnvironmentVariable("AppSettings__DefaultRole", "Administrators");
+
+        _server = await AppAsync<Startup>([], port: _port);
+        await _server.UpdateDbAsync<ApkgDbContext>();
+        await _server.SeedAsync();
+        await _server.StartAsync();
+    }
+
+    [ClassCleanup]
+    public static async Task ClassTeardown()
+    {
+        await _server.StopAsync();
+        _server.Dispose();
+        Environment.SetEnvironmentVariable("AppSettings__DefaultRole", null);
+    }
 
     [TestInitialize]
-    public async Task Setup()
+    public void Setup()
     {
-        _port = Network.GetAvailablePort();
         var cookieContainer = new CookieContainer();
         var handler = new HttpClientHandler
         {
@@ -28,22 +52,12 @@ public class SpecialAccountTests
         {
             BaseAddress = new Uri($"http://localhost:{_port}")
         };
-
-        // Set environment variable for default role
-        Environment.SetEnvironmentVariable("AppSettings__DefaultRole", "Administrators");
-        
-        _server = await AppAsync<Startup>([], port: _port);
-        await _server.UpdateDbAsync<ApkgDbContext>();
-        await _server.SeedAsync();
-        await _server.StartAsync();
     }
 
     [TestCleanup]
-    public async Task Teardown()
+    public void Teardown()
     {
-        await _server.StopAsync();
-        _server.Dispose();
-        Environment.SetEnvironmentVariable("AppSettings__DefaultRole", null);
+        _http.Dispose();
     }
 
     [TestMethod]
