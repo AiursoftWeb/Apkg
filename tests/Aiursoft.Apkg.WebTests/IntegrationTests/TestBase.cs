@@ -60,7 +60,7 @@ public abstract class TestBase
     [TestCleanup]
     public virtual void CleanTestContext()
     {
-        Http?.Dispose();
+        Http.Dispose();
     }
 
     protected async Task<string> GetAntiCsrfToken(string url)

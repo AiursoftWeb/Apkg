@@ -66,6 +66,9 @@
   <data name="Never Pull" xml:space="preserve">
     <value>Never Pulled</value>
   </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>Last Pull</value>
+  </data>
   <data name="Never Synced" xml:space="preserve">
     <value>Never Synced</value>
   </data>
