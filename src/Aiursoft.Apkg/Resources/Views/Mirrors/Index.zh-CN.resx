@@ -66,6 +66,9 @@
   <data name="Never Pull" xml:space="preserve">
     <value>从未拉取</value>
   </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>上次拉取</value>
+  </data>
   <data name="Never Synced" xml:space="preserve">
     <value>从未同步</value>
   </data>
