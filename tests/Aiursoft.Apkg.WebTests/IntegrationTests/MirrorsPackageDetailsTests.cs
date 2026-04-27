@@ -11,9 +11,9 @@ public class MirrorsPackageDetailsTests : TestBase
     private AptBucket _bucket = null!;
 
     [TestInitialize]
-    public override async Task CreateServer()
+    public override async Task SetupTestContext()
     {
-        await base.CreateServer();
+        await base.SetupTestContext();
         await LoginAsAdmin();
 
         _db = GetService<ApkgDbContext>();

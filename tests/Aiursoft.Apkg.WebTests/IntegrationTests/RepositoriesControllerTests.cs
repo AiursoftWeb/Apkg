@@ -11,13 +11,18 @@ public class RepositoriesControllerTests : TestBase
     private AptBucket _bucket = null!;
 
     [TestInitialize]
-    public override async Task CreateServer()
+    public override async Task SetupTestContext()
     {
-        await base.CreateServer();
+        await base.SetupTestContext();
         await LoginAsAdmin();
 
         _db = GetService<ApkgDbContext>();
         _repo = _db.AptRepositories.First();
+
+        // Restore fields that individual tests mutate (shared server = persistent DB state).
+        var cert = _db.AptCertificates.First();
+        _repo.EnableGpgSign = true;
+        _repo.CertificateId = cert.Id;
 
         _bucket = new AptBucket
         {
