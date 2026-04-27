@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>Thành phần</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>Kiểm soát các tệp chỉ mục Packages của binary-{arch} được tạo ra. Các gói có kiến trúc không khớp (ngoại trừ &apos;all&apos;) được lưu trữ nhưng không hiển thị đối với các khách hàng apt. Cũng đặt dòng Architectures: trong hướng dẫn thiết lập khách hàng. Các thay đổi có hiệu lực khi chạy tác vụ Đồng bộ hóa Kho lưu trữ tiếp theo.</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Kiểm soát các tệp chỉ mục Packages của binary-[arch] được tạo ra. Các gói có kiến trúc không khớp (ngoại trừ &apos;all&apos;) được lưu trữ nhưng không hiển thị đối với các khách hàng apt. Cũng đặt dòng Architectures: trong hướng dẫn thiết lập khách hàng. Các thay đổi có hiệu lực khi chạy tác vụ Đồng bộ hóa Kho lưu trữ tiếp theo.</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Kiểm soát các thư mục con của thành phần nào được bao gồm khi tạo chỉ mục Packages. Các gói trong các thành phần không được liệt kê sẽ được lưu trữ nhưng không hiển thị đối với khách hàng apt. Đồng thời đặt dòng Components: trong hướng dẫn thiết lập khách hàng. Các thay đổi có hiệu lực khi chạy công việc Repository Sync tiếp theo.</value>

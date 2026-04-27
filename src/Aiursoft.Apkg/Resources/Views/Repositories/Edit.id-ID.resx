@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>Komponen</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>Mengontrol file indeks binary-{arch}/Packages yang dihasilkan. Paket dengan arsitektur yang tidak cocok (kecuali &apos;all&apos;) disimpan tetapi tidak terlihat oleh klien apt. Juga mengatur baris Architectures: di panduan pengaturan klien. Perubahan akan berlaku pada menjalankan job Sinkronisasi Repositori berikutnya.</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Mengontrol file indeks binary-[arch]/Packages yang dihasilkan. Paket dengan arsitektur yang tidak cocok (kecuali &apos;all&apos;) disimpan tetapi tidak terlihat oleh klien apt. Juga mengatur baris Architectures: di panduan pengaturan klien. Perubahan akan berlaku pada menjalankan job Sinkronisasi Repositori berikutnya.</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Mengontrol direktori komponen mana yang disertakan saat membuat indeks Packages. Paket dalam komponen yang tidak terdaftar disimpan tetapi tidak terlihat oleh klien apt. Juga mengatur baris Components: di panduan konfigurasi klien. Perubahan akan berlaku pada job Repository Sync berikutnya.</value>

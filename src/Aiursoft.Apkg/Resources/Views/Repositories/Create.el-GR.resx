@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>Συστατικά</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>Ελέγχει ποια αρχεία ευρετηρίου binary-{arch}/Packages παράγονται. Τα πακέτα με μη συμβατές αρχιτεκτονικές (εκτός από &apos;all&apos;) αποθηκεύονται, αλλά είναι αόρατα στους πελάτες apt. Ορίζει επίσης τη γραμμή Architectures: στον οδηγό ρύθμισης του πελάτη. Οι αλλαγές λαμβάνουν ισχύ στην επόμενη εκτέλεση της εργασίας Συγχρονισμού Αποθετηρίου.</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Ελέγχει ποια αρχεία ευρετηρίου binary-[arch]/Packages παράγονται. Τα πακέτα με μη συμβατές αρχιτεκτονικές (εκτός από &apos;all&apos;) αποθηκεύονται, αλλά είναι αόρατα στους πελάτες apt. Ορίζει επίσης τη γραμμή Architectures: στον οδηγό ρύθμισης του πελάτη. Οι αλλαγές λαμβάνουν ισχύ στην επόμενη εκτέλεση της εργασίας Συγχρονισμού Αποθετηρίου.</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Ελέγχει ποιους υποκαταλόγους συστατικών περιλαμβάνονται κατά τη δημιουργία του ευρετηρίου Packages. Τα πακέτα σε μη καταγεγραμμένα συστατικά αποθηκεύονται, αλλά είναι αόρατα για τους πελάτες apt. Ρυθμίζει επίσης τη γραμμή Components: στον οδηγό ρύθμισης του πελάτη. Οι αλλαγές τίθενται σε ισχύ κατά την επόμενη εκτέλεση της εργασίας Συγχρονισμού Αποθετηρίου.</value>

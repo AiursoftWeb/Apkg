@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>컴포넌트</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>binary-{arch}/Packages 인덱스 파일 생성을 제어합니다. 아키텍처가 일치하지 않는 패키지는 저장되지만 apt 클라이언트에서는 표시되지 않습니다(&apos;all&apos; 제외). 클라이언트 설정 가이드의 &apos;Architectures:&apos; 행도 설정됩니다. 변경 사항은 다음 Repository Sync 작업 실행 시 적용됩니다.</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>binary-[arch]/Packages 인덱스 파일 생성을 제어합니다. 아키텍처가 일치하지 않는 패키지는 저장되지만 apt 클라이언트에서는 표시되지 않습니다(&apos;all&apos; 제외). 클라이언트 설정 가이드의 &apos;Architectures:&apos; 행도 설정됩니다. 변경 사항은 다음 Repository Sync 작업 실행 시 적용됩니다.</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Packages 인덱스를 생성할 때 포함될 구성 요소 하위 디렉토리를 제어합니다. 나열되지 않은 구성 요소의 패키지는 저장되지만 apt 클라이언트에서는 보이지 않습니다. 또한 클라이언트 설정 가이드의 Components: 줄을 설정합니다. 변경 사항은 다음 Repository Sync 작업 실행 시 적용됩니다.</value>

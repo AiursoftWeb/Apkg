@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>元件</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>控制生成哪些 binary-{arch}/Packages 索引檔案。架構不匹配的套件（「all」除外）會被儲存，但對 apt 用戶端不可見。同時也會在客戶端設定指南中設定 Architectures: 行。變更在下一次儲存庫同步工作執行時生效。</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>控制生成哪些 binary-[arch]/Packages 索引檔案。架構不匹配的套件（「all」除外）會被儲存，但對 apt 用戶端不可見。同時也會在客戶端設定指南中設定 Architectures: 行。變更在下一次儲存庫同步工作執行時生效。</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>控制生成 Packages 索引時包含哪些元件子目錄。未列出的元件中的套件會被儲存，但對 apt 用戶端不可見。同時也會設定用戶端設定指南中的 Components: 行。變更將在下次執行 Repository Sync 作業時生效。</value>

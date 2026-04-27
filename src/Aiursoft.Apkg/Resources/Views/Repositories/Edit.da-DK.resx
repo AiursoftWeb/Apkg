@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>Komponenter</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>Styrer hvilke binary-{arch}/Packages-indeksfiler der genereres. Pakker med ikke-matchende arkitekturer (undtagen &apos;all&apos;) gemmes, men er usynlige for apt-klienter. Indstiller også linjen &apos;Architectures:&apos; i klientopsætningsguiden. Ændringer træder i kraft ved næste kørsel af Repository Sync-jobbet.</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Styrer hvilke binary-[arch]/Packages-indeksfiler der genereres. Pakker med ikke-matchende arkitekturer (undtagen &apos;all&apos;) gemmes, men er usynlige for apt-klienter. Indstiller også linjen &apos;Architectures:&apos; i klientopsætningsguiden. Ændringer træder i kraft ved næste kørsel af Repository Sync-jobbet.</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Styrer, hvilke undermapper til komponenter der inkluderes ved generering af Packages-indekset. Pakker i ikke-opførte komponenter gemmes, men er usynlige for apt-klienter. Indstiller også Components:-linjen i klientopsætningsguiden. Ændringer træder i kraft ved næste kørsel af Repository Sync-jobbet.</value>

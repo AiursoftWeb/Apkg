@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>घटक</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>यह नियंत्रित करता है कि कौन से binary-{arch}/Packages इंडेक्स फ़ाइलें उत्पन्न की जाती हैं। गैर-मेल खाती आर्किटेक्चर वाले पैकेज (सिवाय &apos;all&apos; के) संग्रहीत किए जाते हैं लेकिन apt क्लाइंट्स के लिए अदृश्य होते हैं। यह क्लाइंट सेटअप गाइड में Architectures: पंक्ति को भी सेट करता है। परिवर्तन अगले Repository Sync कार्य के चलाए जाने पर प्रभावी हो जाते हैं।</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>यह नियंत्रित करता है कि कौन से binary-[arch]/Packages इंडेक्स फ़ाइलें उत्पन्न की जाती हैं। गैर-मेल खाती आर्किटेक्चर वाले पैकेज (सिवाय &apos;all&apos; के) संग्रहीत किए जाते हैं लेकिन apt क्लाइंट्स के लिए अदृश्य होते हैं। यह क्लाइंट सेटअप गाइड में Architectures: पंक्ति को भी सेट करता है। परिवर्तन अगले Repository Sync कार्य के चलाए जाने पर प्रभावी हो जाते हैं।</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Packages index बनाते समय कौन से घटक उपनिर्देशिकाएँ शामिल की जाएँगी, यह नियंत्रित करता है। अनु सूचीबद्ध घटकों में पैकेज संग्रहीत किए जाते हैं लेकिन apt क्लाइंटों के लिए अदृश्य होते हैं। यह क्लाइंट सेटअप गाइड में Components: पंक्ति को भी सेट करता है। परिवर्तन अगले Repository Sync कार्य चलाए जाने पर प्रभावी हो जाते हैं।</value>

@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>Компоненты</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>Управляет созданием файлов индекса Packages для binary-{arch}. Пакеты с несовпадающими архитектурами (кроме &apos;all&apos;) сохраняются, но остаются невидимыми для клиентов apt. Также устанавливает строку Architectures в руководстве по настройке клиента. Изменения вступают в силу при следующем запуске задачи синхронизации репозитория.</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Управляет созданием файлов индекса Packages для binary-[arch]. Пакеты с несовпадающими архитектурами (кроме &apos;all&apos;) сохраняются, но остаются невидимыми для клиентов apt. Также устанавливает строку Architectures в руководстве по настройке клиента. Изменения вступают в силу при следующем запуске задачи синхронизации репозитория.</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Управляет включением подкаталогов компонентов при формировании индекса Packages. Пакеты в неперечисленных компонентах сохраняются, но остаются невидимыми для клиентов apt. Также задаёт строку Components в руководстве по настройке клиента. Изменения вступают в силу при следующем запуске задачи синхронизации репозитория.</value>

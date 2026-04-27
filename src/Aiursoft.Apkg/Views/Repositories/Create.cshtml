@@ -52,7 +52,7 @@
                         @Localizer["Architecture"]
                         <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
                            data-bs-toggle="tooltip" data-bs-placement="top"
-                           data-bs-title="@Localizer["Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except 'all') are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run."]"></i>
+                           data-bs-title="@Localizer["Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except 'all') are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run."]"></i>
                     </label>
                     <input asp-for="Architecture" class="form-control" placeholder="amd64" required />
                     <span asp-validation-for="Architecture" class="text-danger"></span>

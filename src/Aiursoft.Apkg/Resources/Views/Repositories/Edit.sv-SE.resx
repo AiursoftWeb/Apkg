@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>Komponenter</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>Styr vilka binary-{arch}/Packages-indexfiler som genereras. Paket med icke-matchande arkitekturer (förutom &apos;all&apos;) lagras men är osynliga för apt-klienter. Anger även Architectures: raden i klientkonfigurationsguiden. Ändringar träder i kraft vid nästa körning av Repository Sync-jobbet.</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Styr vilka binary-[arch]/Packages-indexfiler som genereras. Paket med icke-matchande arkitekturer (förutom &apos;all&apos;) lagras men är osynliga för apt-klienter. Anger även Architectures: raden i klientkonfigurationsguiden. Ändringar träder i kraft vid nästa körning av Repository Sync-jobbet.</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Styr vilka komponentundermappar som inkluderas vid generering av Packages-indexet. Paket i ej listade komponenter lagras men är osynliga för apt-klienter. Anger även Components-raden i klientkonfigurationsguiden. Ändringar träder i kraft vid nästa körning av Repository Sync-jobbet.</value>

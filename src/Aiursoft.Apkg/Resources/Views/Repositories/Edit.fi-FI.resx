@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>Komponentit</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>Määrittää, mitkä binary-{arch}/Packages-indeksitiedostot luodaan. Paketit, joiden arkkitehtuuri ei täsmää (paitsi &apos;all&apos;), tallennetaan mutta eivät ole näkyvissä apt-asiakkaille. Asettaa myös Architectures:-rivin asiakkaan määritysohjeessa. Muutokset tulevat voimaan seuraavan Repository Sync -työn suorituksen aikana.</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Määrittää, mitkä binary-[arch]/Packages-indeksitiedostot luodaan. Paketit, joiden arkkitehtuuri ei täsmää (paitsi &apos;all&apos;), tallennetaan mutta eivät ole näkyvissä apt-asiakkaille. Asettaa myös Architectures:-rivin asiakkaan määritysohjeessa. Muutokset tulevat voimaan seuraavan Repository Sync -työn suorituksen aikana.</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Määrittää, mitkä komponenttien alihakemistot sisällytetään Packages-indeksiä luotaessa. Paketeja ei-listatuissa komponenteissa tallennetaan, mutta ne ovat näkymättömiä apt-asiakkaille. Asettaa myös Components-rivin asiakkaan asennusoppaaseen. Muutokset tulevat voimaan seuraavan Repository Sync -tehtävän suorituksen yhteydessä.</value>

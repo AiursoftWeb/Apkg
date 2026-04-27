@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>Компоненти</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>Визначає, які індексні файли binary-{arch}/Packages генеруються. Пакети з несумісними архітектурами (окрім &apos;all&apos;) зберігаються, але є невидимими для клієнтів apt. Також встановлює рядок Architectures: у посібнику з налаштування клієнта. Зміни набувають чинності під час наступного запуску завдання синхронізації сховища.</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Визначає, які індексні файли binary-[arch]/Packages генеруються. Пакети з несумісними архітектурами (окрім &apos;all&apos;) зберігаються, але є невидимими для клієнтів apt. Також встановлює рядок Architectures: у посібнику з налаштування клієнта. Зміни набувають чинності під час наступного запуску завдання синхронізації сховища.</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Визначає, які підкаталоги компонентів включаються під час генерації індексу Packages. Пакети з неперелічених компонентів зберігаються, але стають невидимими для клієнтів apt. Також встановлює рядок Components: у посібнику з налаштування клієнта. Зміни набувають чинності під час наступного запуску завдання синхронізації сховища.</value>

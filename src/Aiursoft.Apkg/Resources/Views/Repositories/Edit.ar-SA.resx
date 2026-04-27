@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>المكونات</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>يتحكم في الملفات الفهرسية لـ binary-{arch}/Packages التي يتم إنشاؤها. يتم تخزين الحزم ذات البنى غير المتطابقة (باستثناء &apos;all&apos;) ولكنها غير مرئية لعملاء apt. يحدد أيضًا سطر Architectures: في دليل إعداد العميل. تدخل التغييرات حيز التنفيذ في تشغيل مهمة مزامنة المستودع التالية.</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>يتحكم في الملفات الفهرسية لـ binary-[arch]/Packages التي يتم إنشاؤها. يتم تخزين الحزم ذات البنى غير المتطابقة (باستثناء &apos;all&apos;) ولكنها غير مرئية لعملاء apt. يحدد أيضًا سطر Architectures: في دليل إعداد العميل. تدخل التغييرات حيز التنفيذ في تشغيل مهمة مزامنة المستودع التالية.</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>يحدد الدلائل الفرعية للمكونات التي يتم تضمينها عند إنشاء فهرس الحزم. يتم تخزين الحزم الموجودة في المكونات غير المدرجة ولكنها غير مرئية لعملاء apt. يضبط أيضًا سطر المكونات: في دليل إعداد العميل. تدخل التغييرات حيز التنفيذ عند تشغيل مهمة مزامنة المستودع التالية.</value>

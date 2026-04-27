@@ -33,8 +33,8 @@
   <data name="Components" xml:space="preserve">
     <value>コンポーネント</value>
   </data>
-  <data name="Controls which binary-{arch}/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
-    <value>binary-{arch}/Packagesインデックスファイルの生成対象を制御します。アーキテクチャが一致しないパッケージ（&apos;all&apos;を除く）は保存されますが、aptクライアントからは見えません。また、クライアント設定ガイドのArchitectures:行にも設定されます。変更は次のリポジトリ同期ジョブの実行時に有効になります。</value>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>binary-[arch]/Packagesインデックスファイルの生成対象を制御します。アーキテクチャが一致しないパッケージ（&apos;all&apos;を除く）は保存されますが、aptクライアントからは見えません。また、クライアント設定ガイドのArchitectures:行にも設定されます。変更は次のリポジトリ同期ジョブの実行時に有効になります。</value>
   </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Packages インデックスを生成する際に含めるコンポーネントサブディレクトリを制御します。リストされていないコンポーネントのパッケージは保存されますが、apt クライアントからは表示されません。また、クライアント設定ガイドの Components: 行も設定されます。変更は次の Repository Sync ジョブの実行時に有効になります。</value>
