@@ -9,6 +9,8 @@ public class SettingsMap
     public const string BrandHomeUrl = "BrandHomeUrl";
     public const string ProjectLogo = "ProjectLogo";
     public const string AllowUserAdjustNickname = "Allow_User_Adjust_Nickname";
+    public const string AllowAnonymousViewPackageDetails = "Allow_Anonymous_View_Package_Details";
+    public const string AllowAnonymousBrowseRepository = "Allow_Anonymous_Browse_Repository";
     public const string Icp = "Icp";
     public const string DummyNumber = "DummyNumber";
     public const string DummyChoice = "DummyChoice";
@@ -62,6 +64,22 @@ public class SettingsMap
             Key = AllowUserAdjustNickname,
             Name = Localizer["Allow User Adjust Nickname"],
             Description = Localizer["Allow users to adjust their nickname in the profile management page."],
+            Type = SettingType.Bool,
+            DefaultValue = "True"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = AllowAnonymousViewPackageDetails,
+            Name = Localizer["Allow Anonymous View Package Details"],
+            Description = Localizer["Allow anonymous users to view package details without login."],
+            Type = SettingType.Bool,
+            DefaultValue = "True"
+        },
+        new GlobalSettingDefinition
+        {
+            Key = AllowAnonymousBrowseRepository,
+            Name = Localizer["Allow Anonymous Browse Repository"],
+            Description = Localizer["Allow anonymous users to browse repositories and their packages without login."],
             Type = SettingType.Bool,
             DefaultValue = "True"
         },
