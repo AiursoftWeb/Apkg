@@ -55,7 +55,13 @@ public class AptMirrorService(
 
         if (string.IsNullOrWhiteSpace(package.RemoteUrl))
         {
-            logger.LogError("Package {Package} is virtual but has no RemoteUrl!", package.Package);
+            // Local packages (uploaded by users) have no RemoteUrl — the CAS file is the only copy.
+            // If the file is missing here it means the storage was wiped (e.g. /tmp cleaned on reboot).
+            logger.LogError(
+                "CAS file for package {Package} (SHA256: {Hash}) is missing from disk and cannot be re-fetched " +
+                "because it has no RemoteUrl. The package was likely a user-uploaded local package whose storage " +
+                "path was wiped. Please re-upload the package.",
+                package.Package, package.SHA256);
             return null;
         }
 
