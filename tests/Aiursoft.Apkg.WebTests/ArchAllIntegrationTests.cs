@@ -130,7 +130,8 @@ SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c
             Suite = "focal",
             Components = "main",
             Architecture = "amd64",
-            SignedBy = null // Disable GPG check
+            SignedBy = null, // Disable GPG check
+            AllowInsecure = true
         };
         db.AptMirrors.Add(mirror);
 

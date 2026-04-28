@@ -50,6 +50,12 @@ public class AptSourceExtractor
                 signedBy = HandleSignedBy(sb);
             }
 
+            var allowInsecure = false;
+            if (dict.TryGetValue("Allow-Insecure", out var ai) && ai.Trim().Equals("yes", StringComparison.OrdinalIgnoreCase))
+            {
+                allowInsecure = true;
+            }
+
             var uriList = urisLine.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
             var suiteList = suitesLine.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
             var componentList = componentsLine.Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
@@ -62,7 +68,7 @@ public class AptSourceExtractor
                     var repoKey = $"{uri}|{suite}";
                     if (!repoCache.TryGetValue(repoKey, out var repo))
                     {
-                        repo = new AptRepository(uri, suite, signedBy, false, httpClientFactory);
+                        repo = new AptRepository(uri, suite, signedBy, allowInsecure, httpClientFactory);
                         repoCache[repoKey] = repo;
                     }
 
@@ -94,6 +100,7 @@ public class AptSourceExtractor
 
             var rest = trimmed.Substring(4).Trim();
             string? signedBy = null;
+            var allowInsecure = false;
 
             // Check for options [key=value key2=value2]
             if (rest.StartsWith("["))
@@ -106,9 +113,12 @@ public class AptSourceExtractor
                     foreach (var opt in options)
                     {
                         var kvp = opt.Split(new[] { '=' }, 2);
-                        if (kvp.Length == 2 && kvp[0].Trim().ToLowerInvariant() == "signed-by")
+                        if (kvp.Length == 2)
                         {
-                            signedBy = kvp[1].Trim();
+                            var key = kvp[0].Trim().ToLowerInvariant();
+                            var val = kvp[1].Trim();
+                            if (key == "signed-by") signedBy = val;
+                            else if (key == "allow-insecure" && val.Equals("yes", StringComparison.OrdinalIgnoreCase)) allowInsecure = true;
                         }
                     }
                     rest = rest.Substring(endBracket + 1).Trim();
@@ -126,7 +136,7 @@ public class AptSourceExtractor
             var repoKey = $"{uri}|{suite}";
             if (!repoCache.TryGetValue(repoKey, out var repo))
             {
-                repo = new AptRepository(uri, suite, signedBy, false, httpClientFactory);
+                repo = new AptRepository(uri, suite, signedBy, allowInsecure, httpClientFactory);
                 repoCache[repoKey] = repo;
             }
 
@@ -156,16 +166,14 @@ public class AptSourceExtractor
             // ParseDeb822Block joins lines with \n.
             // If the original file had " .", ParseDeb822Block (simple one) might capture it as ".".
             // Let's being robust:
+            // deb822 multiline values have each continuation line prefixed with a space,
+            // and blank lines are represented as " .". Strip both so that gpg --dearmor
+            // receives clean ASCII-armor without leading whitespace on every line.
             var lines = content.Split('\n');
             var cleanLines = lines.Select(l =>
             {
                 var trimmed = l.Trim();
-                if (trimmed == ".") return ""; // Convert " ." to empty line
-                return l; // Keep original indentation (PGP handles it, or should we trim?)
-                // Actually PGP blocks inside deb822 often have 1 space indent.
-                // gpg --dearmor is quite standardcompliant, it ignores non-base64 chars?
-                // Best to trim start?
-                // Let's try to keeping it simple: just handle the dot.
+                return trimmed == "." ? "" : trimmed;
             });
             var cleanContent = string.Join("\n", cleanLines);
 
@@ -238,17 +246,23 @@ public class AptSourceExtractor
         string? line;
         while ((line = reader.ReadLine()) != null)
         {
-            if (string.IsNullOrWhiteSpace(line)) continue;
-
             if (line.StartsWith(" ") || line.StartsWith("\t"))
             {
-                // Continuation
+                // Continuation line (may be whitespace-only = blank line within multiline value,
+                // e.g. the required blank line in a PGP armor block inside Signed-By).
                 if (currentKey != null)
                 {
-                    // Deb822 continuation preserves newlines typically, but usually we just append.
-                    // For Signed-By, we want to preserve structure.
-                    currentValue += "\n" + line.TrimStart();
+                    var trimmed = line.TrimStart();
+                    // " ." is the deb822 convention for an empty line inside a multiline value.
+                    currentValue += "\n" + (trimmed == "." ? "" : trimmed);
                 }
+            }
+            else if (string.IsNullOrWhiteSpace(line))
+            {
+                // Blank line not starting with space/tab.
+                // If we are already inside a field, this is a stanza separator — stop.
+                // If we haven't started a field yet (leading blank), just skip.
+                if (currentKey != null) break;
             }
             else
             {

@@ -176,7 +176,8 @@ public static class ProgramExtends
                 Distro = "ubuntu", // 进货 Distro 是 ubuntu
                 Suite = suite,    // 进货 Suite 是 questing
                 Components = components,
-                Architecture = "amd64"
+                Architecture = "amd64",
+                SignedBy = "/usr/share/keyrings/ubuntu-archive-keyring.gpg"
             };
             db.AptMirrors.Add(mirror);
             await db.SaveChangesAsync();

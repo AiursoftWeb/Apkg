@@ -28,6 +28,97 @@ public class AptMirrorServiceTests
     }
 
     [TestMethod]
+    public async Task TestLocalPackageMissingCasFile_ReturnsNull()
+    {
+        // Covers the scenario where a local package (IsVirtual=false, RemoteUrl=null) was
+        // uploaded successfully but its CAS file was later wiped (e.g. /tmp cleaned on reboot).
+        // The service must return null gracefully rather than throw.
+
+        var services = new ServiceCollection();
+        services.AddLogging();
+        services.AddMemoryCache();
+
+        var config = new ConfigurationBuilder()
+            .AddInMemoryCollection(new Dictionary<string, string>
+            {
+                ["Storage:Path"] = Path.Combine(Path.GetTempPath(), "apkg-test-" + Guid.NewGuid())
+            }!)
+            .Build();
+        services.AddSingleton<IConfiguration>(config);
+
+        var dbName = $"DataSource=file:{Guid.NewGuid()}?mode=memory&cache=shared";
+        var connection = new Microsoft.Data.Sqlite.SqliteConnection(dbName);
+        connection.Open();
+
+        services.AddDbContext<ApkgDbContext, SqliteContext>(options => options.UseSqlite(dbName));
+        services.AddSingleton<StorageRootPathProvider>();
+        services.AddSingleton<FeatureFoldersProvider>();
+        services.AddSingleton<FileLockProvider>();
+        services.AddHttpClient();
+        services.AddTransient<AptMirrorService>();
+
+        var provider = services.BuildServiceProvider();
+        var db = provider.GetRequiredService<ApkgDbContext>();
+        await db.Database.EnsureCreatedAsync();
+
+        var sha256 = "deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef";
+
+        var bucket = new AptBucket { CreatedAt = DateTime.UtcNow };
+        db.AptBuckets.Add(bucket);
+        await db.SaveChangesAsync();
+
+        // Simulate a local package: IsVirtual=false, RemoteUrl=null (no upstream to re-fetch from)
+        var pkg = new AptPackage
+        {
+            BucketId = bucket.Id,
+            Component = "main",
+            Architecture = "amd64",
+            IsVirtual = false,
+            RemoteUrl = null,
+            Filename = "pool/main/m/motrix/motrix_1.0_amd64.deb",
+            SHA256 = sha256,
+            Package = "motrix",
+            Version = "1.0",
+            OriginSuite = "questing-community",
+            OriginComponent = "main",
+            Maintainer = "test",
+            Description = "test",
+            DescriptionMd5 = "test",
+            Section = "test",
+            Priority = "optional",
+            Origin = "LocalPackage",
+            Bugs = string.Empty,
+            Size = "12345",
+            MD5sum = string.Empty,
+            SHA1 = string.Empty,
+            SHA512 = string.Empty,
+            InstalledSize = "50",
+            OriginalMaintainer = string.Empty,
+            Homepage = string.Empty,
+            Depends = string.Empty,
+            Source = string.Empty,
+            MultiArch = string.Empty,
+            Provides = string.Empty,
+            Suggests = string.Empty,
+            Recommends = string.Empty,
+            Conflicts = string.Empty,
+            Breaks = string.Empty,
+            Replaces = string.Empty,
+            Extras = []
+        };
+        db.AptPackages.Add(pkg);
+        await db.SaveChangesAsync();
+
+        // CAS file intentionally NOT created on disk — simulates post-wipe state
+
+        using var scope = provider.CreateScope();
+        var service = scope.ServiceProvider.GetRequiredService<AptMirrorService>();
+        var result = await service.GetLocalPoolPath(pkg.Filename);
+
+        Assert.IsNull(result, "Should return null when CAS file is missing and no RemoteUrl exists.");
+    }
+
+    [TestMethod]
     [Timeout(5000)] // ABSOLUTE LIMIT: If this test takes longer than 5 seconds, MSTest will violently abort it!
     public async Task TestConcurrentVirtualToPhysicalConversion()
     {

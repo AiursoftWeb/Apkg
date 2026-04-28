@@ -49,12 +49,13 @@ Signed-By:
     public async Task TestFetchFromAliyunDeb822()
     {
         // Arrange
-        // Removed Signed-By to skip signature verification for mock
+        // Use Allow-Insecure to skip GPG signature verification for mock HTTP
         var deb822 = @"
 Types: deb
 URIs: http://mirror.aiursoft.com/ubuntu/
 Suites: jammy
 Components: main
+Allow-Insecure: yes
 ";
         var mockData = GenerateMockRepoData();
 
@@ -293,6 +294,7 @@ Types: deb
 URIs: http://mirror.aiursoft.com/ubuntu/
 Suites: jammy
 Components: main
+Allow-Insecure: yes
 ";
         var mockData = GenerateMockRepoData(packageName: "hostname");
 
@@ -358,13 +360,14 @@ Components: main
 
         // 3. Construct Source String with the Generated Public Key
         // Note: URIs can be anything since we mock it.
+        // In deb822, multiline continuation lines must start with a space
+        var indentedPubKey = string.Join("\n", pubKey.Split('\n').Select(l => " " + l));
         var sourceStr = $@"
 Types: deb
 URIs: https://mock-ppa.aiursoft.cn/mozillateam/ppa/ubuntu/
 Suites: questing
 Components: main
-Signed-By:
-{pubKey}
+Signed-By:{indentedPubKey}
 ";
 
         // 4. Setup Mock Handler
@@ -503,7 +506,7 @@ Description-md5: 5d41402abc4b2a76b9719d911017c592
     [TestMethod]
     public async Task TestReadmeSample()
     {
-        var sourceText = "deb http://mirror.aiursoft.com/ubuntu/ jammy main";
+        var sourceText = "deb [allow-insecure=yes] http://mirror.aiursoft.com/ubuntu/ jammy main";
         var mockData = GenerateMockRepoData();
 
         var mockHandler = new MockHttpMessageHandler(request =>
@@ -545,7 +548,8 @@ Types: deb
 URIs: http://fallback.test/ubuntu/
 Suites: jammy
 Components: main
-"; // No Signed-By
+Allow-Insecure: yes
+"; // No Signed-By, explicitly allow insecure for test
 
         var packagesContent = @"Package: fallback-pkg
 Version: 1.0.0

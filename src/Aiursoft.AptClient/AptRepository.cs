@@ -61,19 +61,24 @@ public class AptRepository
         }
 
         // 2. Verify Signature
-        if (!string.IsNullOrWhiteSpace(SignedBy) && !AllowInsecure)
+        if (AllowInsecure)
         {
-            // Assuming AptGpgVerifier is available
+            VerificationLog = "Verification skipped: AllowInsecure is true.";
+        }
+        else if (string.IsNullOrWhiteSpace(SignedBy))
+        {
+            throw new InvalidOperationException(
+                $"Mirror '{Suite}' requires a GPG key (SignedBy) because AllowInsecure is false. " +
+                "Either set a keyring path or enable AllowInsecure.");
+        }
+        else
+        {
             var (isValid, log) = await AptGpgVerifier.VerifyInReleaseAsync(releaseBytes, SignedBy);
             VerificationLog = log;
             if (!isValid)
             {
                 throw new Exception($"GPG Verification failed for {Suite} using key {SignedBy}");
             }
-        }
-        else
-        {
-            VerificationLog = "Verification skipped: Signature check not enabled or AllowInsecure is true.";
         }
 
         // 3. Parse Hashes

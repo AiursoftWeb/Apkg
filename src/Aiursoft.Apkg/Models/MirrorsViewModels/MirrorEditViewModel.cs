@@ -3,7 +3,7 @@ using Aiursoft.UiStack.Layout;
 
 namespace Aiursoft.Apkg.Models.MirrorsViewModels;
 
-public class MirrorEditViewModel : UiStackLayoutViewModel
+public class MirrorEditViewModel : UiStackLayoutViewModel, IValidatableObject
 {
     public int Id { get; set; }
 
@@ -37,4 +37,15 @@ public class MirrorEditViewModel : UiStackLayoutViewModel
 
     [Display(Name = "Allow Insecure Source")]
     public bool AllowInsecure { get; set; }
+
+    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+    {
+        if (!AllowInsecure && string.IsNullOrWhiteSpace(SignedBy))
+        {
+            yield return new ValidationResult(
+                "A GPG keyring path is required when Allow Insecure Source is not checked. " +
+                "Either provide a keyring path or enable Allow Insecure Source.",
+                [nameof(SignedBy)]);
+        }
+    }
 }
