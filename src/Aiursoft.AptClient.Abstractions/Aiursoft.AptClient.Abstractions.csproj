@@ -17,9 +17,9 @@
     <PackageId>Aiursoft.AptClient.Abstractions</PackageId>
     <PackageTags>dependencies injection aptClient</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://gitlab.aiursoft.com/aiursoft/aptClient</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/aiursoftweb/aptClient</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://gitlab.aiursoft.com/aiursoft/aptClient</RepositoryUrl>
+    <RepositoryUrl>https://github.com/aiursoftweb/aptClient</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
