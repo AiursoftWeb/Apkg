@@ -10,7 +10,14 @@
         <h1 class="display-5 fw-bold text-white mb-1">
             <i class="align-middle me-2" data-lucide="package-search"></i> @Localizer["APT Package Search"]
         </h1>
-        <p class="text-white-50 mb-4">Search across <strong class="text-white">@Model.TotalPackages.ToString("N0")</strong> packages in <strong class="text-white">@Model.TotalRepos</strong> active repositor@(Model.TotalRepos == 1 ? "y" : "ies")</p>
+        @if (Model.TotalRepos == 1)
+        {
+            <p class="text-white-50 mb-4">@Localizer["Search across <strong class=\"text-white\">{0}</strong> packages in <strong class=\"text-white\">{1}</strong> active repository", Model.TotalPackages.ToString("N0"), Model.TotalRepos]</p>
+        }
+        else
+        {
+            <p class="text-white-50 mb-4">@Localizer["Search across <strong class=\"text-white\">{0}</strong> packages in <strong class=\"text-white\">{1}</strong> active repositories", Model.TotalPackages.ToString("N0"), Model.TotalRepos]</p>
+        }
         <form method="get" asp-action="Index" asp-controller="Dashboard">
             <div class="input-group input-group-lg mx-auto" style="max-width:640px;">
                 <span class="input-group-text bg-white border-end-0">
