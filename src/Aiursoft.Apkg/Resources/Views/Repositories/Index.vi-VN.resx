@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Bạn có chắc chắn muốn xóa kho lưu trữ</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Duyệt Gói</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Hủy</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>Tạo Kho Mới</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>Xóa Kho lưu trữ</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Chi tiết</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Hệ điều hành</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Bucket Trực Tiếp</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>Bộ</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>Bản chụp snapshot đang hoạt động hiện đang được cung cấp cho các máy khách apt. Sẽ trở nên trực tiếp sau khi quá trình Đồng bộ Hóa Kho hoàn tất thành công.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Bản chụp đang được tạo bởi một công việc Repository Sync đang chạy. Nó sẽ thay thế bucket live khi công việc thành công.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Tổng số gói</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Cho biết tệp Release của kho lưu trữ có được ký bằng GPG hay không. Các máy khách apt được cấu hình với &apos;signed-by=&apos; trong sources.list sẽ từ chối các kho lưu trữ không được ký hoặc được ký bằng khóa sai.</value>
   </data>
 
 </root>

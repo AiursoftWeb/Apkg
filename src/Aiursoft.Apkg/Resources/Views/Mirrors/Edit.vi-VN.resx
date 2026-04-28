@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>URL tùy chọn đến khóa GPG công khai từ nguồn để xác minh.</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>Đường dẫn đến tệp keyring GPG cục bộ để xác minh chữ ký upstream. Để trống để bỏ qua xác minh.</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Lưu thay đổi</value>
   </data>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An administrator needs to run the following background jobs to prepare this repository:" xml:space="preserve">
+    <value>このリポジトリを準備するには、管理者が以下のバックグラウンドジョブを実行する必要があります：</value>
+  </data>
+  <data name="Before a repository can serve packages, it must undergo a synchronization and (if configured) a signing process. This creates a &apos;Primary Bucket&apos; which contains the actual package metadata and files for APT clients to consume." xml:space="preserve">
+    <value>リポジトリがパッケージを提供できるようになるには、同期処理と（設定されている場合）署名処理を行う必要があります。これにより、APT クライアントが利用するための実際のパッケージメタデータとファイルを含む「Primary Bucket」が作成されます。</value>
+  </data>
+  <data name="Go Back" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="Go to Background Jobs" xml:space="preserve">
+    <value>バックグラウンドジョブへ移動</value>
+  </data>
+  <data name="How to fix this?" xml:space="preserve">
+    <value>これを修正するには？</value>
+  </data>
+  <data name="Primary Bucket Not Found" xml:space="preserve">
+    <value>プライマリバケットが見つかりません</value>
+  </data>
+  <data name="Repository not ready" xml:space="preserve">
+    <value>リポジトリが準備されていません</value>
+  </data>
+  <data name="What does this mean?" xml:space="preserve">
+    <value>これは何を意味しますか？</value>
+  </data>
+
+</root>

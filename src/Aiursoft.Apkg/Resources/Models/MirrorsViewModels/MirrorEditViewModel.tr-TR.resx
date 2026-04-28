@@ -33,6 +33,9 @@
   <data name="Distro" xml:space="preserve">
     <value>Dağıtım</value>
   </data>
+  <data name="GPG Public Key (Optional)" xml:space="preserve">
+    <value>GPG Genel Anahtarı (İsteğe Bağlı)</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>GPG Genel Anahtar URL&apos;si (İsteğe Bağlı)</value>
   </data>

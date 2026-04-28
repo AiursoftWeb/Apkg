@@ -42,6 +42,9 @@
   <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
     <value>如勾選，將不進行簽名驗證。請自行承擔風險。</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>本地 GPG keyring 檔案路徑，用於校驗上游簽名。留空則跳過驗證。</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>儲存變更</value>
   </data>
@@ -49,8 +52,4 @@
     <value>此鏡像的 URL 前綴（例如 &apos;ubuntu&apos;）。</value>
   </data>
 
-
-  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
-    <value>本地 GPG keyring 檔案路徑，用於校驗上游簽名。留空則跳過驗證。</value>
-  </data>
 </root>

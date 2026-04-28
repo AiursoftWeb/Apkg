@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>APT クライアント向けにライブパッケージが利用可能です。</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
   <data name="Architecture" xml:space="preserve">
@@ -54,6 +57,9 @@
   <data name="Included in the next Repository Sync: will override any upstream mirror package with the same name and architecture." xml:space="preserve">
     <value>次のリポジトリ同期に含まれます：同じ名前とアーキテクチャを持つ任意のアップストリームミラーパッケージを上書きします。</value>
   </data>
+  <data name="Live" xml:space="preserve">
+    <value>ライブ</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>私のパッケージ</value>
   </data>
@@ -63,11 +69,23 @@
   <data name="Package" xml:space="preserve">
     <value>パッケージ</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>同期待ち</value>
+  </data>
   <data name="Repository" xml:space="preserve">
     <value>リポジトリ</value>
   </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>ステージ済み（署名待ち）</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>ステータス</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>同期ステータス</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>このパッケージがライブリポジトリにマージおよび署名されるまでの現在の進捗状況です。同期ジョブは20分ごとに実行され、その後5分ごとに署名ジョブが実行されます。</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>パッケージをアップロード</value>
@@ -80,6 +98,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>バージョン</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>詳細とインストール手順を表示</value>
   </data>
 
 </root>

@@ -33,6 +33,9 @@
   <data name="Base URL" xml:space="preserve">
     <value>基础 URL</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>浏览程序包</value>
+  </data>
   <data name="Bucket" xml:space="preserve">
     <value>存储桶</value>
   </data>
@@ -45,11 +48,17 @@
   <data name="Confirm Delete" xml:space="preserve">
     <value>确认删除</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
   <data name="Delete Mirror" xml:space="preserve">
     <value>删除镜像</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>发行版</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
   </data>
   <data name="Error:" xml:space="preserve">
     <value>错误：</value>

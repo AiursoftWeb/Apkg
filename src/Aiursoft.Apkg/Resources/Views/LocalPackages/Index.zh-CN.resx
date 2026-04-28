@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>APT 客户端可使用实时软件包。</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
   <data name="Architecture" xml:space="preserve">
@@ -54,6 +57,9 @@
   <data name="Included in the next Repository Sync: will override any upstream mirror package with the same name and architecture." xml:space="preserve">
     <value>包含在下一次仓库同步中：将覆盖任何同名同架构的上游镜像包。</value>
   </data>
+  <data name="Live" xml:space="preserve">
+    <value>已发布</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>我的软件包</value>
   </data>
@@ -63,11 +69,23 @@
   <data name="Package" xml:space="preserve">
     <value>软件包</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>待同步</value>
+  </data>
   <data name="Repository" xml:space="preserve">
     <value>仓库</value>
   </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>已暂存（等待签名）</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>状态</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>同步状态</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>此软件包合并并签名到实时仓库的当前进度。同步任务每 20 分钟运行一次，随后每 5 分钟运行一次签名任务。</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>上传软件包</value>
@@ -80,6 +98,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>版本</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>查看详细信息和安装说明</value>
   </data>
 
 </root>

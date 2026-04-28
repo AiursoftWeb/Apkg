@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>Một gói live đã sẵn sàng cho các client APT.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Thao tác</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Kiến trúc</value>
+  </data>
+  <data name="Are you sure you want to delete" xml:space="preserve">
+    <value>Bạn có chắc chắn muốn xóa</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Xác nhận Xóa</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Tắt</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Đang hoạt động</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Gói của tôi</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>Chưa có gói nào được tải lên.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Gói</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Đang đồng bộ</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Kho lưu trữ</value>
+  </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>Đã lưu trữ (Chờ ký)</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Trạng thái đồng bộ</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>Tiến độ hiện tại của gói này đang được hợp nhất và ký vào kho lưu trữ trực tiếp. Công việc đồng bộ hóa chạy mỗi 20 phút, tiếp theo là công việc ký mỗi 5 phút.</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Tải gói lên</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Đã tải lên</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Người tải lên</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Phiên bản</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>Xem chi tiết &amp; Hướng dẫn cài đặt</value>
+  </data>
+
+</root>
