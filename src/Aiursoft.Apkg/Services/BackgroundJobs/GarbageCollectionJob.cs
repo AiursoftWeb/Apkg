@@ -10,8 +10,8 @@ public class GarbageCollectionJob(
     FeatureFoldersProvider folders,
     ILogger<GarbageCollectionJob> logger) : IBackgroundJob
 {
-    private string BucketsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Buckets");
-    private string ObjectsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Objects");
+    private string BucketsRoot => folders.GetBucketsFolder();
+    private string ObjectsRoot => folders.GetObjectsFolder();
 
     public string Name => "APT Garbage Collection";
 

@@ -14,7 +14,7 @@ public class RepositorySyncJob(
     FeatureFoldersProvider folders,
     ILogger<RepositorySyncJob> logger) : IBackgroundJob
 {
-    private string BucketsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Buckets");
+    private string BucketsRoot => folders.GetBucketsFolder();
 
     public string Name => "Seed All APT repository in pending bucket.";
 

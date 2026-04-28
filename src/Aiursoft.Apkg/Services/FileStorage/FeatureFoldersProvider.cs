@@ -16,6 +16,10 @@ public class FeatureFoldersProvider(StorageRootPathProvider rootPathProvider) : 
 
     public string GetMirrorsFolder() => EnsureExists(Path.Combine(BasePath, "Mirrors"));
 
+    public string GetObjectsFolder() => EnsureExists(Path.Combine(BasePath, "Objects"));
+
+    public string GetBucketsFolder() => EnsureExists(Path.Combine(BasePath, "Buckets"));
+
     private string EnsureExists(string path)
     {
         if (!Directory.Exists(path)) Directory.CreateDirectory(path);

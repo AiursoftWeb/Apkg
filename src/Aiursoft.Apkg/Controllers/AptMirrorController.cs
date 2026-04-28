@@ -14,7 +14,7 @@ public class AptMirrorController(
     ApkgDbContext dbContext,
     FeatureFoldersProvider folders) : ControllerBase
 {
-    private string BucketsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Buckets");
+    private string BucketsRoot => folders.GetBucketsFolder();
 
     [HttpGet]
     [Route("artifacts/{distro}/dists/{suite}/{**path}")]
