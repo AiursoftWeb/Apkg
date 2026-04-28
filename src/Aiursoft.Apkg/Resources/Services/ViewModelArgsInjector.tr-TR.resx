@@ -132,6 +132,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Yönet</value>
   </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Paketlerim</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Bulunamadı</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Yetkisiz</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Paket Yükle</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Üst Düzey Aynalar</value>

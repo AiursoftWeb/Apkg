@@ -132,6 +132,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Hallinnoi</value>
   </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Minun paketit</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Ei löytynyt</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Luvaton</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Lataa paketti</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Ylävirran peilit</value>

@@ -132,6 +132,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Διαχείριση</value>
   </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Τα Πακέτα Μου</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Δεν βρέθηκε</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Μη Εξουσιοδοτημένος</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Ανέβασμα Πακέτου</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Κάτοψη Ανάστροφης Αντιγραφής</value>

@@ -135,6 +135,9 @@
   <data name="Manage" xml:space="preserve">
     <value>จัดการ</value>
   </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>แพ็กเกจของฉัน</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>ไม่พบ</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>ไม่ได้รับอนุญาต</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>อัปโหลดแพ็กเกจ</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>กระจกย้อนกลับด้านบน</value>

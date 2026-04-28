@@ -27,6 +27,18 @@
   <data name="A dummy number for testing." xml:space="preserve">
     <value>一個用於測試的虛擬數字。</value>
   </data>
+  <data name="Allow Anonymous Browse Repository" xml:space="preserve">
+    <value>允許匿名瀏覽存儲庫</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>允許匿名用戶在不登入的情況下瀏覽儲存庫及其套件。</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>允許匿名用戶在未登入的情況下查看套件詳細資料。</value>
+  </data>
+  <data name="Allow Anonymous View Package Details" xml:space="preserve">
+    <value>允許匿名查看套件詳細資訊</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>允許用戶更改暱稱</value>
   </data>

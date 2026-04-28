@@ -27,6 +27,18 @@
   <data name="A dummy number for testing." xml:space="preserve">
     <value>Ένας εικονικός αριθμός για δοκιμές.</value>
   </data>
+  <data name="Allow Anonymous Browse Repository" xml:space="preserve">
+    <value>Επιτρέψτε την ανώνυμη περιήγηση στο αποθετήριο</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>Επιτρέψτε στους ανώνυμους χρήστες να περιηγούνται στα αποθετήρια και τα πακέτα τους χωρίς σύνδεση.</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>Επιτρέψτε στους ανώνυμους χρήστες να προβάλλουν τις λεπτομέρειες του πακέτου χωρίς σύνδεση.</value>
+  </data>
+  <data name="Allow Anonymous View Package Details" xml:space="preserve">
+    <value>Επιτρέψτε την ανώνυμη προβολή λεπτομερειών πακέτου</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Επιτρέψτε στον Χρήστη να Τροποποιήσει το Παρασκήνιο Όνομα</value>
   </data>
