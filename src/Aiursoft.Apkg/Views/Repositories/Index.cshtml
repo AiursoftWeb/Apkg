@@ -1,7 +1,7 @@
 @model Aiursoft.Apkg.Models.MirrorsViewModels.RepoIndexViewModel
 @using Aiursoft.Apkg.Authorization
 @using Microsoft.AspNetCore.Authorization
-@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
+@inject IAuthorizationService AuthorizationService
 @{
     var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageRepositories)).Succeeded;
 }
@@ -152,13 +152,6 @@
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script>
-        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
-    </script>
-}
-).forEach(el => new bootstrap.Tooltip(el));
-    </script>
-}
-  <script>
         document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
     </script>
 }

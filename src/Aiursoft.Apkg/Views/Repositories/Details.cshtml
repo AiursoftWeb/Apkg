@@ -1,7 +1,7 @@
 @model Aiursoft.Apkg.Models.MirrorsViewModels.RepoDetailsViewModel
 @using Aiursoft.Apkg.Authorization
 @using Microsoft.AspNetCore.Authorization
-@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
+@inject IAuthorizationService AuthorizationService
 @{
     var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageRepositories)).Succeeded;
 }
