@@ -92,10 +92,10 @@
                             }
                             else if (item.LastPullSuccess == false)
                             {
-                                <span class="badge bg-danger cursor-pointer" data-bs-toggle="modal" data-bs-target="#errorModal-@item.Id">
-                                    @Localizer["Failed"]
+                                <span class="badge bg-danger cursor-pointer" data-bs-toggle="modal" data-bs-target="#errorModal-@item.Id"
+                                      title="@item.LastPullResult">
+                                    @Localizer["Failed"] <i data-lucide="info" style="width:11px;height:11px;vertical-align:middle;"></i>
                                 </span>
-                                <small class="text-danger d-block">@item.LastPullResult</small>
 
                                 <!-- Error Stack Modal -->
                                 <div class="modal fade" id="errorModal-@item.Id" tabindex="-1" aria-hidden="true">
