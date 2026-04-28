@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>Component</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>File is hosted on the upstream mirror. apt clients download it directly from the mirror URL.</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>File is stored locally on this server. apt clients download it from here.</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Next</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Virtual</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server.</value>
   </data>
 
 </root>

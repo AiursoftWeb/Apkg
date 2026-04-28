@@ -24,6 +24,9 @@
   <data name="Active Usage" xml:space="preserve">
     <value>Active Use</value>
   </data>
+  <data name="Being built by a currently-running Sync job. Will replace the LIVE bucket on success." xml:space="preserve">
+    <value>Being built by a currently-running Sync job. Will replace the LIVE bucket on success.</value>
+  </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>Bucket Snapshots History</value>
   </data>
@@ -39,6 +42,9 @@
   <data name="Logical Size" xml:space="preserve">
     <value>Logical Size</value>
   </data>
+  <data name="Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run." xml:space="preserve">
+    <value>Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run.</value>
+  </data>
   <data name="Orphaned" xml:space="preserve">
     <value>Orphaned</value>
   </data>
@@ -53,6 +59,12 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <data name="Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets." xml:space="preserve">
+    <value>Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets.</value>
+  </data>
+  <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
+    <value>This snapshot is actively served to apt clients as the current index.</value>
   </data>
 
 </root>

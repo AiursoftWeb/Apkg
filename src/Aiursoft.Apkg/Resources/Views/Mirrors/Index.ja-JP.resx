@@ -63,6 +63,9 @@
   <data name="items" xml:space="preserve">
     <value>アイテム</value>
   </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>最終プル</value>
+  </data>
   <data name="Never Pull" xml:space="preserve">
     <value>未プル</value>
   </data>
@@ -98,6 +101,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>同期エラースタックトレース</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>apt クライアントに現在提供されているライブスナップショット。新しいバケットは、ミラー同期が正常に完了した後にのみプライマリになります。</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>実行中のMirror Syncジョブによって構築中のスナップショット。ジョブが成功するとPrimary Bucketを置き換え、古いプライマリはその後ガベージコレクションの対象となります。</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>これにより、関連するすべてのパッケージとバケットも削除されます！</value>

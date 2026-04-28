@@ -21,6 +21,12 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- 無（獨立運作）--</value>
   </data>
+  <data name="Allow Anyone to Upload" xml:space="preserve">
+    <value>允許任何人上傳</value>
+  </data>
+  <data name="Allows any logged-in user to upload LocalPackages to this repository." xml:space="preserve">
+    <value>允許任何已登入的使用者上傳 LocalPackages 至此儲存庫。</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>架構</value>
   </data>
@@ -45,8 +51,20 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>編輯存放區</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>啟用 GPG 簽章</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>如果連結到鏡像伺服器，此儲存庫將提供來自該上游來源的套件。</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>若已連結，此儲存庫的 Packages 索引將在每次 Repository Sync 時從鏡像來源擷取。相同套件名稱與架構的 LocalPackages 將覆寫鏡像版本。</value>
+  </data>
+  <data name="If unchecked, only users with the &apos;Upload to Restricted Repositories&apos; permission can publish packages to this repository." xml:space="preserve">
+    <value>若未勾選，僅有具備「上傳至受限儲存庫」權限的使用者才能將套件發佈至此儲存庫。</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>鏡像</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>儲存儲存庫</value>
@@ -62,6 +80,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>此儲存庫的 URL 前綴（例如 &apos;ubuntu&apos;）。</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>啟用後，每次儲存庫同步完成後，Release 檔案都會使用所選的 GPG 金鑰進行簽章。在 sources.list 中使用 &apos;signed-by=&apos; 的用戶端將驗證此簽章，並拒絕未簽章或簽章錯誤的儲存庫。</value>
   </data>
 
 </root>

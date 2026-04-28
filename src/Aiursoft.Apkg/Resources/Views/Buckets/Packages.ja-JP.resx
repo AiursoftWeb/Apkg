@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>コンポーネント</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>ファイルはアップストリームミラーにホストされています。apt クライアントはミラー URL から直接ダウンロードします。</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>ファイルはこのサーバーにローカルに保存されています。apt クライアントはここからダウンロードします。</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>次</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>仮想</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>仮想: ファイルはアップストリームのミラーにホストされ、apt クライアントによってオンデマンドでダウンロードされます。物理: ファイルはこのサーバーにローカルに保存されています。</value>
   </data>
 
 </root>

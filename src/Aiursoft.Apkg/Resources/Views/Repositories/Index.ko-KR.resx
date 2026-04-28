@@ -69,8 +69,17 @@
   <data name="Suite" xml:space="preserve">
     <value>스위트</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>apt 클라이언트에 현재 제공되는 활성 스냅샷입니다. 저장소 동기화가 성공적으로 완료되면 활성 상태가 됩니다.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Repository Sync 작업이 실행 중일 때 생성 중인 스냅샷입니다. 작업이 성공하면 라이브 버킷을 대체합니다.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>총 패키지 수</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>저장소의 Release 파일이 GPG 서명되었는지 여부입니다. sources.list에서 &apos;signed-by=&apos;로 구성된 apt 클라이언트는 서명되지 않았거나 잘못된 키로 서명된 저장소를 거부합니다.</value>
   </data>
 
 </root>

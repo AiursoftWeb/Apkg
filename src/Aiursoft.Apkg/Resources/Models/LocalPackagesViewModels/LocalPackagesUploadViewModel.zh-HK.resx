@@ -24,6 +24,9 @@
   <data name="Component" xml:space="preserve">
     <value>組件</value>
   </data>
+  <data name="Please upload a valid .deb file." xml:space="preserve">
+    <value>請上傳有效的 .deb 檔案。</value>
+  </data>
   <data name="Repository" xml:space="preserve">
     <value>儲存庫</value>
   </data>

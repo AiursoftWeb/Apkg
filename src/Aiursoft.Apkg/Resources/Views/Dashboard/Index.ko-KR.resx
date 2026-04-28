@@ -186,6 +186,12 @@
   <data name="Search" xml:space="preserve">
     <value>검색</value>
   </data>
+  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repositories" xml:space="preserve">
+    <value>Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repositories</value>
+  </data>
+  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repository" xml:space="preserve">
+    <value>Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repository</value>
+  </data>
   <data name="Search packages (e.g. curl, python3, vim…)" xml:space="preserve">
     <value>패키지 검색 (예: curl, python3, vim…)</value>
   </data>
@@ -232,11 +238,4 @@
     <value>Aiursoft 템플릿을 사용하는 이유는 무엇인가요?</value>
   </data>
 
-
-  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repository" xml:space="preserve">
-    <value>Search across &lt;strong class="text-white"&gt;{0}&lt;/strong&gt; packages in &lt;strong class="text-white"&gt;{1}&lt;/strong&gt; active repository</value>
-  </data>
-  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repositories" xml:space="preserve">
-    <value>Search across &lt;strong class="text-white"&gt;{0}&lt;/strong&gt; packages in &lt;strong class="text-white"&gt;{1}&lt;/strong&gt; active repositories</value>
-  </data>
 </root>

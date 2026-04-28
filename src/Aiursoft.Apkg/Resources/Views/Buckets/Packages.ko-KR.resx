@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>컴포넌트</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>파일이 업스트림 미러에 호스팅되어 있습니다. apt 클라이언트는 미러 URL에서 직접 다운로드합니다.</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>파일이 이 서버에 로컬로 저장되어 있습니다. apt 클라이언트가 여기서 다운로드합니다.</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>다음</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>가상</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>가상: 파일은 업스트림 미러에 호스팅되며 apt 클라이언트에 의해 필요 시 다운로드됩니다. 물리: 파일은 이 서버에 로컬에 저장됩니다.</value>
   </data>
 
 </root>

@@ -24,6 +24,9 @@
   <data name="Active Usage" xml:space="preserve">
     <value>활용량</value>
   </data>
+  <data name="Being built by a currently-running Sync job. Will replace the LIVE bucket on success." xml:space="preserve">
+    <value>현재 실행 중인 동기화 작업으로 생성 중입니다. 성공 시 라이브 버킷을 대체합니다.</value>
+  </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>버킷 스냅샷 기록</value>
   </data>
@@ -39,6 +42,9 @@
   <data name="Logical Size" xml:space="preserve">
     <value>논리적 크기</value>
   </data>
+  <data name="Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run." xml:space="preserve">
+    <value>어떤 Mirror 또는 Repository 에서도 참조되지 않습니다. 다음 Garbage Collection 실행 시 영구적으로 삭제됩니다.</value>
+  </data>
   <data name="Orphaned" xml:space="preserve">
     <value>유실됨</value>
   </data>
@@ -53,6 +59,12 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>상태</value>
+  </data>
+  <data name="Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets." xml:space="preserve">
+    <value>이 버킷에 나열된 모든 패키지 파일 크기의 합계입니다. CAS(콘텐츠 주소형 저장소)가 버킷 간 공유 파일을 중복 제거하므로 실제 디스크 사용량은 더 낮을 수 있습니다.</value>
+  </data>
+  <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
+    <value>이 스냅샷은 현재 인덱스로 apt 클라이언트에 적극적으로 제공됩니다.</value>
   </data>
 
 </root>
