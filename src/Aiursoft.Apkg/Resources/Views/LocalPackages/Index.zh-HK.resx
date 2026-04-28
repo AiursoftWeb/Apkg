@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>架構</value>
+  </data>
+  <data name="Are you sure you want to delete" xml:space="preserve">
+    <value>你確定要刪除</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>組件</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>確認刪除</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>已停用</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>已啟用</value>
+  </data>
+  <data name="Enabled packages are merged into the next Repository Sync and override any upstream mirror package with the same name and architecture. Disabled packages are excluded entirely." xml:space="preserve">
+    <value>已啟用的套件會合併至下一個 Repository Sync，並覆蓋任何具有相同名稱和架構的上游鏡像套件。已停用的套件則完全排除。</value>
+  </data>
+  <data name="Excluded from Repository Sync: will not appear in the generated package index." xml:space="preserve">
+    <value>已排除於倉庫同步之外：不會出現在生成的套件索引中。</value>
+  </data>
+  <data name="Included in the next Repository Sync: will override any upstream mirror package with the same name and architecture." xml:space="preserve">
+    <value>包含在下一個儲存庫同步中：將覆蓋具有相同名稱和架構的任何上游鏡像套件。</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>我的套件</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>尚未上傳任何套件。</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>套件</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>儲存庫</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>狀態</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>上載套件</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>已上傳</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>上傳者</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+
+</root>

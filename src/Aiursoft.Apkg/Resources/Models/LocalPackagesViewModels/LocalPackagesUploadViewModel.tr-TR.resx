@@ -24,6 +24,9 @@
   <data name="Component" xml:space="preserve">
     <value>Bileşen</value>
   </data>
+  <data name="Please upload a valid .deb file." xml:space="preserve">
+    <value>Lütfen geçerli bir .deb dosyası yükleyin.</value>
+  </data>
   <data name="Repository" xml:space="preserve">
     <value>Depo</value>
   </data>

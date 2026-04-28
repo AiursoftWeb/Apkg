@@ -63,6 +63,9 @@
   <data name="items" xml:space="preserve">
     <value>개</value>
   </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>마지막 풀</value>
+  </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Pull 시도 없음</value>
   </data>
@@ -98,6 +101,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>동기화 오류 스택 추적</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>apt 클라이언트에 현재 제공 중인 라이브 스냅샷입니다. Mirror Sync 작업이 성공적으로 완료된 후에야 새 버킷이 기본 버킷으로 지정됩니다.</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>실행 중인 Mirror Sync 작업에서 생성 중인 스냅샷입니다. 작업이 성공하면 이 스냅샷이 Primary Bucket을 대체하며, 이전 Primary Bucket은 이제 가비지 컬렉션의 대상이 됩니다.</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>이 작업은 모든 관련 패키지와 버킷도 삭제합니다!</value>

@@ -69,8 +69,17 @@
   <data name="Suite" xml:space="preserve">
     <value>套件</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>目前提供給 apt 客戶端的活躍快照。在儲存庫同步成功完成後變為活躍狀態。</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>由正在運行的 Repository Sync 作業建立的快照。當作業成功時，它會取代即時儲存桶。</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>總套件數</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>儲存庫的 Release 檔案是否經過 GPG 簽署。在 sources.list 中配置了 &apos;signed-by=&apos; 的 apt 用戶端，會拒絕未簽署或使用錯誤金鑰簽署的儲存庫。</value>
   </data>
 
 </root>

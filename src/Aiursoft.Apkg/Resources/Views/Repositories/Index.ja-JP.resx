@@ -69,8 +69,17 @@
   <data name="Suite" xml:space="preserve">
     <value>スート</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>aptクライアントに現在提供されているアクティブなスナップショット。リポジトリ同期が正常に完了すると、ライブ状態になります。</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Repository Sync ジョブが実行中に構築されているスナップショットです。ジョブが成功すると、このスナップショットがライブバケットに置き換えられます。</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>パッケージ合計</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>リポジトリのReleaseファイルがGPG署名されているかどうか。sources.listで&apos;signed-by=&apos;で構成されたaptクライアントは、署名されていない、または間違ったキーで署名されたリポジトリを拒否します。</value>
   </data>
 
 </root>

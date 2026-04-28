@@ -24,6 +24,9 @@
   <data name="Component" xml:space="preserve">
     <value>Composant</value>
   </data>
+  <data name="Please upload a valid .deb file." xml:space="preserve">
+    <value>Veuillez télécharger un fichier .deb valide.</value>
+  </data>
   <data name="Repository" xml:space="preserve">
     <value>Dépôt</value>
   </data>

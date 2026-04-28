@@ -45,8 +45,17 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>编辑仓库</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>启用 GPG 签名</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>如果链接到镜像，此仓库将从该上游源提供软件包。</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>如果已链接，此存储库的 Packages 索引将在每次 Repository Sync 期间从镜像中获取种子。相同包名和架构的 LocalPackages 将覆盖镜像版本。</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>镜像</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>保存仓库</value>
@@ -62,6 +71,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>此仓库的 URL 前缀（例如 &apos;ubuntu&apos;）。</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>启用后，每次同步仓库后，Release 文件将使用选定的 GPG 密钥进行签名。在其 sources.list 中使用 &apos;signed-by=&apos; 的客户端将验证此签名，并拒绝未签名或签名错误的仓库。</value>
   </data>
 
 </root>

@@ -186,6 +186,12 @@
   <data name="Search" xml:space="preserve">
     <value>搜尋</value>
   </data>
+  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repositories" xml:space="preserve">
+    <value>在 &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; 个活跃仓库中搜索 &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; 个包</value>
+  </data>
+  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repository" xml:space="preserve">
+    <value>在 &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; 个活跃仓库中搜索 &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; 个包</value>
+  </data>
   <data name="Search packages (e.g. curl, python3, vim…)" xml:space="preserve">
     <value>搜尋套件（例如 curl、python3、vim…）</value>
   </data>
@@ -232,11 +238,4 @@
     <value>點解要使用 Aiursoft 模板？</value>
   </data>
 
-
-  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repository" xml:space="preserve">
-    <value>在 &lt;strong class="text-white"&gt;{1}&lt;/strong&gt; 个活跃仓库中搜索 &lt;strong class="text-white"&gt;{0}&lt;/strong&gt; 个包</value>
-  </data>
-  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repositories" xml:space="preserve">
-    <value>在 &lt;strong class="text-white"&gt;{1}&lt;/strong&gt; 个活跃仓库中搜索 &lt;strong class="text-white"&gt;{0}&lt;/strong&gt; 个包</value>
-  </data>
 </root>

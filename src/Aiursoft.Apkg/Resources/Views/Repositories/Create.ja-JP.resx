@@ -45,8 +45,17 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>リポジトリを編集</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>GPG署名を有効にする</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>ミラーにリンクされている場合、このリポジトリはそのアップストリームソースからパッケージを提供します。</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>リンクされている場合、このリポジトリのPackagesインデックスは、リポジトリ同期の実行ごとにミラーから初期化されます。同じパッケージ名とアーキテクチャのLocalPackagesは、ミラーのバージョンを優先します。</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>ミラー</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>リポジトリを保存</value>
@@ -62,6 +71,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>このリポジトリのURLプレフィックス（例：&apos;ubuntu&apos;）。</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>有効化すると、リポジトリ同期のたびに、選択されたGPGキーでReleaseファイルが署名されます。sources.listで&apos;signed-by=&apos;を使用するクライアントは、この署名を検証し、署名されていないまたは誤って署名されたリポジトリを拒否します。</value>
   </data>
 
 </root>

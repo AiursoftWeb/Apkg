@@ -69,8 +69,17 @@
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Total Packages</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key.</value>
   </data>
 
 </root>
