@@ -15,7 +15,10 @@ public class LocalPackagesUploadViewModel : UiStackLayoutViewModel
     public string Component { get; set; } = "main";
 
     [Display(Name = ".deb File")]
-    public IFormFile? DebFile { get; set; }
+    [Required(ErrorMessage = "Please upload a valid .deb file.")]
+    [MaxLength(200)]
+    [RegularExpression(@"^deb/.*", ErrorMessage = "Please upload a valid .deb file.")]
+    public string? DebFilePath { get; set; }
 
     public List<SelectListItem> AvailableRepositories { get; set; } = [];
 }
