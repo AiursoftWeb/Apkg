@@ -1,4 +1,10 @@
 @model Aiursoft.Apkg.Models.MirrorsViewModels.RepoDetailsViewModel
+@using Aiursoft.Apkg.Authorization
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageRepositories)).Succeeded;
+}
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto">
@@ -14,16 +20,19 @@
                 <p><strong>@Localizer["Distro"]:</strong> @Model.Repo.Distro</p>
                 <p><strong>@Localizer["Suite"]:</strong> @Model.Repo.Suite</p>
                 <p><strong>@Localizer["Mirror Source"]:</strong> @(Model.Repo.Mirror?.Suite ?? "None")</p>
-                <p><strong>@Localizer["Live Bucket"]:</strong> 
-@if (Model.Repo.PrimaryBucketId != null)
-{
-    <a asp-controller="Buckets" asp-action="Packages" asp-route-id="@Model.Repo.PrimaryBucketId" class="badge bg-success text-decoration-none">#@Model.Repo.PrimaryBucketId</a>
-}
-else
-{
-    <span class="text-muted">-</span>
-}
-</p>
+                @if (canManage)
+                {
+                    <p><strong>@Localizer["Live Bucket"]:</strong> 
+                    @if (Model.Repo.PrimaryBucketId != null)
+                    {
+                        <a asp-controller="Buckets" asp-action="Packages" asp-route-id="@Model.Repo.PrimaryBucketId" class="badge bg-success text-decoration-none">#@Model.Repo.PrimaryBucketId</a>
+                    }
+                    else
+                    {
+                        <span class="text-muted">-</span>
+                    }
+                    </p>
+                }
                 <p><strong>@Localizer["Certificate"]:</strong> @(Model.Repo.Certificate?.FriendlyName ?? "None")</p>
             </div>
         </div>

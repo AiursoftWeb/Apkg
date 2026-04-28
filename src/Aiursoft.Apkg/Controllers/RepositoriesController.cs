@@ -7,13 +7,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Aiursoft.Apkg.Authorization;
+using Aiursoft.Apkg.Configuration;
 
 namespace Aiursoft.Apkg.Controllers;
 
 [Authorize(Policy = AppPermissionNames.CanManageRepositories)]
-public class RepositoriesController(ApkgDbContext dbContext) : Controller
+public class RepositoriesController(
+    ApkgDbContext dbContext,
+    IAuthorizationService authorizationService,
+    GlobalSettingsService globalSettingsService) : Controller
 {
-    [Authorize(Policy = AppPermissionNames.CanManageRepositories)]
+    private async Task<bool> CheckAccessAsync(string settingKey)
+    {
+        var auth = await authorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageRepositories);
+        if (auth.Succeeded) return true;
+        return await globalSettingsService.GetBoolSettingAsync(settingKey);
+    }
+
+    [AllowAnonymous]
     [RenderInNavBar(
         NavGroupName = "Package Engine",
         NavGroupOrder = 50,
@@ -179,8 +190,12 @@ public class RepositoriesController(ApkgDbContext dbContext) : Controller
             .Where(n => !string.IsNullOrWhiteSpace(n));
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<IActionResult> Details(int id)
     {
+        if (!await CheckAccessAsync(SettingsMap.AllowAnonymousBrowseRepository))
+            return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
+
         var repo = await dbContext.AptRepositories
             .Include(r => r.PrimaryBucket)
             .Include(r => r.Certificate)
