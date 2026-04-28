@@ -18,9 +18,10 @@ public class LocalPackagesController(
     ApkgDbContext db,
     DebPackageParserService debParser,
     FeatureFoldersProvider folders,
-    UserManager<User> userManager) : Controller
+    UserManager<User> userManager,
+    StorageService storageService) : Controller
 {
-    private string ObjectsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Objects");
+    private string ObjectsRoot => folders.GetObjectsFolder();
 
     [HttpGet]
     [RenderInNavBar(
@@ -72,8 +73,6 @@ public class LocalPackagesController(
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    [DisableRequestSizeLimit]
-    [RequestFormLimits(MultipartBodyLengthLimit = long.MaxValue, ValueLengthLimit = int.MaxValue)]
     public async Task<IActionResult> Upload(LocalPackagesUploadViewModel model)
     {
         var repos = await GetUploadableRepositoriesAsync();
@@ -85,15 +84,26 @@ public class LocalPackagesController(
             ModelState.AddModelError(nameof(model.RepositoryId), "Repository not found or you do not have permission to upload to it.");
         }
 
-        if (model.DebFile == null || model.DebFile.Length == 0)
-        {
-            ModelState.AddModelError(nameof(model.DebFile), "Please select a .deb file to upload.");
-        }
-
         if (!ModelState.IsValid)
         {
             model.PageTitle = "Upload Package";
             return this.StackView(model);
+        }
+
+        string? physicalPath;
+        try
+        {
+            physicalPath = storageService.GetFilePhysicalPath(model.DebFilePath!, isVault: false);
+            if (!System.IO.File.Exists(physicalPath))
+            {
+                ModelState.AddModelError(nameof(model.DebFilePath), "File upload failed or missing. Please re-upload.");
+                model.PageTitle = "Upload Package";
+                return this.StackView(model);
+            }
+        }
+        catch (ArgumentException)
+        {
+            return BadRequest();
         }
 
         // 1. Compute hashes and save to CAS storage
@@ -101,17 +111,10 @@ public class LocalPackagesController(
         long fileSize;
         string casPath;
 
-        var tempPath = Path.Combine(Path.GetTempPath(), $"{Guid.NewGuid()}.deb");
         try
         {
-            // Save to temp for dpkg-deb parsing
-            await using (var fs = new FileStream(tempPath, FileMode.Create))
-            {
-                await model.DebFile!.CopyToAsync(fs);
-            }
-
             // Compute all hashes from the saved file
-            await using (var fs = new FileStream(tempPath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            await using (var fs = new FileStream(physicalPath, FileMode.Open, FileAccess.Read, FileShare.Read))
             {
                 fileSize = fs.Length;
 
@@ -144,11 +147,11 @@ public class LocalPackagesController(
             Dictionary<string, string> control;
             try
             {
-                control = await debParser.ParseControlAsync(tempPath);
+                control = await debParser.ParseControlAsync(physicalPath);
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError(nameof(model.DebFile), $"Failed to parse .deb file: {ex.Message}");
+                ModelState.AddModelError(nameof(model.DebFilePath), $"Failed to parse .deb file: {ex.Message}");
                 model.PageTitle = "Upload Package";
                 return this.StackView(model);
             }
@@ -157,25 +160,37 @@ public class LocalPackagesController(
                 !control.TryGetValue("Version", out var pkgVersion) ||
                 !control.TryGetValue("Architecture", out var pkgArch))
             {
-                ModelState.AddModelError(nameof(model.DebFile), "The .deb control file is missing required fields (Package, Version, Architecture).");
+                ModelState.AddModelError(nameof(model.DebFilePath), "The .deb control file is missing required fields (Package, Version, Architecture).");
                 model.PageTitle = "Upload Package";
                 return this.StackView(model);
             }
 
-            // 2. Move to CAS
-            var hashPrefix = sha256[..2];
+            // 2. Save to ObjectsRoot (CAS)
+            var hashPrefix = sha256.Substring(0, 2);
             casPath = Path.Combine(ObjectsRoot, hashPrefix, $"{sha256}.deb");
             Directory.CreateDirectory(Path.GetDirectoryName(casPath)!);
-            if (!System.IO.File.Exists(casPath))
+
+            if (System.IO.File.Exists(casPath))
             {
-                System.IO.File.Move(tempPath, casPath);
+                // File already exists in CAS. Let's verify it matches our expected size as a basic integrity check.
+                var existingFileInfo = new FileInfo(casPath);
+                if (existingFileInfo.Length != fileSize)
+                {
+                    // Collision or corrupted file in CAS! Overwrite with our newly verified one.
+                    System.IO.File.Delete(casPath);
+                    System.IO.File.Move(physicalPath, casPath);
+                }
+                else
+                {
+                    // Sizes match, we trust our CAS for deduplication.
+                    System.IO.File.Delete(physicalPath);
+                }
             }
             else
             {
-                System.IO.File.Delete(tempPath);
+                System.IO.File.Move(physicalPath, casPath);
             }
-            tempPath = null; // prevent delete in finally
-
+            physicalPath = null; // prevent delete in finally
             // 3. Disable previous enabled version for this (package, arch) in this repo
             var existing = await db.LocalPackages
                 .Where(lp => lp.RepositoryId == model.RepositoryId
@@ -229,8 +244,8 @@ public class LocalPackagesController(
         }
         finally
         {
-            if (tempPath != null && System.IO.File.Exists(tempPath))
-                System.IO.File.Delete(tempPath);
+            if (physicalPath != null && System.IO.File.Exists(physicalPath))
+                System.IO.File.Delete(physicalPath);
         }
     }
 

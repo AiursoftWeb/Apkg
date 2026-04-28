@@ -13,7 +13,7 @@ public class AptMirrorService(
     IHttpClientFactory httpClientFactory,
     ILogger<AptMirrorService> logger) : ITransientDependency
 {
-    private string ObjectsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Objects");
+    private string ObjectsRoot => folders.GetObjectsFolder();
 
     public async Task<string?> GetLocalPoolPath(string path)
     {
