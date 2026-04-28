@@ -1,9 +1,9 @@
-# Apkg - A sample project
+# Apkg
 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/aiursoft/apkg/-/blob/master/LICENSE)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/aiursoftweb/apkg/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/apkg/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/apkg/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.com/aiursoft/apkg/badges/master/coverage.svg)](https://gitlab.aiursoft.com/aiursoft/apkg/-/pipelines)
-[![Man hours](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/apkg.svg)](https://manhours.aiursoft.com/r/gitlab.aiursoft.com/aiursoft/apkg.html)
+[![Man hours](https://manhours.aiursoft.com/r/github.com/aiursoftweb/apkg.svg)](https://manhours.aiursoft.com/r/github.com/aiursoftweb/apkg.html)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fapkg.aiursoft.com)](https://apkg.aiursoft.com)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/apkg.svg)](https://hub.docker.com/r/aiursoft/apkg)
 
@@ -12,27 +12,6 @@ Apkg is a sample project.
 ![screenshot](./screenshot.png)
 
 Default user name is `admin@default.com` and default password is `admin123`.
-
-## Projects using Aiursoft Apkg
-
-* [Stathub](https://gitlab.aiursoft.com/aiursoft/stathub)
-* [MarkToHtml](https://gitlab.aiursoft.com/aiursoft/marktohtml)
-* [MusicTools](https://gitlab.aiursoft.com/aiursoft/musictools)
-* [AnduinOS Home](https://gitlab.aiursoft.com/anduin/AnduinOS-Home)
-* [Manhours](https://gitlab.aiursoft.com/aiursoft/manhours)
-* [Tracer](https://gitlab.aiursoft.com/aiursoft/tracer)
-* [Warp](https://gitlab.aiursoft.com/aiursoft/warp)
-* [AiurDrive](https://gitlab.aiursoft.com/aiursoft/aiurdrive)
-* [EmployeeC enter](https://gitlab.aiursoft.com/aiursoft/employeecenter)
-* [Git Mirror Server](https://gitlab.aiursoft.com/aiursoft/gitmirrorserver)
-* [CppRunner](https://gitlab.aiursoft.com/aiursoft/cpprunner)
-* [Ollama Gateway](https://gitlab.aiursoft.com/aiursoft/ollamagateway)
-* [Polls](https://gitlab.aiursoft.com/aiursoft/polls)
-* [WeChatExam](https://gitlab.aiursoft.com/aiursoft/wechatexam)
-* [MusicExam](https://gitlab.aiursoft.com/aiursoft/musicexam)
-* [CoprHome](https://gitlab.aiursoft.com/aiursoft/corphome)
-* [Events Recorder](https://gitlab.aiursoft.com/aiursoft/eventsrecorder)
-* [Translate](https://gitlab.aiursoft.com/aiursoft/translate)
 
 ## Try
 
@@ -45,13 +24,13 @@ The following script will install\update this app on your Ubuntu server. Support
 On your Ubuntu server, run the following command:
 
 ```bash
-curl -sL https://gitlab.aiursoft.com/aiursoft/apkg/-/raw/master/install.sh | sudo bash
+curl -sL https://github.com/aiursoftweb/apkg/raw/master/install.sh | sudo bash
 ```
 
 Of course it is suggested that append a custom port number to the command:
 
 ```bash
-curl -sL https://gitlab.aiursoft.com/aiursoft/apkg/-/raw/master/install.sh | sudo bash -s 8080
+curl -sL https://github.com/aiursoftweb/apkg/raw/master/install.sh | sudo bash -s 8080
 ```
 
 It will install the app as a systemd service, and start it automatically. Binary files will be located at `/opt/apps`. Service files will be located at `/etc/systemd/system`.
