@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Giver mulighed for den permanente sletning af brugerkonti.</value>
   </data>
+  <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>Tillader upload af LocalPackages til repositorier, hvor AllowAnyoneToUpload er deaktiveret.</value>
+  </data>
   <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
     <value>Muliggør visning og ændring af APT-spejlrepositorier.</value>
   </data>
@@ -116,6 +119,9 @@
   </data>
   <data name="Reboot This App" xml:space="preserve">
     <value>Genstart denne app</value>
+  </data>
+  <data name="Upload to Restricted Repositories" xml:space="preserve">
+    <value>Upload til begrænsede repositorys</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Vis baggrundsjob</value>

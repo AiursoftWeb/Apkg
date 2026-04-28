@@ -27,6 +27,18 @@
   <data name="A dummy number for testing." xml:space="preserve">
     <value>Väliaikainen luku testaamista varten.</value>
   </data>
+  <data name="Allow Anonymous Browse Repository" xml:space="preserve">
+    <value>Salli nimettömien selata arkistoa</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>Salli nimettömien käyttäjien selata arkistoja ja niiden paketteja kirjautumatta.</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>Salli nimettömien käyttäjien tarkastella pakettien tietoja kirjautumatta sisään.</value>
+  </data>
+  <data name="Allow Anonymous View Package Details" xml:space="preserve">
+    <value>Salli nimettömien pakettitietojen katselu</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Salli käyttäjän muokata nimimerkkiä</value>
   </data>

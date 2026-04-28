@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>उपयोगकर्ता खातों को स्थायी रूप से हटाने की अनुमति देता है।</value>
   </data>
+  <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>AllowAnyoneToUpload अक्षम करने वाले रिपॉजिटरी में LocalPackages अपलोड करने की अनुमति देता है।</value>
+  </data>
   <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
     <value>APT मिरर रिपॉजिटरी देखने और संशोधित करने की अनुमति देता है।</value>
   </data>
@@ -116,6 +119,9 @@
   </data>
   <data name="Reboot This App" xml:space="preserve">
     <value>इस ऐप को पुनरारंभ करें</value>
+  </data>
+  <data name="Upload to Restricted Repositories" xml:space="preserve">
+    <value>सीमित रिपॉजिटरी में अपलोड करें</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>बैकग्राउंड जॉब्स देखें</value>

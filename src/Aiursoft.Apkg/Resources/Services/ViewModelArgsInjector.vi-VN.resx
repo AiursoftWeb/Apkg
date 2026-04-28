@@ -135,6 +135,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Quản lý</value>
   </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Gói của tôi</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Không tìm thấy</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Không được ủy quyền</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Tải gói lên</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Các bản sao upstream</value>

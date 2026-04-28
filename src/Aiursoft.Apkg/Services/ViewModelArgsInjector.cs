@@ -95,6 +95,9 @@ public class ViewModelArgsInjector(
         _ = localizer["Upstream Mirrors"];
     
         _ = localizer["Package Search"];
+    
+        _ = localizer["My Packages"];
+        _ = localizer["Upload Package"];
     }
 
     public void InjectSimple(

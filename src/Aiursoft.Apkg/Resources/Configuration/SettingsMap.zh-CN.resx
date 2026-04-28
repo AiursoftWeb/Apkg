@@ -27,6 +27,18 @@
   <data name="A dummy number for testing." xml:space="preserve">
     <value>用于测试的占位数字。</value>
   </data>
+  <data name="Allow Anonymous Browse Repository" xml:space="preserve">
+    <value>允许匿名浏览仓库</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>允许匿名用户无需登录即可浏览仓库及其软件包。</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>允许匿名用户在不登录的情况下查看软件包详细信息。</value>
+  </data>
+  <data name="Allow Anonymous View Package Details" xml:space="preserve">
+    <value>允许匿名查看软件包详情</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>允许用户修改昵称</value>
   </data>

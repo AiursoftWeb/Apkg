@@ -27,6 +27,18 @@
   <data name="A dummy number for testing." xml:space="preserve">
     <value>Un număr dummy pentru testare.</value>
   </data>
+  <data name="Allow Anonymous Browse Repository" xml:space="preserve">
+    <value>Permite vizualizarea anonimă a depozitului</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>Permite utilizatorilor anonimi să navigheze prin depozite și pachetele acestora fără autentificare.</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>Permiteți utilizatorilor anonimi să vizualizeze detaliile pachetului fără autentificare.</value>
+  </data>
+  <data name="Allow Anonymous View Package Details" xml:space="preserve">
+    <value>Permite vizualizarea detaliilor pachetului de către utilizatorii anonimi</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Permite utilizatorului să-și ajusteze nickname-ul</value>
   </data>

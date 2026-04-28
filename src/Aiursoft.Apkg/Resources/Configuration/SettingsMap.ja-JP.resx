@@ -27,6 +27,18 @@
   <data name="A dummy number for testing." xml:space="preserve">
     <value>テスト用のダミー番号です。</value>
   </data>
+  <data name="Allow Anonymous Browse Repository" xml:space="preserve">
+    <value>匿名ユーザーによるリポジトリの参照を許可</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>ログインせずに匿名ユーザーがリポジトリとそのパッケージを閲覧できるようにする。</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>ログインせずに匿名ユーザーがパッケージの詳細を表示できるようにする。</value>
+  </data>
+  <data name="Allow Anonymous View Package Details" xml:space="preserve">
+    <value>匿名ユーザーがパッケージの詳細を参照できるようにする</value>
+  </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>ユーザーがニックネームを変更できるようにする</value>
   </data>
