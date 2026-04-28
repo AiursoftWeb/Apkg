@@ -66,14 +66,14 @@ public class LocalPackagesController(
         // This is still a bit heavy if there are millions of packages, but we filter by BucketId.
         var existingInBuckets = await db.AptPackages
             .Where(ap => allRelevantBucketIds.Contains(ap.BucketId))
-            .Select(ap => new { ap.BucketId, ap.Package, ap.Architecture })
+            .Select(ap => new { ap.BucketId, ap.Package, ap.Architecture, ap.Id })
             .ToListAsync();
 
         var bucketLookup = existingInBuckets
             .GroupBy(x => x.BucketId)
             .ToDictionary(
                 g => g.Key,
-                g => new HashSet<(string, string)>(g.Select(x => (x.Package, x.Architecture)))
+                g => g.ToDictionary(x => (x.Package, x.Architecture), x => x.Id)
             );
 
         var repoLookup = repoBuckets.ToDictionary(r => r.Id, r => r);
@@ -82,6 +82,7 @@ public class LocalPackagesController(
         {
             var status = LocalPackageStatus.PendingSync;
             var message = "Waiting for the next Repository Sync job (runs every 20 minutes).";
+            int? liveId = null;
 
             if (!lp.IsEnabled)
             {
@@ -91,19 +92,23 @@ public class LocalPackagesController(
             else
             {
                 var repoInfo = repoLookup.GetValueOrDefault(lp.RepositoryId);
-                var isLive = repoInfo?.PrimaryBucketId != null &&
-                             bucketLookup.GetValueOrDefault(repoInfo.PrimaryBucketId.Value)?.Contains((lp.Package, lp.Architecture)) == true;
-
-                if (isLive)
+                var primaryBucketPackages = repoInfo?.PrimaryBucketId != null 
+                    ? bucketLookup.GetValueOrDefault(repoInfo.PrimaryBucketId.Value) 
+                    : null;
+                
+                if (primaryBucketPackages?.TryGetValue((lp.Package, lp.Architecture), out var foundId) == true)
                 {
                     status = LocalPackageStatus.Live;
                     message = "Package is live and available for APT clients.";
+                    liveId = foundId;
                 }
                 else
                 {
-                    var isStaged = repoInfo?.SecondaryBucketId != null &&
-                                   bucketLookup.GetValueOrDefault(repoInfo.SecondaryBucketId.Value)?.Contains((lp.Package, lp.Architecture)) == true;
-                    if (isStaged)
+                    var secondaryBucketPackages = repoInfo?.SecondaryBucketId != null 
+                        ? bucketLookup.GetValueOrDefault(repoInfo.SecondaryBucketId.Value) 
+                        : null;
+                        
+                    if (secondaryBucketPackages?.ContainsKey((lp.Package, lp.Architecture)) == true)
                     {
                         status = LocalPackageStatus.StagedForSigning;
                         message = "Included in a pending bucket. Waiting for signing (up to 5 minutes).";
@@ -115,7 +120,8 @@ public class LocalPackagesController(
             {
                 Package = lp,
                 Status = status,
-                StatusMessage = message
+                StatusMessage = message,
+                LivePackageId = liveId
             };
         }).ToList();
 

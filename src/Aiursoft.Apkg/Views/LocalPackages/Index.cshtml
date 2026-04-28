@@ -83,6 +83,13 @@
                             <td><small class="text-muted">@pkg.CreatedAt.ToString("yyyy/M/d HH:mm")</small></td>
                             <td class="text-end">
                                 <div class="btn-group">
+                                    @if (info.Status == LocalPackageStatus.Live && info.LivePackageId.HasValue)
+                                    {
+                                        <a asp-controller="Repositories" asp-action="PackageDetails" asp-route-id="@info.LivePackageId.Value" 
+                                           class="btn btn-sm btn-outline-info" title="@Localizer["View Details & Install Instructions"]">
+                                            <i class="align-middle" data-lucide="external-link"></i>
+                                        </a>
+                                    }
                                     <form method="post" asp-action="Toggle" asp-route-id="@pkg.Id">
                                         @Html.AntiForgeryToken()
                                         <button type="submit" class="btn btn-sm @(pkg.IsEnabled ? "btn-outline-warning" : "btn-outline-success")"

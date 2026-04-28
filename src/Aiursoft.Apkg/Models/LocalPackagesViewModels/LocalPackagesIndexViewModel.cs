@@ -33,6 +33,7 @@ public class PackageStatusInfo
     public required LocalPackage Package { get; set; }
     public LocalPackageStatus Status { get; set; }
     public string? StatusMessage { get; set; }
+    public int? LivePackageId { get; set; }
 }
 
 public class LocalPackagesIndexViewModel : UiStackLayoutViewModel
