@@ -6,7 +6,7 @@ public class StorageRootPathProvider(IConfiguration configuration) : ISingletonD
 {
     public string GetStorageRootPath()
     {
-        var path = configuration["Storage:Path"] ?? "/tmp/data";
+        var path = configuration["Storage:Path"] ?? "/data";
         return path;
     }
 }

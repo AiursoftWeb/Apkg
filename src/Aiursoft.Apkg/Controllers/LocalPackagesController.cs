@@ -90,7 +90,7 @@ public class LocalPackagesController(
             return this.StackView(model);
         }
 
-        string? physicalPath = null;
+        string? physicalPath;
         try
         {
             physicalPath = storageService.GetFilePhysicalPath(model.DebFilePath!, isVault: false);
@@ -165,20 +165,32 @@ public class LocalPackagesController(
                 return this.StackView(model);
             }
 
-            // 2. Move to CAS
-            var hashPrefix = sha256[..2];
+            // 2. Save to ObjectsRoot (CAS)
+            var hashPrefix = sha256.Substring(0, 2);
             casPath = Path.Combine(ObjectsRoot, hashPrefix, $"{sha256}.deb");
             Directory.CreateDirectory(Path.GetDirectoryName(casPath)!);
-            if (!System.IO.File.Exists(casPath))
+
+            if (System.IO.File.Exists(casPath))
             {
-                System.IO.File.Move(physicalPath, casPath);
+                // File already exists in CAS. Let's verify it matches our expected size as a basic integrity check.
+                var existingFileInfo = new FileInfo(casPath);
+                if (existingFileInfo.Length != fileSize)
+                {
+                    // Collision or corrupted file in CAS! Overwrite with our newly verified one.
+                    System.IO.File.Delete(casPath);
+                    System.IO.File.Move(physicalPath, casPath);
+                }
+                else
+                {
+                    // Sizes match, we trust our CAS for deduplication.
+                    System.IO.File.Delete(physicalPath);
+                }
             }
             else
             {
-                System.IO.File.Delete(physicalPath);
+                System.IO.File.Move(physicalPath, casPath);
             }
             physicalPath = null; // prevent delete in finally
-
             // 3. Disable previous enabled version for this (package, arch) in this repo
             var existing = await db.LocalPackages
                 .Where(lp => lp.RepositoryId == model.RepositoryId
