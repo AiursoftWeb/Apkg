@@ -21,7 +21,7 @@ public class LocalPackagesController(
     UserManager<User> userManager,
     StorageService storageService) : Controller
 {
-    private string ObjectsRoot => Path.Combine(folders.GetWorkspaceFolder(), "Objects");
+    private string ObjectsRoot => folders.GetObjectsFolder();
 
     [HttpGet]
     [RenderInNavBar(
