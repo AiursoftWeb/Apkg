@@ -135,6 +135,9 @@
   <data name="Manage" xml:space="preserve">
     <value>管理</value>
   </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>私のパッケージ</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Not Found</value>
   </data>
@@ -194,6 +197,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>権限がありません</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>パッケージをアップロード</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>アップストリームミラー</value>

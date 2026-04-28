@@ -132,6 +132,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Zarządzaj</value>
   </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Moje pakiety</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Nie znaleziono</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Nieautoryzowany</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Prześlij pakiet</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Lustrzane odbicia źródłowe</value>

@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Sallii käyttäjätilien pysyvän poistamisen.</value>
   </data>
+  <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>Mahdollistaa LocalPackagejen lataamisen niihin arkistoihin, joissa AllowAnyoneToUpload on poistettu käytöstä.</value>
+  </data>
   <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
     <value>Mahdollistaa APT-peilirepositorioiden tarkastelun ja muokkaamisen.</value>
   </data>
@@ -116,6 +119,9 @@
   </data>
   <data name="Reboot This App" xml:space="preserve">
     <value>Käynnistä tämä sovellus uudelleen</value>
+  </data>
+  <data name="Upload to Restricted Repositories" xml:space="preserve">
+    <value>Lähetä rajoitettuihin arkistoihin</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Näytä taustatehtävät</value>

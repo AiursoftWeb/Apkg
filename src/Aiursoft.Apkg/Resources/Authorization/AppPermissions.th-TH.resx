@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>อนุญาตให้ลบบัญชีผู้ใช้อย่างถาวร</value>
   </data>
+  <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>อนุญาตให้อัปโหลด LocalPackages ไปยังคลังข้อมูลที่มี AllowAnyoneToUpload ปิดใช้งาน</value>
+  </data>
   <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
     <value>อนุญาตให้ดูและแก้ไขที่เก็บ_mirror_ APT</value>
   </data>
@@ -116,6 +119,9 @@
   </data>
   <data name="Reboot This App" xml:space="preserve">
     <value>รีบูตแอปนี้</value>
+  </data>
+  <data name="Upload to Restricted Repositories" xml:space="preserve">
+    <value>อัปโหลดไปยังที่เก็บข้อมูลแบบจำกัด</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>ดูงานเบื้องหลัง</value>

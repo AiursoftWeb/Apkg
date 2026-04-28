@@ -132,6 +132,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Керування</value>
   </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Мої пакунки</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Не знайдено</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Неавторизовано</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Завантажити пакет</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Джерела дзеркал</value>

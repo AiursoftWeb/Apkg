@@ -132,6 +132,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Gestisci</value>
   </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>I miei pacchetti</value>
+  </data>
   <data name="Not Found" xml:space="preserve">
     <value>Non trovato</value>
   </data>
@@ -191,6 +194,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Non autorizzato</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Carica pacchetto</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Mirror upstream</value>

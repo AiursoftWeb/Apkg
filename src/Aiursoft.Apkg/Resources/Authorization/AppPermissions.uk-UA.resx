@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Дозволяє остаточне видалення облікових записів користувачів.</value>
   </data>
+  <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>Дозволяє завантажувати локальні пакети до сховищ, у яких вимкнено AllowAnyoneToUpload.</value>
+  </data>
   <data name="Allows viewing and modifying APT mirror repositories." xml:space="preserve">
     <value>Дозволяє переглядати та змінювати дзеркала APT-репозиторіїв.</value>
   </data>
@@ -116,6 +119,9 @@
   </data>
   <data name="Reboot This App" xml:space="preserve">
     <value>Перезавантажити цей додаток</value>
+  </data>
+  <data name="Upload to Restricted Repositories" xml:space="preserve">
+    <value>Завантажити до обмежених репозиторіїв</value>
   </data>
   <data name="View Background Jobs" xml:space="preserve">
     <value>Переглянути фонові завдання</value>

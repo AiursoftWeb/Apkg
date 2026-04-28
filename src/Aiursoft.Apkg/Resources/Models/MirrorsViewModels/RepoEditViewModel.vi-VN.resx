@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="Allow Anyone to Upload" xml:space="preserve">
+    <value>Cho phép bất kỳ ai tải lên</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Kiến trúc</value>
   </data>
   <data name="Automatic GPG Sign" xml:space="preserve">
