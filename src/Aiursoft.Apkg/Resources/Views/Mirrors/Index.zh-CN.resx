@@ -63,11 +63,11 @@
   <data name="items" xml:space="preserve">
     <value>项</value>
   </data>
-  <data name="Never Pull" xml:space="preserve">
-    <value>从未拉取</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>上次拉取</value>
+  </data>
+  <data name="Never Pull" xml:space="preserve">
+    <value>从未拉取</value>
   </data>
   <data name="Never Synced" xml:space="preserve">
     <value>从未同步</value>
@@ -104,6 +104,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>同步错误堆栈跟踪</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>当前提供给 apt 客户端的实时快照。只有在镜像同步成功完成后，新的存储桶才会成为主存储桶。</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>由正在运行的 Mirror Sync 作业构建的快照。当作业成功时，它将替换主存储桶；随后旧的主存储桶将符合垃圾回收条件。</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>这还将删除所有关联的包和存储桶！</value>

@@ -24,6 +24,9 @@
   <data name="Active Usage" xml:space="preserve">
     <value>活跃用量</value>
   </data>
+  <data name="Being built by a currently-running Sync job. Will replace the LIVE bucket on success." xml:space="preserve">
+    <value>正在由当前运行的同步作业构建。成功后将替换 LIVE 存储桶。</value>
+  </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>桶快照历史</value>
   </data>
@@ -39,6 +42,9 @@
   <data name="Logical Size" xml:space="preserve">
     <value>逻辑大小</value>
   </data>
+  <data name="Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run." xml:space="preserve">
+    <value>未被任何 Mirror 或 Repository 引用。将在下一次垃圾回收运行时被永久删除。</value>
+  </data>
   <data name="Orphaned" xml:space="preserve">
     <value>孤立</value>
   </data>
@@ -53,6 +59,12 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>状态</value>
+  </data>
+  <data name="Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets." xml:space="preserve">
+    <value>此存储桶中列出的所有包文件大小的总和。由于 CAS（内容寻址存储）会对跨存储桶共享的文件进行去重，实际磁盘占用可能更低。</value>
+  </data>
+  <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
+    <value>此快照正作为当前索引主动提供给 apt 客户端。</value>
   </data>
 
 </root>

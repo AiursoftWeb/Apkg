@@ -18,31 +18,32 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-  <data name="Upload Package" xml:space="preserve">
-    <value>Upload Package</value>
-  </data>
-  <data name="Repository" xml:space="preserve">
-    <value>Repository</value>
-  </data>
-  <data name="-- Select Repository --" xml:space="preserve">
+      <data name="-- Select Repository --" xml:space="preserve">
     <value>-- Select Repository --</value>
-  </data>
-  <data name="Component" xml:space="preserve">
-    <value>Component</value>
-  </data>
-  <data name="The APT component this package belongs to (e.g. main, universe, restricted, multiverse)." xml:space="preserve">
-    <value>The APT component this package belongs to (e.g. main, universe, restricted, multiverse).</value>
   </data>
   <data name=".deb File" xml:space="preserve">
     <value>.deb File</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Component</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Repository</value>
+  </data>
   <data name="Select a .deb package file to upload. Package metadata will be extracted automatically." xml:space="preserve">
     <value>Select a .deb package file to upload. Package metadata will be extracted automatically.</value>
+  </data>
+  <data name="The APT component this package belongs to (e.g. main, universe, restricted, multiverse)." xml:space="preserve">
+    <value>The APT component this package belongs to (e.g. main, universe, restricted, multiverse).</value>
   </data>
   <data name="Upload" xml:space="preserve">
     <value>Upload</value>
   </data>
-  <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Upload Package</value>
   </data>
+
 </root>

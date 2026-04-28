@@ -18,50 +18,11 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-  <data name="My Packages" xml:space="preserve">
-    <value>我的软件包</value>
-  </data>
-  <data name="Upload Package" xml:space="preserve">
-    <value>上传软件包</value>
-  </data>
-  <data name="No packages uploaded yet." xml:space="preserve">
-    <value>尚未上传任何软件包。</value>
-  </data>
-  <data name="Package" xml:space="preserve">
-    <value>软件包</value>
-  </data>
-  <data name="Version" xml:space="preserve">
-    <value>版本</value>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
   </data>
   <data name="Architecture" xml:space="preserve">
     <value>架构</value>
-  </data>
-  <data name="Component" xml:space="preserve">
-    <value>组件</value>
-  </data>
-  <data name="Repository" xml:space="preserve">
-    <value>仓库</value>
-  </data>
-  <data name="Uploader" xml:space="preserve">
-    <value>上传者</value>
-  </data>
-  <data name="Uploaded" xml:space="preserve">
-    <value>上传时间</value>
-  </data>
-  <data name="Status" xml:space="preserve">
-    <value>状态</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
-    <value>操作</value>
-  </data>
-  <data name="Enabled" xml:space="preserve">
-    <value>已启用</value>
-  </data>
-  <data name="Disabled" xml:space="preserve">
-    <value>已禁用</value>
-  </data>
-  <data name="Confirm Delete" xml:space="preserve">
-    <value>确认删除</value>
   </data>
   <data name="Are you sure you want to delete" xml:space="preserve">
     <value>确定要删除</value>
@@ -69,7 +30,56 @@
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
+  <data name="Component" xml:space="preserve">
+    <value>组件</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>确认删除</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>已禁用</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>已启用</value>
+  </data>
+  <data name="Enabled packages are merged into the next Repository Sync and override any upstream mirror package with the same name and architecture. Disabled packages are excluded entirely." xml:space="preserve">
+    <value>启用的软件包将合并到下一次仓库同步中，并覆盖任何具有相同名称和架构的上游镜像软件包。禁用的软件包将被完全排除。</value>
+  </data>
+  <data name="Excluded from Repository Sync: will not appear in the generated package index." xml:space="preserve">
+    <value>排除在仓库同步之外：不会出现在生成的软件包索引中。</value>
+  </data>
+  <data name="Included in the next Repository Sync: will override any upstream mirror package with the same name and architecture." xml:space="preserve">
+    <value>包含在下一次仓库同步中：将覆盖任何同名同架构的上游镜像包。</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>我的软件包</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>尚未上传任何软件包。</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>软件包</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>仓库</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>上传软件包</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>上传时间</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>上传者</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+
 </root>

@@ -63,11 +63,11 @@
   <data name="items" xml:space="preserve">
     <value>items</value>
   </data>
-  <data name="Never Pull" xml:space="preserve">
-    <value>Never Pulled</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Last Pull</value>
+  </data>
+  <data name="Never Pull" xml:space="preserve">
+    <value>Never Pulled</value>
   </data>
   <data name="Never Synced" xml:space="preserve">
     <value>Never Synced</value>
@@ -104,6 +104,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Sync Error Stack Trace</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully.</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection.</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>This will also delete all associated packages and buckets!</value>

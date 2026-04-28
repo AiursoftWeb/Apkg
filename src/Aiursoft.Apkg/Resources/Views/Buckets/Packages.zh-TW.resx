@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>元件</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>檔案託管於上游鏡像伺服器。apt 用戶端會直接從鏡像伺服器 URL 下載該檔案。</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>檔案儲存於本伺服器。apt 用戶端從此處下載。</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>下一頁</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>虛擬</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>虛擬：檔案託管於上游鏡像伺服器，由 apt 用戶端按需下載。實體：檔案儲存於本伺服器。</value>
   </data>
 
 </root>

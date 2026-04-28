@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>아키텍처</value>
+  </data>
+  <data name="Are you sure you want to delete" xml:space="preserve">
+    <value>삭제하시겠습니까</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>컴포넌트</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>삭제 확인</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>비활성화됨</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>활성화됨</value>
+  </data>
+  <data name="Enabled packages are merged into the next Repository Sync and override any upstream mirror package with the same name and architecture. Disabled packages are excluded entirely." xml:space="preserve">
+    <value>활성화된 패키지는 다음 Repository Sync에 병합되며 동일한 이름과 아키텍처를 가진 모든 상위 미러 패키지를 덮어씁니다. 비활성화된 패키지는 완전히 제외됩니다.</value>
+  </data>
+  <data name="Excluded from Repository Sync: will not appear in the generated package index." xml:space="preserve">
+    <value>저장소 동기화에서 제외됨: 생성된 패키지 인덱스에 표시되지 않음.</value>
+  </data>
+  <data name="Included in the next Repository Sync: will override any upstream mirror package with the same name and architecture." xml:space="preserve">
+    <value>다음 Repository 동기화에 포함됨: 동일한 이름과 아키텍처를 가진 모든 업스트림 미러 패키지를 덮어씁니다.</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>내 패키지</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>업로드된 패키지가 없습니다.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>패키지</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>저장소</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>패키지 업로드</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>업로드된</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>업로드자</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>버전</value>
+  </data>
+
+</root>

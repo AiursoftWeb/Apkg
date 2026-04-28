@@ -21,6 +21,12 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- 없음 (독립형) --</value>
   </data>
+  <data name="Allow Anyone to Upload" xml:space="preserve">
+    <value>모두 업로드 허용</value>
+  </data>
+  <data name="Allows any logged-in user to upload LocalPackages to this repository." xml:space="preserve">
+    <value>로그인한 모든 사용자가 이 저장소에 LocalPackages를 업로드할 수 있습니다.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>아키텍처</value>
   </data>
@@ -45,8 +51,20 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>저장소 편집</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>GPG 서명 활성화</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>미러에 연결된 경우 이 저장소는 해당 업스트림 소스에서 패키지를 제공합니다.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>연결된 경우, 이 저장소의 Packages 인덱스는 매번 Repository Sync 동안 미러에서 시딩됩니다. 동일한 패키지 이름 및 아키텍처에 대한 LocalPackages는 미러 버전을 재정의합니다.</value>
+  </data>
+  <data name="If unchecked, only users with the &apos;Upload to Restricted Repositories&apos; permission can publish packages to this repository." xml:space="preserve">
+    <value>선택하지 않으면 &apos;제한된 저장소로 업로드&apos; 권한이 있는 사용자만 이 저장소에 패키지를 게시할 수 있습니다.</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>미러</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>저장소 저장</value>
@@ -62,6 +80,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>이 저장소의 URL 접두사(예: &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>활성화하면, 매 Repository Sync마다 선택된 GPG 키로 Release 파일이 서명됩니다. sources.list에서 &apos;signed-by=&apos;를 사용하는 클라이언트는 이 서명을 검증하고 서명되지 않거나 잘못된 서명의 저장소를 거부합니다.</value>
   </data>
 
 </root>
