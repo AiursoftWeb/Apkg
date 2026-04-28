@@ -1,3 +1,4 @@
+@using Aiursoft.Apkg.Models.LocalPackagesViewModels
 @model Aiursoft.Apkg.Models.LocalPackagesViewModels.LocalPackagesIndexViewModel
 
 <div class="row mb-2 mb-xl-3">
@@ -26,46 +27,60 @@
                         <th>@Localizer["Package"]</th>
                         <th>@Localizer["Version"]</th>
                         <th>@Localizer["Architecture"]</th>
-                        <th>@Localizer["Component"]</th>
                         <th>@Localizer["Repository"]</th>
                         @if (Model.IsAdmin)
                         {
                             <th>@Localizer["Uploader"]</th>
                         }
-                        <th>@Localizer["Uploaded"]</th>
                         <th>
-                            @Localizer["Status"]
+                            @Localizer["Sync Status"]
                             <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
                                data-bs-toggle="tooltip" data-bs-placement="top"
-                               data-bs-title="@Localizer["Enabled packages are merged into the next Repository Sync and override any upstream mirror package with the same name and architecture. Disabled packages are excluded entirely."]"></i>
+                               data-bs-title="@Localizer["The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes."] @Localizer["A live package is available for APT clients."] "></i>
                         </th>
+                        <th>@Localizer["Uploaded"]</th>
                         <th class="text-end">@Localizer["Actions"]</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var pkg in Model.Packages)
+                    @foreach (var info in Model.Packages)
                     {
+                        var pkg = info.Package;
                         <tr>
                             <td><strong>@pkg.Package</strong></td>
                             <td><span class="badge bg-info">@pkg.Version</span></td>
                             <td><span class="badge bg-dark">@pkg.Architecture</span></td>
-                            <td><small>@pkg.Component</small></td>
                             <td><small>@(pkg.Repository?.Suite ?? "—")</small></td>
                             @if (Model.IsAdmin)
                             {
                                 <td><small>@(pkg.UploadedByUser?.UserName ?? "—")</small></td>
                             }
-                            <td><small class="text-muted">@pkg.CreatedAt.ToString("yyyy/M/d HH:mm")</small></td>
                             <td>
-                                @if (pkg.IsEnabled)
+                                @switch (info.Status)
                                 {
-                                    <span class="badge bg-success" title="@Localizer["Included in the next Repository Sync: will override any upstream mirror package with the same name and architecture."]">@Localizer["Enabled"]</span>
-                                }
-                                else
-                                {
-                                    <span class="badge bg-secondary" title="@Localizer["Excluded from Repository Sync: will not appear in the generated package index."]">@Localizer["Disabled"]</span>
+                                    case LocalPackageStatus.Live:
+                                        <span class="badge bg-success" title="@info.StatusMessage">
+                                            <i class="align-middle me-1" data-lucide="check-circle" style="width:12px; height:12px;"></i> @Localizer["Live"]
+                                        </span>
+                                        break;
+                                    case LocalPackageStatus.StagedForSigning:
+                                        <span class="badge bg-info" title="@info.StatusMessage">
+                                            <i class="align-middle me-1" data-lucide="clock" style="width:12px; height:12px;"></i> @Localizer["Staged (Waiting for Sign)"]
+                                        </span>
+                                        break;
+                                    case LocalPackageStatus.PendingSync:
+                                        <span class="badge bg-warning text-dark" title="@info.StatusMessage">
+                                            <i class="align-middle me-1" data-lucide="refresh-cw" style="width:12px; height:12px;"></i> @Localizer["Pending Sync"]
+                                        </span>
+                                        break;
+                                    case LocalPackageStatus.Disabled:
+                                        <span class="badge bg-secondary" title="@info.StatusMessage">
+                                            <i class="align-middle me-1" data-lucide="slash" style="width:12px; height:12px;"></i> @Localizer["Disabled"]
+                                        </span>
+                                        break;
                                 }
                             </td>
+                            <td><small class="text-muted">@pkg.CreatedAt.ToString("yyyy/M/d HH:mm")</small></td>
                             <td class="text-end">
                                 <div class="btn-group">
                                     <form method="post" asp-action="Toggle" asp-route-id="@pkg.Id">
@@ -74,21 +89,21 @@
                                                 title="@(pkg.IsEnabled ? Localizer["Disable: exclude from the Repository Sync index."].Value : Localizer["Enable: include in the next Repository Sync, overriding the upstream mirror version."].Value)">
                                             @if (pkg.IsEnabled)
                                             {
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="pause-circle" class="lucide lucide-pause-circle align-middle"><circle cx="12" cy="12" r="10"></circle><line x1="10" x2="10" y1="15" y2="9"></line><line x1="14" x2="14" y1="15" y2="9"></line></svg>
+                                                <i class="align-middle" data-lucide="pause-circle"></i>
                                             }
                                             else
                                             {
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play-circle" class="lucide lucide-play-circle align-middle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                                                <i class="align-middle" data-lucide="play-circle"></i>
                                             }
                                         </button>
                                     </form>
                                     <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deletePackage-@pkg.Id">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="trash-2" class="lucide lucide-trash-2 align-middle"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>
+                                        <i class="align-middle" data-lucide="trash-2"></i>
                                     </button>
                                 </div>
                                 <div class="modal fade" id="deletePackage-@pkg.Id" tabindex="-1" aria-hidden="true">
                                     <div class="modal-dialog">
-                                        <div class="modal-content">
+                                        <div class="modal-content text-start">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
