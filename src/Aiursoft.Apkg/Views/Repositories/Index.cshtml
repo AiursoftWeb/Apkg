@@ -1,13 +1,22 @@
 @model Aiursoft.Apkg.Models.MirrorsViewModels.RepoIndexViewModel
+@using Aiursoft.Apkg.Authorization
+@using Microsoft.AspNetCore.Authorization
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService AuthorizationService
+@{
+    var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageRepositories)).Succeeded;
+}
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto d-none d-sm-block">
         <h3>@Localizer["Public Repositories"]</h3>
     </div>
     <div class="col-auto ms-auto text-end">
-        <a asp-action="Create" class="btn btn-primary">
-            <i class="align-middle" data-lucide="plus"></i> @Localizer["Create New Repository"]
-        </a>
+        @if (canManage)
+        {
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="align-middle" data-lucide="plus"></i> @Localizer["Create New Repository"]
+            </a>
+        }
     </div>
 </div>
 
@@ -97,39 +106,42 @@
                     <td>
                         @(item.PrimaryBucketId.HasValue ? Model.PackageCounts.GetValueOrDefault(item.PrimaryBucketId.Value, 0) : 0)
                     </td>
-                    <td class="text-end">
-                        <div class="btn-group">
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
-                                <i class="align-middle" data-lucide="edit"></i>
-                            </a>
-                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">
-                                <i class="align-middle" data-lucide="info"></i>
-                            </a>
-                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteRepo-@item.Id">
-                                <i class="align-middle" data-lucide="trash-2"></i>
-                            </button>
-                        </div>
+                    @if (canManage)
+                    {
+                        <td class="text-end">
+                            <div class="btn-group">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                                    <i class="align-middle" data-lucide="edit"></i>
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">
+                                    <i class="align-middle" data-lucide="info"></i>
+                                </a>
+                                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteRepo-@item.Id">
+                                    <i class="align-middle" data-lucide="trash-2"></i>
+                                </button>
+                            </div>
 
-                        <div class="modal fade" id="deleteRepo-@item.Id" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        @Localizer["Are you sure you want to delete repository"] <strong>@item.Name</strong>?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <form asp-action="Delete" asp-route-id="@item.Id" method="post">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
-                                            <button type="submit" class="btn btn-danger">@Localizer["Delete Repository"]</button>
-                                        </form>
+                            <div class="modal fade" id="deleteRepo-@item.Id" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @Localizer["Are you sure you want to delete repository"] <strong>@item.Name</strong>?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                                <button type="submit" class="btn btn-danger">@Localizer["Delete Repository"]</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </td>
+                        </td>
+                    }
                 </tr>
             }
             </tbody>
@@ -140,6 +152,13 @@
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
     <script>
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+    </script>
+}
+).forEach(el => new bootstrap.Tooltip(el));
+    </script>
+}
+  <script>
         document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
     </script>
 }
