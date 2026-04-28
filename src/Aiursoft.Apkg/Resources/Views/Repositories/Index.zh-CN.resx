@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>您确定要删除存储库吗</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>浏览软件包</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>创建新仓库</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>删除存储库</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>详细信息</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>发行版</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>主存储桶</value>

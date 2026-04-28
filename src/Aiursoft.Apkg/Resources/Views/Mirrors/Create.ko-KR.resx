@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>검증을 위한 상위 공개 GPG 키의 선택적 URL</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>상위 서명 검증을 위한 로컬 GPG 키링 파일 경로입니다. 검증을 건너뛰려면 비워두십시오.</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>변경 사항 저장</value>
   </data>

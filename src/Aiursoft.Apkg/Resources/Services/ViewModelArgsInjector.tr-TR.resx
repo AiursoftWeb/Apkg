@@ -153,6 +153,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Kişisel</value>
   </data>
+  <data name="Primary Bucket Missing" xml:space="preserve">
+    <value>Birincil Kova Eksik</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Profil</value>
   </data>

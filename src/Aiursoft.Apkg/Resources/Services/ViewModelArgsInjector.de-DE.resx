@@ -156,6 +156,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Persönlich</value>
   </data>
+  <data name="Primary Bucket Missing" xml:space="preserve">
+    <value>Primärer Bucket fehlt</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Profil</value>
   </data>
