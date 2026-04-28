@@ -135,13 +135,16 @@ public class RepositoriesControllerTests : TestBase
     }
 
     [TestMethod]
-    public async Task Packages_ReturnsNotFound_WhenRepoHasNoPrimaryBucket()
+    public async Task Packages_ReturnsOk_WhenRepoHasNoPrimaryBucket()
     {
         _repo.PrimaryBucketId = null;
         _db.SaveChanges();
 
         var response = await Http.GetAsync($"/Repositories/Packages?id={_repo.Id}");
-        Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("Repository not ready"));
+        Assert.IsTrue(html.Contains("RepositorySyncJob"));
     }
 
     // ──────────────────────────────────────────────────────────────────────

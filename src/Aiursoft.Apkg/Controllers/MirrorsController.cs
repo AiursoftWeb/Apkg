@@ -1,5 +1,6 @@
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Models.MirrorsViewModels;
+using Aiursoft.Apkg.Models.SharedViewModels;
 using Aiursoft.Apkg.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -45,7 +46,16 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
     public async Task<IActionResult> Packages(int id, string? searchName, string? sortOrder, int page = 1)
     {
         var mirror = await dbContext.AptMirrors.FindAsync(id);
-        if (mirror?.PrimaryBucketId == null) return NotFound();
+        if (mirror == null) return NotFound();
+        if (mirror.PrimaryBucketId == null)
+        {
+            var modelMissing = new PrimaryBucketMissingViewModel
+            {
+                TargetName = mirror.Suite,
+                RequiredJobs = ["MirrorSyncJob"]
+            };
+            return this.StackView(modelMissing, "PrimaryBucketMissing");
+        }
 
         var baseQuery = dbContext.AptPackages
             .Where(p => p.BucketId == mirror.PrimaryBucketId);

@@ -106,21 +106,27 @@
                     <td>
                         @(item.PrimaryBucketId.HasValue ? Model.PackageCounts.GetValueOrDefault(item.PrimaryBucketId.Value, 0) : 0)
                     </td>
-                    @if (canManage)
-                    {
-                        <td class="text-end">
-                            <div class="btn-group">
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
+                    <td class="text-end">
+                        <div class="btn-group">
+                            <a asp-action="Packages" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="@Localizer["Browse Packages"]">
+                                <i class="align-middle" data-lucide="package-search"></i>
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary" title="@Localizer["Details"]">
+                                <i class="align-middle" data-lucide="info"></i>
+                            </a>
+                            @if (canManage)
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="@Localizer["Edit"]">
                                     <i class="align-middle" data-lucide="edit"></i>
                                 </a>
-                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">
-                                    <i class="align-middle" data-lucide="info"></i>
-                                </a>
-                                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteRepo-@item.Id">
+                                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteRepo-@item.Id" title="@Localizer["Delete"]">
                                     <i class="align-middle" data-lucide="trash-2"></i>
                                 </button>
-                            </div>
+                            }
+                        </div>
 
+                        @if (canManage)
+                        {
                             <div class="modal fade" id="deleteRepo-@item.Id" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -128,7 +134,7 @@
                                             <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body text-start">
                                             @Localizer["Are you sure you want to delete repository"] <strong>@item.Name</strong>?
                                         </div>
                                         <div class="modal-footer">
@@ -140,8 +146,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </td>
-                    }
+                        }
+                    </td>
                 </tr>
             }
             </tbody>

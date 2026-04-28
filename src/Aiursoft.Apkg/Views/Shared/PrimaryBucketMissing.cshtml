@@ -1,0 +1,56 @@
+@model Aiursoft.Apkg.Models.SharedViewModels.PrimaryBucketMissingViewModel
+@{
+    ViewData["Title"] = Localizer["Primary Bucket Missing"];
+}
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card shadow-sm border-warning">
+            <div class="card-header bg-warning text-dark">
+                <h4 class="mb-0">
+                    <i class="align-middle me-2" data-lucide="alert-triangle"></i>
+                    @Localizer["Primary Bucket Not Found"]
+                </h4>
+            </div>
+            <div class="card-body py-5">
+                <div class="text-center mb-4">
+                    <div class="display-1 text-warning mb-3">
+                        <i data-lucide="package-x"></i>
+                    </div>
+                    <h2>@Localizer["Repository not ready"]</h2>
+                    <p class="lead">
+                        @Localizer["The primary bucket for {0} has not been created yet.", Model.TargetName]
+                    </p>
+                </div>
+
+                <div class="alert alert-info">
+                    <h5>@Localizer["What does this mean?"]</h5>
+                    <p>@Localizer["Before a repository can serve packages, it must undergo a synchronization and (if configured) a signing process. This creates a 'Primary Bucket' which contains the actual package metadata and files for APT clients to consume."]</p>
+                </div>
+
+                <div class="mt-4">
+                    <h5>@Localizer["How to fix this?"]</h5>
+                    <p>@Localizer["An administrator needs to run the following background jobs to prepare this repository:"]</p>
+                    <ul class="list-group">
+                        @foreach (var job in Model.RequiredJobs)
+                        {
+                            <li class="list-group-item d-flex align-items-center">
+                                <i class="align-middle me-2 text-primary" data-lucide="play-circle"></i>
+                                <code>@job</code>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="mt-5 text-center">
+                    <a asp-controller="Jobs" asp-action="Index" class="btn btn-primary">
+                        <i class="align-middle me-1" data-lucide="cog"></i> @Localizer["Go to Background Jobs"]
+                    </a>
+                    <button onclick="history.back()" class="btn btn-outline-secondary ms-2">
+                        @Localizer["Go Back"]
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

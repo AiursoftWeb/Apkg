@@ -1,13 +1,22 @@
 @model Aiursoft.Apkg.Models.MirrorsViewModels.IndexViewModel
+@using Aiursoft.Apkg.Authorization
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageMirrors)).Succeeded;
+}
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto d-none d-sm-block">
         <h3>@Localizer["Upstream Mirrors"]</h3>
     </div>
     <div class="col-auto ms-auto text-end">
-        <a asp-action="Create" class="btn btn-primary">
-            <i class="align-middle" data-lucide="plus"></i> @Localizer["Add New Mirror"]
-        </a>
+        @if (canManage)
+        {
+            <a asp-action="Create" class="btn btn-primary">
+                <i class="align-middle" data-lucide="plus"></i> @Localizer["Add New Mirror"]
+            </a>
+        }
     </div>
 </div>
 
@@ -151,37 +160,43 @@
                     </td>
                     <td class="text-end">
                         <div class="btn-group">
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">
-                                <i class="align-middle" data-lucide="edit"></i>
-                            </a>
-                            <a asp-action="Packages" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info">
+                            <a asp-action="Packages" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="@Localizer["Browse Packages"]">
                                 <i class="align-middle" data-lucide="package"></i>
                             </a>
-                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteMirror-@item.Id">
-                                <i class="align-middle" data-lucide="trash-2"></i>
-                            </button>
+                            @if (canManage)
+                            {
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" title="@Localizer["Edit"]">
+                                    <i class="align-middle" data-lucide="edit"></i>
+                                </a>
+                                <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteMirror-@item.Id" title="@Localizer["Delete"]">
+                                    <i class="align-middle" data-lucide="trash-2"></i>
+                                </button>
+                            }
                         </div>
 
-                        <div class="modal fade" id="deleteMirror-@item.Id" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        @Localizer["Are you sure you want to delete mirror"] <strong>@item.Suite</strong>? 
-                                        @Localizer["This will also delete all associated packages and buckets!"]
-                                    </div>
-                                    <div class="modal-footer">
-                                        <form asp-action="Delete" asp-route-id="@item.Id" method="post">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
-                                            <button type="submit" class="btn btn-danger">@Localizer["Delete Mirror"]</button>
-                                        </form>
+                        @if (canManage)
+                        {
+                            <div class="modal fade" id="deleteMirror-@item.Id" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-start">
+                                            @Localizer["Are you sure you want to delete mirror"] <strong>@item.Suite</strong>?
+                                            @Localizer["This will also delete all associated packages and buckets!"]
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                                <button type="submit" class="btn btn-danger">@Localizer["Delete Mirror"]</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        }
                     </td>
                 </tr>
             }

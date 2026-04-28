@@ -1,5 +1,6 @@
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Models.MirrorsViewModels;
+using Aiursoft.Apkg.Models.SharedViewModels;
 using Aiursoft.Apkg.Services;
 using Aiursoft.UiStack.Navigation;
 using Microsoft.AspNetCore.Authorization;
@@ -58,7 +59,16 @@ public class RepositoriesController(
     public async Task<IActionResult> Packages(int id, string? searchName, string? sortOrder, int page = 1)
     {
         var repo = await dbContext.AptRepositories.FindAsync(id);
-        if (repo?.PrimaryBucketId == null) return NotFound();
+        if (repo == null) return NotFound();
+        if (repo.PrimaryBucketId == null)
+        {
+            var modelMissing = new PrimaryBucketMissingViewModel
+            {
+                TargetName = repo.Name,
+                RequiredJobs = ["RepositorySyncJob", "RepositorySignJob"]
+            };
+            return this.StackView(modelMissing, "PrimaryBucketMissing");
+        }
 
         var baseQuery = dbContext.AptPackages
             .Where(p => p.BucketId == repo.PrimaryBucketId);
