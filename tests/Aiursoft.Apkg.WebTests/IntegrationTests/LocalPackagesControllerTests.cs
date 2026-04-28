@@ -10,6 +10,7 @@ public class LocalPackagesControllerTests : TestBase
     private ApkgDbContext _db = null!;
     private AptRepository _repo = null!;
     private string _adminUserId = null!;
+    private HttpClient _anonHttp = null!;
 
     [TestInitialize]
     public override async Task SetupTestContext()
@@ -23,6 +24,17 @@ public class LocalPackagesControllerTests : TestBase
         var userManager = GetService<UserManager<User>>();
         var admin = await userManager.FindByEmailAsync("admin@default.com");
         _adminUserId = admin!.Id;
+
+        _anonHttp = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false })
+        {
+            BaseAddress = Http.BaseAddress
+        };
+    }
+
+    public override void CleanTestContext()
+    {
+        _anonHttp.Dispose();
+        base.CleanTestContext();
     }
 
     private LocalPackage AddLocalPackage(
@@ -64,10 +76,7 @@ public class LocalPackagesControllerTests : TestBase
     [TestMethod]
     public async Task Index_RedirectsToLogin_WhenNotAuthenticated()
     {
-        // Use a fresh unauthenticated client
-        using var anonClient = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false });
-        anonClient.BaseAddress = Http.BaseAddress;
-        var response = await anonClient.GetAsync("/LocalPackages/Index");
+        var response = await _anonHttp.GetAsync("/LocalPackages/Index");
         Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
         Assert.IsTrue(response.Headers.Location?.ToString().Contains("Login") ?? false, "Expected redirect to Login.");
     }
@@ -97,9 +106,7 @@ public class LocalPackagesControllerTests : TestBase
     [TestMethod]
     public async Task Upload_RedirectsToLogin_WhenNotAuthenticated()
     {
-        using var anonClient = new HttpClient(new HttpClientHandler { AllowAutoRedirect = false });
-        anonClient.BaseAddress = Http.BaseAddress;
-        var response = await anonClient.GetAsync("/LocalPackages/Upload");
+        var response = await _anonHttp.GetAsync("/LocalPackages/Upload");
         Assert.AreEqual(HttpStatusCode.Found, response.StatusCode);
         Assert.IsTrue(response.Headers.Location?.ToString().Contains("Login") ?? false, "Expected redirect to Login.");
     }
