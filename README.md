@@ -1,4 +1,4 @@
-# Apkg - A sample project
+# Apkg
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/aiursoft/apkg/-/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.com/aiursoft/apkg/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/aiursoft/apkg/-/pipelines)
@@ -12,27 +12,6 @@ Apkg is a sample project.
 ![screenshot](./screenshot.png)
 
 Default user name is `admin@default.com` and default password is `admin123`.
-
-## Projects using Aiursoft Apkg
-
-* [Stathub](https://gitlab.aiursoft.com/aiursoft/stathub)
-* [MarkToHtml](https://gitlab.aiursoft.com/aiursoft/marktohtml)
-* [MusicTools](https://gitlab.aiursoft.com/aiursoft/musictools)
-* [AnduinOS Home](https://gitlab.aiursoft.com/anduin/AnduinOS-Home)
-* [Manhours](https://gitlab.aiursoft.com/aiursoft/manhours)
-* [Tracer](https://gitlab.aiursoft.com/aiursoft/tracer)
-* [Warp](https://gitlab.aiursoft.com/aiursoft/warp)
-* [AiurDrive](https://gitlab.aiursoft.com/aiursoft/aiurdrive)
-* [EmployeeC enter](https://gitlab.aiursoft.com/aiursoft/employeecenter)
-* [Git Mirror Server](https://gitlab.aiursoft.com/aiursoft/gitmirrorserver)
-* [CppRunner](https://gitlab.aiursoft.com/aiursoft/cpprunner)
-* [Ollama Gateway](https://gitlab.aiursoft.com/aiursoft/ollamagateway)
-* [Polls](https://gitlab.aiursoft.com/aiursoft/polls)
-* [WeChatExam](https://gitlab.aiursoft.com/aiursoft/wechatexam)
-* [MusicExam](https://gitlab.aiursoft.com/aiursoft/musicexam)
-* [CoprHome](https://gitlab.aiursoft.com/aiursoft/corphome)
-* [Events Recorder](https://gitlab.aiursoft.com/aiursoft/eventsrecorder)
-* [Translate](https://gitlab.aiursoft.com/aiursoft/translate)
 
 ## Try
 
