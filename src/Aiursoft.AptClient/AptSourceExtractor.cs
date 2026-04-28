@@ -182,10 +182,12 @@ public class AptSourceExtractor
             // Try to de-armor using gpg
             try
             {
-                var psi = new System.Diagnostics.ProcessStartInfo
+                var tempHome = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+            Directory.CreateDirectory(tempHome);
+            var psi = new System.Diagnostics.ProcessStartInfo
                 {
                     FileName = "gpg",
-                    Arguments = $"--dearmor --batch --yes -o \"{tempGpg}\" \"{tempAsc}\"",
+                    Arguments = $"--homedir \"{tempHome}\" --dearmor --batch --yes -o \"{tempGpg}\" \"{tempAsc}\"",
                     RedirectStandardError = true,
                     RedirectStandardOutput = true,
                     UseShellExecute = false,
@@ -202,6 +204,7 @@ public class AptSourceExtractor
                     {
                         // Success!
                         try { File.Delete(tempAsc); } catch (Exception) { /* Ignore */ }
+                        try { Directory.Delete(tempHome, true); } catch (Exception) { /* Ignore */ }
                         return tempGpg;
                     }
                     else
