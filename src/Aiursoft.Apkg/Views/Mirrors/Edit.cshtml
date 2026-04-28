@@ -64,8 +64,8 @@
 
             <div class="mb-3" id="signed-by-container">
                 <label asp-for="SignedBy" class="form-label"></label>
-                <input asp-for="SignedBy" class="form-control" placeholder="https://example.com/public.gpg" />
-                <div class="form-text">@Localizer["Optional URL to the upstream public GPG key for verification."]</div>
+                <input asp-for="SignedBy" class="form-control" placeholder="/usr/share/keyrings/ubuntu-archive-keyring.gpg" />
+                <div class="form-text">@Localizer["Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification."]</div>
             </div>
 
             <hr />

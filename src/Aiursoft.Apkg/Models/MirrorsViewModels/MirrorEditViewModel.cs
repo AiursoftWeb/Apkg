@@ -32,8 +32,8 @@ public class MirrorEditViewModel : UiStackLayoutViewModel
     [Display(Name = "Architecture")]
     public string Architecture { get; set; } = "amd64";
 
-    [Display(Name = "GPG Public Key URL (Optional)")]
-    public string? SignedBy { get; set; }
+    [Display(Name = "GPG Public Key (Optional)")]
+    public string? SignedBy { get; set; } = "/usr/share/keyrings/ubuntu-archive-keyring.gpg";
 
     [Display(Name = "Allow Insecure Source")]
     public bool AllowInsecure { get; set; }

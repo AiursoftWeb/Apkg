@@ -42,9 +42,6 @@
   <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
     <value>如果勾选，将不执行签名验证。请自行承担风险。</value>
   </data>
-  <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
-    <value>用于验证的上游公共 GPG 密钥的可选 URL。</value>
-  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>保存更改</value>
   </data>
@@ -55,4 +52,8 @@
     <value>此镜像的 URL 前缀（例如 &apos;ubuntu&apos;）。</value>
   </data>
 
+
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>本地 GPG keyring 文件路径，用于校验上游签名。留空则跳过验证。</value>
+  </data>
 </root>
