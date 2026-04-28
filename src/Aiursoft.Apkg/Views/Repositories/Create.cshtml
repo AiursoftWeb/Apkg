@@ -60,7 +60,13 @@
             </div>
 
             <div class="mb-3">
-                <label asp-for="MirrorId" class="form-label"></label>                <select asp-for="MirrorId" asp-items="Model.AvailableMirrors" class="form-select">
+                <label asp-for="MirrorId" class="form-label">
+                    @Localizer["Mirror"]
+                    <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                       data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-title="@Localizer["If linked, this repository's Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version."]"></i>
+                </label>
+                <select asp-for="MirrorId" asp-items="Model.AvailableMirrors" class="form-select">
                     <option value="">@Localizer["-- None (Standalone) --"]</option>
                 </select>
                 <div class="form-text">@Localizer["If linked to a mirror, this repository will serve packages from that upstream source."]</div>
@@ -69,7 +75,12 @@
             <div class="mb-3">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" asp-for="EnableGpgSign" id="enableGpgSign">
-                    <label class="form-check-label" asp-for="EnableGpgSign"></label>
+                    <label class="form-check-label" asp-for="EnableGpgSign">
+                        @Localizer["Enable GPG Signing"]
+                        <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                           data-bs-toggle="tooltip" data-bs-placement="top"
+                           data-bs-title="@Localizer["When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use 'signed-by=' in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories."]"></i>
+                    </label>
                 </div>
                 <div class="form-text">@Localizer["Automatically sign the Release files of this repository."]</div>
             </div>

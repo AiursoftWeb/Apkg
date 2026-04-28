@@ -33,7 +33,12 @@
                             <th>@Localizer["Uploader"]</th>
                         }
                         <th>@Localizer["Uploaded"]</th>
-                        <th>@Localizer["Status"]</th>
+                        <th>
+                            @Localizer["Status"]
+                            <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                               data-bs-toggle="tooltip" data-bs-placement="top"
+                               data-bs-title="@Localizer["Enabled packages are merged into the next Repository Sync and override any upstream mirror package with the same name and architecture. Disabled packages are excluded entirely."]"></i>
+                        </th>
                         <th class="text-end">@Localizer["Actions"]</th>
                     </tr>
                 </thead>
@@ -54,18 +59,19 @@
                             <td>
                                 @if (pkg.IsEnabled)
                                 {
-                                    <span class="badge bg-success">@Localizer["Enabled"]</span>
+                                    <span class="badge bg-success" title="@Localizer["Included in the next Repository Sync: will override any upstream mirror package with the same name and architecture."]">@Localizer["Enabled"]</span>
                                 }
                                 else
                                 {
-                                    <span class="badge bg-secondary">@Localizer["Disabled"]</span>
+                                    <span class="badge bg-secondary" title="@Localizer["Excluded from Repository Sync: will not appear in the generated package index."]">@Localizer["Disabled"]</span>
                                 }
                             </td>
                             <td class="text-end">
                                 <div class="btn-group">
                                     <form method="post" asp-action="Toggle" asp-route-id="@pkg.Id">
                                         @Html.AntiForgeryToken()
-                                        <button type="submit" class="btn btn-sm @(pkg.IsEnabled ? "btn-outline-warning" : "btn-outline-success")">
+                                        <button type="submit" class="btn btn-sm @(pkg.IsEnabled ? "btn-outline-warning" : "btn-outline-success")"
+                                                title="@(pkg.IsEnabled ? Localizer["Disable: exclude from the Repository Sync index."].Value : Localizer["Enable: include in the next Repository Sync, overriding the upstream mirror version."].Value)">
                                             @if (pkg.IsEnabled)
                                             {
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="pause-circle" class="lucide lucide-pause-circle align-middle"><circle cx="12" cy="12" r="10"></circle><line x1="10" x2="10" y1="15" y2="9"></line><line x1="14" x2="14" y1="15" y2="9"></line></svg>
@@ -108,3 +114,10 @@
         }
     </div>
 </div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+    </script>
+}

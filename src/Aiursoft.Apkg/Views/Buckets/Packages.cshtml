@@ -40,6 +40,9 @@
                     <a asp-action="Packages" asp-route-id="@Model.Bucket.Id" asp-route-sortOrder="@(Model.SortOrder == "status_asc" ? "status_desc" : "status_asc")">
                         @Localizer["Status"]
                     </a>
+                    <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                       data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-title="@Localizer["Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server."]"></i>
                 </th>
             </tr>
             </thead>
@@ -55,11 +58,11 @@
                     <td>
                         @if (pkg.IsVirtual)
                         {
-                            <span class="badge badge-subtle-warning">@Localizer["Virtual"]</span>
+                            <span class="badge badge-subtle-warning" title="@Localizer["File is hosted on the upstream mirror. apt clients download it directly from the mirror URL."]">@Localizer["Virtual"]</span>
                         }
                         else
                         {
-                            <span class="badge bg-success">@Localizer["Physical"]</span>
+                            <span class="badge bg-success" title="@Localizer["File is stored locally on this server. apt clients download it from here."]">@Localizer["Physical"]</span>
                         }
                     </td>
                 </tr>
@@ -88,3 +91,10 @@
         }
     </div>
 </div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+    </script>
+}

@@ -23,8 +23,18 @@
                 <th>@Localizer["Arch"]</th>
                 <th>@Localizer["Status"]</th>
                 <th>@Localizer["Last Pull"]</th>
-                <th>@Localizer["Primary Bucket"]</th>
-                <th>@Localizer["Secondary Bucket"]</th>
+                <th>
+                    @Localizer["Primary Bucket"]
+                    <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                       data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-title="@Localizer["The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully."]"></i>
+                </th>
+                <th>
+                    @Localizer["Secondary Bucket"]
+                    <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                       data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-title="@Localizer["The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection."]"></i>
+                </th>
                 <th>@Localizer["Packages"]</th>
                 <th class="text-end">@Localizer["Actions"]</th>
             </tr>
@@ -179,3 +189,10 @@
         </table>
     </div>
 </div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+    </script>
+}

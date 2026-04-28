@@ -20,7 +20,12 @@
                 <th>@Localizer["Status"]</th>
                 <th>@Localizer["Created Time"]</th>
                 <th class="text-end">@Localizer["Packages"]</th>
-                <th class="text-end">@Localizer["Logical Size"]</th>
+                <th class="text-end">
+                    @Localizer["Logical Size"]
+                    <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                       data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-title="@Localizer["Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets."]"></i>
+                </th>
                 <th>@Localizer["Active Usage"]</th>
                 <th class="text-end">@Localizer["Actions"]</th>
             </tr>
@@ -36,15 +41,15 @@
                     <td>
                         @if (isLive)
                         {
-                            <span class="badge bg-success">@Localizer["LIVE"]</span>
+                            <span class="badge bg-success" title="@Localizer["This snapshot is actively served to apt clients as the current index."]">@Localizer["LIVE"]</span>
                         }
                         else if (isPending)
                         {
-                            <span class="badge badge-subtle-info">@Localizer["Pending"]</span>
+                            <span class="badge badge-subtle-info" title="@Localizer["Being built by a currently-running Sync job. Will replace the LIVE bucket on success."]">@Localizer["Pending"]</span>
                         }
                         else
                         {
-                            <span class="badge badge-subtle-warning">@Localizer["Orphaned"]</span>
+                            <span class="badge badge-subtle-warning" title="@Localizer["Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run."]">@Localizer["Orphaned"]</span>
                         }
                     </td>
                     <td>@bucket.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</td>
@@ -71,3 +76,10 @@
         </table>
     </div>
 </div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+    </script>
+}

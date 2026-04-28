@@ -20,9 +20,24 @@
                 <th>@Localizer["Name"]</th>
                 <th>@Localizer["Suite"]</th>
                 <th>@Localizer["Certificate"]</th>
-                <th>@Localizer["Live Bucket"]</th>
-                <th>@Localizer["Secondary Bucket"]</th>
-                <th>@Localizer["Signature"]</th>
+                <th>
+                    @Localizer["Live Bucket"]
+                    <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                       data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-title="@Localizer["The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully."]"></i>
+                </th>
+                <th>
+                    @Localizer["Secondary Bucket"]
+                    <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                       data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-title="@Localizer["The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds."]"></i>
+                </th>
+                <th>
+                    @Localizer["Signature"]
+                    <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
+                       data-bs-toggle="tooltip" data-bs-placement="top"
+                       data-bs-title="@Localizer["Whether the repository's Release file is GPG-signed. apt clients configured with 'signed-by=' in sources.list will reject repositories that are unsigned or signed with the wrong key."]"></i>
+                </th>
                 <th>@Localizer["Total Packages"]</th>
                 <th class="text-end">@Localizer["Actions"]</th>
             </tr>
@@ -121,3 +136,10 @@
         </table>
     </div>
 </div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+    </script>
+}
