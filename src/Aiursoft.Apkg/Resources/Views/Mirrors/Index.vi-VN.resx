@@ -69,9 +69,6 @@
   <data name="Never Synced" xml:space="preserve">
     <value>Chưa đồng bộ hóa</value>
   </data>
-  <data name="None" xml:space="preserve">
-    <value>Không</value>
-  </data>
   <data name="Packages" xml:space="preserve">
     <value>Gói phần mềm</value>
   </data>

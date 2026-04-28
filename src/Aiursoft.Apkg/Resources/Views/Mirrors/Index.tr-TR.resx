@@ -66,9 +66,6 @@
   <data name="Never Synced" xml:space="preserve">
     <value>Senkronize Edilmedi</value>
   </data>
-  <data name="None" xml:space="preserve">
-    <value>Hiçbiri</value>
-  </data>
   <data name="Packages" xml:space="preserve">
     <value>Paketler</value>
   </data>

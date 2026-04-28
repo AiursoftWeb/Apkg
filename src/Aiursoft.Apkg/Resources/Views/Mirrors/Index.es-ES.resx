@@ -66,9 +66,6 @@
   <data name="Never Synced" xml:space="preserve">
     <value>Nunca sincronizado</value>
   </data>
-  <data name="None" xml:space="preserve">
-    <value>Ninguno</value>
-  </data>
   <data name="Packages" xml:space="preserve">
     <value>Paquetes</value>
   </data>

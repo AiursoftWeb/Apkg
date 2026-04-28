@@ -69,9 +69,6 @@
   <data name="Never Synced" xml:space="preserve">
     <value>未同期</value>
   </data>
-  <data name="None" xml:space="preserve">
-    <value>なし</value>
-  </data>
   <data name="Packages" xml:space="preserve">
     <value>パッケージ</value>
   </data>

@@ -72,9 +72,6 @@
   <data name="Never Synced" xml:space="preserve">
     <value>从未同步</value>
   </data>
-  <data name="None" xml:space="preserve">
-    <value>无</value>
-  </data>
   <data name="Packages" xml:space="preserve">
     <value>软件包</value>
   </data>

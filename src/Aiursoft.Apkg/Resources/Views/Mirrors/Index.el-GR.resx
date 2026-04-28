@@ -66,9 +66,6 @@
   <data name="Never Synced" xml:space="preserve">
     <value>Δεν έχει συγχρονιστεί</value>
   </data>
-  <data name="None" xml:space="preserve">
-    <value>Κανένα</value>
-  </data>
   <data name="Packages" xml:space="preserve">
     <value>Πακέτα</value>
   </data>

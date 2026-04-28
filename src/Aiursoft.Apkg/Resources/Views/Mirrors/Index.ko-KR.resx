@@ -69,9 +69,6 @@
   <data name="Never Synced" xml:space="preserve">
     <value>동기화되지 않음</value>
   </data>
-  <data name="None" xml:space="preserve">
-    <value>없음</value>
-  </data>
   <data name="Packages" xml:space="preserve">
     <value>패키지</value>
   </data>
