@@ -1,10 +1,6 @@
 using System.Net;
 using System.Text.RegularExpressions;
-using Aiursoft.CSTools.Tools;
-using Aiursoft.DbTools;
 using Aiursoft.Apkg.Entities;
-using Aiursoft.WebTools.Attributes;
-using static Aiursoft.WebTools.Extends;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
@@ -22,22 +18,29 @@ public abstract class TestBase
     [ClassInitialize(InheritanceBehavior.BeforeEachDerivedClass)]
     public static async Task ClassSetup(TestContext _)
     {
-        LimitPerMin.GlobalEnabled = false;
-        _port = Network.GetAvailablePort();
-        _host = await AppAsync<Startup>([], port: _port);
-        await _host.UpdateDbAsync<ApkgDbContext>();
+        _host = TestAssemblySetup.Host;
+        _port = TestAssemblySetup.Port;
+
+        // Reset repo/mirror/apt-package data (fast — GPG cert already exists)
+        await _host!.SeedMirrorsAsync(true);
+
+        // Reset per-class mutable state so tests don't bleed into each other
+        using var scope = _host!.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
+        db.LocalPackages.RemoveRange(db.LocalPackages);
+        db.UserApiKeys.RemoveRange(db.UserApiKeys);
+        // Delete all settings so SeedAsync() re-creates them at their default values
+        db.GlobalSettings.RemoveRange(db.GlobalSettings);
+        await db.SaveChangesAsync();
+
+        // Re-seed settings (and skip user/role creation since they already exist)
         await _host.SeedAsync();
-        await _host.SeedMirrorsAsync(true);
-        await _host.StartAsync();
     }
 
     [ClassCleanup(InheritanceBehavior.BeforeEachDerivedClass)]
-    public static async Task ClassTeardown()
+    public static Task ClassTeardown()
     {
-        if (_host == null) return;
-        await _host.StopAsync();
-        _host.Dispose();
-        _host = null;
+        return Task.CompletedTask; // server lifetime is managed by TestAssemblySetup
     }
 
     // Recreated per test to give each test an isolated cookie jar / session.
