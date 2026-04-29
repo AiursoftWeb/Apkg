@@ -69,11 +69,16 @@ public class LocalPackagesController(
             .Select(ap => new { ap.BucketId, ap.Package, ap.Architecture, ap.Id })
             .ToListAsync();
 
+        // A bucket may contain the same (Package, Architecture) in multiple components
+        // (e.g. mutter-common/all in both main and universe). We only need to know whether
+        // a given (Package, Architecture) pair is present in the bucket at all, so we take
+        // the first matching Id and ignore duplicates.
         var bucketLookup = existingInBuckets
             .GroupBy(x => x.BucketId)
             .ToDictionary(
                 g => g.Key,
-                g => g.ToDictionary(x => (x.Package, x.Architecture), x => x.Id)
+                g => g.GroupBy(x => (x.Package, x.Architecture))
+                       .ToDictionary(x => x.Key, x => x.First().Id)
             );
 
         var repoLookup = repoBuckets.ToDictionary(r => r.Id, r => r);

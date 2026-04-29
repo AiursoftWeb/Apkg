@@ -10,6 +10,7 @@ namespace Aiursoft.Apkg.Entities;
 [Index(nameof(BucketId))]
 [Index(nameof(Package), nameof(Version), nameof(Architecture), nameof(Component))]
 [Index(nameof(Filename))]
+[Index(nameof(SHA256))]
 public class AptPackage : DebianPackage
 {
     [Key]

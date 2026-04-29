@@ -71,18 +71,11 @@ public class GarbageCollectionJob(
                 Directory.Delete(bucketDir, true);
             }
 
-            // 2. Delete packages from DB
-            var packages = await db.AptPackages.Where(p => p.BucketId == bucketId).ToListAsync();
-            db.AptPackages.RemoveRange(packages);
+            // 2. Delete packages from DB (without loading into memory)
+            await db.AptPackages.Where(p => p.BucketId == bucketId).ExecuteDeleteAsync();
 
             // 3. Delete bucket from DB
-            var bucket = await db.AptBuckets.FindAsync(bucketId);
-            if (bucket != null)
-            {
-                db.AptBuckets.Remove(bucket);
-            }
-
-            await db.SaveChangesAsync();
+            await db.AptBuckets.Where(b => b.Id == bucketId).ExecuteDeleteAsync();
         }
 
         // 4. Clean up orphaned CAS physical files (.deb)

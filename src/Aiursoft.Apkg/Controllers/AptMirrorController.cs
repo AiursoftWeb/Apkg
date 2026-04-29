@@ -80,10 +80,8 @@ public class AptMirrorController(
         [FromRoute] string? distro,
         [FromRoute] string path)
     {
-        var dbPath = "pool/" + path; 
-        var localPath = await aptMirrorService.GetLocalPoolPath(dbPath);
-        if (localPath == null) localPath = await aptMirrorService.GetLocalPoolPath(path);
-        
+        // GetLocalPoolPath normalizes the path internally, so we don't need a fallback attempt.
+        var localPath = await aptMirrorService.GetLocalPoolPath(path);
         if (localPath == null) return NotFound();
 
         return PhysicalFile(localPath, "application/vnd.debian.binary-package", true);
