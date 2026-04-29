@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>Composant</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>Le fichier est hébergé sur le miroir amont. Les clients apt le téléchargent directement depuis l&apos;URL du miroir.</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>Le fichier est stocké localement sur ce serveur. Les clients apt le téléchargent depuis ici.</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Suivant</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Virtuel</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>Virtual : le fichier est hébergé sur le miroir amont et téléchargé à la demande par les clients apt. Physique : le fichier est stocké localement sur ce serveur.</value>
   </data>
 
 </root>

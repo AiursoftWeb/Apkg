@@ -24,6 +24,9 @@
   <data name="Active Usage" xml:space="preserve">
     <value>Uso activo</value>
   </data>
+  <data name="Being built by a currently-running Sync job. Will replace the LIVE bucket on success." xml:space="preserve">
+    <value>Siendo construido por un trabajo de sincronización en ejecución. Reemplazará el cubo LIVE con éxito.</value>
+  </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>Historial de instantáneas del cubo</value>
   </data>
@@ -39,6 +42,9 @@
   <data name="Logical Size" xml:space="preserve">
     <value>Tamaño lógico</value>
   </data>
+  <data name="Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run." xml:space="preserve">
+    <value>No referenciado por ningún Mirror o Repository. Se eliminará permanentemente en la próxima ejecución de Garbage Collection.</value>
+  </data>
   <data name="Orphaned" xml:space="preserve">
     <value>Huérfano</value>
   </data>
@@ -50,6 +56,12 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Estado</value>
+  </data>
+  <data name="Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets." xml:space="preserve">
+    <value>Suma de los tamaños de todos los archivos de paquetes enumerados en este depósito. El uso real del disco puede ser menor porque CAS (almacenamiento basado en contenido) deduplica los archivos compartidos entre depósitos.</value>
+  </data>
+  <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
+    <value>Este instantánea se sirve activamente a los clientes de apt como el índice actual.</value>
   </data>
 
 </root>

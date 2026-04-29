@@ -21,6 +21,12 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Нет (автономный) --</value>
   </data>
+  <data name="Allow Anyone to Upload" xml:space="preserve">
+    <value>Разрешить загрузку всем</value>
+  </data>
+  <data name="Allows any logged-in user to upload LocalPackages to this repository." xml:space="preserve">
+    <value>Позволяет любому вошедшему в систему пользователю загружать локальные пакеты в этот репозиторий.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Архитектура</value>
   </data>
@@ -45,8 +51,20 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>Редактировать репозиторий</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>Включить подпись GPG</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Если подключено к зеркалу, этот репозиторий будет предоставлять пакеты из этого внешнего источника.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Если связано, индекс Packages этого репозитория заполняется данными из зеркала при каждом выполнении синхронизации репозитория. Локальные пакеты с тем же именем и архитектурой имеют приоритет над версией из зеркала.</value>
+  </data>
+  <data name="If unchecked, only users with the &apos;Upload to Restricted Repositories&apos; permission can publish packages to this repository." xml:space="preserve">
+    <value>Если эта опция не выбрана, публиковать пакеты в этом репозитории смогут только пользователи с разрешением «Загрузка в ограниченные репозитории».</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>Зеркало</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>Сохранить репозиторий</value>
@@ -62,6 +80,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Префикс URL для этого репозитория (например, &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>При включении файл Release подписывается выбранным ключом GPG после каждой синхронизации репозитория. Клиенты, использующие параметр &apos;signed-by=&apos; в файле sources.list, будут проверять эту подпись и отказываться от неподписанных или неправильно подписанных репозиториев.</value>
   </data>
 
 </root>
