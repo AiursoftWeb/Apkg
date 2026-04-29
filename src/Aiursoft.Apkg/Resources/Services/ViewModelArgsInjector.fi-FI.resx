@@ -153,6 +153,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Henkilökohtainen</value>
   </data>
+  <data name="Primary Bucket Missing" xml:space="preserve">
+    <value>Ensisijainen ämpäri puuttuu</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Profiili</value>
   </data>

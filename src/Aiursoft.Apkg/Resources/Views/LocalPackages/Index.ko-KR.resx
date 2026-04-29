@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>APT 클라이언트에서 라이브 패키지를 사용할 수 있습니다.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>작업</value>
   </data>
   <data name="Architecture" xml:space="preserve">
@@ -54,6 +57,9 @@
   <data name="Included in the next Repository Sync: will override any upstream mirror package with the same name and architecture." xml:space="preserve">
     <value>다음 Repository 동기화에 포함됨: 동일한 이름과 아키텍처를 가진 모든 업스트림 미러 패키지를 덮어씁니다.</value>
   </data>
+  <data name="Live" xml:space="preserve">
+    <value>라이브</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>내 패키지</value>
   </data>
@@ -63,11 +69,23 @@
   <data name="Package" xml:space="preserve">
     <value>패키지</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>동기화 대기 중</value>
+  </data>
   <data name="Repository" xml:space="preserve">
     <value>저장소</value>
   </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>대기 중 (서명 대기)</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>상태</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>동기화 상태</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>이 패키지가 라이브 저장소에 병합 및 서명되는 현재 진행 상황입니다. 동기화 작업은 20분마다 실행되며, 그 후 5분마다 서명 작업이 실행됩니다.</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>패키지 업로드</value>
@@ -80,6 +98,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>버전</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>세부 정보 및 설치 지침 보기</value>
   </data>
 
 </root>

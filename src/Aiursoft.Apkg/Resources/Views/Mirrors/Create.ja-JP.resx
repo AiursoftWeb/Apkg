@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>検証用のアップストリームの公開GPGキーへの任意のURL</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>アップストリームの署名を検証するためのローカル GPG キーリングファイルへのパス。検証をスキップする場合は空白のままにしてください。</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>変更を保存</value>
   </data>

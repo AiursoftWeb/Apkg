@@ -98,6 +98,8 @@ public class ViewModelArgsInjector(
     
         _ = localizer["My Packages"];
         _ = localizer["Upload Package"];
+    
+        _ = localizer["Primary Bucket Missing"];
     }
 
     public void InjectSimple(

@@ -33,6 +33,9 @@
   <data name="Distro" xml:space="preserve">
     <value>Distribución</value>
   </data>
+  <data name="GPG Public Key (Optional)" xml:space="preserve">
+    <value>Clave pública GPG (opcional)</value>
+  </data>
   <data name="GPG Public Key URL (Optional)" xml:space="preserve">
     <value>URL de la clave pública GPG (opcional)</value>
   </data>

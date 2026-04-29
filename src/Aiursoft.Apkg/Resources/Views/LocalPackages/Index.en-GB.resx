@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>A live package is available for APT clients.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
   <data name="Architecture" xml:space="preserve">
@@ -54,6 +57,9 @@
   <data name="Included in the next Repository Sync: will override any upstream mirror package with the same name and architecture." xml:space="preserve">
     <value>Included in the next Repository Sync: will override any upstream mirror package with the same name and architecture.</value>
   </data>
+  <data name="Live" xml:space="preserve">
+    <value>Live</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>My Packages</value>
   </data>
@@ -63,11 +69,23 @@
   <data name="Package" xml:space="preserve">
     <value>Package</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Pending Sync</value>
+  </data>
   <data name="Repository" xml:space="preserve">
     <value>Repository</value>
   </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>Staged (Awaiting Signature)</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Sync Status</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes.</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Upload Package</value>
@@ -80,6 +98,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Version</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>View Details &amp; Install Instructions</value>
   </data>
 
 </root>

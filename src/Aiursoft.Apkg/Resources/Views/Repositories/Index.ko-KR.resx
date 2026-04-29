@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>저장소를 삭제하시겠습니까?</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>패키지 둘러보기</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>취소</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>새 저장소 만들기</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>삭제</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>저장소 삭제</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>세부 정보</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>배포판</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>편집</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>실시간 버킷</value>
