@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>Для клиентов APT доступен живой пакет.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Архитектура</value>
+  </data>
+  <data name="Are you sure you want to delete" xml:space="preserve">
+    <value>Вы уверены, что хотите удалить</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Подтвердить удаление</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Отключено</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>В сети</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Мои пакеты</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>Пакеты еще не загружены.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Пакет</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Ожидание синхронизации</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Хранилище</value>
+  </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>Сценарий (Ожидание подписи)</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Статус синхронизации</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>Текущий статус слияния и подписи этого пакета в рабочем репозитории. Задача синхронизации выполняется каждые 20 минут, за ней следует задача подписи каждые 5 минут.</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Загрузить пакет</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Загружено</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Загрузчик</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Версия</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>Просмотреть детали и инструкции по установке</value>
+  </data>
+
+</root>

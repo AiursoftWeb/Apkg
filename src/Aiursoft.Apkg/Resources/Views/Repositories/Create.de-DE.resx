@@ -45,8 +45,17 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>Repository bearbeiten</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>GPG-Signierung aktivieren</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Wenn mit einem Spiegel verbunden, stellt dieses Repository Pakete von dieser Upstream-Quelle bereit.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Wenn verknüpft, wird der Packages-Index dieses Repositorys bei jeder Repository-Synchronisierung vom Mirror übernommen. LocalPackages mit demselben Paketnamen und derselben Architektur haben Vorrang vor der Mirror-Version.</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>Spiegel</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>Repository speichern</value>
@@ -62,6 +71,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Das URL-Präfix für dieses Repository (z. B. &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>Wenn aktiviert, wird die Release-Datei nach jedem Repository-Sync mit dem ausgewählten GPG-Schlüssel signiert. Clients, die &apos;signed-by=&apos; in ihrer sources.list verwenden, überprüfen diese Signatur und lehnen nicht signierte oder falsch signierte Repositories ab.</value>
   </data>
 
 </root>

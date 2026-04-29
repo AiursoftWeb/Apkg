@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>คุณแน่ใจหรือไม่ว่าต้องการลบที่เก็บรหัส</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>ดูแพ็กเกจ</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>ยกเลิก</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>สร้างที่เก็บข้อมูลใหม่</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>ลบคลังเก็บข้อมูล</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>รายละเอียด</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>ดิสโตร</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>แก้ไข</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>บักเก็ตสด</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>ชุด</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>ซแนปชอตที่ให้บริการแก่ไคลเอนต์ apt ในปัจจุบัน จะกลายเป็นแบบสดหลังจากการซิงค์ที่เก็บข้อมูลเสร็จสมบูรณ์</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Snapshot ที่กำลังถูกสร้างโดยงาน Repository Sync ที่กำลังทำงานอยู่ จะแทนที่ bucket ที่มีชีวิตเมื่อการทำงานสำเร็จ</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>จำนวนแพ็กเกจทั้งหมด</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>ตรวจสอบว่าไฟล์ Release ของ repository มีการลงนามด้วย GPG หรือไม่ ไคลเอนต์ apt ที่กำหนดค่าด้วย &apos;signed-by=&apos; ใน sources.list จะปฏิเสธ repository ที่ไม่มีลายเซ็นหรือลงนามด้วยคีย์ที่ไม่ถูกต้อง</value>
   </data>
 
 </root>

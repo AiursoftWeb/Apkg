@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>¿Está seguro de que desea eliminar el repositorio</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Explorar paquetes</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>Crear nuevo repositorio</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>Eliminar repositorio</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalles</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribución</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Cubeta en vivo</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>La instantánea activa actualmente servida a los clientes de apt. Se vuelve activa tras completar con éxito una sincronización del repositorio.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>La instantánea que se está construyendo mediante un trabajo de sincronización de repositorios en ejecución. Reemplaza el cubo activo cuando el trabajo se completa con éxito.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Paquetes totales</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Indica si el archivo Release del repositorio está firmado con GPG. Los clientes de apt configurados con &apos;signed-by=&apos; en sources.list rechazarán los repositorios que no estén firmados o que estén firmados con la clave incorrecta.</value>
   </data>
 
 </root>

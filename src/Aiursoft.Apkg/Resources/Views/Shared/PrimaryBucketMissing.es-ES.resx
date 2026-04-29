@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An administrator needs to run the following background jobs to prepare this repository:" xml:space="preserve">
+    <value>Un administrador necesita ejecutar los siguientes trabajos en segundo plano para preparar este repositorio:</value>
+  </data>
+  <data name="Before a repository can serve packages, it must undergo a synchronization and (if configured) a signing process. This creates a &apos;Primary Bucket&apos; which contains the actual package metadata and files for APT clients to consume." xml:space="preserve">
+    <value>Antes de que un repositorio pueda servir paquetes, debe someterse a un proceso de sincronización y (si está configurado) de firma. Esto crea un &apos;Cubo Primario&apos; que contiene los metadatos reales de los paquetes y los archivos que los clientes APT deben consumir.</value>
+  </data>
+  <data name="Go Back" xml:space="preserve">
+    <value>Volver</value>
+  </data>
+  <data name="Go to Background Jobs" xml:space="preserve">
+    <value>Ir a trabajos en segundo plano</value>
+  </data>
+  <data name="How to fix this?" xml:space="preserve">
+    <value>¿Cómo solucionarlo?</value>
+  </data>
+  <data name="Primary Bucket Not Found" xml:space="preserve">
+    <value>No se ha encontrado el cubo principal</value>
+  </data>
+  <data name="Repository not ready" xml:space="preserve">
+    <value>Repositorio no está listo</value>
+  </data>
+  <data name="What does this mean?" xml:space="preserve">
+    <value>¿Qué significa esto?</value>
+  </data>
+
+</root>
