@@ -39,6 +39,12 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Anonym</value>
   </data>
+  <data name="API Key Usage" xml:space="preserve">
+    <value>API-Schlüssel-Nutzung</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>API-Schlüssel</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Hintergrundaufgaben</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>Meine Pakete</value>
+  </data>
+  <data name="New API Key" xml:space="preserve">
+    <value>Neuer API-Schlüssel</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Nicht gefunden</value>

@@ -39,6 +39,12 @@
   <data name="Anonymous" xml:space="preserve">
     <value>匿名</value>
   </data>
+  <data name="API Key Usage" xml:space="preserve">
+    <value>API Key 使用情況</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>API 金鑰</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>背景工作</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>我的套件</value>
+  </data>
+  <data name="New API Key" xml:space="preserve">
+    <value>新 API 金鑰</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>找不到</value>
