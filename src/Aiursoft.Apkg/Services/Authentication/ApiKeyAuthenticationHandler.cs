@@ -45,6 +45,9 @@ public class ApiKeyAuthenticationHandler(
         if (apiKey?.User == null)
             return AuthenticateResult.Fail("Invalid API key.");
 
+        if (apiKey.IsExpired)
+            return AuthenticateResult.Fail("API key has expired.");
+
         // Update last-used timestamp (fire-and-forget style; non-critical)
         apiKey.LastUsedAt = DateTime.UtcNow;
         await db.SaveChangesAsync();

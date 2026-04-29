@@ -23,7 +23,7 @@
                     <tr>
                         <th>@Localizer["Name"]</th>
                         <th>@Localizer["Key"]</th>
-                        <th>@Localizer["Created"]</th>
+                        <th>@Localizer["Expires"]</th>
                         <th>@Localizer["Last Used"]</th>
                         <th>@Localizer["Actions"]</th>
                     </tr>
@@ -44,7 +44,21 @@
                             <tr>
                                 <td><strong>@key.Name</strong></td>
                                 <td><code>@(key.KeyPrefix)...</code></td>
-                                <td>@key.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                                <td>
+                                    @if (key.IsExpired)
+                                    {
+                                        <span class="badge bg-danger">@Localizer["Expired"]</span>
+                                        <small class="text-muted ms-1">@key.ExpiresAt!.Value.ToString("yyyy-MM-dd")</small>
+                                    }
+                                    else if (key.ExpiresAt.HasValue)
+                                    {
+                                        @key.ExpiresAt.Value.ToString("yyyy-MM-dd")
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">@Localizer["Never"]</span>
+                                    }
+                                </td>
                                 <td>
                                     @if (key.LastUsedAt.HasValue)
                                     {

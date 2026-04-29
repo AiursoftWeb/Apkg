@@ -44,4 +44,11 @@ public class UserApiKey
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     public DateTime? LastUsedAt { get; set; }
+
+    /// <summary>
+    /// When this key expires. Null means it never expires.
+    /// </summary>
+    public DateTime? ExpiresAt { get; set; }
+
+    public bool IsExpired => ExpiresAt.HasValue && ExpiresAt.Value < DateTime.UtcNow;
 }
