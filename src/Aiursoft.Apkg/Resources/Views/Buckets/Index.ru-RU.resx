@@ -24,6 +24,9 @@
   <data name="Active Usage" xml:space="preserve">
     <value>Активное использование</value>
   </data>
+  <data name="Being built by a currently-running Sync job. Will replace the LIVE bucket on success." xml:space="preserve">
+    <value>Создаётся текущим запущенным заданием синхронизации. После успешного завершения заменит LIVE-бакет.</value>
+  </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>История снимков контейнеров</value>
   </data>
@@ -39,6 +42,9 @@
   <data name="Logical Size" xml:space="preserve">
     <value>Логический размер</value>
   </data>
+  <data name="Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run." xml:space="preserve">
+    <value>Не используется ни одним зеркалом или репозиторием. Будет безвозвратно удалено при следующем запуске сборки мусора.</value>
+  </data>
   <data name="Orphaned" xml:space="preserve">
     <value>Осиротевший</value>
   </data>
@@ -50,6 +56,12 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Статус</value>
+  </data>
+  <data name="Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets." xml:space="preserve">
+    <value>Суммарный размер всех файлов пакетов, указанных в этом бакете. Фактическое использование дискового пространства может быть меньше, поскольку CAS (хранилище с адресацией по содержимому) дедуплицирует файлы, общие для нескольких бакетов.</value>
+  </data>
+  <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
+    <value>Этот снимок активно обслуживается клиентами apt в качестве текущего индекса.</value>
   </data>
 
 </root>

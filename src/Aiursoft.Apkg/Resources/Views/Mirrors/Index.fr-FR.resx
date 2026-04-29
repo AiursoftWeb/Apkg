@@ -33,6 +33,9 @@
   <data name="Base URL" xml:space="preserve">
     <value>URL de base</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Parcourir les paquets</value>
+  </data>
   <data name="Bucket" xml:space="preserve">
     <value>Seau</value>
   </data>
@@ -45,11 +48,17 @@
   <data name="Confirm Delete" xml:space="preserve">
     <value>Confirmer la suppression</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
   <data name="Delete Mirror" xml:space="preserve">
     <value>Supprimer le miroir</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
   </data>
   <data name="Error:" xml:space="preserve">
     <value>Erreur :</value>
@@ -62,6 +71,9 @@
   </data>
   <data name="items" xml:space="preserve">
     <value>éléments</value>
+  </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>Dernière synchronisation</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Jamais tiré</value>
@@ -98,6 +110,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Pile d&apos;erreur de synchronisation</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>La capture instantanée actuellement servie aux clients apt. Un nouveau bucket ne devient primaire qu&apos;après la réussite d&apos;une synchronisation du miroir.</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>La capture instantanée en cours de construction par une tâche Mirror Sync en cours d&apos;exécution. Elle remplace le Primary Bucket lorsque la tâche aboutit ; l&apos;ancien primary devient alors éligible à la collecte des déchets.</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Cela supprimera également tous les packages et compartiments associés !</value>

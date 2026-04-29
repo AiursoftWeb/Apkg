@@ -33,6 +33,9 @@
   <data name="Base URL" xml:space="preserve">
     <value>Basis-URL</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Pakete durchsuchen</value>
+  </data>
   <data name="Bucket" xml:space="preserve">
     <value>Bucket</value>
   </data>
@@ -45,11 +48,17 @@
   <data name="Confirm Delete" xml:space="preserve">
     <value>Löschen bestätigen</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Löschen</value>
+  </data>
   <data name="Delete Mirror" xml:space="preserve">
     <value>Spiegel löschen</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bearbeiten</value>
   </data>
   <data name="Error:" xml:space="preserve">
     <value>Fehler:</value>
@@ -62,6 +71,9 @@
   </data>
   <data name="items" xml:space="preserve">
     <value>Artikel</value>
+  </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>Letzter Pull</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Nie gezogen</value>
@@ -98,6 +110,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Sync-Fehler-Auflaufverfolgung</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>Der Live-Snapshot, der derzeit für apt-Clients bereitgestellt wird. Ein neuer Bucket wird erst dann zum Primary, wenn eine Mirror-Sync-Operation erfolgreich abgeschlossen wurde.</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>Der Snapshot, der von einem laufenden Mirror-Sync-Job erstellt wird. Er ersetzt den Primären Bucket, wenn der Job erfolgreich ist; der alte Primäre ist dann für die Müllsammlung freigegeben.</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Dies löscht auch alle zugehörigen Pakete und Buckets!</value>

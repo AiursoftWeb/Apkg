@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>Компонент</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>Файл размещён на зеркале основного репозитория. Клиенты apt загружают его напрямую по URL зеркала.</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>Файл хранится локально на этом сервере. Клиенты apt загружают его отсюда.</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Далее</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Виртуальный</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>Виртуальный: файл размещён на внешнем зеркале и загружается по требованию клиентами apt. Физический: файл хранится локально на этом сервере.</value>
   </data>
 
 </root>

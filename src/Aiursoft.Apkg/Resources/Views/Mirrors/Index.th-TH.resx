@@ -33,6 +33,9 @@
   <data name="Base URL" xml:space="preserve">
     <value>URL พื้นฐาน</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>ดูแพ็กเกจ</value>
+  </data>
   <data name="Bucket" xml:space="preserve">
     <value>บักเก็ต</value>
   </data>
@@ -45,11 +48,17 @@
   <data name="Confirm Delete" xml:space="preserve">
     <value>ยืนยันการลบ</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
   <data name="Delete Mirror" xml:space="preserve">
     <value>ลบกระจก</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>ระบบปฏิบัติการ</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>แก้ไข</value>
   </data>
   <data name="Error:" xml:space="preserve">
     <value>ข้อผิดพลาด:</value>
@@ -62,6 +71,9 @@
   </data>
   <data name="items" xml:space="preserve">
     <value>รายการ</value>
+  </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>การดึงข้อมูลล่าสุด</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>ไม่เคยดึงข้อมูล</value>
@@ -98,6 +110,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>ติดตามรอยต่อข้อผิดพลาดในการซิงค์</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>ภาพสะท้อนสดที่ให้บริการแก่ไคลเอนต์ apt ในปัจจุบัน บัคเก็ตใหม่จะกลายเป็นหลักก็ต่อเมื่อการซิงค์มิเรอร์เสร็จสมบูรณ์เท่านั้น</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>ซนาปช็อตที่กำลังถูกสร้างโดยงาน Mirror Sync ที่กำลังทำงานอยู่ จะไปแทนที่ Primary Bucket เมื่องานสำเร็จ; โดย Primary ตัวเก่าจะพร้อมสำหรับการเก็บกวาดข้อมูลที่ไม่ได้ใช้</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>สิ่งนี้จะลบแพ็กเกจและบักเก็ตที่เกี่ยวข้องทั้งหมดด้วย!</value>

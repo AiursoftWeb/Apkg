@@ -24,6 +24,9 @@
   <data name="Active Usage" xml:space="preserve">
     <value>การใช้งานจริง</value>
   </data>
+  <data name="Being built by a currently-running Sync job. Will replace the LIVE bucket on success." xml:space="preserve">
+    <value>กำลังสร้างโดยงาน Sync ที่กำลังทำงานอยู่ จะแทนที่ bucket LIVE เมื่อสำเร็จ</value>
+  </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>ประวัติการSnapshotของBucket</value>
   </data>
@@ -39,6 +42,9 @@
   <data name="Logical Size" xml:space="preserve">
     <value>ขนาดเชิงตรรกะ</value>
   </data>
+  <data name="Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run." xml:space="preserve">
+    <value>ไม่มีการอ้างอิงโดย Mirror หรือ Repository ใด ๆ จะถูกลบออกถาวรในการดำเนินการ Garbage Collection ครั้งถัดไป</value>
+  </data>
   <data name="Orphaned" xml:space="preserve">
     <value>ละทิ้ง</value>
   </data>
@@ -53,6 +59,12 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>สถานะ</value>
+  </data>
+  <data name="Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets." xml:space="preserve">
+    <value>ผลรวมของขนาดไฟล์แพ็กเกจทั้งหมดที่ระบุในถังนี้ การใช้ดิสก์จริงอาจต่ำกว่าเนื่องจาก CAS (content-addressable storage) ทำการลดทอนไฟล์ที่แชร์ระหว่างถัง</value>
+  </data>
+  <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
+    <value>Snapshot นี้กำลังถูกให้บริการแก่ไคลเอนต์ apt ในฐานะดัชนีปัจจุบัน</value>
   </data>
 
 </root>
