@@ -33,6 +33,9 @@
   <data name="Base URL" xml:space="preserve">
     <value>عنوان URL الأساسي</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>تصفح الحزم</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>إلغاء</value>
   </data>
@@ -42,11 +45,17 @@
   <data name="Confirm Delete" xml:space="preserve">
     <value>تأكيد الحذف</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
   <data name="Delete Mirror" xml:space="preserve">
     <value>حذف المرآة</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>التوزيع</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
   </data>
   <data name="Error:" xml:space="preserve">
     <value>خطأ:</value>
@@ -59,6 +68,9 @@
   </data>
   <data name="items" xml:space="preserve">
     <value>عناصر</value>
+  </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>آخر سحب</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>لم يتم السحب مطلقًا</value>
@@ -95,6 +107,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>تتبع مكدس خطأ المزامنة</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>لقطة العرض المباشر التي يتم تقديمها حاليًا لعملاء apt. يصبح الدلو الجديد أوليًا فقط بعد اكتمال مزامنة المرآة بنجاح.</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>لقطة النظام قيد الإنشاء بواسطة مهمة مزامنة مرآة نشطة. تستبدل الدلو الأساسي عند نجاح المهمة؛ ثم يصبح الدلو القديم مؤهلاً للتجميع القمامي.</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>سيؤدي ذلك أيضًا إلى حذف جميع الحزم والدلاء المرتبطة بها!</value>

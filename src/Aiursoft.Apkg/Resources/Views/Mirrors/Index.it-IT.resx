@@ -33,6 +33,9 @@
   <data name="Base URL" xml:space="preserve">
     <value>URL di base</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Sfoglia i pacchetti</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annulla</value>
   </data>
@@ -42,11 +45,17 @@
   <data name="Confirm Delete" xml:space="preserve">
     <value>Conferma eliminazione</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
   <data name="Delete Mirror" xml:space="preserve">
     <value>Elimina specchio</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribuzione</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifica</value>
   </data>
   <data name="Error:" xml:space="preserve">
     <value>Errore:</value>
@@ -59,6 +68,9 @@
   </data>
   <data name="items" xml:space="preserve">
     <value>oggetti</value>
+  </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>Ultimo prelievo</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Mai eseguito il pull</value>
@@ -95,6 +107,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Traccia dello stack dell&apos;errore di sincronizzazione</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>Lo snapshot live attualmente fornito ai client apt. Un nuovo bucket diventa primario solo dopo il completamento riuscito di una sincronizzazione Mirror.</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>Lo snapshot in fase di creazione da un lavoro Mirror Sync in esecuzione. Sostituisce il Primary Bucket quando il lavoro ha successo; il vecchio primary diventa quindi idoneo per la garbage collection.</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Questo eliminerà anche tutti i pacchetti e i bucket associati!</value>
