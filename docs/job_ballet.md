@@ -197,3 +197,95 @@ APT 客户端（apt update / apt install）
 4. **导航属性单次 SaveChanges**：EF Core 保证 bucket 插入和外键更新在同一事务，消除孤儿窗口。
 5. **每个任务独立可重试**：任何任务崩溃后重新运行，都能从正确的状态继续。
 6. **Mirror 升级时旧 Primary 留在 Secondary**：防止正在流式读取旧 Mirror 数据的 RepositorySyncJob 的游标被 GC 截断。旧 Primary 在下一轮 MirrorSyncJob 开始时自然变成 orphan，届时 RepositorySyncJob 早已结束。
+
+---
+
+## 哈希不错位的不变量
+
+哈希（SHA256）是 Apkg 包身份验证的核心。以下不变量确保 SHA256 始终跟着正确的包走：
+
+| 不变量 | 实现方式 |
+|---|---|
+| SHA256 从不在代码中重新计算 | 上传时由客户端计算后存入 `LocalPackage.SHA256`；从上游拉取时直接复制上游声明的 SHA256 |
+| 从 LocalPackage 到 AptPackage 的字段原封不动 | `RepositorySyncJob` 直接赋值 `SHA256 = lp.SHA256`，且 `IsVirtual = false`，`RemoteUrl = null` |
+| 替换是精确范围的 `(Package, Architecture)` | 本地包替换上游时，`WHERE Package = lp.Package AND Architecture = lp.Architecture`，不影响其他架构 |
+| CAS 文件名 = SHA256 | 磁盘上的 `.deb` 以其 SHA256 命名；GC 删文件时对比 DB 中所有引用的哈希，只删"没有任何包行引用"的文件 |
+| 禁用的 LocalPackage 完全不可见 | `WHERE IsEnabled = true` 守卫在数据写入路径；上游版本原样保留 |
+
+---
+
+## 测试覆盖体系
+
+下面五个测试类共同锁住上述所有保证，确保任何代码改动破坏这些不变量时测试会失败。
+
+### `AtomicBucketCreationTests` — EF 原子性保证
+
+验证"导航属性单次 SaveChanges"这一核心技术正确性。
+
+| 测试方法 | 验证点 |
+|---|---|
+| `Mirror_NavigationPropertySave_BucketIdAndForeignKeyAreConsistent` | 单次保存后 `bucket.Id` 与 `SecondaryBucketId` 一致 |
+| `Mirror_AfterSingleSave_GcDoesNotDeleteNewBucket` | GC 立即运行也不删刚注册的 bucket |
+| `Repo_NavigationPropertySave_BucketIdAndForeignKeyAreConsistent` | 同上，AptRepository 侧 |
+| `Repo_AfterSingleSave_GcDoesNotDeleteNewBucket` | 同上，AptRepository 侧 |
+| **`Repo_OldTwoSavePattern_GcCanDeleteBucketInWindow`** ⚠️ | **反向测试**：故意用旧的两次 SaveChanges 写法，证明 GC **会** 删掉窗口期的 bucket——这是活的 bug 文档 |
+
+> 反向测试的重要性：如果未来有人把 GC 改得过于保守，这个测试会反过来"通过"（bucket 幸存），从而触发警报。
+
+### `GcSignRaceConditionTests` — GC 与 SignJob 的两种竞态回归
+
+```
+Mode A：GC 先跑                Mode B：SignJob 先跑，GC 追上来
+  ↓                               ↓
+Secondary bucket 被删          SignJob 提升后，GC 把新 Primary 也删了
+  ↓                               ↓
+SignJob 找不到 bucket            FK 约束爆炸
+  ↓
+repo 永久不可见（空仓库）
+```
+
+| 测试方法 | 覆盖场景 |
+|---|---|
+| `GC_WhenSecondaryBucketExists_MustNotDeleteIt` | Mode A 核心：Secondary 不被 GC 删 |
+| `GC_ThenSignJob_FullModeAScenario_RepoBecomesLive` | Mode A 完整链路：GC → SignJob → repo 上线，InRelease 有 GPG 签名 |
+| `GC_AfterSignJobPromotes_DoesNotDeleteNewPrimaryBucket` | Mode B：提升后 GC 不删新 Primary |
+| `FullLifecycle_OldBucketDeletedByGcOnlyAfterDemotion` | 完整 5 步生命周期：旧桶**只在** Secondary 被覆盖后才被删 |
+| `GC_TrulyOrphanedBucket_IsDeleted` | 防止 GC 过于保守——无引用的桶必须被删 |
+| `GC_WhenSecondaryBucketHasNoReleaseContent_MustNotDeleteIt` | 构建中（`ReleaseContent = null`）的桶受 Secondary 保护 |
+| `SignJob_WhenSecondaryBucketHasNoReleaseContent_MustSkipIt` | SignJob 对未完成桶有守卫，不提前升级 |
+| `SignJob_WhenSecondaryBucketAlreadyDeleted_ClearsDanglingReference` | 防御性：清理悬空 FK，repo 不会永久卡住 |
+
+### `RepositorySignJobTests` — "APT 客户端永远看不到未签名内容"
+
+最关键的两个测试直接打 HTTP 接口：
+
+| 测试方法 | 验证点 |
+|---|---|
+| `AptEndpoint_WithSecondaryBucketNotYetPromoted_ReturnsNotFound` | **签名前**：`GET /artifacts/.../InRelease` 返回 **404** |
+| `AptEndpoint_AfterSignJobPromotes_ServesSignedContent` | **签名后**：接口返回 200，内容包含 `-----BEGIN PGP SIGNED MESSAGE-----` |
+| `RepositorySignJob_WithCertificate_SignsThenPromotes` | Primary 切换后 `InReleaseContent` 有效，`SignedAt` 有值 |
+| `RepositorySignJob_WithoutCertificate_PromotesBucketWithoutSigning` | 无证书时也能升级，但 `InReleaseContent` 保持 null |
+| `RepositorySignJob_WhenNoSecondaryBucket_LeavesPrimaryBucketUnchanged` | 无待处理桶时 Primary 不变 |
+
+### `RepositorySyncLocalPackagesTests` — 哈希不错位的直接验证
+
+| 测试方法 | 验证的哈希/元数据不变量 |
+|---|---|
+| `SyncJob_EnabledLocalPackage_RemovesUpstreamVersionAndInsertsLocal` | 本地包 SHA256 替换上游，只留一条记录 |
+| `SyncJob_LocalPackage_RemovesAllUpstreamVersionsForSamePackageAndArch` | 同名多个上游版本全部被替换，不残留旧哈希 |
+| `SyncJob_LocalPackage_ArchScope_OnlyRemovesMatchingArch` | 替换范围精确：amd64 的本地包不影响 arm64 的上游哈希 |
+| `SyncJob_LocalPackage_MetadataIsPreservedFaithfully` | SHA256、Filename、IsVirtual、RemoteUrl 原封传递 |
+| `SyncJob_DisabledLocalPackage_DoesNotOverrideUpstream` | disabled 时上游哈希原样保留 |
+| `SyncJob_NonConflictingMirrorPackages_SurviveAlongsideLocalPackages` | 未冲突的包不受影响 |
+| `SyncJob_MultipleDistinctLocalPackages_AllInserted` | 多个不同本地包全部写入 |
+| `SyncJob_OnlyEnabledLocalPackage_IsInserted_WhenMixedStates` | 同名包同时有 enabled/disabled 时只取 enabled |
+| `SyncJob_StandaloneRepo_LocalPackagesAreIncluded` | 无 mirror 的独立仓库也能正确合并本地包 |
+
+### `BackgroundJobsTests` — 任务队列安全性
+
+| 测试方法 | 验证点 |
+|---|---|
+| `JobQueueSequentialExecutionInSameQueueTest` | 同队列内任务**串行**执行——同一 Job 类型不会并发操作同一 repo 的 bucket |
+| `JobQueueParallelExecutionTest` | 不同队列**并行**执行——各 Job 互不阻塞 |
+| `JobCancellationTest` | 待处理任务可取消，不影响正在运行的任务 |
+| `JobFailureHandlingTest` | 任务失败不影响队列本身，不会导致后续任务无法执行 |
