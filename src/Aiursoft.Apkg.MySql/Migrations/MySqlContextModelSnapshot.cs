@@ -272,7 +272,7 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.Property<string>("SHA256")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("SHA512")
                         .IsRequired()
@@ -302,6 +302,8 @@ namespace Aiursoft.Apkg.MySql.Migrations
                     b.HasIndex("BucketId");
 
                     b.HasIndex("Filename");
+
+                    b.HasIndex("SHA256");
 
                     b.HasIndex("Package", "Version", "Architecture", "Component");
 
