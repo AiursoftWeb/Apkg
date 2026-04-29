@@ -289,3 +289,68 @@ repo 永久不可见（空仓库）
 | `JobQueueParallelExecutionTest` | 不同队列**并行**执行——各 Job 互不阻塞 |
 | `JobCancellationTest` | 待处理任务可取消，不影响正在运行的任务 |
 | `JobFailureHandlingTest` | 任务失败不影响队列本身，不会导致后续任务无法执行 |
+
+---
+
+## IsVirtual 生命周期：虚包与实包
+
+### 概念
+
+| 状态 | IsVirtual | 磁盘文件 | 说明 |
+|---|---|---|---|
+| **虚包** | `true` | 无 | 仅有元数据（Package/SHA256），二进制尚未下载 |
+| **实包** | `false` | `{ObjectsRoot}/{sha256[..2]}/{sha256}.deb` | 元数据 + CAS 存储中有对应 .deb 二进制 |
+
+### 虚→实的转换：懒加载
+
+当 APT 客户端通过 `/pool/...` 请求下载某个虚包时，`AptMirrorService.GetLocalPoolPath` 按以下路径处理：
+
+```
+CAS 文件存在？
+  是 → 快速路径：直接返回本地路径
+        若 IsVirtual 仍为 true，调用 SyncDbStateAsync 批量修复（执行 UPDATE）
+  否 → 慢速路径：从 RemoteUrl 下载，写入 CAS，再调用 SyncDbStateAsync
+```
+
+`SyncDbStateAsync` 使用 `ExecuteUpdateAsync` 将**所有**共享同一 `Filename` 的 `AptPackage` 行同时设为 `IsVirtual = false`，跨 bucket 生效。
+
+### MirrorSyncJob 总是写入 IsVirtual = true
+
+`MirrorSyncJob` 从上游拉取时只有元数据，没有二进制，因此所有包写入时 `IsVirtual = true`。
+`RepositorySyncJob` 复制 Mirror → Repo 时，若不加处理，会丢失已实化的标志。
+
+### Re-sync 时的保护（RepositorySyncJob）
+
+`RepositorySyncJob` 在构建新 bucket 前，先从当前 `PrimaryBucketId` 读取所有 `IsVirtual = false` 包的 SHA256，存入 `previouslyRealHashes`。复制阶段若包的 SHA256 在集合中，则保持 `IsVirtual = false`，**不重复下载**。
+
+```
+previouslyRealHashes = DB query:
+  AptPackages WHERE BucketId = repo.PrimaryBucketId AND IsVirtual = false
+  → SELECT SHA256 → HashSet
+
+copy loop:
+  if pkg.SHA256 in previouslyRealHashes → pkg.IsVirtual = false  (preserve)
+  else                                  → pkg.IsVirtual = true   (new upstream pkg)
+```
+
+这是纯 DB 操作，无文件系统 I/O，对 GC 无副作用。
+
+### GC 与 IsVirtual 的关系
+
+GC **不检查** `IsVirtual`，只关心 SHA256 引用计数：
+
+- 活跃 bucket 中任意 `AptPackage.SHA256` 引用 → CAS 文件**保留**
+- `LocalPackage.SHA256` 引用 → CAS 文件**保留**（LocalPackage 充当"持久锁"）
+- 无任何引用 → CAS 文件**删除**
+
+即使包标记为 `IsVirtual = true`，只要它的 SHA256 仍在 DB 中某条活跃记录里，对应 .deb 文件（如果存在）就不会被 GC 删除。
+
+### 测试覆盖
+
+| 测试方法 | 验证点 |
+|---|---|
+| `SyncJob_AfterResync_PackageWithSameSha256_StaysReal` | re-sync 后 SHA256 相同的包保持 `IsVirtual = false` |
+| `SyncJob_AfterResync_PackageWithNewSha256_BecomesVirtual` | re-sync 后 SHA256 变化的包变回 `IsVirtual = true` |
+| `GcJob_DeletesCasFile_WhenNoPackageReferencesSha256` | 无引用的 CAS 文件被 GC 删除 |
+| `GcJob_KeepsCasFile_WhenActiveAptPackageReferencesSha256` | 活跃 AptPackage 保护其 CAS 文件不被删除 |
+| `GcJob_KeepsCasFile_WhenLocalPackageReferencesSha256` | LocalPackage 保护其 CAS 文件不被删除（即使当时无 AptPackage 行） |
