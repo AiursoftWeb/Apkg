@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Вы уверены, что хотите удалить репозиторий</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Просмотр пакетов</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>Создать новый репозиторий</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>Удалить репозиторий</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Сведения</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Дистрибутив</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Активное хранилище</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>Версия</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>Активный снимок, который в данный момент обслуживает клиенты apt. Станет активным после успешного завершения синхронизации репозитория.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Снимок, создаваемый выполняющейся задачей Repository Sync. Он заменяет активный бакет при успешном завершении задачи.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Всего пакетов</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Подписан ли Release-файл репозитория ключом GPG. Клиенты apt, настроенные с параметром &apos;signed-by=&apos; в sources.list, будут отклонять репозитории, которые не подписаны или подписаны неверным ключом.</value>
   </data>
 
 </root>

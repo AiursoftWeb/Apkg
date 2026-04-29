@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Sei sicuro di voler eliminare il repository</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Esplora pacchetti</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annulla</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>Crea nuovo repository</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>Elimina repository</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Dettagli</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribuzione</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifica</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Bucket Live</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>Rilascio</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>Lo snapshot attivo attualmente servito ai client apt. Diventa live al termine con successo di una sincronizzazione del repository.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Lo snapshot in fase di costruzione da un job Repository Sync in esecuzione. Sostituisce il bucket live quando il job ha successo.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Pacchetti totali</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Se il file Release del repository è firmato con GPG. I client apt configurati con &apos;signed-by=&apos; in sources.list rifiuteranno i repository non firmati o firmati con la chiave errata.</value>
   </data>
 
 </root>

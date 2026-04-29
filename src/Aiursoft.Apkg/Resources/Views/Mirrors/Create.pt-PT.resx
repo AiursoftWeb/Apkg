@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>URL opcional para a chave pública GPG upstream para verificação.</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>Caminho para o ficheiro de chave local do GPG para verificar as assinaturas da fonte. Deixe em branco para ignorar a verificação.</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Guardar Alterações</value>
   </data>

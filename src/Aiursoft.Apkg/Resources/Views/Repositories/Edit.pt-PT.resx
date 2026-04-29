@@ -21,6 +21,12 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Nenhum (Independente) --</value>
   </data>
+  <data name="Allow Anyone to Upload" xml:space="preserve">
+    <value>Permitir que qualquer pessoa faça upload</value>
+  </data>
+  <data name="Allows any logged-in user to upload LocalPackages to this repository." xml:space="preserve">
+    <value>Permite que qualquer utilizador autenticado carregue LocalPackages para este repositório.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Arquitectura</value>
   </data>
@@ -45,8 +51,20 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>Editar Repositório</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>Ativar Assinatura GPG</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Se estiver ligado a um espelho, este repositório servirá pacotes a partir dessa fonte de origem.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Se vinculado, o índice Packages deste repositório é alimentado a partir do espelho durante cada Sincronização do Repositório. Os LocalPackages com o mesmo nome de pacote e arquitetura substituem a versão do espelho.</value>
+  </data>
+  <data name="If unchecked, only users with the &apos;Upload to Restricted Repositories&apos; permission can publish packages to this repository." xml:space="preserve">
+    <value>Se não estiver selecionado, apenas os utilizadores com a permissão &apos;Carregar para Repositórios Restritos&apos; podem publicar pacotes neste repositório.</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>Espelho</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>Guardar Repositório</value>
@@ -62,6 +80,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>O prefixo da URL para este repositório (por exemplo, &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>Quando ativado, o ficheiro Release é assinado com a chave GPG selecionada após cada sincronização do repositório. Os clientes que utilizam &apos;signed-by=&apos; no seu sources.list verificarão esta assinatura e recusarão repositórios não assinados ou assinados incorretamente.</value>
   </data>
 
 </root>

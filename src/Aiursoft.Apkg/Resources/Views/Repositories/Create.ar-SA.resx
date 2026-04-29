@@ -45,8 +45,17 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>تعديل المستودع</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>تفعيل توقيع GPG</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>إذا تم ربطه بمرآة، ستقوم مستودع هذا بتقديم الحزم من ذلك المصدر الخارجي.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>إذا تم ربطه، يتم تغذية فهرس الحزم لهذا المستودع من المرآة أثناء كل مزامنة للمستودع. تتجاوز الحزم المحلية لنفس اسم الحزمة والبنية المعمارية إصدار المرآة.</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>مرآة</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>حفظ المستودع</value>
@@ -62,6 +71,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>بادئة عنوان URL لهذا المستودع (على سبيل المثال: &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>عند التمكين، يتم توقيع ملف الإصدار باستخدام مفتاح GPG المحدد بعد كل مزامنة للمستودع. سيتحقق العملاء الذين يستخدمون &apos;signed-by=&apos; في ملف sources.list الخاص بهم من هذا التوقيع ويرفضون المستودعات غير الموقعة أو الموقعة بشكل خاطئ.</value>
   </data>
 
 </root>
