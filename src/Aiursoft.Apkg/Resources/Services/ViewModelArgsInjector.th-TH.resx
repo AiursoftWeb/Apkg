@@ -39,6 +39,12 @@
   <data name="Anonymous" xml:space="preserve">
     <value>ไม่ระบุชื่อ</value>
   </data>
+  <data name="API Key Usage" xml:space="preserve">
+    <value>การใช้งานคีย์ API</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>คีย์ API</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>งานพื้นหลัง</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>แพ็กเกจของฉัน</value>
+  </data>
+  <data name="New API Key" xml:space="preserve">
+    <value>คีย์ API ใหม่</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>ไม่พบ</value>

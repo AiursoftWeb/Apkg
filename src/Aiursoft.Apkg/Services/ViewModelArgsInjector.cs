@@ -100,6 +100,10 @@ public class ViewModelArgsInjector(
         _ = localizer["Upload Package"];
     
         _ = localizer["Primary Bucket Missing"];
+    
+        _ = localizer["API Key Usage"];
+        _ = localizer["API Keys"];
+        _ = localizer["New API Key"];
     }
 
     public void InjectSimple(

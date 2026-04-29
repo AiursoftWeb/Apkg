@@ -36,6 +36,12 @@
   <data name="Anonymous" xml:space="preserve">
     <value>अनाम</value>
   </data>
+  <data name="API Key Usage" xml:space="preserve">
+    <value>एपीआई कुंजी उपयोग</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>API कुंजियाँ</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>बैकग्राउंड जॉब्स</value>
   </data>
@@ -134,6 +140,9 @@
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>मेरे पैकेज</value>
+  </data>
+  <data name="New API Key" xml:space="preserve">
+    <value>नया API कुंजी</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>नहीं मिला</value>

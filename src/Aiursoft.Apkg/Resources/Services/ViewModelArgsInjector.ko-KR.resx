@@ -39,6 +39,12 @@
   <data name="Anonymous" xml:space="preserve">
     <value>익명</value>
   </data>
+  <data name="API Key Usage" xml:space="preserve">
+    <value>API 키 사용량</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>API 키</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>백그라운드 작업</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>내 패키지</value>
+  </data>
+  <data name="New API Key" xml:space="preserve">
+    <value>새 API 키</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>찾을 수 없음</value>
