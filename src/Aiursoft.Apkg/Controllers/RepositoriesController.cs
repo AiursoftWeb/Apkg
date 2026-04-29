@@ -56,8 +56,12 @@ public class RepositoriesController(
     }
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<IActionResult> Packages(int id, string? searchName, string? sortOrder, int page = 1)
     {
+        if (!await CheckAccessAsync(SettingsMap.AllowAnonymousBrowseRepository))
+            return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
+
         var repo = await dbContext.AptRepositories.FindAsync(id);
         if (repo == null) return NotFound();
         if (repo.PrimaryBucketId == null)
@@ -118,8 +122,12 @@ public class RepositoriesController(
     }
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<IActionResult> PackageDetails(int id)
     {
+        if (!await CheckAccessAsync(SettingsMap.AllowAnonymousViewPackageDetails))
+            return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
+
         var package = await dbContext.AptPackages
             .Include(p => p.Bucket)
             .FirstOrDefaultAsync(p => p.Id == id);
@@ -160,8 +168,12 @@ public class RepositoriesController(
     }
 
     [HttpGet]
+    [AllowAnonymous]
     public async Task<IActionResult> ReverseDepends(int id)
     {
+        if (!await CheckAccessAsync(SettingsMap.AllowAnonymousViewPackageDetails))
+            return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
+
         var package = await dbContext.AptPackages.FindAsync(id);
         if (package == null) return NotFound();
 
