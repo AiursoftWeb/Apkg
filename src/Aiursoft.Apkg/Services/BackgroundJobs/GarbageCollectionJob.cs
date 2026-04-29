@@ -62,6 +62,8 @@ public class GarbageCollectionJob(
 
         logger.LogInformation("Found {Count} orphaned buckets to delete.", orphanedBuckets.Count);
 
+        var isInMemoryDb = db.Database.IsInMemory();
+
         foreach (var bucketId in orphanedBuckets)
         {
             // 1. Delete physical bucket directory (Packages, Packages.gz)
@@ -71,11 +73,26 @@ public class GarbageCollectionJob(
                 Directory.Delete(bucketDir, true);
             }
 
-            // 2. Delete packages from DB (without loading into memory)
-            await db.AptPackages.Where(p => p.BucketId == bucketId).ExecuteDeleteAsync();
-
-            // 3. Delete bucket from DB
-            await db.AptBuckets.Where(b => b.Id == bucketId).ExecuteDeleteAsync();
+            // 2. Delete packages from DB
+            // For real databases (Sqlite, MySQL): Use ExecuteDeleteAsync() for zero memory allocation
+            // For InMemory tests: Use RemoveRange() since InMemory doesn't support ExecuteDeleteAsync()
+            if (isInMemoryDb)
+            {
+                var packagesToDelete = await db.AptPackages.Where(p => p.BucketId == bucketId).ToListAsync();
+                db.AptPackages.RemoveRange(packagesToDelete);
+                var bucketToDelete = await db.AptBuckets.FirstOrDefaultAsync(b => b.Id == bucketId);
+                if (bucketToDelete != null)
+                {
+                    db.AptBuckets.Remove(bucketToDelete);
+                }
+                await db.SaveChangesAsync();
+            }
+            else
+            {
+                // Direct SQL DELETE: avoids loading 70k rows into EF ChangeTracker
+                await db.AptPackages.Where(p => p.BucketId == bucketId).ExecuteDeleteAsync();
+                await db.AptBuckets.Where(b => b.Id == bucketId).ExecuteDeleteAsync();
+            }
         }
 
         // 4. Clean up orphaned CAS physical files (.deb)
