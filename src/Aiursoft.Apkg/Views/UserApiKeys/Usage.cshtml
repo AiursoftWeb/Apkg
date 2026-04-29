@@ -37,7 +37,7 @@
 
             <h4 class="mt-4">@Localizer["1. Upload a .deb Package"]</h4>
             <p>@Localizer["Use the following curl command to upload a package to a repository:"]</p>
-            <pre class="bg-dark text-light p-3 rounded"><code>curl -X POST "@(Model.BaseUrl)/api/packages/upload?repositoryId=1&component=main" \
+            <pre class="bg-dark text-light p-3 rounded"><code>curl -X POST "@(Model.BaseUrl)/api/packages/upload?repositoryId=1&amp;component=main" \
   -H "Authorization: Bearer @(Model.RawKey ?? Model.KeyDisplay)" \
   -F "deb=@@/path/to/your-package.deb"</code></pre>
 

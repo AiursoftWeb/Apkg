@@ -1,15 +1,12 @@
 using System.Security.Claims;
+using System.Security.Cryptography;
 using Aiursoft.Apkg.Authorization;
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Services;
-using Aiursoft.Apkg.Services.Authentication;
 using Aiursoft.Apkg.Services.FileStorage;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography;
 
 namespace Aiursoft.Apkg.Controllers;
 
