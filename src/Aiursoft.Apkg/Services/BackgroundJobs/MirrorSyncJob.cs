@@ -36,7 +36,10 @@ public class MirrorSyncJob(
                 mirror.LastPullResult = ex.Message;
                 mirror.LastPullErrorStack = ex.StackTrace;
             }
-            db.AptMirrors.Update(mirror);
+            // Use Entry().State instead of Update() to avoid deep graph traversal.
+            // Update() would walk mirror.SecondaryBucket → bucket.Packages and re-attach
+            // stale package entities as Modified, causing a flood of unnecessary UPDATEs.
+            db.Entry(mirror).State = EntityState.Modified;
             await db.SaveChangesAsync();
         }
 
@@ -96,8 +99,8 @@ public class MirrorSyncJob(
         {
             logger.LogWarning("No packages were found for any component in suite {Suite}. The sync is considered failed and the bucket will not be swapped.", mirror.Suite);
             // Clear secondary so the empty bucket becomes orphaned and will be collected by the next GC run.
-            db.AptMirrors.Update(mirror);
             mirror.SecondaryBucketId = null;
+            db.Entry(mirror).State = EntityState.Modified;
             await db.SaveChangesAsync();
             
             if (lastException != null)
@@ -123,12 +126,15 @@ public class MirrorSyncJob(
         // is finally safe to orphan and collect.
         logger.LogInformation("Sync completed for suite {Suite}. Swapped {Count} packages to Bucket {BucketId}.", mirror.Suite, totalInserted, bucket.Id);
         
-        // Re-attach the mirror entity because change tracker might have been cleared
-        db.AptMirrors.Update(mirror);
+        // Re-attach the mirror entity using Entry().State to avoid deep graph traversal.
+        // Using Update() here would walk mirror.SecondaryBucket → bucket.Packages and
+        // re-attach the stale first-batch packages as Modified, generating a flood of
+        // unnecessary UPDATE statements. Entry().State = Modified touches only the mirror row.
         var retiredPrimaryId = mirror.PrimaryBucketId; // keep old primary alive (see comment above)
         mirror.PrimaryBucketId = mirror.SecondaryBucketId; // promote new bucket
         mirror.SecondaryBucketId = retiredPrimaryId;       // protect old bucket from GC
         mirror.LastPrimaryReplacedAt = DateTime.UtcNow;    // track when the bucket swap occurred
+        db.Entry(mirror).State = EntityState.Modified;
         await db.SaveChangesAsync();
         return totalInserted;
     }
