@@ -59,6 +59,29 @@ public class RepositorySyncJob(
 
         var newBucketId = newBucket.Id;
 
+        // Pre-load the SHA256 hashes of packages that are already materialized
+        // (IsVirtual = false) in the current primary bucket. When a re-sync produces
+        // a package with an identical SHA256, the CAS file is already on disk — there
+        // is no need to re-download it, so we carry IsVirtual = false forward.
+        // A package with a different SHA256 (new version) correctly remains virtual.
+        var previouslyRealHashes = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        if (repo.PrimaryBucketId != null)
+        {
+            var realHashes = await db.AptPackages
+                .AsNoTracking()
+                .Where(p => p.BucketId == repo.PrimaryBucketId.Value && !p.IsVirtual)
+                .Select(p => p.SHA256)
+                .Distinct()
+                .ToListAsync();
+            previouslyRealHashes = new HashSet<string>(realHashes, StringComparer.OrdinalIgnoreCase);
+            if (previouslyRealHashes.Count > 0)
+            {
+                logger.LogInformation(
+                    "Repository {RepoName}: found {Count} already-materialized SHA256s in current primary; these will remain IsVirtual=false if unchanged.",
+                    repo.Name, previouslyRealHashes.Count);
+            }
+        }
+
         // 2. Data Transfer (Copy from Mirror Bucket to Repo Bucket)
         if (repo.MirrorId != null)
         {
@@ -82,6 +105,13 @@ public class RepositorySyncJob(
                 {
                     pkg.Id = 0;
                     pkg.BucketId = newBucketId;
+                    // If this exact binary was already downloaded (same SHA256), the CAS
+                    // file is still on disk. Preserve IsVirtual = false so the first
+                    // subsequent request skips the lazy-sync entirely.
+                    if (previouslyRealHashes.Contains(pkg.SHA256))
+                    {
+                        pkg.IsVirtual = false;
+                    }
                     db.AptPackages.Add(pkg);
                     count++;
                     if (count % 1000 == 0)

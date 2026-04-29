@@ -67,7 +67,7 @@ public class RepositorySyncLocalPackagesTests : TestBase
     // Helpers
     // ──────────────────────────────────────────────────────────────────────
 
-    private void AddMirrorPackage(string name, string version = "1.0", string arch = "amd64")
+    private void AddMirrorPackage(string name, string version = "1.0", string arch = "amd64", string? sha256 = null)
     {
         var pkg = new AptPackage
         {
@@ -77,7 +77,7 @@ public class RepositorySyncLocalPackagesTests : TestBase
             Package = name,
             Version = version,
             Filename = $"pool/main/{name[0]}/{name}/{name}_{version}_{arch}.deb",
-            SHA256 = "e3b0c44298fc1c149afbf4c8996fb924" + Guid.NewGuid().ToString("N")[..32],
+            SHA256 = sha256 ?? ("e3b0c44298fc1c149afbf4c8996fb924" + Guid.NewGuid().ToString("N")[..32]),
             IsVirtual = true,
             RemoteUrl = $"http://example.com/{name}.deb",
             OriginSuite = "upstream",
@@ -97,6 +97,50 @@ public class RepositorySyncLocalPackagesTests : TestBase
         };
         _db.AptPackages.Add(pkg);
         _db.SaveChanges();
+    }
+
+    /// <summary>
+    /// Sets up a current primary bucket for the repo with a single package that has already
+    /// been downloaded (IsVirtual = false). Returns the SHA256 used.
+    /// </summary>
+    private string SetRepoPrimaryWithRealPackage(string name, string version = "1.0", string arch = "amd64")
+    {
+        var sha256 = Guid.NewGuid().ToString("N").PadRight(64, '0')[..64];
+        var bucket = new AptBucket { CreatedAt = DateTime.UtcNow };
+        _db.AptBuckets.Add(bucket);
+        _db.SaveChanges();
+
+        _db.AptPackages.Add(new AptPackage
+        {
+            BucketId = bucket.Id,
+            Component = "main",
+            Architecture = arch,
+            Package = name,
+            Version = version,
+            Filename = $"pool/main/{name[0]}/{name}/{name}_{version}_{arch}.deb",
+            SHA256 = sha256,
+            IsVirtual = false,      // already downloaded — CAS file is on disk
+            RemoteUrl = $"http://example.com/{name}.deb",
+            OriginSuite = "upstream",
+            OriginComponent = "main",
+            Maintainer = "Upstream <upstream@example.com>",
+            Description = $"Upstream {name}",
+            DescriptionMd5 = "abc",
+            Section = "utils",
+            Priority = "optional",
+            Origin = "Ubuntu",
+            Bugs = string.Empty,
+            Size = "2048",
+            InstalledSize = "8192",
+            MD5sum = string.Empty,
+            SHA1 = string.Empty,
+            SHA512 = string.Empty
+        });
+        _db.SaveChanges();
+
+        _repo.PrimaryBucketId = bucket.Id;
+        _db.SaveChanges();
+        return sha256;
     }
 
     private LocalPackage AddLocalPackage(
@@ -361,5 +405,46 @@ public class RepositorySyncLocalPackagesTests : TestBase
 
         Assert.IsNotNull(pkg, "LocalPackage must be included even in a standalone (mirror-less) repo.");
         Assert.AreEqual("3.0", pkg.Version);
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Re-sync IsVirtual preservation
+    // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task SyncJob_AfterResync_PackageWithSameSha256_StaysReal()
+    {
+        // Arrange: the repo already has a primary bucket where "wget" was downloaded
+        // (IsVirtual = false). The mirror re-syncs with the same version and SHA256.
+        var sha256 = SetRepoPrimaryWithRealPackage("wget", version: "1.21");
+        AddMirrorPackage("wget", version: "1.21", sha256: sha256);   // same SHA256 in new mirror
+
+        // Act
+        var newBucket = await RunSyncAndGetNewBucket();
+
+        // Assert: the CAS file is still on disk (same SHA256) — SyncJob must mark it real
+        var pkg = await _db.AptPackages
+            .FirstAsync(p => p.BucketId == newBucket!.Id && p.Package == "wget");
+        Assert.IsFalse(pkg.IsVirtual,
+            "A package whose binary is already on disk (unchanged SHA256) must remain IsVirtual=false after re-sync.");
+    }
+
+    [TestMethod]
+    public async Task SyncJob_AfterResync_PackageWithNewSha256_BecomesVirtual()
+    {
+        // Arrange: the repo has a primary bucket where "wget" v1.0 was downloaded.
+        // The upstream now has a newer v2.0 with a different SHA256 — the new binary
+        // has NOT been downloaded yet.
+        SetRepoPrimaryWithRealPackage("wget", version: "1.0");           // old, real
+        AddMirrorPackage("wget", version: "2.0");                        // new version, different SHA256
+
+        // Act
+        var newBucket = await RunSyncAndGetNewBucket();
+
+        // Assert: the new version has a different SHA256 and no CAS file yet — must be virtual
+        var pkg = await _db.AptPackages
+            .FirstAsync(p => p.BucketId == newBucket!.Id && p.Package == "wget");
+        Assert.IsTrue(pkg.IsVirtual,
+            "A package with a new SHA256 (updated upstream) must start as IsVirtual=true; the binary has not been downloaded.");
     }
 }
