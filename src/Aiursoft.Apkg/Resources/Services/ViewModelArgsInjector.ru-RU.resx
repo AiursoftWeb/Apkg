@@ -153,6 +153,9 @@
   <data name="Personal" xml:space="preserve">
     <value>Личное</value>
   </data>
+  <data name="Primary Bucket Missing" xml:space="preserve">
+    <value>Отсутствует основная корзина</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>Профиль</value>
   </data>

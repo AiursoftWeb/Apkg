@@ -153,6 +153,9 @@
   <data name="Personal" xml:space="preserve">
     <value>شخصي</value>
   </data>
+  <data name="Primary Bucket Missing" xml:space="preserve">
+    <value>دلو الأساس مفقود</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>الملف الشخصي</value>
   </data>

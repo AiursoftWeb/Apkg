@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>Thành phần</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>Tệp được lưu trữ trên mirror upstream. Các client apt tải nó trực tiếp từ URL của mirror.</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>Tệp được lưu trữ cục bộ trên máy chủ này. Các máy khách apt tải xuống từ đây.</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Tiếp theo</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Ảo</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>Virtual: tệp được lưu trữ trên upstream mirror và tải về theo yêu cầu bởi các apt client. Physical: tệp được lưu trữ cục bộ trên máy chủ này.</value>
   </data>
 
 </root>

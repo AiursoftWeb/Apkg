@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>你確定要刪除儲存庫嗎</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>瀏覽套件</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>建立新存儲庫</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>刪除</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>刪除儲存庫</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>詳細資料</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>發行版</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編輯</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>即時儲存桶</value>

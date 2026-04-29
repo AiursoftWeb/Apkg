@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- Select Repository --" xml:space="preserve">
+    <value>-- เลือกที่เก็บ --</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>องค์ประกอบ</value>
+  </data>
+  <data name="Select a .deb package file to upload. Package metadata will be extracted automatically." xml:space="preserve">
+    <value>เลือกไฟล์แพ็กเกจ .deb เพื่ออัปโหลด ระบบจะดึงข้อมูลรายละเอียดของแพ็กเกจอัตโนมัติ</value>
+  </data>
+  <data name="The APT component this package belongs to (e.g. main, universe, restricted, multiverse)." xml:space="preserve">
+    <value>ส่วนประกอบ APT ที่แพ็กเกจนี้เป็นส่วนหนึ่งของ (เช่น main, universe, restricted, multiverse)</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>อัปโหลด</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>อัปโหลดแพ็กเกจ</value>
+  </data>
+
+</root>

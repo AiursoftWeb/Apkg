@@ -45,8 +45,17 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>Sửa Kho</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>Bật ký GPG</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Nếu được liên kết với một máy phản chiếu, kho lưu trữ này sẽ cung cấp các gói từ nguồn gốc upstream đó.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Nếu được liên kết, chỉ mục Packages của kho lưu trữ này sẽ được khởi tạo từ bản sao trong mỗi lần Đồng bộ hóa Kho lưu trữ. LocalPackages có cùng tên gói và kiến trúc sẽ ghi đè phiên bản từ bản sao.</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>Gương phản chiếu</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>Lưu Kho lưu trữ</value>
@@ -62,6 +71,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Tiền tố URL cho kho lưu trữ này (ví dụ: &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>Khi được bật, tệp Release sẽ được ký bằng khóa GPG đã chọn sau mỗi lần Đồng bộ hóa Kho lưu trữ. Các máy khách sử dụng &apos;signed-by=&apos; trong sources.list của chúng sẽ xác minh chữ ký này và từ chối các kho lưu trữ không được ký hoặc được ký sai.</value>
   </data>
 
 </root>

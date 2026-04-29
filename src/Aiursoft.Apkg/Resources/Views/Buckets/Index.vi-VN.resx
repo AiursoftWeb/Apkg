@@ -24,6 +24,9 @@
   <data name="Active Usage" xml:space="preserve">
     <value>Sử dụng Hiện tại</value>
   </data>
+  <data name="Being built by a currently-running Sync job. Will replace the LIVE bucket on success." xml:space="preserve">
+    <value>Đang được tạo bởi một tác vụ Sync đang chạy. Sẽ thay thế bucket LIVE khi thành công.</value>
+  </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>Lịch sử Chụp ảnh Bucket</value>
   </data>
@@ -39,6 +42,9 @@
   <data name="Logical Size" xml:space="preserve">
     <value>Kích thước Logic</value>
   </data>
+  <data name="Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run." xml:space="preserve">
+    <value>Không được tham chiếu bởi bất kỳ Mirror hoặc Repository nào. Sẽ bị xóa vĩnh viễn trong lần chạy Garbage Collection tiếp theo.</value>
+  </data>
   <data name="Orphaned" xml:space="preserve">
     <value>Cô lập</value>
   </data>
@@ -53,6 +59,12 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Trạng thái</value>
+  </data>
+  <data name="Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets." xml:space="preserve">
+    <value>Tổng kích thước tệp của tất cả gói được liệt kê trong bucket này. Việc sử dụng đĩa thực tế có thể thấp hơn do CAS (lưu trữ theo địa chỉ nội dung) loại bỏ trùng lặp các tệp được chia sẻ giữa các bucket.</value>
+  </data>
+  <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
+    <value>Bản chụp này đang được phục vụ tích cực cho các khách hàng apt làm chỉ mục hiện tại.</value>
   </data>
 
 </root>

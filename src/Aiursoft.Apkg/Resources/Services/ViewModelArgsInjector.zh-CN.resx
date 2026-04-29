@@ -156,6 +156,9 @@
   <data name="Personal" xml:space="preserve">
     <value>个人</value>
   </data>
+  <data name="Primary Bucket Missing" xml:space="preserve">
+    <value>缺少主存储桶</value>
+  </data>
   <data name="Profile" xml:space="preserve">
     <value>个人资料</value>
   </data>
