@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>المكون</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>يتم استضافة الملف على المرآة الرئيسية. تقوم عملاء apt بتنزيله مباشرة من عنوان URL للمرآة.</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>تم تخزين الملف محليًا على هذا الخادم. يقوم عملاء apt بتنزيله من هنا.</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>التالي</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>افتراضي</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>افتراضي: يتم استضافة الملف على المرآة العلوية ويتم تنزيله عند الطلب بواسطة عملاء apt. مادي: يتم تخزين الملف محليًا على هذا الخادم.</value>
   </data>
 
 </root>

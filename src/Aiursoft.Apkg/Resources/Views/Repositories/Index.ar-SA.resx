@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>هل أنت متأكد من أنك تريد حذف المستودع</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>تصفح الحزم</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>إلغاء</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>إنشاء مستودع جديد</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>حذف المستودع</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>التفاصيل</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>توزيع</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>الدلو المباشر</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>الإصدار</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>لقطة العرض النشطة المقدمة حاليًا لعملاء apt. تصبح نشطة بعد اكتمال مزامنة المستودع بنجاح.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>لقطة البناء قيد التنفيذ بواسطة مهمة مزامنة المستودع. تستبدل الدلو المباشر عند نجاح المهمة.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>إجمالي الحزم</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>ما إذا كان ملف الإصدار الخاص بالمستودع موقعًا بتوقيع GPG. سترفض عملاء apt الذين تم تكوينهم باستخدام &apos;signed-by=&apos; في sources.list المستودعات غير الموقعة أو الموقعة بالمفتاح الخطأ.</value>
   </data>
 
 </root>

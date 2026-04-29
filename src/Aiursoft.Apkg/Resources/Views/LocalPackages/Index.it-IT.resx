@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>Un pacchetto live è disponibile per i client APT.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Azioni</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Architettura</value>
+  </data>
+  <data name="Are you sure you want to delete" xml:space="preserve">
+    <value>Sei sicuro di voler eliminare</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Conferma eliminazione</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabilitato</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Vivo</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>I miei pacchetti</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>Nessun pacchetto caricato finora.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Pacchetto</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Sincronizzazione in corso</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Repository</value>
+  </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>In attesa di firma</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Stato sincronizzazione</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>Lo stato attuale di questa confezione, che viene unita e firmata nel repository live. Il processo di sincronizzazione viene eseguito ogni 20 minuti, seguito da un processo di firma ogni 5 minuti.</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Carica pacchetto</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Caricato</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Caricatore</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versione</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>Visualizza dettagli e istruzioni di installazione</value>
+  </data>
+
+</root>

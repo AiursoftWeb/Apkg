@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>متوفر حزمة مباشرة لعملاء APT.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>البنية</value>
+  </data>
+  <data name="Are you sure you want to delete" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد حذف</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>تأكيد الحذف</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>معطل</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>مباشر</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>حزمي</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>لم يتم تحميل أي حزم بعد.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>الحزمة</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>قيد المزامنة</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>المستودع</value>
+  </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>مُعدّ (في انتظار التوقيع)</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>حالة المزامنة</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>التقدم الحالي لدمج هذه الحزمة وتوقيعها في المستودع المباشر. يعمل مهمة المزامنة كل 20 دقيقة، تليها مهمة التوقيع كل 5 دقائق.</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>تحميل الحزمة</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>تم الرفع</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>المرسل</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>الإصدار</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>عرض التفاصيل وتعليمات التثبيت</value>
+  </data>
+
+</root>
