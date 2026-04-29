@@ -597,6 +597,9 @@ namespace Aiursoft.Apkg.MySql.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime?>("ExpiresAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("KeyHash")
                         .IsRequired()
                         .HasMaxLength(64)

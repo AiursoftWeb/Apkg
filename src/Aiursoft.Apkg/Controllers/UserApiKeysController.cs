@@ -89,7 +89,10 @@ public class UserApiKeysController(
             UserId    = userId,
             Name      = model.Name.Trim(),
             KeyHash   = keyHash,
-            KeyPrefix = keyPrefix
+            KeyPrefix = keyPrefix,
+            ExpiresAt = model.ExpirationDays > 0
+                ? DateTime.UtcNow.AddDays(model.ExpirationDays)
+                : null
         };
         db.UserApiKeys.Add(apiKey);
         await db.SaveChangesAsync();
