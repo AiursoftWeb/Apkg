@@ -1,0 +1,109 @@
+@model Aiursoft.Apkg.Models.UserApiKeysViewModels.UsageViewModel
+
+<div class="container-fluid p-0">
+    <div class="row mb-3">
+        <div class="col-auto">
+            <h1 class="h3 mb-3">@Localizer["API Key Usage Guide"]</h1>
+        </div>
+        <div class="col-auto ms-auto text-end">
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="align-middle me-1" data-lucide="arrow-left"></i>
+                @Localizer["Back to List"]
+            </a>
+        </div>
+    </div>
+
+    @if (Model.RawKey != null)
+    {
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <div class="alert-message">
+                <h4 class="alert-heading">@Localizer["API Key Created!"]</h4>
+                <p>@Localizer["Please copy your new API key now. You won't be able to see it again!"]</p>
+                <hr>
+                <p class="mb-0">
+                    <code>@Model.RawKey</code>
+                </p>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title mb-0">@Localizer["Using API Key"]: <strong>@Model.KeyName</strong> (<code>@Model.KeyDisplay</code>)</h5>
+        </div>
+        <div class="card-body">
+            <p>@Localizer["Use this API key to upload .deb packages programmatically. The base URL is:"] <code>@Model.BaseUrl</code></p>
+
+            <h4 class="mt-4">@Localizer["1. Upload a .deb Package"]</h4>
+            <p>@Localizer["Use the following curl command to upload a package to a repository:"]</p>
+            <pre class="bg-dark text-light p-3 rounded"><code>curl -X POST "@(Model.BaseUrl)/api/packages/upload?repositoryId=1&component=main" \
+  -H "Authorization: Bearer @(Model.RawKey ?? Model.KeyDisplay)" \
+  -F "deb=@@/path/to/your-package.deb"</code></pre>
+
+            <h4 class="mt-4">@Localizer["2. Parameters"]</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>@Localizer["Parameter"]</th>
+                        <th>@Localizer["Where"]</th>
+                        <th>@Localizer["Description"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>repositoryId</code></td>
+                        <td>@Localizer["Query string"]</td>
+                        <td>@Localizer["Numeric ID of the target repository (required)."]</td>
+                    </tr>
+                    <tr>
+                        <td><code>component</code></td>
+                        <td>@Localizer["Query string"]</td>
+                        <td>@Localizer["APT component, e.g."] <code>main</code>, <code>contrib</code>, <code>non-free</code> (@Localizer["required"]).</td>
+                    </tr>
+                    <tr>
+                        <td><code>deb</code></td>
+                        <td>@Localizer["Form field"]</td>
+                        <td>@Localizer["The .deb file (multipart/form-data, required)."]</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 class="mt-4">@Localizer["3. Response Codes"]</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>@Localizer["Code"]</th>
+                        <th>@Localizer["Meaning"]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>200 OK</code></td><td>@Localizer["Package uploaded and indexed successfully."]</td></tr>
+                    <tr><td><code>400 Bad Request</code></td><td>@Localizer["Missing file, missing parameters, or invalid .deb format."]</td></tr>
+                    <tr><td><code>401 Unauthorized</code></td><td>@Localizer["Invalid or missing API key."]</td></tr>
+                    <tr><td><code>403 Forbidden</code></td><td>@Localizer["Your account does not have permission to upload to this repository."]</td></tr>
+                    <tr><td><code>404 Not Found</code></td><td>@Localizer["Repository not found."]</td></tr>
+                    <tr><td><code>409 Conflict</code></td><td>@Localizer["Package already exists (same SHA256 or same name/version/arch/component)."]</td></tr>
+                </tbody>
+            </table>
+
+            <h4 class="mt-4">@Localizer["4. Example with Python"]</h4>
+            <pre class="bg-dark text-light p-3 rounded"><code>import requests
+
+with open("my-package_1.0_amd64.deb", "rb") as f:
+    resp = requests.post(
+        "@(Model.BaseUrl)/api/packages/upload",
+        params={"repositoryId": 1, "component": "main"},
+        headers={"Authorization": "Bearer @(Model.RawKey ?? Model.KeyDisplay)"},
+        files={"deb": f},
+    )
+resp.raise_for_status()
+print(resp.json())</code></pre>
+
+            <p class="text-muted mt-4">
+                <i data-lucide="info" class="me-1"></i>
+                @Localizer["Package metadata (version, architecture, description, …) is extracted automatically from the .deb control file — no need to specify it manually."]
+            </p>
+        </div>
+    </div>
+</div>

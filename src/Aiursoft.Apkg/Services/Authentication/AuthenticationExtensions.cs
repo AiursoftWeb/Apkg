@@ -91,6 +91,10 @@ public static class AuthenticationExtensions
             });
         }
 
+        // API key scheme — stateless Bearer token auth for CI/CD and programmatic uploads
+        authBuilder.AddScheme<AuthenticationSchemeOptions, ApiKeyAuthenticationHandler>(
+            ApiKeyAuthenticationHandler.SchemeName, _ => { });
+
         services.AddAuthorization(options =>
         {
             foreach (var permission in AppPermissions.GetAllPermissions())
