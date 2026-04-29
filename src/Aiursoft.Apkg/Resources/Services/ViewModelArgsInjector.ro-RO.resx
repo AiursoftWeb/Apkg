@@ -36,6 +36,12 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Anonim</value>
   </data>
+  <data name="API Key Usage" xml:space="preserve">
+    <value>Utilizarea cheii API</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>Chei API</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Joburi în fundal</value>
   </data>
@@ -134,6 +140,9 @@
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>Pachetele mele</value>
+  </data>
+  <data name="New API Key" xml:space="preserve">
+    <value>Cheie API nouă</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Nu a fost găsit</value>

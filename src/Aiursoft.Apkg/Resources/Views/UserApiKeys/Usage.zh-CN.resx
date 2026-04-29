@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="1. Upload a .deb Package" xml:space="preserve">
+    <value>1. 上传 .deb 包</value>
+  </data>
+  <data name="2. Parameters" xml:space="preserve">
+    <value>2. 参数</value>
+  </data>
+  <data name="3. Response Codes" xml:space="preserve">
+    <value>3. 响应代码</value>
+  </data>
+  <data name="4. Example with Python" xml:space="preserve">
+    <value>4. Python 示例</value>
+  </data>
+  <data name="API Key Created!" xml:space="preserve">
+    <value>API Key 已创建！</value>
+  </data>
+  <data name="API Key Usage Guide" xml:space="preserve">
+    <value>API Key 使用指南</value>
+  </data>
+  <data name="APT component, e.g." xml:space="preserve">
+    <value>APT 组件，例如</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>返回列表</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>代码</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="Form field" xml:space="preserve">
+    <value>表单字段</value>
+  </data>
+  <data name="Invalid or missing API key." xml:space="preserve">
+    <value>API 密钥无效或缺失。</value>
+  </data>
+  <data name="Meaning" xml:space="preserve">
+    <value>含义</value>
+  </data>
+  <data name="Missing file, missing parameters, or invalid .deb format." xml:space="preserve">
+    <value>缺少文件、缺少参数或 .deb 格式无效。</value>
+  </data>
+  <data name="Numeric ID of the target repository (required)." xml:space="preserve">
+    <value>目标仓库的数字 ID（必填）。</value>
+  </data>
+  <data name="Package already exists (same SHA256 or same name/version/arch/component)." xml:space="preserve">
+    <value>软件包已存在（SHA256 相同或名称/版本/架构/组件相同）。</value>
+  </data>
+  <data name="Package metadata (version, architecture, description, …) is extracted automatically from the .deb control file — no need to specify it manually." xml:space="preserve">
+    <value>软件包元数据（版本、架构、描述等）会自动从 .deb 控制文件中提取，无需手动指定。</value>
+  </data>
+  <data name="Package uploaded and indexed successfully." xml:space="preserve">
+    <value>软件包上传并索引成功。</value>
+  </data>
+  <data name="Parameter" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="Please copy your new API key now. You won&apos;t be able to see it again!" xml:space="preserve">
+    <value>请立即复制您的新 API 密钥。您将无法再次看到它！</value>
+  </data>
+  <data name="Query string" xml:space="preserve">
+    <value>查询字符串</value>
+  </data>
+  <data name="Repository not found." xml:space="preserve">
+    <value>未找到仓库。</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>必需</value>
+  </data>
+  <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
+    <value>.deb 文件（multipart/form-data，必填）。</value>
+  </data>
+  <data name="Use the following curl command to upload a package to a repository:" xml:space="preserve">
+    <value>使用以下 curl 命令将软件包上传到仓库：</value>
+  </data>
+  <data name="Use this API key to upload .deb packages programmatically. The base URL is:" xml:space="preserve">
+    <value>使用此 API 密钥以编程方式上传 .deb 软件包。基础 URL 为：</value>
+  </data>
+  <data name="Using API Key" xml:space="preserve">
+    <value>使用 API 密钥</value>
+  </data>
+  <data name="Where" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="Your account does not have permission to upload to this repository." xml:space="preserve">
+    <value>您的账户无权上传到此仓库。</value>
+  </data>
+
+</root>

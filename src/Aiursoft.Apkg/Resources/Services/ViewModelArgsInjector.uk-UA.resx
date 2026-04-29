@@ -36,6 +36,12 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Анонімний</value>
   </data>
+  <data name="API Key Usage" xml:space="preserve">
+    <value>Використання API-ключа</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>Ключі API</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Фонові завдання</value>
   </data>
@@ -134,6 +140,9 @@
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>Мої пакунки</value>
+  </data>
+  <data name="New API Key" xml:space="preserve">
+    <value>Новий ключ API</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Не знайдено</value>

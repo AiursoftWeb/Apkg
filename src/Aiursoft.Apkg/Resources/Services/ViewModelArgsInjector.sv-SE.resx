@@ -36,6 +36,12 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Anonym</value>
   </data>
+  <data name="API Key Usage" xml:space="preserve">
+    <value>API-nyckelanvändning</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>API-nycklar</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Bakgrundsjobb</value>
   </data>
@@ -134,6 +140,9 @@
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>Mina paket</value>
+  </data>
+  <data name="New API Key" xml:space="preserve">
+    <value>Ny API-nyckel</value>
   </data>
   <data name="Not Found" xml:space="preserve">
     <value>Inte hittat</value>
