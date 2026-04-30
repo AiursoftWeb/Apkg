@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>Optionele URL naar de openbare GPG-sleutel van de upstream voor verificatie.</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>Pad naar het lokale GPG-sleutelbosbestand voor het verifiëren van upstream-handtekeningen. Laat leeg om verificatie over te slaan.</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Wijzigingen opslaan</value>
   </data>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>Er is een live pakket beschikbaar voor APT-cliënten.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Acties</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Architectuur</value>
+  </data>
+  <data name="Are you sure you want to delete" xml:space="preserve">
+    <value>Weet u zeker dat u wilt verwijderen</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Bevestig verwijderen</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Verwijderen</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Uitgeschakeld</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Live</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Mijn pakketten</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>Nog geen pakketten geüpload.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Pakket</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Wachten op synchronisatie</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Repository</value>
+  </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>Voorbereid (Wachten op ondertekening)</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Synchronisatiestatus</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>De huidige voortgang van dit pakket dat wordt samengevoegd en ondertekend in de live-repository. De sync-job draait elke 20 minuten, gevolgd door een ondertekeningsjob elke 5 minuten.</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Pakket uploaden</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Geüpload</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Uploadaar</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versie</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>Details bekijken &amp; installatie-instructies</value>
+  </data>
+
+</root>
