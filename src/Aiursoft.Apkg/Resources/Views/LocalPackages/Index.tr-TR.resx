@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>Canlı bir paket APT istemcileri için kullanılabilir.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>İşlemler</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Mimari</value>
+  </data>
+  <data name="Are you sure you want to delete" xml:space="preserve">
+    <value>Silmek istediğinizden emin misiniz</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Silme İşlemini Onayla</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Devre Dışı</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Canlı</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Paketlerim</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>Henüz paket yüklenmedi.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Senkronize Ediliyor</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Depo</value>
+  </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>Aşamalı (İmza Bekliyor)</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Senkronizasyon Durumu</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>Bu paketin canlı depoya birleştirilme ve imzalanma sürecinin mevcut durumu. Senkronizasyon işi her 20 dakikada bir çalışır, ardından her 5 dakikada bir bir imzalama işi takip eder.</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Paket Yükle</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Yüklenme Tarihi</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Yükleyen</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Sürüm</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>Ayrıntıları Görüntüle ve Kurulum Talimatları</value>
+  </data>
+
+</root>

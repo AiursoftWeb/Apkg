@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="1 Day" xml:space="preserve">
+    <value>1 dzień</value>
+  </data>
+  <data name="1 Month" xml:space="preserve">
+    <value>1 Miesiąc</value>
+  </data>
+  <data name="1 Week" xml:space="preserve">
+    <value>1 tydzień</value>
+  </data>
+  <data name="1 Year" xml:space="preserve">
+    <value>1 rok</value>
+  </data>
+  <data name="10 Years" xml:space="preserve">
+    <value>10 Lat</value>
+  </data>
+  <data name="A label to help you identify where this key is used." xml:space="preserve">
+    <value>Etykieta pomocna w identyfikacji miejsca użycia tego klucza.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="Create New API Key" xml:space="preserve">
+    <value>Utwórz nowy klucz API</value>
+  </data>
+  <data name="e.g. CI/CD Pipeline, Dev Machine" xml:space="preserve">
+    <value>np. potok CI/CD, komputer deweloperski</value>
+  </data>
+  <data name="Expiration" xml:space="preserve">
+    <value>Ważność</value>
+  </data>
+  <data name="Friendly Name" xml:space="preserve">
+    <value>Przyjazna nazwa</value>
+  </data>
+  <data name="Generate Key" xml:space="preserve">
+    <value>Wygeneruj klucz</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Nigdy</value>
+  </data>
+  <data name="New Key Details" xml:space="preserve">
+    <value>Szczegóły nowego klucza</value>
+  </data>
+
+</root>

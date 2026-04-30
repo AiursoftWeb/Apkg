@@ -24,6 +24,9 @@
   <data name="Active Usage" xml:space="preserve">
     <value>Aktif Kullanım</value>
   </data>
+  <data name="Being built by a currently-running Sync job. Will replace the LIVE bucket on success." xml:space="preserve">
+    <value>Şu anda çalışan bir Eşitleme işi tarafından oluşturuluyor. Başarı durumunda LIVE kovanını değiştirecektir.</value>
+  </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>Kova Anlık Görüntüleri Geçmişi</value>
   </data>
@@ -39,6 +42,9 @@
   <data name="Logical Size" xml:space="preserve">
     <value>Mantıksal Boyut</value>
   </data>
+  <data name="Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run." xml:space="preserve">
+    <value>Hiçbir Ayna veya Depo tarafından referans gösterilmiyor. Bir sonraki Çöp Toplama çalıştırmasında kalıcı olarak silinecek.</value>
+  </data>
   <data name="Orphaned" xml:space="preserve">
     <value>Yalnız</value>
   </data>
@@ -50,6 +56,12 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Durum</value>
+  </data>
+  <data name="Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets." xml:space="preserve">
+    <value>Bu kovada listelenen tüm paket dosya boyutlarının toplamı. CAS (içeriğe adreslenebilir depolama) kovalar arasında paylaşılan dosyaları deduplike ettiği için gerçek disk kullanımı daha düşük olabilir.</value>
+  </data>
+  <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
+    <value>Bu anlık görüntü, apt istemcilerine geçerli dizin olarak aktif olarak sunulmaktadır.</value>
   </data>
 
 </root>
