@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="1. Upload a .deb Package" xml:space="preserve">
+    <value>1. อัปโหลดแพ็กเกจ .deb</value>
+  </data>
+  <data name="2. Parameters" xml:space="preserve">
+    <value>2. พารามิเตอร์</value>
+  </data>
+  <data name="3. Response Codes" xml:space="preserve">
+    <value>3. รหัสสถานะการตอบกลับ</value>
+  </data>
+  <data name="4. Example with Python" xml:space="preserve">
+    <value>4. ตัวอย่างด้วย Python</value>
+  </data>
+  <data name="API Key Created!" xml:space="preserve">
+    <value>สร้างคีย์ API สำเร็จ!</value>
+  </data>
+  <data name="API Key Usage Guide" xml:space="preserve">
+    <value>คู่มือการใช้งานคีย์ API</value>
+  </data>
+  <data name="APT component, e.g." xml:space="preserve">
+    <value>ส่วนประกอบ APT เช่น</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>กลับไปยังรายการ</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>รหัส</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>คำอธิบาย</value>
+  </data>
+  <data name="Form field" xml:space="preserve">
+    <value>ช่องกรอกข้อมูลแบบฟอร์ม</value>
+  </data>
+  <data name="Invalid or missing API key." xml:space="preserve">
+    <value>คีย์ API ไม่ถูกต้องหรือไม่มีอยู่</value>
+  </data>
+  <data name="Meaning" xml:space="preserve">
+    <value>ความหมาย</value>
+  </data>
+  <data name="Missing file, missing parameters, or invalid .deb format." xml:space="preserve">
+    <value>ไม่พบไฟล์, ขาดพารามิเตอร์, หรือรูปแบบ .deb ไม่ถูกต้อง</value>
+  </data>
+  <data name="Numeric ID of the target repository (required)." xml:space="preserve">
+    <value>รหัสตัวเลขของคลังเป้าหมาย (จำเป็น)</value>
+  </data>
+  <data name="Package already exists (same SHA256 or same name/version/arch/component)." xml:space="preserve">
+    <value>แพ็คเกจมีอยู่แล้ว (ค่า SHA256 เดียวกัน หรือชื่อ/เวอร์ชัน/สถาปัตยกรรม/ส่วนประกอบ เดียวกัน)</value>
+  </data>
+  <data name="Package metadata (version, architecture, description, …) is extracted automatically from the .deb control file — no need to specify it manually." xml:space="preserve">
+    <value>ข้อมูลเมตาของแพ็กเกจ (เวอร์ชัน สถาปัตยกรรม คำอธิบาย, …) จะถูกดึงมาอัตโนมัติจากไฟล์ control ของ .deb — ไม่จำเป็นต้องระบุด้วยตนเอง</value>
+  </data>
+  <data name="Package uploaded and indexed successfully." xml:space="preserve">
+    <value>อัปโหลดแพ็กเกจและทำดัชนีเสร็จสิ้นอย่างสำเร็จ</value>
+  </data>
+  <data name="Parameter" xml:space="preserve">
+    <value>พารามิเตอร์</value>
+  </data>
+  <data name="Please copy your new API key now. You won&apos;t be able to see it again!" xml:space="preserve">
+    <value>โปรดคัดลอกคีย์ API ใหม่ของคุณในตอนนี้ คุณจะไม่สามารถเห็นมันได้อีก!</value>
+  </data>
+  <data name="Query string" xml:space="preserve">
+    <value>สตริงคำถาม</value>
+  </data>
+  <data name="Repository not found." xml:space="preserve">
+    <value>ไม่พบ Repository</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>จำเป็น</value>
+  </data>
+  <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
+    <value>ไฟล์ .deb (multipart/form-data, จำเป็น)</value>
+  </data>
+  <data name="Use the following curl command to upload a package to a repository:" xml:space="preserve">
+    <value>ใช้คำสั่ง curl ต่อไปนี้เพื่ออัปโหลดแพ็กเกจไปยังที่เก็บข้อมูล:</value>
+  </data>
+  <data name="Use this API key to upload .deb packages programmatically. The base URL is:" xml:space="preserve">
+    <value>ใช้คีย์ API นี้เพื่ออัปโหลดแพ็กเกจ .deb แบบโปรแกรมmatic ที่อยู่ฐานคือ:</value>
+  </data>
+  <data name="Using API Key" xml:space="preserve">
+    <value>การใช้คีย์ API</value>
+  </data>
+  <data name="Where" xml:space="preserve">
+    <value>ตำแหน่ง</value>
+  </data>
+  <data name="Your account does not have permission to upload to this repository." xml:space="preserve">
+    <value>บัญชีของคุณไม่มีสิทธิ์อัปโหลดไปยังที่เก็บนี้</value>
+  </data>
+
+</root>
