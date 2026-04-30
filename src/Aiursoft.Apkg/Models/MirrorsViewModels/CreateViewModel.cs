@@ -5,6 +5,11 @@ namespace Aiursoft.Apkg.Models.MirrorsViewModels;
 
 public class CreateViewModel : UiStackLayoutViewModel
 {
+    public CreateViewModel()
+    {
+        PageTitle = "Create Mirror";
+    }
+
     [Required(ErrorMessage = "The {0} is required.")]
     [MaxLength(255, ErrorMessage = "The {0} cannot exceed {1} characters.")]
     [Display(Name = "Base URL")]

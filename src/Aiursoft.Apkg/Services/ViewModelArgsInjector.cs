@@ -70,6 +70,7 @@ public class ViewModelArgsInjector(
         _ = localizer["Permissions"];
         _ = localizer["Background Jobs"];
         _ = localizer["Global Settings"];
+        _ = localizer["Primary Bucket Missing"];
 
         _ = localizer["Access Denied"];
         _ = localizer["Bad Request"];
@@ -93,6 +94,17 @@ public class ViewModelArgsInjector(
         _ = localizer["Signing Certificates"];
         _ = localizer["Snapshots history"];
         _ = localizer["Upstream Mirrors"];
+        _ = localizer["Bucket Packages"];
+        _ = localizer["Create Certificate"];
+        _ = localizer["Repository Details"];
+        _ = localizer["Repository Packages"];
+        _ = localizer["Packages"];
+        _ = localizer["Mirrors"];
+        _ = localizer["Package Details"];
+        _ = localizer["Create Mirror"];
+        _ = localizer["Buckets"];
+        _ = localizer["Verify Details"];
+        _ = localizer["Local Packages"];
     
         _ = localizer["Package Search"];
     

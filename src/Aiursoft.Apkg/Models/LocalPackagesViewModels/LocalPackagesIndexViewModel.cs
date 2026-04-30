@@ -38,6 +38,11 @@ public class PackageStatusInfo
 
 public class LocalPackagesIndexViewModel : UiStackLayoutViewModel
 {
+    public LocalPackagesIndexViewModel()
+    {
+        PageTitle = "Local Packages";
+    }
+
     public List<PackageStatusInfo> Packages { get; set; } = [];
     public bool IsAdmin { get; set; }
 }
