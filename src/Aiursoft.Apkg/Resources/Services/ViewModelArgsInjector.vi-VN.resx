@@ -54,6 +54,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>Lịch sử Bucket</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>Gói Bucket</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>Thùng chứa</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>Chứng chỉ</value>
   </data>
@@ -68,6 +74,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Nhấp để đăng nhập</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>Tạo Chứng chỉ</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>Tạo Bản sao</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>Tạo Repository</value>
@@ -89,6 +101,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Thư mục</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Chỉnh sửa</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>Sửa Mirror</value>
@@ -129,6 +144,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>Lỗi máy chủ nội bộ</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>Gói cục bộ</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Khóa tài khoản</value>
   </data>
@@ -141,6 +159,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Quản lý</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>Bản sao</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>Gói của tôi</value>
   </data>
@@ -150,11 +171,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>Không tìm thấy</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Chi tiết Gói</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>Động cơ Gói</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>Tìm kiếm Gói</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Gói</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Chi tiết quyền hạn</value>
@@ -179,6 +206,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Đăng ký</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>Kho lưu trữ</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Chi tiết Kho lưu trữ</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>Gói Repository</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>Chi tiết Vai trò</value>
@@ -221,6 +257,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Người dùng</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>Xác minh chi tiết</value>
   </data>
 
 </root>

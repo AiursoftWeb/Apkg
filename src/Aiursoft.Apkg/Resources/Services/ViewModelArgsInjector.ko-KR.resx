@@ -54,6 +54,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>버킷 기록</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>버킷 패키지</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>버킷</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>인증서</value>
   </data>
@@ -68,6 +74,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>로그인하려면 클릭</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>인증서 만들기</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>미러 생성</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>저장소 만들기</value>
@@ -89,6 +101,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>디렉터리</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>편집</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>미러 수정</value>
@@ -129,6 +144,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>내부 서버 오류</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>로컬 패키지</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>잠금 해제</value>
   </data>
@@ -141,6 +159,9 @@
   <data name="Manage" xml:space="preserve">
     <value>관리</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>미러</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>내 패키지</value>
   </data>
@@ -150,11 +171,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>찾을 수 없음</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>패키지 세부 정보</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>패키지 엔진</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>패키지 검색</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>패키지</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>권한 세부 정보</value>
@@ -179,6 +206,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>회원가입</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>저장소</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>저장소 세부 정보</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>저장소 패키지</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>역할 상세 정보</value>
@@ -221,6 +257,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>사용자</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>세부 정보 확인</value>
   </data>
 
 </root>

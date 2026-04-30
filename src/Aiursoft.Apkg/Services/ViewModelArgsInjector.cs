@@ -116,6 +116,9 @@ public class ViewModelArgsInjector(
         _ = localizer["API Key Usage"];
         _ = localizer["API Keys"];
         _ = localizer["New API Key"];
+    
+        _ = localizer["Edit"];
+        _ = localizer["Repositories"];
     }
 
     public void InjectSimple(

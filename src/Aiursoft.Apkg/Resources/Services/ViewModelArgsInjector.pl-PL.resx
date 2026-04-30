@@ -51,6 +51,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>Historia wiader</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>Pakiety Wiadra</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>Pojemniki</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>Certyfikaty</value>
   </data>
@@ -65,6 +71,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Kliknij, aby się zalogować</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>Utwórz certyfikat</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>Utwórz lustro</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>Utwórz repozytorium</value>
@@ -86,6 +98,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Katalog</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>Edytuj Lustro</value>
@@ -126,6 +141,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>Wewnętrzny błąd serwera</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>Pakiety lokalne</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Blokada</value>
   </data>
@@ -138,6 +156,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Zarządzaj</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>Lustra</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>Moje pakiety</value>
   </data>
@@ -147,11 +168,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>Nie znaleziono</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Szczegóły pakietu</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>Silnik pakietów</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>Wyszukiwanie pakietów</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Pakiety</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Szczegóły uprawnień</value>
@@ -176,6 +203,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Zarejestruj</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>Repozytoria</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Szczegóły repozytorium</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>Pakiety repozytorium</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>Szczegóły roli</value>
@@ -218,6 +254,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Użytkownicy</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>Sprawdź szczegóły</value>
   </data>
 
 </root>
