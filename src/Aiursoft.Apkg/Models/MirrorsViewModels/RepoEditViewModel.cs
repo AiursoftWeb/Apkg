@@ -5,6 +5,11 @@ namespace Aiursoft.Apkg.Models.MirrorsViewModels;
 
 public class RepoEditViewModel : UiStackLayoutViewModel
 {
+    public RepoEditViewModel()
+    {
+        PageTitle = "Edit Repository";
+    }
+
     public int Id { get; set; }
 
     [Required(ErrorMessage = "The {0} is required.")]

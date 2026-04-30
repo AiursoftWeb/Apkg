@@ -5,6 +5,11 @@ namespace Aiursoft.Apkg.Models.MirrorsViewModels;
 
 public class BucketPackagesViewModel : UiStackLayoutViewModel
 {
+    public BucketPackagesViewModel()
+    {
+        PageTitle = "Bucket Packages";
+    }
+
     public required AptBucket Bucket { get; set; }
     public required List<AptPackage> Packages { get; set; }
     public string? SortOrder { get; set; }

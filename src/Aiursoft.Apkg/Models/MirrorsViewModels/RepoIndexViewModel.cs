@@ -5,6 +5,11 @@ namespace Aiursoft.Apkg.Models.MirrorsViewModels;
 
 public class RepoIndexViewModel : UiStackLayoutViewModel
 {
+    public RepoIndexViewModel()
+    {
+        PageTitle = "Repositories";
+    }
+
     public required List<AptRepository> Repositories { get; set; }
     public required Dictionary<int, int> PackageCounts { get; set; }
 }
