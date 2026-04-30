@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>Bileşen</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>Dosya, yukarı akış ayna sunucusunda barındırılır. apt istemcileri dosyayı doğrudan ayna URL&apos;sinden indirir.</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>Dosya bu sunucuda yerel olarak depolanır. apt istemcileri buradan indirir.</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Sonraki</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Sanal</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>Sanal: dosya yukarı akış aynasında barındırılır ve apt istemcileri tarafından talep üzerine indirilir. Fiziksel: dosya bu sunucuda yerel olarak saklanır.</value>
   </data>
 
 </root>

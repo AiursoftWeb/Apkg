@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Czy na pewno chcesz usunąć repozytorium</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Przeglądaj pakiety</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Anuluj</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>Utwórz nowe repozytorium</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>Usuń repozytorium</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Dystrybucja</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Żywy Zasobnik</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>Wersja</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>Aktywny migawka aktualnie dostarczana klientom apt. Zostaje aktywna po pomyślnym zakończeniu synchronizacji repozytorium.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Obraz tworzony przez uruchomioną pracę Repository Sync. Zastępuje on aktywny bucket po pomyślnym zakończeniu pracy.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Łączna liczba pakietów</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Czy plik Release repozytorium jest podpisany GPG. Klienci apt skonfigurowani z parametrem &apos;signed-by=&apos; w sources.list odrzucą repozytoria, które są niepodpisane lub podpisane niewłaściwym kluczem.</value>
   </data>
 
 </root>
