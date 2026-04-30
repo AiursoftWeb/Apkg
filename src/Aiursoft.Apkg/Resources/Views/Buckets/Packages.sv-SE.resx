@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>Komponent</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>Filen finns på den ursprungliga spegeln. apt-klienter laddar ner den direkt från spegelns URL.</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>Filen lagras lokalt på denna server. apt-klienter laddar ner den härifrån.</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Nästa</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Virtuell</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>Virtuell: filen är värd på den överordnade spegeln och laddas ned vid behov av apt-klienter. Fysisk: filen är lagrad lokalt på denna server.</value>
   </data>
 
 </root>

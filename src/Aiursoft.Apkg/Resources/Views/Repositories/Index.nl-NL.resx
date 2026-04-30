@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Weet u zeker dat u het repository wilt verwijderen?</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Pakketten bekijken</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuleren</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>Nieuw repository aanmaken</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Verwijderen</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>Repository verwijderen</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distributie</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bewerken</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Actieve Bucket</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>Versie</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>De actieve snapshot die momenteel aan apt-clients wordt geleverd. Wordt live nadat een Repository-synchronisatie succesvol is voltooid.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>De snapshot die wordt gebouwd door een actieve Repository Sync-job. Deze vervangt de live bucket wanneer de job succesvol is voltooid.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Totaal aantal pakketten</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Of het Release-bestand van de repository GPG-ondertekend is. apt-clients die zijn geconfigureerd met &apos;signed-by=&apos; in sources.list, weigeren repositories die niet ondertekend zijn of ondertekend met de verkeerde sleutel.</value>
   </data>
 
 </root>

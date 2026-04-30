@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="1. Upload a .deb Package" xml:space="preserve">
+    <value>1. Enviar um pacote .deb</value>
+  </data>
+  <data name="2. Parameters" xml:space="preserve">
+    <value>2. Parâmetros</value>
+  </data>
+  <data name="3. Response Codes" xml:space="preserve">
+    <value>3. Códigos de Resposta</value>
+  </data>
+  <data name="4. Example with Python" xml:space="preserve">
+    <value>4. Exemplo com Python</value>
+  </data>
+  <data name="API Key Created!" xml:space="preserve">
+    <value>Chave de API criada!</value>
+  </data>
+  <data name="API Key Usage Guide" xml:space="preserve">
+    <value>Guia de Uso da Chave de API</value>
+  </data>
+  <data name="APT component, e.g." xml:space="preserve">
+    <value>Componente APT, por exemplo</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Voltar para a Lista</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="Form field" xml:space="preserve">
+    <value>Campo do formulário</value>
+  </data>
+  <data name="Invalid or missing API key." xml:space="preserve">
+    <value>Chave de API inválida ou ausente.</value>
+  </data>
+  <data name="Meaning" xml:space="preserve">
+    <value>Significado</value>
+  </data>
+  <data name="Missing file, missing parameters, or invalid .deb format." xml:space="preserve">
+    <value>Arquivo ausente, parâmetros ausentes ou formato .deb inválido.</value>
+  </data>
+  <data name="Numeric ID of the target repository (required)." xml:space="preserve">
+    <value>ID numérico do repositório de destino (obrigatório).</value>
+  </data>
+  <data name="Package already exists (same SHA256 or same name/version/arch/component)." xml:space="preserve">
+    <value>Pacote já existe (mesmo SHA256 ou mesmo nome/versão/arquitetura/componente).</value>
+  </data>
+  <data name="Package metadata (version, architecture, description, …) is extracted automatically from the .deb control file — no need to specify it manually." xml:space="preserve">
+    <value>Os metadados do pacote (versão, arquitetura, descrição, …) são extraídos automaticamente do arquivo de controle do .deb — não há necessidade de especificá-los manualmente.</value>
+  </data>
+  <data name="Package uploaded and indexed successfully." xml:space="preserve">
+    <value>Pacote carregado e indexado com sucesso.</value>
+  </data>
+  <data name="Parameter" xml:space="preserve">
+    <value>Parâmetro</value>
+  </data>
+  <data name="Please copy your new API key now. You won&apos;t be able to see it again!" xml:space="preserve">
+    <value>Copie sua nova chave de API agora. Você não poderá vê-la novamente!</value>
+  </data>
+  <data name="Query string" xml:space="preserve">
+    <value>Cadeia de consulta</value>
+  </data>
+  <data name="Repository not found." xml:space="preserve">
+    <value>Repositório não encontrado.</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>obrigatório</value>
+  </data>
+  <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
+    <value>O arquivo .deb (multipart/form-data, obrigatório).</value>
+  </data>
+  <data name="Use the following curl command to upload a package to a repository:" xml:space="preserve">
+    <value>Use o seguinte comando curl para enviar um pacote para um repositório:</value>
+  </data>
+  <data name="Use this API key to upload .deb packages programmatically. The base URL is:" xml:space="preserve">
+    <value>Use esta chave de API para fazer upload de pacotes .deb programaticamente. O URL base é:</value>
+  </data>
+  <data name="Using API Key" xml:space="preserve">
+    <value>Usando a chave da API</value>
+  </data>
+  <data name="Where" xml:space="preserve">
+    <value>Onde</value>
+  </data>
+  <data name="Your account does not have permission to upload to this repository." xml:space="preserve">
+    <value>Sua conta não tem permissão para fazer upload neste repositório.</value>
+  </data>
+
+</root>
