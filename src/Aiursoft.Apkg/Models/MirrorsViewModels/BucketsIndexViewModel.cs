@@ -5,6 +5,11 @@ namespace Aiursoft.Apkg.Models.MirrorsViewModels;
 
 public class BucketsIndexViewModel : UiStackLayoutViewModel
 {
+    public BucketsIndexViewModel()
+    {
+        PageTitle = "Buckets";
+    }
+
     public required List<AptBucket> Buckets { get; set; }
     public required Dictionary<int, int> PackageCounts { get; set; }
     public required Dictionary<int, long> StorageUsage { get; set; }

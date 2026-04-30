@@ -5,6 +5,11 @@ namespace Aiursoft.Apkg.Models.MirrorsViewModels;
 
 public class PackagesViewModel : UiStackLayoutViewModel
 {
+    public PackagesViewModel()
+    {
+        PageTitle = "Packages";
+    }
+
     public required AptMirror Mirror { get; set; }
     public required List<AptPackage> Packages { get; set; }
     public string? SearchName { get; set; }
