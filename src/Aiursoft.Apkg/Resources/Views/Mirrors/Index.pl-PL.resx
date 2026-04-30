@@ -33,6 +33,9 @@
   <data name="Base URL" xml:space="preserve">
     <value>Podstawowy URL</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Przeglądaj pakiety</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Anuluj</value>
   </data>
@@ -42,11 +45,17 @@
   <data name="Confirm Delete" xml:space="preserve">
     <value>Potwierdź usunięcie</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
   <data name="Delete Mirror" xml:space="preserve">
     <value>Usuń lustro</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Dystrybucja</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
   </data>
   <data name="Error:" xml:space="preserve">
     <value>Błąd:</value>
@@ -59,6 +68,9 @@
   </data>
   <data name="items" xml:space="preserve">
     <value>przedmiotów</value>
+  </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>Ostatnie pobranie</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Nigdy nie ciągnął</value>
@@ -95,6 +107,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Ślad stosu błędu synchronizacji</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>Żywy snapshot aktualnie dostarczany klientom apt. Nowy bucket staje się podstawowy dopiero po pomyślnym zakończeniu synchronizacji lustrzanej.</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>Zrzut pamięci tworzony przez uruchomione zadanie Mirror Sync. Zastępuje on Podstawowy Zasobnik po pomyślnym zakończeniu zadania; stary zasobnik podstawowy staje się następnie kwalifikujący się do oczyszczania pamięci.</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Spowoduje to również usunięcie wszystkich powiązanych pakietów i wiader!</value>

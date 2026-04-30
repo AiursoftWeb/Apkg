@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Är du säker på att du vill ta bort arkivet</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Bläddra bland paket</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Avbryt</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>Skapa nytt arkiv</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Ta bort</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>Ta bort arkiv</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaljer</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Redigera</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Aktiv bucket</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>Svit</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>Den aktiva ögonblicksbild som för närvarande levereras till apt-klienter. Blir live när en Repository Sync har slutförts.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Den ögonblicksbild som byggs av en pågående Repository Sync-jobb. Den ersätter den aktiva bucketn när jobbet lyckas.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Totala paket</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Om lagrets Release-fil är GPG-signerad. apt-klienter som är konfigurerade med &apos;signed-by=&apos; i sources.list kommer att avvisa lager som inte är signerade eller signerade med fel nyckel.</value>
   </data>
 
 </root>

@@ -24,6 +24,9 @@
   <data name="Active Usage" xml:space="preserve">
     <value>Aktywne użycie</value>
   </data>
+  <data name="Being built by a currently-running Sync job. Will replace the LIVE bucket on success." xml:space="preserve">
+    <value>Tworzone przez aktualnie działające zadanie synchronizacji. Zastąpi LIVE po pomyślnym zakończeniu.</value>
+  </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>Historia migawek wiadra</value>
   </data>
@@ -39,6 +42,9 @@
   <data name="Logical Size" xml:space="preserve">
     <value>Rozmiar logiczny</value>
   </data>
+  <data name="Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run." xml:space="preserve">
+    <value>Nie jest odwoływany przez żadne Lustro ani Repozytorium. Zostanie trwale usunięty podczas następnego uruchomienia Garbage Collection.</value>
+  </data>
   <data name="Orphaned" xml:space="preserve">
     <value>Zagubiony</value>
   </data>
@@ -50,6 +56,12 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
+  </data>
+  <data name="Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets." xml:space="preserve">
+    <value>Suma wszystkich rozmiarów plików pakietów wymienionych w tym bucket. Rzeczywiste użycie dysku może być mniejsze, ponieważ CAS (content-addressable storage) deduplikuje pliki współdzielone między bucket.</value>
+  </data>
+  <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
+    <value>Ten migawka jest aktywnie dostarczana klientom apt jako bieżący indeks.</value>
   </data>
 
 </root>
