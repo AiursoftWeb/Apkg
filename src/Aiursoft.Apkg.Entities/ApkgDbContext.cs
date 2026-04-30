@@ -30,8 +30,13 @@ public abstract class ApkgDbContext(DbContextOptions options) : IdentityDbContex
                     c => c.ToDictionary(entry => entry.Key, entry => entry.Value)));
     }
 
-    public virtual  Task MigrateAsync(CancellationToken cancellationToken) =>
-        Database.MigrateAsync(cancellationToken);
+    public virtual Task MigrateAsync(CancellationToken cancellationToken)
+    {
+        // DDL operations like ALTER TABLE MODIFY COLUMN on large tables can take
+        // much longer than the default 30s command timeout (full table rebuild).
+        Database.SetCommandTimeout(TimeSpan.FromMinutes(10));
+        return Database.MigrateAsync(cancellationToken);
+    }
 
     public virtual  Task<bool> CanConnectAsync() =>
         Database.CanConnectAsync();
