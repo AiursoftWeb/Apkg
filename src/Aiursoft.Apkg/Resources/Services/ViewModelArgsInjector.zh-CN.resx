@@ -54,6 +54,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>桶历史</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>存储桶软件包</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>存储桶</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>证书</value>
   </data>
@@ -68,6 +74,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>点击登录</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>创建证书</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>创建镜像</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>创建仓库</value>
@@ -89,6 +101,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>目录</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>编辑镜像</value>
@@ -129,6 +144,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>内部服务器错误</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>本地软件包</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>账户被锁定</value>
   </data>
@@ -141,6 +159,9 @@
   <data name="Manage" xml:space="preserve">
     <value>管理</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>镜像</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>我的软件包</value>
   </data>
@@ -150,11 +171,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>未找到</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>包详情</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>包引擎</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>包搜索</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>软件包</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>权限详情</value>
@@ -179,6 +206,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>注册</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>存储库</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>仓库详情</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>仓库包</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>角色详情</value>
@@ -221,6 +257,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>用户</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>验证详情</value>
   </data>
 
 </root>

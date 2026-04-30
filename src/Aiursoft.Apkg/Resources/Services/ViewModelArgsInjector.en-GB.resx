@@ -54,6 +54,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>Bucket History</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>Bucket Packages</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>Buckets</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>Certificates</value>
   </data>
@@ -68,6 +74,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Click to log in</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>Create Certificate</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>Create Mirror</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>Create Repository</value>
@@ -89,6 +101,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Directory</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>Edit Mirror</value>
@@ -129,6 +144,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>Internal Server Error</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>Local Packages</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Lockout</value>
   </data>
@@ -141,6 +159,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Manage</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>Mirrors</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>My Packages</value>
   </data>
@@ -150,11 +171,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>Not Found</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Package Details</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>Package Engine</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>Package Search</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Packages</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Permission Details</value>
@@ -179,6 +206,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>Repositories</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Repository Details</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>Repository Packages</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>Role Details</value>
@@ -221,6 +257,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Users</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>Verify Details</value>
   </data>
 
 </root>
