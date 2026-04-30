@@ -5,6 +5,11 @@ namespace Aiursoft.Apkg.Models.MirrorsViewModels;
 
 public class MirrorEditViewModel : UiStackLayoutViewModel, IValidatableObject
 {
+    public MirrorEditViewModel()
+    {
+        PageTitle = "Edit Mirror";
+    }
+
     public int Id { get; set; }
 
     [Required(ErrorMessage = "The {0} is required.")]

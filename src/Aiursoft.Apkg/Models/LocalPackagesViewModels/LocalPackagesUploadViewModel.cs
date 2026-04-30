@@ -6,6 +6,11 @@ namespace Aiursoft.Apkg.Models.LocalPackagesViewModels;
 
 public class LocalPackagesUploadViewModel : UiStackLayoutViewModel
 {
+    public LocalPackagesUploadViewModel()
+    {
+        PageTitle = "Upload Package";
+    }
+
     [Required]
     [Display(Name = "Repository")]
     public int RepositoryId { get; set; }

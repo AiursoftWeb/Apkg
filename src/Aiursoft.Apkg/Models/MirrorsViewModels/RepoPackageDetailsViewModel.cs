@@ -5,6 +5,11 @@ namespace Aiursoft.Apkg.Models.MirrorsViewModels;
 
 public class RepoPackageDetailsViewModel : UiStackLayoutViewModel
 {
+    public RepoPackageDetailsViewModel()
+    {
+        PageTitle = "Package Details";
+    }
+
     public required AptPackage Package { get; set; }
     public AptRepository? Repo { get; set; }
 
