@@ -51,6 +51,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>Bucket Geçmişi</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>Kova Paketleri</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>Havuzlar</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>Sertifikalar</value>
   </data>
@@ -65,6 +71,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Giriş yapmak için tıklayın</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>Sertifika Oluştur</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>Ayna Oluştur</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>Depo Oluştur</value>
@@ -86,6 +98,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Dizin</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Düzenle</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>Aynayı Düzenle</value>
@@ -126,6 +141,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>İç Sunucu Hatası</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>Yerel Paketler</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Kilitlendi</value>
   </data>
@@ -138,6 +156,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Yönet</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>Aynalar</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>Paketlerim</value>
   </data>
@@ -147,11 +168,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>Bulunamadı</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Paket Detayları</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>Paket Motoru</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>Paket Arama</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Paketler</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>İzin Detayları</value>
@@ -176,6 +203,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Kayıt Ol</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>Depolar</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Depo Detayları</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>Depo Paketleri</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>Rol Detayları</value>
@@ -218,6 +254,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Kullanıcılar</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>Detayları Doğrula</value>
   </data>
 
 </root>

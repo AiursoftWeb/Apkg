@@ -54,6 +54,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>バケット履歴</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>バケットパッケージ</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>バケット</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>証明書</value>
   </data>
@@ -68,6 +74,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>ログインするにはクリック</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>証明書を作成</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>ミラーを作成</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>リポジトリの作成</value>
@@ -89,6 +101,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>ディレクトリ</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編集</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>ミラーを編集</value>
@@ -129,6 +144,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>内部サーバーエラー</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>ローカルパッケージ</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>ロックアウト</value>
   </data>
@@ -141,6 +159,9 @@
   <data name="Manage" xml:space="preserve">
     <value>管理</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>ミラー</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>私のパッケージ</value>
   </data>
@@ -150,11 +171,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>Not Found</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>パッケージ詳細</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>パッケージエンジン</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>パッケージ検索</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>パッケージ</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>権限の詳細</value>
@@ -179,6 +206,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>登録</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>リポジトリ</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>リポジトリの詳細</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>リポジトリパッケージ</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>ロール詳細</value>
@@ -221,6 +257,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>ユーザー</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>詳細を確認</value>
   </data>
 
 </root>

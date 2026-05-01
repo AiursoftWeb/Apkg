@@ -54,6 +54,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>儲存桶歷史</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>儲存桶套件</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>儲存桶</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>證書</value>
   </data>
@@ -68,6 +74,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>點擊登入</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>建立憑證</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>建立鏡像</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>建立儲存庫</value>
@@ -89,6 +101,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>目錄</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編輯</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>編輯鏡像</value>
@@ -129,6 +144,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>內部伺服器錯誤</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>本機套件</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>帳戶暫時停用</value>
   </data>
@@ -141,6 +159,9 @@
   <data name="Manage" xml:space="preserve">
     <value>管理</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>鏡像</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>我的套件</value>
   </data>
@@ -150,11 +171,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>找不到</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>套件詳情</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>套件引擎</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>套件搜尋</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>套件</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>權限詳情</value>
@@ -179,6 +206,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>註冊</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>儲存庫</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>存放庫詳情</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>儲存庫套件</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>角色詳情</value>
@@ -221,6 +257,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>用戶</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>驗證詳情</value>
   </data>
 
 </root>
