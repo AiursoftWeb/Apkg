@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>Et live-pakke er tilgængelig for APT-klienter.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Handlinger</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arkitektur</value>
+  </data>
+  <data name="Are you sure you want to delete" xml:space="preserve">
+    <value>Er du sikker på, at du vil slette</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuller</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Bekræft sletning</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Deaktiveret</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Live</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Mine pakker</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>Ingen pakker er blevet uploadet endnu.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Pakke</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Afventer synkronisering</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Repository</value>
+  </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>Staging (Venter på signering)</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Synkroniseringsstatus</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>Den aktuelle fremgang for dette pakkesammenføjning og signering i det aktive lager. Synkroniseringsjobbet kører hvert 20. minut, efterfulgt af et signeringsjob hvert 5. minut.</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Upload pakke</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Uploadet</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Uploader</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>Se detaljer og installationsvejledning</value>
+  </data>
+
+</root>
