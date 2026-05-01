@@ -51,6 +51,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>سجل الدلو</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>حزم الدلاء</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>الدلاء</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>الشهادات</value>
   </data>
@@ -65,6 +71,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>انقر لتسجيل الدخول</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>إنشاء شهادة</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>إنشاء مرآة</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>إنشاء مستودع</value>
@@ -86,6 +98,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>دليل</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>تعديل</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>تعديل المرآة</value>
@@ -126,6 +141,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>خطأ الخادم الداخلي</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>الحزم المحلية</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>حظر الحساب</value>
   </data>
@@ -138,6 +156,9 @@
   <data name="Manage" xml:space="preserve">
     <value>إدارة</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>المرايا</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>حزمي</value>
   </data>
@@ -147,11 +168,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>غير موجود</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>تفاصيل الحزمة</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>محرك الحزم</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>البحث عن الحزم</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>الحزم</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>تفاصيل الصلاحيات</value>
@@ -176,6 +203,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>تسجيل</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>المستودعات</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>تفاصيل المستودع</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>حزم المستودع</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>تفاصيل الدور</value>
@@ -218,6 +254,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>المستخدمون</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>التحقق من التفاصيل</value>
   </data>
 
 </root>

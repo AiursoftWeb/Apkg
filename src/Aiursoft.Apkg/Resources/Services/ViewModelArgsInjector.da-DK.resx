@@ -51,6 +51,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>Kurvshistorik</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>Spandpakker</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>Spande</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>Certifikater</value>
   </data>
@@ -65,6 +71,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Klik for at logge ind</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>Opret certifikat</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>Opret spejl</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>Opret Repository</value>
@@ -86,6 +98,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Mappe</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Redigér</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>Rediger spejl</value>
@@ -126,6 +141,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>Intern serverfejl</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>Lokale pakker</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Låst ud</value>
   </data>
@@ -138,6 +156,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Administrer</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>Spejlinger</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>Mine pakker</value>
   </data>
@@ -147,11 +168,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>Ikke fundet</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Pakke detaljer</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>Pakkemotor</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>Pakkesøgning</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Pakker</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Tilladelsesdetaljer</value>
@@ -176,6 +203,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Registrer</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>Repositories</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Repositorydetaljer</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>Lagerpakker</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>Roledetaljer</value>
@@ -218,6 +254,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Brugere</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>Bekræft detaljer</value>
   </data>
 
 </root>

@@ -54,6 +54,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>ประวัติ Bucket</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>ชุดแพ็กเกจของ Bucket</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>ถัง</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>ใบรับรอง</value>
   </data>
@@ -68,6 +74,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>คลิกเพื่อเข้าสู่ระบบ</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>สร้างใบรับรอง</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>สร้างกระจก</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>สร้างที่เก็บข้อมูล</value>
@@ -89,6 +101,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>ไดเรกทอรี</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>แก้ไข</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>แก้ไขกระจก</value>
@@ -129,6 +144,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>ข้อผิดพลาดของเซิร์ฟเวอร์ภายใน</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>แพ็คเกจภายใน</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>บล็อกการเข้าถึง</value>
   </data>
@@ -141,6 +159,9 @@
   <data name="Manage" xml:space="preserve">
     <value>จัดการ</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>กระจก</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>แพ็กเกจของฉัน</value>
   </data>
@@ -150,11 +171,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>ไม่พบ</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>รายละเอียดแพ็กเกจ</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>เครื่องจัดการแพ็กเกจ</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>ค้นหาแพ็กเกจ</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>แพ็กเกจ</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>รายละเอียดสิทธิ์การใช้งาน</value>
@@ -179,6 +206,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>สมัครสมาชิก</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>ที่เก็บ</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>รายละเอียดของคลังข้อมูล</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>แพ็กเกจของคลังเก็บข้อมูล</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>รายละเอียดบทบาท</value>
@@ -221,6 +257,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>ผู้ใช้</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>ยืนยันรายละเอียด</value>
   </data>
 
 </root>
