@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Er du sikker på, at du vil slette repository</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Gennemse pakker</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuller</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>Opret nyt depot</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Slet</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>Slet lager</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaljer</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Redigér</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Live Bucket</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>Samling</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>Det aktive øjebliksbillede, der i øjeblikket leveres til apt-klienter. Bliver live, når en Repository Sync fuldføres med succes.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Den øjebliksbillede, der opbygges af en kørende Repository Sync-job. Det erstatter den aktive bucket, når jobbet lykkes.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Samlet antal pakker</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Om lagerets Release-fil er GPG-signeret. apt-klienter, der er konfigureret med &apos;signed-by=&apos; i sources.list, afviser lagre, der ikke er signeret eller er signeret med den forkerte nøgle.</value>
   </data>
 
 </root>

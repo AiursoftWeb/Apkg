@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>Paket live tersedia untuk klien APT.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Aksi</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arsitektur</value>
+  </data>
+  <data name="Are you sure you want to delete" xml:space="preserve">
+    <value>Apakah Anda yakin ingin menghapus</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Konfirmasi Hapus</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Hapus</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Dinonaktifkan</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Hidup</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Paket Saya</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>Belum ada paket yang diunggah.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Sinkronisasi Tertunda</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Repositori</value>
+  </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>Tahap (Menunggu Tanda Tangan)</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Status Sinkronisasi</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>Progress saat ini dari paket ini yang sedang digabungkan dan ditandatangani ke repositori langsung. Pekerjaan sinkronisasi berjalan setiap 20 menit, diikuti oleh pekerjaan penandatanganan setiap 5 menit.</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Unggah Paket</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Diunggah</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Pengunggah</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versi</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>Lihat Detail &amp; Instruksi Instalasi</value>
+  </data>
+
+</root>

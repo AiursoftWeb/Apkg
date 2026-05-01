@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>Valgfri URL til den offentlige GPG-nøgle fra upstream til verifikation.</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>Sti til den lokale GPG-nølleringsfil til verifikation af upstream-signaturer. Lad være tom for at springe verifikation over.</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Gem ændringer</value>
   </data>

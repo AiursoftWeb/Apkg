@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="1 Day" xml:space="preserve">
+    <value>1 день</value>
+  </data>
+  <data name="1 Month" xml:space="preserve">
+    <value>1 Місяць</value>
+  </data>
+  <data name="1 Week" xml:space="preserve">
+    <value>1 тиждень</value>
+  </data>
+  <data name="1 Year" xml:space="preserve">
+    <value>1 рік</value>
+  </data>
+  <data name="10 Years" xml:space="preserve">
+    <value>10 років</value>
+  </data>
+  <data name="A label to help you identify where this key is used." xml:space="preserve">
+    <value>Мітка, яка допоможе вам визначити, де використовується цей ключ.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Скасувати</value>
+  </data>
+  <data name="Create New API Key" xml:space="preserve">
+    <value>Створити новий API-ключ</value>
+  </data>
+  <data name="e.g. CI/CD Pipeline, Dev Machine" xml:space="preserve">
+    <value>напр., CI/CD Pipeline, Dev Machine</value>
+  </data>
+  <data name="Expiration" xml:space="preserve">
+    <value>Термін дії</value>
+  </data>
+  <data name="Friendly Name" xml:space="preserve">
+    <value>Зручна назва</value>
+  </data>
+  <data name="Generate Key" xml:space="preserve">
+    <value>Згенерувати ключ</value>
+  </data>
+  <data name="Never" xml:space="preserve">
+    <value>Ніколи</value>
+  </data>
+  <data name="New Key Details" xml:space="preserve">
+    <value>Нові деталі ключа</value>
+  </data>
+
+</root>

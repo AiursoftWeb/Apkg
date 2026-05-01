@@ -33,6 +33,9 @@
   <data name="Base URL" xml:space="preserve">
     <value>URL Dasar</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Lihat Paket</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Batal</value>
   </data>
@@ -42,11 +45,17 @@
   <data name="Confirm Delete" xml:space="preserve">
     <value>Konfirmasi Hapus</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Hapus</value>
+  </data>
   <data name="Delete Mirror" xml:space="preserve">
     <value>Hapus Cermin</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribusi</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Sunting</value>
   </data>
   <data name="Error:" xml:space="preserve">
     <value>Kesalahan:</value>
@@ -59,6 +68,9 @@
   </data>
   <data name="items" xml:space="preserve">
     <value>item</value>
+  </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>Tarik Terakhir</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Tidak Pernah Ditarik</value>
@@ -95,6 +107,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Tumpukan Jejak Kesalahan Sinkronisasi</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>Snapshot langsung yang saat ini dilayani kepada klien apt. Bucket baru menjadi primer hanya setelah Sinkronisasi Cermin berhasil diselesaikan.</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>Snapshot yang sedang dibangun oleh pekerjaan Mirror Sync yang sedang berjalan. Snapshot ini menggantikan Primary Bucket ketika pekerjaan berhasil; primary lama kemudian memenuhi syarat untuk pengumpulan sampah.</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Ini juga akan menghapus semua paket dan bucket yang terkait!</value>

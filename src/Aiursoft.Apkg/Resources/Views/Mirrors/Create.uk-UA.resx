@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>Необов&apos;язкова URL-адреса до відкритого ключа GPG від постачальника для перевірки.</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>Шлях до локального файлу ключів GPG для перевірки підписів постачальника. Залиште порожнім, щоб пропустити перевірку.</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Зберегти зміни</value>
   </data>

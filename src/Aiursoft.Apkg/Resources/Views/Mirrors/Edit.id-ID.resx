@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>URL opsional ke kunci publik GPG hulu untuk verifikasi.</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>Jalur ke berkas kunci GPG lokal untuk memverifikasi tanda tangan hulu. Kosongkan untuk melewati verifikasi.</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Simpan Perubahan</value>
   </data>
