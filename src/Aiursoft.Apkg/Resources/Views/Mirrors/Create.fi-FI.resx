@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>Vapaaehtoinen URL-osoitus ylävirran julkiseen GPG-avaimeseen varmistusta varten.</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>Polku paikalliseen GPG-avainrenkaaseen ylävirran allekirjoitusten varmentamista varten. Jätä tyhjäksi ohittaaksesi varmentamisen.</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Tallenna muutokset</value>
   </data>

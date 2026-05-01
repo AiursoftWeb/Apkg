@@ -21,6 +21,12 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- कोई नहीं (स्टैंडअलोन) --</value>
   </data>
+  <data name="Allow Anyone to Upload" xml:space="preserve">
+    <value>कोई भी अपलोड करने की अनुमति दें</value>
+  </data>
+  <data name="Allows any logged-in user to upload LocalPackages to this repository." xml:space="preserve">
+    <value>इस रिपॉजिटरी में किसी भी लॉग-इन उपयोगकर्ता को स्थानीय पैकेज अपलोड करने की अनुमति देता है।</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>वास्तुकला</value>
   </data>
@@ -45,8 +51,20 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>रेपॉजिटरी संपादित करें</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>GPG हस्ताक्षर सक्षम करें</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>यदि यह किसी मिरर से लिंक किया गया है, तो यह रेपॉजिटरी उस अपस्ट्रीम स्रोत से पैकेज प्रदान करेगी।</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>यदि लिंक किया गया है, तो प्रति प्रत्येक रिपॉजिटरी सिंक के दौरान इस रिपॉजिटरी के Packages इंडेक्स को मिरर से सीड किया जाता है। समान पैकेज नाम और आर्किटेक्चर के लिए LocalPackages, मिरर संस्करण को ओवरराइड करते हैं।</value>
+  </data>
+  <data name="If unchecked, only users with the &apos;Upload to Restricted Repositories&apos; permission can publish packages to this repository." xml:space="preserve">
+    <value>यदि अचिन्हित है, केवल &apos;सीमित रिपॉजिटरीज़ में अपलोड&apos; अनुमति वाले उपयोगकर्ता ही इस रिपॉजिटरी में पैकेज प्रकाशित कर सकते हैं।</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>मिरर</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>रेपॉजिटरी सहेजें</value>
@@ -62,6 +80,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>इस रिपॉजिटरी के लिए URL उपसर्ग (उदाहरण के लिए &apos;ubuntu&apos;)।</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>सक्षम होने पर, प्रत्येक रिपॉजिटरी सिंक के बाद रिलीज़ फ़ाइल का चयनित GPG कुंजी के साथ हस्ताक्षर किया जाता है। अपने sources.list में &apos;signed-by=&apos; का उपयोग करने वाले क्लाइंट इस हस्ताक्षर की पुष्टि करेंगे और बिना हस्ताक्षरित या गलत हस्ताक्षरित रिपॉजिटरीओं को अस्वीकार कर देंगे।</value>
   </data>
 
 </root>
