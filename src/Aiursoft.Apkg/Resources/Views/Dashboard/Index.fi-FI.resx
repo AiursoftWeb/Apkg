@@ -186,6 +186,12 @@
   <data name="Search" xml:space="preserve">
     <value>Hae</value>
   </data>
+  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repositories" xml:space="preserve">
+    <value>Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repositories</value>
+  </data>
+  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repository" xml:space="preserve">
+    <value>Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repository</value>
+  </data>
   <data name="Search packages (e.g. curl, python3, vim…)" xml:space="preserve">
     <value>Hae paketteja (esim. curl, python3, vim…)</value>
   </data>
@@ -232,11 +238,4 @@
     <value>Miksi käyttää Aiursoft Templatea?</value>
   </data>
 
-
-  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repository" xml:space="preserve">
-    <value>Search across &lt;strong class="text-white"&gt;{0}&lt;/strong&gt; packages in &lt;strong class="text-white"&gt;{1}&lt;/strong&gt; active repository</value>
-  </data>
-  <data name="Search across &lt;strong class=&quot;text-white&quot;&gt;{0}&lt;/strong&gt; packages in &lt;strong class=&quot;text-white&quot;&gt;{1}&lt;/strong&gt; active repositories" xml:space="preserve">
-    <value>Search across &lt;strong class="text-white"&gt;{0}&lt;/strong&gt; packages in &lt;strong class="text-white"&gt;{1}&lt;/strong&gt; active repositories</value>
-  </data>
 </root>

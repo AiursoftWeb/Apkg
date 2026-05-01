@@ -24,6 +24,9 @@
   <data name="Active Usage" xml:space="preserve">
     <value>सक्रिय उपयोग</value>
   </data>
+  <data name="Being built by a currently-running Sync job. Will replace the LIVE bucket on success." xml:space="preserve">
+    <value>वर्तमान में चल रहे Sync कार्य द्वारा बनाया जा रहा है। सफलता पर LIVE बकेट को प्रतिस्थापित करेगा।</value>
+  </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>बकेट स्नैपशॉट इतिहास</value>
   </data>
@@ -39,6 +42,9 @@
   <data name="Logical Size" xml:space="preserve">
     <value>तार्किक आकार</value>
   </data>
+  <data name="Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run." xml:space="preserve">
+    <value>कोई Mirror या Repository द्वारा संदर्भित नहीं। अगले Garbage Collection रन पर स्थायी रूप से हटा दिया जाएगा।</value>
+  </data>
   <data name="Orphaned" xml:space="preserve">
     <value>अनाथ</value>
   </data>
@@ -50,6 +56,12 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>स्थिति</value>
+  </data>
+  <data name="Sum of all package file sizes listed in this bucket. Actual disk usage may be lower because CAS (content-addressable storage) deduplicates files shared between buckets." xml:space="preserve">
+    <value>इस बकेट में सूचीबद्ध सभी पैकेज फ़ाइल आकारों का योग। वास्तविक डिस्क उपयोग कम हो सकता है क्योंकि CAS (सामग्री-पता लगाने वाला भंडारण) बकेट के बीच साझा फ़ाइलों को डुप्लिकेट करता है।</value>
+  </data>
+  <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
+    <value>यह स्नैपशॉट वर्तमान सूचकांक के रूप में apt क्लाइंट्स को सक्रिय रूप से प्रदान किया जा रहा है।</value>
   </data>
 
 </root>

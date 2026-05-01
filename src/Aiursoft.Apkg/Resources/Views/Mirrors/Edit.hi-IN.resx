@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>सत्यापन के लिए अपस्ट्रीम सार्वजनिक GPG कुंजी का वैकल्पिक URL।</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>उप-प्रवाह हस्ताक्षरों की सत्यापन के लिए स्थानीय GPG कुंजीरिंग फ़ाइल का पथ। सत्यापन को छोड़ने के लिए खाली छोड़ दें।</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>परिवर्तन सहेजें</value>
   </data>

@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Apakah Anda yakin ingin menghapus repositori</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Telusuri Paket</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Batal</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>Buat Repositori Baru</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Hapus</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>Hapus Repositori</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detail</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distro</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Sunting</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Bucket Langsung</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>Rilisan</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>Snapshot aktif yang saat ini dilayani kepada klien apt. Menjadi live setelah sinkronisasi Repositori selesai dengan sukses.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Snap yang sedang dibangun oleh job Repository Sync yang sedang berjalan. Snap ini menggantikan bucket live ketika job berhasil.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Total Paket</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Apakah file Release repositori ditandatangani dengan GPG. Klien apt yang dikonfigurasi dengan &apos;signed-by=&apos; di sources.list akan menolak repositori yang tidak ditandatangani atau ditandatangani dengan kunci yang salah.</value>
   </data>
 
 </root>

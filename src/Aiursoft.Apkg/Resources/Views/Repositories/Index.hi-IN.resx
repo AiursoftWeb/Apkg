@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>क्या आप वाकई रिपॉजिटरी को हटाना चाहते हैं</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>पैकेज ब्राउज़ करें</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>रद्द करें</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>नया रिपॉजिटरी बनाएं</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>मिटाएं</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>रेपॉजिटरी हटाएं</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>वितरण</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>संपादित करें</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>लाइव बकेट</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>सूट</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>एपीटी क्लाइंट्स को वर्तमान में सेवा दी जाने वाली सक्रिय स्नैपशॉट। रिपॉजिटरी सिंक सफलतापूर्वक पूरा होने के बाद लाइव हो जाता है।</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Repository Sync कार्य चल रहा है के दौरान बनाया जा रहा स्नैपशॉट। जब कार्य सफल होता है, तो यह लाइव बकेट को प्रतिस्थापित करता है।</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>कुल पैकेज</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>क्या रिपॉजिटरी का Release फ़ाइल GPG-हस्ताक्षरित है। sources.list में &apos;signed-by=&apos; के साथ कॉन्फ़िगर किए गए apt क्लाइंट हस्ताक्षरित नहीं होने वाले या गलत कुंजी से हस्ताक्षरित रिपॉजिटरीओं को अस्वीकार कर देंगे।</value>
   </data>
 
 </root>

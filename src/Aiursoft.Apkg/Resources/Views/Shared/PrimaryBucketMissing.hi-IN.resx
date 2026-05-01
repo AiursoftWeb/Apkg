@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An administrator needs to run the following background jobs to prepare this repository:" xml:space="preserve">
+    <value>इस रिपॉजिटरी को तैयार करने के लिए एक प्रशासक को निम्नलिखित बैकग्राउंड जॉब्स चलाने की आवश्यकता है:</value>
+  </data>
+  <data name="Before a repository can serve packages, it must undergo a synchronization and (if configured) a signing process. This creates a &apos;Primary Bucket&apos; which contains the actual package metadata and files for APT clients to consume." xml:space="preserve">
+    <value>एक भंडार पैकेजों की सेवा करने से पहले, उसे एक समन्वयन और (यदि कॉन्फ़िगर किया गया हो) एक हस्ताक्षर प्रक्रिया से गुजरना होगा। यह एक &apos;प्राथमिक बकेट&apos; बनाता है जिसमें वास्तविक पैकेट मेटाडेटा और APT क्लाइंट्स के लिए खपत के लिए फ़ाइलें होती हैं।</value>
+  </data>
+  <data name="Go Back" xml:space="preserve">
+    <value>वापस जाएं</value>
+  </data>
+  <data name="Go to Background Jobs" xml:space="preserve">
+    <value>बैकग्राउंड जॉब्स पर जाएं</value>
+  </data>
+  <data name="How to fix this?" xml:space="preserve">
+    <value>इसे कैसे ठीक करें?</value>
+  </data>
+  <data name="Primary Bucket Not Found" xml:space="preserve">
+    <value>प्राथमिक बकेट नहीं मिला</value>
+  </data>
+  <data name="Repository not ready" xml:space="preserve">
+    <value>रिपॉजिटरी तैयार नहीं है</value>
+  </data>
+  <data name="What does this mean?" xml:space="preserve">
+    <value>इसका क्या अर्थ है?</value>
+  </data>
+
+</root>

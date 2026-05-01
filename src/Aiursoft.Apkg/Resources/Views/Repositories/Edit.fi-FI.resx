@@ -21,6 +21,12 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Ei mitään (itsenäinen) --</value>
   </data>
+  <data name="Allow Anyone to Upload" xml:space="preserve">
+    <value>Salli kaikkien lähettää</value>
+  </data>
+  <data name="Allows any logged-in user to upload LocalPackages to this repository." xml:space="preserve">
+    <value>Mahdollistaa kirjautuneen käyttäjän ladata LocalPackages-paketteja tähän arkistoon.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Arkkitehtuuri</value>
   </data>
@@ -45,8 +51,20 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>Muokkaa arkistoa</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>Ota GPG-allekirjoitus käyttöön</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Jos yhdistetty peiliin, tämä arkisto palvelee paketteja tuosta ylävirtalähteestä.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Jos yhdistetty, tämän arkiston Packages-indeksi kylvetään peilistä jokaisen Repository Sync -synkronoinnin yhteydessä. Saman paketin nimen ja arkkitehtuurin LocalPackages-yksilöt ohittavat peilin version.</value>
+  </data>
+  <data name="If unchecked, only users with the &apos;Upload to Restricted Repositories&apos; permission can publish packages to this repository." xml:space="preserve">
+    <value>Jos tämä asetus on valitsematta, vain käyttäjillä, joilla on oikeus &apos;Lataa rajoitetuille arkistoille&apos;, voidaan julkaista paketteja tähän arkistoon.</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>Peili</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>Tallenna arkisto</value>
@@ -62,6 +80,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Tämän arkiston URL-etuliite (esim. &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>Kun tämä on käytössä, Release-tiedisto allekirjoitetaan valitulla GPG-avaimella jokaisen Repository Sync -synkronoinnin jälkeen. Asiakkaat, jotka käyttävät &apos;signed-by=&apos; lähteensä sources.listissa, tarkistavat tämän allekirjoituksen ja hylkäävät allekirjoittamattomat tai virheellisesti allekirjoitetut arkistot.</value>
   </data>
 
 </root>

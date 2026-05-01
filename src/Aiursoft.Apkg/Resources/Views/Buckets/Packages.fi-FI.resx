@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>Komponentti</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>Tiedosto on isännöity ylävirran peilissä. apt-asiakkaat lataavat sen suoraan peilin URL-osoitteesta.</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>Tiedosto on tallennettu paikalliselle tälle palvelimelle. apt-asiakkaat lataavat sen täältä.</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Seuraava</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Virtuaalinen</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>Virtuaalinen: tiedosto on ylävirtaisen peilin isännöimä ja ladattavissa tarvittaessa apt-asiakkaiden toimesta. Fyysinen: tiedosto on tallennettu paikallisesti tälle palvelimelle.</value>
   </data>
 
 </root>
