@@ -24,6 +24,9 @@
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Haluatko varmasti poistaa repositoryn</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Selaa paketteja</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Peruuta</value>
   </data>
@@ -36,11 +39,20 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>Luo uusi arkisto</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Poista</value>
+  </data>
   <data name="Delete Repository" xml:space="preserve">
     <value>Poista varasto</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Tiedot</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Jakelu</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Muokkaa</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Live-vedot</value>
@@ -69,8 +81,17 @@
   <data name="Suite" xml:space="preserve">
     <value>Julkaisu</value>
   </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>Nykyinen aktiivinen snapshot, jota apt-asiakkaat käyttävät. Muuttuu live-tilaan, kun Repository Sync -synkronointi on onnistuneesti suoritettu.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Tallenne, jota Repository Sync -työ käynnissä olevana rakentaa. Se korvaa live-kaukalon, kun työ onnistuu.</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Pakettien kokonaismäärä</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Onko repositorion Release-tiedosto GPG-varmennettu. apt-asiakkaat, jotka on määritetty käyttämään &apos;signed-by=&apos; sources.listissa, hylkäävät repositorioiden, jotka ovat allekirjoittamattomia tai allekirjoitettu väärällä avaimella.</value>
   </data>
 
 </root>

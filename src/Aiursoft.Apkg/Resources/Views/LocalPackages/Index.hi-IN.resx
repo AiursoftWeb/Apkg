@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A live package is available for APT clients." xml:space="preserve">
+    <value>APT क्लाइंट्स के लिए एक लाइव पैकेज उपलब्ध है।</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>कार्रियां</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>आर्किटेक्चर</value>
+  </data>
+  <data name="Are you sure you want to delete" xml:space="preserve">
+    <value>क्या आप वाकई हटाना चाहते हैं</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>हटाने की पुष्टि करें</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>हटाएं</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>निष्क्रिय</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>लाइव</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>मेरे पैकेज</value>
+  </data>
+  <data name="No packages uploaded yet." xml:space="preserve">
+    <value>अभी तक कोई पैकेज अपलोड नहीं हुआ है।</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>पैकेज</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>सिंक प्रतीक्षित</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>भंडार</value>
+  </data>
+  <data name="Staged (Waiting for Sign)" xml:space="preserve">
+    <value>स्टेज्ड (हस्ताक्षर की प्रतीक्षा में)</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>सिंक स्थिति</value>
+  </data>
+  <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
+    <value>इस पैकेज का वर्तमान प्रगति लाइव रिपॉजिटरी में विलीन और हस्ताक्षरित हो रहा है। सिंक जॉब हर 20 मिनट में चलती है, जिसके बाद हर 5 मिनट में एक सिन जॉब चलती है।</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>पैकेज अपलोड करें</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>अपलोड किया गया</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>अपलोड करने वाला</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>संस्करण</value>
+  </data>
+  <data name="View Details &amp; Install Instructions" xml:space="preserve">
+    <value>विवरण और इंस्टॉल निर्देश देखें</value>
+  </data>
+
+</root>
