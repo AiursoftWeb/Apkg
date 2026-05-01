@@ -21,6 +21,12 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Yok (Bağımsız) --</value>
   </data>
+  <data name="Allow Anyone to Upload" xml:space="preserve">
+    <value>Herkesin Yüklemesine İzin Ver</value>
+  </data>
+  <data name="Allows any logged-in user to upload LocalPackages to this repository." xml:space="preserve">
+    <value>Bu depoya yerel paketler yüklemesine izin verir.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Mimari</value>
   </data>
@@ -45,8 +51,20 @@
   <data name="Edit Repository" xml:space="preserve">
     <value>Depoyu Düzenle</value>
   </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>GPG İmzalamayı Etkinleştir</value>
+  </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Bir aynaya bağlanırsa, bu depo paketleri o yukarı akış kaynağından sunacaktır.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Bağlıysa, bu havuzun Packages dizini her Repository Eşzamanlaması sırasında aynadan beslenir. Aynı paket adı ve mimari için yerel Packages&apos;ler ayna sürümünü geçersiz kılar.</value>
+  </data>
+  <data name="If unchecked, only users with the &apos;Upload to Restricted Repositories&apos; permission can publish packages to this repository." xml:space="preserve">
+    <value>İşaretlenmediğinde, yalnızca &apos;Kısıtlı Depolara Yükleme&apos; iznine sahip kullanıcılar bu depoya paket yayınlayabilir.</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>Ayna</value>
   </data>
   <data name="Save Repository" xml:space="preserve">
     <value>Depoyu Kaydet</value>
@@ -62,6 +80,9 @@
   </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Bu depo için URL ön eki (örn. &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>Etkinleştirildiğinde, Release dosyası her Repository Senkronizasyonundan sonra seçilen GPG anahtarıyla imzalanır. Kaynak.list&apos;lerinde &apos;signed-by=&apos; kullanan istemciler bu imzayı doğrular ve imzasız veya yanlış imzalı depoları reddeder.</value>
   </data>
 
 </root>

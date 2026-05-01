@@ -51,6 +51,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>बकेट इतिहास</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>बकेट पैकेज</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>बकेट्स</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>प्रमाणपत्र</value>
   </data>
@@ -65,6 +71,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>लॉगिन करने के लिए क्लिक करें</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>प्रमाणपत्र बनाएं</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>मिरर बनाएं</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>रिपॉजिटरी बनाएं</value>
@@ -86,6 +98,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>निर्देशिका</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>संपादित करें</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>दर्पण संपादित करें</value>
@@ -126,6 +141,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>आ interनल सर्वर त्रुटि</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>स्थानीय पैकेज</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>लॉकआउट</value>
   </data>
@@ -138,6 +156,9 @@
   <data name="Manage" xml:space="preserve">
     <value>प्रबंधित करें</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>दर्पण</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>मेरे पैकेज</value>
   </data>
@@ -147,11 +168,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>नहीं मिला</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>पैकेज विवरण</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>पैकेज इंजन</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>पैकेज खोज</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>पैकेज</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>अनुमति विवरण</value>
@@ -176,6 +203,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>पंजीकरण करें</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>भंडार</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>भंडार विवरण</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>रिपॉजिटरी पैकेज</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>भूमिका विवरण</value>
@@ -218,6 +254,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>उपयोगकर्ता</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>विवरण सत्यापित करें</value>
   </data>
 
 </root>

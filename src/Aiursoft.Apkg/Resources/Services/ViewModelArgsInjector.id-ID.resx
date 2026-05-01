@@ -51,6 +51,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>Riwayat Bucket</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>Paket Bucket</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>Ember</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>Sertifikat</value>
   </data>
@@ -65,6 +71,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Klik untuk masuk</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>Buat Sertifikat</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>Buat Cermin</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>Buat Repositori</value>
@@ -86,6 +98,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Direktori</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>Edit Cermin</value>
@@ -126,6 +141,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>Kesalahan Server Internal</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>Paket Lokal</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Kunci Keluar</value>
   </data>
@@ -138,6 +156,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Kelola</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>Cermin</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>Paket Saya</value>
   </data>
@@ -147,11 +168,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>Tidak Ditemukan</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Detail Paket</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>Mesin Paket</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>Pencarian Paket</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Paket</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Detail Izin</value>
@@ -176,6 +203,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Daftar</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>Repositori</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Detail Repositori</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>Paket Repositori</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>Detail Peran</value>
@@ -218,6 +254,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Pengguna</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>Verifikasi Detail</value>
   </data>
 
 </root>

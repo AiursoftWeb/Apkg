@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>Doğrulama için yukarı akış genel GPG anahtarına isteğe bağlı URL.</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>Üst imzaları doğrulamak için yerel GPG anahtar halkasına dosya yolu. Doğrulamayı atlamak için boş bırakın.</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Değişiklikleri Kaydet</value>
   </data>

@@ -27,6 +27,12 @@
   <data name="Component" xml:space="preserve">
     <value>Component</value>
   </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>Fișierul este găzduit pe oglinda principală. Clienții apt îl descarcă direct de la URL-ul oglinzii.</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>Fișierul este stocat local pe acest server. clienții apt îl descarcă de aici.</value>
+  </data>
   <data name="Next" xml:space="preserve">
     <value>Următorul</value>
   </data>
@@ -62,6 +68,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Virtual</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>Virtual: fișierul este găzduit pe oglindă (mirror) și descărcat la cerere de clienții apt. Fizic: fișierul este stocat local pe acest server.</value>
   </data>
 
 </root>

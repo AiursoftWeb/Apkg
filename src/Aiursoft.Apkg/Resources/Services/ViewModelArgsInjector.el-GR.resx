@@ -51,6 +51,12 @@
   <data name="Bucket History" xml:space="preserve">
     <value>Ιστορικό Κάδου</value>
   </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>Πακέτα Bucket</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>Κάδοι</value>
+  </data>
   <data name="Certificates" xml:space="preserve">
     <value>Πιστοποιητικά</value>
   </data>
@@ -65,6 +71,12 @@
   </data>
   <data name="Click to login" xml:space="preserve">
     <value>Κάντε κλικ για σύνδεση</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>Δημιουργία Πιστοποιητικού</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>Δημιουργία Αντιγράφου</value>
   </data>
   <data name="Create Repository" xml:space="preserve">
     <value>Δημιουργία Αποθετηρίου</value>
@@ -86,6 +98,9 @@
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Κατάλογος</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Επεξεργασία</value>
   </data>
   <data name="Edit Mirror" xml:space="preserve">
     <value>Επεξεργασία Καθρέφτη</value>
@@ -126,6 +141,9 @@
   <data name="Internal Server Error" xml:space="preserve">
     <value>Internal Server Error</value>
   </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>Τοπικά Πακέτα</value>
+  </data>
   <data name="Lockout" xml:space="preserve">
     <value>Μπλοκάρισμα</value>
   </data>
@@ -138,6 +156,9 @@
   <data name="Manage" xml:space="preserve">
     <value>Διαχείριση</value>
   </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>Κάτοπτρα</value>
+  </data>
   <data name="My Packages" xml:space="preserve">
     <value>Τα Πακέτα Μου</value>
   </data>
@@ -147,11 +168,17 @@
   <data name="Not Found" xml:space="preserve">
     <value>Δεν βρέθηκε</value>
   </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Λεπτομέρειες Πακέτου</value>
+  </data>
   <data name="Package Engine" xml:space="preserve">
     <value>Μηχανή Πακέτων</value>
   </data>
   <data name="Package Search" xml:space="preserve">
     <value>Αναζήτηση Πακέτων</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Πακέτα</value>
   </data>
   <data name="Permission Details" xml:space="preserve">
     <value>Λεπτομέρειες Εξουσιοδότησης</value>
@@ -176,6 +203,15 @@
   </data>
   <data name="Register" xml:space="preserve">
     <value>Εγγραφή</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>Αποθετήρια</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Λεπτομέρειες Αποθετηρίου</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>Πακέτα Αποθετηρίου</value>
   </data>
   <data name="Role Details" xml:space="preserve">
     <value>Λεπτομέρειες Ρόλου</value>
@@ -218,6 +254,9 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Χρήστες</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>Επαλήθευση Λεπτομερειών</value>
   </data>
 
 </root>

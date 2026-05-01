@@ -33,6 +33,9 @@
   <data name="Base URL" xml:space="preserve">
     <value>Temel URL</value>
   </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Paketlere Göz At</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
@@ -42,11 +45,17 @@
   <data name="Confirm Delete" xml:space="preserve">
     <value>Silme İşlemini Onayla</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Sil</value>
+  </data>
   <data name="Delete Mirror" xml:space="preserve">
     <value>Aynayı Sil</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Dağıtım</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Düzenle</value>
   </data>
   <data name="Error:" xml:space="preserve">
     <value>Hata:</value>
@@ -59,6 +68,9 @@
   </data>
   <data name="items" xml:space="preserve">
     <value>öğe</value>
+  </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>Son Çekim</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Hiç Çekilmedi</value>
@@ -95,6 +107,12 @@
   </data>
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Senkronizasyon Hatası Yığın İzleme</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>apt istemcilerine şu anda sunulan canlı anlık görüntü. Yeni bir kova, bir Ayna Senkronizasyonu başarıyla tamamlanana kadar birincil olmaz.</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>Çalışan bir Mirror Sync işi tarafından oluşturulan anlık görüntü. İş başarılı olduğunda Birincil Kova&apos;yı değiştirir; eski birincil artık çöp toplama için uygun hale gelir.</value>
   </data>
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Bu işlem, ilişkili tüm paketleri ve sepetleri de silecektir!</value>
