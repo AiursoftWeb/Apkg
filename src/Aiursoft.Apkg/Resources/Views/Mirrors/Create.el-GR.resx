@@ -45,6 +45,9 @@
   <data name="Optional URL to the upstream public GPG key for verification." xml:space="preserve">
     <value>Προαιρετική διεύθυνση URL του δημόσιου κλειδιού GPG του ανωτέρου επιπέδου για επαλήθευση.</value>
   </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>Διαδρομή προς το τοπικό αρχείο keyring GPG για την επαλήθευση των υπογραφών των upstream. Αφήστε το κενό για παράλειψη της επαλήθευσης.</value>
+  </data>
   <data name="Save Changes" xml:space="preserve">
     <value>Αποθήκευση Αλλαγών</value>
   </data>
