@@ -87,6 +87,9 @@
   <data name="Pending" xml:space="preserve">
     <value>Oczekiwanie</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>Oczekiwanie na weryfikację</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Główne repozytorium</value>
   </data>
@@ -108,6 +111,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Ślad stosu błędu synchronizacji</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>Synchronizacja nie powiodła się</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>Zsynchronizowano</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>Żywy snapshot aktualnie dostarczany klientom apt. Nowy bucket staje się podstawowy dopiero po pomyślnym zakończeniu synchronizacji lustrzanej.</value>
   </data>
@@ -117,8 +126,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Spowoduje to również usunięcie wszystkich powiązanych pakietów i wiader!</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>Niechroniony</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Lustrzane odbicia źródłowe</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>Weryfikacja nie powiodła się</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>Zweryfikowany</value>
   </data>
 
 </root>

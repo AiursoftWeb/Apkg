@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All Dependencies Satisfied!" xml:space="preserve">
+    <value>Tüm Bağımlılıklar Karşılandı!</value>
+  </data>
+  <data name="All packages in this repository have their dependencies properly satisfied. No issues detected." xml:space="preserve">
+    <value>Bu depodaki tüm paketlerin bağımlılıkları doğru şekilde karşılanmıştır. Sorun tespit edilmedi.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Mimari</value>
+  </data>
+  <data name="Available:" xml:space="preserve">
+    <value>Mevcut:</value>
+  </data>
+  <data name="Back to Repository" xml:space="preserve">
+    <value>Depoya Geri Dön</value>
+  </data>
+  <data name="Check Failed" xml:space="preserve">
+    <value>Kontrol Başarısız Oldu</value>
+  </data>
+  <data name="Check in progress..." xml:space="preserve">
+    <value>Kontrol devam ediyor...</value>
+  </data>
+  <data name="Dependency Check Report" xml:space="preserve">
+    <value>Bağımlılık Kontrol Raporu</value>
+  </data>
+  <data name="Dependency Issues" xml:space="preserve">
+    <value>Bağımlılık Sorunları</value>
+  </data>
+  <data name="Expires in" xml:space="preserve">
+    <value>Süresi dolana kadar</value>
+  </data>
+  <data name="Healthy Rate" xml:space="preserve">
+    <value>Sağlık Oranı</value>
+  </data>
+  <data name="Missing Dependencies" xml:space="preserve">
+    <value>Eksik Bağımlılıklar</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>eski</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="Problematic" xml:space="preserve">
+    <value>Sorunlu</value>
+  </data>
+  <data name="Re-check" xml:space="preserve">
+    <value>Yeniden denetle</value>
+  </data>
+  <data name="Report Age" xml:space="preserve">
+    <value>Rapor Yaşı</value>
+  </data>
+  <data name="The dependency check is currently running. This page will automatically refresh." xml:space="preserve">
+    <value>Bağımlılık denetimi şu anda çalışıyor. Bu sayfa otomatik olarak yenilenecek.</value>
+  </data>
+  <data name="Total Packages" xml:space="preserve">
+    <value>Toplam Paket</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tür</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Sürüm</value>
+  </data>
+
+</root>

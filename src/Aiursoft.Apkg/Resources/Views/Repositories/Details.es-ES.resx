@@ -27,6 +27,9 @@
   <data name="Certificate" xml:space="preserve">
     <value>Certificado</value>
   </data>
+  <data name="Check Dependencies" xml:space="preserve">
+    <value>Comprobar dependencias</value>
+  </data>
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>Guía de configuración del cliente</value>
   </data>

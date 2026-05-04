@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All Dependencies Satisfied!" xml:space="preserve">
+    <value>Toate dependențele sunt satisfăcute!</value>
+  </data>
+  <data name="All packages in this repository have their dependencies properly satisfied. No issues detected." xml:space="preserve">
+    <value>Toate pachetele din acest depozit își au dependențele satisfăcute corect. Nu s-au detectat probleme.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitectură</value>
+  </data>
+  <data name="Available:" xml:space="preserve">
+    <value>Disponibil:</value>
+  </data>
+  <data name="Back to Repository" xml:space="preserve">
+    <value>Înapoi la Depozit</value>
+  </data>
+  <data name="Check Failed" xml:space="preserve">
+    <value>Verificare eșuată</value>
+  </data>
+  <data name="Check in progress..." xml:space="preserve">
+    <value>Verificare în curs...</value>
+  </data>
+  <data name="Dependency Check Report" xml:space="preserve">
+    <value>Raport de verificare a dependențelor</value>
+  </data>
+  <data name="Dependency Issues" xml:space="preserve">
+    <value>Probleme cu dependențele</value>
+  </data>
+  <data name="Expires in" xml:space="preserve">
+    <value>Expiră în</value>
+  </data>
+  <data name="Healthy Rate" xml:space="preserve">
+    <value>Rata de sănătate</value>
+  </data>
+  <data name="Missing Dependencies" xml:space="preserve">
+    <value>Dependențe lipsă</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>vechi</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Pachet</value>
+  </data>
+  <data name="Problematic" xml:space="preserve">
+    <value>Problematice</value>
+  </data>
+  <data name="Re-check" xml:space="preserve">
+    <value>Reverificare</value>
+  </data>
+  <data name="Report Age" xml:space="preserve">
+    <value>Vechimea raportului</value>
+  </data>
+  <data name="The dependency check is currently running. This page will automatically refresh." xml:space="preserve">
+    <value>Verificarea dependențelor este în curs de executare. Această pagină se va reîmprospăta automat.</value>
+  </data>
+  <data name="Total Packages" xml:space="preserve">
+    <value>Pachete totale</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versiune</value>
+  </data>
+
+</root>

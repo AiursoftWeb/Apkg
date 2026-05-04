@@ -87,6 +87,9 @@
   <data name="Pending" xml:space="preserve">
     <value>Väntar</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>Väntar på verifiering</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Primär behållare</value>
   </data>
@@ -108,6 +111,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Stackspårning för synkroniseringsfel</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>Synkronisering misslyckades</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>Synkroniserad</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>Den live-snapshot som för närvarande levereras till apt-klienter. En ny bucket blir primär först när en Mirror Sync har slutförts utan fel.</value>
   </data>
@@ -117,8 +126,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Detta kommer också att ta bort alla associerade paket och bucketar!</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>Oskyddad</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Uppströms-speglingar</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>Verifieringen misslyckades</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>Verifierad</value>
   </data>
 
 </root>

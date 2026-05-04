@@ -87,6 +87,9 @@
   <data name="Pending" xml:space="preserve">
     <value>În așteptare</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>În așteptarea verificării</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Cuvânt cheie primar</value>
   </data>
@@ -108,6 +111,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Harta de erori de sincronizare</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>Sincronizare eșuată</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>Sincronizat</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>Instantaneul live servit în prezent clienților apt. Un nou bucket devine principal doar după ce o sincronizare a oglinzii se completează cu succes.</value>
   </data>
@@ -117,8 +126,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Aceasta va șterge și toate pachetele și containerele asociate!</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>Neprotejat</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Repozitoare upstream</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>Verificare eșuată</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>Verificat</value>
   </data>
 
 </root>
