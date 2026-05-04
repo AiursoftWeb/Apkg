@@ -2,6 +2,7 @@ using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Models.MirrorsViewModels;
 using Aiursoft.Apkg.Models.SharedViewModels;
 using Aiursoft.Apkg.Services;
+using Aiursoft.Apkg.Services.BackgroundJobs;
 using Aiursoft.UiStack.Navigation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -351,5 +352,49 @@ public class RepositoriesController(
             await dbContext.SaveChangesAsync();
         }
         return RedirectToAction(nameof(Index));
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> CheckDependencies(int id, [FromServices] RepositoryDependencyCheckJob dependencyCheckJob)
+    {
+        var repo = await dbContext.AptRepositories.FindAsync(id);
+        if (repo == null) return NotFound();
+
+        // Run dependency check in background and get report ID
+        int reportId;
+        try
+        {
+            reportId = await dependencyCheckJob.RunAsync(id);
+        }
+        catch (InvalidOperationException ex)
+        {
+            TempData["ErrorMessage"] = ex.Message;
+            return RedirectToAction(nameof(Details), new { id });
+        }
+
+        // Redirect to the report page
+        return RedirectToAction(nameof(CheckReport), new { id = reportId });
+    }
+
+    [HttpGet]
+    [AllowAnonymous]
+    public async Task<IActionResult> CheckReport(int id)
+    {
+        if (!await CheckAccessAsync(SettingsMap.AllowAnonymousBrowseRepository))
+            return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
+
+        var report = await dbContext.DependencyCheckReports
+            .Include(r => r.Repository)
+            .FirstOrDefaultAsync(r => r.Id == id);
+
+        if (report == null) return NotFound();
+
+        var model = new RepoCheckReportViewModel
+        {
+            Report = report,
+            PageTitle = $"Dependency Check Report - {report.Repository.Name}"
+        };
+        return this.StackView(model);
     }
 }

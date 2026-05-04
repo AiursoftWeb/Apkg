@@ -10,6 +10,7 @@ using Aiursoft.Apkg.InMemory;
 using Aiursoft.Apkg.MySql;
 using Aiursoft.Apkg.Services.Authentication;
 using Aiursoft.Apkg.Services.BackgroundJobs;
+using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Sqlite;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.UiStack.Navigation;
@@ -55,6 +56,10 @@ public class Startup : IWebStartup
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
         services.AddTransient<IGpgSigningService, GpgSigningService>();
         services.AddSingleton<NavigationState<Startup>>();
+
+        // Explicitly register dependency check services
+        services.AddTransient<AptVersionComparisonService>();
+        services.AddTransient<RepositoryDependencyCheckJob>();
 
         // Background job infrastructure
         services.AddTaskQueueEngine();

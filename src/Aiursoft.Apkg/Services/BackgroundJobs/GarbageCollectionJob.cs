@@ -127,6 +127,18 @@ public class GarbageCollectionJob(
             logger.LogInformation("Deleted {Count} orphaned physical .deb files.", deletedFiles);
         }
 
+        // 5. Clean up expired dependency check reports (older than 72 hours)
+        var expiredReports = await db.DependencyCheckReports
+            .Where(r => r.ExpireAt < DateTime.UtcNow)
+            .ToListAsync();
+
+        if (expiredReports.Count > 0)
+        {
+            db.DependencyCheckReports.RemoveRange(expiredReports);
+            await db.SaveChangesAsync();
+            logger.LogInformation("Deleted {Count} expired dependency check reports.", expiredReports.Count);
+        }
+
         logger.LogInformation("GarbageCollectionJob finished.");
     }
 }
