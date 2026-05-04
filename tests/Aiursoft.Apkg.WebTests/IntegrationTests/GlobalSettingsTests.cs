@@ -111,7 +111,7 @@ public class GlobalSettingsTests : TestBase
             Assert.Fail("Should have thrown InvalidOperationException");
         }
         catch (InvalidOperationException) { }
-        
+
         await settingsService.UpdateSettingAsync(SettingsMap.DummyNumber, "123.45");
         Assert.AreEqual("123.45", await settingsService.GetSettingValueAsync(SettingsMap.DummyNumber));
 
@@ -122,7 +122,7 @@ public class GlobalSettingsTests : TestBase
             Assert.Fail("Should have thrown InvalidOperationException");
         }
         catch (InvalidOperationException) { }
-        
+
         await settingsService.UpdateSettingAsync(SettingsMap.DummyChoice, "B");
         Assert.AreEqual("B", await settingsService.GetSettingValueAsync(SettingsMap.DummyChoice));
 
@@ -141,7 +141,7 @@ public class GlobalSettingsTests : TestBase
             Assert.Fail("Should have thrown InvalidOperationException");
         }
         catch (InvalidOperationException) { }
-        
+
         // Test File validation (valid file)
         var storage = scope.ServiceProvider.GetRequiredService<StorageService>();
         var filePath = await storage.Save("test.png", new FormFile(new MemoryStream([1, 2, 3]), 0, 3, "test", "test.png"), isVault: false);
@@ -156,26 +156,26 @@ public class GlobalSettingsTests : TestBase
         using var scope = Server!.Services.CreateScope();
         var settingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
         var dbContext = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
-        
+
         // Since it's not in Definitions, we can't update it via service easily without it being defined.
         // But we can test hitting the database for an existing key after clearing cache.
-        
+
         await settingsService.UpdateSettingAsync(SettingsMap.Icp, "ICP123");
         Assert.AreEqual("ICP123", await settingsService.GetSettingValueAsync(SettingsMap.Icp));
-        
+
         // Modify DB directly
         var setting = await dbContext.GlobalSettings.FirstAsync(s => s.Key == SettingsMap.Icp);
         setting.Value = "ICP456";
         await dbContext.SaveChangesAsync();
-        
+
         // Should still be cached
         Assert.AreEqual("ICP123", await settingsService.GetSettingValueAsync(SettingsMap.Icp));
-        
+
         // In a real scenario, cache expires or is cleared.
         // We can't easily clear the cache here without getting the IMemoryCache.
         var cache = scope.ServiceProvider.GetRequiredService<Microsoft.Extensions.Caching.Memory.IMemoryCache>();
         cache.Remove($"global-setting-{SettingsMap.Icp}");
-        
+
         Assert.AreEqual("ICP456", await settingsService.GetSettingValueAsync(SettingsMap.Icp));
     }
 
@@ -184,18 +184,18 @@ public class GlobalSettingsTests : TestBase
     {
         using var scope = Server!.Services.CreateScope();
         var settingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
-        
+
         // Test with non-number value
         var value = await settingsService.GetIntSettingAsync(SettingsMap.ProjectName);
         Assert.AreEqual(0, value);
     }
-    
+
     [TestMethod]
     public async Task TestGetBoolSettingAsyncInvalid()
     {
         using var scope = Server!.Services.CreateScope();
         var settingsService = scope.ServiceProvider.GetRequiredService<GlobalSettingsService>();
-        
+
         // Test with non-bool value
         var value = await settingsService.GetBoolSettingAsync(SettingsMap.ProjectName);
         Assert.IsFalse(value);

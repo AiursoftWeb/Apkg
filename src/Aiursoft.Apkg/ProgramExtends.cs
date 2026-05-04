@@ -60,7 +60,7 @@ public static class ProgramExtends
         var services = scope.ServiceProvider;
         var db = services.GetRequiredService<ApkgDbContext>();
         var logger = services.GetRequiredService<ILogger<Program>>();
-        
+
         var settingsService = services.GetRequiredService<GlobalSettingsService>();
         await settingsService.SeedSettingsAsync();
 

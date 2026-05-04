@@ -27,7 +27,7 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
             .Include(m => m.PrimaryBucket)
             .Include(m => m.SecondaryBucket)
             .ToListAsync();
-            
+
         var packageCounts = await dbContext.AptPackages
             .GroupBy(p => p.BucketId)
             .Select(g => new { BucketId = g.Key, Count = g.Count() })
@@ -110,7 +110,7 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
         var package = await dbContext.AptPackages
             .Include(p => p.Bucket)
             .FirstOrDefaultAsync(p => p.Id == id);
-            
+
         if (package == null) return NotFound();
 
         var allRelNames = new[]
@@ -187,7 +187,7 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
             .Include(m => m.PrimaryBucket)
             .Include(m => m.SecondaryBucket)
             .FirstOrDefaultAsync(m => m.Id == id);
-            
+
         if (mirror == null) return NotFound();
 
         var model = new VerifyDetailsViewModel
@@ -237,7 +237,7 @@ public class MirrorsController(ApkgDbContext dbContext) : Controller
     {
         var mirror = await dbContext.AptMirrors.FindAsync(id);
         if (mirror == null) return NotFound();
-        
+
         var model = new MirrorEditViewModel
         {
             Id = mirror.Id,

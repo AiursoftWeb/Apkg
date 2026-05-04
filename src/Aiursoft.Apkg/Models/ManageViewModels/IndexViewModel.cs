@@ -3,7 +3,7 @@ using Aiursoft.UiStack.Layout;
 
 namespace Aiursoft.Apkg.Models.ManageViewModels;
 
-public class IndexViewModel: UiStackLayoutViewModel
+public class IndexViewModel : UiStackLayoutViewModel
 {
     public IndexViewModel()
     {

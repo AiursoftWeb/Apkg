@@ -81,14 +81,14 @@ public class UserApiKeysController(
         var rawKey = Convert.ToBase64String(rawKeyBytes)
             .Replace('+', '-').Replace('/', '_').TrimEnd('=');
 
-        var keyHash   = ApiKeyAuthenticationHandler.ComputeSha256Hex(rawKey);
+        var keyHash = ApiKeyAuthenticationHandler.ComputeSha256Hex(rawKey);
         var keyPrefix = rawKey[..8];
 
         var apiKey = new UserApiKey
         {
-            UserId    = userId,
-            Name      = model.Name.Trim(),
-            KeyHash   = keyHash,
+            UserId = userId,
+            Name = model.Name.Trim(),
+            KeyHash = keyHash,
             KeyPrefix = keyPrefix,
             ExpiresAt = model.ExpirationDays > 0
                 ? DateTime.UtcNow.AddDays(model.ExpirationDays)

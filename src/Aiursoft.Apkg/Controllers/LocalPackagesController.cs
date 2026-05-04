@@ -97,10 +97,10 @@ public class LocalPackagesController(
             else
             {
                 var repoInfo = repoLookup.GetValueOrDefault(lp.RepositoryId);
-                var primaryBucketPackages = repoInfo?.PrimaryBucketId != null 
-                    ? bucketLookup.GetValueOrDefault(repoInfo.PrimaryBucketId.Value) 
+                var primaryBucketPackages = repoInfo?.PrimaryBucketId != null
+                    ? bucketLookup.GetValueOrDefault(repoInfo.PrimaryBucketId.Value)
                     : null;
-                
+
                 if (primaryBucketPackages?.TryGetValue((lp.Package, lp.Architecture), out var foundId) == true)
                 {
                     status = LocalPackageStatus.Live;
@@ -109,10 +109,10 @@ public class LocalPackagesController(
                 }
                 else
                 {
-                    var secondaryBucketPackages = repoInfo?.SecondaryBucketId != null 
-                        ? bucketLookup.GetValueOrDefault(repoInfo.SecondaryBucketId.Value) 
+                    var secondaryBucketPackages = repoInfo?.SecondaryBucketId != null
+                        ? bucketLookup.GetValueOrDefault(repoInfo.SecondaryBucketId.Value)
                         : null;
-                        
+
                     if (secondaryBucketPackages?.ContainsKey((lp.Package, lp.Architecture)) == true)
                     {
                         status = LocalPackageStatus.StagedForSigning;

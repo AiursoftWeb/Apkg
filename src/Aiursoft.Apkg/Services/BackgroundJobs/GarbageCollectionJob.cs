@@ -31,7 +31,7 @@ public class GarbageCollectionJob(
             .Where(m => m.SecondaryBucketId != null)
             .Select(m => m.SecondaryBucketId!.Value)
             .ToListAsync();
-            
+
         var activeRepoPrimaryBuckets = await db.AptRepositories
             .Where(r => r.PrimaryBucketId != null)
             .Select(r => r.PrimaryBucketId!.Value)
@@ -123,7 +123,7 @@ public class GarbageCollectionJob(
                     deletedFiles++;
                 }
             }
-            
+
             logger.LogInformation("Deleted {Count} orphaned physical .deb files.", deletedFiles);
         }
 

@@ -77,7 +77,7 @@ public class RepositorySignJobTests : TestBase
 
         // Assert
         _db.ChangeTracker.Clear();
-        var updatedRepo   = await _db.AptRepositories.FindAsync(repo.Id);
+        var updatedRepo = await _db.AptRepositories.FindAsync(repo.Id);
         var updatedBucket = await _db.AptBuckets.FindAsync(pending.Id);
 
         Assert.AreEqual(pending.Id, updatedRepo!.PrimaryBucketId,
@@ -108,7 +108,7 @@ public class RepositorySignJobTests : TestBase
 
         // Assert: bucket is promoted but not signed
         _db.ChangeTracker.Clear();
-        var updatedRepo   = await _db.AptRepositories.FindAsync(repo.Id);
+        var updatedRepo = await _db.AptRepositories.FindAsync(repo.Id);
         var updatedBucket = await _db.AptBuckets.FindAsync(pending.Id);
 
         Assert.AreEqual(pending.Id, updatedRepo!.PrimaryBucketId,

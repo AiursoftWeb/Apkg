@@ -9,7 +9,7 @@ using Microsoft.Extensions.Caching.Memory;
 namespace Aiursoft.Apkg.Services;
 
 public class GlobalSettingsService(
-    ApkgDbContext dbContext, 
+    ApkgDbContext dbContext,
     IConfiguration configuration,
     StorageService storageService,
     IMemoryCache cache) : IScopedDependency

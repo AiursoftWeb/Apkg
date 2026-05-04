@@ -36,8 +36,8 @@ public class JobsController(
     {
         var oneDayAgo = TimeSpan.FromHours(24);
         var recentCompleted = taskQueue.GetRecentCompletedTasks(oneDayAgo).Select(ToJobInfo);
-        var pending         = taskQueue.GetPendingTasks().Select(ToJobInfo);
-        var processing      = taskQueue.GetProcessingTasks().Select(ToJobInfo);
+        var pending = taskQueue.GetPendingTasks().Select(ToJobInfo);
+        var processing = taskQueue.GetProcessingTasks().Select(ToJobInfo);
 
         var allJobs = pending
             .Concat(processing)
@@ -64,7 +64,7 @@ public class JobsController(
                 .OrderBy(t => t.JobType.Name)
                 .ToList(),
             LastRunAtByJobType = lastRunAtByJobType,
-            AllRecentJobs  = allJobs
+            AllRecentJobs = allJobs
         };
 
         return this.StackView(viewModel);

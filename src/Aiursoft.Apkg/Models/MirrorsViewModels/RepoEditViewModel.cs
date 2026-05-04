@@ -45,7 +45,7 @@ public class RepoEditViewModel : UiStackLayoutViewModel
 
     [Display(Name = "Signing Certificate")]
     public int? CertificateId { get; set; }
-    
+
     public List<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>? AvailableMirrors { get; set; }
     public List<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>? AvailableCertificates { get; set; }
 

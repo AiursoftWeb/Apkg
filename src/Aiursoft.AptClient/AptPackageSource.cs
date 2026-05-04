@@ -39,7 +39,7 @@ public class AptPackageSource
         var relPathRaw = $"{Component}/binary-{Arch}/Packages";
 
         Stream? stream = null;
-        
+
         // Try XZ first (best compression)
         if (supportedFiles.Contains(relPathXz, StringComparer.OrdinalIgnoreCase))
         {

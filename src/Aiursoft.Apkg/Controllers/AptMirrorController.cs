@@ -22,11 +22,11 @@ public class AptMirrorController(
     [Route("artifacts/dists/{suite}/{**path}")]
     public async Task<IActionResult> GetDists(
         [FromRoute] string? distro,
-        [FromRoute] string? repoName, 
-        [FromRoute] string suite, 
+        [FromRoute] string? repoName,
+        [FromRoute] string suite,
         [FromRoute] string path)
     {
-        repoName ??= suite; 
+        repoName ??= suite;
         path = path.TrimStart('/');
 
         var repoQuery = dbContext.AptRepositories
@@ -67,7 +67,7 @@ public class AptMirrorController(
         var cert = await dbContext.AptCertificates
             .AsNoTracking()
             .FirstOrDefaultAsync(c => c.Name == name);
-        
+
         if (cert == null) return NotFound();
         return Content(cert.PublicKey, "application/pgp-keys");
     }

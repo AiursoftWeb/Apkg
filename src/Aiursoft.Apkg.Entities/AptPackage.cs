@@ -17,7 +17,7 @@ public class AptPackage : DebianPackage
     public int Id { get; set; }
 
     public int BucketId { get; set; }
-    
+
     [ForeignKey(nameof(BucketId))]
     public AptBucket? Bucket { get; set; }
 

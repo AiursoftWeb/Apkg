@@ -146,7 +146,7 @@ public class GcSignRaceConditionTests : TestBase
         // Arrange: repo with old PrimaryBucketId=A, new SecondaryBucketId=B
         var repo = await _db.AptRepositories.FirstAsync(r => r.CertificateId != null);
         var oldBucket = CreateFinishedBucket("old");
-        var pending   = CreateFinishedBucket("new");
+        var pending = CreateFinishedBucket("new");
         repo.PrimaryBucketId = oldBucket.Id;
         repo.SecondaryBucketId = pending.Id;
         _db.SaveChanges();
@@ -162,7 +162,7 @@ public class GcSignRaceConditionTests : TestBase
 
         // Assert: B (now live) must not have been deleted
         _db.ChangeTracker.Clear();
-        var liveRepo   = await _db.AptRepositories.FindAsync(repo.Id);
+        var liveRepo = await _db.AptRepositories.FindAsync(repo.Id);
         var liveBucket = await _db.AptBuckets.FindAsync(pending.Id);
 
         Assert.AreEqual(pending.Id, liveRepo!.PrimaryBucketId,
@@ -188,12 +188,12 @@ public class GcSignRaceConditionTests : TestBase
         // Arrange
         var repo = await _db.AptRepositories.FirstAsync(r => r.CertificateId != null);
         var oldBucket = CreateFinishedBucket("old-gen");
-        var pending   = CreateFinishedBucket("new-gen");
+        var pending = CreateFinishedBucket("new-gen");
         repo.PrimaryBucketId = oldBucket.Id;
         repo.SecondaryBucketId = pending.Id;
         _db.SaveChanges();
 
-        var gc      = GetService<GarbageCollectionJob>();
+        var gc = GetService<GarbageCollectionJob>();
         var signJob = GetService<RepositorySignJob>();
 
         // Step 3: GC fires while both buckets are referenced

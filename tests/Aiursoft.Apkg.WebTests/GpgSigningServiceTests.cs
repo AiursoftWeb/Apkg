@@ -22,7 +22,7 @@ public class GpgSigningServiceTests
     {
         // 1. Test Key Generation
         var (pub, priv, fpr) = await _service.GenerateKeyPairAsync("Test User <test@example.com>");
-        
+
         Assert.IsFalse(string.IsNullOrWhiteSpace(pub));
         Assert.IsFalse(string.IsNullOrWhiteSpace(priv));
         Assert.IsFalse(string.IsNullOrWhiteSpace(fpr));

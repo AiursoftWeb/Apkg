@@ -18,7 +18,7 @@ public class AptMirrorService(
     public async Task<string?> GetLocalPoolPath(string path)
     {
         logger.LogInformation("Lazy Sync requested for path: {Path}", path);
-        
+
         // 1. Normalize path: ensure it starts with pool/
         if (!path.StartsWith("pool/") && !path.StartsWith("/pool/"))
         {
@@ -38,7 +38,7 @@ public class AptMirrorService(
         }
 
         logger.LogInformation("Found package {PackageName} in DB. ID: {Id}, Virtual: {IsVirtual}", package.Package, package.Id, package.IsVirtual);
-        
+
         var hash = package.SHA256.ToLowerInvariant();
         var hashPrefix = hash.Substring(0, 2);
         var localPath = Path.Combine(ObjectsRoot, hashPrefix, $"{hash}.deb");

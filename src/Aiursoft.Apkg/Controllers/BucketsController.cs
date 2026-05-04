@@ -27,7 +27,7 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
             .OrderByDescending(b => b.CreatedAt)
             .Take(100)
             .ToListAsync();
-            
+
         // Calculate package counts per bucket
         var rawData = await dbContext.AptPackages
             .GroupBy(p => p.BucketId)
@@ -35,7 +35,7 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
             .ToListAsync();
 
         var packageCounts = rawData.ToDictionary(
-            x => x.BucketId, 
+            x => x.BucketId,
             x => new { x.Count, TotalSize = x.Sizes.Sum(s => long.TryParse(s, out var l) ? l : 0) });
 
         // Find active usage
@@ -64,7 +64,7 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
             Buckets = buckets,
             PackageCounts = packageCounts.ToDictionary(k => k.Key, v => v.Value.Count),
             StorageUsage = packageCounts.ToDictionary(k => k.Key, v => v.Value.TotalSize),
-            InUseBy = buckets.ToDictionary(b => b.Id, b => 
+            InUseBy = buckets.ToDictionary(b => b.Id, b =>
             {
                 var usages = new List<string>();
                 if (mirrorUsage.TryGetValue(b.Id, out var m)) usages.Add(m);
@@ -86,7 +86,7 @@ public class BucketsController(ApkgDbContext dbContext) : Controller
         const int pageSize = 100;
         var baseQuery = dbContext.AptPackages.Where(p => p.BucketId == id);
         var totalCount = await baseQuery.CountAsync();
-        
+
         var query = baseQuery;
         query = sortOrder switch
         {

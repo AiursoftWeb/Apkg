@@ -183,8 +183,8 @@ public class AptSourceExtractor
             try
             {
                 var tempHome = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
-            Directory.CreateDirectory(tempHome);
-            var psi = new System.Diagnostics.ProcessStartInfo
+                Directory.CreateDirectory(tempHome);
+                var psi = new System.Diagnostics.ProcessStartInfo
                 {
                     FileName = "gpg",
                     Arguments = $"--homedir \"{tempHome}\" --dearmor --batch --yes -o \"{tempGpg}\" \"{tempAsc}\"",

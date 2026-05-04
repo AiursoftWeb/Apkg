@@ -102,7 +102,7 @@ SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
         services.AddDbContext<ApkgDbContext, SqliteContext>(options => options.UseSqlite(dbName));
         services.AddSingleton<IConfiguration>(new ConfigurationBuilder().Build());
         services.AddTransient<MirrorSyncJob>();
-        
+
         // HttpClient that always fails
         services.AddHttpClient(Microsoft.Extensions.Options.Options.DefaultName)
             .ConfigurePrimaryHttpMessageHandler(() => new ActionMessageHandler(_ => throw new Exception("Network error!")));

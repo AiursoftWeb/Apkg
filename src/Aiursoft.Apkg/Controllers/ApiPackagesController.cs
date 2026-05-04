@@ -69,25 +69,25 @@ public class ApiPackagesController(
             {
                 fileSize = fs.Length;
                 using var sha256Hasher = SHA256.Create();
-                using var sha1Hasher   = SHA1.Create();
-                using var md5Hasher    = MD5.Create();
+                using var sha1Hasher = SHA1.Create();
+                using var md5Hasher = MD5.Create();
                 using var sha512Hasher = SHA512.Create();
                 var buffer = new byte[81920];
                 int read;
                 while ((read = await fs.ReadAsync(buffer)) > 0)
                 {
                     sha256Hasher.TransformBlock(buffer, 0, read, null, 0);
-                    sha1Hasher  .TransformBlock(buffer, 0, read, null, 0);
-                    md5Hasher   .TransformBlock(buffer, 0, read, null, 0);
+                    sha1Hasher.TransformBlock(buffer, 0, read, null, 0);
+                    md5Hasher.TransformBlock(buffer, 0, read, null, 0);
                     sha512Hasher.TransformBlock(buffer, 0, read, null, 0);
                 }
                 sha256Hasher.TransformFinalBlock([], 0, 0);
-                sha1Hasher  .TransformFinalBlock([], 0, 0);
-                md5Hasher   .TransformFinalBlock([], 0, 0);
+                sha1Hasher.TransformFinalBlock([], 0, 0);
+                md5Hasher.TransformFinalBlock([], 0, 0);
                 sha512Hasher.TransformFinalBlock([], 0, 0);
                 sha256 = BitConverter.ToString(sha256Hasher.Hash!).Replace("-", "").ToLowerInvariant();
-                sha1   = BitConverter.ToString(sha1Hasher.Hash!)  .Replace("-", "").ToLowerInvariant();
-                md5sum = BitConverter.ToString(md5Hasher.Hash!)   .Replace("-", "").ToLowerInvariant();
+                sha1 = BitConverter.ToString(sha1Hasher.Hash!).Replace("-", "").ToLowerInvariant();
+                md5sum = BitConverter.ToString(md5Hasher.Hash!).Replace("-", "").ToLowerInvariant();
                 sha512 = BitConverter.ToString(sha512Hasher.Hash!).Replace("-", "").ToLowerInvariant();
             }
 
@@ -118,17 +118,17 @@ public class ApiPackagesController(
             // 409 if the same package slot already exists (must delete the old one first).
             var slotConflict = await db.LocalPackages
                 .AnyAsync(lp => lp.RepositoryId == repositoryId
-                                && lp.Package      == pkgName
-                                && lp.Version      == pkgVersion
+                                && lp.Package == pkgName
+                                && lp.Version == pkgVersion
                                 && lp.Architecture == pkgArch
-                                && lp.Component    == component
+                                && lp.Component == component
                                 && lp.IsEnabled);
             if (slotConflict)
                 return Conflict(new { error = $"Package {pkgName} {pkgVersion} ({pkgArch}) in component '{component}' already exists. Delete or disable the existing entry before re-uploading." });
 
             // Move the temp file into CAS storage (Objects/<sha256[0..1]>/<sha256>.deb).
             var hashPrefix = sha256[..2];
-            var casPath    = Path.Combine(ObjectsRoot, hashPrefix, $"{sha256}.deb");
+            var casPath = Path.Combine(ObjectsRoot, hashPrefix, $"{sha256}.deb");
             Directory.CreateDirectory(Path.GetDirectoryName(casPath)!);
 
             if (System.IO.File.Exists(casPath))
@@ -149,33 +149,33 @@ public class ApiPackagesController(
             var lp = new LocalPackage
             {
                 UploadedByUserId = userId,
-                RepositoryId     = repositoryId,
-                Component        = component,
-                Package          = pkgName,
-                Version          = pkgVersion,
-                Architecture     = pkgArch,
-                Maintainer       = control.GetValueOrDefault("Maintainer", "Unknown"),
-                Description      = control.GetValueOrDefault("Description"),
-                Section          = control.GetValueOrDefault("Section"),
-                Priority         = control.GetValueOrDefault("Priority"),
-                Homepage         = control.GetValueOrDefault("Homepage"),
-                InstalledSize    = control.GetValueOrDefault("Installed-Size"),
-                Depends          = control.GetValueOrDefault("Depends"),
-                Recommends       = control.GetValueOrDefault("Recommends"),
-                Suggests         = control.GetValueOrDefault("Suggests"),
-                Conflicts        = control.GetValueOrDefault("Conflicts"),
-                Breaks           = control.GetValueOrDefault("Breaks"),
-                Replaces         = control.GetValueOrDefault("Replaces"),
-                Provides         = control.GetValueOrDefault("Provides"),
-                Source           = control.GetValueOrDefault("Source"),
-                MultiArch        = control.GetValueOrDefault("Multi-Arch"),
+                RepositoryId = repositoryId,
+                Component = component,
+                Package = pkgName,
+                Version = pkgVersion,
+                Architecture = pkgArch,
+                Maintainer = control.GetValueOrDefault("Maintainer", "Unknown"),
+                Description = control.GetValueOrDefault("Description"),
+                Section = control.GetValueOrDefault("Section"),
+                Priority = control.GetValueOrDefault("Priority"),
+                Homepage = control.GetValueOrDefault("Homepage"),
+                InstalledSize = control.GetValueOrDefault("Installed-Size"),
+                Depends = control.GetValueOrDefault("Depends"),
+                Recommends = control.GetValueOrDefault("Recommends"),
+                Suggests = control.GetValueOrDefault("Suggests"),
+                Conflicts = control.GetValueOrDefault("Conflicts"),
+                Breaks = control.GetValueOrDefault("Breaks"),
+                Replaces = control.GetValueOrDefault("Replaces"),
+                Provides = control.GetValueOrDefault("Provides"),
+                Source = control.GetValueOrDefault("Source"),
+                MultiArch = control.GetValueOrDefault("Multi-Arch"),
                 OriginalMaintainer = control.GetValueOrDefault("Original-Maintainer"),
-                Filename         = filename,
-                Size             = fileSize.ToString(),
-                SHA256           = sha256,
-                SHA1             = sha1,
-                MD5sum           = md5sum,
-                SHA512           = sha512
+                Filename = filename,
+                Size = fileSize.ToString(),
+                SHA256 = sha256,
+                SHA1 = sha1,
+                MD5sum = md5sum,
+                SHA512 = sha512
             };
             db.LocalPackages.Add(lp);
             await db.SaveChangesAsync();

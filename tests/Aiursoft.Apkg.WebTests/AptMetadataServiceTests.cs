@@ -17,26 +17,26 @@ public class AptMetadataServiceTests
 
     private static AptPackage MakePackage(string name = "test-pkg", string version = "1.0") => new()
     {
-        Package          = name,
-        Version          = version,
-        Architecture     = "amd64",
-        Maintainer       = "Test <test@example.com>",
-        Description      = "A test package",
-        DescriptionMd5   = "abc123",
-        Section          = "utils",
-        Priority         = "optional",
-        Origin           = "Test",
-        Bugs             = "https://bugs.example.com",
-        Filename         = $"pool/main/t/test-pkg/{name}_{version}_amd64.deb",
-        Size             = "12345",
-        MD5sum           = "d41d8cd98f00b204e9800998ecf8427e",
-        SHA1             = "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-        SHA256           = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        SHA512           = "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
-        InstalledSize    = "48",
-        OriginSuite      = "questing",
-        OriginComponent  = "main",
-        Component        = "main",
+        Package = name,
+        Version = version,
+        Architecture = "amd64",
+        Maintainer = "Test <test@example.com>",
+        Description = "A test package",
+        DescriptionMd5 = "abc123",
+        Section = "utils",
+        Priority = "optional",
+        Origin = "Test",
+        Bugs = "https://bugs.example.com",
+        Filename = $"pool/main/t/test-pkg/{name}_{version}_amd64.deb",
+        Size = "12345",
+        MD5sum = "d41d8cd98f00b204e9800998ecf8427e",
+        SHA1 = "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        SHA256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        SHA512 = "cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e",
+        InstalledSize = "48",
+        OriginSuite = "questing",
+        OriginComponent = "main",
+        Component = "main",
     };
 
     /// <summary>
@@ -90,7 +90,7 @@ public class AptMetadataServiceTests
         await using (var writer = new StreamWriter(ms, leaveOpen: true))
         {
             await _service.WritePackageEntryAsync(writer, MakePackage("alpha"));
-            await _service.WritePackageEntryAsync(writer, MakePackage("beta",  "2.0"));
+            await _service.WritePackageEntryAsync(writer, MakePackage("beta", "2.0"));
             await _service.WritePackageEntryAsync(writer, MakePackage("gamma", "3.0"));
         }
 
@@ -128,7 +128,7 @@ public class AptMetadataServiceTests
     {
         var pkg = MakePackage();
         pkg.Description = "Summary\nLine 1\nLine 2";
-        
+
         await using var ms = new MemoryStream();
         await using (var writer = new StreamWriter(ms, leaveOpen: true))
         {
@@ -136,7 +136,7 @@ public class AptMetadataServiceTests
         }
 
         var text = Encoding.UTF8.GetString(ms.ToArray());
-        Assert.IsTrue(text.Contains("Description: Summary\n Line 1\n Line 2"), 
+        Assert.IsTrue(text.Contains("Description: Summary\n Line 1\n Line 2"),
             "Multiline description should be written with continuation spaces added. Actual:\n" + text);
     }
 }

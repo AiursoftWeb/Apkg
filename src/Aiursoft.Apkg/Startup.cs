@@ -70,31 +70,31 @@ public class Startup : IWebStartup
         // Scheduled tasks (attach a schedule to any registered background job)
         services.RegisterScheduledTask(
             registration: orphanAvatarCleanupJob,
-            period:     TimeSpan.FromHours(6),
+            period: TimeSpan.FromHours(6),
             startDelay: TimeSpan.FromMinutes(5));
 
         // Mirror Job runs every 20 minutes, delay 10 minutes.
         services.RegisterScheduledTask(
             registration: mirrorSyncJob,
-            period:     TimeSpan.FromMinutes(20),
+            period: TimeSpan.FromMinutes(20),
             startDelay: TimeSpan.FromMinutes(10));
 
         // Repository Sync Job runs every 20 minutes, delay 20 minutes.
         services.RegisterScheduledTask(
             registration: repositorySyncJob,
-            period:     TimeSpan.FromMinutes(20),
+            period: TimeSpan.FromMinutes(20),
             startDelay: TimeSpan.FromMinutes(20));
 
         // Repository Sign Job runs every 5 minutes (signs and promotes any pending buckets after sync).
         services.RegisterScheduledTask(
             registration: repositorySignJob,
-            period:     TimeSpan.FromMinutes(5),
+            period: TimeSpan.FromMinutes(5),
             startDelay: TimeSpan.FromMinutes(25));
 
         // Garbage Collection Job runs every 70 minutes, delay 15 minutes.
         services.RegisterScheduledTask(
             registration: garbageCollectionJob,
-            period:     TimeSpan.FromMinutes(70),
+            period: TimeSpan.FromMinutes(70),
             startDelay: TimeSpan.FromMinutes(15));
 
         // So an idea run steps are:

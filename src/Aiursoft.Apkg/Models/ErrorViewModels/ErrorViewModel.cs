@@ -3,7 +3,7 @@ using Aiursoft.UiStack.Layout;
 
 namespace Aiursoft.Apkg.Models.ErrorViewModels;
 
-public class ErrorViewModel: UiStackLayoutViewModel
+public class ErrorViewModel : UiStackLayoutViewModel
 {
     public ErrorViewModel()
     {

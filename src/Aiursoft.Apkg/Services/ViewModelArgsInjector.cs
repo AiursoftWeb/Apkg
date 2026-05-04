@@ -80,7 +80,7 @@ public class ViewModelArgsInjector(
         _ = localizer["Not Found"];
         _ = localizer["Permission Details"];
         _ = localizer["Register"];
-    
+
         _ = localizer["Add New Mirror"];
         _ = localizer["Bucket History"];
         _ = localizer["Certificates"];
@@ -105,18 +105,18 @@ public class ViewModelArgsInjector(
         _ = localizer["Buckets"];
         _ = localizer["Verify Details"];
         _ = localizer["Local Packages"];
-    
+
         _ = localizer["Package Search"];
-    
+
         _ = localizer["My Packages"];
         _ = localizer["Upload Package"];
-    
+
         _ = localizer["Primary Bucket Missing"];
-    
+
         _ = localizer["API Key Usage"];
         _ = localizer["API Keys"];
         _ = localizer["New API Key"];
-    
+
         _ = localizer["Edit"];
         _ = localizer["Repositories"];
     }

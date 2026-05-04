@@ -40,7 +40,7 @@ public class RepositoriesController(
             .Include(r => r.PrimaryBucket)
             .Include(r => r.Certificate)
             .ToListAsync();
-            
+
         var packageCounts = await dbContext.AptPackages
             .GroupBy(p => p.BucketId)
             .Select(g => new { BucketId = g.Key, Count = g.Count() })
@@ -223,7 +223,7 @@ public class RepositoriesController(
             .Include(r => r.Certificate)
             .Include(r => r.Mirror)
             .FirstOrDefaultAsync(r => r.Id == id);
-            
+
         if (repo == null) return NotFound();
 
         var model = new RepoDetailsViewModel
@@ -239,7 +239,7 @@ public class RepositoriesController(
     {
         var mirrors = await dbContext.AptMirrors.ToListAsync();
         var certs = await dbContext.AptCertificates.ToListAsync();
-        
+
         var model = new RepoEditViewModel
         {
             AvailableMirrors = mirrors.Select(m => new SelectListItem(m.Suite, m.Id.ToString())).ToList(),
@@ -271,7 +271,7 @@ public class RepositoriesController(
             await dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        
+
         var mirrors = await dbContext.AptMirrors.ToListAsync();
         var certs = await dbContext.AptCertificates.ToListAsync();
         model.AvailableMirrors = mirrors.Select(m => new SelectListItem(m.Suite, m.Id.ToString())).ToList();
@@ -285,10 +285,10 @@ public class RepositoriesController(
     {
         var repo = await dbContext.AptRepositories.FindAsync(id);
         if (repo == null) return NotFound();
-        
+
         var mirrors = await dbContext.AptMirrors.ToListAsync();
         var certs = await dbContext.AptCertificates.ToListAsync();
-        
+
         var model = new RepoEditViewModel
         {
             Id = repo.Id,
@@ -331,7 +331,7 @@ public class RepositoriesController(
             await dbContext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        
+
         var mirrors = await dbContext.AptMirrors.ToListAsync();
         var certs = await dbContext.AptCertificates.ToListAsync();
         model.AvailableMirrors = mirrors.Select(m => new SelectListItem(m.Suite, m.Id.ToString())).ToList();

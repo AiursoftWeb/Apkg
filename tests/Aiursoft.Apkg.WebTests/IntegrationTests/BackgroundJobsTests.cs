@@ -292,10 +292,10 @@ public class BackgroundJobsTests : TestBase
 
         // Step 5: 验证两个队列都有任务
         var tasks = queue.GetAllTasks().ToList();
-        var gcTasks      = tasks.Where(t => t.QueueName == "GarbageCollectionJob").ToList();
-        var orphanTasks  = tasks.Where(t => t.QueueName == "OrphanAvatarCleanupJob").ToList();
+        var gcTasks = tasks.Where(t => t.QueueName == "GarbageCollectionJob").ToList();
+        var orphanTasks = tasks.Where(t => t.QueueName == "OrphanAvatarCleanupJob").ToList();
 
-        Assert.IsNotEmpty(gcTasks,     "GarbageCollectionJob queue should have at least one task");
+        Assert.IsNotEmpty(gcTasks, "GarbageCollectionJob queue should have at least one task");
         Assert.IsNotEmpty(orphanTasks, "OrphanAvatarCleanupJob queue should have at least one task");
     }
 

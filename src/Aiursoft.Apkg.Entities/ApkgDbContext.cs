@@ -38,6 +38,6 @@ public abstract class ApkgDbContext(DbContextOptions options) : IdentityDbContex
         return Database.MigrateAsync(cancellationToken);
     }
 
-    public virtual  Task<bool> CanConnectAsync() =>
+    public virtual Task<bool> CanConnectAsync() =>
         Database.CanConnectAsync();
 }

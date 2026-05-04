@@ -12,7 +12,7 @@ using System.Data.Common;
 using System.Diagnostics;
 
 const int TotalPackages = 5000;
-const int BatchSize     = 1000;
+const int BatchSize = 1000;
 
 Console.WriteLine("╔══════════════════════════════════════════════════════════════════╗");
 Console.WriteLine("║   EF Core Graph-Traversal UPDATE Flood — Benchmark              ║");
@@ -20,7 +20,7 @@ Console.WriteLine($"║   {TotalPackages} packages, batch-save every {BatchSize}
 Console.WriteLine("╚══════════════════════════════════════════════════════════════════╝");
 Console.WriteLine();
 
-var buggy = await RunScenario("BUGGY  — db.DbSet.Update(mirror)",        useBuggyPath: true);
+var buggy = await RunScenario("BUGGY  — db.DbSet.Update(mirror)", useBuggyPath: true);
 var fixed_ = await RunScenario("FIXED  — db.Entry(mirror).State=Modified", useBuggyPath: false);
 
 Console.WriteLine();
@@ -81,11 +81,11 @@ async Task<(int UpdatePkgs, TimeSpan Elapsed, double FinalSaveMs)> RunScenario(
             {
                 db.Packages.Add(new Package
                 {
-                    BucketId     = bucket.Id,
-                    Name         = $"libfoo-{i}",
-                    Version      = "2.1.0",
+                    BucketId = bucket.Id,
+                    Name = $"libfoo-{i}",
+                    Version = "2.1.0",
                     Architecture = "amd64",
-                    Description  = $"A fake package #{i} used for benchmarking EF graph traversal"
+                    Description = $"A fake package #{i} used for benchmarking EF graph traversal"
                 });
 
                 if ((i + 1) % BatchSize == 0)
@@ -99,7 +99,7 @@ async Task<(int UpdatePkgs, TimeSpan Elapsed, double FinalSaveMs)> RunScenario(
 
             // ── Step 3: Final mirror update — THE CRITICAL DIFFERENCE ────────────
             mirror.LastPullSuccess = true;
-            mirror.LastPullResult  = $"Synced {TotalPackages} packages.";
+            mirror.LastPullResult = $"Synced {TotalPackages} packages.";
 
             var swFinal = Stopwatch.StartNew();
 
@@ -145,41 +145,41 @@ async Task<(int UpdatePkgs, TimeSpan Elapsed, double FinalSaveMs)> RunScenario(
 
 class Mirror
 {
-    public int     Id              { get; set; }
-    public string  Suite           { get; set; } = "";
-    public int?    PrimaryBucketId { get; set; }
-    public Bucket? PrimaryBucket   { get; set; }
-    public int?    SecondaryBucketId { get; set; }
-    public Bucket? SecondaryBucket   { get; set; }
-    public DateTime? LastPullTime    { get; set; }
-    public bool?     LastPullSuccess { get; set; }
-    public string?   LastPullResult  { get; set; }
+    public int Id { get; set; }
+    public string Suite { get; set; } = "";
+    public int? PrimaryBucketId { get; set; }
+    public Bucket? PrimaryBucket { get; set; }
+    public int? SecondaryBucketId { get; set; }
+    public Bucket? SecondaryBucket { get; set; }
+    public DateTime? LastPullTime { get; set; }
+    public bool? LastPullSuccess { get; set; }
+    public string? LastPullResult { get; set; }
 }
 
 class Bucket
 {
-    public int            Id        { get; set; }
-    public DateTime       CreatedAt { get; set; }
-    public List<Package>  Packages  { get; set; } = [];   // ← the navigation property that causes the flood
+    public int Id { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public List<Package> Packages { get; set; } = [];   // ← the navigation property that causes the flood
 }
 
 class Package
 {
-    public int     Id           { get; set; }
-    public int     BucketId     { get; set; }
-    public Bucket? Bucket       { get; set; }
-    public string  Name         { get; set; } = "";
-    public string  Version      { get; set; } = "";
-    public string  Architecture { get; set; } = "";
-    public string  Description  { get; set; } = "";
+    public int Id { get; set; }
+    public int BucketId { get; set; }
+    public Bucket? Bucket { get; set; }
+    public string Name { get; set; } = "";
+    public string Version { get; set; } = "";
+    public string Architecture { get; set; } = "";
+    public string Description { get; set; } = "";
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 
 class BenchmarkDb(string dbPath, SqlCounter counter) : DbContext
 {
-    public DbSet<Mirror>  Mirrors  => Set<Mirror>();
-    public DbSet<Bucket>  Buckets  => Set<Bucket>();
+    public DbSet<Mirror> Mirrors => Set<Mirror>();
+    public DbSet<Bucket> Buckets => Set<Bucket>();
     public DbSet<Package> Packages => Set<Package>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder options) =>
@@ -200,9 +200,9 @@ class SqlCounter
 
     public void Count(string sql)
     {
-        if      (sql.StartsWith("UPDATE") && sql.Contains("\"Packages\""))  Interlocked.Increment(ref UpdatePkgs);
-        else if (sql.StartsWith("UPDATE") && sql.Contains("\"Mirrors\""))   Interlocked.Increment(ref UpdateMirrors);
-        else if (sql.StartsWith("INSERT") && sql.Contains("\"Packages\""))  Interlocked.Increment(ref InsertPkgs);
+        if (sql.StartsWith("UPDATE") && sql.Contains("\"Packages\"")) Interlocked.Increment(ref UpdatePkgs);
+        else if (sql.StartsWith("UPDATE") && sql.Contains("\"Mirrors\"")) Interlocked.Increment(ref UpdateMirrors);
+        else if (sql.StartsWith("INSERT") && sql.Contains("\"Packages\"")) Interlocked.Increment(ref InsertPkgs);
     }
 }
 
