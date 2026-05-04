@@ -90,6 +90,9 @@
   <data name="Pending" xml:space="preserve">
     <value>等待中</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>待驗證</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>主要儲存桶</value>
   </data>
@@ -111,6 +114,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>同步錯誤堆疊追蹤</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>同步失敗</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>已同步</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>目前提供給 apt 客戶端的即時快照。僅當 Mirror Sync 成功完成後，新的儲存桶才會成為主要儲存桶。</value>
   </data>
@@ -120,8 +129,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>這亦會刪除所有關聯的套件和儲存桶！</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>未受保護</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>上游鏡像</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>驗證失敗</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>已驗證</value>
   </data>
 
 </root>

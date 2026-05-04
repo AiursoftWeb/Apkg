@@ -27,6 +27,9 @@
   <data name="Certificate" xml:space="preserve">
     <value>인증서</value>
   </data>
+  <data name="Check Dependencies" xml:space="preserve">
+    <value>의존성 확인</value>
+  </data>
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>클라이언트 구성 가이드</value>
   </data>

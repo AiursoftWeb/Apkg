@@ -90,6 +90,9 @@
   <data name="Pending" xml:space="preserve">
     <value>保留中</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>検証待ち</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>主要バケット</value>
   </data>
@@ -111,6 +114,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>同期エラースタックトレース</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>同期失敗</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>同期済み</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>apt クライアントに現在提供されているライブスナップショット。新しいバケットは、ミラー同期が正常に完了した後にのみプライマリになります。</value>
   </data>
@@ -120,8 +129,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>これにより、関連するすべてのパッケージとバケットも削除されます！</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>保護されていない</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>アップストリームミラー</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>検証に失敗しました</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>検証済み</value>
   </data>
 
 </root>

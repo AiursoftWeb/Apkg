@@ -90,6 +90,9 @@
   <data name="Pending" xml:space="preserve">
     <value>รอดำเนินการ</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>รอดำเนินการยืนยัน</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>ถังหลัก</value>
   </data>
@@ -111,6 +114,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>ติดตามรอยต่อข้อผิดพลาดในการซิงค์</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>ซิงค์ล้มเหลว</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>ซิงค์แล้ว</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>ภาพสะท้อนสดที่ให้บริการแก่ไคลเอนต์ apt ในปัจจุบัน บัคเก็ตใหม่จะกลายเป็นหลักก็ต่อเมื่อการซิงค์มิเรอร์เสร็จสมบูรณ์เท่านั้น</value>
   </data>
@@ -120,8 +129,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>สิ่งนี้จะลบแพ็กเกจและบักเก็ตที่เกี่ยวข้องทั้งหมดด้วย!</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>ไม่ได้รับการป้องกัน</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>แหล่งสะท้อนข้อมูลต้นทาง</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>การยืนยันล้มเหลว</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>ตรวจสอบแล้ว</value>
   </data>
 
 </root>
