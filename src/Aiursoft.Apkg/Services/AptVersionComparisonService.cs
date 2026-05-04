@@ -8,7 +8,7 @@ namespace Aiursoft.Apkg.Services;
 /// </summary>
 public partial class AptVersionComparisonService
 {
-    [GeneratedRegex(@"^(?:(\d+):)?([^-]+?)(?:-([^-]+))?$")]
+    [GeneratedRegex(@"^(?:(\d+):)?(.+?)(?:-([^-]+))?$")]
     private static partial Regex VersionRegex();
 
     /// <summary>
@@ -65,8 +65,7 @@ public partial class AptVersionComparisonService
 
         while (i < part1.Length || j < part2.Length)
         {
-            // Extract non-digit prefix
-            int firstDiff = 0;
+            // Compare non-digit prefixes lexically
             while ((i < part1.Length && !char.IsDigit(part1[i])) ||
                    (j < part2.Length && !char.IsDigit(part2[j])))
             {
@@ -82,23 +81,30 @@ public partial class AptVersionComparisonService
                 j++;
             }
 
-            // Extract digit sequence
+            // Compare digit sequences numerically
+            // Skip leading zeros
             while (i < part1.Length && part1[i] == '0') i++;
             while (j < part2.Length && part2[j] == '0') j++;
 
-            while ((i < part1.Length && char.IsDigit(part1[i])) ||
-                   (j < part2.Length && char.IsDigit(part2[j])))
+            // Compare digit-by-digit while both sides have digits
+            int firstDiff = 0;
+            while (i < part1.Length && char.IsDigit(part1[i]) &&
+                   j < part2.Length && char.IsDigit(part2[j]))
             {
                 if (firstDiff == 0)
                 {
-                    int ac = i < part1.Length ? (int)char.GetNumericValue(part1[i]) : -1;
-                    int bc = j < part2.Length ? (int)char.GetNumericValue(part2[j]) : -1;
-                    firstDiff = ac - bc;
+                    firstDiff = (int)char.GetNumericValue(part1[i]) - (int)char.GetNumericValue(part2[j]);
                 }
 
-                if (i < part1.Length && char.IsDigit(part1[i])) i++;
-                if (j < part2.Length && char.IsDigit(part2[j])) j++;
+                i++;
+                j++;
             }
+
+            // Longer digit sequence (after stripping zeros) is numerically larger
+            if (i < part1.Length && char.IsDigit(part1[i]))
+                return 1;
+            if (j < part2.Length && char.IsDigit(part2[j]))
+                return -1;
 
             if (firstDiff != 0)
             {
@@ -111,12 +117,17 @@ public partial class AptVersionComparisonService
 
     /// <summary>
     /// Character ordering for Debian version comparison:
-    /// ~ sorts first, then letters, then anything else
+    /// ~ sorts before everything (including end-of-string),
+    /// digits and end-of-string sort equally (as 0),
+    /// then letters, then everything else.
+    /// Matches dpkg's order() function.
     /// </summary>
     private int CharOrder(char c)
     {
         if (c == '~')
             return -1;
+        if (char.IsDigit(c))
+            return 0;
         if (char.IsLetter(c))
             return c;
         return c + 256;

@@ -49,12 +49,66 @@ public class RepositoryDependencyCheckJob(
             logger.LogInformation("Checking {Count} packages in repository {RepoId}", packages.Count, repositoryId);
 
             // Build package availability index: (name, arch) -> list of available versions
-            var availablePackages = packages
-                .GroupBy(p => (p.Package, p.Architecture))
-                .ToDictionary(
-                    g => g.Key,
-                    g => g.Select(p => p.Version).ToList()
-                );
+            var availablePackages = new Dictionary<(string Package, string Architecture), List<string>>();
+            var availableByNameOnly = new Dictionary<string, List<string>>();
+
+            void AddToIndexes(string name, string arch, string version)
+            {
+                var key = (name, arch);
+                if (!availablePackages.TryGetValue(key, out var list))
+                {
+                    list = new List<string>();
+                    availablePackages[key] = list;
+                }
+                list.Add(version);
+
+                if (!availableByNameOnly.TryGetValue(name, out var nameList))
+                {
+                    nameList = new List<string>();
+                    availableByNameOnly[name] = nameList;
+                }
+                nameList.Add(version);
+            }
+
+            foreach (var p in packages)
+            {
+                AddToIndexes(p.Package, p.Architecture, p.Version);
+
+                if (!string.IsNullOrWhiteSpace(p.Provides))
+                {
+                    var provided = p.Provides.Split(',', StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var prov in provided)
+                    {
+                        var (provName, provVersion, provArch) = ParseDependency(prov);
+                        var versionToAdd = provVersion ?? "";
+                        
+                        // Provides version is typically "= 1.0", strip operator if present
+                        if (versionToAdd.StartsWith("=")) versionToAdd = versionToAdd[1..].Trim();
+                        else if (versionToAdd.StartsWith(">=")) versionToAdd = versionToAdd[2..].Trim();
+                        else if (versionToAdd.StartsWith("<<")) versionToAdd = versionToAdd[2..].Trim();
+                        else if (versionToAdd.StartsWith("<=")) versionToAdd = versionToAdd[2..].Trim();
+                        else if (versionToAdd.StartsWith(">>")) versionToAdd = versionToAdd[2..].Trim();
+
+                        var colonIdx = provName.IndexOf(':');
+                        if (colonIdx >= 0)
+                        {
+                            provName = provName[..colonIdx];
+                        }
+
+                        AddToIndexes(provName, provArch ?? p.Architecture, versionToAdd);
+                    }
+                }
+            }
+
+            // Clean up lists (distinct)
+            foreach (var key in availablePackages.Keys.ToList())
+            {
+                availablePackages[key] = availablePackages[key].Distinct().ToList();
+            }
+            foreach (var key in availableByNameOnly.Keys.ToList())
+            {
+                availableByNameOnly[key] = availableByNameOnly[key].Distinct().ToList();
+            }
 
             var problematicPackages = new List<PackageDependencyIssue>();
 
@@ -66,7 +120,7 @@ public class RepositoryDependencyCheckJob(
                     throw new OperationCanceledException();
                 }
 
-                var missingDeps = await CheckPackageDependencies(pkg, availablePackages, cancellationToken);
+                var missingDeps = await CheckPackageDependencies(pkg, availablePackages, availableByNameOnly, cancellationToken);
                 if (missingDeps.Count > 0)
                 {
                     problematicPackages.Add(new PackageDependencyIssue
@@ -126,6 +180,7 @@ public class RepositoryDependencyCheckJob(
     private Task<List<MissingDependency>> CheckPackageDependencies(
         AptPackage package,
         Dictionary<(string Package, string Architecture), List<string>> availablePackages,
+        Dictionary<string, List<string>> availableByNameOnly,
         CancellationToken _)
     {
         var missingDeps = new List<MissingDependency>();
@@ -152,9 +207,27 @@ public class RepositoryDependencyCheckJob(
                 var trimmed = alternative.Trim();
                 var (depName, constraint, depArch) = ParseDependency(trimmed);
 
-                // Check if this alternative is satisfied
-                var key = (depName, depArch ?? package.Architecture);
-                if (availablePackages.TryGetValue(key, out var versions))
+                // Strip multiarch qualifier (:any, :native, etc.) from dependency name
+                var colonIdx = depName.IndexOf(':');
+                var isAnyArch = false;
+                if (colonIdx >= 0)
+                {
+                    var qualifier = depName[(colonIdx + 1)..];
+                    depName = depName[..colonIdx];
+                    isAnyArch = qualifier.Equals("any", StringComparison.OrdinalIgnoreCase);
+                }
+
+                // Search across all architectures in the repository.
+                // Since the repository only contains packages for its native architecture and 'all',
+                // any package matching the name is a valid candidate.
+                List<string>? versions = null;
+                
+                if (availableByNameOnly.TryGetValue(depName, out var allVersions))
+                {
+                    versions = allVersions;
+                }
+                
+                if (versions != null)
                 {
                     // Check if any available version satisfies the constraint
                     if (string.IsNullOrWhiteSpace(constraint))
@@ -166,6 +239,12 @@ public class RepositoryDependencyCheckJob(
 
                     foreach (var availableVersion in versions)
                     {
+                        if (string.IsNullOrEmpty(availableVersion)) 
+                        {
+                            // This is an unversioned virtual package provide. It DOES NOT satisfy a versioned dependency.
+                            continue;
+                        }
+
                         try
                         {
                             if (versionCompare.SatisfiesConstraint(availableVersion, constraint))

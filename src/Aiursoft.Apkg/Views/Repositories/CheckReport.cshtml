@@ -177,14 +177,17 @@ else if (Model.Report.Status == "Completed")
     }
 </div>
 
-<script>
-    // Auto-refresh if status is Running
-    @if (Model.Report.Status == "Running")
-    {
-        <text>
-        setTimeout(function() {
-            location.reload();
-        }, 5000);
-        </text>
-    }
-</script>
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        // Auto-refresh if status is Running
+        @if (Model.Report.Status == "Running")
+        {
+            <text>
+            setTimeout(function() {
+                location.reload();
+            }, 5000);
+            </text>
+        }
+    </script>
+}
