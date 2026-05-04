@@ -101,6 +101,8 @@ public class RepositorySyncJob(
                     .AsAsyncEnumerable();
 
                 var count = 0;
+                var batchBuffer = new List<AptPackage>(1000);
+                
                 await foreach (var pkg in query)
                 {
                     pkg.Id = 0;
@@ -112,16 +114,24 @@ public class RepositorySyncJob(
                     {
                         pkg.IsVirtual = false;
                     }
-                    db.AptPackages.Add(pkg);
+                    batchBuffer.Add(pkg);
                     count++;
-                    if (count % 1000 == 0)
+                    
+                    if (batchBuffer.Count >= 1000)
                     {
+                        db.AptPackages.AddRange(batchBuffer);
                         await db.SaveChangesAsync();
                         db.ChangeTracker.Clear();
+                        batchBuffer.Clear();
                     }
                 }
-                await db.SaveChangesAsync();
-                db.ChangeTracker.Clear();
+                
+                if (batchBuffer.Count > 0)
+                {
+                    db.AptPackages.AddRange(batchBuffer);
+                    await db.SaveChangesAsync();
+                    db.ChangeTracker.Clear();
+                }
             }
         }
         else if (repo.PrimaryBucketId != null)
@@ -133,20 +143,30 @@ public class RepositorySyncJob(
                 .AsAsyncEnumerable();
 
             var count = 0;
+            var batchBuffer = new List<AptPackage>(1000);
+            
             await foreach (var pkg in query)
             {
                 pkg.Id = 0;
                 pkg.BucketId = newBucketId;
-                db.AptPackages.Add(pkg);
+                batchBuffer.Add(pkg);
                 count++;
-                if (count % 1000 == 0)
+                
+                if (batchBuffer.Count >= 1000)
                 {
+                    db.AptPackages.AddRange(batchBuffer);
                     await db.SaveChangesAsync();
                     db.ChangeTracker.Clear();
+                    batchBuffer.Clear();
                 }
             }
-            await db.SaveChangesAsync();
-            db.ChangeTracker.Clear();
+            
+            if (batchBuffer.Count > 0)
+            {
+                db.AptPackages.AddRange(batchBuffer);
+                await db.SaveChangesAsync();
+                db.ChangeTracker.Clear();
+            }
         }
 
         // 2b. Merge LocalPackages: override all upstream (Package, Architecture) pairs

@@ -146,6 +146,8 @@ public class MirrorSyncJob(
         var source = new AptPackageSource(repo, component, arch, () => httpClientFactory.CreateClient());
 
         var count = 0;
+        var batchBuffer = new List<AptPackage>(1000);
+        
         await foreach (var pkgFromApt in source.FetchPackagesAsync())
         {
             var pkg = pkgFromApt.Package;
@@ -199,20 +201,26 @@ public class MirrorSyncJob(
                 Replaces = pkg.Replaces,
                 Extras = pkg.Extras
             };
-            db.AptPackages.Add(entity);
+            batchBuffer.Add(entity);
             count++;
 
-            if (count % 1000 == 0)
+            if (batchBuffer.Count >= 1000)
             {
+                db.AptPackages.AddRange(batchBuffer);
                 await db.SaveChangesAsync();
                 db.ChangeTracker.Clear();
+                batchBuffer.Clear();
                 logger.LogInformation("Saved {Count} packages for {Component} [{Arch}] so far...", count, component, arch);
             }
         }
         
         // Save remaining packages
-        await db.SaveChangesAsync();
-        db.ChangeTracker.Clear();
+        if (batchBuffer.Count > 0)
+        {
+            db.AptPackages.AddRange(batchBuffer);
+            await db.SaveChangesAsync();
+            db.ChangeTracker.Clear();
+        }
         logger.LogInformation("Finished syncing {Count} packages for {Component} [{Arch}].", count, component, arch);
         return count;
     }
