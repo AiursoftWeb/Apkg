@@ -102,7 +102,7 @@ public class MirrorSyncJob(
             mirror.SecondaryBucketId = null;
             db.Entry(mirror).State = EntityState.Modified;
             await db.SaveChangesAsync();
-            
+
             if (lastException != null)
             {
                 throw new Exception("No packages were found for any component in this suite! Last error: " + lastException.Message, lastException);
@@ -125,7 +125,7 @@ public class MirrorSyncJob(
         // At that point RepositorySyncJob is guaranteed to have finished, and the old primary
         // is finally safe to orphan and collect.
         logger.LogInformation("Sync completed for suite {Suite}. Swapped {Count} packages to Bucket {BucketId}.", mirror.Suite, totalInserted, bucket.Id);
-        
+
         // Re-attach the mirror entity using Entry().State to avoid deep graph traversal.
         // Using Update() here would walk mirror.SecondaryBucket → bucket.Packages and
         // re-attach the stale first-batch packages as Modified, generating a flood of
@@ -147,11 +147,11 @@ public class MirrorSyncJob(
 
         var count = 0;
         var batchBuffer = new List<AptPackage>(1000);
-        
+
         await foreach (var pkgFromApt in source.FetchPackagesAsync())
         {
             var pkg = pkgFromApt.Package;
-            
+
             // Check for duplicates within the current bucket
             var key = $"{pkg.Package}|{pkg.Version}|{pkg.Architecture}|{component}";
             if (!insertedKeys.Add(key))
@@ -213,7 +213,7 @@ public class MirrorSyncJob(
                 logger.LogInformation("Saved {Count} packages for {Component} [{Arch}] so far...", count, component, arch);
             }
         }
-        
+
         // Save remaining packages
         if (batchBuffer.Count > 0)
         {

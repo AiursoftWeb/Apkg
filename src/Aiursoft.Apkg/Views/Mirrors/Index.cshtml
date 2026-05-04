@@ -66,28 +66,96 @@
                     <td><small>@item.Components</small></td>
                     <td><span class="badge bg-dark">@item.Architecture</span></td>
                     <td>
-                        @if (!string.IsNullOrWhiteSpace(item.SignedBy) && !item.AllowInsecure)
+                        @{
+                            // Determine GPG verification status
+                            var hasGpgProtection = !string.IsNullOrWhiteSpace(item.SignedBy) && !item.AllowInsecure;
+                            var gpgVerified = item.LastVerifyLog != null && item.LastVerifyLog.Contains("[GNUPG:] GOODSIG");
+                            var gpgFailed = item.LastVerifyLog != null && !item.LastVerifyLog.Contains("[GNUPG:] GOODSIG");
+                            var gpgPending = item.LastVerifyLog == null;
+                            
+                            // Determine sync status
+                            var syncSuccess = item.LastPullSuccess == true;
+                            var syncFailed = item.LastPullSuccess == false;
+                            var neverSynced = item.LastPullTime == null;
+                        }
+                        
+                        @if (!hasGpgProtection)
                         {
-                            if (item.LastVerifyLog != null && item.LastVerifyLog.Contains("[GNUPG:] GOODSIG"))
+                            @* No GPG protection *@
+                            if (syncSuccess)
+                            {
+                                <span class="badge bg-warning text-dark">
+                                    <i class="align-middle" data-lucide="shield-off" style="width: 12px; height: 12px;"></i>
+                                    <i class="align-middle" data-lucide="check" style="width: 12px; height: 12px;"></i>
+                                    @Localizer["Unprotected"] <text>&middot;</text> @Localizer["Synced"]
+                                </span>
+                            }
+                            else if (syncFailed)
+                            {
+                                <span class="badge bg-warning text-dark">
+                                    <i class="align-middle" data-lucide="shield-off" style="width: 12px; height: 12px;"></i>
+                                    <i class="align-middle" data-lucide="x" style="width: 12px; height: 12px;"></i>
+                                    @Localizer["Unprotected"] <text>&middot;</text> @Localizer["Failed"]
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">
+                                    <i class="align-middle" data-lucide="shield-off" style="width: 12px; height: 12px;"></i>
+                                    <i class="align-middle" data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                                    @Localizer["Unprotected"] <text>&middot;</text> @Localizer["Pending"]
+                                </span>
+                            }
+                        }
+                        else if (gpgVerified)
+                        {
+                            @* GPG verified *@
+                            if (syncSuccess)
                             {
                                 <a asp-action="VerifyDetails" asp-route-id="@item.Id" class="badge bg-success text-decoration-none">
-                                    <i class="align-middle" data-lucide="shield-check" style="width: 14px; height: 14px;"></i> @Localizer["Passed"]
+                                    <i class="align-middle" data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+                                    @Localizer["Verified"] <text>&middot;</text> @Localizer["Synced"]
                                 </a>
                             }
-                            else if (item.LastVerifyLog != null)
+                            else if (syncFailed)
                             {
-                                <a asp-action="VerifyDetails" asp-route-id="@item.Id" class="badge bg-danger text-decoration-none">
-                                    <i class="align-middle" data-lucide="shield-alert" style="width: 14px; height: 14px;"></i> @Localizer["Failed"]
+                                <a asp-action="VerifyDetails" asp-route-id="@item.Id" class="badge bg-warning text-dark text-decoration-none">
+                                    <i class="align-middle" data-lucide="shield-check" style="width: 12px; height: 12px;"></i>
+                                    <i class="align-middle" data-lucide="alert-triangle" style="width: 12px; height: 12px;"></i>
+                                    @Localizer["Verified"] <text>&middot;</text> @Localizer["Sync Failed"]
                                 </a>
                             }
                             else
                             {
-                                <span class="badge bg-secondary">@Localizer["Pending"]</span>
+                                <a asp-action="VerifyDetails" asp-route-id="@item.Id" class="badge bg-success text-decoration-none">
+                                    <i class="align-middle" data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+                                    @Localizer["Verified"]
+                                </a>
                             }
+                        }
+                        else if (gpgFailed)
+                        {
+                            @* GPG verification failed *@
+                            <a asp-action="VerifyDetails" asp-route-id="@item.Id" class="badge bg-danger text-decoration-none">
+                                <i class="align-middle" data-lucide="shield-alert" style="width: 14px; height: 14px;"></i>
+                                @if (syncFailed)
+                                {
+                                    <i class="align-middle" data-lucide="x" style="width: 12px; height: 12px;"></i>
+                                    @Localizer["Verification Failed"] <text>&middot;</text> @Localizer["Sync Failed"]
+                                }
+                                else
+                                {
+                                    @Localizer["Verification Failed"]
+                                }
+                            </a>
                         }
                         else
                         {
-                            <span class="badge bg-secondary">@Localizer["Signature Verification Disabled"]</span>
+                            @* GPG pending verification *@
+                            <span class="badge bg-secondary">
+                                <i class="align-middle" data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                                @Localizer["Pending Verification"]
+                            </span>
                         }
                     </td>
                     <td>
