@@ -1,0 +1,192 @@
+@model Aiursoft.Apkg.Models.MirrorsViewModels.RepoCheckReportViewModel
+@using System.Text.Json
+@using Aiursoft.Apkg.Authorization
+@using Aiursoft.Apkg.Models.MirrorsViewModels
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@{
+    var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageRepositories)).Succeeded;
+    
+    List<PackageDependencyIssue>? issues = null;
+    if (!string.IsNullOrWhiteSpace(Model.Report.DetailsJson))
+    {
+        issues = JsonSerializer.Deserialize<List<PackageDependencyIssue>>(Model.Report.DetailsJson);
+    }
+}
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@Localizer["Dependency Check Report"] - @Model.Report.Repository.Name</h3>
+    </div>
+</div>
+
+@if (Model.Report.Status == "Running")
+{
+    <div class="alert alert-info">
+        <i class="align-middle me-2" data-lucide="loader" style="width:20px;height:20px;"></i>
+        <strong>@Localizer["Check in progress..."]</strong>
+        <p class="mb-0">@Localizer["The dependency check is currently running. This page will automatically refresh."]</p>
+        <meta http-equiv="refresh" content="5">
+    </div>
+}
+else if (Model.Report.Status == "Failed")
+{
+    <div class="alert alert-danger">
+        <i class="align-middle me-2" data-lucide="alert-triangle" style="width:20px;height:20px;"></i>
+        <strong>@Localizer["Check Failed"]</strong>
+        <p class="mb-0">@Model.Report.ErrorMessage</p>
+    </div>
+}
+else if (Model.Report.Status == "Completed")
+{
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Localizer["Total Packages"]</h5>
+                    <h2 class="text-primary">@Model.Report.TotalPackages</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Localizer["Problematic"]</h5>
+                    <h2 class="@(Model.Report.ProblematicPackages > 0 ? "text-danger" : "text-success")">
+                        @Model.Report.ProblematicPackages
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Localizer["Healthy Rate"]</h5>
+                    <h2 class="text-success">
+                        @{
+                            var healthRate = Model.Report.TotalPackages > 0 
+                                ? ((Model.Report.TotalPackages - Model.Report.ProblematicPackages) * 100.0 / Model.Report.TotalPackages) 
+                                : 100;
+                        }
+                        @healthRate.ToString("F1")%
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@Localizer["Report Age"]</h5>
+                    <p class="text-muted mb-0">
+                        @{
+                            var age = DateTime.UtcNow - Model.Report.CreatedAt;
+                            var expires = Model.Report.ExpireAt - DateTime.UtcNow;
+                        }
+                        @age.TotalHours.ToString("F1")h @Localizer["old"]<br>
+                        <small>@Localizer["Expires in"] @expires.TotalHours.ToString("F1")h</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.Report.ProblematicPackages == 0)
+    {
+        <div class="alert alert-success">
+            <i class="align-middle me-2" data-lucide="check-circle" style="width:20px;height:20px;"></i>
+            <strong>@Localizer["All Dependencies Satisfied!"]</strong>
+            <p class="mb-0">@Localizer["All packages in this repository have their dependencies properly satisfied. No issues detected."]</p>
+        </div>
+    }
+    else if (issues != null)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="align-middle me-2" data-lucide="alert-triangle" style="width:18px;height:18px;"></i>
+                    @Localizer["Dependency Issues"] (@Model.Report.ProblematicPackages)
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th>@Localizer["Package"]</th>
+                                <th>@Localizer["Version"]</th>
+                                <th>@Localizer["Architecture"]</th>
+                                <th>@Localizer["Type"]</th>
+                                <th>@Localizer["Missing Dependencies"]</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var issue in issues)
+                            {
+                                <tr>
+                                    <td>
+                                        <strong>@issue.Package</strong>
+                                    </td>
+                                    <td><code>@issue.Version</code></td>
+                                    <td><span class="badge bg-dark">@issue.Architecture</span></td>
+                                    <td>
+                                        @if (issue.IsVirtual)
+                                        {
+                                            <span class="badge bg-warning text-dark">Virtual</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-info">Real</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @foreach (var dep in issue.MissingDeps)
+                                        {
+                                            <div class="mb-1">
+                                                <span class="badge bg-danger">
+                                                    <i class="align-middle" data-lucide="x-circle" style="width:12px;height:12px;"></i>
+                                                    @dep.Required
+                                                </span>
+                                                <small class="text-muted ms-2">
+                                                    @Localizer["Available:"] <code>@dep.Available</code>
+                                                </small>
+                                            </div>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<div class="mt-3">
+    <a asp-action="Details" asp-route-id="@Model.Report.RepositoryId" class="btn btn-secondary">
+        @Localizer["Back to Repository"]
+    </a>
+    @if (canManage && Model.Report.Status == "Completed")
+    {
+        <form asp-action="CheckDependencies" asp-route-id="@Model.Report.RepositoryId" method="post" class="d-inline">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-info">
+                <i class="align-middle me-1" data-lucide="refresh-cw"></i> @Localizer["Re-check"]
+            </button>
+        </form>
+    }
+</div>
+
+@section scripts {
+    <script>
+        // Auto-refresh if status is Running
+        @if (Model.Report.Status == "Running")
+        {
+            <text>
+            setTimeout(function() {
+                location.reload();
+            }, 5000);
+            </text>
+        }
+    </script>
+}

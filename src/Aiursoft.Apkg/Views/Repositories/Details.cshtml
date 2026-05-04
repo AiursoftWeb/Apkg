@@ -89,5 +89,16 @@ sudo apt update</code></pre>
     <a asp-action="Packages" asp-route-id="@Model.Repo.Id" class="btn btn-primary">
         <i class="align-middle me-1" data-lucide="package-search"></i> @Localizer["Browse Packages"]
     </a>
+    
+    @if (canManage && Model.Repo.PrimaryBucketId != null)
+    {
+        <form asp-action="CheckDependencies" asp-route-id="@Model.Repo.Id" method="post" class="d-inline">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-info">
+                <i class="align-middle me-1" data-lucide="check-circle"></i> @Localizer["Check Dependencies"]
+            </button>
+        </form>
+    }
+    
     <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to List"]</a>
 </div>

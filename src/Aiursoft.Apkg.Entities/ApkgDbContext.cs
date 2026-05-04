@@ -15,6 +15,7 @@ public abstract class ApkgDbContext(DbContextOptions options) : IdentityDbContex
     public DbSet<AptCertificate> AptCertificates => Set<AptCertificate>();
     public DbSet<LocalPackage> LocalPackages => Set<LocalPackage>();
     public DbSet<UserApiKey> UserApiKeys => Set<UserApiKey>();
+    public DbSet<DependencyCheckReport> DependencyCheckReports => Set<DependencyCheckReport>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
