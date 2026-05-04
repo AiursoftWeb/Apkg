@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All Dependencies Satisfied!" xml:space="preserve">
+    <value>Tất cả các phụ thuộc đã được đáp ứng!</value>
+  </data>
+  <data name="All packages in this repository have their dependencies properly satisfied. No issues detected." xml:space="preserve">
+    <value>Tất cả các gói trong kho lưu trữ này đều có các phụ thuộc được đáp ứng đầy đủ. Không phát hiện vấn đề nào.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Kiến trúc</value>
+  </data>
+  <data name="Available:" xml:space="preserve">
+    <value>Khả dụng:</value>
+  </data>
+  <data name="Back to Repository" xml:space="preserve">
+    <value>Quay lại Kho lưu trữ</value>
+  </data>
+  <data name="Check Failed" xml:space="preserve">
+    <value>Kiểm tra thất bại</value>
+  </data>
+  <data name="Check in progress..." xml:space="preserve">
+    <value>Đang kiểm tra...</value>
+  </data>
+  <data name="Dependency Check Report" xml:space="preserve">
+    <value>Báo cáo Kiểm tra Phụ thuộc</value>
+  </data>
+  <data name="Dependency Issues" xml:space="preserve">
+    <value>Vấn đề phụ thuộc</value>
+  </data>
+  <data name="Expires in" xml:space="preserve">
+    <value>Hết hạn sau</value>
+  </data>
+  <data name="Healthy Rate" xml:space="preserve">
+    <value>Tỷ lệ Khỏe mạnh</value>
+  </data>
+  <data name="Missing Dependencies" xml:space="preserve">
+    <value>Thiếu phụ thuộc</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>lâu</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Gói</value>
+  </data>
+  <data name="Problematic" xml:space="preserve">
+    <value>Vấn đề</value>
+  </data>
+  <data name="Re-check" xml:space="preserve">
+    <value>Kiểm tra lại</value>
+  </data>
+  <data name="Report Age" xml:space="preserve">
+    <value>Tuổi báo cáo</value>
+  </data>
+  <data name="The dependency check is currently running. This page will automatically refresh." xml:space="preserve">
+    <value>Kiểm tra phụ thuộc đang chạy. Trang này sẽ tự động làm mới.</value>
+  </data>
+  <data name="Total Packages" xml:space="preserve">
+    <value>Tổng số gói</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Loại</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Phiên bản</value>
+  </data>
+
+</root>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All Dependencies Satisfied!" xml:space="preserve">
+    <value>すべての依存関係が満たされました！</value>
+  </data>
+  <data name="All packages in this repository have their dependencies properly satisfied. No issues detected." xml:space="preserve">
+    <value>このリポジトリのすべてのパッケージの依存関係が正常に満たされています。問題は検出されませんでした。</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>アーキテクチャ</value>
+  </data>
+  <data name="Available:" xml:space="preserve">
+    <value>利用可能:</value>
+  </data>
+  <data name="Back to Repository" xml:space="preserve">
+    <value>リポジトリに戻る</value>
+  </data>
+  <data name="Check Failed" xml:space="preserve">
+    <value>チェックに失敗しました</value>
+  </data>
+  <data name="Check in progress..." xml:space="preserve">
+    <value>チェック実行中...</value>
+  </data>
+  <data name="Dependency Check Report" xml:space="preserve">
+    <value>依存関係チェックレポート</value>
+  </data>
+  <data name="Dependency Issues" xml:space="preserve">
+    <value>依存関係の問題</value>
+  </data>
+  <data name="Expires in" xml:space="preserve">
+    <value>期限まで</value>
+  </data>
+  <data name="Healthy Rate" xml:space="preserve">
+    <value>健全率</value>
+  </data>
+  <data name="Missing Dependencies" xml:space="preserve">
+    <value>依存関係の欠落</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>前</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>パッケージ</value>
+  </data>
+  <data name="Problematic" xml:space="preserve">
+    <value>問題のある</value>
+  </data>
+  <data name="Re-check" xml:space="preserve">
+    <value>再チェック</value>
+  </data>
+  <data name="Report Age" xml:space="preserve">
+    <value>レポートの経過時間</value>
+  </data>
+  <data name="The dependency check is currently running. This page will automatically refresh." xml:space="preserve">
+    <value>依存関係のチェックが現在実行中です。このページは自動的に更新されます。</value>
+  </data>
+  <data name="Total Packages" xml:space="preserve">
+    <value>パッケージ総数</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>種類</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>バージョン</value>
+  </data>
+
+</root>

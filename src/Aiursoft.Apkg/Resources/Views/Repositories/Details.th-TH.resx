@@ -27,6 +27,9 @@
   <data name="Certificate" xml:space="preserve">
     <value>ใบรับรอง</value>
   </data>
+  <data name="Check Dependencies" xml:space="preserve">
+    <value>ตรวจสอบ Dependencies</value>
+  </data>
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>คู่มือการกำหนดค่าไคลเอนต์</value>
   </data>

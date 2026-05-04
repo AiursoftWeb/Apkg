@@ -27,6 +27,9 @@
   <data name="Certificate" xml:space="preserve">
     <value>证书</value>
   </data>
+  <data name="Check Dependencies" xml:space="preserve">
+    <value>检查依赖项</value>
+  </data>
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>客户端配置指南</value>
   </data>

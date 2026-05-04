@@ -90,6 +90,9 @@
   <data name="Pending" xml:space="preserve">
     <value>Chờ xử lý</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>Chờ xác minh</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Thùng chính</value>
   </data>
@@ -111,6 +114,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Dấu vết ngăn xếp lỗi đồng bộ</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>Đồng bộ hóa không thành công</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>Đồng bộ</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>Bản chụp ảnh trực tiếp hiện đang được phục vụ cho các máy khách apt. Một bucket mới chỉ trở thành chính sau khi quá trình Đồng bộ hóa Mirror hoàn tất thành công.</value>
   </data>
@@ -120,8 +129,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Điều này cũng sẽ xóa tất cả các gói và bucket liên quan!</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>Không được bảo vệ</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Máy chủ phản chiếu gốc</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>Xác minh thất bại</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>Đã xác minh</value>
   </data>
 
 </root>
