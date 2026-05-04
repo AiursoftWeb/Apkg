@@ -87,6 +87,9 @@
   <data name="Pending" xml:space="preserve">
     <value>In afwachting</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>Wacht op verificatie</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Primaire bucket</value>
   </data>
@@ -108,6 +111,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Syncfout Stacktrace</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>Synchronisatie mislukt</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>Gesynchroniseerd</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>De live snapshot die momenteel aan apt-clients wordt geleverd. Een nieuw bucket wordt alleen primair nadat een Mirror Sync succesvol is voltooid.</value>
   </data>
@@ -117,8 +126,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Dit verwijdert ook alle bijbehorende pakketten en buckets!</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>Onbeschermd</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Upstream-mirrors</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>Verificatie mislukt</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>Geverifieerd</value>
   </data>
 
 </root>
