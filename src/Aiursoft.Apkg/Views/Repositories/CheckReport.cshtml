@@ -177,16 +177,14 @@ else if (Model.Report.Status == "Completed")
     }
 </div>
 
-@section scripts {
-    <script>
-        // Auto-refresh if status is Running
-        @if (Model.Report.Status == "Running")
-        {
-            <text>
-            setTimeout(function() {
-                location.reload();
-            }, 5000);
-            </text>
-        }
-    </script>
-}
+<script>
+    // Auto-refresh if status is Running
+    @if (Model.Report.Status == "Running")
+    {
+        <text>
+        setTimeout(function() {
+            location.reload();
+        }, 5000);
+        </text>
+    }
+</script>

@@ -1,6 +1,5 @@
 using Aiursoft.Apkg.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using System.Text.Json;
 
 namespace Aiursoft.Apkg.Services.BackgroundJobs;
@@ -127,7 +126,7 @@ public class RepositoryDependencyCheckJob(
     private Task<List<MissingDependency>> CheckPackageDependencies(
         AptPackage package,
         Dictionary<(string Package, string Architecture), List<string>> availablePackages,
-        CancellationToken cancellationToken)
+        CancellationToken _)
     {
         var missingDeps = new List<MissingDependency>();
 

@@ -71,12 +71,10 @@
                             var hasGpgProtection = !string.IsNullOrWhiteSpace(item.SignedBy) && !item.AllowInsecure;
                             var gpgVerified = item.LastVerifyLog != null && item.LastVerifyLog.Contains("[GNUPG:] GOODSIG");
                             var gpgFailed = item.LastVerifyLog != null && !item.LastVerifyLog.Contains("[GNUPG:] GOODSIG");
-                            var gpgPending = item.LastVerifyLog == null;
                             
                             // Determine sync status
                             var syncSuccess = item.LastPullSuccess == true;
                             var syncFailed = item.LastPullSuccess == false;
-                            var neverSynced = item.LastPullTime == null;
                         }
                         
                         @if (!hasGpgProtection)

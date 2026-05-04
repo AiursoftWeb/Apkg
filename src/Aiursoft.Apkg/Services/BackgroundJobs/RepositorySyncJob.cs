@@ -100,7 +100,6 @@ public class RepositorySyncJob(
                     .Where(p => p.BucketId == mirrorBucketId)
                     .AsAsyncEnumerable();
 
-                var count = 0;
                 var batchBuffer = new List<AptPackage>(1000);
 
                 await foreach (var pkg in query)
@@ -115,7 +114,6 @@ public class RepositorySyncJob(
                         pkg.IsVirtual = false;
                     }
                     batchBuffer.Add(pkg);
-                    count++;
 
                     if (batchBuffer.Count >= 1000)
                     {
@@ -142,7 +140,6 @@ public class RepositorySyncJob(
                 .Where(p => p.BucketId == repo.PrimaryBucketId)
                 .AsAsyncEnumerable();
 
-            var count = 0;
             var batchBuffer = new List<AptPackage>(1000);
 
             await foreach (var pkg in query)
@@ -150,7 +147,6 @@ public class RepositorySyncJob(
                 pkg.Id = 0;
                 pkg.BucketId = newBucketId;
                 batchBuffer.Add(pkg);
-                count++;
 
                 if (batchBuffer.Count >= 1000)
                 {

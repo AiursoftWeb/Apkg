@@ -93,7 +93,7 @@ public partial class AptVersionComparisonService
                 {
                     int ac = i < part1.Length ? (int)char.GetNumericValue(part1[i]) : -1;
                     int bc = j < part2.Length ? (int)char.GetNumericValue(part2[j]) : -1;
-                    firstDiff = (int)(ac - bc);
+                    firstDiff = ac - bc;
                 }
 
                 if (i < part1.Length && char.IsDigit(part1[i])) i++;

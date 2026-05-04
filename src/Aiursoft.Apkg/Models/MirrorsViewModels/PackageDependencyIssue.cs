@@ -6,6 +6,7 @@ public class PackageDependencyIssue
     public required string Version { get; set; }
     public required string Architecture { get; set; }
     public bool IsVirtual { get; set; }
+    // ReSharper disable once CollectionNeverUpdated.Global - Populated during JSON deserialization
     public required List<MissingDependency> MissingDeps { get; set; }
 }
 
