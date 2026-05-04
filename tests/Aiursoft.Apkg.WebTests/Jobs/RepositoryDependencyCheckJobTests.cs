@@ -2,9 +2,7 @@ using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Services.BackgroundJobs;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging.Abstractions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Aiursoft.Apkg.Sqlite;
 
 namespace Aiursoft.Apkg.WebTests.Jobs;

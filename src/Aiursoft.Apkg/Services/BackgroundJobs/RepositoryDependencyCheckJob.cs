@@ -48,20 +48,11 @@ public class RepositoryDependencyCheckJob(
             var packages = repository.PrimaryBucket.Packages.ToList();
             logger.LogInformation("Checking {Count} packages in repository {RepoId}", packages.Count, repositoryId);
 
-            // Build package availability index: (name, arch) -> list of available versions
-            var availablePackages = new Dictionary<(string Package, string Architecture), List<string>>();
+            // Build package availability index: name -> list of available versions
             var availableByNameOnly = new Dictionary<string, List<string>>();
 
-            void AddToIndexes(string name, string arch, string version)
+            void AddToIndexes(string name, string version)
             {
-                var key = (name, arch);
-                if (!availablePackages.TryGetValue(key, out var list))
-                {
-                    list = new List<string>();
-                    availablePackages[key] = list;
-                }
-                list.Add(version);
-
                 if (!availableByNameOnly.TryGetValue(name, out var nameList))
                 {
                     nameList = new List<string>();
@@ -72,14 +63,14 @@ public class RepositoryDependencyCheckJob(
 
             foreach (var p in packages)
             {
-                AddToIndexes(p.Package, p.Architecture, p.Version);
+                AddToIndexes(p.Package, p.Version);
 
                 if (!string.IsNullOrWhiteSpace(p.Provides))
                 {
                     var provided = p.Provides.Split(',', StringSplitOptions.RemoveEmptyEntries);
                     foreach (var prov in provided)
                     {
-                        var (provName, provVersion, provArch) = ParseDependency(prov);
+                        var (provName, provVersion) = ParseDependency(prov);
                         var versionToAdd = provVersion ?? "";
                         
                         // Provides version is typically "= 1.0", strip operator if present
@@ -95,16 +86,12 @@ public class RepositoryDependencyCheckJob(
                             provName = provName[..colonIdx];
                         }
 
-                        AddToIndexes(provName, provArch ?? p.Architecture, versionToAdd);
+                        AddToIndexes(provName, versionToAdd);
                     }
                 }
             }
 
             // Clean up lists (distinct)
-            foreach (var key in availablePackages.Keys.ToList())
-            {
-                availablePackages[key] = availablePackages[key].Distinct().ToList();
-            }
             foreach (var key in availableByNameOnly.Keys.ToList())
             {
                 availableByNameOnly[key] = availableByNameOnly[key].Distinct().ToList();
@@ -120,7 +107,7 @@ public class RepositoryDependencyCheckJob(
                     throw new OperationCanceledException();
                 }
 
-                var missingDeps = await CheckPackageDependencies(pkg, availablePackages, availableByNameOnly, cancellationToken);
+                var missingDeps = await CheckPackageDependencies(pkg, availableByNameOnly, cancellationToken);
                 if (missingDeps.Count > 0)
                 {
                     problematicPackages.Add(new PackageDependencyIssue
@@ -179,7 +166,6 @@ public class RepositoryDependencyCheckJob(
 
     private Task<List<MissingDependency>> CheckPackageDependencies(
         AptPackage package,
-        Dictionary<(string Package, string Architecture), List<string>> availablePackages,
         Dictionary<string, List<string>> availableByNameOnly,
         CancellationToken _)
     {
@@ -205,16 +191,13 @@ public class RepositoryDependencyCheckJob(
             foreach (var alternative in orAlternatives)
             {
                 var trimmed = alternative.Trim();
-                var (depName, constraint, depArch) = ParseDependency(trimmed);
+                var (depName, constraint) = ParseDependency(trimmed);
 
                 // Strip multiarch qualifier (:any, :native, etc.) from dependency name
                 var colonIdx = depName.IndexOf(':');
-                var isAnyArch = false;
                 if (colonIdx >= 0)
                 {
-                    var qualifier = depName[(colonIdx + 1)..];
                     depName = depName[..colonIdx];
-                    isAnyArch = qualifier.Equals("any", StringComparison.OrdinalIgnoreCase);
                 }
 
                 // Search across all architectures in the repository.
@@ -294,19 +277,17 @@ public class RepositoryDependencyCheckJob(
     /// <summary>
     /// Parse dependency string: "foo (>= 1.2.3) [amd64]" -> (name, constraint, arch)
     /// </summary>
-    private (string name, string? constraint, string? arch) ParseDependency(string dep)
+    private (string name, string? constraint) ParseDependency(string dep)
     {
         var trimmed = dep.Trim();
 
-        // Extract architecture: [amd64]
-        string? arch = null;
+        // Extract architecture: [amd64] - ignore it as we search globally
         var archStart = trimmed.IndexOf('[');
         if (archStart >= 0)
         {
             var archEnd = trimmed.IndexOf(']', archStart);
             if (archEnd > archStart)
             {
-                arch = trimmed[(archStart + 1)..archEnd].Trim();
                 trimmed = trimmed[..archStart].Trim();
             }
         }
@@ -324,7 +305,7 @@ public class RepositoryDependencyCheckJob(
             }
         }
 
-        return (trimmed, constraint, arch);
+        return (trimmed, constraint);
     }
 
     private class PackageDependencyIssue
