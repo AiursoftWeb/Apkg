@@ -102,7 +102,7 @@ public class RepositorySyncJob(
 
                 var count = 0;
                 var batchBuffer = new List<AptPackage>(1000);
-                
+
                 await foreach (var pkg in query)
                 {
                     pkg.Id = 0;
@@ -116,7 +116,7 @@ public class RepositorySyncJob(
                     }
                     batchBuffer.Add(pkg);
                     count++;
-                    
+
                     if (batchBuffer.Count >= 1000)
                     {
                         db.AptPackages.AddRange(batchBuffer);
@@ -125,7 +125,7 @@ public class RepositorySyncJob(
                         batchBuffer.Clear();
                     }
                 }
-                
+
                 if (batchBuffer.Count > 0)
                 {
                     db.AptPackages.AddRange(batchBuffer);
@@ -144,14 +144,14 @@ public class RepositorySyncJob(
 
             var count = 0;
             var batchBuffer = new List<AptPackage>(1000);
-            
+
             await foreach (var pkg in query)
             {
                 pkg.Id = 0;
                 pkg.BucketId = newBucketId;
                 batchBuffer.Add(pkg);
                 count++;
-                
+
                 if (batchBuffer.Count >= 1000)
                 {
                     db.AptPackages.AddRange(batchBuffer);
@@ -160,7 +160,7 @@ public class RepositorySyncJob(
                     batchBuffer.Clear();
                 }
             }
-            
+
             if (batchBuffer.Count > 0)
             {
                 db.AptPackages.AddRange(batchBuffer);
