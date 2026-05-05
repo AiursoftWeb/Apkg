@@ -27,6 +27,9 @@
   <data name="Certificate" xml:space="preserve">
     <value>प्रमाणपत्र</value>
   </data>
+  <data name="Check Dependencies" xml:space="preserve">
+    <value>आवश्यकताओं की जाँच करें</value>
+  </data>
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>क्लाइंट कॉन्फ़िगरेशन गाइड</value>
   </data>

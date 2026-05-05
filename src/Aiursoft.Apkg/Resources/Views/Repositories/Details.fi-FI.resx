@@ -27,6 +27,9 @@
   <data name="Certificate" xml:space="preserve">
     <value>Varmenne</value>
   </data>
+  <data name="Check Dependencies" xml:space="preserve">
+    <value>Tarkista riippuvuudet</value>
+  </data>
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>Asiakkaan konfiguraatioopas</value>
   </data>

@@ -87,6 +87,9 @@
   <data name="Pending" xml:space="preserve">
     <value>Menunggu</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>Menunggu Verifikasi</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Bucket Utama</value>
   </data>
@@ -108,6 +111,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Tumpukan Jejak Kesalahan Sinkronisasi</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>Sinkronisasi Gagal</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>Tersinkronisasi</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>Snapshot langsung yang saat ini dilayani kepada klien apt. Bucket baru menjadi primer hanya setelah Sinkronisasi Cermin berhasil diselesaikan.</value>
   </data>
@@ -117,8 +126,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Ini juga akan menghapus semua paket dan bucket yang terkait!</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>Tidak Terlindungi</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Cermin Hulu</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>Verifikasi Gagal</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>Terverifikasi</value>
   </data>
 
 </root>
