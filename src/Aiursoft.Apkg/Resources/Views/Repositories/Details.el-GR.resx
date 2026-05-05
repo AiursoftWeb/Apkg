@@ -27,6 +27,9 @@
   <data name="Certificate" xml:space="preserve">
     <value>Πιστοποιητικό</value>
   </data>
+  <data name="Check Dependencies" xml:space="preserve">
+    <value>Έλεγχος Εξαρτήσεων</value>
+  </data>
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>Οδηγός Διαμόρφωσης Πελάτη</value>
   </data>
