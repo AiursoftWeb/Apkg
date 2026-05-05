@@ -87,6 +87,9 @@
   <data name="Pending" xml:space="preserve">
     <value>Beklemede</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>Doğrulama Bekleniyor</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Birincil Kova</value>
   </data>
@@ -108,6 +111,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Senkronizasyon Hatası Yığın İzleme</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>Senkronizasyon Başarısız</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>Senkronize</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>apt istemcilerine şu anda sunulan canlı anlık görüntü. Yeni bir kova, bir Ayna Senkronizasyonu başarıyla tamamlanana kadar birincil olmaz.</value>
   </data>
@@ -117,8 +126,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Bu işlem, ilişkili tüm paketleri ve sepetleri de silecektir!</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>Korumasız</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Üst Düzey Aynalar</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>Doğrulama Başarısız</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>Doğrulandı</value>
   </data>
 
 </root>
