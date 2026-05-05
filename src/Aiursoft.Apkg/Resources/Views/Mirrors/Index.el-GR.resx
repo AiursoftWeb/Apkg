@@ -87,6 +87,9 @@
   <data name="Pending" xml:space="preserve">
     <value>Εκκρεμεί</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>Αναμονή επαλήθευσης</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Κύρια Δεξαμενή</value>
   </data>
@@ -108,6 +111,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Στοιχείο Σφάλματος Συγχρονισμού</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>Αποτυχία Συγχρονισμού</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>Συγχρονισμένο</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>Το ζωντανό στιγμιότυπο που εξυπηρετείται currently στους πελάτες apt. Ένα νέο bucket γίνεται πρωτεύον μόνο μετά την επιτυχή ολοκλήρωση ενός Mirror Sync.</value>
   </data>
@@ -117,8 +126,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Αυτό θα διαγράψει επίσης όλα τα συσχετισμένα πακέτα και δοχεία!</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>Απροστάτευτο</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Κάτοψη Καθρέφτων</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>Αποτυχία επαλήθευσης</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>Επιβεβαιωμένο</value>
   </data>
 
 </root>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All Dependencies Satisfied!" xml:space="preserve">
+    <value>सभी निर्भरताएँ संतुष्ट हैं!</value>
+  </data>
+  <data name="All packages in this repository have their dependencies properly satisfied. No issues detected." xml:space="preserve">
+    <value>इस रिपॉजिटरी में सभी पैकेजों की निर्भरताएँ उचित रूप से संतुष्ट हैं। कोई समस्या नहीं पाई गई।</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>वास्तुकला</value>
+  </data>
+  <data name="Available:" xml:space="preserve">
+    <value>उपलब्ध:</value>
+  </data>
+  <data name="Back to Repository" xml:space="preserve">
+    <value>रिपॉजिटरी पर वापस जाएं</value>
+  </data>
+  <data name="Check Failed" xml:space="preserve">
+    <value>चेक विफल</value>
+  </data>
+  <data name="Check in progress..." xml:space="preserve">
+    <value>जांच प्रगति पर है...</value>
+  </data>
+  <data name="Dependency Check Report" xml:space="preserve">
+    <value>निर्भरता जांच रिपोर्ट</value>
+  </data>
+  <data name="Dependency Issues" xml:space="preserve">
+    <value>निर्भरता समस्याएं</value>
+  </data>
+  <data name="Expires in" xml:space="preserve">
+    <value>समाप्त होने में</value>
+  </data>
+  <data name="Healthy Rate" xml:space="preserve">
+    <value>स्वस्थ दर</value>
+  </data>
+  <data name="Missing Dependencies" xml:space="preserve">
+    <value>अभावी निर्भरताएँ</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>पुराना</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>पैकेज</value>
+  </data>
+  <data name="Problematic" xml:space="preserve">
+    <value>समस्याग्रस्त</value>
+  </data>
+  <data name="Re-check" xml:space="preserve">
+    <value>पुनः जाँचें</value>
+  </data>
+  <data name="Report Age" xml:space="preserve">
+    <value>रिपोर्ट की आयु</value>
+  </data>
+  <data name="The dependency check is currently running. This page will automatically refresh." xml:space="preserve">
+    <value>निर्भरता जाँच वर्तमान में चल रही है। यह पृष्ठ स्वचालित रूप से रीफ्रेश होगा।</value>
+  </data>
+  <data name="Total Packages" xml:space="preserve">
+    <value>कुल पैकेज</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>प्रकार</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>संस्करण</value>
+  </data>
+
+</root>

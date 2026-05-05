@@ -87,6 +87,9 @@
   <data name="Pending" xml:space="preserve">
     <value>प्रतीक्षा</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>पुष्टि की प्रतीक्षा</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>प्राथमिक बकेट</value>
   </data>
@@ -108,6 +111,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>सिंक त्रुटि स्टैक ट्रेस</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>सिंक विफल</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>सिंक किया गया</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>apt क्लाइंट्स को वर्तमान में सेवा दी जा रही लाइव स्नैपशॉट। एक नया बकेट केवल तभी प्राथमिक बनता है जब मिरर सिंक सफलतापूर्वक पूरा हो जाए।</value>
   </data>
@@ -117,8 +126,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>इससे सभी संबंधित पैकेज और बकेट भी हट जाएंगे!</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>असुरक्षित</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>अपस्ट्रीम मिरर</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>सत्यापन विफल</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>सत्यापित</value>
   </data>
 
 </root>

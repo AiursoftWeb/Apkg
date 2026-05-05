@@ -87,6 +87,9 @@
   <data name="Pending" xml:space="preserve">
     <value>Очікується</value>
   </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>Очікує на перевірку</value>
+  </data>
   <data name="Primary Bucket" xml:space="preserve">
     <value>Основний бакет</value>
   </data>
@@ -108,6 +111,12 @@
   <data name="Sync Error Stack Trace" xml:space="preserve">
     <value>Трасування стека помилки синхронізації</value>
   </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>Не вдалося синхронізувати</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>Синхронізовано</value>
+  </data>
   <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
     <value>Поточний живий знімок, який обслуговується клієнтами apt. Новий бакет стає основним лише після успішного завершення синхронізації дзеркала.</value>
   </data>
@@ -117,8 +126,17 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Це також видалить усі пов&apos;язані пакети та кошики!</value>
   </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>Незахист</value>
+  </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Верхні дзеркала</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>Верифікацію не пройдено</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>Перевірено</value>
   </data>
 
 </root>
