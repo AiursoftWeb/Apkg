@@ -15,6 +15,8 @@ public class AptRepository
 
     public string? VerificationLog { get; private set; }
 
+    public string? ContentHash { get; private set; }
+
 
     public AptRepository(string baseUrl, string suite, string? signedBy, bool allowInsecure = false, Func<HttpClient>? httpClientFactory = null)
     {
@@ -61,6 +63,8 @@ public class AptRepository
         }
 
         // 2. Verify Signature
+        ContentHash = BitConverter.ToString(SHA256.HashData(releaseBytes)).Replace("-", "").ToLowerInvariant();
+
         if (AllowInsecure)
         {
             VerificationLog = "Verification skipped: AllowInsecure is true.";

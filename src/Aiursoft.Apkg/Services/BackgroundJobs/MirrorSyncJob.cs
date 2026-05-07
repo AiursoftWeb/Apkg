@@ -50,18 +50,6 @@ public class MirrorSyncJob(
     {
         logger.LogInformation("Starting sync for suite {Suite} from {BaseUrl}...", mirror.Suite, mirror.BaseUrl);
 
-        // 1. Create a new bucket and link it as SecondaryBucketId in a single SaveChanges call.
-        //    Using the navigation property lets EF Core resolve the INSERT order automatically
-        //    (INSERT bucket first to get its Id, then UPDATE mirror.SecondaryBucketId),
-        //    eliminating any window between two saves where GC could delete the new bucket.
-        var bucket = new AptBucket { CreatedAt = DateTime.UtcNow };
-        db.AptMirrors.Update(mirror);
-        mirror.SecondaryBucket = bucket;
-        await db.SaveChangesAsync(); // atomic: bucket inserted + SecondaryBucketId updated in one round-trip
-
-        var components = mirror.Components.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-        var architectures = mirror.Architecture.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-
         var upstreamRoot = $"{mirror.BaseUrl.TrimEnd('/')}/{mirror.Distro.TrimStart('/')}";
         var repo = new AptClient.AptRepository(upstreamRoot, mirror.Suite, mirror.SignedBy, mirror.AllowInsecure, () => httpClientFactory.CreateClient());
 
@@ -75,6 +63,25 @@ public class MirrorSyncJob(
             mirror.LastVerifyLog = repo.VerificationLog ?? ex.Message;
             throw; // Re-throw to be caught by the outer loop
         }
+
+        if (!string.IsNullOrWhiteSpace(mirror.LastContentHash) &&
+            string.Equals(mirror.LastContentHash, repo.ContentHash, StringComparison.OrdinalIgnoreCase))
+        {
+            logger.LogInformation("No changes detected for suite {Suite} (Hash: {Hash}). Skipping sync.", mirror.Suite, repo.ContentHash);
+            return 0; // Skip
+        }
+
+        // 1. Create a new bucket and link it as SecondaryBucketId in a single SaveChanges call.
+        //    Using the navigation property lets EF Core resolve the INSERT order automatically
+        //    (INSERT bucket first to get its Id, then UPDATE mirror.SecondaryBucketId),
+        //    eliminating any window between two saves where GC could delete the new bucket.
+        var bucket = new AptBucket { CreatedAt = DateTime.UtcNow };
+        db.AptMirrors.Update(mirror);
+        mirror.SecondaryBucket = bucket;
+        await db.SaveChangesAsync(); // atomic: bucket inserted + SecondaryBucketId updated in one round-trip
+
+        var components = mirror.Components.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        var architectures = mirror.Architecture.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
         var totalInserted = 0;
         var insertedKeys = new HashSet<string>();
@@ -134,6 +141,7 @@ public class MirrorSyncJob(
         mirror.PrimaryBucketId = mirror.SecondaryBucketId; // promote new bucket
         mirror.SecondaryBucketId = retiredPrimaryId;       // protect old bucket from GC
         mirror.LastPrimaryReplacedAt = DateTime.UtcNow;    // track when the bucket swap occurred
+        mirror.LastContentHash = repo.ContentHash;         // store the hash of the synced content
         db.Entry(mirror).State = EntityState.Modified;
         await db.SaveChangesAsync();
         return totalInserted;

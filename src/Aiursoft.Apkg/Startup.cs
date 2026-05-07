@@ -78,16 +78,16 @@ public class Startup : IWebStartup
             period: TimeSpan.FromHours(6),
             startDelay: TimeSpan.FromMinutes(5));
 
-        // Mirror Job runs every 20 minutes, delay 10 minutes.
+        // Mirror Job runs every 6 hours, delay 10 minutes.
         services.RegisterScheduledTask(
             registration: mirrorSyncJob,
-            period: TimeSpan.FromMinutes(20),
+            period: TimeSpan.FromHours(6),
             startDelay: TimeSpan.FromMinutes(10));
 
-        // Repository Sync Job runs every 20 minutes, delay 20 minutes.
+        // Repository Sync Job runs every 4 hours, delay 20 minutes.
         services.RegisterScheduledTask(
             registration: repositorySyncJob,
-            period: TimeSpan.FromMinutes(20),
+            period: TimeSpan.FromHours(4),
             startDelay: TimeSpan.FromMinutes(20));
 
         // Repository Sign Job runs every 5 minutes (signs and promotes any pending buckets after sync).
@@ -103,18 +103,12 @@ public class Startup : IWebStartup
             startDelay: TimeSpan.FromMinutes(15));
 
         // So an idea run steps are:
-        // 1. At 10:00, Mirror Sync Job runs
-        // 2. At 10:15, Garbage Collection Job runs
-        // 3. At 10:20, Repository Sync Job runs
-        // 4. At 10:30, Mirror Sync Job runs again
-        // 5. At 10:40, Repository Sync Job runs again
-        // 6. At 10:50, Mirror Sync Job runs again
-        // 7. At 11:00, Repository Sync Job runs again
-        // 8. At 11:10, Mirror Sync Job runs again
-        // 9. At 11:20, Repository Sync Job runs again
-        // 10. At 11:25, Garbage Collection Job runs again
-        // 11. At 11:30, Mirror Sync Job runs again
-        // 12. At 11:40, Repository Sync Job runs again
+        // 1. At 00:00, Mirror Sync Job runs
+        // 2. At 00:15, Garbage Collection Job runs
+        // 3. At 00:20, Repository Sync Job runs
+        // 4. At 04:20, Repository Sync Job runs again
+        // 5. At 06:00, Mirror Sync Job runs again
+        // 6. At 08:20, Repository Sync Job runs again
 
         // Controllers and localization
         services.AddControllersWithViews()

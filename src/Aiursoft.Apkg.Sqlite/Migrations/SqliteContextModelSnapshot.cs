@@ -106,6 +106,9 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("LastContentHash")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime?>("LastPrimaryReplacedAt")
                         .HasColumnType("TEXT");
 
