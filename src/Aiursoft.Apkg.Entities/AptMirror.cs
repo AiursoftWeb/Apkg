@@ -54,5 +54,7 @@ public class AptMirror
 
     public string? LastVerifyLog { get; set; }
 
+    public string? LastContentHash { get; set; }
+
     public DateTime? LastPrimaryReplacedAt { get; set; }
 }
