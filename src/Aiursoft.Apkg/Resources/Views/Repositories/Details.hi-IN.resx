@@ -33,6 +33,9 @@
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>क्लाइंट कॉन्फ़िगरेशन गाइड</value>
   </data>
+  <data name="Copy to clipboard" xml:space="preserve">
+    <value>क्लिपबोर्ड पर कॉपी करें</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>वितरण</value>
   </data>
