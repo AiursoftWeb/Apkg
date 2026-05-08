@@ -33,6 +33,9 @@
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>Hướng dẫn Cấu hình Client</value>
   </data>
+  <data name="Copy to clipboard" xml:space="preserve">
+    <value>Sao chép vào khay nhớ tạm</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Hệ điều hành</value>
   </data>
