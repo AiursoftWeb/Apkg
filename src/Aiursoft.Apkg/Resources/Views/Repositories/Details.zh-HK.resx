@@ -33,6 +33,9 @@
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>客戶端配置指南</value>
   </data>
+  <data name="Copy to clipboard" xml:space="preserve">
+    <value>複製到剪貼簿</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>發行版</value>
   </data>

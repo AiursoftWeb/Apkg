@@ -33,6 +33,9 @@
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>Przewodnik konfiguracji klienta</value>
   </data>
+  <data name="Copy to clipboard" xml:space="preserve">
+    <value>Kopiuj do schowka</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Dystrybucja</value>
   </data>
