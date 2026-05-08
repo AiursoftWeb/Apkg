@@ -45,7 +45,10 @@
                 @if (Model.Repo.EnableGpgSign && Model.Repo.Certificate != null)
                 {
                     <h6>@Localizer["One-line Setup:"]</h6>
-                    <div class="bg-dark text-white p-3 rounded mb-4">
+                    <div class="bg-dark text-white p-3 rounded mb-4 position-relative">
+                        <button class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2" onclick="copyToClipboard(this)" title="@Localizer["Copy to clipboard"]">
+                            <i class="align-middle" data-lucide="copy" style="width:14px;height:14px;"></i>
+                        </button>
                         <pre class="mb-0" style="white-space: pre-wrap; word-break: break-all;"><code>sudo mkdir -p /usr/share/keyrings && \
 curl -sL @(Context.Request.Scheme)://@(Context.Request.Host)/artifacts/certs/@Model.Repo.Certificate.Name | gpg --dearmor | sudo tee /usr/share/keyrings/@(Model.Repo.Certificate.Name)-archive-keyring.gpg > /dev/null && \
 echo "Types: deb
@@ -65,7 +68,10 @@ sudo apt update</code></pre>
                 else
                 {
                     <h6>@Localizer["One-line Setup (Unsigned):"]</h6>
-                    <div class="bg-dark text-white p-3 rounded mb-4">
+                    <div class="bg-dark text-white p-3 rounded mb-4 position-relative">
+                        <button class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2" onclick="copyToClipboard(this)" title="@Localizer["Copy to clipboard"]">
+                            <i class="align-middle" data-lucide="copy" style="width:14px;height:14px;"></i>
+                        </button>
                         <pre class="mb-0" style="white-space: pre-wrap; word-break: break-all;"><code>echo "Types: deb
 URIs: @(Context.Request.Scheme)://@(Context.Request.Host)/artifacts/@Model.Repo.Distro/
 Suites: @Model.Repo.Suite
@@ -102,3 +108,24 @@ sudo apt update</code></pre>
     
     <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to List"]</a>
 </div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script>
+        function copyToClipboard(btn) {
+            const pre = btn.nextElementSibling;
+            const code = pre.querySelector('code');
+            const text = code.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const icon = btn.querySelector('i');
+                const originalData = icon.getAttribute('data-lucide');
+                icon.setAttribute('data-lucide', 'check');
+                lucide.createIcons();
+                setTimeout(() => {
+                    icon.setAttribute('data-lucide', originalData);
+                    lucide.createIcons();
+                }, 2000);
+            });
+        }
+    </script>
+}
