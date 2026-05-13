@@ -1,4 +1,5 @@
 using Aiursoft.Apkg.Services.FileStorage;
+using SkiaSharp;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
@@ -109,7 +110,7 @@ public class AvatarTests : TestBase
 
         // Verify dimensions
         await using var stream = await compressedResponse.Content.ReadAsStreamAsync();
-        using var image = await SixLabors.ImageSharp.Image.LoadAsync(stream);
+        using var image = SKBitmap.Decode(stream);
         Assert.AreEqual(128, image.Width);
         Assert.AreEqual(256, image.Height);
     }
@@ -147,7 +148,7 @@ public class AvatarTests : TestBase
 
         // Verify dimensions
         await using var stream = await compressedResponse.Content.ReadAsStreamAsync();
-        using var image = await SixLabors.ImageSharp.Image.LoadAsync(stream);
+        using var image = SKBitmap.Decode(stream);
         Assert.AreEqual(128, image.Width);
         Assert.AreEqual(128, image.Height);
     }
@@ -179,7 +180,7 @@ public class AvatarTests : TestBase
         compressedResponse.EnsureSuccessStatusCode();
 
         await using var stream = await compressedResponse.Content.ReadAsStreamAsync();
-        using var image = await SixLabors.ImageSharp.Image.LoadAsync(stream);
+        using var image = SKBitmap.Decode(stream);
         Assert.AreEqual(128, image.Width);
     }
 
@@ -229,7 +230,7 @@ public class AvatarTests : TestBase
         Assert.IsNotNull(uploadResult);
 
         // Try to compress it. FilesController.Download will call physicalPath.IsStaticImage() 
-        // which might return true based on extension, but Image.LoadAsync will fail.
+        // which might return true based on extension, but SKBitmap.Decode will fail.
         var compressedResponse = await Http.GetAsync(uploadResult.InternetPath + "?w=100");
 
         // It should still return the file (original) or successfully handle the error.
