@@ -104,6 +104,277 @@ public class IntegrationTests
     }
 
     [TestMethod]
+    public async Task InvokeUnpackHelp()
+    {
+        var result = await Program.TestRunAsync(["unpack", "--help"]);
+
+        Assert.AreEqual(0, result.ProgramReturn);
+        Assert.IsTrue(result.StdOut.Contains("--file"));
+        Assert.IsTrue(result.StdOut.Contains("--output"));
+        Assert.IsTrue(string.IsNullOrWhiteSpace(result.StdErr));
+    }
+
+    [TestMethod]
+    public async Task InvokeUnpack_FailsWhenFileNotFound()
+    {
+        var result = await Program.TestRunAsync(["unpack", "--file", "/nonexistent/path.apkg"]);
+
+        Assert.AreNotEqual(0, result.ProgramReturn);
+    }
+
+    [TestMethod]
+    public async Task InvokeUnpack_ExtractsMatchingDeb()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            // Build a real .apkg first (same as InvokePack_CreatesApkgFile)
+            var projectDir = Path.Combine(tempDir, "my-pkg");
+            var debsDir = Path.Combine(projectDir, "debs");
+            Directory.CreateDirectory(debsDir);
+
+            var serializer = new ManifestSerializer();
+            var manifest = new ApkgManifest
+            {
+                Package = "my-pkg",
+                Version = "1.5.0",
+                Maintainer = "Test <test@example.com>",
+                Description = "Test package",
+                License = "MIT",
+                Component = "main",
+                Targets =
+                [
+                    new ManifestTarget
+                    {
+                        Distro = "ubuntu",
+                        Suites = "noble",
+                        Architecture = "amd64",
+                        DebFile = "debs/my-pkg_1.5.0_amd64.deb"
+                    }
+                ]
+            };
+            await serializer.SerializeToFileAsync(manifest, Path.Combine(projectDir, "manifest.xml"));
+
+            await EnsureDpkgDebAvailableAsync();
+            await CreateMinimalDebAsync(
+                path: Path.Combine(debsDir, "my-pkg_1.5.0_amd64.deb"),
+                packageName: "my-pkg",
+                version: "1.5.0",
+                arch: "amd64");
+
+            var outputPackDir = Path.Combine(tempDir, "packed");
+            var packResult = await Program.TestRunAsync(["pack", "--path", projectDir, "--output", outputPackDir]);
+            Assert.AreEqual(0, packResult.ProgramReturn, packResult.StdErr);
+
+            var apkgPath = Path.Combine(outputPackDir, "my-pkg.1.5.0.apkg");
+            Assert.IsTrue(File.Exists(apkgPath));
+
+            // Now unpack it with arch override to avoid system-detection dependency
+            var unpackOutputDir = Path.Combine(tempDir, "unpacked");
+            var unpackResult = await Program.TestRunAsync(
+            [
+                "unpack",
+                "--file", apkgPath,
+                "--output", unpackOutputDir,
+                "--arch", "amd64",
+                "--distro", "ubuntu",
+                "--suite", "noble"
+            ]);
+
+            Assert.AreEqual(0, unpackResult.ProgramReturn, unpackResult.StdErr);
+            Assert.IsTrue(File.Exists(Path.Combine(unpackOutputDir, "my-pkg_1.5.0_amd64.deb")),
+                "Unpack should extract the matching .deb file.");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task InvokeUnpack_FailsWhenNoTargetMatches()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "my-pkg");
+            var debsDir = Path.Combine(projectDir, "debs");
+            Directory.CreateDirectory(debsDir);
+
+            var serializer = new ManifestSerializer();
+            var manifest = new ApkgManifest
+            {
+                Package = "my-pkg",
+                Version = "1.0.0",
+                Component = "main",
+                Targets =
+                [
+                    new ManifestTarget
+                    {
+                        Distro = "ubuntu",
+                        Suites = "noble",
+                        Architecture = "amd64",
+                        DebFile = "debs/my-pkg_1.0.0_amd64.deb"
+                    }
+                ]
+            };
+            await serializer.SerializeToFileAsync(manifest, Path.Combine(projectDir, "manifest.xml"));
+
+            await EnsureDpkgDebAvailableAsync();
+            await CreateMinimalDebAsync(Path.Combine(debsDir, "my-pkg_1.0.0_amd64.deb"), "my-pkg", "1.0.0", "amd64");
+
+            var outputPackDir = Path.Combine(tempDir, "packed");
+            var packResult = await Program.TestRunAsync(["pack", "--path", projectDir, "--output", outputPackDir]);
+            Assert.AreEqual(0, packResult.ProgramReturn, packResult.StdErr);
+
+            // Request arch that doesn't exist in the archive
+            var unpackResult = await Program.TestRunAsync(
+            [
+                "unpack",
+                "--file", Path.Combine(outputPackDir, "my-pkg.1.0.0.apkg"),
+                "--output", Path.Combine(tempDir, "unpacked"),
+                "--arch", "riscv64",
+                "--distro", "ubuntu",
+                "--suite", "noble"
+            ]);
+
+            Assert.AreNotEqual(0, unpackResult.ProgramReturn, "Should fail when no targets match.");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task InvokeAddSourceHelp()
+    {
+        var result = await Program.TestRunAsync(["add-source", "--help"]);
+
+        Assert.AreEqual(0, result.ProgramReturn);
+        Assert.IsTrue(result.StdOut.Contains("--url") || result.StdOut.Contains("url"),
+            "Should mention url argument.");
+        Assert.IsTrue(string.IsNullOrWhiteSpace(result.StdErr));
+    }
+
+    [TestMethod]
+    public async Task InvokeAddSource_FailsWhenUrlNotReachable()
+    {
+        var result = await Program.TestRunAsync(
+            ["add-source", "--url", "http://localhost:19999/api/sources/1"]);
+
+        Assert.AreNotEqual(0, result.ProgramReturn,
+            "Should fail when the source config URL is not reachable.");
+    }
+
+    [TestMethod]
+    public async Task DebPackageValidator_AcceptsMatchingDeb()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            await EnsureDpkgDebAvailableAsync();
+
+            const string pkg = "testpkg";
+            const string ver = "4.2.0";
+            const string arch = "amd64";
+            var debPath = Path.Combine(tempDir, $"{pkg}_{ver}_{arch}.deb");
+            await CreateMinimalDebAsync(debPath, pkg, ver, arch);
+
+            var manifest = new ApkgManifest { Package = pkg, Version = ver, Component = "main" };
+            var target = new ManifestTarget { Distro = "ubuntu", Suites = "noble", Architecture = arch, DebFile = debPath };
+
+            var validator = new DebPackageValidator();
+            // Should not throw
+            await validator.ValidateAsync(debPath, debPath, target, manifest);
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task DebPackageValidator_FailsOnPackageMismatch()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            await EnsureDpkgDebAvailableAsync();
+
+            var debPath = Path.Combine(tempDir, "actual-pkg_1.0.0_amd64.deb");
+            await CreateMinimalDebAsync(debPath, "actual-pkg", "1.0.0", "amd64");
+
+            var manifest = new ApkgManifest { Package = "expected-pkg", Version = "1.0.0", Component = "main" };
+            var target = new ManifestTarget { Distro = "ubuntu", Suites = "noble", Architecture = "amd64", DebFile = debPath };
+
+            var validator = new DebPackageValidator();
+            try
+            {
+                await validator.ValidateAsync(debPath, debPath, target, manifest);
+                Assert.Fail("Expected InvalidOperationException was not thrown.");
+            }
+            catch (InvalidOperationException) { /* expected */ }
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task DebPackageValidator_FailsOnVersionMismatch()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            await EnsureDpkgDebAvailableAsync();
+
+            var debPath = Path.Combine(tempDir, "mypkg_2.0.0_amd64.deb");
+            await CreateMinimalDebAsync(debPath, "mypkg", "2.0.0", "amd64");
+
+            var manifest = new ApkgManifest { Package = "mypkg", Version = "1.0.0", Component = "main" };
+            var target = new ManifestTarget { Distro = "ubuntu", Suites = "noble", Architecture = "amd64", DebFile = debPath };
+
+            var validator = new DebPackageValidator();
+            try
+            {
+                await validator.ValidateAsync(debPath, debPath, target, manifest);
+                Assert.Fail("Expected InvalidOperationException was not thrown.");
+            }
+            catch (InvalidOperationException) { /* expected */ }
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task DebPackageValidator_AcceptsArchAll()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            await EnsureDpkgDebAvailableAsync();
+
+            var debPath = Path.Combine(tempDir, "scripts_1.0.0_all.deb");
+            await CreateMinimalDebAsync(debPath, "scripts", "1.0.0", "all");
+
+            var manifest = new ApkgManifest { Package = "scripts", Version = "1.0.0", Component = "main" };
+            // manifest says amd64, deb says all — should be accepted
+            var target = new ManifestTarget { Distro = "ubuntu", Suites = "noble", Architecture = "amd64", DebFile = debPath };
+
+            var validator = new DebPackageValidator();
+            await validator.ValidateAsync(debPath, debPath, target, manifest);
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
     public async Task InvokeNew_CreatesProjectStructure()
     {
         var tempDir = CreateTestDirectory();

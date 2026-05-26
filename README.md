@@ -7,11 +7,40 @@
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fapkg.aiursoft.com)](https://apkg.aiursoft.com)
 [![Docker](https://img.shields.io/docker/pulls/aiursoft/apkg.svg)](https://hub.docker.com/r/aiursoft/apkg)
 
-Apkg is a sample project.
+Apkg is an APT package hosting server paired with a `dotnet` global CLI tool for creating, packaging, and publishing `.apkg` files.
 
 ![screenshot](./screenshot.png)
 
 Default user name is `admin@default.com` and default password is `Admin@123456!`.
+
+## Install APKG CLI
+
+**Prerequisites:** [.NET 10 SDK](https://dotnet.microsoft.com/download)
+
+```bash
+dotnet tool install --global Aiursoft.Apkg.Client --add-source https://nuget.aiursoft.com/v3/index.json
+```
+
+After installing, verify with `apkg --help`.
+
+### Quick workflow
+
+```bash
+# 1. Create a new package
+apkg new --name my-package
+
+# 2. Add .deb files to my-package/debs/, then pack
+apkg pack --path ./my-package
+
+# 3. Push to server
+apkg push --file ./my-package.1.0.0.apkg --source https://apkg.example.com --api-key <your-key>
+
+# 4. Add a repository as an APT source on a client machine (requires sudo)
+sudo apkg add-source https://apkg.example.com/api/sources/1
+
+# 5. Install the package via apt as normal
+sudo apt install my-package
+```
 
 ## Try
 
