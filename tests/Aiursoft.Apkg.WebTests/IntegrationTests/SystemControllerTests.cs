@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.AspNetCore.Routing;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
@@ -66,6 +64,7 @@ public class SystemControllerTests : TestBase
 
         var viewResult = engine.GetView(null, "~/Views/System/Index.cshtml", false);
         Assert.IsTrue(viewResult.Success, "View not found: ~/Views/System/Index.cshtml");
+        Assert.IsNotNull(viewResult.View);
 
         var model = new IndexViewModel
         {
