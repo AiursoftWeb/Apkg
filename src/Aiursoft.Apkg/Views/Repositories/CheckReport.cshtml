@@ -22,19 +22,27 @@
 
 @if (Model.Report.Status == "Running")
 {
-    <div class="alert alert-info">
-        <i class="align-middle me-2" data-lucide="loader" style="width:20px;height:20px;"></i>
-        <strong>@Localizer["Check in progress..."]</strong>
-        <p class="mb-0">@Localizer["The dependency check is currently running. This page will automatically refresh."]</p>
-        <meta http-equiv="refresh" content="5">
+    <div class="alert alert-info d-flex align-items-start" role="alert">
+        <div class="alert-icon me-3">
+            <i data-lucide="loader" style="width:24px;height:24px;"></i>
+        </div>
+        <div class="alert-message">
+            <strong>@Localizer["Check in progress..."]</strong>
+            <p class="mb-0">@Localizer["The dependency check is currently running. This page will automatically refresh."]</p>
+            <meta http-equiv="refresh" content="5">
+        </div>
     </div>
 }
 else if (Model.Report.Status == "Failed")
 {
-    <div class="alert alert-danger">
-        <i class="align-middle me-2" data-lucide="alert-triangle" style="width:20px;height:20px;"></i>
-        <strong>@Localizer["Check Failed"]</strong>
-        <p class="mb-0">@Model.Report.ErrorMessage</p>
+    <div class="alert alert-danger d-flex align-items-start" role="alert">
+        <div class="alert-icon me-3">
+            <i data-lucide="alert-triangle" style="width:24px;height:24px;"></i>
+        </div>
+        <div class="alert-message">
+            <strong>@Localizer["Check Failed"]</strong>
+            <p class="mb-0">@Model.Report.ErrorMessage</p>
+        </div>
     </div>
 }
 else if (Model.Report.Status == "Completed")
@@ -92,10 +100,14 @@ else if (Model.Report.Status == "Completed")
 
     @if (Model.Report.ProblematicPackages == 0)
     {
-        <div class="alert alert-success">
-            <i class="align-middle me-2" data-lucide="check-circle" style="width:20px;height:20px;"></i>
-            <strong>@Localizer["All Dependencies Satisfied!"]</strong>
-            <p class="mb-0">@Localizer["All packages in this repository have their dependencies properly satisfied. No issues detected."]</p>
+        <div class="alert alert-success d-flex align-items-start" role="alert">
+            <div class="alert-icon me-3">
+                <i data-lucide="check-circle" style="width:24px;height:24px;"></i>
+            </div>
+            <div class="alert-message">
+                <strong>@Localizer["All Dependencies Satisfied!"]</strong>
+                <p class="mb-0">@Localizer["All packages in this repository have their dependencies properly satisfied. No issues detected."]</p>
+            </div>
         </div>
     }
     else if (issues != null)

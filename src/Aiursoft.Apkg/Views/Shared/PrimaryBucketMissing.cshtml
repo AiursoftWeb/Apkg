@@ -22,9 +22,14 @@
                     </p>
                 </div>
 
-                <div class="alert alert-info">
-                    <h5>@Localizer["What does this mean?"]</h5>
-                    <p>@Localizer["Before a repository can serve packages, it must undergo a synchronization and (if configured) a signing process. This creates a 'Primary Bucket' which contains the actual package metadata and files for APT clients to consume."]</p>
+                <div class="alert alert-info d-flex align-items-start" role="alert">
+                    <div class="alert-icon me-3">
+                        <i data-lucide="info" style="width:24px;height:24px;"></i>
+                    </div>
+                    <div class="alert-message">
+                        <h6 class="mb-1">@Localizer["What does this mean?"]</h6>
+                        <p class="mb-0">@Localizer["Before a repository can serve packages, it must undergo a synchronization and (if configured) a signing process. This creates a 'Primary Bucket' which contains the actual package metadata and files for APT clients to consume."]</p>
+                    </div>
                 </div>
 
                 <div class="mt-4">

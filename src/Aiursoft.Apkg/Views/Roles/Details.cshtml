@@ -16,7 +16,9 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-xl-10">
+        <div class="row">
+    <div class="col-xl-6">
         <div class="card flex-fill">
             <div class="card-header">
                 <h5 class="card-title mb-0"><i class="align-middle me-2" data-lucide="shield-check"></i> @Localizer["Permissions Granted"]</h5>
@@ -43,7 +45,7 @@
         </div>
     </div>
 
-    <div class="col-lg-6">
+    <div class="col-xl-6">
         <div class="card flex-fill">
             <div class="card-header">
                 <h5 class="card-title mb-0"><i class="align-middle me-2" data-lucide="users"></i> @Localizer["Assigned Users"]</h5>
@@ -72,6 +74,20 @@
                         <p class="text-muted mb-0">@Localizer["No users are currently assigned to this role."]</p>
                     </div>
                 }
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="d-none d-xl-block col-xl-2">
+        <div class="card mb-3 border-primary">
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <i data-lucide="shield" style="width:48px;height:48px;"></i>
+                </div>
+                <h6 class="mb-2">@Localizer["What is a Role?"]</h6>
+                <p class="text-muted small mb-2">@Localizer["A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions."]</p>
+                <p class="text-muted small mb-0"><strong>@Localizer["Tip:"]</strong> @Localizer["Create roles around job functions (e.g. 'Mirror Manager') rather than per-user to simplify administration."]</p>
             </div>
         </div>
     </div>

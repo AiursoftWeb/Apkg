@@ -13,7 +13,7 @@
 </div>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 col-xl-3">
         <div class="card h-100">
             <div class="card-header"><h5 class="card-title mb-0">@Localizer["Information"]</h5></div>
             <div class="card-body">
@@ -22,7 +22,7 @@
                 <p><strong>@Localizer["Mirror Source"]:</strong> @(Model.Repo.Mirror?.Suite ?? "None")</p>
                 @if (canManage)
                 {
-                    <p><strong>@Localizer["Live Bucket"]:</strong> 
+                    <p><strong>@Localizer["Live Bucket"]:</strong>
                     @if (Model.Repo.PrimaryBucketId != null)
                     {
                         <a asp-controller="Buckets" asp-action="Packages" asp-route-id="@Model.Repo.PrimaryBucketId" class="badge bg-success text-decoration-none">#@Model.Repo.PrimaryBucketId</a>
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8 col-xl-7">
         <div class="card h-100">
             <div class="card-header"><h5 class="card-title mb-0">@Localizer["Client Configuration Guide"]</h5></div>
             <div class="card-body">
@@ -74,9 +74,13 @@ Signed-By: /usr/share/keyrings/@(Model.Repo.Certificate.Name)-archive-keyring.gp
 sudo apt update</code></pre>
                     </div>
 
-                    <div class="alert alert-info py-2">
-                        <i class="align-middle me-1" data-lucide="info" style="width:14px;height:14px;"></i>
-                        <small>@Localizer["This uses the modern DEB822 format and a scoped keyring for maximum security and reliability."]</small>
+                    <div class="alert alert-info d-flex align-items-start py-2" role="alert">
+                        <div class="alert-icon me-2">
+                            <i data-lucide="info" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div class="alert-message">
+                            <small>@Localizer["This uses the modern DEB822 format and a scoped keyring for maximum security and reliability."]</small>
+                        </div>
                     </div>
                 }
                 else
@@ -95,11 +99,28 @@ Trusted: yes" | sudo tee /etc/apt/sources.list.d/apkg-@(Model.Repo.Id).sources &
 sudo apt update</code></pre>
                     </div>
 
-                    <div class="alert alert-warning py-2">
-                        <i class="align-middle me-1" data-lucide="alert-triangle" style="width:14px;height:14px;"></i>
-                        <small>@Localizer["This repository is not signed. We are using 'Trusted: yes' to bypass security checks. Use with caution!"]</small>
+                    <div class="alert alert-warning d-flex align-items-start py-2" role="alert">
+                        <div class="alert-icon me-2">
+                            <i data-lucide="alert-triangle" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div class="alert-message">
+                            <small>@Localizer["This repository is not signed. We are using 'Trusted: yes' to bypass security checks. Use with caution!"]</small>
+                        </div>
                     </div>
                 }
+            </div>
+        </div>
+    </div>
+
+    <div class="d-none d-xl-block col-xl-2">
+        <div class="card mb-3 border-primary">
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <i data-lucide="database" style="width:48px;height:48px;"></i>
+                </div>
+                <h6 class="mb-2">@Localizer["What is a Repository?"]</h6>
+                <p class="text-muted small mb-2">@Localizer["An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system."]</p>
+                <p class="text-muted small mb-0"><strong>@Localizer["How to use:"]</strong> @Localizer["Run the <code>sudo apkg add-source</code> command on the right to configure this repo, then use <code>sudo apt install</code> as usual."]</p>
             </div>
         </div>
     </div>

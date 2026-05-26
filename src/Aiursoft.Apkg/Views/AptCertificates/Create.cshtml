@@ -22,11 +22,14 @@
             <span asp-validation-for="FriendlyName" class="text-danger"></span>
         </div>
 
-        <div class="alert alert-info">
-...
-                <i class="align-middle me-2" data-lucide="info"></i>
+        <div class="alert alert-info d-flex align-items-start" role="alert">
+            <div class="alert-icon me-3">
+                <i data-lucide="info" style="width:24px;height:24px;"></i>
+            </div>
+            <div class="alert-message">
                 @Localizer["Generating a 4096-bit RSA key pair may take a few seconds. Please be patient."]
             </div>
+        </div>
 
             <button type="submit" class="btn btn-primary">@Localizer["Start Generation"]</button>
             <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>

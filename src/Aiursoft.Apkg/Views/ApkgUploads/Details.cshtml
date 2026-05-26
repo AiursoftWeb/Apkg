@@ -10,24 +10,26 @@
     </div>
 </div>
 
-<div class="card mb-3">
-    <div class="card-body">
-        <div class="d-flex flex-wrap justify-content-between gap-3 mb-3">
-            <div>
-                <h4 class="mb-1">@Model.Upload.Package</h4>
-                <div class="text-muted">@Model.Upload.FileName</div>
-            </div>
-            <div>
-                @if (Model.Upload.IsListed)
-                {
-                    <span class="badge bg-success">Listed</span>
-                }
-                else
-                {
-                    <span class="badge bg-secondary">Unlisted</span>
-                }
-            </div>
-        </div>
+<div class="row">
+    <div class="col-xl-10">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="d-flex flex-wrap justify-content-between gap-3 mb-3">
+                    <div>
+                        <h4 class="mb-1">@Model.Upload.Package</h4>
+                        <div class="text-muted">@Model.Upload.FileName</div>
+                    </div>
+                    <div>
+                        @if (Model.Upload.IsListed)
+                        {
+                            <span class="badge bg-success">Listed</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Unlisted</span>
+                        }
+                    </div>
+                </div>
 
         <div class="row g-3">
             <div class="col-md-3">
@@ -166,5 +168,19 @@
                 </table>
             </div>
         }
+    </div>
+</div>
+    </div>
+    <div class="d-none d-xl-block col-xl-2">
+        <div class="card mb-3 border-primary">
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <i data-lucide="inbox" style="width:48px;height:48px;"></i>
+                </div>
+                <h6 class="mb-2">@Localizer["What is an Upload?"]</h6>
+                <p class="text-muted small mb-2">@Localizer["An APKG Upload is a .apkg bundle pushed by a user via CLI or Web UI. The server unpacks it into LocalPackages and syncs them to APT repositories."]</p>
+                <p class="text-muted small mb-0"><strong>@Localizer["Tip:"]</strong> @Localizer["Listed packages are publicly visible; unlisted ones are hidden until an admin publishes them."]</p>
+            </div>
+        </div>
     </div>
 </div>

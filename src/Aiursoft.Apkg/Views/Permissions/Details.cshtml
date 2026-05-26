@@ -23,10 +23,12 @@
 </div>
 
 @* Permission Information Card *@
-<div class="card mb-3">
-    <div class="card-header">
-        <h5 class="card-title">@PermissionLocalizer[Model.Permission.Name]</h5>
-        <h6 class="card-subtitle text-muted">@Localizer["Permission Information"]</h6>
+<div class="row">
+    <div class="col-xl-10">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="card-title">@PermissionLocalizer[Model.Permission.Name]</h5>
+                <h6 class="card-subtitle text-muted">@Localizer["Permission Information"]</h6>
     </div>
     <div class="card-body">
         <dl class="row">
@@ -112,6 +114,21 @@
             <p class="text-muted">@Localizer["No users have this permission."]</p>
         </div>
     }
+</div>
+
+    </div>
+    <div class="d-none d-xl-block col-xl-2">
+        <div class="card mb-3 border-primary">
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <i data-lucide="key" style="width:48px;height:48px;"></i>
+                </div>
+                <h6 class="mb-2">@Localizer["What is a Permission?"]</h6>
+                <p class="text-muted small mb-2">@Localizer["A permission is a discrete capability (e.g. 'Create Mirror', 'Delete Package'). Permissions are grouped into roles and assigned to users."]</p>
+                <p class="text-muted small mb-0"><strong>@Localizer["Tip:"]</strong> @Localizer["Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions."]</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 @* ReSharper disable once Razor.SectionNotResolved *@

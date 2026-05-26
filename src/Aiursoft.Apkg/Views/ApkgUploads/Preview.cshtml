@@ -15,14 +15,24 @@
 
 @if (Model.AllTargetsUnmatched)
 {
-    <div class="alert alert-warning">
-        No targets matched any repository. Publishing will have no effect.
+    <div class="alert alert-warning d-flex align-items-start" role="alert">
+        <div class="alert-icon me-3">
+            <i data-lucide="alert-triangle" style="width:24px;height:24px;"></i>
+        </div>
+        <div class="alert-message">
+            No targets matched any repository. Publishing will have no effect.
+        </div>
     </div>
 }
 else if (Model.HasWarnings)
 {
-    <div class="alert alert-warning">
-        Some targets do not match any repository. You can still publish, but those targets will be skipped.
+    <div class="alert alert-warning d-flex align-items-start" role="alert">
+        <div class="alert-icon me-3">
+            <i data-lucide="alert-triangle" style="width:24px;height:24px;"></i>
+        </div>
+        <div class="alert-message">
+            Some targets do not match any repository. You can still publish, but those targets will be skipped.
+        </div>
     </div>
 }
 

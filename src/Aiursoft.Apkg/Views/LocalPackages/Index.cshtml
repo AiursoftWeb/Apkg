@@ -13,7 +13,9 @@
     </div>
 </div>
 
-<div class="card">
+<div class="row">
+    <div class="col-xl-10">
+        <div class="card h-100">
     <div class="card-body">
         @if (!Model.Packages.Any())
         {
@@ -134,6 +136,20 @@
                 </tbody>
             </table>
         }
+            </div>
+        </div>
+    </div>
+    <div class="d-none d-xl-block col-xl-2">
+        <div class="card border-primary">
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <i data-lucide="folder-archive" style="width:48px;height:48px;"></i>
+                </div>
+                <h6 class="mb-2">@Localizer["What is a LocalPackage?"]</h6>
+                <p class="text-muted small mb-2">@Localizer["LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories."]</p>
+                <p class="text-muted small mb-0"><strong>@Localizer["Tip:"]</strong> @Localizer["Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets."]</p>
+            </div>
+        </div>
     </div>
 </div>
 
