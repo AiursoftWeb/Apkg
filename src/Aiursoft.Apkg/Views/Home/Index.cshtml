@@ -8,27 +8,38 @@
 
 <section class="landing-intro text-bg-dark pt-5 pt-lg-6 pb-5 pb-lg-7">
     <div class="landing-intro-content container h-100">
-        <div class="row align-items-center h-100">
-            <div class="col-lg-5 mx-auto">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
                 <span class="badge badge-subtle-primary p-1">@Localizer["Open Source"]</span>
                 <span class="badge badge-subtle-primary p-1">@Localizer["Free"]</span>
                 <span class="badge badge-subtle-primary p-1">@Localizer["MIT Licence"]</span>
                 <h1 id="main-slogan" class="my-4 text-white" style="font-size: 3rem;">
-                    @Localizer["Stop Coding Boilerplate."] <span class='text-primary'>@Localizer["Start Shipping Value."]</span>
+                    @Localizer["APT Package Repository"] <span class='text-primary'>@Localizer["Made Simple."]</span>
                 </h1>
-                <p class="text-lg text-white-50">@Localizer["The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we've solved the hard parts so you don't have to."]</p>
-                <div class="my-4">
-                    <a class="btn btn-primary btn-lg btn-pill" href="https://template-docs.aiursoft.com/en/Tutorial/before.html">
-                        <i class="align-middle" data-lucide="rocket"></i> @Localizer["Start a new project"]
+                <p class="text-lg text-white-50 mb-4">@Localizer["Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG."]</p>
+                <form method="get" asp-action="Index" asp-controller="Dashboard">
+                    <div class="input-group input-group-lg mx-auto mb-3" style="max-width:640px;">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i data-lucide="search" style="width:20px;height:20px;"></i>
+                        </span>
+                        <input type="text"
+                               name="q"
+                               maxlength="40"
+                               class="form-control border-start-0 ps-0"
+                               placeholder="@Localizer["Search packages..."]"
+                               autofocus/>
+                        <button class="btn btn-primary px-4" type="submit">@Localizer["Search"]</button>
+                    </div>
+                </form>
+                <div>
+                    <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-light btn-sm btn-pill">
+                        <i class="align-middle me-1" data-lucide="grid"></i>
+                        @Localizer["Browse All Packages"]
                     </a>
-                    <a asp-controller="Dashboard" asp-action="Index" class="btn btn-outline-primary btn-lg btn-pill">
-                        <i class="align-middle" data-lucide="grid"></i> @Localizer["Go to dashboard"]
+                    <a href="#install-apkg" class="btn btn-outline-light btn-sm btn-pill ms-2">
+                        <i class="align-middle me-1" data-lucide="download"></i>
+                        @Localizer["Install APKG CLI"]
                     </a>
-                </div>
-            </div>
-            <div class="col-lg-7 d-none d-lg-flex mx-auto text-center">
-                <div class="landing-intro-screenshot">
-                    <img src="~/images/screenshot.png" alt="Aiursoft Template Main screenshot" class="img-fluid" />
                 </div>
             </div>
         </div>
@@ -38,20 +49,24 @@
 <section class="py-5 bg-body-tertiary" id="install-apkg">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
+            <div class="col-lg-10 text-center">
                 <h2 class="mb-2">@Localizer["Install APKG CLI"]</h2>
                 <p class="text-muted mb-4">@Localizer["A single command to install the APKG client and start managing your APT packages."]</p>
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card shadow-sm">
+            <div class="col-lg-6 mb-3 mb-lg-0">
+                <div class="card shadow-sm h-100">
                     <div class="card-body p-4">
+                        <h5 class="card-title mb-3">@Localizer["Quick Start"]</h5>
                         <div class="mb-3">
                             <span class="badge badge-subtle-primary me-2">1</span>
-                            <strong>@Localizer["Prerequisite: Install .NET SDK"]</strong>
+                            <strong>@Localizer["Install .NET SDK"]</strong>
                             <p class="text-muted small mt-1 ms-4 ps-1 mb-0">
-                                <a href="https://dotnet.microsoft.com/en-us/download" target="_blank">@Localizer["Download .NET 8.0 or later"]</a>
+                                <a href="https://dotnet.microsoft.com/en-us/download" target="_blank">@Localizer["Download .NET SDK"]</a>
+                                <span class="mx-1">|</span>
+                                @Localizer["Ubuntu:"]
+                                <code>sudo apt install dotnet10</code>
                             </p>
                         </div>
                         <div class="mb-3">
@@ -65,6 +80,50 @@
                             <p class="text-muted small mt-1 ms-4 ps-1 mb-1">@Localizer["To use <code>sudo apkg</code>, make the dotnet tools path available to root:"]</p>
                             <pre class="bg-dark text-white p-2 rounded small mt-1 ms-4 ps-1 mb-0" style="white-space:pre-wrap;"><code>sudo env "PATH=$PATH" apkg add-source https://apkg-dev.aiursoft.com/api/sources/{id}</code></pre>
                             <p class="text-muted small mt-1 ms-4 ps-1 mb-0">@Localizer["Or configure it permanently:"] <code>sudo sh -c 'echo "export PATH=\"\$PATH:$HOME/.dotnet/tools\"" >> /root/.bashrc'</code></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-3">@Localizer["Why APKG?"]</h5>
+                        <div class="d-flex flex-column gap-3">
+                            <div class="d-flex align-items-start">
+                                <i class="align-middle mt-1 me-3 text-primary" data-lucide="monitor"></i>
+                                <div>
+                                    <strong>@Localizer["Cross Platform"]</strong>
+                                    <p class="text-muted small mb-0">@Localizer["Runs on Windows, Linux, and macOS via .NET."]</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start">
+                                <i class="align-middle mt-1 me-3 text-primary" data-lucide="zap"></i>
+                                <div>
+                                    <strong>@Localizer["One-Click APT Source Setup"]</strong>
+                                    <p class="text-muted small mb-0">@Localizer["Configure complex APT sources, GPG keys, and suites with a single command."]</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start">
+                                <i class="align-middle mt-1 me-3 text-primary" data-lucide="package"></i>
+                                <div>
+                                    <strong>@Localizer[".NET Global Tool"]</strong>
+                                    <p class="text-muted small mb-0">@Localizer["Install via <code>dotnet tool install -g</code>. Auto-updates, no native dependencies."]</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start">
+                                <i class="align-middle mt-1 me-3 text-primary" data-lucide="box"></i>
+                                <div>
+                                    <strong>@Localizer["Simplified dpkg Packaging"]</strong>
+                                    <p class="text-muted small mb-0">@Localizer["Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server."]</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start">
+                                <i class="align-middle mt-1 me-3 text-primary" data-lucide="heart"></i>
+                                <div>
+                                    <strong>@Localizer["Powered by AnduinOS"]</strong>
+                                    <p class="text-muted small mb-0">@Localizer["The official package manager chosen by the AnduinOS ecosystem."]</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
