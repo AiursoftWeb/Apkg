@@ -18,7 +18,9 @@ public class IntegrationTests
         .WithFeature(new NewHandler())
         .WithFeature(new PackHandler())
         .WithFeature(new PushHandler())
-        .WithFeature(new InstallHandler());
+        .WithFeature(new InstallHandler())
+        .WithFeature(new UnpackHandler())
+        .WithFeature(new AddSourceHandler());
 
     [TestMethod]
     public async Task InvokeHelp()

@@ -10,5 +10,6 @@ public class Startup : IStartUp
     {
         services.AddApkgLocalTools();
         services.AddApkgPush();
+        services.AddApkgSource();
     }
 }

@@ -42,6 +42,16 @@
         <div class="card h-100">
             <div class="card-header"><h5 class="card-title mb-0">@Localizer["Client Configuration Guide"]</h5></div>
             <div class="card-body">
+                <h6>@Localizer["Quick Setup with APKG CLI:"]</h6>
+                <div class="bg-dark text-white p-3 rounded mb-4 position-relative">
+                    <button class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2" onclick="copyToClipboard(this)" title="@Localizer["Copy to clipboard"]">
+                        <i class="align-middle" data-lucide="copy" style="width:14px;height:14px;"></i>
+                    </button>
+                    <pre class="mb-0"><code>sudo apkg add-source @(Context.Request.Scheme)://@(Context.Request.Host)/api/sources/@Model.Repo.Id</code></pre>
+                </div>
+                <hr />
+                <h6>@Localizer["Manual Setup (bash):"]</h6>
+
                 @if (Model.Repo.EnableGpgSign && Model.Repo.Certificate != null)
                 {
                     <h6>@Localizer["One-line Setup:"]</h6>

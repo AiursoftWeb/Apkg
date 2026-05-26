@@ -28,6 +28,12 @@ public static class Extensions
         return services;
     }
 
+    public static IServiceCollection AddApkgSource(this IServiceCollection services)
+    {
+        services.AddHttpClient<ApkgSourceService>();
+        return services;
+    }
+
     public static Version GetSdkVersion()
     {
         return typeof(Extensions).Assembly.GetName().Version!;
