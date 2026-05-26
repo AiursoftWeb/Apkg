@@ -14,7 +14,8 @@ public class IntegrationTests
     private NestedCommandApp Program => new NestedCommandApp()
         .WithGlobalOptions(CommonOptionsProvider.VerboseOption)
         .WithFeature(new NewHandler())
-        .WithFeature(new PackHandler());
+        .WithFeature(new PackHandler())
+        .WithFeature(new PushHandler());        .WithFeature(new InstallHandler());
 
     [TestMethod]
     public async Task InvokeHelp()
@@ -67,6 +68,24 @@ public class IntegrationTests
         Assert.AreEqual(0, result.ProgramReturn);
         Assert.IsTrue(result.StdOut.Contains("--path"));
         Assert.IsTrue(string.IsNullOrWhiteSpace(result.StdErr));
+    }
+
+    [TestMethod]
+    public async Task InvokeInstallHelp()
+    {
+        var result = await Program.TestRunAsync(["install", "--help"]);
+
+        Assert.AreEqual(0, result.ProgramReturn);
+        Assert.IsTrue(result.StdOut.Contains("--file"));
+        Assert.IsTrue(string.IsNullOrWhiteSpace(result.StdErr));
+    }
+
+    [TestMethod]
+    public async Task InvokeInstall_FailsWhenFileNotFound()
+    {
+        var result = await Program.TestRunAsync(["install", "--file", "/nonexistent/path.apkg"]);
+
+        Assert.AreNotEqual(0, result.ProgramReturn);
     }
 
     [TestMethod]
@@ -157,7 +176,7 @@ public class IntegrationTests
 
             Assert.AreEqual(0, result.ProgramReturn, result.StdErr);
 
-            var apkgPath = Path.Combine(outputDir, "my-pkg_2.0.0.apkg");
+            var apkgPath = Path.Combine(outputDir, "my-pkg.2.0.0.apkg");
             Assert.IsTrue(File.Exists(apkgPath), ".apkg file should be created.");
 
             // Verify the archive contains manifest.xml and the .deb.

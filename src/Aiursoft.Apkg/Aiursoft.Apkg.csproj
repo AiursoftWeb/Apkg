@@ -30,6 +30,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Aiursoft.Apkg.InMemory\Aiursoft.Apkg.InMemory.csproj" />
     <ProjectReference Include="..\Aiursoft.Apkg.MySql\Aiursoft.Apkg.MySql.csproj" />
+    <ProjectReference Include="..\Aiursoft.Apkg.Sdk\Aiursoft.Apkg.Sdk.csproj" />
     <ProjectReference Include="..\Aiursoft.Apkg.Sqlite\Aiursoft.Apkg.Sqlite.csproj" />
     <ProjectReference Include="..\Aiursoft.AptClient\Aiursoft.AptClient.csproj" />
   </ItemGroup>

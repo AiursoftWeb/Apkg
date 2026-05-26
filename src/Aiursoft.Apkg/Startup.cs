@@ -12,6 +12,7 @@ using Aiursoft.Apkg.Services.Authentication;
 using Aiursoft.Apkg.Services.BackgroundJobs;
 using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Sqlite;
+using Aiursoft.Apkg.Sdk;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.UiStack.Navigation;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -53,6 +54,7 @@ public class Startup : IWebStartup
         // Services
         services.AddMemoryCache();
         services.AddHttpClient();
+        services.AddApkgLocalTools();
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
         services.AddTransient<IGpgSigningService, GpgSigningService>();
         services.AddSingleton<NavigationState<Startup>>();

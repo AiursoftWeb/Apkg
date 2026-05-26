@@ -17,6 +17,7 @@ public static class Extensions
     public static IServiceCollection AddApkgLocalTools(this IServiceCollection services)
     {
         services.AddSingleton<ManifestSerializer>();
+        services.AddSingleton<SystemInfoProvider>();
         return services;
     }
 

@@ -47,6 +47,7 @@ public class PackHandler : ExecutableCommandHandlerBuilder
             .Services;
 
         var serializer = services.GetRequiredService<ManifestSerializer>();
+        var validator = services.GetRequiredService<DebPackageValidator>();
         var logger = services.GetRequiredService<ILogger<PackHandler>>();
 
         var projectDir = Path.GetFullPath(sourcePath);
@@ -84,7 +85,15 @@ public class PackHandler : ExecutableCommandHandlerBuilder
             }
         }
 
-        var outputFileName = $"{manifest.Package}_{manifest.Version}.apkg";
+        logger.LogInformation("Validating .deb files against manifest...");
+        foreach (var target in manifest.Targets)
+        {
+            var absoluteDebPath = Path.Combine(projectDir, target.DebFile);
+            await validator.ValidateAsync(absoluteDebPath, target.DebFile, target, manifest);
+            logger.LogDebug("  ✓ {DebFile} ({Architecture})", target.DebFile, target.Architecture);
+        }
+
+        var outputFileName = $"{manifest.Package}.{manifest.Version}.apkg";
         var outputDir = Path.GetFullPath(outputPath);
         Directory.CreateDirectory(outputDir);
         var outputFilePath = Path.Combine(outputDir, outputFileName);

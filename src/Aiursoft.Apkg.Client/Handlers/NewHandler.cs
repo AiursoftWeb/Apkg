@@ -75,9 +75,16 @@ public class NewHandler : ExecutableCommandHandlerBuilder
                 new ManifestTarget
                 {
                     Distro = "ubuntu",
-                    Suites = "plucky plucky-updates plucky-security",
+                    Suites = "jammy noble resolute",
                     Architecture = "amd64",
                     DebFile = $"debs/{name}_1.0.0_amd64.deb"
+                },
+                new ManifestTarget
+                {
+                    Distro = "ubuntu",
+                    Suites = "jammy noble resolute",
+                    Architecture = "arm64",
+                    DebFile = $"debs/{name}_1.0.0_arm64.deb"
                 }
             ]
         };

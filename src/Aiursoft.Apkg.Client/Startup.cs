@@ -9,5 +9,6 @@ public class Startup : IStartUp
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddApkgLocalTools();
+        services.AddApkgPush();
     }
 }
