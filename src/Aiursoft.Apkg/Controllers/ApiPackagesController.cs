@@ -97,7 +97,6 @@ public class ApiPackagesController(
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
         var apkgTempPath = CreateWorkspaceTempFilePath(".apkg");
         var extractedEntries = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-        ApkgUpload? uploadRecord = null;
         try
         {
             await using (var fs = System.IO.File.Create(apkgTempPath))
@@ -128,7 +127,7 @@ public class ApiPackagesController(
                 return BadRequest(summary);
             }
 
-            uploadRecord = new ApkgUpload
+            var uploadRecord = new ApkgUpload
             {
                 UploadedByUserId = userId,
                 FileName = Path.GetFileName(apkg.FileName),
@@ -323,7 +322,9 @@ public class ApiPackagesController(
     public sealed class ApkgUploadSummary
     {
         public int? UploadId { get; set; }
+        // ReSharper disable once CollectionNeverQueried.Global
         public List<UploadedPackageSummary> Uploaded { get; } = [];
+        // ReSharper disable once CollectionNeverQueried.Global
         public List<string> Warnings { get; } = [];
         public List<string> Errors { get; } = [];
     }

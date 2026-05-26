@@ -36,10 +36,10 @@ public class ApiSourcesController(ApkgDbContext db) : ControllerBase
             enableGpgSign = repo.EnableGpgSign,
             keyUrl = repo.EnableGpgSign && repo.Certificate != null
                 ? $"{baseUrl}/artifacts/certs/{repo.Certificate.Name}"
-                : (string?)null,
+                : null,
             keyFileName = repo.EnableGpgSign && repo.Certificate != null
                 ? $"{repo.Certificate.Name}-archive-keyring.gpg"
-                : (string?)null,
+                : null,
             sourcesFileName = $"apkg-{repo.Id}.sources",
         });
     }

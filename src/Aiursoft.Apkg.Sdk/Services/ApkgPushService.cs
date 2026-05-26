@@ -17,8 +17,10 @@ public class ApkgPushService(HttpClient httpClient)
 
         using var content = new MultipartFormDataContent();
         await using var fileStream = File.OpenRead(apkgFilePath);
-        using var fileContent = new StreamContent(fileStream);
-        fileContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+        using var fileContent = new StreamContent(fileStream)
+        {
+            Headers = { ContentType = new MediaTypeHeaderValue("application/octet-stream") }
+        };
         content.Add(fileContent, "apkg", Path.GetFileName(apkgFilePath));
 
         var url = $"{serverUrl}/api/packages/apkg-upload?skipDuplicate={skipDuplicate}";
