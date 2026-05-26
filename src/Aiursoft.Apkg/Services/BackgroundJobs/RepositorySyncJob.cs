@@ -22,7 +22,7 @@ public class RepositorySyncJob(
 
     public async Task ExecuteAsync()
     {
-        logger.LogInformation("RepositorySyncJob V2 started.");
+        logger.LogInformation("RepositorySyncJob started.");
 
         var repos = await db.AptRepositories
             .Include(r => r.Mirror)
@@ -41,7 +41,7 @@ public class RepositorySyncJob(
             }
         }
 
-        logger.LogInformation("RepositorySyncJob V2 finished. Pending buckets are staged; RepositorySignJob will sign and promote them.");
+        logger.LogInformation("RepositorySyncJob finished. Pending buckets are staged; RepositorySignJob will sign and promote them.");
     }
 
     private async Task SyncAndSignRepositoryAsync(AptRepository repo)

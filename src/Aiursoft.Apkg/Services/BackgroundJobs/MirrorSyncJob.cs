@@ -10,13 +10,13 @@ public class MirrorSyncJob(
     IHttpClientFactory httpClientFactory,
     ILogger<MirrorSyncJob> logger) : IBackgroundJob
 {
-    public string Name => "APT Mirror Sync V2";
+    public string Name => "APT Mirror Sync";
 
     public string Description => "Synchronizes entire suites (multiple components) into versioned buckets.";
 
     public async Task ExecuteAsync()
     {
-        logger.LogInformation("MirrorSyncJob V2 started.");
+        logger.LogInformation("MirrorSyncJob started.");
         var mirrors = await db.AptMirrors.ToListAsync();
 
         foreach (var mirror in mirrors)
@@ -43,7 +43,7 @@ public class MirrorSyncJob(
             await db.SaveChangesAsync();
         }
 
-        logger.LogInformation("MirrorSyncJob V2 finished.");
+        logger.LogInformation("MirrorSyncJob finished.");
     }
 
     private async Task<int> SyncMirrorSuiteAsync(AptMirror mirror)

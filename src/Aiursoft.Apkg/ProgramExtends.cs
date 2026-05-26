@@ -127,7 +127,7 @@ public static class ProgramExtends
         var logger = services.GetRequiredService<ILogger<Program>>();
         var signingService = services.GetRequiredService<IGpgSigningService>();
 
-        logger.LogInformation("Seeding the database with new Pipeline V2 structure...");
+        logger.LogInformation("Seeding the database with new Pipeline structure...");
 
         // 1. Ensure a default certificate exists
         var cert = await db.AptCertificates.FirstOrDefaultAsync();
