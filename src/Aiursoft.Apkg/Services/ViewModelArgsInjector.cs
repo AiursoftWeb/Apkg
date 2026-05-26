@@ -119,6 +119,11 @@ public class ViewModelArgsInjector(
 
         _ = localizer["Edit"];
         _ = localizer["Repositories"];
+    
+        _ = localizer["APKG Upload Details"];
+        _ = localizer["My Packages (APKG)"];
+        _ = localizer["Preview APKG Upload"];
+        _ = localizer["Upload APKG Package"];
     }
 
     public void InjectSimple(
