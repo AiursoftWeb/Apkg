@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>Một cái nhìn toàn diện về vai trò, các quyền hạn và người dùng được chỉ định.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>Vai trò là một tập hợp các quyền hạn được đặt tên. Gán vai trò cho người dùng để cấp cho họ khả năng thực hiện các hành động cụ thể.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>Người dùng được chỉ định</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>Quay lại Danh sách Vai trò</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>Tạo vai trò dựa trên chức năng công việc (ví dụ: &apos;Mirror Manager&apos;) thay vì theo từng người dùng để đơn giản hóa việc quản trị.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>Xóa Vai trò này</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>Vai trò này không được gán bất kỳ quyền cụ thể nào.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Mẹo:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>Người dùng có Vai trò này</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>Xem Người Dùng</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>Vai trò là gì?</value>
   </data>
 
 </root>

@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>此角色、其權限及已分配用戶的全面概述。</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>角色是一組已命名的權限集合。將角色指派給使用者，以授予他們執行特定動作的能力。</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>已分配用戶</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>返回角色列表</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>按職責建立角色（例如「Mirror Manager」），而非為每個用戶創建角色，以簡化管理。</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>刪除此角色</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>此角色並未分配任何特定權限。</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>提示：</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>擁有此角色的用戶</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>查看用戶</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>什麼是角色？</value>
   </data>
 
 </root>

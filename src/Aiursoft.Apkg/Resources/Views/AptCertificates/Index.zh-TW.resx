@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>產生新金鑰</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>GPG 憑證會簽署您的儲存庫元數據，以便 apt 客戶端能夠驗證套件未被竄改。</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>名稱</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>定期輪換憑證並確保密鑰安全。未簽署的儲存庫需要在客戶端設定&lt;code&gt;Trusted: yes&lt;/code&gt;。</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>簽署憑證</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>這將導致所有使用此憑證的程式庫無法運作！</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>提示：</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>什麼是憑證？</value>
   </data>
 
 </root>

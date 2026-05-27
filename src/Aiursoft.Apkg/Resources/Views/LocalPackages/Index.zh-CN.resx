@@ -45,6 +45,9 @@
   <data name="Disabled" xml:space="preserve">
     <value>已禁用</value>
   </data>
+  <data name="Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets." xml:space="preserve">
+    <value>每个 LocalPackage 对应一个 repo+suite+arch 组合。仓库同步任务会将它们复制到实时存储桶中。</value>
+  </data>
   <data name="Enabled" xml:space="preserve">
     <value>已启用</value>
   </data>
@@ -59,6 +62,9 @@
   </data>
   <data name="Live" xml:space="preserve">
     <value>已发布</value>
+  </data>
+  <data name="LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories." xml:space="preserve">
+    <value>LocalPackages 是从 .apkg 上传文件中提取的 .deb 文件。在同步到 APT 仓库之前，它们会存放在暂存区中。</value>
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>我的软件包</value>
@@ -87,6 +93,9 @@
   <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
     <value>此软件包合并并签名到实时仓库的当前进度。同步任务每 20 分钟运行一次，随后每 5 分钟运行一次签名任务。</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>提示：</value>
+  </data>
   <data name="Upload Package" xml:space="preserve">
     <value>上传软件包</value>
   </data>
@@ -101,6 +110,9 @@
   </data>
   <data name="View Details &amp; Install Instructions" xml:space="preserve">
     <value>查看详细信息和安装说明</value>
+  </data>
+  <data name="What is a LocalPackage?" xml:space="preserve">
+    <value>什么是 LocalPackage？</value>
   </data>
 
 </root>

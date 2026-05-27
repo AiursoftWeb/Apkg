@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>.deb 软件包是专为 Debian/Ubuntu 系统设计、可即时安装的软件捆绑包。它包含二进制文件、配置文件以及依赖关系元数据。</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>架构</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -33,6 +36,9 @@
   <data name="Description" xml:space="preserve">
     <value>描述</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>还没有 &lt;code&gt;apkg&lt;/code&gt;？</value>
+  </data>
   <data name="Download .deb" xml:space="preserve">
     <value>下载 .deb</value>
   </data>
@@ -42,6 +48,9 @@
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>加载反向依赖项失败。</value>
   </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>首先通过 &lt;code&gt;sudo apkg add-source&lt;/code&gt; 添加 APT 软件源，然后运行 &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;。也可以直接下载 .deb 文件。</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>哈希值</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="How to Install" xml:space="preserve">
     <value>安装方法</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>使用方法：</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>已安装大小</value>
@@ -71,6 +83,12 @@
   </data>
   <data name="No relations." xml:space="preserve">
     <value>无关联。</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>选项 A：使用 APKG CLI（推荐）：</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>选项 B：手动 bash 配置：</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>来源</value>
@@ -108,6 +126,9 @@
   <data name="Section" xml:space="preserve">
     <value>部分</value>
   </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>查看如何安装 APKG CLI。</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>源码</value>
   </data>
@@ -131,6 +152,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>虚拟（懒同步）</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>什么是软件包？</value>
   </data>
 
 </root>

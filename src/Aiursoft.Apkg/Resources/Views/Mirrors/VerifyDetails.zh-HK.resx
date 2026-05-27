@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Mirrors" xml:space="preserve">
+      <data name="A &apos;Passed&apos; status means the mirror&apos;s signature is valid. &apos;Failed&apos; may indicate expired keys or corrupted data." xml:space="preserve">
+    <value>「Passed」狀態表示鏡像的簽名有效。「Failed」可能表示金鑰已過期或資料損毀。</value>
+  </data>
+  <data name="Back to Mirrors" xml:space="preserve">
     <value>返回鏡像列表</value>
   </data>
   <data name="Bucket Replacements" xml:space="preserve">
@@ -35,6 +38,9 @@
   </data>
   <data name="file" xml:space="preserve">
     <value>檔案</value>
+  </data>
+  <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
+    <value>GPG 簽署確保軟件包來自可信來源且未被篡改。鏡像的 InRelease 檔案會根據其 GPG 密鑰進行驗證。</value>
   </data>
   <data name="GPG Verify Details" xml:space="preserve">
     <value>GPG 驗證詳情</value>
@@ -69,11 +75,17 @@
   <data name="Target" xml:space="preserve">
     <value>目標</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>提示：</value>
+  </data>
   <data name="Verification Log" xml:space="preserve">
     <value>驗證記錄</value>
   </data>
   <data name="Verification Target" xml:space="preserve">
     <value>驗證目標</value>
+  </data>
+  <data name="What is GPG Verification?" xml:space="preserve">
+    <value>什麼是GPG驗證？</value>
   </data>
 
 </root>

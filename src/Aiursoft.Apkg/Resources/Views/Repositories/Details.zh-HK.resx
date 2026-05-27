@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to List" xml:space="preserve">
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>APT 倉庫是一個 .deb 套件的集合，你的系統可以從中安裝。可將其視為 Linux 系統的應用程式商店。</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
     <value>返回列表</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
@@ -39,11 +42,20 @@
   <data name="Distro" xml:space="preserve">
     <value>發行版</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>沒有 &lt;code&gt;apkg&lt;/code&gt; 嗎？</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>如何使用：</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>資訊</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>實時存儲桶</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>手動設定 (bash):</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>鏡像源</value>
@@ -57,8 +69,17 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>一行式設定：</value>
   </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>快速設定 with APKG CLI:</value>
+  </data>
   <data name="Repository Details" xml:space="preserve">
     <value>儲存庫詳情</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>在右方執行 &lt;code&gt;sudo apkg add-source&lt;/code&gt; 指令以配置此倉庫，然後如常使用 &lt;code&gt;sudo apt install&lt;/code&gt;。</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>查看如何安裝 APKG CLI。</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>套件</value>
@@ -68,6 +89,9 @@
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>此功能採用現代的 DEB822 格式及受限金鑰環，以確保最高的安全性與可靠性。</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>什麼是儲存庫？</value>
   </data>
 
 </root>

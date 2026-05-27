@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>미러 추가</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>업스트림 미러는 외부 APT 저장소(예: Ubuntu)에서 APKG로 패키지 메타데이터를 동기화합니다. 이는 로컬 저장소의 데이터 원본입니다.</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>아키텍처</value>
   </data>
@@ -74,6 +77,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>마지막 풀</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>미러는 일정에 따라 실행됩니다. 각 미러가 마지막으로 동기화된 시간을 확인하려면 &apos;Last Pull&apos; 열을 확인하세요.</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Pull 시도 없음</value>
@@ -129,6 +135,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>이 작업은 모든 관련 패키지와 버킷도 삭제합니다!</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>팁:</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>무방비</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>검증됨</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>미러란 무엇인가요?</value>
   </data>
 
 </root>

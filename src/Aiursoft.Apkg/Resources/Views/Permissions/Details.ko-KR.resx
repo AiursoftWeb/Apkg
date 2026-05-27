@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>권한은 개별 기능입니다(예: &apos;Create Mirror&apos;, &apos;Delete Package&apos;). 권한은 역할로 그룹화되어 사용자에게 할당됩니다.</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>권한으로 돌아가기</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>권한 이름</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>권한은 세분화되어 있습니다. 각 권한을 부여하는 역할을 확인하여 누가 어떤 작업을 수행할 수 있는지 이해하십시오.</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>역할명</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>다음 사용자들은 역할 소속을 통해 이 권한을 가지고 있습니다.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>팁:</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>사용자명</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>이 권한을 가진 사용자</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>권한이란 무엇인가?</value>
   </data>
 
 </root>

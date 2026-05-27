@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Account Details" xml:space="preserve">
+      <data name="A user account can log in, own uploads, and be assigned roles. Users authenticate via local credentials or an OpenID Connect provider." xml:space="preserve">
+    <value>사용자 계정은 로그인하고, 자신의 업로드를 소유하며, 역할이 할당될 수 있습니다. 사용자는 로컬 자격 증명 또는 OpenID Connect 공급자를 통해 인증합니다.</value>
+  </data>
+  <data name="Account Details" xml:space="preserve">
     <value>계정 정보</value>
   </data>
   <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
@@ -57,17 +60,26 @@
   <data name="Profile Details" xml:space="preserve">
     <value>프로필 세부 정보</value>
   </data>
+  <data name="Roles grant permissions. Assign roles to users to control what they can do in the system." xml:space="preserve">
+    <value>역할은 권한을 부여합니다. 사용자에게 역할을 할당하여 시스템에서 수행할 수 있는 작업을 제어하세요.</value>
+  </data>
   <data name="This user has no effective permissions." xml:space="preserve">
     <value>이 사용자에게는 유효한 권한이 없습니다.</value>
   </data>
   <data name="This user has not been assigned any roles." xml:space="preserve">
     <value>이 사용자에게는 역할이 할당되지 않았습니다.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>팁:</value>
+  </data>
   <data name="User Details:" xml:space="preserve">
     <value>사용자 세부 정보:</value>
   </data>
   <data name="User name" xml:space="preserve">
     <value>사용자 이름</value>
+  </data>
+  <data name="What is a User?" xml:space="preserve">
+    <value>사용자란 무엇인가?</value>
   </data>
 
 </root>

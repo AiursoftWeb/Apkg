@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name=".NET Global Tool" xml:space="preserve">
+    <value>.NET グローバルツール</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>長時間実行タスク（メールやAIなど）に対する「Fire-and-forget」サポート。キュー管理、並列処理、キャンセルを備えたGUIを備えています。</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,8 +39,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>モダンで機能豊富、かつ高度に拡張可能な基盤を、あなたの次のWebアプリケーションに提供します。</value>
   </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>APKG クライアントをインストールし、APT パッケージの管理を開始するための単一のコマンドです。</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Templateでさらに多くのことを実現</value>
+  </data>
+  <data name="Add a source (requires sudo)" xml:space="preserve">
+    <value>ソースを追加（sudoが必要）</value>
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>管理サイトが含まれています</value>
@@ -68,6 +77,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>APT パッケージリポジトリ</value>
   </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>人工知能翻訳</value>
@@ -120,6 +132,9 @@
   <data name="Bilingual Tutorials" xml:space="preserve">
     <value>二か国語チュートリアル</value>
   </data>
+  <data name="Browse All Packages" xml:space="preserve">
+    <value>すべてのパッケージを閲覧</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>一度構築すれば、どこでも実行可能。完全にコンテナ化されたアーキテクチャ。</value>
   </data>
@@ -167,6 +182,9 @@
   </data>
   <data name="Concise Docs" xml:space="preserve">
     <value>簡潔なドキュメント</value>
+  </data>
+  <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
+    <value>複雑なAPTソース、GPGキー、スイートを単一のコマンドで構成します。</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>整合性検証</value>
@@ -239,6 +257,9 @@
   </data>
   <data name="Dockerized for Easy Deployment" xml:space="preserve">
     <value>Docker対応でデプロイが簡単</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>ダウンロード .NET SDK</value>
   </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>動的ナビゲーションバー</value>
@@ -378,6 +399,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>Horizon 搭載</value>
   </data>
+  <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
+    <value>.debパッケージをホスト、管理、配布し、モダンなNuGetライクな体験を提供します。APKG搭載。</value>
+  </data>
   <data name="How can I get support?" xml:space="preserve">
     <value>サポートを受けるにはどうすればよいですか？</value>
   </data>
@@ -398,6 +422,15 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>チュートリアルを含む</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>.NET SDK をインストール</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>APKG CLI をインストール</value>
+  </data>
+  <data name="Install via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Auto-updates, no native dependencies." xml:space="preserve">
+    <value>&lt;code&gt;dotnet tool install -g&lt;/code&gt; を使用してインストールします。自動更新、ネイティブ依存関係はありません。</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>統合ファイル管理</value>
@@ -428,6 +461,9 @@
   </data>
   <data name="Lint Check" xml:space="preserve">
     <value>Lintチェック</value>
+  </data>
+  <data name="Made Simple." xml:space="preserve">
+    <value>シンプルに。</value>
   </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>高品質なコードを維持する</value>
@@ -516,6 +552,9 @@
   <data name="One Click Start" xml:space="preserve">
     <value>ワンクリックスタート</value>
   </data>
+  <data name="One-Click APT Source Setup" xml:space="preserve">
+    <value>ワンクリックAPTソース設定</value>
+  </data>
   <data name="Open Source" xml:space="preserve">
     <value>オープンソース</value>
   </data>
@@ -525,14 +564,23 @@
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>最適化された Docker &amp; K8s 設定</value>
   </data>
+  <data name="Or configure it permanently:" xml:space="preserve">
+    <value>または、永続的に設定します：</value>
+  </data>
   <data name="ORM &amp; Migrations" xml:space="preserve">
     <value>ORM とマイグレーション</value>
   </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>すぐに使える</value>
   </data>
+  <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
+    <value>複数の .deb ファイルをマニフェストと共に1つの .apkg バンドルにパッケージ化します。任意の APKG サーバーにプッシュします。</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>権限の検出と同期</value>
+  </data>
+  <data name="Powered by AnduinOS" xml:space="preserve">
+    <value>AnduinOS 搭載</value>
   </data>
   <data name="Pre-configured and tested" xml:space="preserve">
     <value>事前設定済みかつテスト済み</value>
@@ -545,6 +593,9 @@
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>品質ゲート</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>クイックスタート</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC認可</value>
@@ -567,6 +618,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>堅牢な統合テスト</value>
   </data>
+  <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
+    <value>Windows、Linux、macOS 上で .NET 経由で動作します。</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>インターネット接続は必要ありません。</value>
   </data>
@@ -576,11 +630,20 @@
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>あらゆるOpenID Connectプロバイダーとシームレスに統合し、自動的なロール同期を実現します。</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>検索</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>パッケージ検索...</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>自信を持ってシフト</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>シンプルで簡単</value>
+  </data>
+  <data name="Simplified dpkg Packaging" xml:space="preserve">
+    <value>簡易dpkgパッケージング</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>シングルコンテナ</value>
@@ -648,6 +711,9 @@
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>ナビゲーションバーは、ユーザーの役割と権限に基づいて自動的に調整されます。</value>
   </data>
+  <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
+    <value>AnduinOSエコシステムに選ばれた公式パッケージマネージャー。</value>
+  </data>
   <data name="The Philosophy" xml:space="preserve">
     <value>哲学</value>
   </data>
@@ -663,8 +729,14 @@
   <data name="Timezone-aware fields" xml:space="preserve">
     <value>タイムゾーン対応フィールド</value>
   </data>
+  <data name="To use &lt;code&gt;sudo apkg&lt;/code&gt;, make the dotnet tools path available to root:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt;を使用するには、dotnet toolsのパスをrootが利用できるようにしてください:</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>AnduinOS、StatHub、Warpを含むプロダクショングレードのアプリケーションに信頼されています。このコードを単に共有するだけでなく、私たちのビジネス全体をこのコードで運用しています。</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>Ubuntu:</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>統合環境</value>
@@ -689,6 +761,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>開発者の声</value>
+  </data>
+  <data name="Why APKG?" xml:space="preserve">
+    <value>なぜAPKG？</value>
   </data>
   <data name="Why choose Aiursoft Template?" xml:space="preserve">
     <value>なぜ Aiursoft Template を選ぶのか？</value>

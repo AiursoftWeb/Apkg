@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Architecture</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -33,6 +36,9 @@
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
   <data name="Download .deb" xml:space="preserve">
     <value>Download .deb</value>
   </data>
@@ -42,6 +48,9 @@
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Failed to load reverse dependencies.</value>
   </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>First, add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then run &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Alternatively, download the .deb file directly.</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>Hashes</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="How to Install" xml:space="preserve">
     <value>How to Install</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>How to use:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Installed Size</value>
@@ -71,6 +83,12 @@
   </data>
   <data name="No relations." xml:space="preserve">
     <value>No relations.</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>Option A: Using APKG CLI (recommended):</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>Option B: Manual bash setup:</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>Origin</value>
@@ -108,6 +126,9 @@
   <data name="Section" xml:space="preserve">
     <value>Section</value>
   </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>See how to install APKG CLI.</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Source</value>
   </data>
@@ -131,6 +152,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Virtual (Lazy Sync)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>What is a Package?</value>
   </data>
 
 </root>

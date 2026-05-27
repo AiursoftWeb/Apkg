@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name=".NET Global Tool" xml:space="preserve">
+    <value>.NET 全局工具</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>支持“即发即弃”的长运行任务（如邮件发送或 AI 推理），内置队列管理、并行处理及任务取消的可视化面板。</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,8 +39,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>一个现代化、功能丰富且高度可扩展的基础框架，为您的下一个Web应用程序提供强大支持。</value>
   </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>一条命令即可安装 APKG 客户端并开始管理您的 APT 软件包。</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>借助 Aiursoft Template 成就更多可能</value>
+  </data>
+  <data name="Add a source (requires sudo)" xml:space="preserve">
+    <value>添加源（需要 sudo）</value>
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>包含管理站点</value>
@@ -68,6 +77,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>APT 软件包仓库</value>
   </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>人工智能翻译</value>
@@ -120,6 +132,9 @@
   <data name="Bilingual Tutorials" xml:space="preserve">
     <value>双语教程</value>
   </data>
+  <data name="Browse All Packages" xml:space="preserve">
+    <value>浏览所有包</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>一次构建，随处运行。完全容器化架构。</value>
   </data>
@@ -167,6 +182,9 @@
   </data>
   <data name="Concise Docs" xml:space="preserve">
     <value>简洁文档</value>
+  </data>
+  <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
+    <value>只需一条命令即可配置复杂的 APT 软件源、GPG 密钥和软件套件。</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>前后端一致性验证</value>
@@ -239,6 +257,9 @@
   </data>
   <data name="Dockerized for Easy Deployment" xml:space="preserve">
     <value>Docker化以实现轻松部署</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>下载 .NET SDK</value>
   </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>动态导航栏</value>
@@ -378,6 +399,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>包含 Horizon</value>
   </data>
+  <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
+    <value>托管、管理和分发 .deb 包，享受现代化的类 NuGet 体验。由 APKG 提供支持。</value>
+  </data>
   <data name="How can I get support?" xml:space="preserve">
     <value>如何获取支持？</value>
   </data>
@@ -398,6 +422,15 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>包含教程</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>安装 .NET SDK</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>安装 APKG CLI</value>
+  </data>
+  <data name="Install via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Auto-updates, no native dependencies." xml:space="preserve">
+    <value>通过 &lt;code&gt;dotnet tool install -g&lt;/code&gt; 安装。支持自动更新，无原生依赖。</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>集成文件管理</value>
@@ -428,6 +461,9 @@
   </data>
   <data name="Lint Check" xml:space="preserve">
     <value>Lint 检查</value>
+  </data>
+  <data name="Made Simple." xml:space="preserve">
+    <value>简单易用。</value>
   </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>保持高代码质量</value>
@@ -516,6 +552,9 @@
   <data name="One Click Start" xml:space="preserve">
     <value>一键启动</value>
   </data>
+  <data name="One-Click APT Source Setup" xml:space="preserve">
+    <value>一键配置 APT 源</value>
+  </data>
   <data name="Open Source" xml:space="preserve">
     <value>开源</value>
   </data>
@@ -525,14 +564,23 @@
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>优化的 Docker &amp; K8s 配置</value>
   </data>
+  <data name="Or configure it permanently:" xml:space="preserve">
+    <value>或永久配置：</value>
+  </data>
   <data name="ORM &amp; Migrations" xml:space="preserve">
     <value>ORM 与迁移</value>
   </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>开箱即用</value>
   </data>
+  <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
+    <value>通过清单将多个 .deb 文件打包为一个 .apkg 包，并推送到任意 APKG 服务器。</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>权限发现与同步</value>
+  </data>
+  <data name="Powered by AnduinOS" xml:space="preserve">
+    <value>基于 AnduinOS 驱动</value>
   </data>
   <data name="Pre-configured and tested" xml:space="preserve">
     <value>预配置且已测试</value>
@@ -545,6 +593,9 @@
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>质量门禁 - 强制合规</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>快速入门</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>基于角色的访问控制 (RBAC) 授权</value>
@@ -567,6 +618,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>强大的集成测试</value>
   </data>
+  <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
+    <value>通过 .NET 在 Windows、Linux 和 macOS 上运行。</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>无需互联网连接即可运行。</value>
   </data>
@@ -576,11 +630,20 @@
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>无缝集成任何 OpenID Connect 提供商，并支持自动角色同步。</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜索</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>搜索软件包...</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>无忧迁移 - 发布即交付</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>简单且易于使用</value>
+  </data>
+  <data name="Simplified dpkg Packaging" xml:space="preserve">
+    <value>简化 dpkg 打包</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>单容器</value>
@@ -648,6 +711,9 @@
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>导航栏会根据用户角色和权限自动调整显示内容。</value>
   </data>
+  <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
+    <value>AnduinOS 生态选定的官方包管理器。</value>
+  </data>
   <data name="The Philosophy" xml:space="preserve">
     <value>哲学</value>
   </data>
@@ -663,8 +729,14 @@
   <data name="Timezone-aware fields" xml:space="preserve">
     <value>感知时区的字段</value>
   </data>
+  <data name="To use &lt;code&gt;sudo apkg&lt;/code&gt;, make the dotnet tools path available to root:" xml:space="preserve">
+    <value>要使用 &lt;code&gt;sudo apkg&lt;/code&gt;，请确保 root 用户可访问 dotnet 工具路径：</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>深受生产级应用信赖，包括 AnduinOS、StatHub 和 Warp。我们不仅分享代码，我们的核心业务也完全构建于此。</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>Ubuntu：</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>统一环境</value>
@@ -689,6 +761,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>我们的开发者怎么说</value>
+  </data>
+  <data name="Why APKG?" xml:space="preserve">
+    <value>为什么选择 APKG？</value>
   </data>
   <data name="Why choose Aiursoft Template?" xml:space="preserve">
     <value>为何选择 Aiursoft Template？</value>

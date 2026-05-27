@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>.deb 패키지는 Debian/Ubuntu 시스템에 설치할 준비가 된 소프트웨어 번들입니다. 바이너리, 구성 파일 및 종속성 메타데이터를 포함합니다.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>아키텍처</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -42,6 +45,9 @@
   <data name="Download Size" xml:space="preserve">
     <value>다운로드 크기</value>
   </data>
+  <data name="Download the .deb directly or browse reverse dependencies above." xml:space="preserve">
+    <value>.deb 파일을 직접 다운로드하거나 위의 역 종속성을 찾아보세요.</value>
+  </data>
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>역수존 의존성을 로드하는 데 실패했습니다.</value>
   </data>
@@ -50,6 +56,9 @@
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>홈페이지</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>사용 방법:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>설치 크기</value>
@@ -119,6 +128,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>가상 (지연 동기화)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>패키지란 무엇인가?</value>
   </data>
 
 </root>

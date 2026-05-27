@@ -45,6 +45,9 @@
   <data name="Disabled" xml:space="preserve">
     <value>Disabled</value>
   </data>
+  <data name="Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets." xml:space="preserve">
+    <value>Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets.</value>
+  </data>
   <data name="Enabled" xml:space="preserve">
     <value>Enabled</value>
   </data>
@@ -59,6 +62,9 @@
   </data>
   <data name="Live" xml:space="preserve">
     <value>Live</value>
+  </data>
+  <data name="LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories." xml:space="preserve">
+    <value>LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories.</value>
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>My Packages</value>
@@ -87,6 +93,9 @@
   <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
     <value>The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Upload Package</value>
   </data>
@@ -101,6 +110,9 @@
   </data>
   <data name="View Details &amp; Install Instructions" xml:space="preserve">
     <value>View Details &amp; Install Instructions</value>
+  </data>
+  <data name="What is a LocalPackage?" xml:space="preserve">
+    <value>What is a LocalPackage?</value>
   </data>
 
 </root>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>權限是一個離散的功能（例如 &apos;Create Mirror&apos;、&apos;Delete Package&apos;）。權限被分組為角色並分配給用戶。</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>返回權限</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>權限名稱</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>權限是細粒度的。檢查授予每個權限的角色，以了解誰可以執行哪些操作。</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>角色名稱</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>以下用戶通過他們的角色成員擁有此權限。</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>提示：</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>用戶名</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>擁有此權限的用戶</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>甚麼是權限？</value>
   </data>
 
 </root>

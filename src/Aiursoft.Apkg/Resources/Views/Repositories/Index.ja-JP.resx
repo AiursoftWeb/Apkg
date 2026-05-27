@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>APTリポジトリは、.debパッケージをシステムに提供します。これはプライベートなアプリストアのようなもので、利用可能なパッケージを自分で管理できます。</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>リポジトリ「@item.Name」を削除してもよろしいですか？</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>ディストリビューション</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>各リポジトリはスイート（例：questing）にマッピングされます。マシン上でリポジトリを設定するには &lt;code&gt;apkg add-source&lt;/code&gt; を使用してください。</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>編集</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Repository Sync ジョブが実行中に構築されているスナップショットです。ジョブが成功すると、このスナップショットがライブバケットに置き換えられます。</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>ヒント:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>パッケージ合計</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>リポジトリとは？</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>リポジトリのReleaseファイルがGPG署名されているかどうか。sources.listで&apos;signed-by=&apos;で構成されたaptクライアントは、署名されていない、または間違ったキーで署名されたリポジトリを拒否します。</value>

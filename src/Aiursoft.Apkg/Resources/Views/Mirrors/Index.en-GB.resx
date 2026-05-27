@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>Add New Mirror</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>An upstream mirror syncs package metadata from an external APT repository (such as Ubuntu) into APKG. It serves as the data source for your local repositories.</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>Architecture</value>
   </data>
@@ -74,6 +77,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Last Pull</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronised.</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Never Pulled</value>
@@ -129,6 +135,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>This will also delete all associated packages and buckets!</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>Unprotected</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>Verified</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>What is a Mirror?</value>
   </data>
 
 </root>

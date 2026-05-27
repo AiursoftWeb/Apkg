@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>APT 倉儲為您的系統提供 .deb 套件。您可以將其想像成一個私人應用程式商店 — 由您控制哪些套件可供使用。</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>您確定要刪除儲存庫嗎</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>發行版</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>每個儲存庫對應到一個套件集（例如：questing）。使用 &lt;code&gt;apkg add-source&lt;/code&gt; 在您的機器上設定一個儲存庫。</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>編輯</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>由正在執行的 Repository Sync 工作建立的快照。當工作成功時，它會取代現用的儲存桶。</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>提示：</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>套件總數</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>什麼是儲存庫？</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>是否對儲存庫的 Release 檔案進行 GPG 簽章。在 sources.list 中配置了 &apos;signed-by=&apos; 的 apt 客戶端將拒絕未簽章或使用錯誤金鑰簽章的儲存庫。</value>

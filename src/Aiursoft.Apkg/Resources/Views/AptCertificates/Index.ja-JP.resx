@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>新しいキーを生成</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>GPG証明書はリポジトリのメタデータに署名し、aptクライアントがパッケージが改ざんされていないことを検証できるようにします。</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>名前</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>証明書は定期的にローテーションし、秘密鍵を安全に保管してください。署名されていないリポジトリでは、クライアント側で&lt;code&gt;Trusted: yes&lt;/code&gt;が必要です。</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>署名証明書</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>これを使用しているすべてのリポジトリが壊れます！</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>ヒント:</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>証明書とは？</value>
   </data>
 
 </root>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Account Details" xml:space="preserve">
+      <data name="A user account can log in, own uploads, and be assigned roles. Users authenticate via local credentials or an OpenID Connect provider." xml:space="preserve">
+    <value>Một tài khoản người dùng có thể đăng nhập, sở hữu các tệp tải lên và được gán vai trò. Người dùng xác thực qua thông tin đăng nhập cục bộ hoặc một nhà cung cấp OpenID Connect.</value>
+  </data>
+  <data name="Account Details" xml:space="preserve">
     <value>Thông tin Tài khoản</value>
   </data>
   <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
@@ -57,17 +60,26 @@
   <data name="Profile Details" xml:space="preserve">
     <value>Thông tin Hồ sơ</value>
   </data>
+  <data name="Roles grant permissions. Assign roles to users to control what they can do in the system." xml:space="preserve">
+    <value>Vai trò cấp quyền. Gán vai trò cho người dùng để kiểm soát những gì họ có thể làm trong hệ thống.</value>
+  </data>
   <data name="This user has no effective permissions." xml:space="preserve">
     <value>Người dùng này không có quyền hạn hiệu lực nào.</value>
   </data>
   <data name="This user has not been assigned any roles." xml:space="preserve">
     <value>Người dùng này chưa được gán bất kỳ vai trò nào.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Mẹo:</value>
+  </data>
   <data name="User Details:" xml:space="preserve">
     <value>Thông tin Người dùng:</value>
   </data>
   <data name="User name" xml:space="preserve">
     <value>Tên người dùng</value>
+  </data>
+  <data name="What is a User?" xml:space="preserve">
+    <value>Người dùng là gì?</value>
   </data>
 
 </root>

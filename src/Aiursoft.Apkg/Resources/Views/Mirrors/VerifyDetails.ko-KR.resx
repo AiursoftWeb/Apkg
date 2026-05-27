@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Mirrors" xml:space="preserve">
+      <data name="A &apos;Passed&apos; status means the mirror&apos;s signature is valid. &apos;Failed&apos; may indicate expired keys or corrupted data." xml:space="preserve">
+    <value>&apos;Passed&apos; 상태는 미러의 서명이 유효함을 의미합니다. &apos;Failed&apos;는 키가 만료되었거나 데이터가 손상되었을 수 있음을 나타냅니다.</value>
+  </data>
+  <data name="Back to Mirrors" xml:space="preserve">
     <value>미러로 돌아가기</value>
   </data>
   <data name="Bucket Replacements" xml:space="preserve">
@@ -35,6 +38,9 @@
   </data>
   <data name="file" xml:space="preserve">
     <value>파일</value>
+  </data>
+  <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
+    <value>GPG 서명은 패키지가 신뢰할 수 있는 출처에서 왔으며 변조되지 않았음을 보장합니다. 미러의 InRelease 파일은 해당 GPG 키를 통해 검증됩니다.</value>
   </data>
   <data name="GPG Verify Details" xml:space="preserve">
     <value>GPG 검증 세부 정보</value>
@@ -69,11 +75,17 @@
   <data name="Target" xml:space="preserve">
     <value>대상</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>팁:</value>
+  </data>
   <data name="Verification Log" xml:space="preserve">
     <value>검증 로그</value>
   </data>
   <data name="Verification Target" xml:space="preserve">
     <value>검증 대상</value>
+  </data>
+  <data name="What is GPG Verification?" xml:space="preserve">
+    <value>GPG 검증이란 무엇인가요?</value>
   </data>
 
 </root>

@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>このロール、その権限、および割り当てられたユーザーに関する包括的な概要。</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>ロールとは、権限に名前を付けてまとめたものです。ロールをユーザーに割り当てることで、特定のアクションを実行する権限を付与できます。</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>割り当て済みユーザー</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>ロール一覧に戻る</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>職務機能に基づいてロールを作成し（例：「Mirror Manager」）、ユーザーごとではなく管理を簡素化します。</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>このロールを削除</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>このロールには特定の権限が割り当てられていません。</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>ヒント：</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>このロールを持つユーザー</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>ユーザーを表示</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>ロールとは何ですか？</value>
   </data>
 
 </root>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>A .deb 套件係一款準備好喺 Debian/Ubuntu 系統上安裝嘅軟件套裝。佢包含二進位檔、設定檔同相依性元數據。</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>架構</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -42,6 +45,9 @@
   <data name="Download Size" xml:space="preserve">
     <value>下載大小</value>
   </data>
+  <data name="Download the .deb directly or browse reverse dependencies above." xml:space="preserve">
+    <value>直接下載 .deb 檔案，或瀏覽上方的反向依賴項目。</value>
+  </data>
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>載入反向相依性失敗。</value>
   </data>
@@ -50,6 +56,9 @@
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>主頁</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>如何使用：</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>已安裝大小</value>
@@ -119,6 +128,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>虛擬（延遲同步）</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>什麼是套件？</value>
   </data>
 
 </root>

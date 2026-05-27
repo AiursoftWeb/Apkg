@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>해당 역할, 권한 및 할당된 사용자에 대한 포괄적인 개요입니다.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>역할은 명명된 권한 집합입니다. 사용자에게 역할을 할당하여 특정 작업을 수행할 수 있는 권한을 부여합니다.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>할당된 사용자</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>역할 목록으로 돌아가기</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>직무 기능을 기준으로 역할을 생성하고(예: &apos;Mirror Manager&apos;), 사용자별로 생성하지 않음으로써 관리를 간소화하세요.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>이 역할 삭제</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>이 역할에 지정된 특정 권한이 없습니다.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>팁:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>이 역할을 가진 사용자</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>사용자 보기</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>역할이란 무엇인가요?</value>
   </data>
 
 </root>

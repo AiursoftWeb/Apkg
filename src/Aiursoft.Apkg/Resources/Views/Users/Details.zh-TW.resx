@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Account Details" xml:space="preserve">
+      <data name="A user account can log in, own uploads, and be assigned roles. Users authenticate via local credentials or an OpenID Connect provider." xml:space="preserve">
+    <value>使用者帳戶可進行登入</value>
+  </data>
+  <data name="Account Details" xml:space="preserve">
     <value>帳戶詳細資料</value>
   </data>
   <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
@@ -57,17 +60,26 @@
   <data name="Profile Details" xml:space="preserve">
     <value>個人資料詳情</value>
   </data>
+  <data name="Roles grant permissions. Assign roles to users to control what they can do in the system." xml:space="preserve">
+    <value>角色授予權限。將角色指派給使用者，以控制他們在系統中可以執行的操作。</value>
+  </data>
   <data name="This user has no effective permissions." xml:space="preserve">
     <value>此使用者沒有任何有效權限。</value>
   </data>
   <data name="This user has not been assigned any roles." xml:space="preserve">
     <value>此使用者尚未被指派任何角色。</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>提示：</value>
+  </data>
   <data name="User Details:" xml:space="preserve">
     <value>使用者詳細資訊：</value>
   </data>
   <data name="User name" xml:space="preserve">
     <value>使用者名稱</value>
+  </data>
+  <data name="What is a User?" xml:space="preserve">
+    <value>什麼是使用者？</value>
   </data>
 
 </root>

@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>新增鏡像</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>上游鏡像會從外部APT儲存庫（如Ubuntu）同步套件元數據到APKG。這是您本地儲存庫的資料來源。</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>架構</value>
   </data>
@@ -74,6 +77,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>最後一次拉取</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>鏡像按排程執行。請查看「Last Pull」欄位以了解每個鏡像上次同步的時間。</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>從未同步</value>
@@ -129,6 +135,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>這也會刪除所有關聯的套件和儲存區！</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>提示：</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>未受保護</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>已驗證</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>什麼是鏡像？</value>
   </data>
 
 </root>

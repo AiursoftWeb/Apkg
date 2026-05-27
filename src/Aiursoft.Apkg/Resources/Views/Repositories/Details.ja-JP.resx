@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to List" xml:space="preserve">
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>APT リポジトリは、システムがインストール元として使用できる .deb パッケージの集合です。Linux システムにおけるアプリストアのようなものと考えてください。</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
     <value>一覧に戻る</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
@@ -39,11 +42,20 @@
   <data name="Distro" xml:space="preserve">
     <value>ディストリビューション</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>apkgをお持ちでないですか？</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>使い方:</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>情報</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>ライブバケット</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>手動セットアップ (bash):</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>ミラー元</value>
@@ -57,8 +69,17 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>ワンライナー設定:</value>
   </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>APKG CLI によるクイックセットアップ:</value>
+  </data>
   <data name="Repository Details" xml:space="preserve">
     <value>リポジトリの詳細</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>右側の&lt;code&gt;sudo apkg add-source&lt;/code&gt;コマンドを実行してこのリポジトリを設定し、その後は通常通り&lt;code&gt;sudo apt install&lt;/code&gt;を使用してください。</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>APKG CLIのインストール方法をご覧ください。</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>スート</value>
@@ -68,6 +89,9 @@
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>これは最大限のセキュリティと信頼性を実現するため、最新のDEB822形式とスコープ付きキーリングを使用しています。</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>リポジトリとは？</value>
   </data>
 
 </root>

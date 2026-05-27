@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+    <value>儲存桶（bucket）是儲存庫（repository）中套件在某個時間點的版本化快照。主要儲存桶是提供給 apt 用戶端的即時儲存桶。</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
   <data name="Active Usage" xml:space="preserve">
@@ -29,6 +32,9 @@
   </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>Bucket 快照歷史記錄</value>
+  </data>
+  <data name="Buckets allow atomic updates. New packages are built into a fresh bucket, then the primary pointer switches over seamlessly." xml:space="preserve">
+    <value>儲存桶支援原子更新。新套件會建立在全新的儲存桶中，然後主要指標會無縫切換。</value>
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>建立時間</value>
@@ -65,6 +71,12 @@
   </data>
   <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
     <value>此快照正作為當前索引積極提供給 apt 客戶端。</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>提示：</value>
+  </data>
+  <data name="What is a Bucket?" xml:space="preserve">
+    <value>什麼是儲存桶？</value>
   </data>
 
 </root>
