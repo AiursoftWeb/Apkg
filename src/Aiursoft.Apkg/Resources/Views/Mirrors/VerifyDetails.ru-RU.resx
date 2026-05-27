@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Mirrors" xml:space="preserve">
+      <data name="A &apos;Passed&apos; status means the mirror&apos;s signature is valid. &apos;Failed&apos; may indicate expired keys or corrupted data." xml:space="preserve">
+    <value>Статус «Пройдена» означает, что подпись зеркала действительна. Статус «Не пройдена» может указывать на просроченные ключи или поврежденные данные.</value>
+  </data>
+  <data name="Back to Mirrors" xml:space="preserve">
     <value>Назад к зеркалам</value>
   </data>
   <data name="Bucket Replacements" xml:space="preserve">
@@ -35,6 +38,9 @@
   </data>
   <data name="file" xml:space="preserve">
     <value>файл</value>
+  </data>
+  <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
+    <value>Цифровая подпись GPG гарантирует, что пакеты поступили из проверенного источника и не были изменены. Файл InRelease зеркала проверяется по его GPG-ключу.</value>
   </data>
   <data name="GPG Verify Details" xml:space="preserve">
     <value>Подробности проверки GPG</value>
@@ -69,11 +75,17 @@
   <data name="Target" xml:space="preserve">
     <value>Цель</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Совет:</value>
+  </data>
   <data name="Verification Log" xml:space="preserve">
     <value>Журнал проверки</value>
   </data>
   <data name="Verification Target" xml:space="preserve">
     <value>Цель проверки</value>
+  </data>
+  <data name="What is GPG Verification?" xml:space="preserve">
+    <value>Что такое GPG-проверка?</value>
   </data>
 
 </root>

@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>Azioni</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>Un repository APT distribuisce pacchetti .deb ai tuoi sistemi. Immaginalo come un app store privato: tu controlli quali pacchetti sono disponibili.</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Sei sicuro di voler eliminare il repository</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribuzione</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>Ogni repository corrisponde a una suite (ad es. questing). Usa &lt;code&gt;apkg add-source&lt;/code&gt; per configurare un repository sulla tua macchina.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Modifica</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Lo snapshot in fase di costruzione da un job Repository Sync in esecuzione. Sostituisce il bucket live quando il job ha successo.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Suggerimento:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Pacchetti totali</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Cos&apos;è un repository?</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>Se il file Release del repository è firmato con GPG. I client apt configurati con &apos;signed-by=&apos; in sources.list rifiuteranno i repository non firmati o firmati con la chiave errata.</value>

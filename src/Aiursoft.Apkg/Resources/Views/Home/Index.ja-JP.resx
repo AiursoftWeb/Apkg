@@ -24,6 +24,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>長時間実行タスク（メールやAIなど）に対する「Fire-and-forget」サポート。キュー管理、並列処理、キャンセルを備えたGUIを備えています。</value>
   </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; はそのままでは動作しません。これは、root の PATH に &lt;code&gt;~/.dotnet/tools&lt;/code&gt; が含まれていないためです。シンボリックリンクを一度作成すれば、 thereafter ずっと動作します：</value>
+  </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>きめ細かい権限管理のための組み込みのロールベースアクセス制御（RBAC）システム。</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Templateでさらに多くのことを実現</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>ソースを追加する</value>
   </data>
   <data name="Add a source (requires sudo)" xml:space="preserve">
     <value>ソースを追加（sudoが必要）</value>
@@ -185,6 +191,9 @@
   </data>
   <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
     <value>複雑なAPTソース、GPGキー、スイートを単一のコマンドで構成します。</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>sudo apkg の設定（1 回限りの設定）</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>整合性検証</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to List" xml:space="preserve">
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>Un repositorio APT es una colección de paquetes .deb que tu sistema puede instalar. Piensa en ello como una tienda de aplicaciones para tu sistema Linux.</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
     <value>Volver a la lista</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
@@ -39,11 +42,20 @@
   <data name="Distro" xml:space="preserve">
     <value>Distribución</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>¿No tienes &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Cómo usar:</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Información</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Cubo en vivo</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>Configuración manual (bash):</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>Fuente del espejo</value>
@@ -54,8 +66,17 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>Configuración en una sola línea:</value>
   </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>Configuración rápida con APKG CLI:</value>
+  </data>
   <data name="Repository Details" xml:space="preserve">
     <value>Detalles del repositorio</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>Ejecute el comando &lt;code&gt;sudo apkg add-source&lt;/code&gt; que aparece a la derecha para configurar este repositorio y, a continuación, utilice &lt;code&gt;sudo apt install&lt;/code&gt; como de costumbre.</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Consulte cómo instalar APKG CLI.</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>
@@ -65,6 +86,9 @@
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>Esto utiliza el formato moderno DEB822 y un anillo de claves limitado para garantizar la máxima seguridad y fiabilidad.</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>¿Qué es un repositorio?</value>
   </data>
 
 </root>

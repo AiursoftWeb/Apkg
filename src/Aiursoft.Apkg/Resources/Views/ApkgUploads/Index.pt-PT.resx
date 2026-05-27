@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Each upload represents a .apkg bundle pushed to this server. After processing, packages are extracted and synced to their target APT repositories." xml:space="preserve">
+    <value>Cada carregamento representa um pacote .apkg enviado para este servidor. Após o processamento, os pacotes são extraídos e sincronizados com os respetivos repositórios APT de destino.</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Dica:</value>
+  </data>
+  <data name="Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories." xml:space="preserve">
+    <value>Carregue através da CLI com &lt;code&gt;apkg push&lt;/code&gt; ou utilize a interface web. Os carregamentos devem ser publicados antes de aparecerem nos repositórios.</value>
+  </data>
+  <data name="What is an Upload?" xml:space="preserve">
+    <value>O que é um Upload?</value>
+  </data>
+
+</root>

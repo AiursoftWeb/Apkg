@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>Сгенерировать новый ключ</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>Сертификаты GPG подписывают метаданные вашего репозитория, чтобы клиенты apt могли убедиться в том, что пакеты не были подделаны.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Имя</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>Регулярно обновляйте сертификаты и берегите приватные ключи. Для неподписанных репозиториев требуется параметр &lt;code&gt;Trusted: yes&lt;/code&gt; на клиенте.</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>Сертификаты подписи</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>Это нарушит работу всех репозиториев, использующих его!</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Совет:</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>Что такое сертификат?</value>
   </data>
 
 </root>

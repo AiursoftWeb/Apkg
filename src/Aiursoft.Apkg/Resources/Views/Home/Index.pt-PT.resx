@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name=".NET Global Tool" xml:space="preserve">
+    <value>Ferramenta Global .NET</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Suporte &quot;Fire-and-forget&quot; para tarefas de longa duração (como e-mails ou IA), com uma interface gráfica para gestão de filas, processamento paralelo e cancelamento.</value>
+  </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>O `sudo apkg` não funcionará imediatamente porque o PATH do root não inclui `~/.dotnet/tools`. Crie um link simbólico uma vez e funcionará para sempre:</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Um sistema integrado de Controlo de Acesso Baseado em Funções (RBAC) para gestão de permissões de granularidade fina.</value>
@@ -36,8 +42,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Uma base moderna, rica em funcionalidades e altamente extensível para a sua próxima aplicação web.</value>
   </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>Um único comando para instalar o cliente APKG e começar a gerir os seus pacotes APT.</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Alcance mais com o Aiursoft Template</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>Adicionar uma origem</value>
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>Site de administração incluído</value>
@@ -68,6 +80,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>Repositório de Pacotes APT</value>
   </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>Tradução por Inteligência Artificial</value>
@@ -120,6 +135,9 @@
   <data name="Bilingual Tutorials" xml:space="preserve">
     <value>Tutoriais Bilingues</value>
   </data>
+  <data name="Browse All Packages" xml:space="preserve">
+    <value>Explorar Todos os Pacotes</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>Construa uma vez, execute em qualquer lugar. Arquitetura totalmente contêinerizada.</value>
   </data>
@@ -167,6 +185,12 @@
   </data>
   <data name="Concise Docs" xml:space="preserve">
     <value>Documentação Concisa</value>
+  </data>
+  <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
+    <value>Configure repositórios APT complexos, chaves GPG e suites com um único comando.</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>Configurar o sudo apkg (configuração única)</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>Validação de Consistência</value>
@@ -239,6 +263,9 @@
   </data>
   <data name="Dockerized for Easy Deployment" xml:space="preserve">
     <value>Dockerizado para Implantação Fácil</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>Transferir o .NET SDK</value>
   </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>Barra de Navegação Dinâmica</value>
@@ -378,6 +405,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>Horizon incluído</value>
   </data>
+  <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
+    <value>Aloje, gerencie e distribua pacotes .deb com uma experiência moderna parecida com a do NuGet. Powered by APKG.</value>
+  </data>
   <data name="How can I get support?" xml:space="preserve">
     <value>Como posso obter suporte?</value>
   </data>
@@ -398,6 +428,15 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Inclui Tutoriais</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>Instalar .NET SDK</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>Instalar CLI APKG</value>
+  </data>
+  <data name="Install via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Auto-updates, no native dependencies." xml:space="preserve">
+    <value>Instalar através de &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Atualizações automáticas, sem dependências nativas.</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>Gestão Integrada de Ficheiros</value>
@@ -428,6 +467,9 @@
   </data>
   <data name="Lint Check" xml:space="preserve">
     <value>Verificação de Lint</value>
+  </data>
+  <data name="Made Simple." xml:space="preserve">
+    <value>Simplificado.</value>
   </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>Manter Alta Qualidade de Código</value>
@@ -516,6 +558,9 @@
   <data name="One Click Start" xml:space="preserve">
     <value>Um Clique para Iniciar</value>
   </data>
+  <data name="One-Click APT Source Setup" xml:space="preserve">
+    <value>Configuração de Fonte APT com Um Clique</value>
+  </data>
   <data name="Open Source" xml:space="preserve">
     <value>Código Aberto</value>
   </data>
@@ -531,8 +576,14 @@
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Pronto para uso</value>
   </data>
+  <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
+    <value>Agrupue vários ficheiros .deb num único pacote .apkg com um manifesto. Envie para qualquer servidor APKG.</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>Descoberta e sincronização de permissões</value>
+  </data>
+  <data name="Powered by AnduinOS" xml:space="preserve">
+    <value>Desenvolvido por AnduinOS</value>
   </data>
   <data name="Pre-configured and tested" xml:space="preserve">
     <value>Pré-configurado e testado</value>
@@ -545,6 +596,9 @@
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>Gate de Qualidade</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>Início Rápido</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Autorização RBAC</value>
@@ -567,6 +621,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>Testes de Integração Robustos</value>
   </data>
+  <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
+    <value>Executa no Windows, Linux e macOS através do .NET.</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>Funciona sem necessidade de ligação à internet.</value>
   </data>
@@ -576,11 +633,20 @@
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Integre-se perfeitamente com qualquer fornecedor OpenID Connect, com sincronização automática de funções.</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pesquisar</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>Pesquisar pacotes...</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>Mude com confiança</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>Simples &amp; Fáceis</value>
+  </data>
+  <data name="Simplified dpkg Packaging" xml:space="preserve">
+    <value>Embalagem dpkg Simplificada</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>Container Único</value>
@@ -648,6 +714,9 @@
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>A barra de navegação ajusta-se automaticamente com base nas funções e permissões do utilizador.</value>
   </data>
+  <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
+    <value>O gestor de pacotes oficial escolhido pelo ecossistema AnduinOS.</value>
+  </data>
   <data name="The Philosophy" xml:space="preserve">
     <value>A Filosofia</value>
   </data>
@@ -665,6 +734,9 @@
   </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>Confiança de aplicações de produção, incluindo AnduinOS, StatHub e Warp. Não partilhamos apenas este código; corremos toda a nossa empresa com ele.</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>Ubuntu:</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>Ambiente Unificado</value>
@@ -689,6 +761,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>O que os nossos programadores dizem</value>
+  </data>
+  <data name="Why APKG?" xml:space="preserve">
+    <value>Por que APKG?</value>
   </data>
   <data name="Why choose Aiursoft Template?" xml:space="preserve">
     <value>Por que escolher o Aiursoft Template?</value>

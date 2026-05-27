@@ -24,6 +24,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>「Fire-and-forget」支援長時間執行的作業（例如電子郵件或 AI），並提供圖形使用者介面以進行佇列管理、平行處理和取消。</value>
   </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; 無法直接運作，因為 root 的 PATH 並未包含 &lt;code&gt;~/.dotnet/tools&lt;/code&gt;。只需建立一次象徵性連結，即可永久生效：</value>
+  </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>內建的角色型存取控制（RBAC）系統，用於細粒度的權限管理。</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>使用 Aiursoft Template 成就更多</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>新增來源</value>
   </data>
   <data name="Add a source (requires sudo)" xml:space="preserve">
     <value>新增來源（需要 sudo）</value>
@@ -185,6 +191,9 @@
   </data>
   <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
     <value>使用單一命令設定複雜的 APT 來源、GPG 金鑰與套件。</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>設定 sudo apkg（一次性設定）</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>一致性驗證</value>

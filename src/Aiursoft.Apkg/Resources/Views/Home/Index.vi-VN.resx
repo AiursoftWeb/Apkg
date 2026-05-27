@@ -24,6 +24,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Hỗ trợ kiểu &quot;Fire-and-forget&quot; cho các tác vụ dài hạn (như email hoặc AI), đi kèm giao diện người dùng đồ họa (GUI) để quản lý hàng đợi, xử lý song song và hủy bỏ.</value>
   </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; sẽ không hoạt động ngay lập tức vì biến PATH của root không bao gồm &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Hãy tạo một liên kết符号 một lần và nó sẽ hoạt động mãi mãi:</value>
+  </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Hệ thống Kiểm soát Truy cập Dựa trên Vai trò (RBAC) được tích hợp sẵn để quản lý quyền chi tiết.</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Đạt được nhiều hơn với Aiursoft Template</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>Thêm nguồn</value>
   </data>
   <data name="Add a source (requires sudo)" xml:space="preserve">
     <value>Thêm nguồn (yêu cầu sudo)</value>
@@ -185,6 +191,9 @@
   </data>
   <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
     <value>Cấu hình các nguồn APT phức tạp, khóa GPG và các bộ phần mềm chỉ với một lệnh.</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>Cấu hình sudo apkg (cài đặt một lần)</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>Xác thực tính nhất quán</value>

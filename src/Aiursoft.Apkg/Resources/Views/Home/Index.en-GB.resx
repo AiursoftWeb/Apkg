@@ -24,6 +24,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation.</value>
   </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work straight out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:</value>
+  </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>A built-in Role-Based Access Control (RBAC) system for fine-grained permission management.</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Achieve more with Aiursoft Template</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>Add a source</value>
   </data>
   <data name="Add a source (requires sudo)" xml:space="preserve">
     <value>Add a source (requires sudo)</value>
@@ -185,6 +191,9 @@
   </data>
   <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
     <value>Configure complex APT sources, GPG keys, and suites with a single command.</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>Configure sudo apkg (one-off setup)</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>Consistency Validation</value>

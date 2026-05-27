@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+    <value>Бакет — это размеченная по версиям моментальная снимок пакетов репозитория на определенный момент времени. Основной бакет — это активный, который предоставляется клиентам apt.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Действия</value>
   </data>
   <data name="Active Usage" xml:space="preserve">
@@ -29,6 +32,9 @@
   </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>История снимков контейнеров</value>
+  </data>
+  <data name="Buckets allow atomic updates. New packages are built into a fresh bucket, then the primary pointer switches over seamlessly." xml:space="preserve">
+    <value>Бакеты позволяют выполнять атомарные обновления. Новые пакеты создаются в отдельном баке, после чего основной указатель переключается на него без перебоев.</value>
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>Дата создания</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
     <value>Этот снимок активно обслуживается клиентами apt в качестве текущего индекса.</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Совет:</value>
+  </data>
+  <data name="What is a Bucket?" xml:space="preserve">
+    <value>Что такое бакет?</value>
   </data>
 
 </root>

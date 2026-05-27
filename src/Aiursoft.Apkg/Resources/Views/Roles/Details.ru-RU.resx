@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>Полный обзор роли, её разрешений и назначенных пользователей.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>Роль — это именованный набор разрешений. Назначайте роли пользователям, чтобы предоставить им возможность выполнять определенные действия.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>Назначенные пользователи</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>Назад к списку ролей</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>Создавайте роли, основанные на должностных функциях (например, «Mirror Manager»), а не для отдельных пользователей, чтобы упростить администрирование.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>Удалить эту роль</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>Для этой роли не назначено конкретных разрешений.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Совет:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>Пользователи с этой ролью</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>Просмотр пользователя</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>Что такое роль?</value>
   </data>
 
 </root>

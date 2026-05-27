@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Mirrors" xml:space="preserve">
+      <data name="A &apos;Passed&apos; status means the mirror&apos;s signature is valid. &apos;Failed&apos; may indicate expired keys or corrupted data." xml:space="preserve">
+    <value>Un estado «Aprobado» significa que la firma del espejo es válida. «Fallido» puede indicar claves caducadas o datos corruptos.</value>
+  </data>
+  <data name="Back to Mirrors" xml:space="preserve">
     <value>Volver a los espejos</value>
   </data>
   <data name="Bucket Replacements" xml:space="preserve">
@@ -35,6 +38,9 @@
   </data>
   <data name="file" xml:space="preserve">
     <value>archivo</value>
+  </data>
+  <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
+    <value>La firma GPG garantiza que los paquetes provienen de una fuente de confianza y no han sido alterados. El archivo InRelease del espejo se verifica con su clave GPG.</value>
   </data>
   <data name="GPG Verify Details" xml:space="preserve">
     <value>Detalles de verificación GPG</value>
@@ -69,11 +75,17 @@
   <data name="Target" xml:space="preserve">
     <value>Objetivo</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Consejo:</value>
+  </data>
   <data name="Verification Log" xml:space="preserve">
     <value>Registro de verificación</value>
   </data>
   <data name="Verification Target" xml:space="preserve">
     <value>Objetivo de verificación</value>
+  </data>
+  <data name="What is GPG Verification?" xml:space="preserve">
+    <value>¿Qué es la verificación GPG?</value>
   </data>
 
 </root>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>Разрешение — это отдельное действие (например, «Создать зеркало», «Удалить пакет»). Разрешения объединяются в роли и назначаются пользователям.</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>Назад к разрешениям</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>Название разрешения</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>Права доступа имеют высокую степень детализации. Изучите роли, предоставляющие каждое право, чтобы понять, какие действия могут выполнять конкретные пользователи.</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>Название роли</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>Следующие пользователи имеют это разрешение благодаря членству в своих ролях.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Совет:</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>Имя пользователя</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>Пользователи с этим разрешением</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>Что такое разрешение?</value>
   </data>
 
 </root>

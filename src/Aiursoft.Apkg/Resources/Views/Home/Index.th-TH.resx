@@ -24,6 +24,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>การสนับสนุนแบบ &quot;Fire-and-forget&quot; สำหรับงานที่ใช้เวลานาน (เช่น อีเมลหรือ AI) พร้อมด้วย GUI สำหรับการจัดการคิว การประมวลผลแบบขนาน และการยกเลิก</value>
   </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; จะไม่สามารถใช้งานได้ทันที เนื่องจาก PATH ของ root ไม่รวม &lt;code&gt;~/.dotnet/tools&lt;/code&gt; สร้าง symlink เพียงครั้งเดียวก็จะใช้งานได้ตลอดไป:</value>
+  </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>ระบบควบคุมการเข้าถึงตามบทบาท (RBAC) ในตัว สำหรับการจัดการสิทธิ์แบบละเอียด</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>บรรลุผลได้มากขึ้นด้วย Aiursoft Template</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>เพิ่มแหล่งที่มา</value>
   </data>
   <data name="Add a source (requires sudo)" xml:space="preserve">
     <value>เพิ่มแหล่งข้อมูล (ต้องใช้ sudo)</value>
@@ -185,6 +191,9 @@
   </data>
   <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
     <value>กำหนดค่าแหล่ง APT ที่ซับซ้อน คีย์ GPG และชุดซอฟต์แวร์ ด้วยคำสั่งเดียว</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>ตั้งค่า sudo apkg (ดำเนินการครั้งเดียว)</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>การตรวจสอบความสอดคล้อง</value>

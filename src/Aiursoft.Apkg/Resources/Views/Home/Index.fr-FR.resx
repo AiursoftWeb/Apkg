@@ -24,6 +24,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Prise en charge « Fire-and-forget » pour les tâches longues (comme les e-mails ou l&apos;IA), avec une interface graphique (GUI) pour la gestion de file d&apos;attente, le traitement parallèle et l&apos;annulation.</value>
   </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; ne fonctionnera pas immédiatement car le PATH de root n’inclut pas &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Créez un lien symbolique une fois et cela fonctionnera toujours :</value>
+  </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Un système intégré de contrôle d&apos;accès basé sur les rôles (RBAC) pour une gestion fine des permissions.</value>
   </data>
@@ -44,6 +47,9 @@
   </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Atteignez plus avec Aiursoft Template</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>Ajouter une source</value>
   </data>
   <data name="Add a source (requires sudo)" xml:space="preserve">
     <value>Ajouter une source (nécessite sudo)</value>
@@ -185,6 +191,9 @@
   </data>
   <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
     <value>Configurez des sources APT, des clés GPG et des suites complexes avec une seule commande.</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>Configurer sudo apkg (configuration unique)</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>Validation de cohérence</value>

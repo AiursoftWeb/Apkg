@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>Un permiso es una capacidad discreta (p. ej., «Crear espejo», «Eliminar paquete»). Los permisos se agrupan en roles y se asignan a usuarios.</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>Volver a Permisos</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>Nombre del Permiso</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>Los permisos tienen un control fino. Comprueba los roles que otorgan cada permiso para entender quién puede realizar qué acciones.</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>Nombre del Rol</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>Los siguientes usuarios tienen este permiso a través de sus membresías de rol.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Consejo:</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>Nombre de usuario</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>Usuarios con este permiso</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>¿Qué es un permiso?</value>
   </data>
 
 </root>

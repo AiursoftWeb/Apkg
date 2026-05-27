@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>Una panoramica completa del ruolo, delle sue autorizzazioni e degli utenti assegnati.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>Un ruolo è un insieme nominato di autorizzazioni. Assegna ruoli agli utenti per concedere loro la possibilità di eseguire azioni specifiche.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>Utenti Assegnati</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>Torna all&apos;elenco dei ruoli</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>Crea ruoli basati sulle funzioni lavorative (ad es. &quot;Mirror Manager&quot;) anziché su base individuale, per semplificare l&apos;amministrazione.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>Elimina questo ruolo</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>Questo ruolo non ha alcun permesso specifico assegnato.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Suggerimento:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>Utenti con questo ruolo</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>Visualizza Utente</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>Cos&apos;è un ruolo?</value>
   </data>
 
 </root>
