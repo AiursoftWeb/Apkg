@@ -25,7 +25,7 @@ public class AosprojLinter
         RequireField(issues, project.PackageName, "PackageName");
         RequireField(issues, project.PackageVersion, "PackageVersion");
         RequireField(issues, project.PackageDescription, "PackageDescription");
-        RequireField(issues, project.SupportedSuites, "SupportedSuites");
+        RequireField(issues, project.TargetSuites, "TargetSuites");
 
         // Maintainer or Authors
         if (string.IsNullOrWhiteSpace(project.Maintainer) && string.IsNullOrWhiteSpace(project.PackageAuthors))
@@ -46,8 +46,11 @@ public class AosprojLinter
         foreach (var item in project.IncludeFolders)
             CheckSourceExists(issues, projectDir, item.Source, "IncludeFolder", isDirectory: true);
 
-        foreach (var item in project.IncludeConfigFiles)
-            CheckSourceExists(issues, projectDir, item.Source, "IncludeConfigFile");
+        foreach (var item in project.IncludeScripts)
+            CheckSourceExists(issues, projectDir, item.Source, "IncludeScript");
+
+        foreach (var item in project.ConfFiles)
+            CheckSourceExists(issues, projectDir, item.Source, "ConfFile");
 
         foreach (var item in project.PostInstallScripts)
             CheckSourceExists(issues, projectDir, item.Source, "PostInstallScript");
@@ -59,10 +62,11 @@ public class AosprojLinter
             CheckSourceExists(issues, projectDir, item.Source, "SystemdUnit");
 
         // Validate conditions are parseable
-        var allConditions = project.DependencyLists.Select(d => d.Condition)
+        var allConditions = project.Dependencies.Select(d => d.Condition)
             .Concat(project.IncludeFiles.Select(f => f.Condition))
             .Concat(project.IncludeFolders.Select(f => f.Condition))
-            .Concat(project.IncludeConfigFiles.Select(f => f.Condition))
+            .Concat(project.IncludeScripts.Select(f => f.Condition))
+            .Concat(project.ConfFiles.Select(f => f.Condition))
             .Concat(project.PostInstallScripts.Select(s => s.Condition))
             .Concat(project.PreRemoveScripts.Select(s => s.Condition))
             .Concat(project.SystemdUnits.Select(u => u.Condition))
@@ -79,18 +83,21 @@ public class AosprojLinter
         }
 
         // Target fields existence check
-        if (!project.IncludeFiles.Any() && !project.IncludeFolders.Any() && !project.IncludeConfigFiles.Any())
+        if (!project.IncludeFiles.Any() && !project.IncludeFolders.Any() && !project.IncludeScripts.Any() && !project.ConfFiles.Any())
             issues.Add(new LintIssue(Severity.Warning, "No files declared to include. The package will be empty."));
 
         // Verify targets exist
         foreach (var item in project.IncludeFiles)
-            RequireField(issues, item.Target, $"IncludeFile[@Source='{item.Source}'] Target");
+            RequireField(issues, item.Target, $"IncludeFile[@Include='{item.Source}'] Target");
 
         foreach (var item in project.IncludeFolders)
-            RequireField(issues, item.Target, $"IncludeFolder[@Source='{item.Source}'] Target");
+            RequireField(issues, item.Target, $"IncludeFolder[@Include='{item.Source}'] Target");
 
-        foreach (var item in project.IncludeConfigFiles)
-            RequireField(issues, item.Target, $"IncludeConfigFile[@Source='{item.Source}'] Target");
+        foreach (var item in project.IncludeScripts)
+            RequireField(issues, item.Target, $"IncludeScript[@Include='{item.Source}'] Target");
+
+        foreach (var item in project.ConfFiles)
+            RequireField(issues, item.Target, $"ConfFile[@Include='{item.Source}'] Target");
 
         return issues;
     }

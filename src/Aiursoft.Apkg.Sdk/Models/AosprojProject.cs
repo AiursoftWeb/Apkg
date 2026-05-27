@@ -22,7 +22,7 @@ public class AosprojProject
     /// One or more Depends strings, each optionally scoped to a Suite via Condition.
     /// e.g. Condition="'$(Suite)' == 'jammy'"
     /// </summary>
-    public List<ConditionalValue> DependencyLists { get; set; } = [];
+    public List<ConditionalValue> Dependencies { get; set; } = [];
     public string Provides { get; set; } = string.Empty;
     public string Conflicts { get; set; } = string.Empty;
     public string Replaces { get; set; } = string.Empty;
@@ -32,22 +32,23 @@ public class AosprojProject
     /// <summary>The target distro for this package, e.g. "ubuntu", "anduinos".</summary>
     public string TargetDistro { get; set; } = "ubuntu";
     /// <summary>Space- or comma-separated suite names, e.g. "jammy noble resolute".</summary>
-    public string SupportedSuites { get; set; } = string.Empty;
+    public string TargetSuites { get; set; } = string.Empty;
     /// <summary>Space- or comma-separated architectures, e.g. "amd64 arm64".</summary>
-    public string SupportedArch { get; set; } = "amd64";
+    public string TargetArchitectures { get; set; } = "amd64";
 
     // ── Items ────────────────────────────────────────────────────────────────
     public List<PrebuildCommandItem> PrebuildCommands { get; set; } = [];
     public List<IncludeFileItem> IncludeFiles { get; set; } = [];
     public List<IncludeFolderItem> IncludeFolders { get; set; } = [];
-    public List<IncludeConfigFileItem> IncludeConfigFiles { get; set; } = [];
+    public List<IncludeScriptItem> IncludeScripts { get; set; } = [];
+    public List<ConfFileItem> ConfFiles { get; set; } = [];
     public List<PostInstallScriptItem> PostInstallScripts { get; set; } = [];
     public List<PreRemoveScriptItem> PreRemoveScripts { get; set; } = [];
     public List<SystemdUnitItem> SystemdUnits { get; set; } = [];
 
     // ── Computed helpers ─────────────────────────────────────────────────────
-    public string[] SuiteList => Split(SupportedSuites);
-    public string[] ArchList => Split(SupportedArch);
+    public string[] SuiteList => Split(TargetSuites);
+    public string[] ArchList => Split(TargetArchitectures);
 
     private static string[] Split(string value) =>
         value.Split([',', ' '], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
@@ -79,9 +80,18 @@ public class IncludeFolderItem : BaseItem
 }
 
 /// <summary>
+/// Copies a file, sets its permissions to 0755 (executable), and installs it.
+/// Use for scripts and binaries that should be runnable after installation.
+/// </summary>
+public class IncludeScriptItem : BaseItem
+{
+    public string Target { get; set; } = string.Empty;
+}
+
+/// <summary>
 /// Copies a file and marks it as a dpkg conffile (preserved on upgrade when user-modified).
 /// </summary>
-public class IncludeConfigFileItem : BaseItem
+public class ConfFileItem : BaseItem
 {
     public string Target { get; set; } = string.Empty;
 }

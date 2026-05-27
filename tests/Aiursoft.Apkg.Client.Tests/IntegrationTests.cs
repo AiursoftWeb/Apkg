@@ -392,7 +392,7 @@ public class IntegrationTests
             var project = await serializer.DeserializeFromFileAsync(projectFile);
             Assert.AreEqual("my-test-pkg", project.PackageName);
             Assert.AreEqual("main", project.Component);
-            Assert.IsFalse(string.IsNullOrWhiteSpace(project.SupportedSuites), "SupportedSuites should be set.");
+            Assert.IsFalse(string.IsNullOrWhiteSpace(project.TargetSuites), "TargetSuites should be set.");
         }
         finally
         {

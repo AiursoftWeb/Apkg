@@ -35,7 +35,7 @@ public class AddHandler : ExecutableCommandHandlerBuilder
     private static readonly Option<bool> ConfigOption =
         new(name: "--config")
         {
-            Description = "Mark as a config file (IncludeConfigFile). dpkg will preserve user edits on upgrade.",
+            Description = "Mark as a config file (ConfFile). dpkg will preserve user edits on upgrade.",
             DefaultValueFactory = _ => false
         };
 
@@ -97,7 +97,7 @@ public class AddHandler : ExecutableCommandHandlerBuilder
         // Determine element name
         string elementName;
         if (isConfig)
-            elementName = "IncludeConfigFile";
+            elementName = "ConfFile";
         else if (isDirectory)
             elementName = "IncludeFolder";
         else
@@ -105,7 +105,7 @@ public class AddHandler : ExecutableCommandHandlerBuilder
 
         // Build new item element
         var newItem = new XElement(elementName,
-            new XAttribute("Source", source),
+            new XAttribute("Include", source),
             new XAttribute("Target", target));
         if (!string.IsNullOrWhiteSpace(condition))
             newItem.Add(new XAttribute("Condition", condition));
@@ -114,11 +114,11 @@ public class AddHandler : ExecutableCommandHandlerBuilder
         var doc = XDocument.Load(projectFile);
         var root = doc.Root!;
 
-        // Find last ItemGroup that contains IncludeFile/IncludeFolder/IncludeConfigFile,
+        // Find last ItemGroup that contains IncludeFile/IncludeFolder/IncludeScript/ConfFile,
         // or create a new one.
         var fileItemGroup = root.Elements("ItemGroup")
             .LastOrDefault(ig => ig.Elements().Any(e =>
-                e.Name.LocalName is "IncludeFile" or "IncludeFolder" or "IncludeConfigFile"));
+                e.Name.LocalName is "IncludeFile" or "IncludeFolder" or "IncludeScript" or "ConfFile"));
 
         if (fileItemGroup != null)
         {
@@ -131,7 +131,7 @@ public class AddHandler : ExecutableCommandHandlerBuilder
 
         doc.Save(projectFile);
 
-        logger.LogInformation("Added <{Element} Source=\"{Source}\" Target=\"{Target}\" /> to {File}",
+        logger.LogInformation("Added <{Element} Include=\"{Source}\" Target=\"{Target}\" /> to {File}",
             elementName, source, target, Path.GetFileName(projectFile));
 
         if (!File.Exists(resolvedSource) && !Directory.Exists(resolvedSource))

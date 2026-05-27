@@ -352,7 +352,7 @@ Pin-Priority: 100
 
 ### 15.2 为什么支持多 Suite
 
-.aosproj 的 `SupportedSuites` 允许一个项目为多个 Ubuntu/Debian 发行版编译。每个 Suite 可能有不同的依赖版本（如 jammy 用 libc6 >= 2.35，noble 用 libc6 >= 2.39）。Condition 语法 `'$(Suite)' == 'jammy'` 让开发者在一个项目文件中表达跨 Suite 差异，而非维护多个分支。
+.aosproj 的 `TargetSuites` 允许一个项目为多个 Ubuntu/Debian 发行版编译。每个 Suite 可能有不同的依赖版本（如 jammy 用 libc6 >= 2.35，noble 用 libc6 >= 2.39）。Condition 语法 `'$(Suite)' == 'jammy'` 让开发者在一个项目文件中表达跨 Suite 差异，而非维护多个分支。
 
 ### 15.3 为什么有 ApkgPackage 表
 

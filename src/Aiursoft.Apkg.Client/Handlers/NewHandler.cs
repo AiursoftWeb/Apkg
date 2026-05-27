@@ -75,15 +75,15 @@ public class NewHandler : ExecutableCommandHandlerBuilder
             LicenseType = "MIT",
             Component = "main",
             TargetDistro = "ubuntu",
-            SupportedSuites = "jammy noble resolute",
-            SupportedArch = "amd64 arm64",
+            TargetSuites = "jammy noble resolute",
+            TargetArchitectures = "amd64 arm64",
         };
 
         await aosprojSerializer.SerializeToFileAsync(project, projectFilePath);
 
         logger.LogInformation("Created {File}", projectFilePath);
         logger.LogInformation("Next steps:");
-        logger.LogInformation("  1. Edit {File} to fill in metadata, SupportedSuites, SupportedArch.", projectFilePath);
+        logger.LogInformation("  1. Edit {File} to fill in metadata, TargetSuites, TargetArchitectures.", projectFilePath);
         logger.LogInformation("  2. Add source files:  apkg add ./myfile --target /usr/lib/myfile");
         logger.LogInformation("  3. Build debs:        apkg build --all");
         logger.LogInformation("  4. Pack for upload:   apkg publish");

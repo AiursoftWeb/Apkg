@@ -54,10 +54,12 @@ public class AosprojSerializer
                 case "Replaces":           project.Replaces = el.Value; break;
                 case "Component":          project.Component = el.Value; break;
                 case "TargetDistro":       project.TargetDistro = el.Value; break;
-                case "SupportedSuites":    project.SupportedSuites = el.Value; break;
-                case "SupportedArch":      project.SupportedArch = el.Value; break;
-                case "DependencyList":
-                    project.DependencyLists.Add(new ConditionalValue
+                case "SupportedSuites":    // legacy alias
+                case "TargetSuites":       project.TargetSuites = el.Value; break;
+                case "SupportedArch":      // legacy alias
+                case "TargetArchitectures": project.TargetArchitectures = el.Value; break;
+                case "DependencyList":     // legacy alias — value in element text
+                    project.Dependencies.Add(new ConditionalValue
                     {
                         Condition = (string?)el.Attribute("Condition"),
                         Value = el.Value
@@ -84,7 +86,7 @@ public class AosprojSerializer
                 case "IncludeFile":
                     project.IncludeFiles.Add(new IncludeFileItem
                     {
-                        Source = (string?)el.Attribute("Source") ?? string.Empty,
+                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? string.Empty,
                         Target = (string?)el.Attribute("Target") ?? string.Empty,
                         Condition = condition
                     });
@@ -92,30 +94,47 @@ public class AosprojSerializer
                 case "IncludeFolder":
                     project.IncludeFolders.Add(new IncludeFolderItem
                     {
-                        Source = (string?)el.Attribute("Source") ?? string.Empty,
+                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? string.Empty,
                         Target = (string?)el.Attribute("Target") ?? string.Empty,
                         Condition = condition
                     });
                     break;
-                case "IncludeConfigFile":
-                    project.IncludeConfigFiles.Add(new IncludeConfigFileItem
+                case "IncludeScript":
+                    project.IncludeScripts.Add(new IncludeScriptItem
                     {
-                        Source = (string?)el.Attribute("Source") ?? string.Empty,
+                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? string.Empty,
                         Target = (string?)el.Attribute("Target") ?? string.Empty,
                         Condition = condition
+                    });
+                    break;
+                case "IncludeConfigFile": // legacy alias
+                case "ConfFile":
+                    project.ConfFiles.Add(new ConfFileItem
+                    {
+                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? string.Empty,
+                        Target = (string?)el.Attribute("Target") ?? string.Empty,
+                        Condition = condition
+                    });
+                    break;
+                case "Dependency":
+                    var depValue = (string?)el.Attribute("Include") ?? el.Value;
+                    project.Dependencies.Add(new ConditionalValue
+                    {
+                        Condition = condition,
+                        Value = depValue
                     });
                     break;
                 case "PostInstallScript":
                     project.PostInstallScripts.Add(new PostInstallScriptItem
                     {
-                        Source = (string?)el.Attribute("Source") ?? el.Value,
+                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? el.Value,
                         Condition = condition
                     });
                     break;
                 case "PreRemoveScript":
                     project.PreRemoveScripts.Add(new PreRemoveScriptItem
                     {
-                        Source = (string?)el.Attribute("Source") ?? el.Value,
+                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? el.Value,
                         Condition = condition
                     });
                     break;
@@ -123,7 +142,7 @@ public class AosprojSerializer
                     var autoEnableAttr = (string?)el.Attribute("AutoEnable");
                     project.SystemdUnits.Add(new SystemdUnitItem
                     {
-                        Source = (string?)el.Attribute("Source") ?? el.Value,
+                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? el.Value,
                         Condition = condition,
                         AutoEnable = autoEnableAttr == null || bool.Parse(autoEnableAttr)
                     });
@@ -159,17 +178,9 @@ public class AosprojSerializer
             Elem("Replaces", project.Replaces),
             Elem("Component", project.Component),
             Elem("TargetDistro", project.TargetDistro),
-            Elem("SupportedSuites", project.SupportedSuites),
-            Elem("SupportedArch", project.SupportedArch)
+            Elem("TargetSuites", project.TargetSuites),
+            Elem("TargetArchitectures", project.TargetArchitectures)
         );
-
-        foreach (var dep in project.DependencyLists)
-        {
-            var depEl = new XElement("DependencyList", dep.Value);
-            if (!string.IsNullOrWhiteSpace(dep.Condition))
-                depEl.Add(new XAttribute("Condition", dep.Condition));
-            pg.Add(depEl);
-        }
 
         var itemGroups = new List<XElement>();
 
@@ -183,30 +194,40 @@ public class AosprojSerializer
         var fileItems = new List<object>();
         fileItems.AddRange(project.IncludeFiles.Select(f =>
             (object)ItemElem("IncludeFile", f.Condition,
-                new XAttribute("Source", f.Source),
+                new XAttribute("Include", f.Source),
                 new XAttribute("Target", f.Target))));
         fileItems.AddRange(project.IncludeFolders.Select(f =>
             (object)ItemElem("IncludeFolder", f.Condition,
-                new XAttribute("Source", f.Source),
+                new XAttribute("Include", f.Source),
                 new XAttribute("Target", f.Target))));
-        fileItems.AddRange(project.IncludeConfigFiles.Select(f =>
-            (object)ItemElem("IncludeConfigFile", f.Condition,
-                new XAttribute("Source", f.Source),
+        fileItems.AddRange(project.IncludeScripts.Select(f =>
+            (object)ItemElem("IncludeScript", f.Condition,
+                new XAttribute("Include", f.Source),
+                new XAttribute("Target", f.Target))));
+        fileItems.AddRange(project.ConfFiles.Select(f =>
+            (object)ItemElem("ConfFile", f.Condition,
+                new XAttribute("Include", f.Source),
                 new XAttribute("Target", f.Target))));
 
         if (fileItems.Count > 0)
             itemGroups.Add(new XElement("ItemGroup", fileItems));
 
+        var depItems = project.Dependencies.Select(d =>
+            (object)ItemElem("Dependency", d.Condition,
+                new XAttribute("Include", d.Value)));
+        if (project.Dependencies.Count > 0)
+            itemGroups.Add(new XElement("ItemGroup", depItems));
+
         var scriptItems = new List<object>();
         scriptItems.AddRange(project.PostInstallScripts.Select(s =>
             (object)ItemElem("PostInstallScript", s.Condition,
-                new XAttribute("Source", s.Source))));
+                new XAttribute("Include", s.Source))));
         scriptItems.AddRange(project.PreRemoveScripts.Select(s =>
             (object)ItemElem("PreRemoveScript", s.Condition,
-                new XAttribute("Source", s.Source))));
+                new XAttribute("Include", s.Source))));
         scriptItems.AddRange(project.SystemdUnits.Select(u =>
             (object)ItemElem("SystemdUnit", u.Condition,
-                new XAttribute("Source", u.Source),
+                new XAttribute("Include", u.Source),
                 new XAttribute("AutoEnable", u.AutoEnable.ToString().ToLowerInvariant()))));
 
         if (scriptItems.Count > 0)

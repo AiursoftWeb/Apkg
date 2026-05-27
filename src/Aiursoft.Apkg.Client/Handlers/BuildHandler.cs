@@ -51,7 +51,7 @@ public class BuildHandler : ExecutableCommandHandlerBuilder
     private static readonly Option<bool> AllOption =
         new(name: "--all")
         {
-            Description = "Build for all combinations of SupportedSuites × SupportedArch declared in the project.",
+            Description = "Build for all combinations of TargetSuites × TargetArchitectures declared in the project.",
             DefaultValueFactory = _ => false
         };
 
@@ -100,9 +100,9 @@ public class BuildHandler : ExecutableCommandHandlerBuilder
             if (string.IsNullOrWhiteSpace(project.TargetDistro))
                 throw new InvalidOperationException("Project has no <TargetDistro> declared. Cannot use --all.");
             if (project.SuiteList.Length == 0)
-                throw new InvalidOperationException("Project has no <SupportedSuites> declared. Cannot use --all.");
+                throw new InvalidOperationException("Project has no <TargetSuites> declared. Cannot use --all.");
             if (project.ArchList.Length == 0)
-                throw new InvalidOperationException("Project has no <SupportedArch> declared. Cannot use --all.");
+                throw new InvalidOperationException("Project has no <TargetArchitectures> declared. Cannot use --all.");
 
             targets = (
                 from suite in project.SuiteList

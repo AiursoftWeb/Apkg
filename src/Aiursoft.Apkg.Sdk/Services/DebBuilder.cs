@@ -52,7 +52,7 @@ public class DebBuilder
         Directory.CreateDirectory(debianDir);
 
         // ── DEBIAN/control ───────────────────────────────────────────────────
-        var depends = project.DependencyLists
+        var depends = project.Dependencies
             .Where(d => Include(d.Condition))
             .Select(d => d.Value.Trim())
             .Where(v => !string.IsNullOrWhiteSpace(v))
@@ -74,6 +74,17 @@ public class DebBuilder
             _logger.LogDebug("  + {Target}", item.Target);
         }
 
+        // ── Copy IncludeScript items (executable, 0755) ───────────────────────
+        foreach (var item in project.IncludeScripts.Where(f => Include(f.Condition)))
+        {
+            var src = Path.GetFullPath(Path.Combine(projectDir, item.Source));
+            var dest = Path.Combine(stagingRoot, NormalizeTargetPath(item.Target));
+            EnsureParentDirectory(dest);
+            File.Copy(src, dest, overwrite: true);
+            MakeExecutable(dest);
+            _logger.LogDebug("  + {Target} [executable]", item.Target);
+        }
+
         // ── Copy IncludeFolder items ──────────────────────────────────────────
         foreach (var item in project.IncludeFolders.Where(f => Include(f.Condition)))
         {
@@ -83,8 +94,8 @@ public class DebBuilder
             _logger.LogDebug("  + {Target}/ (folder)", item.Target);
         }
 
-        // ── Copy IncludeConfigFile items ──────────────────────────────────────
-        foreach (var item in project.IncludeConfigFiles.Where(f => Include(f.Condition)))
+        // ── Copy ConfFile items ───────────────────────────────────────────────
+        foreach (var item in project.ConfFiles.Where(f => Include(f.Condition)))
         {
             var src = Path.GetFullPath(Path.Combine(projectDir, item.Source));
             var dest = Path.Combine(stagingRoot, NormalizeTargetPath(item.Target));
