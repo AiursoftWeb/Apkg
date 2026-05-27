@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Κλειδιά API</value>
   </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>Λεπτομέρειες Ανάθεσης APKG</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Ημικυκλικές Εργασίες</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="My Packages" xml:space="preserve">
     <value>Τα Πακέτα Μου</value>
   </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>Τα πακέτα μου (APKG)</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Νέος Κλειδί API</value>
   </data>
@@ -188,6 +194,9 @@
   </data>
   <data name="Personal" xml:space="preserve">
     <value>Προσωπικά</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>Προεπισκόπηση ανέβασματος APKG</value>
   </data>
   <data name="Primary Bucket Missing" xml:space="preserve">
     <value>Απουσία Πρωτεύοντος Bucket</value>
@@ -242,6 +251,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Μη Εξουσιοδοτημένος</value>
+  </data>
+  <data name="Upload APKG Package" xml:space="preserve">
+    <value>Μεταφόρτωση πακέτου APKG</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Ανέβασμα Πακέτου</value>

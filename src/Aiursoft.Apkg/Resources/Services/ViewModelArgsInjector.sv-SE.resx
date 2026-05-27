@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API-nycklar</value>
   </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>Detaljer för APKG-uppladdning</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Bakgrundsjobb</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="My Packages" xml:space="preserve">
     <value>Mina paket</value>
   </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>Mina paket (APKG)</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Ny API-nyckel</value>
   </data>
@@ -188,6 +194,9 @@
   </data>
   <data name="Personal" xml:space="preserve">
     <value>Personligt</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>Förhandsgranskning av APKG-uppladdning</value>
   </data>
   <data name="Primary Bucket Missing" xml:space="preserve">
     <value>Primär bucket saknas</value>
@@ -242,6 +251,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Obehörig</value>
+  </data>
+  <data name="Upload APKG Package" xml:space="preserve">
+    <value>Ladda upp APKG-paket</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Ladda upp paket</value>

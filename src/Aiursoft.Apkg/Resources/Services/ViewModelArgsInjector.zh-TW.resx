@@ -45,6 +45,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API 金鑰</value>
   </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>APKG 上傳詳細資訊</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>背景工作</value>
   </data>
@@ -165,6 +168,9 @@
   <data name="My Packages" xml:space="preserve">
     <value>我的套件</value>
   </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>我的套件 (APKG)</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>新增 API 金鑰</value>
   </data>
@@ -191,6 +197,9 @@
   </data>
   <data name="Personal" xml:space="preserve">
     <value>個人</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>APKG 上傳預覽</value>
   </data>
   <data name="Primary Bucket Missing" xml:space="preserve">
     <value>缺少主要儲存區</value>
@@ -245,6 +254,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>未經授權</value>
+  </data>
+  <data name="Upload APKG Package" xml:space="preserve">
+    <value>上傳 APKG 套件</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>上傳套件</value>

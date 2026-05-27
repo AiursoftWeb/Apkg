@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Kunci API</value>
   </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>Detail Unggahan APKG</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Pekerjaan Latar Belakang</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="My Packages" xml:space="preserve">
     <value>Paket Saya</value>
   </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>Paket Saya (APKG)</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Kunci API Baru</value>
   </data>
@@ -188,6 +194,9 @@
   </data>
   <data name="Personal" xml:space="preserve">
     <value>Pribadi</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>Pratinjau Unggahan APKG</value>
   </data>
   <data name="Primary Bucket Missing" xml:space="preserve">
     <value>Bucket Utama Hilang</value>
@@ -242,6 +251,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Tidak Diizinkan</value>
+  </data>
+  <data name="Upload APKG Package" xml:space="preserve">
+    <value>Unggah Paket APKG</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Unggah Paket</value>

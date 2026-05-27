@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API कुंजियाँ</value>
   </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>APKG अपलोड विवरण</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>बैकग्राउंड जॉब्स</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="My Packages" xml:space="preserve">
     <value>मेरे पैकेज</value>
   </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>मेरे पैकेज (APKG)</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>नया API कुंजी</value>
   </data>
@@ -188,6 +194,9 @@
   </data>
   <data name="Personal" xml:space="preserve">
     <value>व्यक्तिगत</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>APKG अपलोड पूर्वावलोकन</value>
   </data>
   <data name="Primary Bucket Missing" xml:space="preserve">
     <value>प्राथमिक बकेट अनुपस्थित</value>
@@ -242,6 +251,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>अनधिकृत</value>
+  </data>
+  <data name="Upload APKG Package" xml:space="preserve">
+    <value>APPKG पैकेज अपलोड करें</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>पैकेज अपलोड करें</value>

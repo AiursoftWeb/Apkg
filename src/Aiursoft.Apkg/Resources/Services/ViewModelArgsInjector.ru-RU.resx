@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Ключи API</value>
   </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>Подробности загрузки APKG</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Фоновые задания</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="My Packages" xml:space="preserve">
     <value>Мои пакеты</value>
   </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>Мои пакеты (APKG)</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Новый ключ API</value>
   </data>
@@ -188,6 +194,9 @@
   </data>
   <data name="Personal" xml:space="preserve">
     <value>Личное</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>Предпросмотр загрузки APKG</value>
   </data>
   <data name="Primary Bucket Missing" xml:space="preserve">
     <value>Отсутствует основная корзина</value>
@@ -242,6 +251,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Неавторизованный</value>
+  </data>
+  <data name="Upload APKG Package" xml:space="preserve">
+    <value>Загрузить пакет APKG</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Загрузить пакет</value>

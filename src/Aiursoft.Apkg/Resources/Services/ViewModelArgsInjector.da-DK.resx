@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API-nøgler</value>
   </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>Detaljer til APKG-upload</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Baggrundstasks</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="My Packages" xml:space="preserve">
     <value>Mine pakker</value>
   </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>Mine pakker (APKG)</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Ny API-nøgle</value>
   </data>
@@ -188,6 +194,9 @@
   </data>
   <data name="Personal" xml:space="preserve">
     <value>Personlig</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>Forhåndsvis APKG-upload</value>
   </data>
   <data name="Primary Bucket Missing" xml:space="preserve">
     <value>Primær bucket mangler</value>
@@ -242,6 +251,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Uautoriseret</value>
+  </data>
+  <data name="Upload APKG Package" xml:space="preserve">
+    <value>Upload APKG-pakke</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Upload pakke</value>

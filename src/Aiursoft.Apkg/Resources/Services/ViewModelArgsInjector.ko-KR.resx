@@ -45,6 +45,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API 키</value>
   </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>APKG 업로드 세부 정보</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>백그라운드 작업</value>
   </data>
@@ -165,6 +168,9 @@
   <data name="My Packages" xml:space="preserve">
     <value>내 패키지</value>
   </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>내 패키지 (APKG)</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>새 API 키</value>
   </data>
@@ -191,6 +197,9 @@
   </data>
   <data name="Personal" xml:space="preserve">
     <value>개인</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>APKG 업로드 미리보기</value>
   </data>
   <data name="Primary Bucket Missing" xml:space="preserve">
     <value>기본 버킷 누락</value>
@@ -245,6 +254,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>권한 없음</value>
+  </data>
+  <data name="Upload APKG Package" xml:space="preserve">
+    <value>APKG 패키지 업로드</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>패키지 업로드</value>

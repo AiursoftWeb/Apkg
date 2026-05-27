@@ -45,6 +45,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Khóa API</value>
   </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>Chi tiết tải lên APKG</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Các nhiệm vụ nền</value>
   </data>
@@ -165,6 +168,9 @@
   <data name="My Packages" xml:space="preserve">
     <value>Gói của tôi</value>
   </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>Gói của tôi (APKG)</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Khóa API Mới</value>
   </data>
@@ -191,6 +197,9 @@
   </data>
   <data name="Personal" xml:space="preserve">
     <value>Cá nhân</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>Xem trước tải lên APKG</value>
   </data>
   <data name="Primary Bucket Missing" xml:space="preserve">
     <value>Thiếu Bucket Chính</value>
@@ -245,6 +254,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Không được ủy quyền</value>
+  </data>
+  <data name="Upload APKG Package" xml:space="preserve">
+    <value>Tải lên Gói APKG</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Tải gói lên</value>

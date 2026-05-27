@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API-avaimet</value>
   </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>APKG-latauksen tiedot</value>
+  </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Taustatehtävät</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="My Packages" xml:space="preserve">
     <value>Minun paketit</value>
   </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>Omat paketit (APKG)</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Uusi API-avain</value>
   </data>
@@ -188,6 +194,9 @@
   </data>
   <data name="Personal" xml:space="preserve">
     <value>Henkilökohtainen</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>APKG-lähetyksen esikatselu</value>
   </data>
   <data name="Primary Bucket Missing" xml:space="preserve">
     <value>Ensisijainen ämpäri puuttuu</value>
@@ -242,6 +251,9 @@
   </data>
   <data name="Unauthorized" xml:space="preserve">
     <value>Luvaton</value>
+  </data>
+  <data name="Upload APKG Package" xml:space="preserve">
+    <value>Lataa APKG-paketti</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Lataa paketti</value>
