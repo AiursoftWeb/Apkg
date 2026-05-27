@@ -122,7 +122,7 @@ public class ManifestSerializerTests
     }
 
     [TestMethod]
-    public void DeserializePackageManifest_FromFile_RoundTrip()
+    public async Task DeserializePackageManifestFromFile_ReadsFile()
     {
         var original = new ApkgPackageManifest
         {
@@ -145,12 +145,48 @@ public class ManifestSerializerTests
         var path = Path.GetTempFileName();
         try
         {
-            File.WriteAllText(path, xml);
-            var result = _serializer.DeserializePackageManifest(xml);
+            await File.WriteAllTextAsync(path, xml);
+            var result = await _serializer.DeserializePackageManifestFromFileAsync(path);
 
             Assert.AreEqual(original.Name, result.Name);
             Assert.AreEqual(original.Version, result.Version);
             Assert.AreEqual(1, result.Entries.Count);
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [TestMethod]
+    public async Task V1_DeserializeFromFile_Works()
+    {
+        var original = new ApkgManifest
+        {
+            Package = "fromfile",
+            Version = "1.0.0",
+            Component = "main",
+            Targets =
+            {
+                new ManifestTarget
+                {
+                    Distro = "ubuntu",
+                    Suites = "jammy",
+                    Architecture = "amd64",
+                    DebFile = "debs/pkg.deb"
+                }
+            }
+        };
+
+        var xml = _serializer.Serialize(original);
+        var path = Path.GetTempFileName();
+        try
+        {
+            await File.WriteAllTextAsync(path, xml);
+            var result = await _serializer.DeserializeFromFileAsync(path);
+
+            Assert.AreEqual(original.Package, result.Package);
+            Assert.AreEqual(original.Version, result.Version);
         }
         finally
         {

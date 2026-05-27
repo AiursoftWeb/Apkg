@@ -216,6 +216,13 @@ public class DebBuilderTests
         Assert.AreEqual("usr/bin/app".Replace('/', Path.DirectorySeparatorChar), result);
     }
 
+    [TestMethod]
+    public void NormalizeTargetPath_DotSlashPrefix_KeptIntact()
+    {
+        var result = DebBuilder.NormalizeTargetPath("./usr/bin/app");
+        Assert.AreEqual(("./usr/bin/app".Replace('/', Path.DirectorySeparatorChar)), result);
+    }
+
     // ── Systemd postinst/postrm/prerm generation (commit e03a598) ──────────────
 
     [TestMethod]
@@ -372,6 +379,19 @@ public class DebBuilderTests
             var staging = Path.Combine(projectDir, "obj", "jammy_amd64");
             var scriptDest = Path.Combine(staging, "usr", "lib", "script-pkg", "helper");
             Assert.IsTrue(File.Exists(scriptDest), "IncludeScript should be copied.");
+
+            // Verify 0755 permissions — this is the key difference from IncludeFile
+            try
+            {
+                var mode = File.GetUnixFileMode(scriptDest);
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.UserExecute), "IncludeScript should be user-executable (0755).");
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.GroupExecute), "IncludeScript should be group-executable (0755).");
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.OtherExecute), "IncludeScript should be other-executable (0755).");
+            }
+            catch (PlatformNotSupportedException)
+            {
+                // Permissions only verifiable on Unix
+            }
         }
         finally
         {
@@ -452,13 +472,23 @@ public class DebBuilderTests
                 }
             };
 
-            // Build for amd64
-            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+            // Build for amd64 — should pick amd64-lib.so
+            var amd64Output = Path.Combine(outputDir, "amd64");
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", amd64Output);
 
-            var staging = Path.Combine(projectDir, "obj", "jammy_amd64");
-            var destFile = Path.Combine(staging, "usr", "lib", "lib.so");
-            Assert.IsTrue(File.Exists(destFile));
-            Assert.AreEqual("amd64", await File.ReadAllTextAsync(destFile));
+            var stagingAmd64 = Path.Combine(projectDir, "obj", "jammy_amd64");
+            var destAmd64 = Path.Combine(stagingAmd64, "usr", "lib", "lib.so");
+            Assert.IsTrue(File.Exists(destAmd64));
+            Assert.AreEqual("amd64", await File.ReadAllTextAsync(destAmd64));
+
+            // Build for arm64 — should pick arm64-lib.so, not amd64-lib.so
+            var arm64Output = Path.Combine(outputDir, "arm64");
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "arm64", arm64Output);
+
+            var stagingArm64 = Path.Combine(projectDir, "obj", "jammy_arm64");
+            var destArm64 = Path.Combine(stagingArm64, "usr", "lib", "lib.so");
+            Assert.IsTrue(File.Exists(destArm64));
+            Assert.AreEqual("arm64", await File.ReadAllTextAsync(destArm64));
         }
         finally
         {
