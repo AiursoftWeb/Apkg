@@ -499,18 +499,3 @@ apkg push \
   --api-key <你的 API Key>
 ```
 
----
-
-## 四、向后兼容说明
-
-早期版本的 `.aosproj` 使用不同的 XML 元素名，当前工具链在反序列化时仍能识别这些旧名称（只读，序列化时统一写出新格式）：
-
-| 旧名称（可读取） | 新名称（写出）| 位置 |
-|-----------------|--------------|------|
-| `<SupportedSuites>` | `<TargetSuites>` | PropertyGroup |
-| `<SupportedArch>` | `<TargetArchitectures>` | PropertyGroup |
-| `<DependencyList>` (元素文本) | `<Dependency Include="...">` | ItemGroup |
-| `<IncludeConfigFile>` | `<ConfFile>` | ItemGroup |
-| `Source="..."` 属性 | `Include="..."` 属性 | 所有 ItemGroup 条目 |
-
-如果你在网上看到使用旧格式的 `.aosproj` 文件，它仍然可以被正确解析。建议迁移到新格式。

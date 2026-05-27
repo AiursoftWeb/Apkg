@@ -54,17 +54,8 @@ public class AosprojSerializer
                 case "Replaces":           project.Replaces = el.Value; break;
                 case "Component":          project.Component = el.Value; break;
                 case "TargetDistro":       project.TargetDistro = el.Value; break;
-                case "SupportedSuites":    // legacy alias
                 case "TargetSuites":       project.TargetSuites = el.Value; break;
-                case "SupportedArch":      // legacy alias
                 case "TargetArchitectures": project.TargetArchitectures = el.Value; break;
-                case "DependencyList":     // legacy alias — value in element text
-                    project.Dependencies.Add(new ConditionalValue
-                    {
-                        Condition = (string?)el.Attribute("Condition"),
-                        Value = el.Value
-                    });
-                    break;
             }
         }
     }
@@ -86,7 +77,7 @@ public class AosprojSerializer
                 case "IncludeFile":
                     project.IncludeFiles.Add(new IncludeFileItem
                     {
-                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? string.Empty,
+                        Source = (string?)el.Attribute("Include")  ?? string.Empty,
                         Target = (string?)el.Attribute("Target") ?? string.Empty,
                         Condition = condition
                     });
@@ -94,7 +85,7 @@ public class AosprojSerializer
                 case "IncludeFolder":
                     project.IncludeFolders.Add(new IncludeFolderItem
                     {
-                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? string.Empty,
+                        Source = (string?)el.Attribute("Include")  ?? string.Empty,
                         Target = (string?)el.Attribute("Target") ?? string.Empty,
                         Condition = condition
                     });
@@ -102,16 +93,15 @@ public class AosprojSerializer
                 case "IncludeScript":
                     project.IncludeScripts.Add(new IncludeScriptItem
                     {
-                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? string.Empty,
+                        Source = (string?)el.Attribute("Include")  ?? string.Empty,
                         Target = (string?)el.Attribute("Target") ?? string.Empty,
                         Condition = condition
                     });
                     break;
-                case "IncludeConfigFile": // legacy alias
                 case "ConfFile":
                     project.ConfFiles.Add(new ConfFileItem
                     {
-                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? string.Empty,
+                        Source = (string?)el.Attribute("Include")  ?? string.Empty,
                         Target = (string?)el.Attribute("Target") ?? string.Empty,
                         Condition = condition
                     });
@@ -127,14 +117,14 @@ public class AosprojSerializer
                 case "PostInstallScript":
                     project.PostInstallScripts.Add(new PostInstallScriptItem
                     {
-                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? el.Value,
+                        Source = (string?)el.Attribute("Include")  ?? el.Value,
                         Condition = condition
                     });
                     break;
                 case "PreRemoveScript":
                     project.PreRemoveScripts.Add(new PreRemoveScriptItem
                     {
-                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? el.Value,
+                        Source = (string?)el.Attribute("Include")  ?? el.Value,
                         Condition = condition
                     });
                     break;
@@ -142,7 +132,7 @@ public class AosprojSerializer
                     var autoEnableAttr = (string?)el.Attribute("AutoEnable");
                     project.SystemdUnits.Add(new SystemdUnitItem
                     {
-                        Source = (string?)el.Attribute("Include") ?? (string?)el.Attribute("Source") ?? el.Value,
+                        Source = (string?)el.Attribute("Include")  ?? el.Value,
                         Condition = condition,
                         AutoEnable = autoEnableAttr == null || bool.Parse(autoEnableAttr)
                     });
