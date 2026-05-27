@@ -29,7 +29,7 @@ public class DebBuilderTests
             Maintainer = "Me <me@example.com>"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", []);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", []);
 
         Assert.IsTrue(control.Contains("Package: my-pkg"));
         Assert.IsTrue(control.Contains("Version: 2.1.0"));
@@ -48,7 +48,7 @@ public class DebBuilderTests
             PackageDescription = "Short description\nLong description line 1.\nLong description line 2."
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", []);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", []);
 
         Assert.IsTrue(control.Contains("Description: Short description"));
         Assert.IsTrue(control.Contains(" Long description line 1."));
@@ -65,7 +65,7 @@ public class DebBuilderTests
             PackageDescription = "Short\n\nParagraph 2."
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", []);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", []);
 
         Assert.IsTrue(control.Contains(" ."));
     }
@@ -81,7 +81,7 @@ public class DebBuilderTests
             Maintainer = "Test <test@example.com>"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", ["libc6", "libssl3 (>= 3.0)"]);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", ["libc6", "libssl3 (>= 3.0)"]);
 
         Assert.IsTrue(control.Contains("Depends: libc6, libssl3 (>= 3.0)"));
     }
@@ -96,7 +96,7 @@ public class DebBuilderTests
             PackageDescription = "desc"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", []);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", []);
 
         Assert.IsFalse(control.Contains("Depends:"));
     }
@@ -112,7 +112,7 @@ public class DebBuilderTests
             Provides = "virtual-package"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", []);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", []);
 
         Assert.IsTrue(control.Contains("Provides: virtual-package"));
     }
@@ -128,7 +128,7 @@ public class DebBuilderTests
             Conflicts = "old-package"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", []);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", []);
 
         Assert.IsTrue(control.Contains("Conflicts: old-package"));
     }
@@ -144,7 +144,7 @@ public class DebBuilderTests
             Replaces = "old-package"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", []);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", []);
 
         Assert.IsTrue(control.Contains("Replaces: old-package"));
     }
@@ -160,7 +160,7 @@ public class DebBuilderTests
             PackageHomepage = "https://example.com"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", []);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", []);
 
         Assert.IsTrue(control.Contains("Homepage: https://example.com"));
     }
@@ -177,7 +177,7 @@ public class DebBuilderTests
             PackageAuthors = "Alice <alice@example.com>"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", []);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", []);
 
         Assert.IsTrue(control.Contains("Maintainer: Alice <alice@example.com>"));
     }
@@ -194,7 +194,7 @@ public class DebBuilderTests
             PackageAuthors = "Alice <alice@example.com>"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", []);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", []);
 
         Assert.IsTrue(control.Contains("Maintainer: Bob <bob@example.com>"));
     }
@@ -690,7 +690,7 @@ public class DebBuilderTests
 
         // Merge local depends with upstream (as BuildAsync does)
         var merged = DebBuilder.MergeDepends(["libc6", "my-new-dep"], upstreamControl);
-        var control = DebBuilder.BuildControl(project, "amd64", merged, upstreamControl);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", merged, upstreamControl);
 
         Assert.IsTrue(control.Contains("Depends: libc6, libssl3, my-new-dep"));
         Assert.IsTrue(control.Contains("Section: admin"));
@@ -714,7 +714,7 @@ public class DebBuilderTests
 
         // "libc6" should be dedup'd even though upstream has version constraint
         var merged = DebBuilder.MergeDepends(["libc6"], upstreamControl);
-        var control = DebBuilder.BuildControl(project, "amd64", merged, upstreamControl);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", merged, upstreamControl);
 
         Assert.IsTrue(control.Contains("Depends: libc6 (>= 2.34), libssl3"));
         Assert.IsFalse(control.Contains("libc6, libc6"));
@@ -736,7 +736,7 @@ public class DebBuilderTests
             ["Homepage"] = "https://ubuntu.com"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", [], upstreamControl);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], upstreamControl);
         Assert.IsTrue(control.Contains("Homepage: https://ubuntu.com"));
     }
 
@@ -756,7 +756,7 @@ public class DebBuilderTests
             ["Homepage"] = "https://ubuntu.com"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", [], upstreamControl);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], upstreamControl);
         Assert.IsTrue(control.Contains("Homepage: https://anduinos.com"));
     }
 
@@ -776,7 +776,7 @@ public class DebBuilderTests
             ["Provides"] = "upstream-virtual-pkg"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", [], upstreamControl);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], upstreamControl);
         Assert.IsTrue(control.Contains("Provides: my-virtual-pkg"));
     }
 
@@ -796,7 +796,7 @@ public class DebBuilderTests
             ["Provides"] = "upstream-virtual-pkg"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", [], upstreamControl);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], upstreamControl);
         Assert.IsTrue(control.Contains("Provides: upstream-virtual-pkg"));
     }
 
@@ -818,7 +818,7 @@ public class DebBuilderTests
             ["Replaces"] = "old-pkg"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", [], upstreamControl);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], upstreamControl);
         Assert.IsTrue(control.Contains("Conflicts: old-pkg"));
         Assert.IsTrue(control.Contains("Replaces: old-pkg"));
     }
@@ -833,9 +833,31 @@ public class DebBuilderTests
             PackageDescription = "desc"
         };
 
-        var control = DebBuilder.BuildControl(project, "amd64", []);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", []);
         Assert.IsFalse(control.Contains("Section:"));
         Assert.IsFalse(control.Contains("Priority:"));
+    }
+
+    [TestMethod]
+    public void BuildControl_UpstreamVersionVariable_ResolvedCorrectly()
+    {
+        var project = new AosprojProject
+        {
+            PackageName = "my-pkg",
+            PackageVersion = "$(UpstreamVersion)-anduinos",
+            PackageDescription = "desc"
+        };
+
+        var upstreamControl = new Dictionary<string, string>
+        {
+            ["Version"] = "13ubuntu10"
+        };
+
+        var resolvedVersion = "13ubuntu10-anduinos";
+        var control = DebBuilder.BuildControl(project, resolvedVersion, "amd64", [], upstreamControl);
+
+        Assert.IsTrue(control.Contains("Version: 13ubuntu10-anduinos"));
+        Assert.IsFalse(control.Contains("$(UpstreamVersion)"));
     }
 
     // ── ParseControlFile ──────────────────────────────────────────────────────
@@ -860,7 +882,7 @@ public class DebBuilderTests
             ["Installed-Size"] = "328"
         };
 
-        var result = DebBuilder.BuildControl(project, "amd64", [], upstreamControl);
+        var result = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], upstreamControl);
         // Verify upstream fields don't leak through (local always wins for identity fields)
         Assert.IsTrue(result.Contains("Package: my-pkg"));
         Assert.IsTrue(result.Contains("Version: 1.0"));
@@ -882,7 +904,7 @@ public class DebBuilderTests
         };
 
         var merged = DebBuilder.MergeDepends(["my-dep (>= 2.0)"], upstreamControl);
-        var control = DebBuilder.BuildControl(project, "amd64", merged, upstreamControl);
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", merged, upstreamControl);
         Assert.IsTrue(control.Contains("Depends: base-files (>= 11), libc6 (>= 2.34), libssl3 (>= 3.0.2), my-dep (>= 2.0)"));
     }
 

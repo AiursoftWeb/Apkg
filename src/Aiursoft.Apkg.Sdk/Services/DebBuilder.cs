@@ -59,6 +59,7 @@ public class DebBuilder
         string? upstreamPostinst = null;
         string? upstreamPrerm = null;
         string? upstreamPostrm = null;
+        var resolvedVersion = project.PackageVersion;
 
         if (project.HasUpstreamSource)
         {
@@ -94,9 +95,12 @@ public class DebBuilder
                     ? await File.ReadAllTextAsync(Path.Combine(upstreamDebianDir, "postrm"))
                     : null;
 
+                var upstreamVersion = upstreamControl?.GetValueOrDefault("Version") ?? "";
+                resolvedVersion = resolvedVersion.Replace("$(UpstreamVersion)", upstreamVersion);
+
                 _logger.LogInformation("Derived from upstream {Package} {Version}",
                     upstreamControl?.GetValueOrDefault("Package"),
-                    upstreamControl?.GetValueOrDefault("Version"));
+                    upstreamVersion);
             }
             finally
             {
@@ -123,7 +127,7 @@ public class DebBuilder
 
         var mergedDepends = MergeDepends(localDepends, upstreamControl);
 
-        var control = BuildControl(project, arch, mergedDepends, upstreamControl);
+        var control = BuildControl(project, resolvedVersion, arch, mergedDepends, upstreamControl);
         await File.WriteAllTextAsync(Path.Combine(debianDir, "control"), control);
         _logger.LogDebug("Wrote DEBIAN/control");
 
@@ -312,7 +316,7 @@ public class DebBuilder
 
         // ── dpkg-deb --build ──────────────────────────────────────────────────
         Directory.CreateDirectory(outputDir);
-        var debFileName = $"{project.PackageName}_{project.PackageVersion}_{suite}_{arch}.deb";
+        var debFileName = $"{project.PackageName}_{resolvedVersion}_{suite}_{arch}.deb";
         var debOutputPath = Path.Combine(outputDir, debFileName);
 
         _logger.LogInformation("Building {DebFile}...", debFileName);
@@ -388,12 +392,12 @@ public class DebBuilder
     }
 
     internal static string BuildControl(
-        AosprojProject p, string arch, List<string> depends,
+        AosprojProject p, string resolvedVersion, string arch, List<string> depends,
         Dictionary<string, string>? upstreamControl = null)
     {
         var sb = new StringBuilder();
         sb.AppendLine($"Package: {p.PackageName}");
-        sb.AppendLine($"Version: {p.PackageVersion}");
+        sb.AppendLine($"Version: {resolvedVersion}");
         sb.AppendLine($"Architecture: {arch}");
         sb.AppendLine($"Maintainer: {(string.IsNullOrWhiteSpace(p.Maintainer) ? p.PackageAuthors : p.Maintainer)}");
         sb.AppendLine($"Installed-Size: __INSTALLED_SIZE__");

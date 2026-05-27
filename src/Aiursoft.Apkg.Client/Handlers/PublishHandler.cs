@@ -153,7 +153,7 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
         foreach (var debPath in debFiles)
         {
             var debFileName = Path.GetFileName(debPath);
-            var (suite, arch) = ParseDebFileName(debFileName, project.PackageName, project.PackageVersion);
+            var (suite, arch) = ParseDebFileName(debFileName);
             var distro = project.TargetDistro;
 
             entries.Add(new ApkgPackageEntry
@@ -168,10 +168,13 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
             logger.LogInformation("  + {File} → {Distro}/{Suite}", debFileName, distro, suite);
         }
 
+        // Derive resolved version from first .deb filename (handles $(UpstreamVersion) etc.)
+        var resolvedVersion = DeriveVersionFromDeb(debFiles[0], project.PackageName);
+
         var manifest = new ApkgPackageManifest
         {
             Name = project.PackageName,
-            Version = project.PackageVersion,
+            Version = resolvedVersion,
             Maintainer = string.IsNullOrWhiteSpace(project.Maintainer) ? project.PackageAuthors : project.Maintainer,
             Description = project.PackageDescription,
             Homepage = project.PackageHomepage,
@@ -182,7 +185,7 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
         var manifestXml = SerializeManifest(manifest);
 
         Directory.CreateDirectory(outputDir);
-        var apkgFileName = $"{project.PackageName}.{project.PackageVersion}.apkg";
+        var apkgFileName = $"{project.PackageName}.{resolvedVersion}.apkg";
         var apkgPath = Path.Combine(outputDir, apkgFileName);
 
         logger.LogInformation("Writing {File}...", apkgFileName);
@@ -241,21 +244,36 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
         return [(distro, suiteArg, archArg)];
     }
 
-    private static (string suite, string arch) ParseDebFileName(string fileName, string packageName, string version)
+    private static string DeriveVersionFromDeb(string debPath, string packageName)
     {
-        var withoutExt = Path.GetFileNameWithoutExtension(fileName);
-        var prefix = $"{packageName}_{version}_";
-        if (!withoutExt.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
-            throw new InvalidOperationException(
-                $"Cannot parse suite/arch from deb filename '{fileName}'. Expected format: {packageName}_{version}_<suite>_<arch>.deb");
-
-        var rest = withoutExt[prefix.Length..];
+        var fileName = Path.GetFileNameWithoutExtension(debPath);
+        // Format: {name}_{version}_{suite}_{arch} — version is between name and the last two _
+        var prefix = $"{packageName}_";
+        var rest = fileName[prefix.Length..];
         var lastUnderscore = rest.LastIndexOf('_');
+        var middle = rest[..lastUnderscore];
+        var secondLastUnderscore = middle.LastIndexOf('_');
+        return middle[..secondLastUnderscore];
+    }
+
+    private static (string suite, string arch) ParseDebFileName(string fileName)
+    {
+        // Format: {name}_{version}_{suite}_{arch}.deb — parse from the right
+        var withoutExt = Path.GetFileNameWithoutExtension(fileName);
+        var lastUnderscore = withoutExt.LastIndexOf('_');
         if (lastUnderscore < 0)
             throw new InvalidOperationException(
-                $"Cannot parse suite/arch from deb filename '{fileName}'. Expected format: {packageName}_{version}_<suite>_<arch>.deb");
+                $"Cannot parse suite/arch from deb filename '{fileName}'. Expected format: <name>_<version>_<suite>_<arch>.deb");
 
-        return (suite: rest[..lastUnderscore], arch: rest[(lastUnderscore + 1)..]);
+        var arch = withoutExt[(lastUnderscore + 1)..];
+        var rest = withoutExt[..lastUnderscore];
+        var secondLastUnderscore = rest.LastIndexOf('_');
+        if (secondLastUnderscore < 0)
+            throw new InvalidOperationException(
+                $"Cannot parse suite/arch from deb filename '{fileName}'. Expected format: <name>_<version>_<suite>_<arch>.deb");
+
+        var suite = rest[(secondLastUnderscore + 1)..];
+        return (suite, arch);
     }
 
     private static string SerializeManifest(ApkgPackageManifest manifest)

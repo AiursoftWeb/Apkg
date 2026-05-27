@@ -359,9 +359,7 @@ Pin-Priority: 100
 
 ### 15.1 为什么 Apkg 不做仓库安装
 
-`apkg install --file pkg.apkg` 使用 `dpkg -i` 从本地 `.apkg` 文件安装包（自动检测当前系统的 Distro/Suite/Architecture 选择匹配的 .deb）。但它不做仓库级别的安装 — 不从 APT 仓库解析依赖并自动下载。那是 `apt install` 的职责。Apkg 专注于构建 + 仓库服务，不替代 APT 客户端功能。
-
-> 注意：`apkg install` 目前只兼容 v1 格式 `.apkg`（根元素 `<Manifest>`，target 级 `<Suites>`）。`apkg publish` 生成的 v2 格式（根元素 `<ApkgPackage>`，entry 级 `<Suite>`）无法被 install 读取。install 已标记为 legacy，建议直接使用 `apt install`。
+`apkg install pkg.apkg` 使用 `dpkg -i` 从本地 `.apkg` 文件安装包（自动检测当前系统的 Distro/Suite/Architecture 选择匹配的 .deb）。但它不做仓库级别的安装 — 不从 APT 仓库解析依赖并自动下载。那是 `apt install` 的职责。Apkg 专注于构建 + 仓库服务，不替代 APT 客户端功能。
 
 ### 15.2 为什么支持多 Suite
 

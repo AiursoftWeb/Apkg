@@ -121,7 +121,7 @@ public class IntegrationTests
     [TestMethod]
     public async Task InvokeUnpack_FailsWhenFileNotFound()
     {
-        var result = await Program.TestRunAsync(["unpack", "--file", "/nonexistent/path.apkg"]);
+        var result = await Program.TestRunAsync(["unpack", "/nonexistent/path.apkg"]);
 
         Assert.AreNotEqual(0, result.ProgramReturn);
     }

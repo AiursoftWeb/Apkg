@@ -83,7 +83,7 @@
 | 字段 | 必填 | 说明 |
 |------|------|------|
 | `PackageName` | ✅ | deb 包名，正则 `^[a-z0-9][a-z0-9\-+.]*$`（小写字母、数字、`-`、`+`、`.`，首字符须为字母或数字） |
-| `PackageVersion` | ✅ | 版本号，遵循 Debian 版本规范（如 `1.0.0`） |
+| `PackageVersion` | ✅ | 版本号，遵循 Debian 版本规范（如 `1.0.0`）。支持 `$(UpstreamVersion)` 变量自动从上游 .deb 的 Version 字段派生，如 `$(UpstreamVersion)-anduinos` |
 | `PackageDescription` | ✅ | 包的单行简介 |
 | `TargetSuites` | ✅ | 空格分隔的 suite 列表（如 `resolute questing`），每个 suite 产出一个 `.deb` |
 | `PackageAuthors` | ⚠️ | 默认 Maintainer，可被 `Maintainer` 字段覆盖。lint Warning 但 `Maintainer` 可替代 |
@@ -129,7 +129,7 @@
 <Project Sdk="Aiursoft.Apkg.Sdk">
   <PropertyGroup>
     <PackageName>base-files</PackageName>
-    <PackageVersion>13</PackageVersion>
+    <PackageVersion>$(UpstreamVersion)-anduinos</PackageVersion>
     <PackageDescription>AnduinOS base files (derived from Ubuntu)</PackageDescription>
     <Maintainer>AnduinOS Team &lt;dev@anduinos.com&gt;</Maintainer>
     <TargetDistro>anduinos</TargetDistro>
@@ -155,6 +155,8 @@
 ```
 
 `$(Suite)` 变量会在构建时解析为 `resolute`、`questing` 等，实现同一 `.aosproj` 从不同上游 suite 下载对应版本。
+
+`$(UpstreamVersion)` 变量仅在 `<PackageVersion>` 中可用。构建时，Apkg 从下载的上游 `.deb` 控制文件中读取 `Version` 字段并替换该占位符。例如 `<PackageVersion>$(UpstreamVersion)-anduinos</PackageVersion>` 对 noble suite（上游版本为 `13ubuntu10`）会生成 `13ubuntu10-anduinos`，对 questing suite（上游版本为 `14ubuntu3`）会生成 `14ubuntu3-anduinos`。
 
 `apkg lint` 可单独执行，也由 `apkg build` 在构建前自动调用。Error 级别问题会中止构建，Warning 仅打印提示。以下是它检查的全部规则：
 
@@ -554,8 +556,7 @@ TargetArchitectures: amd64 arm64
 ### `apkg push` 参数
 
 ```bash
-apkg push \
-  --file bin/anduinos-shell-ext.2.1.0.apkg \
+apkg push bin/anduinos-shell-ext.2.1.0.apkg \
   --source https://apkg-dev.aiursoft.com \
   --api-key <你的 API Key>
 ```

@@ -33,7 +33,7 @@ apkg new --name my-package
 apkg publish --path ./my-package
 
 # 3. Push to server
-apkg push --file ./my-package/bin/my-package.1.0.0.apkg --source https://apkg.example.com --api-key <your-key>
+apkg push ./my-package/bin/my-package.1.0.0.apkg --source https://apkg.example.com --api-key <your-key>
 
 # 4. Add a repository as an APT source on a client machine (requires sudo)
 sudo apkg add-source https://apkg.example.com/api/sources/1
