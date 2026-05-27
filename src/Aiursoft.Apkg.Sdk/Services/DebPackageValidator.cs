@@ -73,7 +73,7 @@ public class DebPackageValidator
         return ParseRfc822(output);
     }
 
-    private static string GetRequiredField(Dictionary<string, string> control, string fieldName, string relativeDebPath)
+    internal static string GetRequiredField(Dictionary<string, string> control, string fieldName, string relativeDebPath)
     {
         if (!control.TryGetValue(fieldName, out var value) || string.IsNullOrWhiteSpace(value))
         {
@@ -83,7 +83,7 @@ public class DebPackageValidator
         return value.Trim();
     }
 
-    private static Dictionary<string, string> ParseRfc822(string text)
+    internal static Dictionary<string, string> ParseRfc822(string text)
     {
         var result = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         string? currentKey = null;

@@ -90,7 +90,7 @@ public class SystemInfoProvider
         return output;
     }
 
-    private static string Unquote(string value)
+    internal static string Unquote(string value)
     {
         if (value.Length >= 2 && value.StartsWith('"') && value.EndsWith('"'))
             return value[1..^1];

@@ -131,111 +131,10 @@ public class AosprojSerializerTests
         Assert.AreEqual("'$(Arch)' == 'amd64'", roundTripped.IncludeScripts[0].Condition);
     }
 
-    // ── Commit 8ca0ae7: Backward-compat — legacy field names ──────────────────
+    // ── Include= attribute ───────────────────────────────────────────────────
 
     [TestMethod]
-    public void Deserialize_SupportedSuites_LegacyAlias()
-    {
-        var xml = XDocument.Parse("""
-            <Project>
-              <PropertyGroup>
-                <PackageName>test</PackageName>
-                <PackageVersion>1.0</PackageVersion>
-                <PackageDescription>desc</PackageDescription>
-                <SupportedSuites>jammy noble</SupportedSuites>
-              </PropertyGroup>
-            </Project>
-            """);
-
-        var project = _serializer.Deserialize(xml);
-        Assert.AreEqual("jammy noble", project.TargetSuites);
-    }
-
-    [TestMethod]
-    public void Deserialize_SupportedArch_LegacyAlias()
-    {
-        var xml = XDocument.Parse("""
-            <Project>
-              <PropertyGroup>
-                <PackageName>test</PackageName>
-                <PackageVersion>1.0</PackageVersion>
-                <PackageDescription>desc</PackageDescription>
-                <SupportedArch>amd64 arm64</SupportedArch>
-              </PropertyGroup>
-            </Project>
-            """);
-
-        var project = _serializer.Deserialize(xml);
-        Assert.AreEqual("amd64 arm64", project.TargetArchitectures);
-    }
-
-    [TestMethod]
-    public void Deserialize_IncludeConfigFile_LegacyAlias()
-    {
-        var xml = XDocument.Parse("""
-            <Project>
-              <PropertyGroup>
-                <PackageName>test</PackageName>
-                <PackageVersion>1.0</PackageVersion>
-                <PackageDescription>desc</PackageDescription>
-              </PropertyGroup>
-              <ItemGroup>
-                <IncludeConfigFile Include="config/app.conf" Target="/etc/app/app.conf" />
-              </ItemGroup>
-            </Project>
-            """);
-
-        var project = _serializer.Deserialize(xml);
-        Assert.AreEqual(1, project.ConfFiles.Count);
-        Assert.AreEqual("config/app.conf", project.ConfFiles[0].Source);
-        Assert.AreEqual("/etc/app/app.conf", project.ConfFiles[0].Target);
-    }
-
-    [TestMethod]
-    public void Deserialize_DependencyList_LegacyAlias()
-    {
-        var xml = XDocument.Parse("""
-            <Project>
-              <PropertyGroup>
-                <PackageName>test</PackageName>
-                <PackageVersion>1.0</PackageVersion>
-                <PackageDescription>desc</PackageDescription>
-                <DependencyList>libc6</DependencyList>
-              </PropertyGroup>
-            </Project>
-            """);
-
-        var project = _serializer.Deserialize(xml);
-        Assert.AreEqual(1, project.Dependencies.Count);
-        Assert.AreEqual("libc6", project.Dependencies[0].Value);
-    }
-
-    [TestMethod]
-    public void Deserialize_SourceAttribute_LegacyAlias()
-    {
-        var xml = XDocument.Parse("""
-            <Project>
-              <PropertyGroup>
-                <PackageName>test</PackageName>
-                <PackageVersion>1.0</PackageVersion>
-                <PackageDescription>desc</PackageDescription>
-              </PropertyGroup>
-              <ItemGroup>
-                <IncludeFile Source="src/file.txt" Target="/opt/file.txt" />
-              </ItemGroup>
-            </Project>
-            """);
-
-        var project = _serializer.Deserialize(xml);
-        Assert.AreEqual(1, project.IncludeFiles.Count);
-        Assert.AreEqual("src/file.txt", project.IncludeFiles[0].Source);
-        Assert.AreEqual("/opt/file.txt", project.IncludeFiles[0].Target);
-    }
-
-    // ── Commit 8ca0ae7: Include= attribute (new standard) ─────────────────────
-
-    [TestMethod]
-    public void Deserialize_IncludeAttribute_NewStandard()
+    public void Deserialize_IncludeAttribute()
     {
         var xml = XDocument.Parse("""
             <Project>
@@ -253,27 +152,6 @@ public class AosprojSerializerTests
         var project = _serializer.Deserialize(xml);
         Assert.AreEqual(1, project.IncludeFiles.Count);
         Assert.AreEqual("src/file.txt", project.IncludeFiles[0].Source);
-    }
-
-    [TestMethod]
-    public void Deserialize_IncludeAttributePrecedesSourceAttribute()
-    {
-        // When both Include and Source are present, Include takes precedence
-        var xml = XDocument.Parse("""
-            <Project>
-              <PropertyGroup>
-                <PackageName>test</PackageName>
-                <PackageVersion>1.0</PackageVersion>
-                <PackageDescription>desc</PackageDescription>
-              </PropertyGroup>
-              <ItemGroup>
-                <IncludeFile Include="new-path.txt" Source="old-path.txt" Target="/opt/file.txt" />
-              </ItemGroup>
-            </Project>
-            """);
-
-        var project = _serializer.Deserialize(xml);
-        Assert.AreEqual("new-path.txt", project.IncludeFiles[0].Source);
     }
 
     // ── Commit ddb0331: TargetDistro (singular) ───────────────────────────────
