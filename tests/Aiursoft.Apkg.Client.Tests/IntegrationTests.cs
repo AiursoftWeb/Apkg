@@ -16,7 +16,10 @@ public class IntegrationTests
     private NestedCommandApp Program => new NestedCommandApp()
         .WithGlobalOptions(CommonOptionsProvider.VerboseOption)
         .WithFeature(new NewHandler())
-        .WithFeature(new PackHandler())
+        .WithFeature(new BuildHandler())
+        .WithFeature(new LintHandler())
+        .WithFeature(new AddHandler())
+        .WithFeature(new PublishHandler())
         .WithFeature(new PushHandler())
         .WithFeature(new InstallHandler())
         .WithFeature(new UnpackHandler())
@@ -66,12 +69,13 @@ public class IntegrationTests
     }
 
     [TestMethod]
-    public async Task InvokePackHelp()
+    public async Task InvokePublishHelp()
     {
-        var result = await Program.TestRunAsync(["pack", "--help"]);
+        var result = await Program.TestRunAsync(["publish", "--help"]);
 
         Assert.AreEqual(0, result.ProgramReturn);
         Assert.IsTrue(result.StdOut.Contains("--path"));
+        Assert.IsTrue(result.StdOut.Contains("--no-build"));
         Assert.IsTrue(string.IsNullOrWhiteSpace(result.StdErr));
     }
 
@@ -128,45 +132,18 @@ public class IntegrationTests
         var tempDir = CreateTestDirectory();
         try
         {
-            // Build a real .apkg first (same as InvokePack_CreatesApkgFile)
-            var projectDir = Path.Combine(tempDir, "my-pkg");
-            var debsDir = Path.Combine(projectDir, "debs");
+            var debsDir = Path.Combine(tempDir, "debs");
             Directory.CreateDirectory(debsDir);
 
-            var serializer = new ManifestSerializer();
-            var manifest = new ApkgManifest
-            {
-                Package = "my-pkg",
-                Version = "1.5.0",
-                Maintainer = "Test <test@example.com>",
-                Description = "Test package",
-                License = "MIT",
-                Component = "main",
-                Targets =
-                [
-                    new ManifestTarget
-                    {
-                        Distro = "ubuntu",
-                        Suites = "noble",
-                        Architecture = "amd64",
-                        DebFile = "debs/my-pkg_1.5.0_amd64.deb"
-                    }
-                ]
-            };
-            await serializer.SerializeToFileAsync(manifest, Path.Combine(projectDir, "manifest.xml"));
-
             await EnsureDpkgDebAvailableAsync();
-            await CreateMinimalDebAsync(
-                path: Path.Combine(debsDir, "my-pkg_1.5.0_amd64.deb"),
-                packageName: "my-pkg",
-                version: "1.5.0",
-                arch: "amd64");
+            var debPath = Path.Combine(debsDir, "my-pkg_1.5.0_amd64.deb");
+            await CreateMinimalDebAsync(debPath, "my-pkg", "1.5.0", "amd64");
 
             var outputPackDir = Path.Combine(tempDir, "packed");
-            var packResult = await Program.TestRunAsync(["pack", "--path", projectDir, "--output", outputPackDir]);
-            Assert.AreEqual(0, packResult.ProgramReturn, packResult.StdErr);
-
-            var apkgPath = Path.Combine(outputPackDir, "my-pkg.1.5.0.apkg");
+            var apkgPath = await CreateApkgDirectlyAsync(outputPackDir, "my-pkg", "1.5.0", "main",
+            [
+                ("ubuntu", "noble", "amd64", debPath)
+            ]);
             Assert.IsTrue(File.Exists(apkgPath));
 
             // Now unpack it with arch override to avoid system-detection dependency
@@ -197,41 +174,24 @@ public class IntegrationTests
         var tempDir = CreateTestDirectory();
         try
         {
-            var projectDir = Path.Combine(tempDir, "my-pkg");
-            var debsDir = Path.Combine(projectDir, "debs");
+            var debsDir = Path.Combine(tempDir, "debs");
             Directory.CreateDirectory(debsDir);
 
-            var serializer = new ManifestSerializer();
-            var manifest = new ApkgManifest
-            {
-                Package = "my-pkg",
-                Version = "1.0.0",
-                Component = "main",
-                Targets =
-                [
-                    new ManifestTarget
-                    {
-                        Distro = "ubuntu",
-                        Suites = "noble",
-                        Architecture = "amd64",
-                        DebFile = "debs/my-pkg_1.0.0_amd64.deb"
-                    }
-                ]
-            };
-            await serializer.SerializeToFileAsync(manifest, Path.Combine(projectDir, "manifest.xml"));
-
             await EnsureDpkgDebAvailableAsync();
-            await CreateMinimalDebAsync(Path.Combine(debsDir, "my-pkg_1.0.0_amd64.deb"), "my-pkg", "1.0.0", "amd64");
+            var debPath = Path.Combine(debsDir, "my-pkg_1.0.0_amd64.deb");
+            await CreateMinimalDebAsync(debPath, "my-pkg", "1.0.0", "amd64");
 
             var outputPackDir = Path.Combine(tempDir, "packed");
-            var packResult = await Program.TestRunAsync(["pack", "--path", projectDir, "--output", outputPackDir]);
-            Assert.AreEqual(0, packResult.ProgramReturn, packResult.StdErr);
+            var apkgPath = await CreateApkgDirectlyAsync(outputPackDir, "my-pkg", "1.0.0", "main",
+            [
+                ("ubuntu", "noble", "amd64", debPath)
+            ]);
 
             // Request arch that doesn't exist in the archive
             var unpackResult = await Program.TestRunAsync(
             [
                 "unpack",
-                "--file", Path.Combine(outputPackDir, "my-pkg.1.0.0.apkg"),
+                "--file", apkgPath,
                 "--output", Path.Combine(tempDir, "unpacked"),
                 "--arch", "riscv64",
                 "--distro", "ubuntu",
@@ -417,211 +377,53 @@ public class IntegrationTests
         }
     }
 
-    [TestMethod]
-    public async Task InvokePack_CreatesApkgFile()
+    private static async Task<string> CreateApkgDirectlyAsync(
+        string outputDir, string packageName, string version, string component,
+        List<(string distro, string suites, string arch, string debPath)> targets)
     {
-        var tempDir = CreateTestDirectory();
-        try
-        {
-            // Set up a project directory manually.
-            var projectDir = Path.Combine(tempDir, "my-pkg");
-            var debsDir = Path.Combine(projectDir, "debs");
-            Directory.CreateDirectory(debsDir);
+        Directory.CreateDirectory(outputDir);
 
-            var serializer = new ManifestSerializer();
-            var manifest = new ApkgManifest
+        var manifest = new ApkgManifest
+        {
+            Package = packageName,
+            Version = version,
+            Maintainer = "Test <test@example.com>",
+            Description = "Test package",
+            License = "MIT",
+            Component = component,
+            Targets = targets.Select(t => new ManifestTarget
             {
-                Package = "my-pkg",
-                Version = "2.0.0",
-                Maintainer = "Test <test@example.com>",
-                Description = "Test package",
-                License = "MIT",
-                Component = "main",
-                Targets =
-                [
-                    new ManifestTarget
-                    {
-                        Distro = "ubuntu",
-                        Suites = "plucky",
-                        Architecture = "amd64",
-                        DebFile = "debs/my-pkg_2.0.0_amd64.deb"
-                    }
-                ]
-            };
-            await serializer.SerializeToFileAsync(manifest, Path.Combine(projectDir, "manifest.xml"));
+                Distro = t.distro,
+                Suites = t.suites,
+                Architecture = t.arch,
+                DebFile = t.debPath
+            }).ToList()
+        };
 
-            await EnsureDpkgDebAvailableAsync();
-            await CreateMinimalDebAsync(
-                path: Path.Combine(debsDir, "my-pkg_2.0.0_amd64.deb"),
-                packageName: manifest.Package,
-                version: manifest.Version,
-                arch: "amd64");
+        var serializer = new ManifestSerializer();
+        var manifestXml = serializer.Serialize(manifest);
+        var manifestBytes = System.Text.Encoding.UTF8.GetBytes(manifestXml);
 
-            var outputDir = Path.Combine(tempDir, "output");
-            var result = await Program.TestRunAsync(["pack", "--path", projectDir, "--output", outputDir]);
+        var apkgFileName = $"{packageName}.{version}.apkg";
+        var apkgPath = Path.Combine(outputDir, apkgFileName);
 
-            Assert.AreEqual(0, result.ProgramReturn, result.StdErr);
-
-            var apkgPath = Path.Combine(outputDir, "my-pkg.2.0.0.apkg");
-            Assert.IsTrue(File.Exists(apkgPath), ".apkg file should be created.");
-
-            // Verify the archive contains manifest.xml and the .deb.
-            var entries = new List<string>();
-            await using var fs = File.OpenRead(apkgPath);
-            await using var gz = new GZipStream(fs, CompressionMode.Decompress);
-            await using var tar = new TarReader(gz);
-            TarEntry? entry;
-            while ((entry = await tar.GetNextEntryAsync()) != null)
-                entries.Add(entry.Name);
-
-            Assert.IsTrue(entries.Contains("manifest.xml"), "Archive must contain manifest.xml.");
-            Assert.IsTrue(entries.Contains("debs/my-pkg_2.0.0_amd64.deb"), "Archive must contain the .deb file.");
-        }
-        finally
+        await using (var fileStream = new FileStream(apkgPath, FileMode.Create, FileAccess.Write))
+        await using (var gzip = new GZipStream(fileStream, CompressionLevel.Optimal))
+        await using (var tar = new TarWriter(gzip, TarEntryFormat.Pax, leaveOpen: false))
         {
-            Directory.Delete(tempDir, recursive: true);
-        }
-    }
-
-    [TestMethod]
-    public async Task InvokePack_FailsWhenDebMissing()
-    {
-        var tempDir = CreateTestDirectory();
-        try
-        {
-            var projectDir = Path.Combine(tempDir, "my-pkg");
-            Directory.CreateDirectory(Path.Combine(projectDir, "debs"));
-
-            var serializer = new ManifestSerializer();
-            var manifest = new ApkgManifest
+            var manifestEntry = new PaxTarEntry(TarEntryType.RegularFile, "manifest.xml")
             {
-                Package = "my-pkg",
-                Version = "1.0.0",
-                Component = "main",
-                Targets =
-                [
-                    new ManifestTarget
-                    {
-                        Distro = "ubuntu",
-                        Suites = "plucky",
-                        Architecture = "amd64",
-                        DebFile = "debs/missing.deb"   // intentionally absent
-                    }
-                ]
+                DataStream = new MemoryStream(manifestBytes)
             };
-            await serializer.SerializeToFileAsync(manifest, Path.Combine(projectDir, "manifest.xml"));
+            await tar.WriteEntryAsync(manifestEntry);
 
-            var result = await Program.TestRunAsync(["pack", "--path", projectDir, "--output", tempDir]);
-
-            Assert.AreNotEqual(0, result.ProgramReturn, "Should fail when a .deb file is missing.");
-        }
-        finally
-        {
-            Directory.Delete(tempDir, recursive: true);
-        }
-    }
-
-    [TestMethod]
-    public async Task InvokePack_CreatesApkgFileWhenDebArchitectureIsAll()
-    {
-        var tempDir = CreateTestDirectory();
-        try
-        {
-            var projectDir = Path.Combine(tempDir, "my-pkg");
-            var debsDir = Path.Combine(projectDir, "debs");
-            Directory.CreateDirectory(debsDir);
-
-            var serializer = new ManifestSerializer();
-            var manifest = new ApkgManifest
+            foreach (var target in targets)
             {
-                Package = "my-pkg",
-                Version = "2.1.0",
-                Maintainer = "Test <test@example.com>",
-                Description = "Test package",
-                License = "MIT",
-                Component = "main",
-                Targets =
-                [
-                    new ManifestTarget
-                    {
-                        Distro = "ubuntu",
-                        Suites = "plucky",
-                        Architecture = "amd64",
-                        DebFile = "debs/my-pkg_2.1.0_all.deb"
-                    }
-                ]
-            };
-            await serializer.SerializeToFileAsync(manifest, Path.Combine(projectDir, "manifest.xml"));
-
-            await EnsureDpkgDebAvailableAsync();
-            await CreateMinimalDebAsync(
-                path: Path.Combine(debsDir, "my-pkg_2.1.0_all.deb"),
-                packageName: manifest.Package,
-                version: manifest.Version,
-                arch: "all");
-
-            var outputDir = Path.Combine(tempDir, "output");
-            var result = await Program.TestRunAsync(["pack", "--path", projectDir, "--output", outputDir]);
-
-            Assert.AreEqual(0, result.ProgramReturn, result.StdErr);
-            Assert.IsTrue(File.Exists(Path.Combine(outputDir, "my-pkg.2.1.0.apkg")), ".apkg file should be created for arch:all debs.");
+                await tar.WriteEntryAsync(target.debPath, target.debPath);
+            }
         }
-        finally
-        {
-            Directory.Delete(tempDir, recursive: true);
-        }
-    }
 
-    [TestMethod]
-    public async Task InvokePack_FailsWhenDebArchMismatch()
-    {
-        var tempDir = CreateTestDirectory();
-        try
-        {
-            var projectDir = Path.Combine(tempDir, "my-pkg");
-            var debsDir = Path.Combine(projectDir, "debs");
-            Directory.CreateDirectory(debsDir);
-
-            var serializer = new ManifestSerializer();
-            var manifest = new ApkgManifest
-            {
-                Package = "my-pkg",
-                Version = "3.0.0",
-                Maintainer = "Test <test@example.com>",
-                Description = "Test package",
-                License = "MIT",
-                Component = "main",
-                Targets =
-                [
-                    new ManifestTarget
-                    {
-                        Distro = "ubuntu",
-                        Suites = "plucky",
-                        Architecture = "amd64",
-                        DebFile = "debs/my-pkg_3.0.0_arm64.deb"
-                    }
-                ]
-            };
-            await serializer.SerializeToFileAsync(manifest, Path.Combine(projectDir, "manifest.xml"));
-
-            await EnsureDpkgDebAvailableAsync();
-            await CreateMinimalDebAsync(
-                path: Path.Combine(debsDir, "my-pkg_3.0.0_arm64.deb"),
-                packageName: manifest.Package,
-                version: manifest.Version,
-                arch: "arm64");
-
-            var outputDir = Path.Combine(tempDir, "output");
-            var result = await Program.TestRunAsync(["pack", "--path", projectDir, "--output", outputDir]);
-            var output = string.Concat(result.StdOut, result.StdErr);
-
-            Assert.AreNotEqual(0, result.ProgramReturn, "Should fail when deb architecture mismatches the manifest target.");
-            Assert.IsTrue(output.Contains("Architecture mismatch"), "Expected architecture mismatch error message.");
-        }
-        finally
-        {
-            Directory.Delete(tempDir, recursive: true);
-        }
+        return apkgPath;
     }
 
     [TestMethod]
