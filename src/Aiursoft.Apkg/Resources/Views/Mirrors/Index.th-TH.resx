@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>เพิ่มกระจกใหม่</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>มิเรอร์ต้นทางจะซิงค์เมตาดาต้าของแพ็กเกจจากที่เก็บ APT ภายนอก (เช่น Ubuntu) เข้าสู่ APKG ซึ่งเป็นแหล่งข้อมูลสำหรับที่เก็บข้อมูลของคุณ</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>สถาปัตยกรรม</value>
   </data>
@@ -74,6 +77,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>การดึงข้อมูลล่าสุด</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>มิเรอร์ทำงานตามตารางเวลา ตรวจสอบคอลัมน์ &apos;Last Pull&apos; เพื่อดูว่าแต่ละมิเรอร์ถูกซิงค์ข้อมูลล่าสุดเมื่อใด</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>ไม่เคยดึงข้อมูล</value>
@@ -129,6 +135,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>สิ่งนี้จะลบแพ็กเกจและบักเก็ตที่เกี่ยวข้องทั้งหมดด้วย!</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>คำแนะนำ:</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>ไม่ได้รับการป้องกัน</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>ตรวจสอบแล้ว</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>Mirror คืออะไร?</value>
   </data>
 
 </root>

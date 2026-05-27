@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Account Details" xml:space="preserve">
+      <data name="A user account can log in, own uploads, and be assigned roles. Users authenticate via local credentials or an OpenID Connect provider." xml:space="preserve">
+    <value>Un compte utilisateur peut se connecter, posséder des téléchargements et se voir attribuer des rôles. Les utilisateurs s&apos;authentifient via des identifiants locaux ou un fournisseur OpenID Connect.</value>
+  </data>
+  <data name="Account Details" xml:space="preserve">
     <value>Détails du compte</value>
   </data>
   <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
@@ -57,17 +60,26 @@
   <data name="Profile Details" xml:space="preserve">
     <value>Détails du profil</value>
   </data>
+  <data name="Roles grant permissions. Assign roles to users to control what they can do in the system." xml:space="preserve">
+    <value>Les rôles accordent des autorisations. Attribuez des rôles aux utilisateurs pour contrôler leurs actions dans le système.</value>
+  </data>
   <data name="This user has no effective permissions." xml:space="preserve">
     <value>Cet utilisateur n&apos;a aucune autorisation effective.</value>
   </data>
   <data name="This user has not been assigned any roles." xml:space="preserve">
     <value>Cet utilisateur n&apos;a été assigné à aucun rôle.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Astuce :</value>
+  </data>
   <data name="User Details:" xml:space="preserve">
     <value>Détails de l&apos;utilisateur :</value>
   </data>
   <data name="User name" xml:space="preserve">
     <value>Nom d&apos;utilisateur</value>
+  </data>
+  <data name="What is a User?" xml:space="preserve">
+    <value>Qu&apos;est-ce qu&apos;un utilisateur ?</value>
   </data>
 
 </root>

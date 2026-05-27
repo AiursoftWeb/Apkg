@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>Gói .deb là một bộ phần mềm đã sẵn sàng để cài đặt trên các hệ thống Debian/Ubuntu. Nó chứa các tập tin nhị phân, cấu hình và siêu dữ liệu về phụ thuộc.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Kiến trúc</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -33,6 +36,9 @@
   <data name="Description" xml:space="preserve">
     <value>Mô tả</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Bạn chưa có &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
   <data name="Download .deb" xml:space="preserve">
     <value>Tải xuống .deb</value>
   </data>
@@ -42,6 +48,9 @@
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Không thể tải các phụ thuộc ngược.</value>
   </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>Đầu tiên hãy thêm kho APT thông qua &lt;code&gt;sudo apkg add-source&lt;/code&gt;, sau đó &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Hoặc tải trực tiếp file .deb.</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>Các mã băm</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="How to Install" xml:space="preserve">
     <value>Cách cài đặt</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Cách sử dụng:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Kích thước đã cài đặt</value>
@@ -71,6 +83,12 @@
   </data>
   <data name="No relations." xml:space="preserve">
     <value>Không có mối quan hệ nào.</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>Tùy chọn A: Sử dụng APKG CLI (khuyên dùng):</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>Tùy chọn B: Thiết lập bash thủ công:</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>Nguồn</value>
@@ -108,6 +126,9 @@
   <data name="Section" xml:space="preserve">
     <value>Phân loại</value>
   </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Xem cách cài đặt APKG CLI.</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Nguồn</value>
   </data>
@@ -131,6 +152,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Ảo (Đồng bộ Lười)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Gói phần mềm là gì?</value>
   </data>
 
 </root>

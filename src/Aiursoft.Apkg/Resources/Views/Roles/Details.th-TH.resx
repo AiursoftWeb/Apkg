@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>ภาพรวมที่ครอบคลุมของบทบาท สิทธิ์ที่เกี่ยวข้อง และผู้ใช้ที่ถูกกำหนด</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>บทบาท (Role) คือกลุ่มของสิทธิ์ที่ระบุชื่อ ให้สิทธิ์แก่ผู้ใช้โดยการกำหนดบทบาท เพื่อให้ผู้ใช้สามารถดำเนินการเฉพาะทางได้</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>ผู้ใช้ที่ถูกกำหนด</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>กลับไปยังรายการบทบาท</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>สร้างบทบาทโดยยึดตามหน้าที่ในงาน (เช่น &apos;ผู้ดูแล Mirror&apos;) แทนที่จะกำหนดให้แต่ละบุคคล เพื่อลดความซับซ้อนในการจัดการระบบ</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>ลบบทบาทนี้</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>บทบาทนี้ยังไม่มีการกำหนดสิทธิ์เฉพาะใดๆ</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>เคล็ดลับ:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>ผู้ใช้ที่มีบทบาทนี้</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>ดูข้อมูลผู้ใช้</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>บทบาทคืออะไร?</value>
   </data>
 
 </root>

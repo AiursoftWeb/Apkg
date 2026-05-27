@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>Hành động</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>Kho APT cung cấp các gói .deb cho hệ thống của bạn. Hãy nghĩ đến nó như một cửa hàng ứng dụng riêng — bạn quyết định gói nào sẽ có sẵn.</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Bạn có chắc chắn muốn xóa kho lưu trữ</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Hệ điều hành</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>Mỗi kho tương ứng với một bộ (ví dụ: questing). Sử dụng &lt;code&gt;apkg add-source&lt;/code&gt; để cấu hình kho trên máy của bạn.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Chỉnh sửa</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Bản chụp đang được tạo bởi một công việc Repository Sync đang chạy. Nó sẽ thay thế bucket live khi công việc thành công.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Mẹo:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Tổng số gói</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Kho lưu trữ là gì?</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>Cho biết tệp Release của kho lưu trữ có được ký bằng GPG hay không. Các máy khách apt được cấu hình với &apos;signed-by=&apos; trong sources.list sẽ từ chối các kho lưu trữ không được ký hoặc được ký bằng khóa sai.</value>

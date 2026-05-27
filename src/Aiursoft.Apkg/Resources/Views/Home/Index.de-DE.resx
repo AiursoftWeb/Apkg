@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name=".NET Global Tool" xml:space="preserve">
+    <value>Globales .NET-Tool</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>&quot;Fire-and-forget&quot;-Unterstützung für langlaufende Aufgaben (z. B. E-Mails oder KI), mit einer GUI für die Warteschlangenverwaltung, paralleler Verarbeitung und Abbruchfunktion.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,8 +39,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Eine moderne, funktionsreiche und hochgradig erweiterbare Grundlage für Ihre nächste Webanwendung.</value>
   </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>Ein einziger Befehl, um den APKG-Client zu installieren und Ihre APT-Pakete zu verwalten.</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Erreichen Sie mehr mit Aiursoft Template</value>
+  </data>
+  <data name="Add a source (requires sudo)" xml:space="preserve">
+    <value>Quelle hinzufügen (erfordert sudo)</value>
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>Admin-Site enthalten</value>
@@ -68,6 +77,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>APT-Paket-Repository</value>
   </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>Künstliche Intelligenz-Übersetzung</value>
@@ -120,6 +132,9 @@
   <data name="Bilingual Tutorials" xml:space="preserve">
     <value>Zweisprachige Tutorials</value>
   </data>
+  <data name="Browse All Packages" xml:space="preserve">
+    <value>Alle Pakete durchsuchen</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>Einmal erstellen, überall ausführen. Vollständig containerisierte Architektur.</value>
   </data>
@@ -167,6 +182,9 @@
   </data>
   <data name="Concise Docs" xml:space="preserve">
     <value>Klare Dokumentation</value>
+  </data>
+  <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
+    <value>Konfigurieren Sie komplexe APT-Quellen, GPG-Schlüssel und -Suites mit einem einzigen Befehl.</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>Konsistenzüberprüfung</value>
@@ -239,6 +257,9 @@
   </data>
   <data name="Dockerized for Easy Deployment" xml:space="preserve">
     <value>Dockerisiert für eine einfache Bereitstellung</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>.NET SDK herunterladen</value>
   </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>Dynamische Navigationsleiste</value>
@@ -378,6 +399,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>Horizon enthalten</value>
   </data>
+  <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
+    <value>Hosten, verwalten und verteilen Sie .deb-Pakete mit einem modernen NuGet-ähnlichen Erlebnis. Powered by APKG.</value>
+  </data>
   <data name="How can I get support?" xml:space="preserve">
     <value>Wie erhalte ich Support?</value>
   </data>
@@ -398,6 +422,15 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Enthält Tutorials</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>.NET SDK installieren</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>APKG CLI installieren</value>
+  </data>
+  <data name="Install via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Auto-updates, no native dependencies." xml:space="preserve">
+    <value>Installation über &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Automatische Updates, keine nativen Abhängigkeiten.</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>Integriertes Dateimanagement</value>
@@ -428,6 +461,9 @@
   </data>
   <data name="Lint Check" xml:space="preserve">
     <value>Lint-Prüfung</value>
+  </data>
+  <data name="Made Simple." xml:space="preserve">
+    <value>Einfach gemacht.</value>
   </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>Hohen Code-Qualität aufrechterhalten</value>
@@ -516,6 +552,9 @@
   <data name="One Click Start" xml:space="preserve">
     <value>Einfach-Start</value>
   </data>
+  <data name="One-Click APT Source Setup" xml:space="preserve">
+    <value>Ein-Klick-APT-Quelleneinrichtung</value>
+  </data>
   <data name="Open Source" xml:space="preserve">
     <value>Open Source</value>
   </data>
@@ -525,14 +564,23 @@
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>Optimierte Docker- &amp; K8s-Konfiguration</value>
   </data>
+  <data name="Or configure it permanently:" xml:space="preserve">
+    <value>Oder konfigurieren Sie es dauerhaft:</value>
+  </data>
   <data name="ORM &amp; Migrations" xml:space="preserve">
     <value>ORM &amp; Migrations</value>
   </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Sofort einsatzbereit</value>
   </data>
+  <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
+    <value>Packen Sie mehrere .deb-Dateien in ein .apkg-Paket mit Manifest. Laden Sie diese auf jeden APKG-Server hoch.</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>Berechtigungsfindung und -synchronisation</value>
+  </data>
+  <data name="Powered by AnduinOS" xml:space="preserve">
+    <value>Angetrieben von AnduinOS</value>
   </data>
   <data name="Pre-configured and tested" xml:space="preserve">
     <value>Vorkonfiguriert und getestet</value>
@@ -545,6 +593,9 @@
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>Qualitätsgate</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>Schnellstart</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-Autorisierung</value>
@@ -567,6 +618,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>Robuste Integrationstests</value>
   </data>
+  <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
+    <value>Unterstützt Windows, Linux und macOS über .NET.</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>Läuft ohne Internetverbindung erforderlich.</value>
   </data>
@@ -576,11 +630,20 @@
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Nahtlose Integration mit jedem OpenID Connect-Anbieter, mit automatischer Rollensynchronisierung.</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Suchen</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>Pakete suchen...</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>Sicher wechseln</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>Einfach &amp; einfach</value>
+  </data>
+  <data name="Simplified dpkg Packaging" xml:space="preserve">
+    <value>Vereinfachte dpkg-Paketierung</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>Ein Container</value>
@@ -648,6 +711,9 @@
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>Die Navigationsleiste passt sich automatisch basierend auf Benutzerrollen und Berechtigungen an.</value>
   </data>
+  <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
+    <value>Der offizielle Paketmanager, der vom AnduinOS-Ökosystem gewählt wurde.</value>
+  </data>
   <data name="The Philosophy" xml:space="preserve">
     <value>Die Philosophie</value>
   </data>
@@ -663,8 +729,14 @@
   <data name="Timezone-aware fields" xml:space="preserve">
     <value>Zeitzone-bewusste Felder</value>
   </data>
+  <data name="To use &lt;code&gt;sudo apkg&lt;/code&gt;, make the dotnet tools path available to root:" xml:space="preserve">
+    <value>Um &lt;code&gt;sudo apkg&lt;/code&gt; verwenden zu können, stellen Sie sicher, dass der Dotnet-Tools-Pfad für root verfügbar ist:</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>Vertraut von produktionsreifen Anwendungen wie AnduinOS, StatHub und Warp. Wir teilen diesen Code nicht nur; wir betreiben unseren gesamten Geschäftsbetrieb damit.</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>Ubuntu:</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>Einheitliches Umfeld</value>
@@ -689,6 +761,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>Was unsere Entwickler sagen</value>
+  </data>
+  <data name="Why APKG?" xml:space="preserve">
+    <value>Warum APKG?</value>
   </data>
   <data name="Why choose Aiursoft Template?" xml:space="preserve">
     <value>Warum Aiursoft Template wählen?</value>

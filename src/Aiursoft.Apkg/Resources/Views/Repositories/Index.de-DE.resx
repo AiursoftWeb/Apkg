@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>Aktionen</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>Ein APT-Repository stellt .deb-Pakete für Ihre Systeme bereit. Stellen Sie es sich als einen privaten App-Store vor – Sie legen fest, welche Pakete verfügbar sind.</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Sind Sie sicher, dass Sie das Repository löschen möchten?</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>Jedes Repository ist einer Suite zugeordnet (z. B. questing). Verwenden Sie &lt;code&gt;apkg add-source&lt;/code&gt;, um ein Repository auf Ihrem System zu konfigurieren.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Bearbeiten</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Der Snapshot, der von einem laufenden Repository-Sync-Job erstellt wird. Er ersetzt den Live-Bucket, wenn der Job erfolgreich abgeschlossen wird.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tipp:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Pakete insgesamt</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Was ist ein Repository?</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>Gibt die Release-Datei des Repositorys eine GPG-Signatur auf. apt-Clients, die mit &apos;signed-by=&apos; in sources.list konfiguriert sind, lehnen Repositorys ohne Signatur oder mit dem falschen Schlüssel ab.</value>

@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>Thêm Mirror Mới</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>Gương nguồn (upstream mirror) đồng bộ siêu dữ liệu gói từ kho lưu trữ APT bên ngoài (như Ubuntu) vào APKG. Đây là nguồn dữ liệu cho các kho lưu trữ cục bộ của bạn.</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>Kiến trúc</value>
   </data>
@@ -74,6 +77,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Lần kéo cuối cùng</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>Gương phản chiếu chạy theo lịch trình. Kiểm tra cột &apos;Lần kéo cuối&apos; để xem thời điểm đồng bộ hóa cuối cùng của từng gương.</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Chưa từng kéo</value>
@@ -129,6 +135,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Điều này cũng sẽ xóa tất cả các gói và bucket liên quan!</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Mẹo:</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>Không được bảo vệ</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>Đã xác minh</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>Gương chiếu là gì?</value>
   </data>
 
 </root>
