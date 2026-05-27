@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Mirrors" xml:space="preserve">
+      <data name="A &apos;Passed&apos; status means the mirror&apos;s signature is valid. &apos;Failed&apos; may indicate expired keys or corrupted data." xml:space="preserve">
+    <value>Trạng thái &apos;Đã qua&apos; có nghĩa là chữ ký của máy phản chiếu hợp lệ. &apos;Thất bại&apos; có thể cho thấy khóa đã hết hạn hoặc dữ liệu bị hỏng.</value>
+  </data>
+  <data name="Back to Mirrors" xml:space="preserve">
     <value>Quay lại danh sách Mirrors</value>
   </data>
   <data name="Bucket Replacements" xml:space="preserve">
@@ -35,6 +38,9 @@
   </data>
   <data name="file" xml:space="preserve">
     <value>tệp</value>
+  </data>
+  <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
+    <value>Chữ ký GPG đảm bảo các gói phần mềm đến từ nguồn tin cậy và chưa bị sửa đổi. Tệp InRelease của mirror được xác minh bằng khóa GPG của nó.</value>
   </data>
   <data name="GPG Verify Details" xml:space="preserve">
     <value>Chi tiết xác thực GPG</value>
@@ -69,11 +75,17 @@
   <data name="Target" xml:space="preserve">
     <value>Mục tiêu</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Mẹo:</value>
+  </data>
   <data name="Verification Log" xml:space="preserve">
     <value>Nhật ký xác minh</value>
   </data>
   <data name="Verification Target" xml:space="preserve">
     <value>Mục tiêu xác thực</value>
+  </data>
+  <data name="What is GPG Verification?" xml:space="preserve">
+    <value>Xác thực GPG là gì?</value>
   </data>
 
 </root>

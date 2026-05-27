@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>Gói .deb là một tập hợp phần mềm sẵn sàng cài đặt trên hệ thống Debian/Ubuntu. Nó chứa các tệp thực thi, cấu hình và siêu dữ liệu phụ thuộc.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Kiến trúc</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -42,6 +45,9 @@
   <data name="Download Size" xml:space="preserve">
     <value>Kích thước tải xuống</value>
   </data>
+  <data name="Download the .deb directly or browse reverse dependencies above." xml:space="preserve">
+    <value>Tải trực tiếp tệp .deb hoặc xem các gói phụ thuộc ngược ở trên.</value>
+  </data>
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Không thể tải các phụ thuộc ngược.</value>
   </data>
@@ -50,6 +56,9 @@
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>Trang chủ</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Cách sử dụng:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Kích thước đã cài đặt</value>
@@ -119,6 +128,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Ảo (Đồng bộ hóa chậm)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Gói (Package) là gì?</value>
   </data>
 
 </root>

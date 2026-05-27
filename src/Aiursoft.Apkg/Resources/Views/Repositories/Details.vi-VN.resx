@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to List" xml:space="preserve">
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>Kho APT là tập hợp các gói .deb mà hệ thống của bạn có thể cài đặt từ đó. Hãy nghĩ về nó như một cửa hàng ứng dụng cho hệ thống Linux của bạn.</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
     <value>Quay lại danh sách</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
@@ -39,11 +42,20 @@
   <data name="Distro" xml:space="preserve">
     <value>Hệ điều hành</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Chưa có &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Cách sử dụng:</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Thông tin</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Thùng chứa trực tiếp</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>Cài đặt thủ công (bash):</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>Nguồn Mirror</value>
@@ -57,8 +69,17 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>Thiết lập một dòng:</value>
   </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>Cài đặt nhanh với APKG CLI:</value>
+  </data>
   <data name="Repository Details" xml:space="preserve">
     <value>Chi tiết Kho lưu trữ</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>Chạy lệnh &lt;code&gt;sudo apkg add-source&lt;/code&gt; bên phải để cấu hình kho này, sau đó sử dụng &lt;code&gt;sudo apt install&lt;/code&gt; như bình thường.</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Xem cách cài đặt APKG CLI.</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Phiên bản</value>
@@ -68,6 +89,9 @@
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>Điều này sử dụng định dạng DEB822 hiện đại và một kho khóa được giới hạn để đảm bảo bảo mật và độ tin cậy tối đa.</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Kho lưu trữ là gì?</value>
   </data>
 
 </root>

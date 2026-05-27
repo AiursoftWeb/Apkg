@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name=".NET Global Tool" xml:space="preserve">
+    <value>Công cụ toàn cầu .NET</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Hỗ trợ kiểu &quot;Fire-and-forget&quot; cho các tác vụ dài hạn (như email hoặc AI), đi kèm giao diện người dùng đồ họa (GUI) để quản lý hàng đợi, xử lý song song và hủy bỏ.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,8 +39,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Một nền tảng hiện đại, giàu tính năng và có khả năng mở rộng cao cho ứng dụng web tiếp theo của bạn.</value>
   </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>Chỉ một lệnh để cài đặt máy khách APKG và bắt đầu quản lý các gói APT của bạn.</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Đạt được nhiều hơn với Aiursoft Template</value>
+  </data>
+  <data name="Add a source (requires sudo)" xml:space="preserve">
+    <value>Thêm nguồn (yêu cầu sudo)</value>
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>Bao gồm trang quản trị</value>
@@ -68,6 +77,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>Kho gói APT</value>
   </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>Dịch thuật Trí tuệ nhân tạo</value>
@@ -120,6 +132,9 @@
   <data name="Bilingual Tutorials" xml:space="preserve">
     <value>Hướng dẫn song ngữ</value>
   </data>
+  <data name="Browse All Packages" xml:space="preserve">
+    <value>Duyệt tất cả các gói</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>Xây dựng một lần, chạy ở bất kỳ đâu. Kiến trúc được đóng gói hoàn toàn trong container.</value>
   </data>
@@ -167,6 +182,9 @@
   </data>
   <data name="Concise Docs" xml:space="preserve">
     <value>Tài liệu ngắn gọn</value>
+  </data>
+  <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
+    <value>Cấu hình các nguồn APT phức tạp, khóa GPG và các bộ phần mềm chỉ với một lệnh.</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>Xác thực tính nhất quán</value>
@@ -239,6 +257,9 @@
   </data>
   <data name="Dockerized for Easy Deployment" xml:space="preserve">
     <value>Docker hóa để triển khai dễ dàng</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>Tải xuống .NET SDK</value>
   </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>Thanh Điều Hướng Động</value>
@@ -378,6 +399,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>Đã bao gồm Horizon</value>
   </data>
+  <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
+    <value>Lưu trữ, quản lý và phân phối các gói .deb với trải nghiệm hiện đại tương tự NuGet. Được cung cấp bởi APKG.</value>
+  </data>
   <data name="How can I get support?" xml:space="preserve">
     <value>Làm thế nào để tôi nhận được hỗ trợ?</value>
   </data>
@@ -398,6 +422,15 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Bao gồm Hướng dẫn</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>Cài đặt .NET SDK</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>Cài đặt APKG CLI</value>
+  </data>
+  <data name="Install via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Auto-updates, no native dependencies." xml:space="preserve">
+    <value>Cài đặt qua &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Tự động cập nhật, không phụ thuộc phần gốc.</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>Quản lý Tập tin Tích hợp</value>
@@ -428,6 +461,9 @@
   </data>
   <data name="Lint Check" xml:space="preserve">
     <value>Kiểm tra Lint</value>
+  </data>
+  <data name="Made Simple." xml:space="preserve">
+    <value>Đơn giản hóa.</value>
   </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>Duy trì chất lượng mã nguồn cao</value>
@@ -516,6 +552,9 @@
   <data name="One Click Start" xml:space="preserve">
     <value>Một Click Bắt Đầu</value>
   </data>
+  <data name="One-Click APT Source Setup" xml:space="preserve">
+    <value>Thiết lập nguồn APT chỉ với một cú nhấp chuột</value>
+  </data>
   <data name="Open Source" xml:space="preserve">
     <value>Mã nguồn mở</value>
   </data>
@@ -525,14 +564,23 @@
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>Cấu hình Docker &amp; K8s được tối ưu hóa</value>
   </data>
+  <data name="Or configure it permanently:" xml:space="preserve">
+    <value>Hoặc cấu hình vĩnh viễn:</value>
+  </data>
   <data name="ORM &amp; Migrations" xml:space="preserve">
     <value>ORM &amp; Di chuyển dữ liệu</value>
   </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Sẵn sàng sử dụng ngay</value>
   </data>
+  <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
+    <value>Đóng gói nhiều tệp .deb thành một gói .apkg duy nhất kèm theo tệp kê khai. Tải lên bất kỳ máy chủ APKG nào.</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>Phát hiện và đồng bộ quyền</value>
+  </data>
+  <data name="Powered by AnduinOS" xml:space="preserve">
+    <value>Được cung cấp bởi AnduinOS</value>
   </data>
   <data name="Pre-configured and tested" xml:space="preserve">
     <value>Đã được cấu hình sẵn và kiểm tra</value>
@@ -545,6 +593,9 @@
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>Cổng chất lượng</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>Bắt đầu nhanh</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Ủy quyền RBAC</value>
@@ -567,6 +618,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>Kiểm thử tích hợp mạnh mẽ</value>
   </data>
+  <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
+    <value>Hoạt động trên Windows, Linux và macOS thông qua .NET.</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>Chạy mà không cần kết nối internet.</value>
   </data>
@@ -576,11 +630,20 @@
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Tích hợp liền mạch với bất kỳ nhà cung cấp OpenID Connect nào, đồng thời tự động đồng bộ hóa vai trò.</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>Tìm kiếm gói...</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>Chuyển đổi với sự tự tin</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>Đơn giản &amp; Dễ dàng</value>
+  </data>
+  <data name="Simplified dpkg Packaging" xml:space="preserve">
+    <value>Đóng gói dpkg đơn giản hóa</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>Một Container</value>
@@ -648,6 +711,9 @@
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>Thanh điều hướng tự động điều chỉnh dựa trên vai trò và quyền của người dùng.</value>
   </data>
+  <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
+    <value>Trình quản lý gói chính thức được hệ sinh thái AnduinOS chọn.</value>
+  </data>
   <data name="The Philosophy" xml:space="preserve">
     <value>Triết lý</value>
   </data>
@@ -663,8 +729,14 @@
   <data name="Timezone-aware fields" xml:space="preserve">
     <value>Trường nhận biết múi giờ</value>
   </data>
+  <data name="To use &lt;code&gt;sudo apkg&lt;/code&gt;, make the dotnet tools path available to root:" xml:space="preserve">
+    <value>Để sử dụng &lt;code&gt;sudo apkg&lt;/code&gt;, hãy thêm đường dẫn công cụ dotnet vào PATH của root:</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>Được tin tưởng bởi các ứng dụng sản xuất cấp độ cao, bao gồm AnduinOS, StatHub, và Warp. Chúng tôi không chỉ chia sẻ mã nguồn này; chúng tôi vận hành toàn bộ doanh nghiệp của mình dựa trên nó.</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>Ubuntu:</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>Môi trường thống nhất</value>
@@ -689,6 +761,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>Những gì nhà phát triển của chúng tôi nói</value>
+  </data>
+  <data name="Why APKG?" xml:space="preserve">
+    <value>Tại sao chọn APKG?</value>
   </data>
   <data name="Why choose Aiursoft Template?" xml:space="preserve">
     <value>Tại sao nên chọn Aiursoft Template?</value>

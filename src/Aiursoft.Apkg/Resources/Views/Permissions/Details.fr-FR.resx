@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>Une autorisation est une capacité discrète (par exemple, « Créer un miroir », « Supprimer un package »). Les autorisations sont regroupées en rôles et affectées aux utilisateurs.</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>Retour aux permissions</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>Nom de la permission</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>Les autorisations sont granulaires. Consultez les rôles qui accordent chaque autorisation pour comprendre qui peut effectuer quelles actions.</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>Nom du rôle</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>Les utilisateurs suivants ont cette permission via leur appartenance à un rôle.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Conseil :</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>Nom d&apos;utilisateur</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>Utilisateurs avec cette autorisation</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>Qu&apos;est-ce qu&apos;une autorisation ?</value>
   </data>
 
 </root>

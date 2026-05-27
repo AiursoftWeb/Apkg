@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name=".NET Global Tool" xml:space="preserve">
+    <value>เครื่องมือระดับสากล .NET</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>การสนับสนุนแบบ &quot;Fire-and-forget&quot; สำหรับงานที่ใช้เวลานาน (เช่น อีเมลหรือ AI) พร้อมด้วย GUI สำหรับการจัดการคิว การประมวลผลแบบขนาน และการยกเลิก</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -36,8 +39,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>พื้นฐานที่ทันสมัย อุดมไปด้วยคุณสมบัติ และสามารถขยายได้สูงสำหรับเว็บแอปพลิเคชันถัดไปของคุณ</value>
   </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>คำสั่งเดียวสำหรับติดตั้งไคลเอ็นต์ APKG และเริ่มต้นจัดการแพ็กเกจ APT ของคุณ</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>บรรลุผลได้มากขึ้นด้วย Aiursoft Template</value>
+  </data>
+  <data name="Add a source (requires sudo)" xml:space="preserve">
+    <value>เพิ่มแหล่งข้อมูล (ต้องใช้ sudo)</value>
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>รวมเว็บไซต์ผู้ดูแลระบบ</value>
@@ -68,6 +77,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>ที่เก็บแพ็กเก็ต APT</value>
   </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>การแปลด้วยปัญญาประดิษฐ์</value>
@@ -120,6 +132,9 @@
   <data name="Bilingual Tutorials" xml:space="preserve">
     <value>คู่มือสองภาษา</value>
   </data>
+  <data name="Browse All Packages" xml:space="preserve">
+    <value>เรียกดูแพ็กเกจทั้งหมด</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>สร้างครั้งเดียว รันได้ทุกที่ สถาปัตยกรรมที่ถูกบรรจุในคอนเทนเนอร์อย่างสมบูรณ์</value>
   </data>
@@ -167,6 +182,9 @@
   </data>
   <data name="Concise Docs" xml:space="preserve">
     <value>เอกสารกระชับ</value>
+  </data>
+  <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
+    <value>กำหนดค่าแหล่ง APT ที่ซับซ้อน คีย์ GPG และชุดซอฟต์แวร์ ด้วยคำสั่งเดียว</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>การตรวจสอบความสอดคล้อง</value>
@@ -239,6 +257,9 @@
   </data>
   <data name="Dockerized for Easy Deployment" xml:space="preserve">
     <value>ใช้ Docker สำหรับการติดตั้งอย่างง่าย</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>ดาวน์โหลด .NET SDK</value>
   </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>แถบนำทางแบบไดนามิก</value>
@@ -378,6 +399,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>Horizon รวมมาให้แล้ว</value>
   </data>
+  <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
+    <value>โฮสต์ จัดการ และแจกจ่ายแพ็กเกจ .deb ด้วยประสบการณ์สมัยใหม่ที่คล้ายกับ NuGet ขับเคลื่อนโดย APKG</value>
+  </data>
   <data name="How can I get support?" xml:space="preserve">
     <value>ฉันจะได้รับการสนับสนุนได้อย่างไร?</value>
   </data>
@@ -398,6 +422,15 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>รวมบทช่วยสอน</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>ติดตั้ง .NET SDK</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>ติดตั้ง APKG CLI</value>
+  </data>
+  <data name="Install via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Auto-updates, no native dependencies." xml:space="preserve">
+    <value>ติดตั้งผ่าน &lt;code&gt;dotnet tool install -g&lt;/code&gt; อัปเดตอัตโนมัติ ไม่ต้องพึ่งพาไลบรารีระบบ</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>การจัดการไฟล์แบบครบวงจร</value>
@@ -428,6 +461,9 @@
   </data>
   <data name="Lint Check" xml:space="preserve">
     <value>ตรวจสอบลินต์</value>
+  </data>
+  <data name="Made Simple." xml:space="preserve">
+    <value>ใช้งานง่ายเพียงเท่านี้</value>
   </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>รักษาคุณภาพโค้ดให้อยู่ในระดับสูง</value>
@@ -516,6 +552,9 @@
   <data name="One Click Start" xml:space="preserve">
     <value>เริ่มต้นด้วยคลิกเดียว</value>
   </data>
+  <data name="One-Click APT Source Setup" xml:space="preserve">
+    <value>การตั้งค่าแหล่ง APT แบบคลิกเดียว</value>
+  </data>
   <data name="Open Source" xml:space="preserve">
     <value>โอเพนซอร์ส</value>
   </data>
@@ -525,14 +564,23 @@
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>การตั้งค่า Docker และ K8s ที่ได้รับการปรับให้เหมาะสม</value>
   </data>
+  <data name="Or configure it permanently:" xml:space="preserve">
+    <value>หรือกำหนดค่าให้ถาวร:</value>
+  </data>
   <data name="ORM &amp; Migrations" xml:space="preserve">
     <value>ORM และการย้ายฐานข้อมูล</value>
   </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>พร้อมใช้งานทันที</value>
   </data>
+  <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
+    <value>รวมไฟล์ .deb หลายไฟล์เข้าด้วยกันเป็นแพ็คเกจ .apkg เดียวพร้อมไฟล์ manifest อัปโหลดไปยังเซิร์ฟเวอร์ APKG ใดๆ ได้</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>การค้นพบและการซิงค์สิทธิ์</value>
+  </data>
+  <data name="Powered by AnduinOS" xml:space="preserve">
+    <value>ขับเคลื่อนโดย AnduinOS</value>
   </data>
   <data name="Pre-configured and tested" xml:space="preserve">
     <value>ตั้งค่าล่วงหน้าและผ่านการทดสอบแล้ว</value>
@@ -545,6 +593,9 @@
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>เกตเวย์คุณภาพ</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>เริ่มต้นอย่างรวดเร็ว</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>การอนุญาตตามบทบาท RBAC</value>
@@ -567,6 +618,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>การทดสอบการรวมระบบที่มั่นคง</value>
   </data>
+  <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
+    <value>ทำงานบน Windows, Linux และ macOS ผ่าน .NET</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>ทำงานได้โดยไม่ต้องใช้การเชื่อมต่ออินเทอร์เน็ต</value>
   </data>
@@ -576,11 +630,20 @@
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>ผสานรวมได้อย่างราบรื่นกับผู้ให้บริการ OpenID Connect ใดก็ได้ พร้อมการซิงโครไนซ์บทบาทอัตโนมัติ</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>ค้นหา</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>ค้นหาแพ็กเกจ...</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>เปลี่ยนไปอย่างมั่นใจ</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>ง่ายและสะดวก</value>
+  </data>
+  <data name="Simplified dpkg Packaging" xml:space="preserve">
+    <value>การแพ็ก dpkg ที่เรียบง่าย</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>Single Container</value>
@@ -648,6 +711,9 @@
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>แถบนำทางจะปรับเปลี่ยนโดยอัตโนมัติตามบทบาทและสิทธิ์ของผู้ใช้</value>
   </data>
+  <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
+    <value>ตัวจัดการแพ็คเกจทางการที่ได้รับการเลือกใช้งานโดยระบบนิเวศของ AnduinOS</value>
+  </data>
   <data name="The Philosophy" xml:space="preserve">
     <value>ปรัชญา</value>
   </data>
@@ -663,8 +729,14 @@
   <data name="Timezone-aware fields" xml:space="preserve">
     <value>ฟิลด์ที่ตระหนักถึงเขตเวลา</value>
   </data>
+  <data name="To use &lt;code&gt;sudo apkg&lt;/code&gt;, make the dotnet tools path available to root:" xml:space="preserve">
+    <value>เพื่อใช้งาน &lt;code&gt;sudo apkg&lt;/code&gt; กรุณาทำให้ path ของ dotnet tools ใช้งานได้สำหรับ root:</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>ได้รับการไว้วางใจจากแอปพลิเคชันระดับการผลิต รวมถึง AnduinOS, StatHub, และ Warp เรายังไม่เพียงแค่แบ่งปันโค้ดเท่านั้น แต่เราใช้โค้ดนี้ในการดำเนินธุรกิจทั้งหมดของเรา</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>อูบุนตู:</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>Unified Env</value>
@@ -689,6 +761,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>นักพัฒนาของเราพูดว่าอย่างไร</value>
+  </data>
+  <data name="Why APKG?" xml:space="preserve">
+    <value>ทำไมต้องเลือก APKG?</value>
   </data>
   <data name="Why choose Aiursoft Template?" xml:space="preserve">
     <value>ทำไมต้องเลือก Aiursoft Template?</value>

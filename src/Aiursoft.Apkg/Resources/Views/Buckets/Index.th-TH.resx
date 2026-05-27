@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+    <value>Bucket คือสแนปช็อตที่ระบุเวอร์ชันของแพ็กเกจในเรปอสิตอรี ณ ช่วงเวลาใดเวลาหนึ่ง Bucket หลักคือเวอร์ชันสดที่จะให้บริการแก่ไคลเอนต์ apt</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>การดำเนินการ</value>
   </data>
   <data name="Active Usage" xml:space="preserve">
@@ -29,6 +32,9 @@
   </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>ประวัติการSnapshotของBucket</value>
+  </data>
+  <data name="Buckets allow atomic updates. New packages are built into a fresh bucket, then the primary pointer switches over seamlessly." xml:space="preserve">
+    <value>ระบบ Buckets รองรับการอัปเดตแบบอะตอมมิก แพ็กเกจใหม่จะถูกสร้างใน Bucket ใหม่ จากนั้นตัวชี้หลักจะสลับไปอย่างราบรื่น</value>
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>เวลาที่สร้าง</value>
@@ -65,6 +71,12 @@
   </data>
   <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
     <value>Snapshot นี้กำลังถูกให้บริการแก่ไคลเอนต์ apt ในฐานะดัชนีปัจจุบัน</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>เคล็ดลับ:</value>
+  </data>
+  <data name="What is a Bucket?" xml:space="preserve">
+    <value>อะไรคือ Bucket?</value>
   </data>
 
 </root>

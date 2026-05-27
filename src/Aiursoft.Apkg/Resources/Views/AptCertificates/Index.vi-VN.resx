@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>Tạo Khóa Mới</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>Chứng chỉ GPG ký vào siêu dữ liệu kho lưu trữ của bạn để máy khách apt có thể xác minh rằng các gói phần mềm chưa bị sửa đổi.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Tên</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>Thường xuyên đổi mới chứng chỉ và bảo mật các khóa riêng tư. Các kho không ký cần có tùy chọn &lt;code&gt;Trusted: yes&lt;/code&gt; trên client.</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>Chứng chỉ ký</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>Điều này sẽ làm hỏng tất cả các kho lưu trữ đang sử dụng nó!</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Mẹo:</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>Chứng chỉ là gì?</value>
   </data>
 
 </root>

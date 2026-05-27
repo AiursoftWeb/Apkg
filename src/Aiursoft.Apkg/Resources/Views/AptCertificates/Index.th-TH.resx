@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>สร้างคีย์ใหม่</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>ใบรับรอง GPG จะลงนามในข้อมูลเมตาของที่เก็บแพ็กเกจ เพื่อให้ลูกค้า apt สามารถตรวจสอบได้ว่าแพ็กเกจไม่ได้รับการแก้ไข</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>ชื่อ</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>การหมุนเวียนใบรับรองเป็นระยะและรักษาความปลอดภัยของคีย์ส่วนตัว รีโพที่ไม่มีการลงนามต้องมี &lt;code&gt;Trusted: yes&lt;/code&gt; ที่ไคลเอนต์</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>ใบรับรองการลงนาม</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>สิ่งนี้จะทำให้รีพอสิตอรีทั้งหมดที่ใช้สิ่งนี้ใช้งานไม่ได้!</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>เคล็ดลับ:</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>อะไรคือใบรับรอง?</value>
   </data>
 
 </root>

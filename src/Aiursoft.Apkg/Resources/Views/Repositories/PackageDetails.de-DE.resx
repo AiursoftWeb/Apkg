@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>Ein .deb-Paket ist ein Softwarepaket, das bereit ist, auf Debian-/Ubuntu-Systemen installiert zu werden. Es enthält Binärdateien, Konfigurationsdateien und Abhängigkeitsmetadaten.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Architektur</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -33,6 +36,9 @@
   <data name="Description" xml:space="preserve">
     <value>Beschreibung</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Sie haben keine &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
   <data name="Download .deb" xml:space="preserve">
     <value>.deb herunterladen</value>
   </data>
@@ -42,6 +48,9 @@
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Fehler beim Laden der Abhängigkeiten.</value>
   </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>Fügen Sie zuerst das APT-Repository über &lt;code&gt;sudo apkg add-source&lt;/code&gt; hinzu, dann &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Oder laden Sie das .deb direkt herunter.</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>Hashes</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="How to Install" xml:space="preserve">
     <value>Installation</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Anleitung:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Installierte Größe</value>
@@ -71,6 +83,12 @@
   </data>
   <data name="No relations." xml:space="preserve">
     <value>Keine Beziehungen.</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>Option A: Mit APKG CLI (empfohlen):</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>Option B: Manuelles Bash-Setup:</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>Ursprung</value>
@@ -108,6 +126,9 @@
   <data name="Section" xml:space="preserve">
     <value>Abschnitt</value>
   </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Siehe, wie APKG CLI installiert wird.</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Quelle</value>
   </data>
@@ -131,6 +152,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Virtuell (Lazy Sync)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Was ist ein Paket?</value>
   </data>
 
 </root>

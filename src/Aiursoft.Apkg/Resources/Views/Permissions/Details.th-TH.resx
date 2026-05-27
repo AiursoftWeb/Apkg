@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>สิทธิ์คือความสามารถเฉพาะอย่าง (เช่น &apos;สร้าง Mirror&apos;, &apos;ลบ Package&apos;) สิทธิ์จะถูกจัดกลุ่มเข้าเป็นบทบาทและมอบหมายให้ผู้ใช้</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>กลับไปยังสิทธิ์</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>ชื่อสิทธิ์</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>สิทธิ์การเข้าถึงมีความละเอียดสูง ตรวจสอบบทบาทที่กำหนดสิทธิ์แต่ละรายการเพื่อเข้าใจว่าใครสามารถดำเนินการอะไรได้บ้าง</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>ชื่อบทบาท</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>ผู้ใช้ต่อไปนี้มีสิทธิ์นี้ผ่านการเป็นสมาชิกในบทบาทของพวกเขา</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>เคล็ดลับ:</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>ชื่อผู้ใช้</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>ผู้ใช้ที่มีสิทธิ์นี้</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>สิทธิ์ (Permission) คืออะไร?</value>
   </data>
 
 </root>

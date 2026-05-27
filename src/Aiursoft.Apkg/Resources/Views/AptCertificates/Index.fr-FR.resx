@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>Générer une nouvelle clé</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>Les certificats GPG signent les métadonnées de votre dépôt afin que les clients apt puissent vérifier que les paquets n&apos;ont pas été altérés.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nom</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>Renouvelez les certificats régulièrement et gardez les clés privées en sécurité. Les dépôts non signés nécessitent &lt;code&gt;Trusted: yes&lt;/code&gt; sur le client.</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>Certificats de signature</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>Cela interrompra tous les dépôts qui l&apos;utilisent !</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Conseil :</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>Qu&apos;est-ce qu&apos;un certificat ?</value>
   </data>
 
 </root>

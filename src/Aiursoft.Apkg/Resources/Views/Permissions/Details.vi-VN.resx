@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>Quyền cho phép là một khả năng riêng biệt (ví dụ: &apos;Tạo Mirror&apos;, &apos;Xóa Package&apos;). Quyền cho phép được nhóm thành các vai trò và gán cho người dùng.</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>Quay lại Quyền</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>Tên quyền</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>Quyền được phân chia chi tiết. Hãy kiểm tra các vai trò cấp từng quyền để hiểu ai có thể thực hiện hành động gì.</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>Tên vai trò</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>Các người dùng sau đây có quyền này thông qua các vai trò của họ.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Mẹo:</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>Tên người dùng</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>Người dùng có quyền này</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>Quyền là gì?</value>
   </data>
 
 </root>

@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>การดำเนินการ</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>APT repository จะให้ไฟล์แพ็กเกจ .deb แก่ระบบของคุณ ลองจินตนาการว่าเป็นร้านค้าแอปส่วนตัว — คุณเป็นผู้ควบคุมแพ็กเกจใดบ้างที่จะให้บริการ</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>คุณแน่ใจหรือไม่ว่าต้องการลบที่เก็บรหัส</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>ดิสโตร</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>แต่ละที่เก็บแหล่งข้อมูล (repository) จะเชื่อมต่อกับชุด (suite) หนึ่งชุด (เช่น questing) ใช้คำสั่ง &lt;code&gt;apkg add-source&lt;/code&gt; เพื่อกำหนดค่าที่เก็บแหล่งข้อมูลบนเครื่องของคุณ</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>แก้ไข</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Snapshot ที่กำลังถูกสร้างโดยงาน Repository Sync ที่กำลังทำงานอยู่ จะแทนที่ bucket ที่มีชีวิตเมื่อการทำงานสำเร็จ</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>เคล็ดลับ:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>จำนวนแพ็กเกจทั้งหมด</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>เรโพอซิทอรี คืออะไร?</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>ตรวจสอบว่าไฟล์ Release ของ repository มีการลงนามด้วย GPG หรือไม่ ไคลเอนต์ apt ที่กำหนดค่าด้วย &apos;signed-by=&apos; ใน sources.list จะปฏิเสธ repository ที่ไม่มีลายเซ็นหรือลงนามด้วยคีย์ที่ไม่ถูกต้อง</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>แพ็กเกจ .deb คือชุดซอฟต์แวร์ที่พร้อมติดตั้งบนระบบ Debian/Ubuntu โดยจะรวมไฟล์ไบนารี คอนฟิกไฟล์ และข้อมูลเมตาของ dependencies ไว้ด้วยกัน</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>สถาปัตยกรรม</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -33,6 +36,9 @@
   <data name="Description" xml:space="preserve">
     <value>คำอธิบาย</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>ยังไม่มี &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
   <data name="Download .deb" xml:space="preserve">
     <value>ดาวน์โหลด .deb</value>
   </data>
@@ -42,6 +48,9 @@
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>ไม่สามารถโหลด reverse dependencies ได้</value>
   </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>ขั้นแรกให้เพิ่ม APT repository ผ่าน &lt;code&gt;sudo apkg add-source&lt;/code&gt; จากนั้นใช้คำสั่ง &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt; หรือดาวน์โหลดไฟล์ .deb โดยตรงก็ได้</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>แฮช</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="How to Install" xml:space="preserve">
     <value>วิธีการติดตั้ง</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>วิธีใช้งาน:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>ขนาดที่ติดตั้ง</value>
@@ -71,6 +83,12 @@
   </data>
   <data name="No relations." xml:space="preserve">
     <value>ไม่มีความสัมพันธ์</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>ตัวเลือก A: ใช้ APKG CLI (แนะนำ):</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>ตัวเลือก B: การตั้งค่า bash แบบแมนนวล:</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>แหล่งที่มา</value>
@@ -108,6 +126,9 @@
   <data name="Section" xml:space="preserve">
     <value>ส่วน</value>
   </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>ดูวิธีติดตั้ง APKG CLI</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>แหล่งที่มา</value>
   </data>
@@ -131,6 +152,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>เสมือน (ซิงค์แบบเลื่อน)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>แพ็กเกจคืออะไร?</value>
   </data>
 
 </root>

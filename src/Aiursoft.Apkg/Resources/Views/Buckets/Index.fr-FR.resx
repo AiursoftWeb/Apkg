@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+    <value>Un bucket est un instantané versionné des packages d&apos;un dépôt à un instant donné. Le bucket principal est celui actif servi aux clients apt.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
   <data name="Active Usage" xml:space="preserve">
@@ -29,6 +32,9 @@
   </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>Historique des instantanés de bucket</value>
+  </data>
+  <data name="Buckets allow atomic updates. New packages are built into a fresh bucket, then the primary pointer switches over seamlessly." xml:space="preserve">
+    <value>Les buckets permettent des mises à jour atomiques. Les nouveaux packages sont construits dans un bucket frais, puis le pointeur principal bascule de manière transparente.</value>
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>Heure de création</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
     <value>Cette capture est activement servie aux clients apt en tant qu&apos;index actuel.</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Astuce :</value>
+  </data>
+  <data name="What is a Bucket?" xml:space="preserve">
+    <value>Qu&apos;est-ce qu&apos;un seau ?</value>
   </data>
 
 </root>

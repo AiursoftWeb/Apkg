@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Mirrors" xml:space="preserve">
+      <data name="A &apos;Passed&apos; status means the mirror&apos;s signature is valid. &apos;Failed&apos; may indicate expired keys or corrupted data." xml:space="preserve">
+    <value>สถานะ &apos;ผ่าน&apos; หมายถึงลายเซ็นของมิเรอร์ถูกต้อง &apos;ล้มเหลว&apos; อาจบ่งชี้ว่าคีย์หมดอายุหรือข้อมูลเสียหาย</value>
+  </data>
+  <data name="Back to Mirrors" xml:space="preserve">
     <value>กลับไปยังรายการกระจก</value>
   </data>
   <data name="Bucket Replacements" xml:space="preserve">
@@ -35,6 +38,9 @@
   </data>
   <data name="file" xml:space="preserve">
     <value>ไฟล์</value>
+  </data>
+  <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
+    <value>การลงชื่อ GPG รับประกันว่าแพ็กเกจมาจากแหล่งที่เชื่อถือได้และยังไม่ถูกแก้ไข ไฟล์ InRelease ของมิเรอร์ได้รับการตรวจสอบกับคีย์ GPG ของมัน</value>
   </data>
   <data name="GPG Verify Details" xml:space="preserve">
     <value>รายละเอียดการตรวจสอบ GPG</value>
@@ -69,11 +75,17 @@
   <data name="Target" xml:space="preserve">
     <value>เป้าหมาย</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>เคล็ดลับ:</value>
+  </data>
   <data name="Verification Log" xml:space="preserve">
     <value>บันทึกการตรวจสอบ</value>
   </data>
   <data name="Verification Target" xml:space="preserve">
     <value>เป้าหมายในการตรวจสอบ</value>
+  </data>
+  <data name="What is GPG Verification?" xml:space="preserve">
+    <value>การตรวจสอบ GPG คืออะไร?</value>
   </data>
 
 </root>
