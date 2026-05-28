@@ -15,9 +15,9 @@ public class AptMirrorService(
 {
     private string ObjectsRoot => folders.GetObjectsFolder();
 
-    public async Task<string?> GetLocalPoolPath(string path)
+    public async Task<string?> GetLocalPoolPath(string path, string? distro = null, string? repoName = null)
     {
-        logger.LogInformation("Lazy Sync requested for path: {Path}", path);
+        logger.LogInformation("Lazy Sync requested for path: {Path} (distro={Distro}, repo={Repo})", path, distro, repoName);
 
         // 1. Normalize path: ensure it starts with pool/
         if (!path.StartsWith("pool/") && !path.StartsWith("/pool/"))
@@ -26,8 +26,36 @@ public class AptMirrorService(
         }
         path = path.TrimStart('/'); // Standard: no leading slash for DB matching
 
-        // 2. Try to find the package
-        var package = await dbContext.AptPackages
+        // 2. Try to find the package, scoped to the primary buckets of the requested distro/repo
+        //    to avoid returning a stale record from an orphaned bucket whose SHA256 no longer
+        //    matches the Packages index that was generated from the current primary bucket.
+        AptPackage? package = null;
+
+        if (!string.IsNullOrWhiteSpace(distro) || !string.IsNullOrWhiteSpace(repoName))
+        {
+            var repoQuery = dbContext.AptRepositories.AsNoTracking().AsQueryable();
+            if (!string.IsNullOrWhiteSpace(distro))
+                repoQuery = repoQuery.Where(r => r.Distro == distro);
+            if (!string.IsNullOrWhiteSpace(repoName))
+                repoQuery = repoQuery.Where(r => r.Name == repoName || r.Suite == repoName);
+
+            var primaryBucketIds = await repoQuery
+                .Where(r => r.PrimaryBucketId != null)
+                .Select(r => r.PrimaryBucketId!.Value)
+                .Distinct()
+                .ToListAsync();
+
+            if (primaryBucketIds.Count > 0)
+            {
+                package = await dbContext.AptPackages
+                    .AsNoTracking()
+                    .Where(p => primaryBucketIds.Contains(p.BucketId))
+                    .FirstOrDefaultAsync(p => p.Filename == path || p.Filename == "/" + path);
+            }
+        }
+
+        // Fallback: no distro/repo provided, or distro has no primary bucket yet — search globally.
+        package ??= await dbContext.AptPackages
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.Filename == path || p.Filename == "/" + path);
 

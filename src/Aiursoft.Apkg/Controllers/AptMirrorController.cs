@@ -78,10 +78,10 @@ public class AptMirrorController(
     [Route("artifacts/pool/{**path}")]
     public async Task<IActionResult> GetPool(
         [FromRoute] string? distro,
+        [FromRoute] string? repoName,
         [FromRoute] string path)
     {
-        // GetLocalPoolPath normalizes the path internally, so we don't need a fallback attempt.
-        var localPath = await aptMirrorService.GetLocalPoolPath(path);
+        var localPath = await aptMirrorService.GetLocalPoolPath(path, distro: distro, repoName: repoName);
         if (localPath == null) return NotFound();
 
         return PhysicalFile(localPath, "application/vnd.debian.binary-package", true);
