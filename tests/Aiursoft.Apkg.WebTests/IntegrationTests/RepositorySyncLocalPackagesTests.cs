@@ -407,6 +407,34 @@ public class RepositorySyncLocalPackagesTests : TestBase
         Assert.AreEqual("3.0", pkg.Version);
     }
 
+    [TestMethod]
+    public async Task SyncJob_StandaloneRepo_OldPrimaryPackages_NotCarriedForward()
+    {
+        // Arrange: standalone repo with an existing primary bucket that has old packages
+        _repo.MirrorId = null;
+        _db.SaveChanges();
+
+        // Simulate old packages from a previous sync that should NOT be carried forward
+        SetRepoPrimaryWithRealPackage("orphaned-pkg", version: "1.0");
+
+        // Add only a different LocalPackage
+        AddLocalPackage("new-pkg", version: "2.0");
+
+        // Act
+        var newBucket = await RunSyncAndGetNewBucket();
+
+        // Assert: new-pkg is present, orphaned-pkg is NOT carried forward
+        var newPkg = await _db.AptPackages
+            .FirstOrDefaultAsync(p => p.BucketId == newBucket!.Id && p.Package == "new-pkg");
+        var orphanedPkg = await _db.AptPackages
+            .FirstOrDefaultAsync(p => p.BucketId == newBucket!.Id && p.Package == "orphaned-pkg");
+
+        Assert.IsNotNull(newPkg, "Enabled LocalPackage must be in the new bucket.");
+        Assert.AreEqual("2.0", newPkg.Version);
+        Assert.IsNull(orphanedPkg,
+            "Old AptPackages from the previous primary bucket must NOT be carried forward in standalone repos.");
+    }
+
     // ──────────────────────────────────────────────────────────────────────
     // Re-sync IsVirtual preservation
     // ──────────────────────────────────────────────────────────────────────

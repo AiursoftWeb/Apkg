@@ -132,38 +132,6 @@ public class RepositorySyncJob(
                 }
             }
         }
-        else if (repo.PrimaryBucketId != null)
-        {
-            logger.LogInformation("Standalone repository {RepoName}: Copying packages from Current Bucket {PrimaryBucketId} to New Bucket {NewBucketId}...", repo.Name, repo.PrimaryBucketId, newBucketId);
-            var query = db.AptPackages
-                .AsNoTracking()
-                .Where(p => p.BucketId == repo.PrimaryBucketId)
-                .AsAsyncEnumerable();
-
-            var batchBuffer = new List<AptPackage>(1000);
-
-            await foreach (var pkg in query)
-            {
-                pkg.Id = 0;
-                pkg.BucketId = newBucketId;
-                batchBuffer.Add(pkg);
-
-                if (batchBuffer.Count >= 1000)
-                {
-                    db.AptPackages.AddRange(batchBuffer);
-                    await db.SaveChangesAsync();
-                    db.ChangeTracker.Clear();
-                    batchBuffer.Clear();
-                }
-            }
-
-            if (batchBuffer.Count > 0)
-            {
-                db.AptPackages.AddRange(batchBuffer);
-                await db.SaveChangesAsync();
-                db.ChangeTracker.Clear();
-            }
-        }
 
         // 2b. Merge LocalPackages: override all upstream (Package, Architecture) pairs
         var localPackages = await db.LocalPackages
