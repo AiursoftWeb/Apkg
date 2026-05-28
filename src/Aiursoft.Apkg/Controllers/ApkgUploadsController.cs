@@ -283,10 +283,12 @@ public class ApkgUploadsController(
                     return this.StackView(previewModel, "Preview");
                 }
 
+                // arch:all packages match any architecture repo (APT standard)
                 var candidateRepositories = await db.AptRepositories
                     .Where(r => r.Distro == entry.Distro
                                 && r.Suite == entry.Suite
-                                && r.Architecture == entry.Architecture)
+                                && (r.Architecture == entry.Architecture
+                                    || string.Equals(entry.Architecture, "all", StringComparison.OrdinalIgnoreCase)))
                     .ToListAsync();
 
                 var matchingRepositories = candidateRepositories
@@ -487,7 +489,8 @@ public class ApkgUploadsController(
             var matchingRepos = await db.AptRepositories
                 .Where(r => r.Distro == entry.Distro
                             && r.Suite == entry.Suite
-                            && r.Architecture == entry.Architecture)
+                            && (r.Architecture == entry.Architecture
+                                || string.Equals(entry.Architecture, "all", StringComparison.OrdinalIgnoreCase)))
                 .ToListAsync();
 
             matchingRepos = matchingRepos

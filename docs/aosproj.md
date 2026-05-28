@@ -115,6 +115,7 @@
 3. **PrebuildCommand**：执行预构建命令（此时可对上游文件执行 `sed` 等操作）
 4. **合并**：本地条目（`IncludeFile`、`IncludeScript`、`IncludeFolder`）覆盖到暂存区
 5. **合并 control 字段**：
+   - **Version**：若 `PackageVersion` 包含 `$(UpstreamVersion)`，则替换为上游的实际版本号（如 `13.1ubuntu1`）。这使得派生包的版本自动跟随上游
    - `Depends`：上游依赖在前，本地 `Dependency` 附录在后。以基础包名去重（如上游有 `libc6 (>= 2.34)` 而本地声明 `libc6`，保留上游版本）
    - `Provides`、`Conflicts`、`Replaces`：本地优先，未填时回退到上游值
    - `Homepage`：本地优先，未填时回退到上游值
@@ -177,7 +178,7 @@
 
 ### ItemGroup 条目类型
 
-所有条目都支持 MSBuild 风格的 `Condition` 属性，可用 `$(Distro)`、`$(Suite)`、`$(Arch)`、`$(UpstreamDistro)`、`$(UpstreamSuite)`、`$(UpstreamArch)` 在构建矩阵中做条件分支。
+所有条目都支持 MSBuild 风格的 `Condition` 属性，可用 `$(Distro)`、`$(Suite)`、`$(Arch)`、`$(UpstreamDistro)`、`$(UpstreamSuite)`、`$(UpstreamArch)` 在构建矩阵中做条件分支。此外 `$(UpstreamVersion)` 可在 `PackageVersion` 中用作模板变量，构建时自动替换为上游版本号。
 
 #### IncludeFile — 安装单个文件
 
@@ -529,9 +530,9 @@ apkg push      → 上传 .apkg 到 Apkg 服务器
 ### 旧命令（legacy，未来可能废弃）
 
 ```
-apkg install    → 从本地 .apkg 解出 .deb 并执行 dpkg -i
+apkg install    → 从本地 .apkg 解出匹配当前系统的 .deb 并执行 dpkg -i
 apkg add-source → 在当前机器添加 Apkg APT 源到 /etc/apt/sources.list.d/
-apkg unpack     → 解包 .apkg 归档
+apkg unpack     → 解包 .apkg 归档（自动选择匹配当前系统的 .deb）
 ```
 
 ### `apkg build` 构建矩阵

@@ -172,6 +172,7 @@ bin/pkgname.1.0.0.apkg
 - **构建矩阵**：`TargetSuites × TargetArchitectures` 笛卡尔积，每个组合产出一个 `.deb`
 - **ItemGroup 条目**：`IncludeFile`、`IncludeFolder`、`IncludeScript`（自动 0755）、`ConfFile`（dpkg conffile 保护）、`SystemdUnit`（自动生成 postinst/prerm/postrm）、`Dependency`（合并为 Depends）
 - **Condition 语法**：MSBuild 风格 — `'$(Suite)' == 'resolute'`，可用 `$(Distro)`、`$(Suite)`、`$(Arch)`、`$(UpstreamDistro)`、`$(UpstreamSuite)`、`$(UpstreamArch)`
+- **版本模板变量**：`$(UpstreamVersion)` 可在 `PackageVersion` 中使用，构建时自动替换为上游包的实际版本号
 - **manifest.xml v2**：`apkg publish` 自动生成，声明 `Name/Version/Entries`，服务器按 `Distro+Suite+Architecture+Component` 四元组路由到目标仓库
 
 构建中间使用 `dpkg-deb --build --root-owner-group`，在 obj/ 目录下完成。全程不出现 DEBIAN/control 手工操作。
