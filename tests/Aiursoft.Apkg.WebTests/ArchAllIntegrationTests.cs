@@ -8,6 +8,7 @@ using Aiursoft.Apkg.Sqlite;
 using Aiursoft.Apkg.Services.Authentication;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Aiursoft.Apkg.WebTests;
 
 public class FakeGpgSigningService : IGpgSigningService
@@ -225,35 +226,35 @@ SHA256: 0c1d898c8f970f6a03dd7eaef660d32b0edfadc2ec6c6b724f68555be62edba7
 SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
 
 ";
-        var packagesHash = BitConverter.ToString(System.Security.Cryptography.SHA256.HashData(System.Text.Encoding.UTF8.GetBytes(upstreamPackages))).Replace("-", "").ToLower();
+        var packagesHash = BitConverter.ToString(SHA256.HashData(Encoding.UTF8.GetBytes(upstreamPackages))).Replace("-", "").ToLower();
 
         var services = new ServiceCollection();
         services.AddLogging();
         services.AddMemoryCache();
-        services.AddDbContext<Aiursoft.Apkg.Entities.ApkgDbContext, Aiursoft.Apkg.Sqlite.SqliteContext>(options => options.UseSqlite(dbName));
+        services.AddDbContext<ApkgDbContext, SqliteContext>(options => options.UseSqlite(dbName));
 
         var storagePath = Path.Combine(Path.GetTempPath(), "apkg-test-suitefn-" + Guid.NewGuid());
         var config = new ConfigurationBuilder()
             .AddInMemoryCollection(new Dictionary<string, string> { ["Storage:Path"] = storagePath }!)
             .Build();
-        services.AddSingleton<Microsoft.Extensions.Configuration.IConfiguration>(config);
-        services.AddSingleton<Aiursoft.Apkg.Services.FileStorage.StorageRootPathProvider>();
-        services.AddSingleton<Aiursoft.Apkg.Services.FileStorage.FeatureFoldersProvider>();
-        services.AddSingleton<Aiursoft.Apkg.Services.FileStorage.FileLockProvider>();
-        services.AddTransient<Aiursoft.Apkg.Services.AptMetadataService>();
-        services.AddSingleton<Aiursoft.Apkg.Services.Authentication.IGpgSigningService, FakeGpgSigningService>();
-        services.AddTransient<Aiursoft.Apkg.Services.BackgroundJobs.MirrorSyncJob>();
-        services.AddTransient<Aiursoft.Apkg.Services.BackgroundJobs.RepositorySyncJob>();
-        services.AddTransient<Aiursoft.Apkg.Services.BackgroundJobs.RepositorySignJob>();
+        services.AddSingleton<IConfiguration>(config);
+        services.AddSingleton<StorageRootPathProvider>();
+        services.AddSingleton<FeatureFoldersProvider>();
+        services.AddSingleton<FileLockProvider>();
+        services.AddTransient<AptMetadataService>();
+        services.AddSingleton<IGpgSigningService, FakeGpgSigningService>();
+        services.AddTransient<MirrorSyncJob>();
+        services.AddTransient<RepositorySyncJob>();
+        services.AddTransient<RepositorySignJob>();
         services.AddHttpClient(Microsoft.Extensions.Options.Options.DefaultName)
             .ConfigurePrimaryHttpMessageHandler(() => new FakeHttpMessageHandler(upstreamPackages, packagesHash));
 
         var provider = services.BuildServiceProvider();
         using var scope = provider.CreateScope();
-        var db = scope.ServiceProvider.GetRequiredService<Aiursoft.Apkg.Entities.ApkgDbContext>();
+        var db = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
         await db.Database.EnsureCreatedAsync();
 
-        var mirror = new Aiursoft.Apkg.Entities.AptMirror
+        var mirror = new AptMirror
         {
             BaseUrl = "http://upstream.mirror/",
             Distro = "anduinos",
@@ -265,7 +266,7 @@ SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c
         };
         db.AptMirrors.Add(mirror);
 
-        var repo = new Aiursoft.Apkg.Entities.AptRepository
+        var repo = new AptRepository
         {
             Name = "anduinos-addon",
             Distro = "anduinos",
@@ -277,14 +278,14 @@ SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c
         db.AptRepositories.Add(repo);
         await db.SaveChangesAsync();
 
-        var mirrorJob = scope.ServiceProvider.GetRequiredService<Aiursoft.Apkg.Services.BackgroundJobs.MirrorSyncJob>();
+        var mirrorJob = scope.ServiceProvider.GetRequiredService<MirrorSyncJob>();
         await mirrorJob.ExecuteAsync();
-        var repoJob = scope.ServiceProvider.GetRequiredService<Aiursoft.Apkg.Services.BackgroundJobs.RepositorySyncJob>();
+        var repoJob = scope.ServiceProvider.GetRequiredService<RepositorySyncJob>();
         await repoJob.ExecuteAsync();
-        var signJob = scope.ServiceProvider.GetRequiredService<Aiursoft.Apkg.Services.BackgroundJobs.RepositorySignJob>();
+        var signJob = scope.ServiceProvider.GetRequiredService<RepositorySignJob>();
         await signJob.ExecuteAsync();
 
-        var folders = scope.ServiceProvider.GetRequiredService<Aiursoft.Apkg.Services.FileStorage.FeatureFoldersProvider>();
+        var folders = scope.ServiceProvider.GetRequiredService<FeatureFoldersProvider>();
         var updatedRepo = await db.AptRepositories.Include(r => r.PrimaryBucket).FirstAsync(r => r.Id == repo.Id);
         var bucketId = updatedRepo.PrimaryBucketId!.Value;
 
