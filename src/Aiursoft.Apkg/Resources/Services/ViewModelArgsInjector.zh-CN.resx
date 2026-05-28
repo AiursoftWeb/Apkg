@@ -171,6 +171,18 @@
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>我的软件包 (APKG)</value>
   </data>
+  <data name="MyPackages" xml:space="preserve">
+    <value>我的软件包</value>
+  </data>
+  <data name="MyPackagesSub" xml:space="preserve">
+    <value>我的软件包</value>
+  </data>
+  <data name="Deb Standalone" xml:space="preserve">
+    <value>Deb 独立打包</value>
+  </data>
+  <data name="Apkg Hybrid" xml:space="preserve">
+    <value>Apkg 混合打包</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>新 API 密钥</value>
   </data>

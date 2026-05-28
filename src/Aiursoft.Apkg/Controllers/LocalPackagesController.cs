@@ -25,13 +25,13 @@ public class LocalPackagesController(
 
     [HttpGet]
     [RenderInNavBar(
-        NavGroupName = "Package Engine",
-        NavGroupOrder = 50,
-        CascadedLinksGroupName = "Engine",
+        NavGroupName = "MyPackages",
+        NavGroupOrder = 25,
+        CascadedLinksGroupName = "MyPackagesSub",
         CascadedLinksIcon = "package",
         CascadedLinksOrder = 10,
-        LinkText = "My Packages",
-        LinkOrder = 3)]
+        LinkText = "Deb Standalone",
+        LinkOrder = 1)]
     public async Task<IActionResult> Index()
     {
         var userId = userManager.GetUserId(User)!;

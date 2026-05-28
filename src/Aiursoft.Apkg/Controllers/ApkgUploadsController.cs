@@ -28,12 +28,12 @@ public class ApkgUploadsController(
 {
     [HttpGet]
     [RenderInNavBar(
-        NavGroupName = "Package Engine",
-        NavGroupOrder = 50,
-        CascadedLinksGroupName = "Engine",
+        NavGroupName = "MyPackages",
+        NavGroupOrder = 25,
+        CascadedLinksGroupName = "MyPackagesSub",
         CascadedLinksIcon = "package",
         CascadedLinksOrder = 10,
-        LinkText = "My Packages (APKG)",
+        LinkText = "Apkg Hybrid",
         LinkOrder = 2)]
     public async Task<IActionResult> Index()
     {
