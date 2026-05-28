@@ -1,5 +1,8 @@
+using System.Formats.Tar;
 using System.Net;
+using System.Net.Http.Headers;
 using Aiursoft.Apkg.Entities;
+using Aiursoft.Apkg.Services.FileStorage;
 using Microsoft.AspNetCore.Identity;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
@@ -7,10 +10,7 @@ namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 /// <summary>
 /// Integration tests for the <see cref="Aiursoft.Apkg.Controllers.ApkgUploadsController"/>.
 ///
-/// Covers: Index, Upload (GET), Details, Unlist, Relist, Delete.
-/// The Upload (POST) → Preview → Publish flow requires a real .apkg file and is tested
-/// separately via end-to-end scenarios.  These tests verify auth gates, ownership guards,
-/// and admin-only restrictions.
+/// Covers: Index, Upload (GET/POST), Preview, Publish, Details, Unlist, Relist, Delete.
 /// </summary>
 [TestClass]
 public class ApkgUploadsControllerTests : TestBase
@@ -44,7 +44,7 @@ public class ApkgUploadsControllerTests : TestBase
     }
 
     // ──────────────────────────────────────────────────────────────────────
-    // Helpers
+    // Helpers — DB records
     // ──────────────────────────────────────────────────────────────────────
 
     private ApkgUpload AddApkgUpload(
@@ -68,6 +68,51 @@ public class ApkgUploadsControllerTests : TestBase
         _db.ApkgUploads.Add(upload);
         _db.SaveChanges();
         return upload;
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Helpers — .apkg vault file creation
+    // ──────────────────────────────────────────────────────────────────────
+
+    private static byte[] CreateApkgArchive(string manifestXml,
+        params (string fileName, byte[] content)[] files)
+    {
+        using var ms = new MemoryStream();
+        using (var gz = new System.IO.Compression.GZipStream(ms,
+                   System.IO.Compression.CompressionMode.Compress, leaveOpen: true))
+        {
+            using var tar = new TarWriter(gz, TarEntryFormat.Pax, leaveOpen: true);
+
+            var manifestBytes = System.Text.Encoding.UTF8.GetBytes(manifestXml);
+            var manifestEntry = new PaxTarEntry(TarEntryType.RegularFile, "manifest.xml")
+            {
+                DataStream = new MemoryStream(manifestBytes)
+            };
+            tar.WriteEntryAsync(manifestEntry).GetAwaiter().GetResult();
+
+            foreach (var (name, data) in files)
+            {
+                var entry = new PaxTarEntry(TarEntryType.RegularFile, name)
+                {
+                    DataStream = new MemoryStream(data)
+                };
+                tar.WriteEntryAsync(entry).GetAwaiter().GetResult();
+            }
+        }
+        return ms.ToArray();
+    }
+
+    /// <summary>
+    /// Writes a .apkg to the Vault folder and returns its logical path (relative to Vault root).
+    /// </summary>
+    private string SaveApkgToVault(byte[] apkgBytes)
+    {
+        var folders = GetService<FeatureFoldersProvider>();
+        var vaultDir = folders.GetVaultFolder();
+        var fileName = $"test-{Guid.NewGuid():N}.apkg";
+        var physicalPath = Path.Combine(vaultDir, fileName);
+        File.WriteAllBytes(physicalPath, apkgBytes);
+        return fileName;
     }
 
     // ──────────────────────────────────────────────────────────────────────
@@ -292,5 +337,326 @@ public class ApkgUploadsControllerTests : TestBase
 
         Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode,
             "Deleting a non-existent upload must return 404.");
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Upload (POST) — requires a valid .apkg file in the Vault
+    // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task UploadPost_Anonymous_RedirectsToLogin()
+    {
+        var response = await _anonHttp.PostAsync("/ApkgUploads/Upload",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "ApkgFilePath", "some-file.apkg" }
+            }));
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode,
+            "Anonymous POST to Upload must redirect to login.");
+    }
+
+    [TestMethod]
+    public async Task UploadPost_MissingFile_ReturnsModelError()
+    {
+        var token = await GetAntiCsrfToken("/ApkgUploads/Upload");
+        var response = await Http.PostAsync("/ApkgUploads/Upload",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "ApkgFilePath", "nonexistent.apkg" },
+                { "__RequestVerificationToken", token }
+            }));
+
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
+            "Upload with missing vault file should re-render the form (200).");
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("File upload failed or missing"),
+            "Page should show the missing-file error.");
+    }
+
+    [TestMethod]
+    public async Task UploadPost_ValidApkg_CreatesRecordAndRedirectsToPreview()
+    {
+        var manifestXml = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage>
+              <Name>test-pkg</Name>
+              <Version>1.0.0</Version>
+              <Entries>
+                <Entry>
+                  <DebFile>test-pkg_1.0.0_amd64.deb</DebFile>
+                  <Distro>anduinos</Distro>
+                  <Suite>questing</Suite>
+                  <Component>main</Component>
+                  <Architecture>amd64</Architecture>
+                </Entry>
+              </Entries>
+            </ApkgPackage>
+            """;
+
+        var apkgBytes = CreateApkgArchive(manifestXml,
+            ("test-pkg_1.0.0_amd64.deb", new byte[64]));
+        var vaultPath = SaveApkgToVault(apkgBytes);
+
+        var uploadsBefore = _db.ApkgUploads.Count();
+
+        var token = await GetAntiCsrfToken("/ApkgUploads/Upload");
+        var response = await Http.PostAsync("/ApkgUploads/Upload",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "ApkgFilePath", vaultPath },
+                { "__RequestVerificationToken", token }
+            }));
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode,
+            "Upload POST with a valid .apkg must redirect.");
+        Assert.IsTrue(
+            response.Headers.Location?.OriginalString.Contains("Preview", StringComparison.OrdinalIgnoreCase) == true,
+            $"Expected redirect to Preview, got: {response.Headers.Location}");
+
+        var uploadsAfter = _db.ApkgUploads.Count();
+        Assert.AreEqual(uploadsBefore + 1, uploadsAfter,
+            "A new ApkgUpload record must be created.");
+    }
+
+    [TestMethod]
+    public async Task UploadPost_ReUpload_UpdatesRecordNotDuplicates()
+    {
+        var manifestXml = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage>
+              <Name>test-pkg</Name>
+              <Version>2.0.0</Version>
+              <Entries>
+                <Entry>
+                  <DebFile>test-pkg_2.0.0_amd64.deb</DebFile>
+                  <Distro>anduinos</Distro>
+                  <Suite>questing</Suite>
+                  <Component>main</Component>
+                  <Architecture>amd64</Architecture>
+                </Entry>
+              </Entries>
+            </ApkgPackage>
+            """;
+
+        var apkgBytes = CreateApkgArchive(manifestXml,
+            ("test-pkg_2.0.0_amd64.deb", new byte[64]));
+        var vaultPath = SaveApkgToVault(apkgBytes);
+
+        // First upload
+        var token = await GetAntiCsrfToken("/ApkgUploads/Upload");
+        var response1 = await Http.PostAsync("/ApkgUploads/Upload",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "ApkgFilePath", vaultPath },
+                { "__RequestVerificationToken", token }
+            }));
+        Assert.AreEqual(HttpStatusCode.Found, response1.StatusCode);
+
+        var uploadsAfterFirst = _db.ApkgUploads.Count();
+
+        // Second upload with same vault path
+        token = await GetAntiCsrfToken("/ApkgUploads/Upload");
+        var response2 = await Http.PostAsync("/ApkgUploads/Upload",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "ApkgFilePath", vaultPath },
+                { "__RequestVerificationToken", token }
+            }));
+        Assert.AreEqual(HttpStatusCode.Found, response2.StatusCode);
+
+        var uploadsAfterSecond = _db.ApkgUploads.Count();
+        Assert.AreEqual(uploadsAfterFirst, uploadsAfterSecond,
+            "Re-uploading the same vault file must update the existing record, not create a duplicate.");
+    }
+
+    [TestMethod]
+    public async Task UploadPost_InvalidApkg_ReturnsModelError()
+    {
+        // Write garbage bytes to the vault
+        var garbage = new byte[64];
+        new Random(42).NextBytes(garbage);
+        var vaultPath = SaveApkgToVault(garbage);
+
+        var token = await GetAntiCsrfToken("/ApkgUploads/Upload");
+        var response = await Http.PostAsync("/ApkgUploads/Upload",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "ApkgFilePath", vaultPath },
+                { "__RequestVerificationToken", token }
+            }));
+
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
+            "Upload with invalid .apkg must re-render the form with error.");
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("Failed to parse"),
+            "Page must show parse error for invalid .apkg file.");
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Preview
+    // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task Preview_Anonymous_RedirectsToLogin()
+    {
+        var response = await _anonHttp.GetAsync("/ApkgUploads/Preview?vaultPath=some-file.apkg");
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode,
+            "Anonymous access to Preview must redirect to login.");
+    }
+
+    [TestMethod]
+    public async Task Preview_MissingVaultPath_ReturnsBadRequest()
+    {
+        var response = await Http.GetAsync("/ApkgUploads/Preview?vaultPath=");
+
+        Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode,
+            "Preview with empty vault path must return 400.");
+    }
+
+    [TestMethod]
+    public async Task Preview_NonexistentFile_ReturnsNotFound()
+    {
+        var response = await Http.GetAsync("/ApkgUploads/Preview?vaultPath=nonexistent.apkg");
+
+        Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode,
+            "Preview for a non-existent vault file must return 404.");
+    }
+
+    [TestMethod]
+    public async Task Preview_ValidApkg_RendersPageWithTargets()
+    {
+        var manifestXml = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage>
+              <Name>preview-pkg</Name>
+              <Version>1.0.0</Version>
+              <Entries>
+                <Entry>
+                  <DebFile>pkg_1.0.0_amd64.deb</DebFile>
+                  <Distro>anduinos</Distro>
+                  <Suite>questing</Suite>
+                  <Component>main</Component>
+                  <Architecture>amd64</Architecture>
+                </Entry>
+              </Entries>
+            </ApkgPackage>
+            """;
+
+        var apkgBytes = CreateApkgArchive(manifestXml,
+            ("pkg_1.0.0_amd64.deb", new byte[64]));
+        var vaultPath = SaveApkgToVault(apkgBytes);
+
+        // First create the upload record
+        var token = await GetAntiCsrfToken("/ApkgUploads/Upload");
+        await Http.PostAsync("/ApkgUploads/Upload",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "ApkgFilePath", vaultPath },
+                { "__RequestVerificationToken", token }
+            }));
+
+        var response = await Http.GetAsync($"/ApkgUploads/Preview?vaultPath={Uri.EscapeDataString(vaultPath)}");
+
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
+            "Preview of a valid .apkg must return 200.");
+        var html = await response.Content.ReadAsStringAsync();
+        Assert.IsTrue(html.Contains("preview-pkg"),
+            "Preview must show the package name from manifest.");
+        Assert.IsTrue(html.Contains("1.0.0"),
+            "Preview must show the version from manifest.");
+        Assert.IsTrue(html.Contains("anduinos"),
+            "Preview must show the target distro.");
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Publish
+    // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task Publish_Anonymous_RedirectsToLogin()
+    {
+        var response = await _anonHttp.PostAsync("/ApkgUploads/Publish",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "vaultPath", "some-file.apkg" },
+                { "fileName", "some-file.apkg" }
+            }));
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode,
+            "Anonymous POST to Publish must redirect to login.");
+    }
+
+    [TestMethod]
+    public async Task Publish_MissingVaultPath_ReturnsBadRequest()
+    {
+        var token = await GetAntiCsrfToken("/ApkgUploads");
+        var response = await Http.PostAsync("/ApkgUploads/Publish",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "vaultPath", "" },
+                { "fileName", "test.apkg" },
+                { "__RequestVerificationToken", token }
+            }));
+
+        Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode,
+            "Publish with empty vault path must return 400.");
+    }
+
+    [TestMethod]
+    public async Task Publish_NoMatchingRepo_MarksPublished()
+    {
+        // Create .apkg targeting a distro/suite that has NO matching repo
+        var manifestXml = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage>
+              <Name>orphan-pkg</Name>
+              <Version>1.0.0</Version>
+              <Entries>
+                <Entry>
+                  <DebFile>orphan.deb</DebFile>
+                  <Distro>nonexistent</Distro>
+                  <Suite>nonexistent</Suite>
+                  <Component>main</Component>
+                  <Architecture>amd64</Architecture>
+                </Entry>
+              </Entries>
+            </ApkgPackage>
+            """;
+
+        var apkgBytes = CreateApkgArchive(manifestXml,
+            ("orphan.deb", new byte[64]));
+        var vaultPath = SaveApkgToVault(apkgBytes);
+
+        // Create the upload record via Upload POST
+        var token = await GetAntiCsrfToken("/ApkgUploads/Upload");
+        await Http.PostAsync("/ApkgUploads/Upload",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "ApkgFilePath", vaultPath },
+                { "__RequestVerificationToken", token }
+            }));
+
+        var upload = _db.ApkgUploads
+            .First(u => u.VaultPath == vaultPath && !u.IsPublished);
+
+        token = await GetAntiCsrfToken("/ApkgUploads");
+        var response = await Http.PostAsync("/ApkgUploads/Publish",
+            new FormUrlEncodedContent(new Dictionary<string, string>
+            {
+                { "vaultPath", vaultPath },
+                { "fileName", "orphan.apkg" },
+                { "__RequestVerificationToken", token }
+            }));
+
+        Assert.AreEqual(HttpStatusCode.Found, response.StatusCode,
+            "Publish with no matching repo must still redirect (to Details).");
+
+        _db.Entry(upload).Reload();
+        Assert.IsTrue(upload.IsPublished,
+            "Upload must be marked as published even when no entries matched a repo.");
+        Assert.IsNull(upload.VaultPath,
+            "Vault path must be cleared after successful publish.");
     }
 }
