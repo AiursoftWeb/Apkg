@@ -144,4 +144,25 @@ public class ConditionEvaluatorTests
         var ctx = ConditionEvaluator.BuildContext("ubuntu", "jammy", "arm64");
         Assert.AreEqual(ctx["Arch"], ctx["Architecture"]);
     }
+
+    [TestMethod]
+    public void BuildContext_ContainsComponent_WhenPassed()
+    {
+        var ctx = ConditionEvaluator.BuildContext("ubuntu", "jammy", "amd64", component: "addon");
+        Assert.AreEqual("addon", ctx["Component"]);
+    }
+
+    [TestMethod]
+    public void BuildContext_ComponentDefaultsToEmpty()
+    {
+        var ctx = ConditionEvaluator.BuildContext("ubuntu", "jammy", "amd64");
+        Assert.AreEqual("", ctx["Component"]);
+    }
+
+    [TestMethod]
+    public void Evaluate_ComponentInCondition()
+    {
+        var ctx = ConditionEvaluator.BuildContext("ubuntu", "jammy", "amd64", component: "addon");
+        Assert.IsTrue(_evaluator.Evaluate("'$(Component)' == 'addon'", ctx));
+    }
 }

@@ -103,7 +103,29 @@ public class AosprojLinter
             }
         }
 
-        // Target fields existence check
+        // UpstreamSuiteMapping: validate format and consistency with TargetSuites
+        if (!string.IsNullOrWhiteSpace(project.UpstreamSuiteMapping))
+        {
+            var suiteMap = project.GetUpstreamSuiteMap();
+            var outputSuites = new HashSet<string>(project.SuiteList, StringComparer.OrdinalIgnoreCase);
+
+            foreach (var pair in project.SuiteList)
+            {
+                if (!suiteMap.ContainsKey(pair))
+                    issues.Add(new LintIssue(Severity.Warning,
+                        $"<UpstreamSuiteMapping> has no entry for output suite '{pair}'."));
+            }
+
+            foreach (var (outputSuite, upstreamSuite) in suiteMap)
+            {
+                if (string.IsNullOrWhiteSpace(upstreamSuite))
+                    issues.Add(new LintIssue(Severity.Error,
+                        $"<UpstreamSuiteMapping> entry '{outputSuite}' has empty upstream suite."));
+                if (!outputSuites.Contains(outputSuite))
+                    issues.Add(new LintIssue(Severity.Warning,
+                        $"<UpstreamSuiteMapping> entry '{outputSuite}' does not match any suite in <TargetSuites>."));
+            }
+        }
         if (!project.IncludeFiles.Any() && !project.IncludeFolders.Any() && !project.IncludeScripts.Any() && !project.ConfFiles.Any())
             issues.Add(new LintIssue(Severity.Warning, "No files declared to include. The package will be empty."));
 

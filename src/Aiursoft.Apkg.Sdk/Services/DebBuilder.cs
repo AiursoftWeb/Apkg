@@ -32,17 +32,22 @@ public class DebBuilder
         string arch,
         string outputDir)
     {
-        // Resolve upstream suite variables against build matrix
-        var resolvedUpstreamSuite = project.UpstreamSuite
-            .Replace("$(Suite)", suite)
-            .Replace("$(Distro)", distro)
-            .Replace("$(Arch)", arch);
+        // Resolve upstream suite: substitute variables, then apply mapping
+        var rawUpstreamSuite = ResolveVariables(project.UpstreamSuite, project, distro, suite, arch);
+
+        var suiteMap = project.GetUpstreamSuiteMap();
+        var resolvedUpstreamSuite = suiteMap.TryGetValue(rawUpstreamSuite, out var mapped)
+            ? mapped
+            : rawUpstreamSuite;
+
+        var resolvedUpstreamComponent = ResolveVariables(project.UpstreamComponent, project, distro, suite, arch);
 
         var ctx = ConditionEvaluator.BuildContext(
             distro, suite, arch,
             upstreamDistro: project.UpstreamDistro,
             upstreamSuite: resolvedUpstreamSuite,
-            upstreamArch: project.UpstreamArch);
+            upstreamArch: project.UpstreamArch,
+            component: project.Component);
         bool Include(string? cond) => _evaluator.Evaluate(cond, ctx);
 
         // ── Staging directory: obj/<suite>_<arch> ────────────────────────────
@@ -64,7 +69,7 @@ public class DebBuilder
         if (project.HasUpstreamSource)
         {
             var upstreamDebPath = await DownloadUpstreamDebAsync(
-                project, resolvedUpstreamSuite, projectDir);
+                project, resolvedUpstreamSuite, resolvedUpstreamComponent, projectDir);
             try
             {
                 var upstreamExtractDir = Path.Combine(projectDir, "obj", $"_upstream_{suite}_{arch}");
@@ -333,7 +338,7 @@ public class DebBuilder
     /// Returns the path to the downloaded .deb.
     /// </summary>
     private async Task<string> DownloadUpstreamDebAsync(
-        AosprojProject project, string resolvedUpstreamSuite, string projectDir)
+        AosprojProject project, string resolvedUpstreamSuite, string resolvedUpstreamComponent, string projectDir)
     {
         var downloadDir = Path.Combine(projectDir, "obj");
         Directory.CreateDirectory(downloadDir);
@@ -349,7 +354,7 @@ public class DebBuilder
 
         try
         {
-            var sourceLine = $"deb {project.UpstreamUrl.TrimEnd('/')} {resolvedUpstreamSuite} {project.UpstreamComponent}";
+            var sourceLine = $"deb {project.UpstreamUrl.TrimEnd('/')} {resolvedUpstreamSuite} {resolvedUpstreamComponent}";
             await File.WriteAllTextAsync(sourceListPath, sourceLine + "\n");
 
             _logger.LogInformation("Downloading {Package} from {Url} ({Suite})...",
@@ -488,6 +493,20 @@ public class DebBuilder
         return arch == "all" || string.IsNullOrEmpty(arch)
             ? $"{package}/{suite}"
             : $"{package}:{arch}/{suite}";
+    }
+
+    /// <summary>
+    /// Substitutes $(Property) variables in a string value using the current build context.
+    /// </summary>
+    internal static string ResolveVariables(
+        string value, AosprojProject project, string distro, string suite, string arch)
+    {
+        return value
+            .Replace("$(Suite)", suite)
+            .Replace("$(Distro)", distro)
+            .Replace("$(Arch)", arch)
+            .Replace("$(Architecture)", arch)
+            .Replace("$(Component)", project.Component);
     }
 
     internal static Dictionary<string, string> ParseControlFile(string controlContent)

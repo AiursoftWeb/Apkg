@@ -683,6 +683,10 @@ public class ApkgUploadsController(
         return string.IsNullOrWhiteSpace(value) ? null : value;
     }
 
+    // KEEP IN SYNC with the inline conditions in the two EF Core LINQ queries
+    // (lines ~290 and ~492). EF can't translate this helper to SQL, so the
+    // queries duplicate the logic inline. This method exists so the logic is
+    // testable — any change to the inline conditions must be mirrored here.
     internal static bool ArchitectureMatches(string repoArchitecture, string entryArchitecture)
     {
         return string.Equals(repoArchitecture, entryArchitecture, StringComparison.OrdinalIgnoreCase)

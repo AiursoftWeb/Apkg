@@ -210,4 +210,96 @@ public class AosprojProjectTests
         Assert.AreEqual("", project.UpstreamPackage);
         Assert.AreEqual("", project.UpstreamSuite);
     }
+
+    // ── GetUpstreamSuiteMap ────────────────────────────────────────────────────
+
+    [TestMethod]
+    public void GetUpstreamSuiteMap_EmptyString_ReturnsEmptyDict()
+    {
+        var project = new AosprojProject { UpstreamSuiteMapping = "" };
+        var map = project.GetUpstreamSuiteMap();
+        Assert.AreEqual(0, map.Count);
+    }
+
+    [TestMethod]
+    public void GetUpstreamSuiteMap_SinglePair()
+    {
+        var project = new AosprojProject { UpstreamSuiteMapping = "noble-addon=noble" };
+        var map = project.GetUpstreamSuiteMap();
+        Assert.AreEqual(1, map.Count);
+        Assert.AreEqual("noble", map["noble-addon"]);
+    }
+
+    [TestMethod]
+    public void GetUpstreamSuiteMap_MultiplePairs_SpaceSeparated()
+    {
+        var project = new AosprojProject { UpstreamSuiteMapping = "noble-addon=noble questing-addon=questing" };
+        var map = project.GetUpstreamSuiteMap();
+        Assert.AreEqual(2, map.Count);
+        Assert.AreEqual("noble", map["noble-addon"]);
+        Assert.AreEqual("questing", map["questing-addon"]);
+    }
+
+    [TestMethod]
+    public void GetUpstreamSuiteMap_MultiplePairs_CommaSeparated()
+    {
+        var project = new AosprojProject { UpstreamSuiteMapping = "a=b,c=d" };
+        var map = project.GetUpstreamSuiteMap();
+        Assert.AreEqual(2, map.Count);
+        Assert.AreEqual("b", map["a"]);
+        Assert.AreEqual("d", map["c"]);
+    }
+
+    [TestMethod]
+    public void GetUpstreamSuiteMap_MixedSeparators()
+    {
+        var project = new AosprojProject { UpstreamSuiteMapping = "a=b c=d, e=f" };
+        var map = project.GetUpstreamSuiteMap();
+        Assert.AreEqual(3, map.Count);
+    }
+
+    [TestMethod]
+    public void GetUpstreamSuiteMap_TrimsKeyAndValue()
+    {
+        // Format is "key1=value1 key2=value2" — no spaces around the =
+        var project = new AosprojProject { UpstreamSuiteMapping = " a=b , c=d " };
+        var map = project.GetUpstreamSuiteMap();
+        Assert.AreEqual(2, map.Count);
+        Assert.AreEqual("b", map["a"]);
+        Assert.AreEqual("d", map["c"]);
+    }
+
+    [TestMethod]
+    public void GetUpstreamSuiteMap_KeyCaseInsensitive()
+    {
+        var project = new AosprojProject { UpstreamSuiteMapping = "Noble-Addon=noble" };
+        var map = project.GetUpstreamSuiteMap();
+        Assert.AreEqual("noble", map["noble-addon"]);
+        Assert.AreEqual("noble", map["NOBLE-ADDON"]);
+    }
+
+    [TestMethod]
+    public void GetUpstreamSuiteMap_NoEqualsSign_Skipped()
+    {
+        var project = new AosprojProject { UpstreamSuiteMapping = "invalid without-equalsign" };
+        var map = project.GetUpstreamSuiteMap();
+        Assert.AreEqual(0, map.Count);
+    }
+
+    [TestMethod]
+    public void GetUpstreamSuiteMap_MissingKey_Skipped()
+    {
+        var project = new AosprojProject { UpstreamSuiteMapping = "=value" };
+        var map = project.GetUpstreamSuiteMap();
+        Assert.AreEqual(0, map.Count);
+    }
+
+    [TestMethod]
+    public void GetUpstreamSuiteMap_MissingValue_EnteredAsEmpty()
+    {
+        var project = new AosprojProject { UpstreamSuiteMapping = "key=" };
+        var map = project.GetUpstreamSuiteMap();
+        Assert.AreEqual(1, map.Count);
+        Assert.AreEqual("", map["key"]);
+    }
 }

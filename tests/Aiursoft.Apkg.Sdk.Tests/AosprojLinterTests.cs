@@ -1001,6 +1001,136 @@ public class AosprojLinterTests
         }
     }
 
+    [TestMethod]
+    public void Lint_UpstreamSuiteMapping_TargetSuiteNotInMap_Warning()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            File.WriteAllText(Path.Combine(dir, "app"), "binary");
+
+            var project = new AosprojProject
+            {
+                PackageName = "my-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "desc",
+                TargetSuites = "noble-addon questing-addon",
+                Maintainer = "Test <test@example.com>",
+                UpstreamSuiteMapping = "noble-addon=noble",
+                IncludeFiles =
+                {
+                    new IncludeFileItem { Source = "app", Target = "/usr/bin/app" }
+                }
+            };
+
+            var issues = _linter.Lint(project, dir);
+            Assert.IsTrue(issues.Any(i => i.Level == AosprojLinter.Severity.Warning
+                && i.Message.Contains("UpstreamSuiteMapping")
+                && i.Message.Contains("questing-addon")
+                && i.Message.Contains("no entry")));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public void Lint_UpstreamSuiteMapping_OrphanedMapping_Warning()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            File.WriteAllText(Path.Combine(dir, "app"), "binary");
+
+            var project = new AosprojProject
+            {
+                PackageName = "my-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "desc",
+                TargetSuites = "noble-addon",
+                Maintainer = "Test <test@example.com>",
+                UpstreamSuiteMapping = "noble-addon=noble orphaned=something",
+                IncludeFiles =
+                {
+                    new IncludeFileItem { Source = "app", Target = "/usr/bin/app" }
+                }
+            };
+
+            var issues = _linter.Lint(project, dir);
+            Assert.IsTrue(issues.Any(i => i.Level == AosprojLinter.Severity.Warning
+                && i.Message.Contains("UpstreamSuiteMapping")
+                && i.Message.Contains("orphaned")
+                && i.Message.Contains("does not match")));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public void Lint_UpstreamSuiteMapping_AllMapped_NoWarning()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            File.WriteAllText(Path.Combine(dir, "app"), "binary");
+
+            var project = new AosprojProject
+            {
+                PackageName = "my-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "desc",
+                TargetSuites = "noble-addon questing-addon",
+                Maintainer = "Test <test@example.com>",
+                UpstreamSuiteMapping = "noble-addon=noble questing-addon=questing",
+                IncludeFiles =
+                {
+                    new IncludeFileItem { Source = "app", Target = "/usr/bin/app" }
+                }
+            };
+
+            var issues = _linter.Lint(project, dir);
+            Assert.IsFalse(issues.Any(i => i.Message.Contains("UpstreamSuiteMapping")));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public void Lint_UpstreamSuiteMapping_Empty_NoValidation()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            File.WriteAllText(Path.Combine(dir, "app"), "binary");
+
+            var project = new AosprojProject
+            {
+                PackageName = "my-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "desc",
+                TargetSuites = "jammy",
+                Maintainer = "Test <test@example.com>",
+                UpstreamSuiteMapping = "",
+                IncludeFiles =
+                {
+                    new IncludeFileItem { Source = "app", Target = "/usr/bin/app" }
+                }
+            };
+
+            var issues = _linter.Lint(project, dir);
+            Assert.IsFalse(issues.Any(i => i.Message.Contains("UpstreamSuiteMapping")));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
     private static string CreateTempDir()
     {
         var path = Path.Combine(Path.GetTempPath(), "lint-tests", Guid.NewGuid().ToString("N"));

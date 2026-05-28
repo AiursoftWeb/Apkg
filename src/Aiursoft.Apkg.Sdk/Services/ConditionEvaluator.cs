@@ -53,13 +53,15 @@ public class ConditionEvaluator
         string distro, string suite, string arch,
         string? upstreamDistro = null,
         string? upstreamSuite = null,
-        string? upstreamArch = null) =>
+        string? upstreamArch = null,
+        string? component = null) =>
         new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
             ["Distro"] = distro,
             ["Suite"] = suite,
             ["Arch"] = arch,
             ["Architecture"] = arch,
+            ["Component"] = component ?? string.Empty,
             ["UpstreamDistro"] = upstreamDistro ?? string.Empty,
             ["UpstreamSuite"] = upstreamSuite ?? string.Empty,
             ["UpstreamArch"] = upstreamArch ?? string.Empty,

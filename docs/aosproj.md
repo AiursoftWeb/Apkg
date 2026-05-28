@@ -103,7 +103,8 @@
 | `UpstreamDistro` | ⚠️ | 上游仓库的发行版标识（如 `ubuntu`）。设置 `UpstreamPackage` 时必填 |
 | `UpstreamPackage` | — | 上游 .deb 的包名（如 `base-files`）。一旦设置，触发上游派生模式 |
 | `UpstreamSuite` | ⚠️ | 上游 suite（如 `$(Suite)` 表示与构建 suite 同名）。设置 `UpstreamPackage` 时必填 |
-| `UpstreamComponent` | — | 上游 APT 组件，默认为 `main` |
+| `UpstreamSuiteMapping` | — | 输出 suite → 上游 suite 的映射表。格式：`out1=up1, out2=up2`。当 `UpstreamSuite` 解析后的值命中了映射的 key，则替换为对应的上游 suite |
+| `UpstreamComponent` | — | 上游 APT 组件，默认为 `main`。支持 `$(Suite)` 等变量 |
 | `UpstreamArch` | — | 上游包架构，默认为 `all` |
 
 ### 上游派生（UpstreamSource）
@@ -159,6 +160,18 @@
 
 `$(UpstreamVersion)` 变量仅在 `<PackageVersion>` 中可用。构建时，Apkg 从下载的上游 `.deb` 控制文件中读取 `Version` 字段并替换该占位符。例如 `<PackageVersion>$(UpstreamVersion)-anduinos</PackageVersion>` 对 noble suite（上游版本为 `13ubuntu10`）会生成 `13ubuntu10-anduinos`，对 questing suite（上游版本为 `14ubuntu3`）会生成 `14ubuntu3-anduinos`。
 
+当输出 suite 名与上游 suite 名不同时，可通过 `<UpstreamSuiteMapping>` 建立映射。典型场景：AnduinOS 的 addon 仓库使用 `questing-addon` 等独立 suite（避免与 Official 仓库的 `questing` 冲突），但上游包仍需从 Ubuntu 的 `questing` 下载：
+
+```xml
+<PropertyGroup>
+  <TargetSuites>noble-addon questing-addon resolute-addon</TargetSuites>
+  <UpstreamSuite>$(Suite)</UpstreamSuite>
+  <UpstreamSuiteMapping>noble-addon=noble, questing-addon=questing, resolute-addon=resolute</UpstreamSuiteMapping>
+</PropertyGroup>
+```
+
+构建时，`$(Suite)` 先展开为 `noble-addon`，然后通过映射表查找到上游 suite `noble`，最终从 Ubuntu 的 `noble` 下载原包。不设映射时行为不变——解析后的 suite 直接用于上游下载。
+
 `apkg lint` 可单独执行，也由 `apkg build` 在构建前自动调用。Error 级别问题会中止构建，Warning 仅打印提示。以下是它检查的全部规则：
 
 | 规则 | 级别 |
@@ -171,6 +184,9 @@
 | `UpstreamPackage` 设置时必须同时设置 `UpstreamUrl`、`UpstreamDistro`、`UpstreamSuite` | **Error** |
 | `UpstreamPackage` 设置时 `UpstreamComponent` 未填（默认 `main`） | Warning |
 | `UpstreamPackage` 设置时 `UpstreamArch` 未填（默认 `all`） | Warning |
+| `UpstreamSuiteMapping` 中输出 suite 未在 `TargetSuites` 中声明 | Warning |
+| `UpstreamSuiteMapping` 中上游 suite 为空 | **Error** |
+| `TargetSuites` 中某 suite 未出现在 `UpstreamSuiteMapping` 中 | Warning |
 | `TargetDistro` 未设（构建全部 target 时必须，默认回退 `ubuntu`） | Warning |
 | `TargetArchitectures` 未设（构建全部 target 时必须） | Warning |
 | 所有 `Include=` 指向的源文件/目录在磁盘上实际存在 | Warning |
@@ -178,7 +194,7 @@
 
 ### ItemGroup 条目类型
 
-所有条目都支持 MSBuild 风格的 `Condition` 属性，可用 `$(Distro)`、`$(Suite)`、`$(Arch)`、`$(UpstreamDistro)`、`$(UpstreamSuite)`、`$(UpstreamArch)` 在构建矩阵中做条件分支。此外 `$(UpstreamVersion)` 可在 `PackageVersion` 中用作模板变量，构建时自动替换为上游版本号。
+所有条目都支持 MSBuild 风格的 `Condition` 属性，可用 `$(Distro)`、`$(Suite)`、`$(Arch)`（别名 `$(Architecture)`）、`$(Component)`、`$(UpstreamDistro)`、`$(UpstreamSuite)`、`$(UpstreamArch)`（别名 `$(UpstreamArchitecture)`）在构建矩阵中做条件分支。此外 `$(UpstreamVersion)` 可在 `PackageVersion` 中用作模板变量，构建时自动替换为上游版本号。
 
 #### IncludeFile — 安装单个文件
 

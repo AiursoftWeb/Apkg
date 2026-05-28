@@ -45,6 +45,12 @@ public class AosprojProject
     public string UpstreamPackage { get; set; } = string.Empty;
     /// <summary>Upstream suite to pull from. Supports $(Suite) variable. e.g. "resolute", "$(Suite)".</summary>
     public string UpstreamSuite { get; set; } = string.Empty;
+    /// <summary>
+    /// Optional mapping from output suite to upstream suite.
+    /// Format: "output1=upstream1 output2=upstream2"
+    /// When set, resolved $(Suite) values are looked up here before downloading from upstream.
+    /// </summary>
+    public string UpstreamSuiteMapping { get; set; } = string.Empty;
     /// <summary>Upstream APT component, e.g. "main".</summary>
     public string UpstreamComponent { get; set; } = "main";
     /// <summary>Architecture of the upstream package, e.g. "all", "amd64".</summary>
@@ -65,6 +71,28 @@ public class AosprojProject
     public string[] ArchList => Split(TargetArchitectures);
     /// <summary>True when this project derives from an upstream .deb (base-files pattern).</summary>
     public bool HasUpstreamSource => !string.IsNullOrWhiteSpace(UpstreamPackage);
+
+    /// <summary>
+    /// Parses <see cref="UpstreamSuiteMapping"/> into a dictionary: output suite → upstream suite.
+    /// </summary>
+    public Dictionary<string, string> GetUpstreamSuiteMap()
+    {
+        var map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        if (string.IsNullOrWhiteSpace(UpstreamSuiteMapping))
+            return map;
+
+        // Collapse spaces around '=' so "a = b" → "a=b" before splitting
+        var normalized = System.Text.RegularExpressions.Regex.Replace(
+            UpstreamSuiteMapping, @"\s*=\s*", "=");
+
+        foreach (var pair in Split(normalized))
+        {
+            var eqIdx = pair.IndexOf('=');
+            if (eqIdx > 0 && eqIdx < pair.Length)
+                map[pair[..eqIdx]] = pair[(eqIdx + 1)..];
+        }
+        return map;
+    }
 
     private static string[] Split(string value) =>
         value.Split([',', ' '], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);

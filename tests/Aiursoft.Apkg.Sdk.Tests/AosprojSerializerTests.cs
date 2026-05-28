@@ -490,6 +490,45 @@ public class AosprojSerializerTests
         Assert.IsTrue(project.HasUpstreamSource);
     }
 
+    [TestMethod]
+    public void Serialize_UpstreamSuiteMapping_RoundTrip()
+    {
+        var xml = XDocument.Parse("""
+            <Project>
+              <PropertyGroup>
+                <PackageName>test</PackageName>
+                <PackageVersion>1.0</PackageVersion>
+                <PackageDescription>desc</PackageDescription>
+                <UpstreamSuiteMapping>noble-addon=noble questing-addon=questing</UpstreamSuiteMapping>
+              </PropertyGroup>
+            </Project>
+            """);
+
+        var project = _serializer.Deserialize(xml);
+        Assert.AreEqual("noble-addon=noble questing-addon=questing", project.UpstreamSuiteMapping);
+
+        var doc = _serializer.Serialize(project);
+        var roundTripped = _serializer.Deserialize(doc);
+        Assert.AreEqual("noble-addon=noble questing-addon=questing", roundTripped.UpstreamSuiteMapping);
+    }
+
+    [TestMethod]
+    public void Deserialize_UpstreamSuiteMapping_DefaultsToEmpty()
+    {
+        var xml = XDocument.Parse("""
+            <Project>
+              <PropertyGroup>
+                <PackageName>test</PackageName>
+                <PackageVersion>1.0</PackageVersion>
+                <PackageDescription>desc</PackageDescription>
+              </PropertyGroup>
+            </Project>
+            """);
+
+        var project = _serializer.Deserialize(xml);
+        Assert.AreEqual("", project.UpstreamSuiteMapping);
+    }
+
     // ── File API round-trip ──────────────────────────────────────────────────
 
     [TestMethod]
