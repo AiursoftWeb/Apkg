@@ -101,6 +101,8 @@
 | `Replaces` | — | deb `Replaces` 字段，声明此包替换哪些旧包 |
 | `Recommends` | — | deb `Recommends` 字段，声明强烈推荐但非必须的软件包（`apt install` 默认安装，`apt remove` 时不会破坏依赖） |
 | `Suggests` | — | deb `Suggests` 字段，声明可选的锦上添花软件包（`apt` 不自动安装，仅作提示） |
+| `DependencyCheckUrl` | — | lint 阶段用于验证 Depends/Recommends 依赖是否存在的 apt 服务器 base URL（如 `https://mirror.aiursoft.com/ubuntu`）。**留空则跳过依赖检查**。不填写时默认跳过，建议在每个项目中显式配置 |
+| `DependencyCheckSuiteMap` | — | 将目标 suite 名映射到 `DependencyCheckUrl` 上的 suite 名。格式与 `UpstreamSuiteMapping` 相同：空格/逗号分隔的 `target=check` 对（如 `noble-addon=noble questing-addon=questing`）。若留空则直接用目标 suite 名查询 |
 | `UpstreamUrl` | ⚠️ | 上游 APT 仓库的 base URL（如 `http://archive.ubuntu.com/ubuntu`）。设置 `UpstreamPackage` 时必填 |
 | `UpstreamDistro` | ⚠️ | 上游仓库的发行版标识（如 `ubuntu`）。设置 `UpstreamPackage` 时必填 |
 | `UpstreamPackage` | — | 上游 .deb 的包名（如 `base-files`）。一旦设置，触发上游派生模式 |

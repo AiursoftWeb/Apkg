@@ -71,10 +71,10 @@ public class AosprojProject
     // ── Dependency check ─────────────────────────────────────────────────────
     /// <summary>
     /// Base URL of the apt server used to validate declared dependencies during lint.
-    /// Defaults to the canonical Ubuntu archive. Set to empty to disable dependency validation.
-    /// e.g. "http://archive.ubuntu.com/ubuntu"
+    /// Must be explicitly set per-project. Leave empty to disable dependency validation.
+    /// e.g. "https://mirror.aiursoft.com/ubuntu" or "http://archive.ubuntu.com/ubuntu"
     /// </summary>
-    public string DependencyCheckUrl { get; set; } = "http://archive.ubuntu.com/ubuntu";
+    public string DependencyCheckUrl { get; set; } = string.Empty;
 
     /// <summary>
     /// Maps target suite names to the suite names used on <see cref="DependencyCheckUrl"/>.
