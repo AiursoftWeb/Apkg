@@ -263,8 +263,8 @@
   Condition 属性允许按 suite/arch 选择不同的依赖版本。
   常见场景：同一个库在不同 suite 里包名或 SONAME 不同。
 
-  可用变量：$(Suite)、$(Arch)、$(Distro)
-  语法与 MSBuild 条件表达式相同，字符串比较需加单引号。
+  可用变量完整列表见上文 ItemGroup 条件语法说明（§ItemGroup 条目类型开头），
+  常用：$(Suite)、$(Arch)、$(Distro)。字符串比较需加单引号。
 -->
 <Dependency Include="libssl3"    Condition="'$(Suite)' == 'resolute'" />
 <Dependency Include="libssl3t64" Condition="'$(Suite)' == 'questing'" />

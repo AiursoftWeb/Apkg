@@ -1,6 +1,6 @@
 using System.Net;
 
-[assembly: DoNotParallelize]
+[assembly: Parallelize(Scope = ExecutionScope.ClassLevel)]
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 

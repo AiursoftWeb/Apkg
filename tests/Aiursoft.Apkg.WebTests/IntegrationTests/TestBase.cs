@@ -1,52 +1,43 @@
+using System.Collections.Concurrent;
 using System.Net;
 using System.Text.RegularExpressions;
-using Aiursoft.Apkg.Entities;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
 public abstract class TestBase
 {
-    // Shared for the lifetime of each test class. Safe because
-    // [assembly:DoNotParallelize] ensures only one class runs at a time,
-    // so ClassSetup/ClassTeardown never overlap across different classes.
-    private static IHost? _host;
-    private static int _port;
+    // Per-derived-class host storage. Each test class gets its own isolated
+    // IHost from the factory, so classes can run in parallel.
+    private static readonly ConcurrentDictionary<string, IHost> Hosts = new();
+    private static readonly ConcurrentDictionary<string, int> Ports = new();
 
     protected HttpClient Http = null!;
-    protected IHost? Server => _host;
+    protected IHost? Server => Hosts.TryGetValue(GetType().FullName!, out var host) ? host : null;
 
     [ClassInitialize(InheritanceBehavior.BeforeEachDerivedClass)]
-    public static async Task ClassSetup(TestContext _)
+    public static async Task ClassSetup(TestContext context)
     {
-        _host = TestAssemblySetup.Host;
-        _port = TestAssemblySetup.Port;
-
-        // Reset repo/mirror/apt-package data (fast — GPG cert already exists)
-        await _host!.SeedMirrorsAsync(true);
-
-        // Reset per-class mutable state so tests don't bleed into each other
-        using var scope = _host!.Services.CreateScope();
-        var db = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
-        db.LocalPackages.RemoveRange(db.LocalPackages);
-        db.UserApiKeys.RemoveRange(db.UserApiKeys);
-        // Delete all settings so SeedAsync() re-creates them at their default values
-        db.GlobalSettings.RemoveRange(db.GlobalSettings);
-        await db.SaveChangesAsync();
-
-        // Re-seed settings (and skip user/role creation since they already exist)
-        await _host.SeedAsync();
+        var (host, port) = await TestAssemblySetup.CreateIsolatedHostAsync();
+        Hosts[context.FullyQualifiedTestClassName!] = host;
+        Ports[context.FullyQualifiedTestClassName!] = port;
     }
 
     [ClassCleanup(InheritanceBehavior.BeforeEachDerivedClass)]
-    public static Task ClassTeardown()
+    public static async Task ClassTeardown(TestContext context)
     {
-        return Task.CompletedTask; // server lifetime is managed by TestAssemblySetup
+        if (Hosts.TryRemove(context.FullyQualifiedTestClassName!, out var host))
+        {
+            await host.StopAsync();
+            host.Dispose();
+        }
+        Ports.TryRemove(context.FullyQualifiedTestClassName!, out _);
     }
 
     // Recreated per test to give each test an isolated cookie jar / session.
     [TestInitialize]
     public virtual Task SetupTestContext()
     {
+        var port = Ports[GetType().FullName!];
         var cookieContainer = new CookieContainer();
         var handler = new HttpClientHandler
         {
@@ -55,7 +46,7 @@ public abstract class TestBase
         };
         Http = new HttpClient(handler)
         {
-            BaseAddress = new Uri($"http://localhost:{_port}")
+            BaseAddress = new Uri($"http://localhost:{port}")
         };
         return Task.CompletedTask;
     }
@@ -144,8 +135,8 @@ public abstract class TestBase
 
     protected T GetService<T>() where T : notnull
     {
-        if (_host == null) throw new InvalidOperationException("Server is not started.");
-        var scope = _host.Services.CreateScope();
+        var host = Server ?? throw new InvalidOperationException("Server is not started.");
+        var scope = host.Services.CreateScope();
         return scope.ServiceProvider.GetRequiredService<T>();
     }
 }
