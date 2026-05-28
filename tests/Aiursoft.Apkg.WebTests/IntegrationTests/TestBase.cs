@@ -18,19 +18,19 @@ public abstract class TestBase
     public static async Task ClassSetup(TestContext context)
     {
         var (host, port) = await TestAssemblySetup.CreateIsolatedHostAsync();
-        Hosts[context.FullyQualifiedTestClassName!] = host;
-        Ports[context.FullyQualifiedTestClassName!] = port;
+        Hosts[context.FullyQualifiedTestClassName] = host;
+        Ports[context.FullyQualifiedTestClassName] = port;
     }
 
     [ClassCleanup(InheritanceBehavior.BeforeEachDerivedClass)]
     public static async Task ClassTeardown(TestContext context)
     {
-        if (Hosts.TryRemove(context.FullyQualifiedTestClassName!, out var host))
+        if (Hosts.TryRemove(context.FullyQualifiedTestClassName, out var host))
         {
             await host.StopAsync();
             host.Dispose();
         }
-        Ports.TryRemove(context.FullyQualifiedTestClassName!, out _);
+        Ports.TryRemove(context.FullyQualifiedTestClassName, out _);
     }
 
     // Recreated per test to give each test an isolated cookie jar / session.

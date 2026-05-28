@@ -243,11 +243,11 @@ public class ApiPackagesController(
                 }
             }
 
-            if (summary.Errors.Count > 0 && !skipDuplicate)
-                return Conflict(summary);
-
             if (summary.Uploaded.Count > 0)
             {
+                if (summary.Errors.Count > 0 && !skipDuplicate)
+                    return Conflict(summary);
+
                 uploadRecord.IsPublished = true;
                 await db.SaveChangesAsync();
                 return Ok(summary);
@@ -256,6 +256,10 @@ public class ApiPackagesController(
             // Nothing was uploaded — clean up the record
             db.ApkgUploads.Remove(uploadRecord);
             await db.SaveChangesAsync();
+
+            if (summary.Errors.Count > 0 && !skipDuplicate)
+                return Conflict(summary);
+
             return Ok(summary);
         }
         finally
