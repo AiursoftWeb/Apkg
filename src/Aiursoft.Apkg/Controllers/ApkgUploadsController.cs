@@ -283,7 +283,7 @@ public class ApkgUploadsController(
                     return this.StackView(previewModel, "Preview");
                 }
 
-                // arch:all packages match any architecture repo (APT standard)
+                // KEEP IN SYNC with ArchitectureMatches helper below and ApiPackagesController line 165
                 var candidateRepositories = await db.AptRepositories
                     .Where(r => r.Distro == entry.Distro
                                 && r.Suite == entry.Suite
@@ -683,10 +683,9 @@ public class ApkgUploadsController(
         return string.IsNullOrWhiteSpace(value) ? null : value;
     }
 
-    // KEEP IN SYNC with the inline conditions in the two EF Core LINQ queries
-    // (lines ~290 and ~492). EF can't translate this helper to SQL, so the
-    // queries duplicate the logic inline. This method exists so the logic is
-    // testable — any change to the inline conditions must be mirrored here.
+    // KEEP IN SYNC with inline conditions at lines ~290, ~492, and ApiPackagesController line 165.
+    // EF can't translate this helper to SQL, so queries duplicate the logic inline.
+    // Any change must be mirrored to all 3 locations AND ApiPackagesController.ArchitectureMatches.
     internal static bool ArchitectureMatches(string repoArchitecture, string entryArchitecture)
     {
         return string.Equals(repoArchitecture, entryArchitecture, StringComparison.OrdinalIgnoreCase)

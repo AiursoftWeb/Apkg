@@ -158,10 +158,12 @@ public class ApiPackagesController(
                     return BadRequest(summary);
                 }
 
+                // KEEP IN SYNC with ArchitectureMatches helper below and ApkgUploadsController lines 290/492
                 var candidateRepositories = await db.AptRepositories
                     .Where(r => r.Distro == entry.Distro
                                 && r.Suite == entry.Suite
-                                && r.Architecture == entry.Architecture)
+                                && (r.Architecture == entry.Architecture
+                                    || string.Equals(entry.Architecture, "all", StringComparison.OrdinalIgnoreCase)))
                     .ToListAsync();
 
                 var matchingRepositories = candidateRepositories
@@ -335,5 +337,14 @@ public class ApiPackagesController(
         public required string Package { get; init; }
         public required string Version { get; init; }
         public required string Arch { get; init; }
+    }
+
+    // KEEP IN SYNC with the inline condition at line 165 and ApkgUploadsController lines 290/492.
+    // EF can't translate this to SQL, so the query duplicates the logic inline.
+    // Any change to the inline condition must be mirrored here.
+    internal static bool ArchitectureMatches(string repoArchitecture, string entryArchitecture)
+    {
+        return string.Equals(repoArchitecture, entryArchitecture, StringComparison.OrdinalIgnoreCase)
+            || string.Equals(entryArchitecture, "all", StringComparison.OrdinalIgnoreCase);
     }
 }

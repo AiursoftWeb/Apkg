@@ -59,4 +59,17 @@ public class ArchitectureMatchesTests
         Assert.IsTrue(ApkgUploadsController.ArchitectureMatches("all", "all"));
         Assert.IsFalse(ApkgUploadsController.ArchitectureMatches("all", "amd64"));
     }
+
+    [TestMethod]
+    public void BothControllers_Helpers_AreIdentical()
+    {
+        string[] testPairs = ["amd64", "arm64", "i386", "all", "ALL", "mips64el"];
+        foreach (var entry in testPairs)
+        foreach (var repo in testPairs)
+        {
+            var a = ApiPackagesController.ArchitectureMatches(repo, entry);
+            var b = ApkgUploadsController.ArchitectureMatches(repo, entry);
+            Assert.AreEqual(a, b, $"Mismatch: repo={repo} entry={entry}");
+        }
+    }
 }
