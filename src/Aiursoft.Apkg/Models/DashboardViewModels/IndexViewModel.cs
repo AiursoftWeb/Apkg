@@ -7,6 +7,7 @@ public class PackageSearchResult
 {
     public required AptPackage Package { get; init; }
     public required string RepoName { get; init; }
+    public required string Suite { get; init; }
     public required int RepoId { get; init; }
 }
 

@@ -26,7 +26,7 @@ public class DashboardController(ApkgDbContext db) : Controller
         // Gather all active repo buckets: repoId -> currentBucketId
         var activeRepos = await db.AptRepositories
             .Where(r => r.PrimaryBucketId != null)
-            .Select(r => new { r.Id, r.Name, r.PrimaryBucketId })
+            .Select(r => new { r.Id, r.Name, r.Suite, r.PrimaryBucketId })
             .ToListAsync();
 
         var activeBucketIds = activeRepos
@@ -38,7 +38,7 @@ public class DashboardController(ApkgDbContext db) : Controller
         // Build a lookup from bucketId → (repoId, repoName)
         var bucketToRepo = activeRepos
             .Where(r => r.PrimaryBucketId != null)
-            .ToDictionary(r => r.PrimaryBucketId!.Value, r => new { r.Id, r.Name });
+            .ToDictionary(r => r.PrimaryBucketId!.Value, r => new { r.Id, r.Name, r.Suite });
 
         var baseQuery = db.AptPackages.AsNoTracking()
             .Where(p => activeBucketIds.Contains(p.BucketId));
@@ -69,6 +69,7 @@ public class DashboardController(ApkgDbContext db) : Controller
             Package = pkg,
             RepoId = bucketToRepo.TryGetValue(pkg.BucketId, out var r) ? r.Id : 0,
             RepoName = bucketToRepo.TryGetValue(pkg.BucketId, out var r2) ? r2.Name : "Unknown",
+            Suite = bucketToRepo.TryGetValue(pkg.BucketId, out var r3) ? r3.Suite : "Unknown",
         }).ToList();
 
         return this.StackView(new IndexViewModel
