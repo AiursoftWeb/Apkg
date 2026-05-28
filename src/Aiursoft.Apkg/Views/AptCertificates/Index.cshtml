@@ -34,6 +34,9 @@
                     <td><code>@item.Fingerprint</code></td>
                     <td>@item.CreatedAt.ToShortDateString()</td>
                     <td class="text-end">
+                        <a asp-action="DownloadPublicKey" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary me-1">
+                            <i class="align-middle" data-lucide="download"></i>
+                        </a>
                         <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteCert-@item.Id">
                             <i class="align-middle" data-lucide="trash-2"></i>
                         </button>

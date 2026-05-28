@@ -6,6 +6,7 @@ using Aiursoft.UiStack.Navigation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 using Aiursoft.Apkg.Authorization;
 
 namespace Aiursoft.Apkg.Controllers;
@@ -66,6 +67,19 @@ public class AptCertificatesController(
         }
         model.PageTitle = "Generate New Key";
         return this.StackView(model);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> DownloadPublicKey(int id)
+    {
+        var cert = await dbContext.AptCertificates.FindAsync(id);
+        if (cert == null)
+        {
+            return NotFound();
+        }
+
+        var fileName = $"{cert.Name}.asc";
+        return File(Encoding.UTF8.GetBytes(cert.PublicKey), "application/pgp-keys", fileName);
     }
 
     [HttpPost]
