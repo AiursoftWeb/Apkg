@@ -1131,6 +1131,40 @@ public class AosprojLinterTests
         }
     }
 
+    [TestMethod]
+    public void Lint_UpstreamSuiteMapping_EmptyUpstreamSuite_Error()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            File.WriteAllText(Path.Combine(dir, "app"), "binary");
+
+            var project = new AosprojProject
+            {
+                PackageName = "my-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "desc",
+                TargetSuites = "noble-addon",
+                Maintainer = "Test <test@example.com>",
+                // Trailing space after = makes the value empty after Regex.Replace normalizes "= " → "="
+                UpstreamSuiteMapping = "noble-addon= ",
+                IncludeFiles =
+                {
+                    new IncludeFileItem { Source = "app", Target = "/usr/bin/app" }
+                }
+            };
+
+            var issues = _linter.Lint(project, dir);
+            Assert.IsTrue(issues.Any(i => i.Level == AosprojLinter.Severity.Error
+                && i.Message.Contains("UpstreamSuiteMapping")
+                && i.Message.Contains("empty upstream")));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
     private static string CreateTempDir()
     {
         var path = Path.Combine(Path.GetTempPath(), "lint-tests", Guid.NewGuid().ToString("N"));
