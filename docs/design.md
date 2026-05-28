@@ -332,16 +332,18 @@ Pin-Priority: 100
 **ApkgUpload 记录管理**：每次 `apkg push` 在服务端对应一条 `ApkgUpload` 记录，其生命周期遵循以下规则：
 
 - **前置校验**：记录在确认 archive 内所有 `Entry` 引用的 `.deb` 文件都存在之后才创建。manifest 解析失败或文件缺失时直接返回错误，不产生数据库记录。
-- **IsPublished 语义**：只有至少有一个 `.deb` 被实际上传到仓库时才标记为 `Published`。全部被跳过（`--skip-duplicate`）或全部冲突（无 flag 的 409）不算已发布。
+- **IsPublished 语义**：只有至少有一个 `.deb` 被实际上传且无未解决的错误时才标记为 `Published`。全部被跳过（`--skip-duplicate`）、全部冲突（无 flag 的 409）、或部分成功但存在冲突错误（无 flag）时记录不发布。
 - **零上传清理**：如果最终没有任何包被上传（全部跳过或全部冲突），已创建的 `ApkgUpload` 记录会被立即删除。不会残留"处理过但什么都没做"的垃圾记录。
+- **部分成功**：部分 repo 上传成功但部分 409 冲突（不带 `--skip-duplicate`）时，记录保留（`IsPublished=false`）并返回 409，方便排查哪些 repo 成功、哪些冲突。
 - **超时兜底**：极端情况下（如进程在循环中途崩溃），`ApkgTempCleanupJob` 会清理超过 30 分钟仍未发布的记录（见 §12）。
 
 | 场景 | ApkgUpload 结果 |
 |------|----------------|
-| 全新包，全部 suite 成功 | 1 条 Published 记录 |
-| 全部跳过 + `--skip-duplicate` | 0 条记录，返回 OK + warnings |
+| 全新包，全部 suite 成功 | 1 条 Published 记录，返回 200 |
+| 全部跳过 + `--skip-duplicate` | 0 条记录，返回 200 + warnings |
 | 全部冲突，不带 flag | 0 条记录，返回 409 |
-| 部分成功 + `--skip-duplicate` | 1 条 Published（仅含实际上传的包） |
+| 部分成功 + `--skip-duplicate` | 1 条 Published（仅含实际上传的包），返回 200 |
+| 部分成功，不带 flag | 1 条记录（IsPublished=false），返回 409 |
 
 ## 12. 后台任务补充
 

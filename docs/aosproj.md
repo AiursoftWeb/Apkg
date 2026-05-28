@@ -179,6 +179,7 @@
 | `PackageName`、`PackageVersion`、`PackageDescription`、`TargetSuites` 必须设置 | **Error** |
 | `PackageName` 必须匹配 `^[a-z0-9][a-z0-9\-+.]*$` | **Error** |
 | 所有条目的 `Target=` 不能为空 | **Error** |
+| 所有条目的 `Include=`（`Source`）不能为空 | **Error** |
 | `Condition` 表达式必须能被解析 | **Error** |
 | `Maintainer` 与 `PackageAuthors` 至少填一个 | Warning |
 | `UpstreamPackage` 设置时必须同时设置 `UpstreamUrl`、`UpstreamDistro`、`UpstreamSuite` | **Error** |
