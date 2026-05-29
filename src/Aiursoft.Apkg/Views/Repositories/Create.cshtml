@@ -25,7 +25,7 @@
                 <div class="col-md-6 mb-3">
                     <label asp-for="Name" class="form-label"></label>
                     <input asp-for="Name" class="form-control" placeholder="my-custom-repo" required />
-                    <div class="form-text">@Localizer["The internal identifier and part of the URL path."]</div>
+                    <div class="form-text">@Localizer["A human-readable label for this repository. Not used by Debian/APT at all."]</div>
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="col-md-6 mb-3">

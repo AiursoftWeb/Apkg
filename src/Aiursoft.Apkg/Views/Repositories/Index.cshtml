@@ -30,6 +30,7 @@
                 <th>@Localizer["Distro"]</th>
                 <th>@Localizer["Name"]</th>
                 <th>@Localizer["Suite"]</th>
+                <th>@Localizer["Architecture"]</th>
                 <th>@Localizer["Certificate"]</th>
                 <th>
                     @Localizer["Live Bucket"]
@@ -60,6 +61,7 @@
                     <td><span class="badge badge-subtle-primary">@item.Distro</span></td>
                     <td><strong>@item.Name</strong></td>
                     <td><span class="badge bg-primary">@item.Suite</span></td>
+                    <td><span class="badge bg-dark">@item.Architecture</span></td>
                     <td>
                         @if (item.Certificate != null)
                         {
