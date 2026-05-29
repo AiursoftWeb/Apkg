@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>حزمة .deb هي حزمة برمجية جاهزة للتثبيت على أنظمة Debian/Ubuntu. وهي تحتوي على الملفات التنفيذية، وملفات الإعدادات، وبيانات اعتماديات البرنامج.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>البنية التحتية</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -39,6 +42,9 @@
   <data name="Download Size" xml:space="preserve">
     <value>حجم التنزيل</value>
   </data>
+  <data name="Download the .deb directly or browse reverse dependencies above." xml:space="preserve">
+    <value>قم بتنزيل ملف .deb مباشرة أو تصفح التبعيات العكسية أعلاه.</value>
+  </data>
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>فشل في تحميل التبعيات العكسية.</value>
   </data>
@@ -47,6 +53,9 @@
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>الصفحة الرئيسية</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>طريقة الاستخدام:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>الحجم المثبت</value>
@@ -110,6 +119,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>افتراضي (مزامنة كسولة)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>ما هو الحزمة؟</value>
   </data>
 
 </root>

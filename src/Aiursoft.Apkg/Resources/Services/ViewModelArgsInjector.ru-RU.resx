@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Ключи API</value>
   </data>
+  <data name="Apkg Hybrid" xml:space="preserve">
+    <value>Гибридная APKG</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>Подробности загрузки APKG</value>
   </data>
@@ -92,6 +95,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Панель управления</value>
+  </data>
+  <data name="Deb Standalone" xml:space="preserve">
+    <value>Отдельный Deb</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Удалить роль</value>
@@ -167,6 +173,12 @@
   </data>
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Мои пакеты (APKG)</value>
+  </data>
+  <data name="MyPackages" xml:space="preserve">
+    <value>МоиПакеты</value>
+  </data>
+  <data name="MyPackagesSub" xml:space="preserve">
+    <value>Подразделы моих пакетов</value>
   </data>
   <data name="New API Key" xml:space="preserve">
     <value>Новый ключ API</value>

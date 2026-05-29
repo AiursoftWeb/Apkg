@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>الصلاحيات هي قدرات منفصلة (مثل &apos;إنشاء مرآة&apos;، &apos;حذف الحزمة&apos;). يتم تجميع الصلاحيات في أدوار وتعيينها للمستخدمين.</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>العودة إلى الأذونات</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>اسم الصلاحية</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>الأذونات دقيقة للغاية. راجع الأدوار التي تمنح كل إذن لفهم من يمكنه تنفيذ أي إجراءات.</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>اسم الدور</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>يتمتع المستخدمون التاليون بهذا الإذن من خلال عضويتهم في الأدوار.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>نصيحة:</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>اسم المستخدم</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>المستخدمون الذين لديهم هذا الإذن</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>ما هو إذن؟</value>
   </data>
 
 </root>

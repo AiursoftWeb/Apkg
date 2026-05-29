@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API-avaimet</value>
   </data>
+  <data name="Apkg Hybrid" xml:space="preserve">
+    <value>Apkg Hybrid</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>APKG-latauksen tiedot</value>
   </data>
@@ -92,6 +95,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Hallintapaneeli</value>
+  </data>
+  <data name="Deb Standalone" xml:space="preserve">
+    <value>Deb Itsestään Toimiva</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Poista rooli</value>
@@ -167,6 +173,12 @@
   </data>
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Omat paketit (APKG)</value>
+  </data>
+  <data name="MyPackages" xml:space="preserve">
+    <value>Omat paketit</value>
+  </data>
+  <data name="MyPackagesSub" xml:space="preserve">
+    <value>Minun pakettejani (APKG)</value>
   </data>
   <data name="New API Key" xml:space="preserve">
     <value>Uusi API-avain</value>

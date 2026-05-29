@@ -21,14 +21,29 @@
       <data name="1. Upload a .deb Package" xml:space="preserve">
     <value>1. อัปโหลดแพ็กเกจ .deb</value>
   </data>
+  <data name="1. Upload an .apkg Package (Recommended)" xml:space="preserve">
+    <value>1. อัปโหลดแพ็กเกจ .apkg (แนะนำ)</value>
+  </data>
   <data name="2. Parameters" xml:space="preserve">
     <value>2. พารามิเตอร์</value>
+  </data>
+  <data name="2. Upload a .deb Package (Manual)" xml:space="preserve">
+    <value>2. อัปโหลดแพ็กเกจ .deb (แบบแมนนวล)</value>
+  </data>
+  <data name="3. Parameters" xml:space="preserve">
+    <value>3. พารามิเตอร์</value>
   </data>
   <data name="3. Response Codes" xml:space="preserve">
     <value>3. รหัสสถานะการตอบกลับ</value>
   </data>
   <data name="4. Example with Python" xml:space="preserve">
     <value>4. ตัวอย่างด้วย Python</value>
+  </data>
+  <data name="4. Response Codes" xml:space="preserve">
+    <value>4. รหัสสถานะการตอบกลับ</value>
+  </data>
+  <data name="5. Example with Python" xml:space="preserve">
+    <value>5. ตัวอย่างโดยใช้ Python</value>
   </data>
   <data name="API Key Created!" xml:space="preserve">
     <value>สร้างคีย์ API สำเร็จ!</value>
@@ -50,6 +65,9 @@
   </data>
   <data name="Form field" xml:space="preserve">
     <value>ช่องกรอกข้อมูลแบบฟอร์ม</value>
+  </data>
+  <data name="Full workflow: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. Install the CLI with: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;" xml:space="preserve">
+    <value>ขั้นตอนการทำงานทั้งหมด: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt; ติดตั้ง CLI ด้วยคำสั่ง: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;</value>
   </data>
   <data name="Invalid or missing API key." xml:space="preserve">
     <value>คีย์ API ไม่ถูกต้องหรือไม่มีอยู่</value>
@@ -90,11 +108,17 @@
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>ไฟล์ .deb (multipart/form-data, จำเป็น)</value>
   </data>
+  <data name="Use the &lt;code&gt;apkg&lt;/code&gt; CLI to build and push .apkg packages. The apkg tool handles manifest generation, multi-architecture builds, and one-command uploads." xml:space="preserve">
+    <value>ใช้ CLI ของ &lt;code&gt;apkg&lt;/code&gt; เพื่อสร้างและอัปโหลดแพ็กเกจ .apkg เครื่องมือ apkg จะจัดการการสร้าง manifest การสร้างสำหรับหลายสถาปัตยกรรม และการอัปโหลดด้วยคำสั่งเดียว</value>
+  </data>
   <data name="Use the following curl command to upload a package to a repository:" xml:space="preserve">
     <value>ใช้คำสั่ง curl ต่อไปนี้เพื่ออัปโหลดแพ็กเกจไปยังที่เก็บข้อมูล:</value>
   </data>
   <data name="Use this API key to upload .deb packages programmatically. The base URL is:" xml:space="preserve">
     <value>ใช้คีย์ API นี้เพื่ออัปโหลดแพ็กเกจ .deb แบบโปรแกรมmatic ที่อยู่ฐานคือ:</value>
+  </data>
+  <data name="Use this API key to upload packages programmatically. The base URL is:" xml:space="preserve">
+    <value>ใช้คีย์ API นี้เพื่ออัปโหลดแพ็คเกจด้วยโปรแกรม โดย URL ฐานคือ:</value>
   </data>
   <data name="Using API Key" xml:space="preserve">
     <value>การใช้คีย์ API</value>

@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API-nycklar</value>
   </data>
+  <data name="Apkg Hybrid" xml:space="preserve">
+    <value>Apkg hybrid</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>Detaljer för APKG-uppladdning</value>
   </data>
@@ -92,6 +95,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Instrumentbräda</value>
+  </data>
+  <data name="Deb Standalone" xml:space="preserve">
+    <value>Deb Standalone</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Ta bort roll</value>
@@ -167,6 +173,12 @@
   </data>
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Mina paket (APKG)</value>
+  </data>
+  <data name="MyPackages" xml:space="preserve">
+    <value>MinaPaket</value>
+  </data>
+  <data name="MyPackagesSub" xml:space="preserve">
+    <value>Mina paket (under)</value>
   </data>
   <data name="New API Key" xml:space="preserve">
     <value>Ny API-nyckel</value>

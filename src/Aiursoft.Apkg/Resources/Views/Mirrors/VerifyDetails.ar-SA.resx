@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Mirrors" xml:space="preserve">
+      <data name="A &apos;Passed&apos; status means the mirror&apos;s signature is valid. &apos;Failed&apos; may indicate expired keys or corrupted data." xml:space="preserve">
+    <value>تعني حالة &quot;تمّت&quot; أن توقيع المرآة صحيح. وقد تشير حالة &quot;فشل&quot; إلى مفاتيح منتهية الصلاحية أو بيانات تالفة.</value>
+  </data>
+  <data name="Back to Mirrors" xml:space="preserve">
     <value>العودة إلى المرايا</value>
   </data>
   <data name="Bucket Replacements" xml:space="preserve">
@@ -35,6 +38,9 @@
   </data>
   <data name="file" xml:space="preserve">
     <value>ملف</value>
+  </data>
+  <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
+    <value>يضمن التوقيع باستخدام GPG أن الحزم قادمة من مصدر موثوق ولم يتم العبث بها. يتم التحقق من ملف InRelease الخاص بالمِرآة ضد مفتاح GPG الخاص بها.</value>
   </data>
   <data name="GPG Verify Details" xml:space="preserve">
     <value>تفاصيل التحقق من GPG</value>
@@ -69,11 +75,17 @@
   <data name="Target" xml:space="preserve">
     <value>الهدف</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>نصيحة:</value>
+  </data>
   <data name="Verification Log" xml:space="preserve">
     <value>سجل التحقق</value>
   </data>
   <data name="Verification Target" xml:space="preserve">
     <value>هدف التحقق</value>
+  </data>
+  <data name="What is GPG Verification?" xml:space="preserve">
+    <value>ما هي عملية التحقق بواسطة GPG؟</value>
   </data>
 
 </root>

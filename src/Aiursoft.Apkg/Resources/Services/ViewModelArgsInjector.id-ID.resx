@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Kunci API</value>
   </data>
+  <data name="Apkg Hybrid" xml:space="preserve">
+    <value>Apkg Hybrid</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>Detail Unggahan APKG</value>
   </data>
@@ -92,6 +95,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dasbor</value>
+  </data>
+  <data name="Deb Standalone" xml:space="preserve">
+    <value>Deb Berdiri Sendiri</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Hapus Peran</value>
@@ -167,6 +173,12 @@
   </data>
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Paket Saya (APKG)</value>
+  </data>
+  <data name="MyPackages" xml:space="preserve">
+    <value>Paket Saya</value>
+  </data>
+  <data name="MyPackagesSub" xml:space="preserve">
+    <value>Sub Paket Saya</value>
   </data>
   <data name="New API Key" xml:space="preserve">
     <value>Kunci API Baru</value>

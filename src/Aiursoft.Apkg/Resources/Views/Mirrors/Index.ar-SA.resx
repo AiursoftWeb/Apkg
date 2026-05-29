@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>إضافة مرآة جديدة</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>يقوم المرآة الأصلية بمزامنة بيانات وصف الحزم من مستودع APT خارجي (مثل Ubuntu) إلى APKG. وهي مصدر البيانات لمستودعاتك المحلية.</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>البنية</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>آخر سحب</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>تعمل المرايا وفقًا لجدول زمني. تحقق من عمود &quot;آخر سحب&quot; لمعرفة آخر وقت تم فيه مزامنة كل مرآة.</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>لم يتم السحب مطلقًا</value>
@@ -126,6 +132,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>سيؤدي ذلك أيضًا إلى حذف جميع الحزم والدلاء المرتبطة بها!</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>ملاحظة:</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>غير محمي</value>
   </data>
@@ -137,6 +146,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>تم التحقق</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>ما هو المرآة؟</value>
   </data>
 
 </root>

@@ -42,8 +42,14 @@
   <data name="Disabled" xml:space="preserve">
     <value>Desativado</value>
   </data>
+  <data name="Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets." xml:space="preserve">
+    <value>Cada LocalPackage corresponde a uma combinação única de repositório+suíte+arquitetura. A tarefa de Sincronização do Repositório copia esses arquivos para os buckets ativos.</value>
+  </data>
   <data name="Live" xml:space="preserve">
     <value>Ao vivo</value>
+  </data>
+  <data name="LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories." xml:space="preserve">
+    <value>Os LocalPackages são arquivos .deb extraídos de uploads .apkg. Eles ficam em uma área de staging antes de serem sincronizados com os repositórios APT.</value>
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>Meus Pacotes</value>
@@ -69,6 +75,9 @@
   <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
     <value>O progresso atual da mesclagem e assinatura deste pacote no repositório ativo. O trabalho de sincronização é executado a cada 20 minutos, seguido por um trabalho de assinatura a cada 5 minutos.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Dica:</value>
+  </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Enviar Pacote</value>
   </data>
@@ -83,6 +92,9 @@
   </data>
   <data name="View Details &amp; Install Instructions" xml:space="preserve">
     <value>Ver Detalhes e Instruções de Instalação</value>
+  </data>
+  <data name="What is a LocalPackage?" xml:space="preserve">
+    <value>O que é um LocalPackage?</value>
   </data>
 
 </root>

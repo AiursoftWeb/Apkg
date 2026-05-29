@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Κλειδιά API</value>
   </data>
+  <data name="Apkg Hybrid" xml:space="preserve">
+    <value>Υβριδικό Apkg</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>Λεπτομέρειες Ανάθεσης APKG</value>
   </data>
@@ -92,6 +95,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Πίνακας ελέγχου</value>
+  </data>
+  <data name="Deb Standalone" xml:space="preserve">
+    <value>Deb Ανεξάρτητος</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Διαγραφή Ρόλου</value>
@@ -167,6 +173,12 @@
   </data>
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Τα πακέτα μου (APKG)</value>
+  </data>
+  <data name="MyPackages" xml:space="preserve">
+    <value>TaPackagesMou</value>
+  </data>
+  <data name="MyPackagesSub" xml:space="preserve">
+    <value>Υποτομή Πακέτων</value>
   </data>
   <data name="New API Key" xml:space="preserve">
     <value>Νέος Κλειδί API</value>

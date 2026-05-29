@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>Adicionar Novo Espelho</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>Um espelho upstream sincroniza metadados de pacotes de um repositório APT externo (como o Ubuntu) para o APKG. Ele é a fonte de dados para seus repositórios locais.</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>Arquitetura</value>
   </data>
@@ -74,6 +77,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Última Atualização</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>Os espelhos executam-se conforme um agendamento. Consulte a coluna &apos;Última Extração&apos; para verificar quando cada espelho foi sincronizado pela última vez.</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Nunca sincronizado</value>
@@ -129,6 +135,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Isso também excluirá todos os pacotes e buckets associados!</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Dica:</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>Sem proteção</value>
   </data>
@@ -140,6 +149,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>Verificado</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>O que é um Espelho?</value>
   </data>
 
 </root>

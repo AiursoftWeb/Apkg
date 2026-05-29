@@ -21,14 +21,29 @@
       <data name="1. Upload a .deb Package" xml:space="preserve">
     <value>1. 上传 .deb 包</value>
   </data>
+  <data name="1. Upload an .apkg Package (Recommended)" xml:space="preserve">
+    <value>1. 上传 .apkg 软件包（推荐）</value>
+  </data>
   <data name="2. Parameters" xml:space="preserve">
     <value>2. 参数</value>
+  </data>
+  <data name="2. Upload a .deb Package (Manual)" xml:space="preserve">
+    <value>2. 上传 .deb 软件包（手动）</value>
+  </data>
+  <data name="3. Parameters" xml:space="preserve">
+    <value>3. 参数</value>
   </data>
   <data name="3. Response Codes" xml:space="preserve">
     <value>3. 响应代码</value>
   </data>
   <data name="4. Example with Python" xml:space="preserve">
     <value>4. Python 示例</value>
+  </data>
+  <data name="4. Response Codes" xml:space="preserve">
+    <value>4. 响应代码</value>
+  </data>
+  <data name="5. Example with Python" xml:space="preserve">
+    <value>5. Python 示例</value>
   </data>
   <data name="API Key Created!" xml:space="preserve">
     <value>API Key 已创建！</value>
@@ -50,6 +65,9 @@
   </data>
   <data name="Form field" xml:space="preserve">
     <value>表单字段</value>
+  </data>
+  <data name="Full workflow: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. Install the CLI with: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;" xml:space="preserve">
+    <value>完整工作流：&lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;。请使用以下命令安装 CLI：&lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;。</value>
   </data>
   <data name="Invalid or missing API key." xml:space="preserve">
     <value>API 密钥无效或缺失。</value>
@@ -90,11 +108,17 @@
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>.deb 文件（multipart/form-data，必填）。</value>
   </data>
+  <data name="Use the &lt;code&gt;apkg&lt;/code&gt; CLI to build and push .apkg packages. The apkg tool handles manifest generation, multi-architecture builds, and one-command uploads." xml:space="preserve">
+    <value>使用 &lt;code&gt;apkg&lt;/code&gt; CLI 来构建和推送 .apkg 软件包。apkg 工具负责清单生成、多架构构建以及一键上传。</value>
+  </data>
   <data name="Use the following curl command to upload a package to a repository:" xml:space="preserve">
     <value>使用以下 curl 命令将软件包上传到仓库：</value>
   </data>
   <data name="Use this API key to upload .deb packages programmatically. The base URL is:" xml:space="preserve">
     <value>使用此 API 密钥以编程方式上传 .deb 软件包。基础 URL 为：</value>
+  </data>
+  <data name="Use this API key to upload packages programmatically. The base URL is:" xml:space="preserve">
+    <value>使用此 API 密钥以编程方式上传软件包。基础 URL 为：</value>
   </data>
   <data name="Using API Key" xml:space="preserve">
     <value>使用 API 密钥</value>

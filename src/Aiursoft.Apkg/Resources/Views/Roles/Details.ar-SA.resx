@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>نظرة شاملة على الدور، صلاحياته، والمستخدمين المعينين فيه.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>الدور هو مجموعة تسمية من الأذونات. قم بتعيين الأدوار للمستخدمين لمنحهم القدرة على تنفيذ إجراءات محددة.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>المستخدمون المعينون</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>العودة إلى قائمة الأدوار</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>أنشئ الأدوار بناءً على الوظائف الوظيفية (مثل: &quot;مدير المرآة&quot;) بدلاً من تخصيصها لكل مستخدم على حدة لتبسيط الإدارة.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>حذف هذه الصلاحية</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>هذا الدور لا يمتلك أي صلاحيات محددة مُخصصة له.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>نصيحة:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>المستخدمون الحاصلون على هذا الدور</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>عرض المستخدم</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>ما هي الوظيفة؟</value>
   </data>
 
 </root>

@@ -42,8 +42,14 @@
   <data name="Disabled" xml:space="preserve">
     <value>معطل</value>
   </data>
+  <data name="Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets." xml:space="preserve">
+    <value>كل حزمة محلية (LocalPackage) تقابل مزيجًا واحدًا من المستودع (repo) والمجموعة (suite) والهندسة (arch). ينسخ مهمة مزامنة المستودع هذه إلى دلاء التشغيل المباشر (live buckets).</value>
+  </data>
   <data name="Live" xml:space="preserve">
     <value>مباشر</value>
+  </data>
+  <data name="LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories." xml:space="preserve">
+    <value>تمت استخراق ملفات LocalPackages بصيغة .deb من عمليات رفع .apkg. وتوجد في منطقة مؤقتة قبل مزامنتها مع مستودعات APT.</value>
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>حزمي</value>
@@ -69,6 +75,9 @@
   <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
     <value>التقدم الحالي لدمج هذه الحزمة وتوقيعها في المستودع المباشر. يعمل مهمة المزامنة كل 20 دقيقة، تليها مهمة التوقيع كل 5 دقائق.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>نصيحة:</value>
+  </data>
   <data name="Upload Package" xml:space="preserve">
     <value>تحميل الحزمة</value>
   </data>
@@ -83,6 +92,9 @@
   </data>
   <data name="View Details &amp; Install Instructions" xml:space="preserve">
     <value>عرض التفاصيل وتعليمات التثبيت</value>
+  </data>
+  <data name="What is a LocalPackage?" xml:space="preserve">
+    <value>ما هو الحزمة المحلية؟</value>
   </data>
 
 </root>

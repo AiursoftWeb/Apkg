@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+    <value>Um bucket é um instantâneo versionado dos pacotes de um repositório em um determinado momento. O bucket primário é o ativo fornecido aos clientes apt.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Ações</value>
   </data>
   <data name="Active Usage" xml:space="preserve">
@@ -29,6 +32,9 @@
   </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>Histórico de Snapshots do Bucket</value>
+  </data>
+  <data name="Buckets allow atomic updates. New packages are built into a fresh bucket, then the primary pointer switches over seamlessly." xml:space="preserve">
+    <value>Buckets permitem atualizações atômicas. Novos pacotes são compilados em um bucket novo, em seguida, o ponteiro principal é alterado de forma transparente.</value>
   </data>
   <data name="Building" xml:space="preserve">
     <value>Construção</value>
@@ -65,6 +71,12 @@
   </data>
   <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
     <value>Este snapshot é servido ativamente aos clientes apt como o índice atual.</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Dica:</value>
+  </data>
+  <data name="What is a Bucket?" xml:space="preserve">
+    <value>O que é um Bucket?</value>
   </data>
 
 </root>

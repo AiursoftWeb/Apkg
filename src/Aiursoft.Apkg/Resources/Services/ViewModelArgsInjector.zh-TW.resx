@@ -45,6 +45,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API 金鑰</value>
   </data>
+  <data name="Apkg Hybrid" xml:space="preserve">
+    <value>APKG 混合型</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>APKG 上傳詳細資訊</value>
   </data>
@@ -95,6 +98,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>儀表板</value>
+  </data>
+  <data name="Deb Standalone" xml:space="preserve">
+    <value>獨立 Deb 套件</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>刪除角色</value>
@@ -170,6 +176,12 @@
   </data>
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>我的套件 (APKG)</value>
+  </data>
+  <data name="MyPackages" xml:space="preserve">
+    <value>我的套件</value>
+  </data>
+  <data name="MyPackagesSub" xml:space="preserve">
+    <value>我的套件（次要）</value>
   </data>
   <data name="New API Key" xml:space="preserve">
     <value>新增 API 金鑰</value>

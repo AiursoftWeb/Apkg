@@ -21,14 +21,29 @@
       <data name="1. Upload a .deb Package" xml:space="preserve">
     <value>1. Carregar um pacote .deb</value>
   </data>
+  <data name="1. Upload an .apkg Package (Recommended)" xml:space="preserve">
+    <value>1. Carregar um Pacote .apkg (Recomendado)</value>
+  </data>
   <data name="2. Parameters" xml:space="preserve">
     <value>2. Parâmetros</value>
+  </data>
+  <data name="2. Upload a .deb Package (Manual)" xml:space="preserve">
+    <value>2. Carregar um pacote .deb (Manual)</value>
+  </data>
+  <data name="3. Parameters" xml:space="preserve">
+    <value>3. Parâmetros</value>
   </data>
   <data name="3. Response Codes" xml:space="preserve">
     <value>3. Códigos de Resposta</value>
   </data>
   <data name="4. Example with Python" xml:space="preserve">
     <value>4. Exemplo com Python</value>
+  </data>
+  <data name="4. Response Codes" xml:space="preserve">
+    <value>4. Códigos de Resposta</value>
+  </data>
+  <data name="5. Example with Python" xml:space="preserve">
+    <value>5. Exemplo com Python</value>
   </data>
   <data name="API Key Created!" xml:space="preserve">
     <value>Chave de API Criada!</value>
@@ -50,6 +65,9 @@
   </data>
   <data name="Form field" xml:space="preserve">
     <value>Campo do formulário</value>
+  </data>
+  <data name="Full workflow: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. Install the CLI with: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;" xml:space="preserve">
+    <value>Fluxo de trabalho completo: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. Instale a CLI com: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;</value>
   </data>
   <data name="Invalid or missing API key." xml:space="preserve">
     <value>Chave API inválida ou ausente.</value>
@@ -90,11 +108,17 @@
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>O ficheiro .deb (multipart/form-data, obrigatório).</value>
   </data>
+  <data name="Use the &lt;code&gt;apkg&lt;/code&gt; CLI to build and push .apkg packages. The apkg tool handles manifest generation, multi-architecture builds, and one-command uploads." xml:space="preserve">
+    <value>Utilize o CLI &lt;code&gt;apkg&lt;/code&gt; para construir e enviar pacotes .apkg. A ferramenta apkg gerencia a geração de manifesto, compilações multi-arquitetura e carregamentos com um único comando.</value>
+  </data>
   <data name="Use the following curl command to upload a package to a repository:" xml:space="preserve">
     <value>Utilize o seguinte comando curl para carregar um pacote num repositório:</value>
   </data>
   <data name="Use this API key to upload .deb packages programmatically. The base URL is:" xml:space="preserve">
     <value>Utilize esta chave de API para carregar pacotes .deb programaticamente. O URL base é:</value>
+  </data>
+  <data name="Use this API key to upload packages programmatically. The base URL is:" xml:space="preserve">
+    <value>Use esta chave de API para carregar pacotes de forma programática. A URL base é:</value>
   </data>
   <data name="Using API Key" xml:space="preserve">
     <value>A utilizar a chave API</value>

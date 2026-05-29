@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API Anahtarları</value>
   </data>
+  <data name="Apkg Hybrid" xml:space="preserve">
+    <value>APKG Hibrit</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>APKG Yükleme Detayları</value>
   </data>
@@ -92,6 +95,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Gösterge Paneli</value>
+  </data>
+  <data name="Deb Standalone" xml:space="preserve">
+    <value>Bağımsız Deb</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Rolü Sil</value>
@@ -167,6 +173,12 @@
   </data>
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Paketlerim (APKG)</value>
+  </data>
+  <data name="MyPackages" xml:space="preserve">
+    <value>Paketlerim</value>
+  </data>
+  <data name="MyPackagesSub" xml:space="preserve">
+    <value>Paketlerim (Alt)</value>
   </data>
   <data name="New API Key" xml:space="preserve">
     <value>Yeni API Anahtarı</value>

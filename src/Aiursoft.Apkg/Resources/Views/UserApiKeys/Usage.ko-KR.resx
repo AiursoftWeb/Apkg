@@ -21,14 +21,29 @@
       <data name="1. Upload a .deb Package" xml:space="preserve">
     <value>1. .deb 패키지 업로드</value>
   </data>
+  <data name="1. Upload an .apkg Package (Recommended)" xml:space="preserve">
+    <value>1. .apkg 패키지 업로드 (권장)</value>
+  </data>
   <data name="2. Parameters" xml:space="preserve">
     <value>2. 매개변수</value>
+  </data>
+  <data name="2. Upload a .deb Package (Manual)" xml:space="preserve">
+    <value>2. .deb 패키지 업로드 (수동)</value>
+  </data>
+  <data name="3. Parameters" xml:space="preserve">
+    <value>3. 매개변수</value>
   </data>
   <data name="3. Response Codes" xml:space="preserve">
     <value>3. 응답 코드</value>
   </data>
   <data name="4. Example with Python" xml:space="preserve">
     <value>4. Python 예시</value>
+  </data>
+  <data name="4. Response Codes" xml:space="preserve">
+    <value>4. 응답 코드</value>
+  </data>
+  <data name="5. Example with Python" xml:space="preserve">
+    <value>5. Python 예제</value>
   </data>
   <data name="API Key Created!" xml:space="preserve">
     <value>API 키가 생성되었습니다!</value>
@@ -50,6 +65,9 @@
   </data>
   <data name="Form field" xml:space="preserve">
     <value>폼 필드</value>
+  </data>
+  <data name="Full workflow: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. Install the CLI with: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;" xml:space="preserve">
+    <value>전체 워크플로우: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt; 명령어로 CLI를 설치하세요.</value>
   </data>
   <data name="Invalid or missing API key." xml:space="preserve">
     <value>API 키가 유효하지 않거나 누락되었습니다.</value>
@@ -90,11 +108,17 @@
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>.deb 파일 (multipart/form-data, 필수).</value>
   </data>
+  <data name="Use the &lt;code&gt;apkg&lt;/code&gt; CLI to build and push .apkg packages. The apkg tool handles manifest generation, multi-architecture builds, and one-command uploads." xml:space="preserve">
+    <value>&lt;code&gt;apkg&lt;/code&gt; CLI를 사용하여 .apkg 패키지를 빌드하고 푸시하세요. apkg 도구는 매니페스트 생성, 다중 아키텍처 빌드, 그리고 원클릭 업로드를 자동으로 처리합니다.</value>
+  </data>
   <data name="Use the following curl command to upload a package to a repository:" xml:space="preserve">
     <value>저희 curl 명령어를 사용하여 패키지를 저장소에 업로드하세요:</value>
   </data>
   <data name="Use this API key to upload .deb packages programmatically. The base URL is:" xml:space="preserve">
     <value>이 API 키를 사용하여 .deb 패키지를 프로그래밍 방식으로 업로드하세요. 기본 URL은:</value>
+  </data>
+  <data name="Use this API key to upload packages programmatically. The base URL is:" xml:space="preserve">
+    <value>이 API 키를 사용하여 패키지를 프로그래매틱하게 업로드하세요. 기본 URL은 다음과 같습니다:</value>
   </data>
   <data name="Using API Key" xml:space="preserve">
     <value>API 키 사용</value>

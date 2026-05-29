@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API-sleutels</value>
   </data>
+  <data name="Apkg Hybrid" xml:space="preserve">
+    <value>Apkg Hybride</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>Details APKG-upload</value>
   </data>
@@ -92,6 +95,9 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
+  </data>
+  <data name="Deb Standalone" xml:space="preserve">
+    <value>Deb losstaand</value>
   </data>
   <data name="Delete Role" xml:space="preserve">
     <value>Rol verwijderen</value>
@@ -167,6 +173,12 @@
   </data>
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Mijn pakketten (APKG)</value>
+  </data>
+  <data name="MyPackages" xml:space="preserve">
+    <value>MijnPakketten</value>
+  </data>
+  <data name="MyPackagesSub" xml:space="preserve">
+    <value>MijnPakkettenSub</value>
   </data>
   <data name="New API Key" xml:space="preserve">
     <value>Nieuwe API-sleutel</value>

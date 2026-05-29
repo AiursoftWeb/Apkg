@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>توليد مفتاح جديد</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>تقوم شهادات GPG بتوقيع بيانات المستودع الوصفية الخاصة بك، مما يمكن عملاء apt من التحقق من عدم العبث بالحزم.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>الاسم</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>قم بتدوير الشهادات بانتظام واحتفظ بالمفاتيح الخاصة في أمان. تتطلب المستودعات غير الموقعة تعيين &lt;code&gt;Trusted: yes&lt;/code&gt; على العميل.</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>شهادات التوقيع</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>سيؤدي ذلك إلى تعطيل جميع المستودعات التي تستخدمه!</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>نصيحة:</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>ما هو الشهادة؟</value>
   </data>
 
 </root>
