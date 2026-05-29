@@ -15,7 +15,8 @@ public sealed class DebUploadResult
 public class DebUploadService(
     ApkgDbContext db,
     DebPackageParserService debParser,
-    FeatureFoldersProvider folders)
+    FeatureFoldersProvider folders,
+    AptVersionComparisonService versionComparer)
 {
     private string ObjectsRoot => folders.GetObjectsFolder();
 
@@ -24,7 +25,8 @@ public class DebUploadService(
         string component,
         string tempDebPath,
         string uploadedByUserId,
-        int? apkgUploadId = null)
+        int? apkgUploadId = null,
+        bool allowDowngrade = false)
     {
         if (string.IsNullOrWhiteSpace(component))
         {
@@ -119,6 +121,31 @@ public class DebUploadService(
                 StatusCode = StatusCodes.Status409Conflict,
                 Error = $"Package {pkgName} {pkgVersion} ({pkgArch}) in repository {GetRepositoryDisplayName(repo)} and component '{component}' already exists. Use skip-duplicate to skip it."
             };
+        }
+
+        // Downgrade guard: check against the primary bucket's live version.
+        if (!allowDowngrade && repo.PrimaryBucketId != null)
+        {
+            var primaryVersions = await db.AptPackages
+                .Where(p => p.BucketId == repo.PrimaryBucketId
+                         && p.Package == pkgName
+                         && p.Architecture == pkgArch)
+                .Select(p => p.Version)
+                .ToListAsync();
+
+            if (primaryVersions.Count > 0)
+            {
+                var cmp = Comparer<string>.Create(versionComparer.Compare);
+                var latestPrimary = primaryVersions.OrderByDescending(v => v, cmp).First();
+                if (versionComparer.Compare(pkgVersion, latestPrimary) < 0)
+                {
+                    return new DebUploadResult
+                    {
+                        StatusCode = StatusCodes.Status403Forbidden,
+                        Error = $"Downgrade blocked: {pkgName} {pkgVersion} ({pkgArch}) is older than the currently published version {latestPrimary} in {GetRepositoryDisplayName(repo)}. Use --allow-downgrade to force the downgrade."
+                    };
+                }
+            }
         }
 
         var hashPrefix = sha256[..2];

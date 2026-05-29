@@ -42,12 +42,20 @@ public class PushHandler : ExecutableCommandHandlerBuilder
             DefaultValueFactory = _ => false
         };
 
+    private static readonly Option<bool> AllowDowngradeOption =
+        new(name: "--allow-downgrade")
+        {
+            Description = "Allow uploading a version that is older than the currently published version.",
+            DefaultValueFactory = _ => false
+        };
+
     protected override IEnumerable<Option> GetCommandOptions() =>
     [
         FileOption,
         SourceOption,
         ApiKeyOption,
         SkipDuplicateOption,
+        AllowDowngradeOption,
     ];
 
     protected override async Task Execute(ParseResult context)
@@ -57,6 +65,7 @@ public class PushHandler : ExecutableCommandHandlerBuilder
         var source = context.GetValue(SourceOption)!;
         var apiKey = context.GetValue(ApiKeyOption)!;
         var skipDuplicate = context.GetValue(SkipDuplicateOption);
+        var allowDowngrade = context.GetValue(AllowDowngradeOption);
 
         var filePath = Path.GetFullPath(file);
         if (!File.Exists(filePath))
@@ -71,7 +80,7 @@ public class PushHandler : ExecutableCommandHandlerBuilder
         var logger = services.GetRequiredService<ILogger<PushHandler>>();
 
         logger.LogInformation("Pushing {FileName} to {Source}...", Path.GetFileName(filePath), source);
-        var responseBody = await pushService.PushAsync(filePath, source, apiKey, skipDuplicate);
+        var responseBody = await pushService.PushAsync(filePath, source, apiKey, skipDuplicate, allowDowngrade);
 
         using var document = JsonDocument.Parse(responseBody);
         var root = document.RootElement;

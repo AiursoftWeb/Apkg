@@ -117,6 +117,7 @@ public class DebUploadServiceTests
         services.AddSingleton<StorageRootPathProvider>();
         services.AddSingleton<FeatureFoldersProvider>();
         services.AddTransient<DebPackageParserService>();
+        services.AddTransient<AptVersionComparisonService>();
         services.AddTransient<DebUploadService>();
 
         return services.BuildServiceProvider();
@@ -307,5 +308,306 @@ public class DebUploadServiceTests
             .CountAsync(p => p.RepositoryId == repo.Id && p.Package == "slot-conflict-pkg");
         Assert.AreEqual(1, rowCount,
             "Exactly one LocalPackage row must exist for this (package, version) slot.");
+    }
+
+    // ── Downgrade guard tests ─────────────────────────────────────────────────
+
+    private static async Task SeedPrimaryBucketAsync(ApkgDbContext db, AptRepository repo, string package, string version, string arch = "all")
+    {
+        var bucket = new AptBucket { CreatedAt = DateTime.UtcNow };
+        db.AptBuckets.Add(bucket);
+        await db.SaveChangesAsync();
+
+        db.AptPackages.Add(new AptPackage
+        {
+            BucketId = bucket.Id,
+            Component = "main",
+            Architecture = arch,
+            Package = package,
+            Version = version,
+            Filename = $"pool/main/{package[0]}/{package}/{package}_{version}_{arch}.deb",
+            SHA256 = Guid.NewGuid().ToString("N").PadRight(64, '0')[..64],
+            IsVirtual = true,
+            RemoteUrl = "http://example.com/pkg.deb",
+            OriginSuite = "test",
+            OriginComponent = "main",
+            Maintainer = "Test <test@example.com>",
+            Description = "Test package",
+            DescriptionMd5 = "abc",
+            Section = "utils",
+            Priority = "optional",
+            Origin = "Test",
+            Bugs = string.Empty,
+            Size = "1024",
+            InstalledSize = "4096",
+            MD5sum = string.Empty,
+            SHA1 = string.Empty,
+            SHA512 = string.Empty
+        });
+        await db.SaveChangesAsync();
+
+        repo.PrimaryBucketId = bucket.Id;
+        await db.SaveChangesAsync();
+    }
+
+    [TestMethod]
+    public async Task UploadDeb_OlderVersionThanPrimary_WithoutAllowDowngrade_Returns403()
+    {
+        var tempRoot = Path.Combine(Path.GetTempPath(), "deb-upload-tests", Guid.NewGuid().ToString("N"));
+        Directory.CreateDirectory(tempRoot);
+
+        var dbName = $"DataSource=file:{Guid.NewGuid()}?mode=memory&cache=shared";
+        using var connection = new Microsoft.Data.Sqlite.SqliteConnection(dbName);
+        connection.Open();
+
+        var storagePath = Path.Combine(tempRoot, "storage");
+        await using var provider = BuildServiceProvider(storagePath, dbName);
+
+        await using var scope = provider.CreateAsyncScope();
+        var db = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
+        await db.Database.EnsureCreatedAsync();
+
+        var repo = new AptRepository
+        {
+            Distro = "anduinos",
+            Name = "downgrade-test",
+            Suite = "downgrade-test",
+            Components = "main",
+            Architecture = "amd64",
+        };
+        db.AptRepositories.Add(repo);
+
+        var userId = Guid.NewGuid().ToString();
+        db.Users.Add(new User
+        {
+            Id = userId,
+            UserName = "downgrade-tester",
+            NormalizedUserName = "DOWNGRADE-TESTER",
+            Email = "downgrade@example.com",
+            NormalizedEmail = "DOWNGRADE@EXAMPLE.COM",
+            DisplayName = "Downgrade Tester",
+        });
+        await db.SaveChangesAsync();
+
+        // Primary bucket has v2.0 — the "live" version
+        await SeedPrimaryBucketAsync(db, repo, "downgrade-pkg", "2.0");
+
+        // Upload v1.0 without allowDowngrade → expect 403
+        var debPath = await BuildMinimalDebAsync(tempRoot, "downgrade-pkg", "1.0");
+        var svc = scope.ServiceProvider.GetRequiredService<DebUploadService>();
+        var result = await svc.UploadDebToRepositoryAsync(repo, "main", debPath, userId,
+            allowDowngrade: false);
+
+        Assert.AreEqual(403, result.StatusCode,
+            $"Older version must be blocked. Error: {result.Error}");
+        Assert.IsTrue(result.Error!.Contains("Downgrade blocked"),
+            $"Error should mention downgrade. Got: {result.Error}");
+    }
+
+    [TestMethod]
+    public async Task UploadDeb_OlderVersionThanPrimary_WithAllowDowngrade_AllowsDowngrade()
+    {
+        var tempRoot = Path.Combine(Path.GetTempPath(), "deb-upload-tests", Guid.NewGuid().ToString("N"));
+        Directory.CreateDirectory(tempRoot);
+
+        var dbName = $"DataSource=file:{Guid.NewGuid()}?mode=memory&cache=shared";
+        using var connection = new Microsoft.Data.Sqlite.SqliteConnection(dbName);
+        connection.Open();
+
+        var storagePath = Path.Combine(tempRoot, "storage");
+        await using var provider = BuildServiceProvider(storagePath, dbName);
+
+        await using var scope = provider.CreateAsyncScope();
+        var db = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
+        await db.Database.EnsureCreatedAsync();
+
+        var repo = new AptRepository
+        {
+            Distro = "anduinos",
+            Name = "allow-downgrade-test",
+            Suite = "allow-downgrade-test",
+            Components = "main",
+            Architecture = "amd64",
+        };
+        db.AptRepositories.Add(repo);
+
+        var userId = Guid.NewGuid().ToString();
+        db.Users.Add(new User
+        {
+            Id = userId,
+            UserName = "allow-downgrade-tester",
+            NormalizedUserName = "ALLOW-DOWNGRADE-TESTER",
+            Email = "allow-downgrade@example.com",
+            NormalizedEmail = "ALLOW-DOWNGRADE@EXAMPLE.COM",
+            DisplayName = "Allow Downgrade Tester",
+        });
+        await db.SaveChangesAsync();
+
+        await SeedPrimaryBucketAsync(db, repo, "downgrade-pkg", "2.0");
+
+        // Upload v1.0 with allowDowngrade=true → expect 200
+        var debPath = await BuildMinimalDebAsync(tempRoot, "downgrade-pkg", "1.0");
+        var svc = scope.ServiceProvider.GetRequiredService<DebUploadService>();
+        var result = await svc.UploadDebToRepositoryAsync(repo, "main", debPath, userId,
+            allowDowngrade: true);
+
+        Assert.AreEqual(200, result.StatusCode,
+            $"Downgrade with --allow-downgrade must succeed. Error: {result.Error}");
+        Assert.IsNotNull(result.Package);
+    }
+
+    [TestMethod]
+    public async Task UploadDeb_NewerVersionThanPrimary_AllowedWithoutFlag()
+    {
+        var tempRoot = Path.Combine(Path.GetTempPath(), "deb-upload-tests", Guid.NewGuid().ToString("N"));
+        Directory.CreateDirectory(tempRoot);
+
+        var dbName = $"DataSource=file:{Guid.NewGuid()}?mode=memory&cache=shared";
+        using var connection = new Microsoft.Data.Sqlite.SqliteConnection(dbName);
+        connection.Open();
+
+        var storagePath = Path.Combine(tempRoot, "storage");
+        await using var provider = BuildServiceProvider(storagePath, dbName);
+
+        await using var scope = provider.CreateAsyncScope();
+        var db = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
+        await db.Database.EnsureCreatedAsync();
+
+        var repo = new AptRepository
+        {
+            Distro = "anduinos",
+            Name = "upgrade-test",
+            Suite = "upgrade-test",
+            Components = "main",
+            Architecture = "amd64",
+        };
+        db.AptRepositories.Add(repo);
+
+        var userId = Guid.NewGuid().ToString();
+        db.Users.Add(new User
+        {
+            Id = userId,
+            UserName = "upgrade-tester",
+            NormalizedUserName = "UPGRADE-TESTER",
+            Email = "upgrade@example.com",
+            NormalizedEmail = "UPGRADE@EXAMPLE.COM",
+            DisplayName = "Upgrade Tester",
+        });
+        await db.SaveChangesAsync();
+
+        await SeedPrimaryBucketAsync(db, repo, "upgrade-pkg", "1.0");
+
+        // Upload v2.0 without allowDowngrade → expect 200 (it's an upgrade, not a downgrade)
+        var debPath = await BuildMinimalDebAsync(tempRoot, "upgrade-pkg", "2.0");
+        var svc = scope.ServiceProvider.GetRequiredService<DebUploadService>();
+        var result = await svc.UploadDebToRepositoryAsync(repo, "main", debPath, userId,
+            allowDowngrade: false);
+
+        Assert.AreEqual(200, result.StatusCode,
+            $"Newer version must be allowed without flag. Error: {result.Error}");
+        Assert.IsNotNull(result.Package);
+    }
+
+    [TestMethod]
+    public async Task UploadDeb_NoPrimaryBucket_AllowedWithoutFlag()
+    {
+        var tempRoot = Path.Combine(Path.GetTempPath(), "deb-upload-tests", Guid.NewGuid().ToString("N"));
+        Directory.CreateDirectory(tempRoot);
+
+        var dbName = $"DataSource=file:{Guid.NewGuid()}?mode=memory&cache=shared";
+        using var connection = new Microsoft.Data.Sqlite.SqliteConnection(dbName);
+        connection.Open();
+
+        var storagePath = Path.Combine(tempRoot, "storage");
+        await using var provider = BuildServiceProvider(storagePath, dbName);
+
+        await using var scope = provider.CreateAsyncScope();
+        var db = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
+        await db.Database.EnsureCreatedAsync();
+
+        var repo = new AptRepository
+        {
+            Distro = "anduinos",
+            Name = "first-upload-test",
+            Suite = "first-upload-test",
+            Components = "main",
+            Architecture = "amd64",
+        };
+        db.AptRepositories.Add(repo);
+
+        var userId = Guid.NewGuid().ToString();
+        db.Users.Add(new User
+        {
+            Id = userId,
+            UserName = "first-upload-tester",
+            NormalizedUserName = "FIRST-UPLOAD-TESTER",
+            Email = "first-upload@example.com",
+            NormalizedEmail = "FIRST-UPLOAD@EXAMPLE.COM",
+            DisplayName = "First Upload Tester",
+        });
+        await db.SaveChangesAsync();
+
+        // No primary bucket — first upload, any version is fine
+        var debPath = await BuildMinimalDebAsync(tempRoot, "first-pkg", "1.0");
+        var svc = scope.ServiceProvider.GetRequiredService<DebUploadService>();
+        var result = await svc.UploadDebToRepositoryAsync(repo, "main", debPath, userId,
+            allowDowngrade: false);
+
+        Assert.AreEqual(200, result.StatusCode,
+            $"First upload with no primary bucket must succeed. Error: {result.Error}");
+        Assert.IsNotNull(result.Package);
+    }
+
+    [TestMethod]
+    public async Task UploadDeb_PackageNotInPrimary_AllowedWithoutFlag()
+    {
+        var tempRoot = Path.Combine(Path.GetTempPath(), "deb-upload-tests", Guid.NewGuid().ToString("N"));
+        Directory.CreateDirectory(tempRoot);
+
+        var dbName = $"DataSource=file:{Guid.NewGuid()}?mode=memory&cache=shared";
+        using var connection = new Microsoft.Data.Sqlite.SqliteConnection(dbName);
+        connection.Open();
+
+        var storagePath = Path.Combine(tempRoot, "storage");
+        await using var provider = BuildServiceProvider(storagePath, dbName);
+
+        await using var scope = provider.CreateAsyncScope();
+        var db = scope.ServiceProvider.GetRequiredService<ApkgDbContext>();
+        await db.Database.EnsureCreatedAsync();
+
+        var repo = new AptRepository
+        {
+            Distro = "anduinos",
+            Name = "new-pkg-test",
+            Suite = "new-pkg-test",
+            Components = "main",
+            Architecture = "amd64",
+        };
+        db.AptRepositories.Add(repo);
+
+        var userId = Guid.NewGuid().ToString();
+        db.Users.Add(new User
+        {
+            Id = userId,
+            UserName = "new-pkg-tester",
+            NormalizedUserName = "NEW-PKG-TESTER",
+            Email = "new-pkg@example.com",
+            NormalizedEmail = "NEW-PKG@EXAMPLE.COM",
+            DisplayName = "New Package Tester",
+        });
+        await db.SaveChangesAsync();
+
+        // Primary bucket has "other-pkg" v5.0, but NOT the package we're uploading
+        await SeedPrimaryBucketAsync(db, repo, "other-pkg", "5.0");
+
+        // Upload a completely new package — not a downgrade because it doesn't exist yet
+        var debPath = await BuildMinimalDebAsync(tempRoot, "brand-new-pkg", "1.0");
+        var svc = scope.ServiceProvider.GetRequiredService<DebUploadService>();
+        var result = await svc.UploadDebToRepositoryAsync(repo, "main", debPath, userId,
+            allowDowngrade: false);
+
+        Assert.AreEqual(200, result.StatusCode,
+            $"New package not in primary must be allowed. Error: {result.Error}");
+        Assert.IsNotNull(result.Package);
     }
 }

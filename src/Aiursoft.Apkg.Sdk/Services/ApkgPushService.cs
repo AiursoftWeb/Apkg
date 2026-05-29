@@ -11,7 +11,7 @@ public class ApkgPushService(HttpClient httpClient)
     /// Throws HttpRequestException on network failure.
     /// Throws InvalidOperationException with server error message on HTTP error.
     /// </summary>
-    public async Task<string> PushAsync(string apkgFilePath, string serverUrl, string apiKey, bool skipDuplicate)
+    public async Task<string> PushAsync(string apkgFilePath, string serverUrl, string apiKey, bool skipDuplicate, bool allowDowngrade = false)
     {
         serverUrl = serverUrl.TrimEnd('/');
 
@@ -20,13 +20,15 @@ public class ApkgPushService(HttpClient httpClient)
         using var fileContent = CreateApkgFileContent(fileStream);
         content.Add(fileContent, "apkg", Path.GetFileName(apkgFilePath));
 
-        var url = $"{serverUrl}/api/packages/apkg-upload?skipDuplicate={skipDuplicate}";
+        var url = $"{serverUrl}/api/packages/apkg-upload?skipDuplicate={skipDuplicate}&allowDowngrade={allowDowngrade}";
         using var request = CreateRequest(url, content, apiKey);
 
         using var response = await httpClient.SendAsync(request);
         var body = await response.Content.ReadAsStringAsync();
 
-        if (!response.IsSuccessStatusCode && response.StatusCode != HttpStatusCode.Conflict)
+        if (!response.IsSuccessStatusCode
+            && response.StatusCode != HttpStatusCode.Conflict
+            && response.StatusCode != HttpStatusCode.Forbidden)
             throw new InvalidOperationException($"Server returned {(int)response.StatusCode}: {body}");
 
         return body;

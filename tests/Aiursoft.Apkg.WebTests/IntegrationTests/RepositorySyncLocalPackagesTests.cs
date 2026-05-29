@@ -436,6 +436,54 @@ public class RepositorySyncLocalPackagesTests : TestBase
     }
 
     // ──────────────────────────────────────────────────────────────────────
+    // Version ordering: what happens when a LocalPackage is older/newer
+    // than the upstream mirror package?
+    // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task SyncJob_LocalPackageOlderThanMirror_WinsAndCausesDowngrade()
+    {
+        // Arrange: mirror has v2.0; user uploads v1.0 (older version)
+        AddMirrorPackage("downgrade-pkg", version: "2.0");
+        AddLocalPackage("downgrade-pkg", version: "1.0");
+
+        // Act
+        var newBucket = await RunSyncAndGetNewBucket();
+
+        // Assert: LocalPackage unconditionally replaces all upstream entries
+        // by (Package, Architecture) in step 2b, even when it is older.
+        // The old version wins — this is a downgrade.
+        var pkgs = await _db.AptPackages
+            .Where(p => p.BucketId == newBucket!.Id && p.Package == "downgrade-pkg")
+            .ToListAsync();
+
+        Assert.AreEqual(1, pkgs.Count,
+            "Only one version must exist after sync.");
+        Assert.AreEqual("1.0", pkgs[0].Version,
+            "LocalPackage v1.0 replaces mirror v2.0 — the older version wins (downgrade).");
+    }
+
+    [TestMethod]
+    public async Task SyncJob_LocalPackageNewerThanMirror_WinsAsExpected()
+    {
+        // Arrange: mirror has v1.0; user uploads v2.0 (normal upgrade)
+        AddMirrorPackage("upgrade-pkg", version: "1.0");
+        AddLocalPackage("upgrade-pkg", version: "2.0");
+
+        // Act
+        var newBucket = await RunSyncAndGetNewBucket();
+
+        // Assert: newer LocalPackage replaces upstream — normal upgrade path
+        var pkgs = await _db.AptPackages
+            .Where(p => p.BucketId == newBucket!.Id && p.Package == "upgrade-pkg")
+            .ToListAsync();
+
+        Assert.AreEqual(1, pkgs.Count);
+        Assert.AreEqual("2.0", pkgs[0].Version,
+            "LocalPackage v2.0 replaces mirror v1.0 — the newer version wins.");
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
     // Re-sync IsVirtual preservation
     // ──────────────────────────────────────────────────────────────────────
 

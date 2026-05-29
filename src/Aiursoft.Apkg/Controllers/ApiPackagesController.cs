@@ -32,7 +32,8 @@ public class ApiPackagesController(
     public async Task<IActionResult> Upload(
         [FromQuery] int repositoryId,
         [FromQuery] string component,
-        IFormFile? deb)
+        IFormFile? deb,
+        [FromQuery] bool allowDowngrade = false)
     {
         if (deb == null || deb.Length == 0)
             return BadRequest(new { error = "No file provided. Send the .deb as a multipart/form-data field named 'deb'." });
@@ -58,7 +59,8 @@ public class ApiPackagesController(
                 await deb.CopyToAsync(fs);
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
-            var result = await debUploadService.UploadDebToRepositoryAsync(repo, component, tempPath, userId);
+            var result = await debUploadService.UploadDebToRepositoryAsync(repo, component, tempPath, userId,
+                allowDowngrade: allowDowngrade);
             if (result.Package == null)
                 return StatusCode(result.StatusCode, new { error = result.Error });
 
@@ -85,7 +87,10 @@ public class ApiPackagesController(
 
     [HttpPost("apkg-upload")]
     [RequestSizeLimit(2L * 1024 * 1024 * 1024)]
-    public async Task<IActionResult> UploadApkg([FromQuery] bool skipDuplicate = false, IFormFile? apkg = null)
+    public async Task<IActionResult> UploadApkg(
+        [FromQuery] bool skipDuplicate = false,
+        [FromQuery] bool allowDowngrade = false,
+        IFormFile? apkg = null)
     {
         var summary = new ApkgUploadSummary();
         if (apkg == null || apkg.Length == 0)
@@ -204,7 +209,8 @@ public class ApiPackagesController(
                         await using (var destination = System.IO.File.Create(uploadTempPath))
                             await source.CopyToAsync(destination);
 
-                        var result = await debUploadService.UploadDebToRepositoryAsync(repo, entryComponent, uploadTempPath, userId, uploadRecord.Id);
+                        var result = await debUploadService.UploadDebToRepositoryAsync(repo, entryComponent, uploadTempPath, userId, uploadRecord.Id,
+                            allowDowngrade: allowDowngrade);
                         if (result.Package != null)
                         {
                             summary.Uploaded.Add(new UploadedPackageSummary
@@ -230,6 +236,12 @@ public class ApiPackagesController(
                                 summary.Errors.Add(result.Error ?? $"Package already exists in {DebUploadService.GetRepositoryDisplayName(repo)}.");
                             }
 
+                            continue;
+                        }
+
+                        if (result.StatusCode == StatusCodes.Status403Forbidden)
+                        {
+                            summary.Errors.Add(result.Error ?? $"Downgrade blocked for {DebUploadService.GetRepositoryDisplayName(repo)}.");
                             continue;
                         }
 
