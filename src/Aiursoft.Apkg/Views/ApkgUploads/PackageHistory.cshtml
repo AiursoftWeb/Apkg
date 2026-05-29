@@ -40,11 +40,12 @@
                             <tbody>
                                 @foreach (var upload in Model.Uploads)
                                 {
+                                    var isLive = Model.LiveVersions.Contains(upload.Version);
                                     var statusText = upload.IsListed
-                                        ? (upload.IsPublished ? "Published" : "Pending")
+                                        ? (isLive ? "Live" : "Superseded")
                                         : "Unlisted";
                                     var statusClass = upload.IsListed
-                                        ? (upload.IsPublished ? "bg-success" : "bg-warning text-dark")
+                                        ? (isLive ? "bg-success" : "bg-secondary")
                                         : "bg-secondary";
                                     <tr>
                                         <td><span class="badge bg-info">@upload.Version</span></td>

@@ -208,11 +208,12 @@
                                 <tbody>
                                     @foreach (var v in Model.VersionHistory)
                                     {
+                                        var isLive = Model.LiveVersions.Contains(v.Version);
                                         var rowStatus = v.IsListed
-                                            ? (v.IsPublished ? "Published" : "Pending")
+                                            ? (isLive ? "Live" : "Superseded")
                                             : "Unlisted";
                                         var rowClass = v.IsListed
-                                            ? (v.IsPublished ? "bg-success" : "bg-warning text-dark")
+                                            ? (isLive ? "bg-success" : "bg-secondary")
                                             : "bg-secondary";
                                         var isCurrent = v.Id == Model.Upload.Id;
                                         <tr class="@(isCurrent ? "table-active" : "")">

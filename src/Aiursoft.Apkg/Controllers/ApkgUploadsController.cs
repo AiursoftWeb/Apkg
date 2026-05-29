@@ -91,10 +91,24 @@ public class ApkgUploadsController(
         if (uploads.Count == 0)
             return NotFound();
 
+        // Determine which versions are currently live in any primary bucket.
+        var primaryBucketIds = await db.AptRepositories
+            .Where(r => r.PrimaryBucketId != null)
+            .Select(r => r.PrimaryBucketId!.Value)
+            .Distinct()
+            .ToListAsync();
+        var liveVersions = (await db.AptPackages
+            .Where(p => primaryBucketIds.Contains(p.BucketId) && p.Package == name)
+            .Select(p => p.Version)
+            .Distinct()
+            .ToListAsync())
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
         return this.StackView(new ApkgUploadsPackageHistoryViewModel
         {
             PackageName = name,
             Uploads = uploads,
+            LiveVersions = liveVersions,
             IsAdmin = isAdmin
         });
     }
@@ -453,6 +467,28 @@ public class ApkgUploadsController(
                 .ToList();
         }
 
+        // Determine which version strings are currently live in primary buckets.
+        var liveVersions = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        if (versionHistory.Count > 0)
+        {
+            var repoIds = versionHistory
+                .SelectMany(v => v.Packages)
+                .Select(lp => lp.RepositoryId)
+                .Distinct()
+                .ToList();
+            var primaryBucketIds = await db.AptRepositories
+                .Where(r => repoIds.Contains(r.Id) && r.PrimaryBucketId != null)
+                .Select(r => r.PrimaryBucketId!.Value)
+                .Distinct()
+                .ToListAsync();
+            liveVersions = (await db.AptPackages
+                .Where(p => primaryBucketIds.Contains(p.BucketId) && p.Package == upload.Package)
+                .Select(p => p.Version)
+                .Distinct()
+                .ToListAsync())
+                .ToHashSet(StringComparer.OrdinalIgnoreCase);
+        }
+
         var activeTab = tab == "versions" ? "versions" : "overview";
 
         return this.StackView(new ApkgUploadsDetailsViewModel
@@ -461,6 +497,7 @@ public class ApkgUploadsController(
             Packages = packages,
             VersionHistory = versionHistory,
             LatestVersionId = latestVersionId,
+            LiveVersions = liveVersions,
             ActiveTab = activeTab,
             IsAdmin = isAdmin,
             IsOwner = isOwner
@@ -680,14 +717,14 @@ public class ApkgUploadsController(
 
         var existingInBuckets = await db.AptPackages
             .Where(ap => allRelevantBucketIds.Contains(ap.BucketId))
-            .Select(ap => new { ap.BucketId, ap.Package, ap.Architecture, ap.Id })
+            .Select(ap => new { ap.BucketId, ap.Package, ap.Version, ap.Architecture, ap.Id })
             .ToListAsync();
 
         var bucketLookup = existingInBuckets
             .GroupBy(x => x.BucketId)
             .ToDictionary(
                 g => g.Key,
-                g => g.GroupBy(x => (x.Package, x.Architecture))
+                g => g.GroupBy(x => (x.Package, x.Version, x.Architecture))
                     .ToDictionary(x => x.Key, x => x.First().Id));
 
         var repoLookup = repoBuckets.ToDictionary(r => r.Id, r => r);
@@ -710,7 +747,7 @@ public class ApkgUploadsController(
                     ? bucketLookup.GetValueOrDefault(repoInfo.PrimaryBucketId.Value)
                     : null;
 
-                if (primaryBucketPackages?.TryGetValue((lp.Package, lp.Architecture), out var foundId) == true)
+                if (primaryBucketPackages?.TryGetValue((lp.Package, lp.Version, lp.Architecture), out var foundId) == true)
                 {
                     status = LocalPackageStatus.Live;
                     message = "Package is live and available for APT clients.";
@@ -722,7 +759,7 @@ public class ApkgUploadsController(
                         ? bucketLookup.GetValueOrDefault(repoInfo.SecondaryBucketId.Value)
                         : null;
 
-                    if (secondaryBucketPackages?.ContainsKey((lp.Package, lp.Architecture)) == true)
+                    if (secondaryBucketPackages?.ContainsKey((lp.Package, lp.Version, lp.Architecture)) == true)
                     {
                         status = LocalPackageStatus.StagedForSigning;
                         message = "Included in a pending bucket. Waiting for signing (up to 5 minutes).";
