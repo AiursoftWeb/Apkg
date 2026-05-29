@@ -91,4 +91,8 @@
     <value>Ce este un Depozit?</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitectură</value>
+  </data>
+
 </root>

@@ -67,4 +67,8 @@
     <value>Ini menggunakan format DEB822 modern dan keyring yang terbatas untuk keamanan dan keandalan maksimum.</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Arsitektur</value>
+  </data>
+
 </root>

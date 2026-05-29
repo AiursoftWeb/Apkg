@@ -94,4 +94,8 @@
     <value>Kho lưu trữ là gì?</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Kiến trúc</value>
+  </data>
+
 </root>

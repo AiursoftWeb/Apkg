@@ -67,4 +67,8 @@
     <value>Αυτό χρησιμοποιεί τη σύγχρονη μορφή DEB822 και ένα εστιασμένο keyring για μέγιστη ασφάλεια και αξιοπιστία.</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Αρχιτεκτονική</value>
+  </data>
+
 </root>

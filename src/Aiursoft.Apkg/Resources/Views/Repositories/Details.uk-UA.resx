@@ -67,4 +67,8 @@
     <value>Це використовує сучасний формат DEB822 та обмежений ключовий ключар для максимальної безпеки та надійності.</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Архітектура</value>
+  </data>
+
 </root>

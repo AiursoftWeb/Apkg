@@ -94,4 +94,8 @@
     <value>อะไรคือ Repository?</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>สถาปัตยกรรม</value>
+  </data>
+
 </root>
