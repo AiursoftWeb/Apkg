@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>Acțiuni</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>Un depozit APT oferă pachete .deb sistemelor dumneavoastră. Gândiți-vă la acesta ca la un magazin de aplicații privat — dumneavoastră controlați ce pachete sunt disponibile.</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Sunteți sigur că doriți să ștergeți depozitul</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribuție</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>Fiecare depozit este asociat cu o suită (de exemplu, „questing”). Folosiți &lt;code&gt;apkg add-source&lt;/code&gt; pentru a configura un depozit pe sistemul dumneavoastră.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Editare</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Instantaneul construit de un job Repository Sync în execuție. Înlocuiește bucket-ul live când job-ul se finalizează cu succes.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Sfat:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Pachete totale</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Ce este un repository?</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>Dacă fișierul Release al depozitului este semnat GPG. Clienții apt configurați cu &apos;signed-by=&apos; în sources.list vor respinge depozitele care nu sunt semnate sau sunt semnate cu cheia greșită.</value>

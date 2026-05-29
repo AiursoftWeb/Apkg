@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>Додати нове дзеркало</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>Верхньопотічний дзеркальний сервер синхронізує метадані пакетів із зовнішнього сховища APT (наприклад, Ubuntu) до APKG. Це джерело даних для ваших локальних сховищ.</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>Архітектура</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Останнє оновлення</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>Дзеркала працюють за графіком. Перевірте колонку &apos;Last Pull&apos; щоб побачити, коли кожен дзеркало востань синхронізувалося.</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Ніколи не синхронізовано</value>
@@ -126,6 +132,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Це також видалить усі пов&apos;язані пакети та кошики!</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Порада:</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>Незахист</value>
   </data>
@@ -137,6 +146,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>Перевірено</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>Що таке дзеркало?</value>
   </data>
 
 </root>

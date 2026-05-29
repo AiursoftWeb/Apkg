@@ -21,14 +21,29 @@
       <data name="1. Upload a .deb Package" xml:space="preserve">
     <value>1. Uploadér en .deb-pakke</value>
   </data>
+  <data name="1. Upload an .apkg Package (Recommended)" xml:space="preserve">
+    <value>1. Upload en .apkg-pakke (Anbefalet)</value>
+  </data>
   <data name="2. Parameters" xml:space="preserve">
     <value>2. Parametre</value>
+  </data>
+  <data name="2. Upload a .deb Package (Manual)" xml:space="preserve">
+    <value>2. Upload en .deb-pakke (Manuel)</value>
+  </data>
+  <data name="3. Parameters" xml:space="preserve">
+    <value>3. Parametre</value>
   </data>
   <data name="3. Response Codes" xml:space="preserve">
     <value>3. Svarkoder</value>
   </data>
   <data name="4. Example with Python" xml:space="preserve">
     <value>4. Eksempel med Python</value>
+  </data>
+  <data name="4. Response Codes" xml:space="preserve">
+    <value>4. Statuskoder</value>
+  </data>
+  <data name="5. Example with Python" xml:space="preserve">
+    <value>5. Eksempel med Python</value>
   </data>
   <data name="API Key Created!" xml:space="preserve">
     <value>API-nøgle oprettet!</value>
@@ -50,6 +65,9 @@
   </data>
   <data name="Form field" xml:space="preserve">
     <value>Skemafelt</value>
+  </data>
+  <data name="Full workflow: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. Install the CLI with: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;" xml:space="preserve">
+    <value>Komplet arbejdsgang: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. Installer CLI&apos;et med: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;</value>
   </data>
   <data name="Invalid or missing API key." xml:space="preserve">
     <value>Ugyldig eller manglende API-nøgle.</value>
@@ -90,11 +108,17 @@
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>.deb-filen (multipart/form-data, obligatorisk).</value>
   </data>
+  <data name="Use the &lt;code&gt;apkg&lt;/code&gt; CLI to build and push .apkg packages. The apkg tool handles manifest generation, multi-architecture builds, and one-command uploads." xml:space="preserve">
+    <value>Brug &lt;code&gt;apkg&lt;/code&gt; CLI til at bygge og uploade .apkg-pakker. Apkg-værktøjet håndterer manifestgenerering, builds til flere arkitekturer og uploads med et enkelt kommando.</value>
+  </data>
   <data name="Use the following curl command to upload a package to a repository:" xml:space="preserve">
     <value>Brug følgende curl-kommando til at uploade en pakke til et depot:</value>
   </data>
   <data name="Use this API key to upload .deb packages programmatically. The base URL is:" xml:space="preserve">
     <value>Brug denne API-nøgle til at uploade .deb-pakker programmatisk. Base-URL&apos;en er:</value>
+  </data>
+  <data name="Use this API key to upload packages programmatically. The base URL is:" xml:space="preserve">
+    <value>Brug denne API-nøgle til at uploade pakker programmeret. Base-URL&apos;en er:</value>
   </data>
   <data name="Using API Key" xml:space="preserve">
     <value>Brug af API-nøgle</value>

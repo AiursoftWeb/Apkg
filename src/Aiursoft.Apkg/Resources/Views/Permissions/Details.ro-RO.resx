@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>O permisiune este o capacitate discretă (de ex. „Creare oglindă”, „Ștergere pachet”). Permisiunile sunt grupate în roluri și asignate utilizatorilor.</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>Înapoi la Permisiuni</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>Denumirea permisiunii</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>Permisiunile sunt granulare. Verificați rolurile care acordă fiecare permisiune pentru a înțelege cine poate executa ce acțiuni.</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>Nume Rol</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>Următorii utilizatori au această permisiune prin apartenența la roluri.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Sfat:</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>Nume utilizator</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>Utilizatorii cu această Permisiune</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>Ce este o permisiune?</value>
   </data>
 
 </root>

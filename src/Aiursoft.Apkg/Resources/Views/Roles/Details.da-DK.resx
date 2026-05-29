@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>En omfattende oversigt over rollen, dens tilladelser og tildelte brugere.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>En rolle er en navngivet samling af tilladelser. Tildel roller til brugere for at give dem adgang til at udføre specifikke handlinger.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>Tilknyttede brugere</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>Tilbage til rolliste</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>Opret roller baseret på stillingsfunktioner (f.eks. &apos;Mirror Manager&apos;) i stedet for pr. bruger for at forenkle administrationen.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>Slet denne rolle</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>Denne rolle har ingen specifikke tilladelser tildelt.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>Brugere med denne rolle</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>Se bruger</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>Hvad er en rolle?</value>
   </data>
 
 </root>

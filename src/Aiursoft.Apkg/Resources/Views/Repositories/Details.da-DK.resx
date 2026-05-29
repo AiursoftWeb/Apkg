@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to List" xml:space="preserve">
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>Et APT-lagringssted er en samling af .deb-pakker, som dit system kan installere fra. Tænk på det som en app-butik til dit Linux-system.</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
     <value>Tilbage til listen</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
@@ -39,11 +42,20 @@
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Har du ikke &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Sådan bruges:</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Information</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Live Bucket</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>Manuel konfiguration (bash):</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>Spejl-kilde</value>
@@ -54,8 +66,17 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>Enkeltlinjes opsætning:</value>
   </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>Hurtigopsætning med APKG CLI:</value>
+  </data>
   <data name="Repository Details" xml:space="preserve">
     <value>Lagringssteddetaljer</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>Kør &lt;code&gt;sudo apkg add-source&lt;/code&gt;-kommandoen til højre for at konfigurere dette repository, og brug derefter &lt;code&gt;sudo apt install&lt;/code&gt; som sædvanligt.</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Se, hvordan du installerer APKG CLI.</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>
@@ -65,6 +86,9 @@
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>Dette bruger det moderne DEB822-format og en scoped keyring for maksimal sikkerhed og pålidelighed.</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Hvad er et repository?</value>
   </data>
 
 </root>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Account Details" xml:space="preserve">
+      <data name="A user account can log in, own uploads, and be assigned roles. Users authenticate via local credentials or an OpenID Connect provider." xml:space="preserve">
+    <value>Un cont de utilizator se poate autentifica, poate deține încărcări și poate primi roluri. Utilizatorii se autentifică prin date de autentificare locale sau prin intermediul unui furnizor OpenID Connect.</value>
+  </data>
+  <data name="Account Details" xml:space="preserve">
     <value>Detalii Cont</value>
   </data>
   <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
@@ -57,17 +60,26 @@
   <data name="Profile Details" xml:space="preserve">
     <value>Detalii Profil</value>
   </data>
+  <data name="Roles grant permissions. Assign roles to users to control what they can do in the system." xml:space="preserve">
+    <value>Rolurile acordă permisiuni. Atribuiți roluri utilizatorilor pentru a controla ceea ce pot face în sistem.</value>
+  </data>
   <data name="This user has no effective permissions." xml:space="preserve">
     <value>Acest utilizator nu are permisiuni efective.</value>
   </data>
   <data name="This user has not been assigned any roles." xml:space="preserve">
     <value>Acestui utilizator nu i-au fost atribuite roluri.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Sfat:</value>
+  </data>
   <data name="User Details:" xml:space="preserve">
     <value>Detalii Utilizator:</value>
   </data>
   <data name="User name" xml:space="preserve">
     <value>Nume utilizator</value>
+  </data>
+  <data name="What is a User?" xml:space="preserve">
+    <value>Ce este un utilizator?</value>
   </data>
 
 </root>

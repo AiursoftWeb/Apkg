@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Mirrors" xml:space="preserve">
+      <data name="A &apos;Passed&apos; status means the mirror&apos;s signature is valid. &apos;Failed&apos; may indicate expired keys or corrupted data." xml:space="preserve">
+    <value>&quot;Geçti&quot; durumu, aynanın imzasının geçerli olduğunu gösterir. &quot;Başarısız&quot; durumu, süresi dolmuş anahtarları veya bozuk verileri işaret edebilir.</value>
+  </data>
+  <data name="Back to Mirrors" xml:space="preserve">
     <value>Aynalara Dön</value>
   </data>
   <data name="Bucket Replacements" xml:space="preserve">
@@ -35,6 +38,9 @@
   </data>
   <data name="file" xml:space="preserve">
     <value>dosya</value>
+  </data>
+  <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
+    <value>GPG imzalama, paketlerin güvenilir bir kaynaktan geldiğini ve üzerinde oynama yapılmadığını garanti eder. Aynanın InRelease dosyası GPG anahtarıyla karşılaştırılarak doğrulanır.</value>
   </data>
   <data name="GPG Verify Details" xml:space="preserve">
     <value>GPG Doğrulama Detayları</value>
@@ -69,11 +75,17 @@
   <data name="Target" xml:space="preserve">
     <value>Hedef</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>İpucu:</value>
+  </data>
   <data name="Verification Log" xml:space="preserve">
     <value>Doğrulama Günlüğü</value>
   </data>
   <data name="Verification Target" xml:space="preserve">
     <value>Doğrulama Hedefi</value>
+  </data>
+  <data name="What is GPG Verification?" xml:space="preserve">
+    <value>GPG Doğrulaması Nedir?</value>
   </data>
 
 </root>

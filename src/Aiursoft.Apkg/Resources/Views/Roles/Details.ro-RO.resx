@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>O prezentare cuprinzătoare a rolului, a permisiunilor acestuia și a utilizatorilor asignați.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>Un rol este o colecție nominalizată de permisiuni. Atribuiți roluri utilizatorilor pentru a le oferi capacitatea de a efectua anumite acțiuni.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>Utilizatori Atribuiți</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>Înapoi la Lista de Roluri</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>Creați roluri pe baza funcțiilor de post (de exemplu, „Manager de oglindire”) în loc de a le crea pentru fiecare utilizator, pentru a simplifica administrarea.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>Șterge acest rol</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>Acest rol nu are permisiuni specifice atribuite.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Sfat:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>Utilizatorii cu acest Rol</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>Vizualizează Utilizatorul</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>Ce este un rol?</value>
   </data>
 
 </root>
