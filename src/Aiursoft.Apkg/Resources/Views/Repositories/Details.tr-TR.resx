@@ -91,4 +91,8 @@
     <value>Depo Nedir?</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Mimari</value>
+  </data>
+
 </root>

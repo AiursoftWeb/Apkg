@@ -94,4 +94,8 @@
     <value>리포지토리란 무엇인가요?</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>아키텍처</value>
+  </data>
+
 </root>

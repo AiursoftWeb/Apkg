@@ -91,4 +91,8 @@
     <value>Czym jest repozytorium?</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Architektura</value>
+  </data>
+
 </root>

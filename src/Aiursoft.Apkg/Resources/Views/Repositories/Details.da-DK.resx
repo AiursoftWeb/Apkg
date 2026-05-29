@@ -91,4 +91,8 @@
     <value>Hvad er et repository?</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Arkitektur</value>
+  </data>
+
 </root>

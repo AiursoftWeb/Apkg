@@ -91,4 +91,8 @@
     <value>ما هو المستودع؟</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>البنية المعمارية</value>
+  </data>
+
 </root>

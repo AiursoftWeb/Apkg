@@ -94,4 +94,8 @@
     <value>什麼是儲存庫？</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>架構</value>
+  </data>
+
 </root>

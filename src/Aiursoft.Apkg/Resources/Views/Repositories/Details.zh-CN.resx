@@ -94,4 +94,8 @@
     <value>什么是软件仓库？</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>架构</value>
+  </data>
+
 </root>

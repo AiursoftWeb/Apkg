@@ -67,4 +67,8 @@
     <value>Tämä käyttää modernia DEB822-muotoa ja rajattua avainrenkasta maksimaalisen tietoturvan ja luotettavuuden varmistamiseksi.</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Arkkitehtuuri</value>
+  </data>
+
 </root>

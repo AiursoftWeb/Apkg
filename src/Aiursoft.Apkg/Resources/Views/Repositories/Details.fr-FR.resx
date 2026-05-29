@@ -94,4 +94,8 @@
     <value>Qu&apos;est-ce qu&apos;un dépôt ?</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Architecture</value>
+  </data>
+
 </root>

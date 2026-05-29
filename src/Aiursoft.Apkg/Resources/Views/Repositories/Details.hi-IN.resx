@@ -67,4 +67,8 @@
     <value>यह अधिकतम सुरक्षा और विश्वसनीयता के लिए आधुनिक DEB822 प्रारूप और सीमित कुंजीरिंग का उपयोग करता है।</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>वास्तुकला</value>
+  </data>
+
 </root>

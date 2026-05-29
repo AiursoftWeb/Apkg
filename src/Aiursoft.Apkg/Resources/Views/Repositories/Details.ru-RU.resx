@@ -91,4 +91,8 @@
     <value>Что такое репозиторий?</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Архитектура</value>
+  </data>
+
 </root>

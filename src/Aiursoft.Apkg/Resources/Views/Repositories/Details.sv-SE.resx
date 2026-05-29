@@ -91,4 +91,8 @@
     <value>Vad är ett arkiv?</value>
   </data>
 
+  <data name="Architecture" xml:space="preserve">
+    <value>Arkitektur</value>
+  </data>
+
 </root>

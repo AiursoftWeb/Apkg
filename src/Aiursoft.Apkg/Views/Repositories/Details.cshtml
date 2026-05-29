@@ -19,6 +19,7 @@
             <div class="card-body">
                 <p><strong>@Localizer["Distro"]:</strong> @Model.Repo.Distro</p>
                 <p><strong>@Localizer["Suite"]:</strong> @Model.Repo.Suite</p>
+                <p><strong>@Localizer["Architecture"]:</strong> @Model.Repo.Architecture</p>
                 <p><strong>@Localizer["Mirror Source"]:</strong> @(Model.Repo.Mirror?.Suite ?? "None")</p>
                 @if (canManage)
                 {
