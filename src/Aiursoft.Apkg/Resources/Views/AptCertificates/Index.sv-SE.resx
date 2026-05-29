@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>Skapa ny nyckel</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>GPG-certifikat signerar ditt lagermetadata så att apt-klienter kan verifiera att paket inte har förfalskats.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Namn</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>Rotera certifikat regelbundet och håll privata nycklar säkra. Osignerade arkiv kräver &lt;code&gt;Trusted: yes&lt;/code&gt; på klienten.</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>Signeringscertifikat</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>Detta kommer att bryta alla arkiv som använder det!</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tips:</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>Vad är ett certifikat?</value>
   </data>
 
 </root>

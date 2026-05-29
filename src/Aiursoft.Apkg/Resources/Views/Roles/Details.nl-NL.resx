@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>Een uitgebreid overzicht van de rol, de bijbehorende machtigingen en toegewezen gebruikers.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>Een rol is een genamed verzameling van machtigingen. Wijs rollen toe aan gebruikers om hen in staat te stellen specifieke acties uit te voeren.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>Toegewezen gebruikers</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>Terug naar Rollenlijst</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>Maak rollen op basis van functies (bijv. &apos;Mirror Manager&apos;) in plaats van per gebruiker om het beheer te vereenvoudigen.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>Verwijder deze rol</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>Deze rol heeft geen specifieke machtigingen toegewezen.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>Gebruikers met deze rol</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>Bekijk gebruiker</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>Wat is een rol?</value>
   </data>
 
 </root>

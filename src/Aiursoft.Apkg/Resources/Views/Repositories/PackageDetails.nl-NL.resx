@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>Een .deb-pakket is een softwarebundel die klaar is om te installeren op Debian/Ubuntu-systemen. Het bevat binaire bestanden, configuraties en afhankelijkheidsmetagegevens.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Architectuur</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -33,6 +36,9 @@
   <data name="Description" xml:space="preserve">
     <value>Beschrijving</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Heeft u geen &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
   <data name="Download .deb" xml:space="preserve">
     <value>.deb downloaden</value>
   </data>
@@ -42,6 +48,9 @@
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Kan reverse-afhankelijkheden niet laden.</value>
   </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>Voeg eerst de APT-opslagplaats toe via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, voer vervolgens &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt; uit. Of download het .deb-bestand direct.</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>Hashes</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="How to Install" xml:space="preserve">
     <value>Hoe te installeren</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Hoe te gebruiken:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Geïnstalleerde grootte</value>
@@ -71,6 +83,12 @@
   </data>
   <data name="No relations." xml:space="preserve">
     <value>Geen relaties.</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>Optie A: APKG CLI gebruiken (aanbevolen):</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>Optie B: Handmatige bash-installatie:</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>Oorsprong</value>
@@ -108,6 +126,9 @@
   <data name="Section" xml:space="preserve">
     <value>Sectie</value>
   </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Zie hoe APKG CLI te installeren.</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Bron</value>
   </data>
@@ -131,6 +152,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Virtueel (Trage Synchronisatie)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Wat is een pakket?</value>
   </data>
 
 </root>

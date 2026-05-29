@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>Een machtiging is een afzonderlijke bevoegdheid (bijv. &apos;Spiegel maken&apos;, &apos;Pakket verwijderen&apos;). Machtigingen zijn gegroepeerd in rollen en worden aan gebruikers toegewezen.</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>Terug naar Machtigingen</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>Machtigingsnaam</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>Toestemmingen zijn fijnmazig. Bekijk de rollen die elke toestemming verlenen om te begrijpen wie welke acties kan uitvoeren.</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>Rolnaam</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>De volgende gebruikers hebben deze rechten via hun roltoewijzingen.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>Gebruikersnaam</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>Gebruikers met deze machtiging</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>Wat is een machtiging?</value>
   </data>
 
 </root>

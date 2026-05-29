@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+    <value>Bucket to wersjonowany migawkowy stan pakietów repozytorium w danym momencie. Główny bucket to ten aktywny, udostępniany klientom apt.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Akcje</value>
   </data>
   <data name="Active Usage" xml:space="preserve">
@@ -29,6 +32,9 @@
   </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>Historia migawek wiadra</value>
+  </data>
+  <data name="Buckets allow atomic updates. New packages are built into a fresh bucket, then the primary pointer switches over seamlessly." xml:space="preserve">
+    <value>Kontenery umożliwiają aktualizacje atomowe. Nowe pakiety są budowane w świeżym kontenerze, a następnie wskaźnik główny jest zmieniany bezproblemowo.</value>
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>Czas utworzenia</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
     <value>Ten migawka jest aktywnie dostarczana klientom apt jako bieżący indeks.</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Wskazówka:</value>
+  </data>
+  <data name="What is a Bucket?" xml:space="preserve">
+    <value>Czym jest bucket?</value>
   </data>
 
 </root>

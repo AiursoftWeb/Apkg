@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>Acties</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>Een APT-repository levert .deb-pakketten aan uw systemen. Beschouw het als een private app store — u bepaalt welke pakketten beschikbaar zijn.</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Weet u zeker dat u het repository wilt verwijderen?</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distributie</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>Elke repository wordt gekoppeld aan een suite (bijv. questing). Gebruik &lt;code&gt;apkg add-source&lt;/code&gt; om een repo op uw machine te configureren.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Bewerken</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>De snapshot die wordt gebouwd door een actieve Repository Sync-job. Deze vervangt de live bucket wanneer de job succesvol is voltooid.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Totaal aantal pakketten</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Wat is een repository?</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>Of het Release-bestand van de repository GPG-ondertekend is. apt-clients die zijn geconfigureerd met &apos;signed-by=&apos; in sources.list, weigeren repositories die niet ondertekend zijn of ondertekend met de verkeerde sleutel.</value>

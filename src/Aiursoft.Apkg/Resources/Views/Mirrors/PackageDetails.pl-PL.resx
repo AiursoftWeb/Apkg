@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>Plik .deb to pakiet oprogramowania gotowy do zainstalowania w systemach Debian/Ubuntu. Zawiera pliki binarne, konfiguracje oraz metadane zależności.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Architektura</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -39,6 +42,9 @@
   <data name="Download Size" xml:space="preserve">
     <value>Rozmiar pobierania</value>
   </data>
+  <data name="Download the .deb directly or browse reverse dependencies above." xml:space="preserve">
+    <value>Pobierz plik .deb bezpośrednio lub przeglądaj odwrotne zależności powyżej.</value>
+  </data>
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Nie udało się załadować zależności odwrotnych.</value>
   </data>
@@ -47,6 +53,9 @@
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>Strona główna</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Jak używać:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Rozmiar zainstalowany</value>
@@ -110,6 +119,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Wirtualny (leniwa synchronizacja)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Czym jest pakiet?</value>
   </data>
 
 </root>

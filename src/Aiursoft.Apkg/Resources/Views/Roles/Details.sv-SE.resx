@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>En översiktlig sammanställning av rollen, dess behörigheter och tilldelade användare.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>En roll är en namngiven samling av behörigheter. Tilldela roller till användare för att ge dem rätt att utföra specifika åtgärder.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>Tilldelade användare</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>Tillbaka till rollistan</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>Skapa roller baserade på arbetsfunktioner (t.ex. &apos;Mirror Manager&apos;) snarare än per användare för att förenkla administrationen.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>Ta bort den här rollen</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>Den här rollen har inga specifika behörigheter tilldelade.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tips:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>Användare med denna roll</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>Visa användare</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>Vad är en roll?</value>
   </data>
 
 </root>

@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>Rolün, izinlerinin ve atanmış kullanıcıların kapsamlı bir genel bakışı.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>Rol, adlandırılmış bir izin koleksiyonudur. Kullanıcılara belirli eylemleri gerçekleştirme yeteneğini vermek için roller atayın.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>Atanmış Kullanıcılar</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>Roller Listesine Geri Dön</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>Yönetimi kolaylaştırmak için rolleri kullanıcı başına değil, iş fonksiyonlarına (örn. &apos;Yansıma Yöneticisi&apos;) göre oluşturun.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>Bu Rolü Sil</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>Bu role özel bir izin atanmamıştır.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>İpucu:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>Bu Role Sahip Kullanıcılar</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>Kullanıcıyı Görüntüle</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>Rol Nedir?</value>
   </data>
 
 </root>

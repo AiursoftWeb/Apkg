@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>En .deb-paket är en programvarupaket som är redo att installeras på Debian/Ubuntu-system. Den innehåller binärer, konfigurationer och metadata för beroenden.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Arkitektur</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -33,6 +36,9 @@
   <data name="Description" xml:space="preserve">
     <value>Beskrivning</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Har du inte &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
   <data name="Download .deb" xml:space="preserve">
     <value>Ladda ner .deb</value>
   </data>
@@ -42,6 +48,9 @@
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Det gick inte att ladda omvända beroenden.</value>
   </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>Lägg först till APT-förvaret via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, kör sedan &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Eller ladda ner .deb-filen direkt.</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>Hashvärden</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="How to Install" xml:space="preserve">
     <value>Så här installerar du</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Så här använder du:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Installerad storlek</value>
@@ -71,6 +83,12 @@
   </data>
   <data name="No relations." xml:space="preserve">
     <value>Inga relationer.</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>Alternativ A: Använd APKG CLI (rekommenderas):</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>Alternativ B: Manuell bash-inställning:</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>Ursprung</value>
@@ -108,6 +126,9 @@
   <data name="Section" xml:space="preserve">
     <value>Avdelning</value>
   </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Se hur du installerar APKG CLI.</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Källa</value>
   </data>
@@ -131,6 +152,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Virtual (Laten synk)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Vad är ett paket?</value>
   </data>
 
 </root>

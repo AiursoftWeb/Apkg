@@ -42,8 +42,14 @@
   <data name="Disabled" xml:space="preserve">
     <value>Uitgeschakeld</value>
   </data>
+  <data name="Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets." xml:space="preserve">
+    <value>Elke LocalPackage komt overeen met één repo+suite+arch-combinatie. De Repository Sync-taak kopieert ze naar live-buckets.</value>
+  </data>
   <data name="Live" xml:space="preserve">
     <value>Live</value>
+  </data>
+  <data name="LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories." xml:space="preserve">
+    <value>LocalPackages zijn .deb-bestanden die zijn uitgepakt uit .apkg-uploads. Ze verkeren in een tussenberging voordat ze worden gesynchroniseerd met APT-repositories.</value>
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>Mijn pakketten</value>
@@ -69,6 +75,9 @@
   <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
     <value>De huidige voortgang van dit pakket dat wordt samengevoegd en ondertekend in de live-repository. De sync-job draait elke 20 minuten, gevolgd door een ondertekeningsjob elke 5 minuten.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Pakket uploaden</value>
   </data>
@@ -83,6 +92,9 @@
   </data>
   <data name="View Details &amp; Install Instructions" xml:space="preserve">
     <value>Details bekijken &amp; installatie-instructies</value>
+  </data>
+  <data name="What is a LocalPackage?" xml:space="preserve">
+    <value>Wat is een LocalPackage?</value>
   </data>
 
 </root>

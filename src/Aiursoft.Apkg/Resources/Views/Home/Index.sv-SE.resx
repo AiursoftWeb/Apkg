@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name=".NET Global Tool" xml:space="preserve">
+    <value>.NET Globalt verktyg</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>&quot;Fire-and-forget&quot;-stöd för långvariga uppgifter (t.ex. e-post eller AI), med en GUI för köhantering, parallell bearbetning och avbrott.</value>
+  </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; fungerar inte direkt eftersom rotanvändarens PATH inte innehåller &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Skapa en symbolisk länk en gång och det fungerar för alltid:</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Ett inbyggt rollbaserat åtkomstkontrollsystem (RBAC) för detaljerad behörighetshantering.</value>
@@ -36,8 +42,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>En modern, funktionsrik och mycket utbyggbar grund för din nästa webbapplikation.</value>
   </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>Ett enda kommando för att installera APKG-klienten och börja hantera dina APT-paket.</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Uppnå mer med Aiursoft Template</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>Lägg till en källa</value>
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>Admin-sida inbegripen</value>
@@ -68,6 +80,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>APT-paketarkiv</value>
   </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>Artificiell intelligensöversättning</value>
@@ -120,6 +135,9 @@
   <data name="Bilingual Tutorials" xml:space="preserve">
     <value>Tvåspråkiga handledningar</value>
   </data>
+  <data name="Browse All Packages" xml:space="preserve">
+    <value>Bläddra bland alla paket</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>Bygg en gång, kör överallt. Fullt containeriserad arkitektur.</value>
   </data>
@@ -167,6 +185,12 @@
   </data>
   <data name="Concise Docs" xml:space="preserve">
     <value>Konsistenta dokument</value>
+  </data>
+  <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
+    <value>Konfigurera komplexa APT-källor, GPG-nycklar och sviter med ett enda kommando.</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>Konfigurera sudo apkg (engångsinställning)</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>Konsistensvalidering</value>
@@ -239,6 +263,9 @@
   </data>
   <data name="Dockerized for Easy Deployment" xml:space="preserve">
     <value>Dockeriserad för enkel distribution</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>Ladda ner .NET SDK</value>
   </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>Dynamiskt navigeringsfält</value>
@@ -378,6 +405,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>Horizon ingår</value>
   </data>
+  <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
+    <value>Värd, hantera och distribuera .deb-paket med en modern NuGet-liknande upplevelse. Drivs av APKG.</value>
+  </data>
   <data name="How can I get support?" xml:space="preserve">
     <value>Hur får jag support?</value>
   </data>
@@ -398,6 +428,15 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Innehåller självstudier</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>Installera .NET SDK</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>Installera APKG CLI</value>
+  </data>
+  <data name="Install via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Auto-updates, no native dependencies." xml:space="preserve">
+    <value>Installera via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Automatiska uppdateringar, inga inbyggda beroenden.</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>Integrerad filhantering</value>
@@ -428,6 +467,9 @@
   </data>
   <data name="Lint Check" xml:space="preserve">
     <value>Lintkontroll</value>
+  </data>
+  <data name="Made Simple." xml:space="preserve">
+    <value>Gjort enkelt.</value>
   </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>Behåll hög kodkvalitet</value>
@@ -516,6 +558,9 @@
   <data name="One Click Start" xml:space="preserve">
     <value>Enkelt klick för att starta</value>
   </data>
+  <data name="One-Click APT Source Setup" xml:space="preserve">
+    <value>Inställning av APT-källa med ett klick</value>
+  </data>
   <data name="Open Source" xml:space="preserve">
     <value>Öppen källkod</value>
   </data>
@@ -531,8 +576,14 @@
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Färdig att använda</value>
   </data>
+  <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
+    <value>Packa flera .deb-filer i ett .apkg-arkiv med en manifestfil. Publicera till valfri APKG-server.</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>Upptäckt och synkronisering av behörigheter</value>
+  </data>
+  <data name="Powered by AnduinOS" xml:space="preserve">
+    <value>Drivs av AnduinOS</value>
   </data>
   <data name="Pre-configured and tested" xml:space="preserve">
     <value>Förkonfigurerat och testat</value>
@@ -545,6 +596,9 @@
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>Kvalitetsport</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>Kom igång</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-auktorisering</value>
@@ -567,6 +621,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>Robust Integration Testing</value>
   </data>
+  <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
+    <value>Kört på Windows, Linux och macOS via .NET.</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>Körs utan att internetanslutning krävs.</value>
   </data>
@@ -576,11 +633,20 @@
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Integrera sömlöst med vilken OpenID Connect-leverantör som helst, med automatisk rollsynkronisering.</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Sök</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>Sök paket...</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>Förskjut med självförtroende</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>Enkel &amp; Enkel</value>
+  </data>
+  <data name="Simplified dpkg Packaging" xml:space="preserve">
+    <value>Förenklad dpkg-packning</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>En container</value>
@@ -648,6 +714,9 @@
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>Navigeringsfältet anpassas automatiskt baserat på användarroller och behörigheter.</value>
   </data>
+  <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
+    <value>Den officiella pakethanteraren vald av AnduinOS-ekosystemet.</value>
+  </data>
   <data name="The Philosophy" xml:space="preserve">
     <value>Filosofin</value>
   </data>
@@ -665,6 +734,9 @@
   </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>Tillit av produktionsklara applikationer inklusive AnduinOS, StatHub och Warp. Vi delar inte bara koden; vi kör hela vårt företag på den.</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>Ubuntu:</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>Enhetlig miljö</value>
@@ -689,6 +761,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>Vad våra utvecklare säger</value>
+  </data>
+  <data name="Why APKG?" xml:space="preserve">
+    <value>Varför APKG?</value>
   </data>
   <data name="Why choose Aiursoft Template?" xml:space="preserve">
     <value>Varför välja Aiursoft Template?</value>

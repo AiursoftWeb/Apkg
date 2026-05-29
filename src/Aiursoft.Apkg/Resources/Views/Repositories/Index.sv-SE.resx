@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>Åtgärder</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>Ett APT-förråd levererar .deb-paket till dina system. Tänk på det som en privat appbutik – du styr vilka paket som finns tillgängliga.</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Är du säker på att du vill ta bort arkivet</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>Varje repository mappar till en suite (t.ex. questing). Använd &lt;code&gt;apkg add-source&lt;/code&gt; för att konfigurera ett repo på din dator.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Redigera</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Den ögonblicksbild som byggs av en pågående Repository Sync-jobb. Den ersätter den aktiva bucketn när jobbet lyckas.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tips:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Totala paket</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Vad är ett förråd?</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>Om lagrets Release-fil är GPG-signerad. apt-klienter som är konfigurerade med &apos;signed-by=&apos; i sources.list kommer att avvisa lager som inte är signerade eller signerade med fel nyckel.</value>

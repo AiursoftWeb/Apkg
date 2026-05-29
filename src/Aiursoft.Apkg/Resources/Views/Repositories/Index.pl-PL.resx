@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>Akcje</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>Repozytorium APT dostarcza pakiety .deb do twoich systemów. Wyobraź sobie je jako prywatny sklep z aplikacjami — to ty decydujesz, jakie pakiety są dostępne.</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Czy na pewno chcesz usunąć repozytorium</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Dystrybucja</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>Każde repozytorium jest powiązane z kolekcją (np. questing). Użyj &lt;code&gt;apkg add-source&lt;/code&gt;, aby skonfigurować repozytorium na swoim komputerze.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edytuj</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Obraz tworzony przez uruchomioną pracę Repository Sync. Zastępuje on aktywny bucket po pomyślnym zakończeniu pracy.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Wskazówka:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Łączna liczba pakietów</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Czym jest repozytorium?</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>Czy plik Release repozytorium jest podpisany GPG. Klienci apt skonfigurowani z parametrem &apos;signed-by=&apos; w sources.list odrzucą repozytoria, które są niepodpisane lub podpisane niewłaściwym kluczem.</value>

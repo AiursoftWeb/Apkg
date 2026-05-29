@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>الإجراءات</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>يقوم مستودع APT بتوفير حزم .deb لأنظمتك. فكر فيه كمتجر تطبيقات خاص؛ فأنت تتحكم في الحزم المتاحة.</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>هل أنت متأكد من أنك تريد حذف المستودع</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>توزيع</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>كل مستودع يُقابِل حزمة (مثل questing). استخدم الأمر &lt;code&gt;apkg add-source&lt;/code&gt; لإعداد مستودع على جهازك.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>تعديل</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>لقطة البناء قيد التنفيذ بواسطة مهمة مزامنة المستودع. تستبدل الدلو المباشر عند نجاح المهمة.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>ملاحظة:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>إجمالي الحزم</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>ما هو المستودع؟</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>ما إذا كان ملف الإصدار الخاص بالمستودع موقعًا بتوقيع GPG. سترفض عملاء apt الذين تم تكوينهم باستخدام &apos;signed-by=&apos; في sources.list المستودعات غير الموقعة أو الموقعة بالمفتاح الخطأ.</value>

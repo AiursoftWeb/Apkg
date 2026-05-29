@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to List" xml:space="preserve">
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>Een APT-repository is een verzameling .deb-pakketten die uw systeem kan installeren. Bekijk het als een app store voor uw Linux-systeem.</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
     <value>Terug naar overzicht</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
@@ -39,11 +42,20 @@
   <data name="Distro" xml:space="preserve">
     <value>Distributie</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Heeft u geen &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Hoe te gebruiken:</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Informatie</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Actieve Bucket</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>Handmatige installatie (bash):</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>Mirrorbron</value>
@@ -54,8 +66,17 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>Een-regel installatie:</value>
   </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>Snelle installatie met APKG CLI:</value>
+  </data>
   <data name="Repository Details" xml:space="preserve">
     <value>Details van repository</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>Voer het &lt;code&gt;sudo apkg add-source&lt;/code&gt;-commando rechts uit om deze repo te configureren en gebruik daarna &lt;code&gt;sudo apt install&lt;/code&gt; zoals gebruikelijk.</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Zie hoe je APKG CLI installeert.</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>
@@ -65,6 +86,9 @@
   </data>
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>Dit maakt gebruik van het moderne DEB822-formaat en een beheerd sleutelbos voor maximale beveiliging en betrouwbaarheid.</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Wat is een repository?</value>
   </data>
 
 </root>

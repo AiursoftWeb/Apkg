@@ -42,8 +42,14 @@
   <data name="Disabled" xml:space="preserve">
     <value>Inaktiverad</value>
   </data>
+  <data name="Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets." xml:space="preserve">
+    <value>Varje LocalPackage mappas till en repo+suit+arch-kombination. Jobbet Repository Sync kopierar dem till aktiva behållare.</value>
+  </data>
   <data name="Live" xml:space="preserve">
     <value>Aktiv</value>
+  </data>
+  <data name="LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories." xml:space="preserve">
+    <value>LocalPackages är .deb-filer som extraheras från .apkg-uppladdningar. De placeras i ett mellanlager innan de synkroniseras till APT-förråd.</value>
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>Mina paket</value>
@@ -69,6 +75,9 @@
   <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
     <value>Den aktuella framstegen för detta paket som slås samman och signeras i det live-lageret. Synkroniseringsjobbet körs var 20:e minut, följt av ett signeringsjobb var 5:e minut.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tips:</value>
+  </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Ladda upp paket</value>
   </data>
@@ -83,6 +92,9 @@
   </data>
   <data name="View Details &amp; Install Instructions" xml:space="preserve">
     <value>Visa detaljer &amp; installationsanvisningar</value>
+  </data>
+  <data name="What is a LocalPackage?" xml:space="preserve">
+    <value>Vad är en LocalPackage?</value>
   </data>
 
 </root>
