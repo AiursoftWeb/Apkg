@@ -24,7 +24,8 @@ public class ApkgUploadsController(
     DebUploadService debUploadService,
     FeatureFoldersProvider folders,
     UserManager<User> userManager,
-    ILogger<ApkgUploadsController> logger) : Controller
+    ILogger<ApkgUploadsController> logger,
+    AptVersionComparisonService versionComparer) : Controller
 {
     [HttpGet]
     [RenderInNavBar(
@@ -51,10 +52,11 @@ public class ApkgUploadsController(
             .OrderByDescending(u => u.UploadedAt)
             .ToListAsync();
 
-        // Group by package name, show only the latest version per package
+        // Group by package name, show only the latest version per package (by Debian version rules)
+        var comparer = Comparer<string>.Create(versionComparer.Compare);
         var latestUploads = allUploads
             .GroupBy(u => u.Package)
-            .Select(g => g.OrderByDescending(u => u.UploadedAt).First())
+            .Select(g => g.OrderByDescending(u => u.Version, comparer).First())
             .OrderByDescending(u => u.UploadedAt)
             .ToList();
 
@@ -430,9 +432,26 @@ public class ApkgUploadsController(
         if (!isAdmin)
             historyQuery = historyQuery.Where(u => u.UploadedByUserId == userId && u.IsListed);
 
-        var versionHistory = await historyQuery
-            .OrderByDescending(u => u.UploadedAt)
-            .ToListAsync();
+        var versionHistory = await historyQuery.ToListAsync();
+
+        // Sort by Debian version rules, latest first
+        var comparer = Comparer<string>.Create(versionComparer.Compare);
+        int? latestVersionId = null;
+        try
+        {
+            versionHistory = versionHistory
+                .OrderByDescending(v => v.Version, comparer)
+                .ToList();
+            if (versionHistory.Count > 0)
+                latestVersionId = versionHistory.First().Id;
+        }
+        catch (ArgumentException)
+        {
+            // If a version string is unparseable, fall back to upload-time sort.
+            versionHistory = versionHistory
+                .OrderByDescending(v => v.UploadedAt)
+                .ToList();
+        }
 
         var activeTab = tab == "versions" ? "versions" : "overview";
 
@@ -441,6 +460,7 @@ public class ApkgUploadsController(
             Upload = upload,
             Packages = packages,
             VersionHistory = versionHistory,
+            LatestVersionId = latestVersionId,
             ActiveTab = activeTab,
             IsAdmin = isAdmin,
             IsOwner = isOwner

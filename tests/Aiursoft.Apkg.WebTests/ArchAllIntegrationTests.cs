@@ -110,6 +110,7 @@ SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c
         services.AddSingleton<FeatureFoldersProvider>();
         services.AddSingleton<FileLockProvider>();
         services.AddTransient<AptMetadataService>();
+        services.AddTransient<AptVersionComparisonService>();
         services.AddSingleton<IGpgSigningService, FakeGpgSigningService>();
         services.AddTransient<MirrorSyncJob>();
         services.AddTransient<RepositorySyncJob>();
@@ -242,6 +243,7 @@ SHA512: cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c
         services.AddSingleton<FeatureFoldersProvider>();
         services.AddSingleton<FileLockProvider>();
         services.AddTransient<AptMetadataService>();
+        services.AddTransient<AptVersionComparisonService>();
         services.AddSingleton<IGpgSigningService, FakeGpgSigningService>();
         services.AddTransient<MirrorSyncJob>();
         services.AddTransient<RepositorySyncJob>();

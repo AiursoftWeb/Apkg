@@ -12,7 +12,8 @@ public class RepositorySyncJob(
     ApkgDbContext db,
     AptMetadataService metadataService,
     FeatureFoldersProvider folders,
-    ILogger<RepositorySyncJob> logger) : IBackgroundJob
+    ILogger<RepositorySyncJob> logger,
+    AptVersionComparisonService versionComparer) : IBackgroundJob
 {
     private string BucketsRoot => folders.GetBucketsFolder();
 
@@ -196,6 +197,61 @@ public class RepositorySyncJob(
             }
             await db.SaveChangesAsync();
             db.ChangeTracker.Clear();
+        }
+
+        // 2c. Deduplicate by (Package, Architecture): keep only the latest version
+        {
+            var allPkgs = await db.AptPackages
+                .Where(p => p.BucketId == newBucketId)
+                .ToListAsync();
+
+            var versionCmp = Comparer<string>.Create((a, b) =>
+            {
+                try
+                {
+                    return versionComparer.Compare(a, b);
+                }
+                catch (ArgumentException ex)
+                {
+                    logger.LogWarning(ex,
+                        "Unparseable version string in Bucket {BucketId} — " +
+                        "cannot compare '{VersionA}' vs '{VersionB}'. Falling back to ordinal sort.",
+                        newBucketId, a, b);
+                    return string.CompareOrdinal(a, b);
+                }
+            });
+
+            var duplicates = allPkgs
+                .GroupBy(p => (p.Package, p.Architecture))
+                .Where(g => g.Count() > 1)
+                .SelectMany(g =>
+                {
+                    AptPackage latest;
+                    try
+                    {
+                        latest = g.OrderByDescending(p => p.Version, versionCmp).First();
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        logger.LogWarning(ex,
+                            "Could not determine latest version for {Package}/{Arch} in Bucket {BucketId}. " +
+                            "Skipping deduplication for this group — all versions will be kept.",
+                            g.Key.Package, g.Key.Architecture, newBucketId);
+                        return Enumerable.Empty<AptPackage>();
+                    }
+                    return g.Where(p => p.Id != latest.Id);
+                })
+                .ToList();
+
+            if (duplicates.Count > 0)
+            {
+                db.AptPackages.RemoveRange(duplicates);
+                await db.SaveChangesAsync();
+                db.ChangeTracker.Clear();
+                logger.LogInformation(
+                    "Bucket {BucketId}: removed {Count} duplicate packages (older versions).",
+                    newBucketId, duplicates.Count);
+            }
         }
 
         // 3. Metadata Generation & Signing

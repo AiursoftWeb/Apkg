@@ -14,6 +14,7 @@ public class ApkgUploadsDetailsViewModel : UiStackLayoutViewModel
     public required ApkgUpload Upload { get; init; }
     public required List<PackageStatusInfo> Packages { get; init; }
     public required List<ApkgUpload> VersionHistory { get; init; }
+    public int? LatestVersionId { get; init; }
     public required string ActiveTab { get; init; } = "overview";
     public bool IsAdmin { get; init; }
     public bool IsOwner { get; init; }

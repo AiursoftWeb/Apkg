@@ -159,9 +159,9 @@ public class ApkgUploadsControllerTests : TestBase
     public async Task Index_GroupedByPackage_ShowsLatestOnly()
     {
         var pkgName = $"grouped-pkg-{Guid.NewGuid():N}";
-        var oldVer = $"old-{Guid.NewGuid():N}"[..16];
-        var midVer = $"mid-{Guid.NewGuid():N}"[..16];
-        var newVer = $"new-{Guid.NewGuid():N}"[..16];
+        var oldVer = $"1.{Guid.NewGuid():N}"[..16];
+        var midVer = $"5.{Guid.NewGuid():N}"[..16];
+        var newVer = $"9.{Guid.NewGuid():N}"[..16];
         // Add 3 versions of the same package at different times
         _db.ApkgUploads.Add(new ApkgUpload
         {
@@ -212,9 +212,9 @@ public class ApkgUploadsControllerTests : TestBase
     {
         var pkg1 = $"pkg-alpha-{Guid.NewGuid():N}";
         var pkg2 = $"pkg-beta-{Guid.NewGuid():N}";
-        var pkg1Old = $"old-{Guid.NewGuid():N}"[..16];
-        var pkg1New = $"new-{Guid.NewGuid():N}"[..16];
-        var pkg2Ver = $"ver-{Guid.NewGuid():N}"[..16];
+        var pkg1Old = $"1.{Guid.NewGuid():N}"[..16];
+        var pkg1New = $"9.{Guid.NewGuid():N}"[..16];
+        var pkg2Ver = $"5.{Guid.NewGuid():N}"[..16];
 
         _db.ApkgUploads.Add(new ApkgUpload
         {

@@ -218,6 +218,10 @@
                                         <tr class="@(isCurrent ? "table-active" : "")">
                                             <td>
                                                 <span class="badge bg-info">@v.Version</span>
+                                                @if (Model.LatestVersionId == v.Id)
+                                                {
+                                                    <span class="badge bg-success ms-1">Latest</span>
+                                                }
                                                 @if (isCurrent)
                                                 {
                                                     <small class="text-muted ms-1">(current view)</small>

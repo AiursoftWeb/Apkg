@@ -448,4 +448,320 @@ public class AptVersionComparisonServiceTests
         // No revision defaults to "0", which is less than "1"
         Assert.IsTrue(_svc.Compare("1.0-1", "1.0") > 0);
     }
+
+    // ===================================================================
+    // Tilde edge cases — ~ sorts BEFORE everything
+    // ===================================================================
+
+    [TestMethod]
+    public void Compare_Tilde_SortsBeforeAnyLetter()
+    {
+        // dpkg: 1.0~a < 1.0a (tilde before letter)
+        Assert.IsTrue(_svc.Compare("1.0~a", "1.0a") < 0);
+    }
+
+    [TestMethod]
+    public void Compare_Tilde_SortsBeforeDigit()
+    {
+        // dpkg: 1.0~1 < 1.01 (tilde before digit)
+        Assert.IsTrue(_svc.Compare("1.0~1", "1.01") < 0);
+    }
+
+    [TestMethod]
+    public void Compare_Tilde_SortsBeforeNothing()
+    {
+        // dpkg: 1.0~ < 1.0 (tilde without suffix still sorts before end-of-string)
+        Assert.IsTrue(_svc.Compare("1.0~", "1.0") < 0);
+    }
+
+    [TestMethod]
+    public void Compare_Tilde_SortsBeforeEndOfString2()
+    {
+        // dpkg: 1.0~rc1 < 1.0
+        Assert.IsTrue(_svc.Compare("1.0~rc1", "1.0") < 0);
+    }
+
+    [TestMethod]
+    public void Compare_Tilde_MultipleTildes()
+    {
+        // dpkg: 1.0~~a < 1.0~a (more tildes = older)
+        Assert.IsTrue(_svc.Compare("1.0~~a", "1.0~a") < 0);
+    }
+
+    // ===================================================================
+    // Plus sign — sorts AFTER letters (ASCII + 256 for non-alnum)
+    // ===================================================================
+
+    [TestMethod]
+    public void Compare_Plus_SortsAfterLetter()
+    {
+        // dpkg: 1.0+a > 1.0a (plus after letter)
+        Assert.IsTrue(_svc.Compare("1.0+a", "1.0a") > 0);
+    }
+
+    [TestMethod]
+    public void Compare_Plus_SortsAfterEndOfString()
+    {
+        // dpkg: 1.0+anything > 1.0 (+ has order 43+256=299, empty string = 0)
+        Assert.IsTrue(_svc.Compare("1.0+dfsg", "1.0") > 0);
+    }
+
+    [TestMethod]
+    public void Compare_Plus_UbuntuNigCom()
+    {
+        // dpkg: 1.0+nmu1 > 1.0 (non-maintainer upload suffix)
+        Assert.IsTrue(_svc.Compare("1.0+nmu1", "1.0") > 0);
+    }
+
+    // ===================================================================
+    // Letter vs digit at same position
+    // ===================================================================
+
+    [TestMethod]
+    public void Compare_DigitSortsBeforeLetter()
+    {
+        // dpkg: 1.0a > 1.0 (digit '0' then end gives way to letter 'a')
+        // Wait: "1.0" vs "1.0a" → both share "1.", then "0" vs "0" (equal digits),
+        // then "a" vs end-of-string (letter > 0), so "1.0a" > "1.0"
+        Assert.IsTrue(_svc.Compare("1.0a", "1.0") > 0);
+    }
+
+    [TestMethod]
+    public void Compare_LetterSequence()
+    {
+        // dpkg: 1.0a < 1.0b (lexicographic)
+        Assert.IsTrue(_svc.Compare("1.0a", "1.0b") < 0);
+    }
+
+    [TestMethod]
+    public void Compare_DigitAtSamePosition()
+    {
+        // dpkg: "1.0-a" > "1.0-2" because 'a' (letter, order=97) > '2' (digit, order=0)
+        Assert.IsTrue(_svc.Compare("1.0-a", "1.0-2") > 0);
+    }
+
+    // ===================================================================
+    // Revision parsing: only the LAST hyphen separates revision
+    // ===================================================================
+
+    [TestMethod]
+    public void Compare_Revision_OnlyLastHyphenSeparates()
+    {
+        // "1.0-2-3" → upstream="1.0-2", revision="3"
+        // "1.0-2"   → upstream="1.0",   revision="2"
+        // Upstream: "1.0-2" vs "1.0" → at hyphen: '1' vs '\0'? Let me trace:
+        // "1.0-2" vs "1.0": after "1.0", side A has "-2", side B has "".
+        // '-' is non-alnum char, order = '-' (45) + 256 = 301 > 0, so "1.0-2" > "1.0"
+        // So upstream "1.0-2" > "1.0", meaning "1.0-2-3" > "1.0-2"
+        Assert.IsTrue(_svc.Compare("1.0-2-3", "1.0-2") > 0);
+    }
+
+    [TestMethod]
+    public void Compare_Revision_WrongHyphenParsing()
+    {
+        // "3.1-20250104-1build1":
+        //   upstream="3.1-20250104", revision="1build1"
+        // "3.1-20140620-0":
+        //   upstream="3.1-20140620", revision="0"
+        // Upstream: 20250104 > 20140620, so "3.1-20250104-1build1" > "3.1-20140620-0"
+        Assert.IsTrue(_svc.Compare("3.1-20250104-1build1", "3.1-20140620-0") > 0);
+    }
+
+    [TestMethod]
+    public void Compare_Revision_UbuntuDeb()
+    {
+        // "2.1.12-stable-10build1": upstream="2.1.12-stable", revision="10build1"
+        // "2.1.8-stable":           upstream="2.1.8",         revision="stable"
+        // Upstream: "2.1.12-stable" vs "2.1.8": digits 12 > 8, so former > latter
+        Assert.IsTrue(_svc.Compare("2.1.12-stable-10build1", "2.1.8-stable") > 0);
+    }
+
+    // ===================================================================
+    // Character ordering: ~ < end-of-string < digits < letters < other
+    // ===================================================================
+
+    [TestMethod]
+    public void Compare_CharOrder_EmptyBeforeDigit()
+    {
+        // dpkg: 1.0 < 1.01 (at position after '.': "" vs "0" → 0 vs 0, then "1" vs "" → 1 > 0)
+        // So "1.01" > "1.0": longer digit = larger
+        Assert.IsTrue(_svc.Compare("1.01", "1.0") > 0);
+    }
+
+    [TestMethod]
+    public void Compare_CharOrder_DotBetween()
+    {
+        // dpkg: 1.0.0 > 1.0 (extra dot + 0)
+        Assert.IsTrue(_svc.Compare("1.0.0", "1.0") > 0);
+    }
+
+    [TestMethod]
+    public void Compare_CharOrder_DotVsLetter()
+    {
+        // '.' (46+256=302) > 'a' (97), so 1.0.0 > 1.0a
+        Assert.IsTrue(_svc.Compare("1.0.0", "1.0a") > 0);
+    }
+
+    // ===================================================================
+    // Epoch edge cases
+    // ===================================================================
+
+    [TestMethod]
+    public void Compare_Epoch_ZeroVsNoEpoch()
+    {
+        // dpkg: 0:1.0 == 1.0 (explicit epoch 0 equals implicit epoch 0)
+        Assert.AreEqual(0, _svc.Compare("0:1.0", "1.0"));
+    }
+
+    [TestMethod]
+    public void Compare_Epoch_Large()
+    {
+        // dpkg: 99:1.0 > 98:99.99
+        Assert.IsTrue(_svc.Compare("99:1.0", "98:99.99") > 0);
+    }
+
+    // ===================================================================
+    // Real-world version sort test — sort a list and verify order
+    // ===================================================================
+
+    [TestMethod]
+    public void Sort_RealWorldList_GnomeExtensions()
+    {
+        var versions = new[]
+        {
+            "69.0",
+            "69.1",
+            "69.2",
+            "1.0.69",
+            "1.0.70",
+            "1.0.71",
+        };
+        var sorted = versions.OrderBy(v => v, Comparer<string>.Create(_svc.Compare)).ToList();
+        // Expected: 1.0.69, 1.0.70, 1.0.71, 69.0, 69.1, 69.2
+        // (1 < 69 at first numeric segment)
+        Assert.AreEqual("1.0.69", sorted[0]);
+        Assert.AreEqual("1.0.70", sorted[1]);
+        Assert.AreEqual("1.0.71", sorted[2]);
+        Assert.AreEqual("69.0", sorted[3]);
+        Assert.AreEqual("69.1", sorted[4]);
+        Assert.AreEqual("69.2", sorted[5]);
+    }
+
+    [TestMethod]
+    public void Sort_RealWorldList_BaseFiles()
+    {
+        var versions = new[]
+        {
+            "1:14ubuntu6-anduinos",           // May 28
+            "1:13ubuntu10+noble-addon1-anduinos", // May 29 (newer upload, older version)
+        };
+        var sorted = versions.OrderBy(v => v, Comparer<string>.Create(_svc.Compare)).ToList();
+        // Epoch both 1. Upstream: "13ubuntu10+noble-addon1" vs "14ubuntu6"
+        // 13 < 14 (by numeric comparison), so 1:13... < 1:14...
+        Assert.AreEqual("1:13ubuntu10+noble-addon1-anduinos", sorted[0]);
+        Assert.AreEqual("1:14ubuntu6-anduinos", sorted[1]);
+    }
+
+    [TestMethod]
+    public void Sort_Reverse_BaseFiles_LatestFirst()
+    {
+        var versions = new[]
+        {
+            "1:13ubuntu10+noble-addon1-anduinos",
+            "1:14ubuntu6-anduinos",
+        };
+        var sorted = versions.OrderByDescending(v => v, Comparer<string>.Create(_svc.Compare)).ToList();
+        // Latest (by Debian rules) first: "1:14ubuntu6-anduinos"
+        Assert.AreEqual("1:14ubuntu6-anduinos", sorted[0]);
+    }
+
+    // ===================================================================
+    // Leading zeros
+    // ===================================================================
+
+    [TestMethod]
+    public void Compare_LeadingZeros_Padding()
+    {
+        // dpkg: 0001.0002 == 1.2
+        Assert.AreEqual(0, _svc.Compare("0001.0002", "1.2"));
+    }
+
+    [TestMethod]
+    public void Compare_LeadingZeros_BeforeNumber()
+    {
+        // dpkg: 1.0-0ubuntu1 vs 1.0-ubuntu1 → "0ubuntu1" vs "ubuntu1": digit '0' vs letter 'u'
+        // '0' digit (0) vs 'u' letter (117), so 'u' > '0', so "ubuntu1" > "0ubuntu1"
+        Assert.IsTrue(_svc.Compare("1.0-ubuntu1", "1.0-0ubuntu1") > 0);
+    }
+
+    // ===================================================================
+    // Constraint satisfaction edge cases
+    // ===================================================================
+
+    [TestMethod]
+    public void SatisfiesConstraint_TildeVersions()
+    {
+        // 1.0~rc1 does NOT satisfy >= 1.0 (since ~rc1 < 1.0)
+        Assert.IsFalse(_svc.SatisfiesConstraint("1.0~rc1", ">= 1.0"));
+        // But 1.0 does satisfy >= 1.0~rc1
+        Assert.IsTrue(_svc.SatisfiesConstraint("1.0", ">= 1.0~rc1"));
+    }
+
+    [TestMethod]
+    public void SatisfiesConstraint_EpochAware()
+    {
+        // 1:1.0 > 2.0 (epoch 1 > epoch 0), so 1:1.0 satisfies >= 2.0
+        Assert.IsTrue(_svc.SatisfiesConstraint("1:1.0", ">= 2.0"));
+    }
+
+    [TestMethod]
+    public void SatisfiesConstraint_UbuntuVersions()
+    {
+        // Ubuntu-style: 1:24.004.60-1ubuntu7-anduinos > 1:24.004.60-1ubuntu6-anduinos
+        Assert.IsTrue(_svc.SatisfiesConstraint("1:24.004.60-1ubuntu7-anduinos", ">= 1:24.004.60-1ubuntu6-anduinos"));
+    }
+
+    // ===================================================================
+    // Ordering: dots vs digits vs letters
+    // ===================================================================
+
+    [TestMethod]
+    public void Compare_DotInUpstream()
+    {
+        // dpskg: 1.0.0-1 > 1.0-9999 (upstream has extra ".0")
+        Assert.IsTrue(_svc.Compare("1.0.0-1", "1.0-9999") > 0);
+    }
+
+    [TestMethod]
+    public void Compare_UbuntuRevisionSuffix()
+    {
+        // dpkg: 1.0-1ubuntu1 > 1.0-1 (revision "1ubuntu1" > "1")
+        // After "1", both compare: "" vs "ubuntu1" → 'u' (117) > 0, so "1ubuntu1" > "1"
+        Assert.IsTrue(_svc.Compare("1.0-1ubuntu1", "1.0-1") > 0);
+    }
+
+    [TestMethod]
+    public void Compare_UbuntuRevisionComplex()
+    {
+        // dpkg: 1.0-1ubuntu2 > 1.0-1ubuntu1
+        Assert.IsTrue(_svc.Compare("1.0-1ubuntu2", "1.0-1ubuntu1") > 0);
+    }
+
+    // ===================================================================
+    // Invalid version formats
+    // ===================================================================
+
+    [TestMethod]
+    public void Compare_Malformed_EmptyString()
+    {
+        try
+        {
+            _svc.Compare("", "1.0");
+            Assert.Fail("Expected ArgumentException for empty version string.");
+        }
+        catch (ArgumentException)
+        {
+            // Expected
+        }
+    }
 }
