@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name=".NET Global Tool" xml:space="preserve">
+    <value>.NET Küresel Aracı</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Uzun süreli görevler (örneğin e-postalar veya AI) için &quot;Fire-and-forget&quot; desteği, kuyruk yönetimi, paralel işlem ve iptal için bir GUI ile birlikte.</value>
+  </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; doğrudan çalışmayacaktır çünkü root&apos;un PATH&apos;ı &lt;code&gt;~/.dotnet/tools&lt;/code&gt; dizinini içermiyor. Bir kez sembolik bağlantı (symlink) oluşturun ve sonsuza kadar çalışsın:</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>İnce taneli izin yönetimi için yerleşik bir Rol Tabanlı Erişim Kontrolü (RBAC) sistemi.</value>
@@ -36,8 +42,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Modern, zengin özelliklere sahip ve bir sonraki web uygulamanız için oldukça genişletilebilir bir temel.</value>
   </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>APKG istemcisini yüklemek ve APT paketlerinizi yönetmeye başlamak için tek bir komut.</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template ile daha fazlasını başarın</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>Bir kaynak ekle</value>
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>Yönetim sitesi dahil</value>
@@ -68,6 +80,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>APT Paket Deposu</value>
   </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>Yapay Zeka Çevirisi</value>
@@ -120,6 +135,9 @@
   <data name="Bilingual Tutorials" xml:space="preserve">
     <value>Çift Dilli Eğitimler</value>
   </data>
+  <data name="Browse All Packages" xml:space="preserve">
+    <value>Tüm Paketlere Göz At</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>Bir kez derle, her yerde çalıştır. Tamamen konteynerli mimari.</value>
   </data>
@@ -167,6 +185,12 @@
   </data>
   <data name="Concise Docs" xml:space="preserve">
     <value>Kısa Belgeler</value>
+  </data>
+  <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
+    <value>Karmaşık APT kaynaklarını, GPG anahtarlarını ve paketleri tek bir komutla yapılandırın.</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>sudo apkg yapılandırın (tek seferlik kurulum)</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>Tutarlılık Doğrulama</value>
@@ -239,6 +263,9 @@
   </data>
   <data name="Dockerized for Easy Deployment" xml:space="preserve">
     <value>Docker ile Kolay Dağıtım</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>.NET SDK&apos;sını İndir</value>
   </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>Dinamik Gezinti Çubuğu</value>
@@ -378,6 +405,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>Horizon dahil</value>
   </data>
+  <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
+    <value>.deb paketlerini modern bir NuGet benzeri deneyimle barındırın, yönetin ve dağıtın. APKG tarafından desteklenmektedir.</value>
+  </data>
   <data name="How can I get support?" xml:space="preserve">
     <value>Nasıl destek alabilirim?</value>
   </data>
@@ -398,6 +428,15 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Kılavuzlar Dahil</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>.NET SDK&apos;yi Yükle</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>APKG CLI&apos;yi Yükle</value>
+  </data>
+  <data name="Install via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Auto-updates, no native dependencies." xml:space="preserve">
+    <value>&lt;code&gt;dotnet tool install -g&lt;/code&gt; aracılığıyla yükleyin. Otomatik güncellemeler, yerel bağımlılık yok.</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>Entegre Dosya Yönetimi</value>
@@ -428,6 +467,9 @@
   </data>
   <data name="Lint Check" xml:space="preserve">
     <value>Lint Kontrolü</value>
+  </data>
+  <data name="Made Simple." xml:space="preserve">
+    <value>Kolaylaştırıldı.</value>
   </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>Yüksek Kod Kalitesini Koruyun</value>
@@ -516,6 +558,9 @@
   <data name="One Click Start" xml:space="preserve">
     <value>Bir Tıkla Başlat</value>
   </data>
+  <data name="One-Click APT Source Setup" xml:space="preserve">
+    <value>Tek Tıkla APT Kaynağı Kurulumu</value>
+  </data>
   <data name="Open Source" xml:space="preserve">
     <value>Açık Kaynak</value>
   </data>
@@ -531,8 +576,14 @@
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Kutudan çıktığı gibi</value>
   </data>
+  <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
+    <value>Birden fazla .deb dosyasını bir manifesto ile tek bir .apkg paketinin içine sıkıştırın. Herhangi bir APKG sunucusuna gönderin.</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>İzin keşfi ve senkronizasyonu</value>
+  </data>
+  <data name="Powered by AnduinOS" xml:space="preserve">
+    <value>AnduinOS tarafından desteklenmektedir</value>
   </data>
   <data name="Pre-configured and tested" xml:space="preserve">
     <value>Ön yapılandırılmış ve test edilmiş</value>
@@ -545,6 +596,9 @@
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>Kalite Kapısı</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>Hızlı Başlangıç</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC Yetkilendirmesi</value>
@@ -567,6 +621,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>Güçlü Entegrasyon Testi</value>
   </data>
+  <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
+    <value>.NET üzerinden Windows, Linux ve macOS üzerinde çalışır.</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>Herhangi bir internet bağlantısına gerek kalmadan çalışır.</value>
   </data>
@@ -576,11 +633,20 @@
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Herhangi bir OpenID Connect sağlayıcısıyla sorunsuz bir şekilde entegre olun, otomatik rol senkronizasyonu ile.</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>Paketleri ara...</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>Güvenle geçiş yapın</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>Basit &amp; Kolay</value>
+  </data>
+  <data name="Simplified dpkg Packaging" xml:space="preserve">
+    <value>Basitleştirilmiş dpkg Paketleme</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>Tek Konteyner</value>
@@ -648,6 +714,9 @@
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>Gezinme çubuğu, kullanıcı rollerine ve izinlerine göre otomatik olarak ayarlanır.</value>
   </data>
+  <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
+    <value>AnduinOS ekosistemi tarafından seçilen resmi paket yöneticisi.</value>
+  </data>
   <data name="The Philosophy" xml:space="preserve">
     <value>Felsefe</value>
   </data>
@@ -665,6 +734,9 @@
   </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>AnduinOS, StatHub ve Warp gibi üretim düzeyindeki uygulamalar tarafından güvenilir. Sadece bu kodu paylaşmakla kalmıyoruz; tamamen bu kodla işimizi yürütüyoruz.</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>Ubuntu:</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>Birleşik Ortam</value>
@@ -689,6 +761,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>Geliştiricilerimizin Görüşleri</value>
+  </data>
+  <data name="Why APKG?" xml:space="preserve">
+    <value>Neden APKG?</value>
   </data>
   <data name="Why choose Aiursoft Template?" xml:space="preserve">
     <value>Neden Aiursoft Template?</value>

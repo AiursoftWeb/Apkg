@@ -21,6 +21,9 @@
       <data name="Actions" xml:space="preserve">
     <value>İşlemler</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>Bir APT deposu, sistemlerinizde .deb paketleri dağıtır. Bunu özel bir uygulama mağazası gibi düşünün; hangi paketlerin kullanılabilir olduğunu siz belirlersiniz.</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Depoyu silmek istediğinizden emin misiniz</value>
   </data>
@@ -50,6 +53,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Dağıtım</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>Her depo bir pakete (örneğin questing) eşlenir. &lt;code&gt;apkg add-source&lt;/code&gt; kullanarak makinenizde bir deponu yapılandırın.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Düzenle</value>
@@ -87,8 +93,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Repository Sync işi tarafından oluşturulan anlık görüntü. İş başarılı olduğunda canlı kovanun yerini alır.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>İpucu:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Toplam Paket</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Depo nedir?</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>Deponun Release dosyasının GPG ile imzalanıp imzalanmadığı. sources.list içinde &apos;signed-by=&apos; ile yapılandırılmış apt istemcileri, imzasız veya yanlış anahtarla imzalanmış depoları reddedecektir.</value>

@@ -42,8 +42,14 @@
   <data name="Disabled" xml:space="preserve">
     <value>Вимкнено</value>
   </data>
+  <data name="Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets." xml:space="preserve">
+    <value>Кожен LocalPackage відповідає одній комбінації repo+suite+arch. Задача Repository Sync копіює їх у активні сховища.</value>
+  </data>
   <data name="Live" xml:space="preserve">
     <value>Активний</value>
+  </data>
+  <data name="LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories." xml:space="preserve">
+    <value>Локальні пакунки — це .deb-файли, витягнуті з завантажених файлів .apkg. Вони зберігаються у проміжній області, перш ніж будуть синхронізовані з APT-репозиторіями.</value>
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>Мої пакунки</value>
@@ -69,6 +75,9 @@
   <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
     <value>Поточний статус об’єднання та підписання цього пакета в основному репозиторії. Завдання синхронізації виконується кожні 20 хвилин, після чого кожні 5 хвилин запускається завдання підписання.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Порада:</value>
+  </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Завантажити пакет</value>
   </data>
@@ -83,6 +92,9 @@
   </data>
   <data name="View Details &amp; Install Instructions" xml:space="preserve">
     <value>Переглянути деталі та інструкції з встановлення</value>
+  </data>
+  <data name="What is a LocalPackage?" xml:space="preserve">
+    <value>Що таке LocalPackage?</value>
   </data>
 
 </root>

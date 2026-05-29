@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name=".NET Global Tool" xml:space="preserve">
+    <value>Uneleune Global .NET</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Sprijin pentru sarcini de lungă durată (cum ar fi e-mailurile sau AI), în stil &quot;Fire-and-forget&quot;, cu interfață grafică pentru gestionarea cozilor, prelucrare paralelă și anulare.</value>
+  </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; nu va funcționa din start deoarece PATH-ul utilizatorului root nu include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Creați odată un symlink și va funcționa permanent:</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Un sistem integrat de control al accesului bazat pe roluri (RBAC) pentru gestionarea granulară a permisiunilor.</value>
@@ -36,8 +42,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>O fundație modernă, bogată în funcționalități și extrem de extensibilă pentru următoarea ta aplicație web.</value>
   </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>O singură comandă pentru a instala clientul APKG și a începe gestionarea pachetelor APT.</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Realizați mai multe cu Aiursoft Template</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>Adaugă o sursă</value>
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>Site de administrare inclus</value>
@@ -68,6 +80,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>Depozit de pachete APT</value>
   </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>Traducere prin Inteligență Artificială</value>
@@ -120,6 +135,9 @@
   <data name="Bilingual Tutorials" xml:space="preserve">
     <value>Tutoriale bilingve</value>
   </data>
+  <data name="Browse All Packages" xml:space="preserve">
+    <value>Răsfoiește toate pachetele</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>Construiți o dată, rulați oriunde. Arhitectură complet containerizată.</value>
   </data>
@@ -167,6 +185,12 @@
   </data>
   <data name="Concise Docs" xml:space="preserve">
     <value>Documentație Concisă</value>
+  </data>
+  <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
+    <value>Configurați surse complexe APT, chei GPG și suite cu o singură comandă.</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>Configurați sudo apkg (configurare unică)</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>Validare de coerentă</value>
@@ -239,6 +263,9 @@
   </data>
   <data name="Dockerized for Easy Deployment" xml:space="preserve">
     <value>Dockerizat pentru o implementare ușoară</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>Descărcați .NET SDK</value>
   </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>Bara de Navigare Dinamică</value>
@@ -378,6 +405,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>Horizon inclus</value>
   </data>
+  <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
+    <value>Găzduiește, gestionează și distribuează pachete .deb cu o experiență modernă similară cu NuGet. Propulsat de APKG.</value>
+  </data>
   <data name="How can I get support?" xml:space="preserve">
     <value>Cum pot obține asistență?</value>
   </data>
@@ -398,6 +428,15 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Include tutoriale</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>Instalează .NET SDK</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>Instalează APKG CLI</value>
+  </data>
+  <data name="Install via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Auto-updates, no native dependencies." xml:space="preserve">
+    <value>Instalați prin &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Actualizări automate, fără dependențe native.</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>Gestionare Integrată a Fișierelor</value>
@@ -428,6 +467,9 @@
   </data>
   <data name="Lint Check" xml:space="preserve">
     <value>Verificare Lint</value>
+  </data>
+  <data name="Made Simple." xml:space="preserve">
+    <value>Simplificat.</value>
   </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>Menține o Calitate Ridicată a Codului</value>
@@ -516,6 +558,9 @@
   <data name="One Click Start" xml:space="preserve">
     <value>Un Click Start</value>
   </data>
+  <data name="One-Click APT Source Setup" xml:space="preserve">
+    <value>Configurare sursă APT cu un singur clic</value>
+  </data>
   <data name="Open Source" xml:space="preserve">
     <value>Open Source</value>
   </data>
@@ -531,8 +576,14 @@
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Gata de utilizare</value>
   </data>
+  <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
+    <value>Împachetați mai multe fișiere .deb într-un singur pachet .apkg cu un manifest. Încărcați pe orice server APKG.</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>Descoperirea și sincronizarea permisiunilor</value>
+  </data>
+  <data name="Powered by AnduinOS" xml:space="preserve">
+    <value>Propulsat de AnduinOS</value>
   </data>
   <data name="Pre-configured and tested" xml:space="preserve">
     <value>Pre-configurat și testat</value>
@@ -545,6 +596,9 @@
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>Portocală de Calitate</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>Începere rapidă</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Autorizare RBAC</value>
@@ -567,6 +621,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>Testare integrată robustă</value>
   </data>
+  <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
+    <value>Rulează pe Windows, Linux și macOS prin intermediul .NET.</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>Rulează fără a fi necesară o conexiune la internet.</value>
   </data>
@@ -576,11 +633,20 @@
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Integrați fără probleme cu orice furnizor OpenID Connect, cu sincronizare automată a rolurilor.</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Caută</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>Caută pachete...</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>Mutați cu încredere</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>Simplu &amp; Ușor</value>
+  </data>
+  <data name="Simplified dpkg Packaging" xml:space="preserve">
+    <value>Pachetare dpkg simplificată</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>Container unic</value>
@@ -648,6 +714,9 @@
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>Bara de navigare se ajustează automat în funcție de rolurile și permisiunile utilizatorului.</value>
   </data>
+  <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
+    <value>Managerul de pachete oficial ales de ecosistemul AnduinOS.</value>
+  </data>
   <data name="The Philosophy" xml:space="preserve">
     <value>Filosofia</value>
   </data>
@@ -665,6 +734,9 @@
   </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>Încrederea aplicațiilor de tip producție, inclusiv AnduinOS, StatHub și Warp. Nu doar împărtășim acest cod; îi folosim pentru întreaga noastră afacere.</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>Ubuntu:</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>Mediu unitar</value>
@@ -689,6 +761,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>Ce spun dezvoltatorii noștri</value>
+  </data>
+  <data name="Why APKG?" xml:space="preserve">
+    <value>De ce APKG?</value>
   </data>
   <data name="Why choose Aiursoft Template?" xml:space="preserve">
     <value>De ce să alegeți Aiursoft Template?</value>

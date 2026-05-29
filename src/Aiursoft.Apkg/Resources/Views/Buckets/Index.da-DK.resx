@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+    <value>En bucket er et versioneret snapshot af et lageres pakker til et givent tidspunkt. Den primære bucket er den aktive, der serveres til apt-klienter.</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>Handlinger</value>
   </data>
   <data name="Active Usage" xml:space="preserve">
@@ -29,6 +32,9 @@
   </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>Historik over bucket-snapshots</value>
+  </data>
+  <data name="Buckets allow atomic updates. New packages are built into a fresh bucket, then the primary pointer switches over seamlessly." xml:space="preserve">
+    <value>Buckets understøtter atomiske opdateringer. Nye pakker bygges ind i en ny bucket, hvorefter den primære pegeflade skifter over sømløst.</value>
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>Oprettet kl.</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
     <value>Denne snapshot leveres aktivt til apt-klienter som det aktuelle indeks.</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tips:</value>
+  </data>
+  <data name="What is a Bucket?" xml:space="preserve">
+    <value>Hvad er en Bucket?</value>
   </data>
 
 </root>

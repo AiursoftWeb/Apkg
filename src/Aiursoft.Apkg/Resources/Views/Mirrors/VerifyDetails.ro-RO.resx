@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Mirrors" xml:space="preserve">
+      <data name="A &apos;Passed&apos; status means the mirror&apos;s signature is valid. &apos;Failed&apos; may indicate expired keys or corrupted data." xml:space="preserve">
+    <value>Starea „Passed” (Reușită) înseamnă că semnătura oglinzii este validă. „Failed” (Eșuat) poate indica cheiri expirate sau date corupte.</value>
+  </data>
+  <data name="Back to Mirrors" xml:space="preserve">
     <value>Înapoi la oglinzi</value>
   </data>
   <data name="Bucket Replacements" xml:space="preserve">
@@ -35,6 +38,9 @@
   </data>
   <data name="file" xml:space="preserve">
     <value>fișier</value>
+  </data>
+  <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
+    <value>Semnarea GPG asigură că pachetele provin dintr-o sursă de încredere și nu au fost alterate. Fișierul InRelease al oglinzii este verificat în raport cu cheia sa GPG.</value>
   </data>
   <data name="GPG Verify Details" xml:space="preserve">
     <value>Detalii verificare GPG</value>
@@ -69,11 +75,17 @@
   <data name="Target" xml:space="preserve">
     <value>Țintă</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Sfat:</value>
+  </data>
   <data name="Verification Log" xml:space="preserve">
     <value>Jurnal de verificare</value>
   </data>
   <data name="Verification Target" xml:space="preserve">
     <value>Ținuta de verificare</value>
+  </data>
+  <data name="What is GPG Verification?" xml:space="preserve">
+    <value>Ce este verificarea GPG?</value>
   </data>
 
 </root>

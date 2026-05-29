@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>Generează cheie nouă</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>Certificatele GPG semnează metadatele depozitului dvs., astfel încât clienții apt să poată verifica dacă pachetele nu au fost modificate.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nume</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>Rotați certificatele în mod regulat și păstrați cheile private în siguranță. Repozitoriile nesemnate necesită &lt;code&gt;Trusted: yes&lt;/code&gt; pe client.</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>Certificate de semnare</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>Acest lucru va afecta toate depozitele care îl utilizează!</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Sfat:</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>Ce este un certificat?</value>
   </data>
 
 </root>

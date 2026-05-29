@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>En .deb-pakke er et softwarebånd, der er klar til installation på Debian/Ubuntu-systemer. Den indeholder binære filer, konfigurationer og afhængighedsmetadata.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Arkitektur</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -33,6 +36,9 @@
   <data name="Description" xml:space="preserve">
     <value>Beskrivelse</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Har du ikke &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
   <data name="Download .deb" xml:space="preserve">
     <value>Hent .deb</value>
   </data>
@@ -42,6 +48,9 @@
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Kunne ikke indlæse omvendte afhængigheder.</value>
   </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>Tilføj først APT-lageret via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, derefter &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Eller download .deb-filen direkte.</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>Hash-værdier</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="How to Install" xml:space="preserve">
     <value>Sådan installerer du</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Sådan bruges:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Installeret størrelse</value>
@@ -71,6 +83,12 @@
   </data>
   <data name="No relations." xml:space="preserve">
     <value>Ingen relationer.</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>Mulighed A: Brug af APKG CLI (anbefalet):</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>Mulighed B: Manuel bash-indstilling:</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>Oprindelse</value>
@@ -108,6 +126,9 @@
   <data name="Section" xml:space="preserve">
     <value>Sektion</value>
   </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Se, hvordan du installerer APKG CLI.</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Kilde</value>
   </data>
@@ -131,6 +152,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Virtuel (Lynsynkronisering)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Hvad er en pakke?</value>
   </data>
 
 </root>

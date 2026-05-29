@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Account Details" xml:space="preserve">
+      <data name="A user account can log in, own uploads, and be assigned roles. Users authenticate via local credentials or an OpenID Connect provider." xml:space="preserve">
+    <value>En brugerkonto kan logge ind, eje uploads og tildeles roller. Brugere autentificeres via lokale legitimationsoplysninger eller en OpenID Connect-udbyder.</value>
+  </data>
+  <data name="Account Details" xml:space="preserve">
     <value>Kontodetaljer</value>
   </data>
   <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
@@ -57,17 +60,26 @@
   <data name="Profile Details" xml:space="preserve">
     <value>Profildetaljer</value>
   </data>
+  <data name="Roles grant permissions. Assign roles to users to control what they can do in the system." xml:space="preserve">
+    <value>Rolle tildeler tilladelser. Tildel roller til brugere for at styre, hvad de kan gøre i systemet.</value>
+  </data>
   <data name="This user has no effective permissions." xml:space="preserve">
     <value>Denne bruger har ingen effektive tilladelser.</value>
   </data>
   <data name="This user has not been assigned any roles." xml:space="preserve">
     <value>Denne bruger har ikke fået tildelt nogen roller.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
   <data name="User Details:" xml:space="preserve">
     <value>Brugerdetaljer:</value>
   </data>
   <data name="User name" xml:space="preserve">
     <value>Brugernavn</value>
+  </data>
+  <data name="What is a User?" xml:space="preserve">
+    <value>Hvad er en bruger?</value>
   </data>
 
 </root>

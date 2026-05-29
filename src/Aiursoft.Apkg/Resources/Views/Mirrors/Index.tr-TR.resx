@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>Yeni Ayna Ekle</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>Yukarı akış aynası, paket meta verilerini harici bir APT deposundan (Ubuntu gibi) APKG&apos;ye senkronize eder. Yerel depolarınız için veri kaynağıdır.</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>Mimari</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Son Çekim</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>Aynalar bir programa göre çalışır. Her bir aynanın ne zaman senkronize edildiğini görmek için &apos;Son Çekme&apos; sütununu kontrol edin.</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Hiç Çekilmedi</value>
@@ -126,6 +132,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Bu işlem, ilişkili tüm paketleri ve sepetleri de silecektir!</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>İpucu:</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>Korumasız</value>
   </data>
@@ -137,6 +146,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>Doğrulandı</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>Ayna nedir?</value>
   </data>
 
 </root>

@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>Adaugă oglindă nouă</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>Un oglindă upstream sincronizează metadata pachetelor dintr-un repository APT extern (precum Ubuntu) în APKG. Aceasta este sursa de date pentru repository-urile dvs. locale.</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>Arhitectură</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Ultima extragere</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>Oglindirile funcționează pe un program. Verificați coloana „Ultimă extragere” pentru a vedea când a fost sincronizată ultima dată fiecare oglindă.</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Nu a fost extras niciodată</value>
@@ -126,6 +132,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Aceasta va șterge și toate pachetele și containerele asociate!</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Sfat:</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>Neprotejat</value>
   </data>
@@ -137,6 +146,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>Verificat</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>Ce este un oglindă?</value>
   </data>
 
 </root>
