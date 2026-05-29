@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to List" xml:space="preserve">
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>APT-репозиторій — це набір пакетів у форматі .deb, які ваша система може встановлювати. Спробуйте уявити його як магазин додатків для вашої системи Linux.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Архітектура</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
     <value>Повернутися до списку</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
@@ -39,11 +45,20 @@
   <data name="Distro" xml:space="preserve">
     <value>Дистрибутив</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Не маєте &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Як використати:</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Інформація</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Живий бакет</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>Ручна настройка (bash):</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>Джерело дзеркала</value>
@@ -54,8 +69,17 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>Налаштування в один рядок:</value>
   </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>Швидке налаштування з APKG CLI:</value>
+  </data>
   <data name="Repository Details" xml:space="preserve">
     <value>Деталі репозиторію</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>Запустіть команду &lt;code&gt;sudo apkg add-source&lt;/code&gt; праворуч, щоб налаштувати цей репозиторій, а потім використовуйте &lt;code&gt;sudo apt install&lt;/code&gt; як зазвичай.</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Дивіться, як встановити APKG CLI.</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Версія</value>
@@ -66,9 +90,8 @@
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>Це використовує сучасний формат DEB822 та обмежений ключовий ключар для максимальної безпеки та надійності.</value>
   </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>Архітектура</value>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Що таке репозиторій?</value>
   </data>
 
 </root>

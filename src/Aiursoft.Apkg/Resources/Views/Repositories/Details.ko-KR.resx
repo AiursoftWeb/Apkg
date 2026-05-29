@@ -21,6 +21,9 @@
       <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
     <value>APT 저장소는 시스템이 설치할 수 있는 .deb 패키지들의 모음입니다. 리눅스 시스템의 앱 스토어라고 생각하면 됩니다.</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>아키텍처</value>
+  </data>
   <data name="Back to List" xml:space="preserve">
     <value>목록으로 돌아가기</value>
   </data>
@@ -92,10 +95,6 @@
   </data>
   <data name="What is a Repository?" xml:space="preserve">
     <value>리포지토리란 무엇인가요?</value>
-  </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>아키텍처</value>
   </data>
 
 </root>

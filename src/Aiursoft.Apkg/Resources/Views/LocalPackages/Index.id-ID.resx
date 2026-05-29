@@ -42,8 +42,14 @@
   <data name="Disabled" xml:space="preserve">
     <value>Dinonaktifkan</value>
   </data>
+  <data name="Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets." xml:space="preserve">
+    <value>Setiap LocalPackage memetakan satu kombinasi repo+suite+arch. Tugas Repository Sync menyalinnya ke bucket aktif.</value>
+  </data>
   <data name="Live" xml:space="preserve">
     <value>Hidup</value>
+  </data>
+  <data name="LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories." xml:space="preserve">
+    <value>LocalPackages adalah file .deb yang diekstrak dari unggahan .apkg. File-file ini berada di area staging sebelum disinkronkan ke repositori APT.</value>
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>Paket Saya</value>
@@ -69,6 +75,9 @@
   <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
     <value>Progress saat ini dari paket ini yang sedang digabungkan dan ditandatangani ke repositori langsung. Pekerjaan sinkronisasi berjalan setiap 20 menit, diikuti oleh pekerjaan penandatanganan setiap 5 menit.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tips:</value>
+  </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Unggah Paket</value>
   </data>
@@ -83,6 +92,9 @@
   </data>
   <data name="View Details &amp; Install Instructions" xml:space="preserve">
     <value>Lihat Detail &amp; Instruksi Instalasi</value>
+  </data>
+  <data name="What is a LocalPackage?" xml:space="preserve">
+    <value>Apa itu LocalPackage?</value>
   </data>
 
 </root>

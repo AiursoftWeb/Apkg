@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Ingen (Standalone) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>Et menneskelæseligt mærke til dette arkiv. Brugtes slet ikke af Debian/APT.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Arkitektur</value>
   </data>

@@ -24,6 +24,9 @@
   <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
     <value>Kho APT cung cấp các gói .deb cho hệ thống của bạn. Hãy nghĩ đến nó như một cửa hàng ứng dụng riêng — bạn quyết định gói nào sẽ có sẵn.</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Kiến trúc</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Bạn có chắc chắn muốn xóa kho lưu trữ</value>
   </data>

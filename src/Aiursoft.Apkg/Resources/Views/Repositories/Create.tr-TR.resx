@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Hiçbiri (Bağımsız) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>Bu depolama için insan tarafından okunabilir bir etiket. Debian/APT tarafından hiç kullanılmaz.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Mimari</value>
   </data>

@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>Ringkasan komprehensif tentang peran, izin-izinnya, dan pengguna yang ditetapkan.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>Peran adalah kumpulan izin dengan nama tertentu. Tetapkan peran kepada pengguna untuk memberikan mereka kemampuan melakukan tindakan tertentu.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>Pengguna yang Ditugaskan</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>Kembali ke Daftar Peran</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>Buat peran berdasarkan fungsi pekerjaan (misalnya, &apos;Mirror Manager&apos;), bukan per pengguna, untuk menyederhanakan administrasi.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>Hapus Peran Ini</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>Peran ini tidak memiliki izin spesifik yang ditetapkan.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>Pengguna dengan Peran Ini</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>Lihat Pengguna</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>Apa itu Role?</value>
   </data>
 
 </root>

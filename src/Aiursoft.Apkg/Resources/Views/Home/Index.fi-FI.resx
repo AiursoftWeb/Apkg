@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name=".NET Global Tool" xml:space="preserve">
+    <value>.NET:n globaali työkalu</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Tuki pitkäkestoisille tehtäville (esimerkiksi sähköposteille tai AI:lle), jossa on käyttöliittymä jonon hallintaan, rinnakkaisprosessointiin ja peruutukseen.</value>
+  </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; ei toimi suoraan, koska rootin PATH ei sisällä kansioita &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Luo symbolinen linkki kerran, ja se toimii lopullisesti:</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Sisäänrakennettu roolipohjainen käyttöoikeusjärjestelmä (RBAC) hienojakoista käyttöoikeudenhallintaa varten.</value>
@@ -36,8 +42,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Nykyaikainen, ominaisuuksiltaan monipuolinen ja erittäin laajennettava perusta seuraavaa verkkosovellustasi varten.</value>
   </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>Yhden komennon asennus APKG-asiakkaalle ja APT-pakettien hallinnan aloittaminen.</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Saavuta enemmän Aiursoft Templatella</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>Lisää lähde</value>
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>Hallintaportaali sisältyy</value>
@@ -68,6 +80,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>APT-pakettivarasto</value>
   </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>Tekoälykäännös</value>
@@ -120,6 +135,9 @@
   <data name="Bilingual Tutorials" xml:space="preserve">
     <value>Kaksikieliset oppaat</value>
   </data>
+  <data name="Browse All Packages" xml:space="preserve">
+    <value>Selaa kaikkia paketteja</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>Rakenna kerran, suorita missä tahansa. Täysin säiliöön paketoidu arkkitehtuuri.</value>
   </data>
@@ -167,6 +185,12 @@
   </data>
   <data name="Concise Docs" xml:space="preserve">
     <value>Tiivistetty dokumentaatio</value>
+  </data>
+  <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
+    <value>Määritä monimutkaisia APT-lähteitä, GPG-avaimia ja -sarjoja yhdellä komennolla.</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>Määritä sudo apkg (kerrankin asetettava)</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>Johdonmukaisuustarkistus</value>
@@ -239,6 +263,9 @@
   </data>
   <data name="Dockerized for Easy Deployment" xml:space="preserve">
     <value>Docker-keittävä helppokäyttöinen käyttöönotto</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>Lataa .NET SDK</value>
   </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>Dynaaminen navigointipalkki</value>
@@ -378,6 +405,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>Horizon mukana</value>
   </data>
+  <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
+    <value>Isännöi, hallinnoi ja jakel .deb-paketteja modernilla NuGet-tyyppisellä kokemuksemulla. Voimanlähteenä APKG.</value>
+  </data>
   <data name="How can I get support?" xml:space="preserve">
     <value>Miten saan tukea?</value>
   </data>
@@ -398,6 +428,15 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Sisältää opetusmateriaaleja</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>Asenna .NET SDK</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>Asenna APKG CLI</value>
+  </data>
+  <data name="Install via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Auto-updates, no native dependencies." xml:space="preserve">
+    <value>Asenna komennolla &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Automaattiset päivitykset, ei natiiveja riippuvuuksia.</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>Integroitu tiedostonhallinta</value>
@@ -428,6 +467,9 @@
   </data>
   <data name="Lint Check" xml:space="preserve">
     <value>Lint-tarkistus</value>
+  </data>
+  <data name="Made Simple." xml:space="preserve">
+    <value>Yksinkertaistettu.</value>
   </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>Ylläpidä korkeaa koodin laatua</value>
@@ -516,6 +558,9 @@
   <data name="One Click Start" xml:space="preserve">
     <value>Yksi napsautus käynnistää</value>
   </data>
+  <data name="One-Click APT Source Setup" xml:space="preserve">
+    <value>Yhden napsautuksen APT-lähteen asennus</value>
+  </data>
   <data name="Open Source" xml:space="preserve">
     <value>Avoin lähdekoodi</value>
   </data>
@@ -531,8 +576,14 @@
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Valmiina käytettävä</value>
   </data>
+  <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
+    <value>Pakkaa useat .deb-tiedostot yhteen .apkg-arkistoon manifestin kera. Lähetä mihin tahansa APKG-palvelimeen.</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>Oikeuksien havaitseminen ja synkronointi</value>
+  </data>
+  <data name="Powered by AnduinOS" xml:space="preserve">
+    <value>Toteutettu AnduinOS:lla</value>
   </data>
   <data name="Pre-configured and tested" xml:space="preserve">
     <value>Ennalta määritetty ja testattu</value>
@@ -545,6 +596,9 @@
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>Laatuportti</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>Pika-aloitus</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-valtuutus</value>
@@ -567,6 +621,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>Vahva integrointitestaus</value>
   </data>
+  <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
+    <value>Toimii Windowsissa, Linuxissa ja macOSissa .NET:n kautta.</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>Toimii ilman että internet-yhteyttä vaaditaan.</value>
   </data>
@@ -576,11 +633,20 @@
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>Saatumattomasti integroi minkä tahansa OpenID Connect -palveluntarjoajan kanssa, automaattisen roolisynkronoinnin avulla.</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Etsi</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>Etsi pakkauksia...</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>Siirry luottavasti</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>Yksinkertainen &amp; helppo</value>
+  </data>
+  <data name="Simplified dpkg Packaging" xml:space="preserve">
+    <value>Yksinkertaistettu dpkg-pakkaaminen</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>Yksi säiliö</value>
@@ -648,6 +714,9 @@
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>Navigointipalkki sopeutuu automaattisesti käyttäjän roolien ja käyttöoikeuksien perusteella.</value>
   </data>
+  <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
+    <value>AnduinOS-ympäristön virallinen pakettienhallintaohjelma.</value>
+  </data>
   <data name="The Philosophy" xml:space="preserve">
     <value>Filosofia</value>
   </data>
@@ -665,6 +734,9 @@
   </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>Luotettu tuotantotasoisissa sovelluksissa, kuten AnduinOS, StatHub ja Warp. Emme vain jakaneet tätä koodia; käytämme sitä koko liiketoimintamme käynnistämiseen.</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>Ubuntu:</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>Yhdenmukainen ympäristö</value>
@@ -689,6 +761,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>Mitä kehittäjämme sanovat</value>
+  </data>
+  <data name="Why APKG?" xml:space="preserve">
+    <value>Miksi APKG?</value>
   </data>
   <data name="Why choose Aiursoft Template?" xml:space="preserve">
     <value>Miksi valita Aiursoft Template?</value>

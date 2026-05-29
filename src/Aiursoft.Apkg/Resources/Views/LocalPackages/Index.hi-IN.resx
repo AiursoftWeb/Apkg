@@ -42,8 +42,14 @@
   <data name="Disabled" xml:space="preserve">
     <value>निष्क्रिय</value>
   </data>
+  <data name="Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets." xml:space="preserve">
+    <value>प्रत्येक LocalPackage एक repo+suite+arch संयोजन के लिए मैप होता है। Repository Sync जॉब उन्हें लाइव बकेट्स में कॉपी करती है।</value>
+  </data>
   <data name="Live" xml:space="preserve">
     <value>लाइव</value>
+  </data>
+  <data name="LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories." xml:space="preserve">
+    <value>LocalPackages, .apkg अपलोड से निकले हुए .deb फ़ाइलें हैं। ये APT रेपोज़िटरीज़ के साथ सिंक होने से पहले स्टेजिंग एरिया में रहती हैं।</value>
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>मेरे पैकेज</value>
@@ -69,6 +75,9 @@
   <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
     <value>इस पैकेज का वर्तमान प्रगति लाइव रिपॉजिटरी में विलीन और हस्ताक्षरित हो रहा है। सिंक जॉब हर 20 मिनट में चलती है, जिसके बाद हर 5 मिनट में एक सिन जॉब चलती है।</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>सुझाव:</value>
+  </data>
   <data name="Upload Package" xml:space="preserve">
     <value>पैकेज अपलोड करें</value>
   </data>
@@ -83,6 +92,9 @@
   </data>
   <data name="View Details &amp; Install Instructions" xml:space="preserve">
     <value>विवरण और इंस्टॉल निर्देश देखें</value>
+  </data>
+  <data name="What is a LocalPackage?" xml:space="preserve">
+    <value>LocalPackage क्या है?</value>
   </data>
 
 </root>

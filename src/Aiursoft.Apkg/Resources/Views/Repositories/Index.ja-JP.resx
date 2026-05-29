@@ -24,6 +24,9 @@
   <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
     <value>APTリポジトリは、.debパッケージをシステムに提供します。これはプライベートなアプリストアのようなもので、利用可能なパッケージを自分で管理できます。</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>アーキテクチャ</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>リポジトリ「@item.Name」を削除してもよろしいですか？</value>
   </data>

@@ -21,6 +21,9 @@
       <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
     <value>Et APT-lagringssted er en samling af .deb-pakker, som dit system kan installere fra. Tænk på det som en app-butik til dit Linux-system.</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arkitektur</value>
+  </data>
   <data name="Back to List" xml:space="preserve">
     <value>Tilbage til listen</value>
   </data>
@@ -89,10 +92,6 @@
   </data>
   <data name="What is a Repository?" xml:space="preserve">
     <value>Hvad er et repository?</value>
-  </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>Arkitektur</value>
   </data>
 
 </root>

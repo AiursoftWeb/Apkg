@@ -21,6 +21,9 @@
       <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
     <value>APT リポジトリは、システムがインストール元として使用できる .deb パッケージの集合です。Linux システムにおけるアプリストアのようなものと考えてください。</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>アーキテクチャ</value>
+  </data>
   <data name="Back to List" xml:space="preserve">
     <value>一覧に戻る</value>
   </data>
@@ -92,10 +95,6 @@
   </data>
   <data name="What is a Repository?" xml:space="preserve">
     <value>リポジトリとは？</value>
-  </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>アーキテクチャ</value>
   </data>
 
 </root>

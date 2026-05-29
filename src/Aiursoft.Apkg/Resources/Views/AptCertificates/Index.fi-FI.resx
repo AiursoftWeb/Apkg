@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>Luo uusi avain</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>GPG-sertifikaatit allekirjoittavat pakettilähde Metadata-tiedot, jotta apt-asiakkaat voivat varmistaa, ettei paketteja ole muutettu.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nimi</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>Pyöräytä todistuksia säännöllisesti ja pidä yksityiset avaimet turvassa. Allekirjoittamattomat arkistot vaativat asiakkaalta asetuksen &lt;code&gt;Trusted: yes&lt;/code&gt;.</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>Allekirjoitusvarmenteet</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>Tämä rikkoo kaikki sitä käyttävät repositoriot!</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Vinkki:</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>Mitä sertifikaatti on?</value>
   </data>
 
 </root>

@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to List" xml:space="preserve">
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>APT-varasto on .deb-pakettien kokoelma, joita järjestelmäsi voi asentaa. Voit ajatella sitä kuin Linux-järjestelmän sovelluskauppaa.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arkkitehtuuri</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
     <value>Takaisin listaan</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
@@ -39,11 +45,20 @@
   <data name="Distro" xml:space="preserve">
     <value>Jakelu</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Eikö sinulla ole &lt;code&gt;apkg&lt;/code&gt;:ta?</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Käyttöohje:</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Tiedot</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Live-vedot</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>Käsin asennus (bash):</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>Peililähde</value>
@@ -54,8 +69,17 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>Yhden rivin asennus:</value>
   </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>Pika-asennus APKG CLI:n avulla:</value>
+  </data>
   <data name="Repository Details" xml:space="preserve">
     <value>Repositorin tiedot</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>Suorita oikealla oleva &lt;code&gt;sudo apkg add-source&lt;/code&gt;-komento tämän pakettivaraston konfiguroimiseksi ja käytä sitten &lt;code&gt;sudo apt install&lt;/code&gt;:ää kuten yleensä.</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Katso, miten APKG CLI asennetaan.</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Sovitukset</value>
@@ -66,9 +90,8 @@
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>Tämä käyttää modernia DEB822-muotoa ja rajattua avainrenkasta maksimaalisen tietoturvan ja luotettavuuden varmistamiseksi.</value>
   </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>Arkkitehtuuri</value>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Mikä on pakettivarasto?</value>
   </data>
 
 </root>

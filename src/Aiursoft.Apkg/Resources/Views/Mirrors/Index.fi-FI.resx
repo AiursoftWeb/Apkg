@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>Lisää uusi peili</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>Ylittävä peili synkronoi paketimetatiedot ulkoisesta APT-varastosta (kuten Ubuntu) APKG:hen. Se on paikallisten varastojesi tietolähde.</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>Arkkitehtuuri</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Viimeisin haku</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>Peilit päivittyvät aikataulun mukaisesti. Tarkista &apos;Viimeinen haettu&apos;-sarakkeesta, milloin jokainen peili on viimeksi synkronoitu.</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>Ei koskaan vetänyt</value>
@@ -126,6 +132,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>Tämä poistaa myös kaikki liittyvät paketit ja säiliöt!</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Vinkki:</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>Suojattu</value>
   </data>
@@ -137,6 +146,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>Vahvistettu</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>Mikä on peilivarasto?</value>
   </data>
 
 </root>

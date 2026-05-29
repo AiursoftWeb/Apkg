@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>Oikeus on erillinen toimintakyky (esim. &quot;Luo peili&quot;, &quot;Poista paketti&quot;). Oikeudet ryhmitellään rooleihin ja niitä myönnetään käyttäjille.</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>Takaisin käyttöoikeuksiin</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>Käyttöoikeuden nimi</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>Oikeudet ovat hienojakoisia. Tarkista roolit, jotka myöntävät kukin oikeus, ymmärtääksesi ketkä voivat suorittaa mitä toimintoja.</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>Roolin nimi</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>Seuraavilla käyttäjillä on tämä käyttöoikeus roolijäsenyyksiensä kautta.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Vinkki:</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>Käyttäjänimi</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>Käyttäjät, joilla on tämä oikeus</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>Mikä on lupa?</value>
   </data>
 
 </root>

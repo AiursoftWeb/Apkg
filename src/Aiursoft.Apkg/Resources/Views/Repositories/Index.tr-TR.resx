@@ -24,6 +24,9 @@
   <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
     <value>Bir APT deposu, sistemlerinizde .deb paketleri dağıtır. Bunu özel bir uygulama mağazası gibi düşünün; hangi paketlerin kullanılabilir olduğunu siz belirlersiniz.</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Mimarlık</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Depoyu silmek istediğinizden emin misiniz</value>
   </data>

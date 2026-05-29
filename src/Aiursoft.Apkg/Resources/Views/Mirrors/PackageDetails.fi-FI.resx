@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>.deb-paketti on ohjelmistopaketti, joka on valmis asennettavaksi Debian- ja Ubuntu-järjestelmiin. Se sisältää binääritiedostoja, asetuksia ja riippuvuuksiin liittyvät metatiedot.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Arkkitehtuuri</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -39,6 +42,9 @@
   <data name="Download Size" xml:space="preserve">
     <value>Latauskoko</value>
   </data>
+  <data name="Download the .deb directly or browse reverse dependencies above." xml:space="preserve">
+    <value>Lataa .deb-tiedosto suoraan tai selaa käänteisiä riippuvuuksia yllä.</value>
+  </data>
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Käänteisten riippuvuuksien lataaminen epäonnistui.</value>
   </data>
@@ -47,6 +53,9 @@
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>Kotisivu</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Käyttö:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Asennuskoko</value>
@@ -110,6 +119,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Virtuaalinen (viivästetty synkronointi)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Mikä on paketti?</value>
   </data>
 
 </root>

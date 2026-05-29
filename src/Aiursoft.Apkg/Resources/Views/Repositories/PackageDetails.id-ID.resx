@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>Paket .deb adalah bundel perangkat lunak yang siap diinstal pada sistem Debian/Ubuntu. Paket ini berisi biner, konfigurasi, dan metadata dependensi.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Arsitektur</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -33,6 +36,9 @@
   <data name="Description" xml:space="preserve">
     <value>Deskripsi</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Belum punya &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
   <data name="Download .deb" xml:space="preserve">
     <value>Unduh .deb</value>
   </data>
@@ -42,6 +48,9 @@
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Gagal memuat dependensi terbalik.</value>
   </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>Pertama, tambahkan repositori APT melalui &lt;code&gt;sudo apkg add-source&lt;/code&gt;, kemudian &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Atau unduh file .deb secara langsung.</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>Hash</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="How to Install" xml:space="preserve">
     <value>Cara Menginstal</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Cara menggunakan:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Ukuran Terpasang</value>
@@ -71,6 +83,12 @@
   </data>
   <data name="No relations." xml:space="preserve">
     <value>Tidak ada relasi.</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>Pilihan A: Menggunakan APKG CLI (disarankan):</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>Opsi B: Konfigurasi bash manual:</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>Asal</value>
@@ -108,6 +126,9 @@
   <data name="Section" xml:space="preserve">
     <value>Bagian</value>
   </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Lihat cara menginstal APKG CLI.</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Sumber</value>
   </data>
@@ -131,6 +152,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Virtual (Sinkronisasi Lambat)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Apa itu Paket?</value>
   </data>
 
 </root>

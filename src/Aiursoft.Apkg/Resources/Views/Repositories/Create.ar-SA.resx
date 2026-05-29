@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- لا شيء (مستقل) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>تسمية يمكن قراءتها بواسطة البشر لهذا المستودع. لا تستخدمه أنظمة دبيان/APT على الإطلاق.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>البنية المعمارية</value>
   </data>

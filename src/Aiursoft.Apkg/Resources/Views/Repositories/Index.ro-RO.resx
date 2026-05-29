@@ -24,6 +24,9 @@
   <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
     <value>Un depozit APT oferă pachete .deb sistemelor dumneavoastră. Gândiți-vă la acesta ca la un magazin de aplicații privat — dumneavoastră controlați ce pachete sunt disponibile.</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitectură</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Sunteți sigur că doriți să ștergeți depozitul</value>
   </data>

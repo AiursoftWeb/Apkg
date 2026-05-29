@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Each upload represents a .apkg bundle pushed to this server. After processing, packages are extracted and synced to their target APT repositories." xml:space="preserve">
+    <value>Jokainen lähetys edustaa tähän palvelimeen lähetettyä .apkg-pakettia. Käsitellyn jälkeen paketit purketaan ja synkronoidaan kohde-APT-varastoille.</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Vinkki:</value>
+  </data>
+  <data name="Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories." xml:space="preserve">
+    <value>Lähetä CLI:n kautta komennolla &lt;code&gt;apkg push&lt;/code&gt; tai käytä verkkokäyttöliittymää. Lähetysten on oltava julkaisemattomia, ennen kuin ne näkyvät varastoissa.</value>
+  </data>
+  <data name="What is an Upload?" xml:space="preserve">
+    <value>Mikä on lataus?</value>
+  </data>
+
+</root>

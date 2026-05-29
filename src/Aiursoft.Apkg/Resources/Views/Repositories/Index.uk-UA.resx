@@ -21,6 +21,12 @@
       <data name="Actions" xml:space="preserve">
     <value>Дії</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>APT-репозиторій надає .deb-пакети для ваших систем. Уявіть це як приватний магазин додатків — ви контролюєте, які пакети доступні.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Архітектура</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Ви впевнені, що хочете видалити сховище?</value>
   </data>
@@ -50,6 +56,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Дистрибутив</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>Кожне сховище відповідає певній суїті (наприклад, questing). Використовуйте &lt;code&gt;apkg add-source&lt;/code&gt;, щоб налаштувати сховище на своєму комп’ютері.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Редагувати</value>
@@ -87,8 +96,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Знімок, що створюється поточною задачею синхронізації сховища. Він замінює активний знімок після успішного завершення задачі.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Порада:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Загальна кількість пакетів</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Що таке репозиторій?</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>Чи підписаний файл Release сховища за допомогою GPG. Клієнти apt, налаштовані з параметром &apos;signed-by=&apos; у sources.list, відхилятимуть сховища, які не підписані або підписані неправильним ключем.</value>

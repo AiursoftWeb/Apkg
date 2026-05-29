@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Ninguno (Autónomo) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>Etiqueta legible por humanos para este repositorio. No se usa en absoluto por Debian/APT.</value>
+  </data>
   <data name="Allow Anyone to Upload" xml:space="preserve">
     <value>Permitir la carga a cualquier usuario</value>
   </data>

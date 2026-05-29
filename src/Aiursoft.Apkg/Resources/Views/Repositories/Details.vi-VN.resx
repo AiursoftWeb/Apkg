@@ -21,6 +21,9 @@
       <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
     <value>Kho APT là tập hợp các gói .deb mà hệ thống của bạn có thể cài đặt từ đó. Hãy nghĩ về nó như một cửa hàng ứng dụng cho hệ thống Linux của bạn.</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Kiến trúc</value>
+  </data>
   <data name="Back to List" xml:space="preserve">
     <value>Quay lại danh sách</value>
   </data>
@@ -92,10 +95,6 @@
   </data>
   <data name="What is a Repository?" xml:space="preserve">
     <value>Kho lưu trữ là gì?</value>
-  </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>Kiến trúc</value>
   </data>
 
 </root>

@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Жоден (автономний) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>Зрозуміла для користувача назва цього репозиторію. Debian/APT її взагалі не використовує.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Архітектура</value>
   </data>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Account Details" xml:space="preserve">
+      <data name="A user account can log in, own uploads, and be assigned roles. Users authenticate via local credentials or an OpenID Connect provider." xml:space="preserve">
+    <value>एक उपयोगकर्ता खाता लॉग इन कर सकता है, अपलोड्स का स्वामी हो सकता है, और उसकी भूमिकाएँ निर्धारित की जा सकती हैं। उपयोगकर्ता स्थानीय प्रमाणपत्रों या OpenID Connect प्रदाता के माध्यम से प्रमाणित होते हैं।</value>
+  </data>
+  <data name="Account Details" xml:space="preserve">
     <value>खाता विवरण</value>
   </data>
   <data name="An overview of the user&apos;s profile, assigned roles, and effective permissions." xml:space="preserve">
@@ -57,17 +60,26 @@
   <data name="Profile Details" xml:space="preserve">
     <value>प्रोफ़ाइल विवरण</value>
   </data>
+  <data name="Roles grant permissions. Assign roles to users to control what they can do in the system." xml:space="preserve">
+    <value>भूमियाँ अनुमतियाँ प्रदान करती हैं। प्रणाली में उपयोगकर्ता क्या कर सकते हैं, इस पर नियंत्रण रखने के लिए उपयोगकर्ताओं को भूमियाँ सौंपें।</value>
+  </data>
   <data name="This user has no effective permissions." xml:space="preserve">
     <value>इस उपयोगकर्ता के पास कोई प्रभावी अनुमतियाँ नहीं हैं।</value>
   </data>
   <data name="This user has not been assigned any roles." xml:space="preserve">
     <value>इस उपयोगकर्ता को कोई भूमिका नहीं दी गई है।</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>सुझाव:</value>
+  </data>
   <data name="User Details:" xml:space="preserve">
     <value>उपयोगकर्ता विवरण:</value>
   </data>
   <data name="User name" xml:space="preserve">
     <value>उपयोगकर्ता नाम</value>
+  </data>
+  <data name="What is a User?" xml:space="preserve">
+    <value>यूज़र क्या है?</value>
   </data>
 
 </root>

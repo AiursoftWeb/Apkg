@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- 無 (獨立運作) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>此儲存庫的人易讀標籤。Debian/APT 完全不會使用。</value>
+  </data>
   <data name="Allow Anyone to Upload" xml:space="preserve">
     <value>允許任何人上傳</value>
   </data>

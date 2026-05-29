@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>Kattava yleiskuva roolista, sen käyttöoikeuksista ja määritetyistä käyttäjistä.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>Rooli on nimetty lupa-kokoelma. Määritä roolit käyttäjille, niin voit myöntää heille oikeuden suorittaa tiettyjä toimintoja.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>Määritetyt käyttäjät</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>Takaisin rooliluetteloon</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>Luo roolit tehtävätoimintojen mukaan (esim. &apos;Peilinhoitaja&apos;) sen sijaan, että määritätkin ne käyttäjäkohtaisesti, jotta hallinta on yksinkertaisempaa.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>Poista tämä rooli</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>Tälle roolille ei ole määritetty erityisiä käyttöoikeuksia.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Vinkki:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>Käyttäjät, joilla on tämä rooli</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>Näytä käyttäjä</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>Mikä rooli on?</value>
   </data>
 
 </root>

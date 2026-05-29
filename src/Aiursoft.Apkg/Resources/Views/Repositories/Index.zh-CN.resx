@@ -24,6 +24,9 @@
   <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
     <value>APT 仓库为系统提供 .deb 软件包。你可以将其视为一个私有应用商店——由你决定提供哪些软件包。</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>架构</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>您确定要删除存储库吗</value>
   </data>

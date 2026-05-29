@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Нет (Автономный) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>Читаемое пользователем имя для этого репозитория. Debian/APT не использует это значение.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Архитектура</value>
   </data>

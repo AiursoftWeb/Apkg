@@ -21,6 +21,9 @@
       <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
     <value>Um repositório APT é uma coleção de pacotes .deb que o seu sistema pode instalar. Pense nisso como uma loja de aplicações para o seu sistema Linux.</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arquitectura</value>
+  </data>
   <data name="Back to List" xml:space="preserve">
     <value>Voltar à lista</value>
   </data>
@@ -92,10 +95,6 @@
   </data>
   <data name="What is a Repository?" xml:space="preserve">
     <value>O que é um repositório?</value>
-  </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>Arquitectura</value>
   </data>
 
 </root>

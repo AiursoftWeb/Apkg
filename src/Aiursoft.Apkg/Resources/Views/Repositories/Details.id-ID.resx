@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to List" xml:space="preserve">
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>Repositori APT adalah kumpulan paket .deb yang dapat diinstal oleh sistem Anda. Anggaplah ini seperti toko aplikasi untuk sistem Linux Anda.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arsitektur</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
     <value>Kembali ke Daftar</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
@@ -39,11 +45,20 @@
   <data name="Distro" xml:space="preserve">
     <value>Distro</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Belum memiliki &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Cara penggunaan:</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Informasi</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Bucket Live</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>Pengaturan Manual (bash):</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>Sumber Cermin</value>
@@ -54,8 +69,17 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>Pengaturan Satu Baris:</value>
   </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>Penyiapan Cepat dengan APKG CLI:</value>
+  </data>
   <data name="Repository Details" xml:space="preserve">
     <value>Detail Repositori</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>Jalankan perintah &lt;code&gt;sudo apkg add-source&lt;/code&gt; di sebelah kanan untuk mengonfigurasi repositori ini, lalu gunakan &lt;code&gt;sudo apt install&lt;/code&gt; seperti biasa.</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Lihat cara menginstal APKG CLI.</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>
@@ -66,9 +90,8 @@
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>Ini menggunakan format DEB822 modern dan keyring yang terbatas untuk keamanan dan keandalan maksimum.</value>
   </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>Arsitektur</value>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Apa itu Repositori?</value>
   </data>
 
 </root>

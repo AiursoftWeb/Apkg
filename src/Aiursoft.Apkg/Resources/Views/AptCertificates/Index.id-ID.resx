@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>Buat Kunci Baru</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>Sertifikat GPG menandatangani metadata repositori Anda agar klien apt dapat memverifikasi bahwa paket tidak telah dirusak.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nama</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>Putar sertifikat secara berkala dan jaga keamanan kunci pribadi. Repositori yang tidak ditandatangani memerlukan &lt;code&gt;Trusted: yes&lt;/code&gt; pada klien.</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>Sertifikat Penandatanganan</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>Ini akan merusak semua repositori yang menggunakannya!</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>Apa itu Sertifikat?</value>
   </data>
 
 </root>

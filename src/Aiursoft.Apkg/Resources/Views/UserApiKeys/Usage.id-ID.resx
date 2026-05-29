@@ -21,14 +21,29 @@
       <data name="1. Upload a .deb Package" xml:space="preserve">
     <value>1. Unggah Paket .deb</value>
   </data>
+  <data name="1. Upload an .apkg Package (Recommended)" xml:space="preserve">
+    <value>1. Unggah Paket .apkg (Direkomendasikan)</value>
+  </data>
   <data name="2. Parameters" xml:space="preserve">
     <value>2. Parameter</value>
+  </data>
+  <data name="2. Upload a .deb Package (Manual)" xml:space="preserve">
+    <value>2. Unggah Paket .deb (Manual)</value>
+  </data>
+  <data name="3. Parameters" xml:space="preserve">
+    <value>3. Parameter</value>
   </data>
   <data name="3. Response Codes" xml:space="preserve">
     <value>3. Kode Respons</value>
   </data>
   <data name="4. Example with Python" xml:space="preserve">
     <value>4. Contoh dengan Python</value>
+  </data>
+  <data name="4. Response Codes" xml:space="preserve">
+    <value>4. Kode Respons</value>
+  </data>
+  <data name="5. Example with Python" xml:space="preserve">
+    <value>5. Contoh dengan Python</value>
   </data>
   <data name="API Key Created!" xml:space="preserve">
     <value>Kunci API Berhasil Dibuat!</value>
@@ -50,6 +65,9 @@
   </data>
   <data name="Form field" xml:space="preserve">
     <value>Bidang formulir</value>
+  </data>
+  <data name="Full workflow: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. Install the CLI with: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;" xml:space="preserve">
+    <value>Alur kerja lengkap: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. Instal CLI dengan: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;</value>
   </data>
   <data name="Invalid or missing API key." xml:space="preserve">
     <value>Kunci API tidak valid atau tidak ada.</value>
@@ -90,11 +108,17 @@
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>File .deb (multipart/form-data, wajib).</value>
   </data>
+  <data name="Use the &lt;code&gt;apkg&lt;/code&gt; CLI to build and push .apkg packages. The apkg tool handles manifest generation, multi-architecture builds, and one-command uploads." xml:space="preserve">
+    <value>Gunakan CLI &lt;code&gt;apkg&lt;/code&gt; untuk membuat dan mengunggah paket .apkg. Alat apkg menangani pembuatan manifest, pembuatan paket multi-arsitektur, dan unggahan satu perintah.</value>
+  </data>
   <data name="Use the following curl command to upload a package to a repository:" xml:space="preserve">
     <value>Gunakan perintah curl berikut untuk mengunggah paket ke repositori:</value>
   </data>
   <data name="Use this API key to upload .deb packages programmatically. The base URL is:" xml:space="preserve">
     <value>Gunakan kunci API ini untuk mengunggah paket .deb secara terprogram. URL dasarnya adalah:</value>
+  </data>
+  <data name="Use this API key to upload packages programmatically. The base URL is:" xml:space="preserve">
+    <value>Gunakan kunci API ini untuk mengunggah paket secara terprogram. URL dasar adalah:</value>
   </data>
   <data name="Using API Key" xml:space="preserve">
     <value>Menggunakan Kunci API</value>

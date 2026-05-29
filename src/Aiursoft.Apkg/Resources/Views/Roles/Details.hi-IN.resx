@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>इस भूमिका, इसकी अनुमतियों और निर्दिष्ट उपयोगकर्ताओं का एक व्यापक अवलोकन।</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>भूमिका अनुमतियों का एक नामांकित संग्रह है। उपयोगकर्ताओं को विशिष्ट कार्रवाइयाँ करने की क्षमता प्रदान करने के लिए उन्हें भूमिकाएँ आवंटित करें।</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>नियुक्त उपयोगकर्ता</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>रोल सूची पर वापस जाएं</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>प्रशासन को सरल बनाने के लिए प्रति-उपयोगकर्ता के बजाय कार्य कार्यों (जैसे &apos;मिरर मैनेजर&apos;) के आधार पर भूमिकाएं बनाएं।</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>इस भूमिका को हटाएं</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>इस भूमिका को कोई विशिष्ट अनुमतियाँ नहीं दी गई हैं।</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>सुझाव:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>इस भूमिका वाले उपयोगकर्ता</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>उपयोगकर्ता देखें</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>भूमिका क्या है?</value>
   </data>
 
 </root>

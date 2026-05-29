@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Nessuno (Standalone) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>Un&apos;etichetta leggibile per questo repository. Non utilizzata da Debian/APT.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Architettura</value>
   </data>

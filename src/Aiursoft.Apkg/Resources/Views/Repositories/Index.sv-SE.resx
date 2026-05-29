@@ -24,6 +24,9 @@
   <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
     <value>Ett APT-förråd levererar .deb-paket till dina system. Tänk på det som en privat appbutik – du styr vilka paket som finns tillgängliga.</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arkitektur</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Är du säker på att du vill ta bort arkivet</value>
   </data>

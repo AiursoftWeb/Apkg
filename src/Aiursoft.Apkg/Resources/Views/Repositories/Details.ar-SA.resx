@@ -21,6 +21,9 @@
       <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
     <value>مستودع APT هو مجموعة من حزم .deb التي يمكن لنظامك تثبيتها. فكّر فيه على أنه متجر تطبيقات لنظام Linux الخاص بك.</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>البنية المعمارية</value>
+  </data>
   <data name="Back to List" xml:space="preserve">
     <value>العودة إلى القائمة</value>
   </data>
@@ -89,10 +92,6 @@
   </data>
   <data name="What is a Repository?" xml:space="preserve">
     <value>ما هو المستودع؟</value>
-  </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>البنية المعمارية</value>
   </data>
 
 </root>

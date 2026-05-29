@@ -21,6 +21,9 @@
       <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
     <value>APT 软件源是一个 .deb 软件包的集合，您的系统可以从中安装软件。您可以将其视为 Linux 系统的程序商店。</value>
   </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>架构</value>
+  </data>
   <data name="Back to List" xml:space="preserve">
     <value>返回列表</value>
   </data>
@@ -92,10 +95,6 @@
   </data>
   <data name="What is a Repository?" xml:space="preserve">
     <value>什么是软件仓库？</value>
-  </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>架构</value>
   </data>
 
 </root>

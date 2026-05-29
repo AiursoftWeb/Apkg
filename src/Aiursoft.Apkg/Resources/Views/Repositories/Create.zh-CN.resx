@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- 无（独立） --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>此存储库的可读标签。Debian/APT 不会使用此字段。</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>架构</value>
   </data>

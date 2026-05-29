@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Không có (Độc lập) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>Nhãn có thể đọc được cho kho này. Không được Debian/APT sử dụng chút nào.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Kiến trúc</value>
   </data>

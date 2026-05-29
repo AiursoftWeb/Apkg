@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>Пакет .deb — це програмний комплект, готовий до встановлення в системах Debian/Ubuntu. Він містить бінарні файли, конфігурації та метадані залежностей.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Архітектура</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -33,6 +36,9 @@
   <data name="Description" xml:space="preserve">
     <value>Опис</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Не маєте &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
   <data name="Download .deb" xml:space="preserve">
     <value>Завантажити .deb</value>
   </data>
@@ -42,6 +48,9 @@
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Не вдалося завантажити зворотні залежності.</value>
   </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>Спочатку додайте репозиторій APT через &lt;code&gt;sudo apkg add-source&lt;/code&gt;, потім &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Або завантажте .deb-файл безпосередньо.</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>Хеші</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="How to Install" xml:space="preserve">
     <value>Як встановити</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Як використовувати:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Встановлений розмір</value>
@@ -71,6 +83,12 @@
   </data>
   <data name="No relations." xml:space="preserve">
     <value>Немає зв&apos;язків.</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>Варіант А: Використання APKG CLI (рекомендовано):</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>Варіант B: Ручне налаштування через bash:</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>Походження</value>
@@ -108,6 +126,9 @@
   <data name="Section" xml:space="preserve">
     <value>Розділ</value>
   </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Дивіться, як встановити APKG CLI.</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Джерело</value>
   </data>
@@ -131,6 +152,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Віртуальний (відкладена синхронізація)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Що таке пакет?</value>
   </data>
 
 </root>
