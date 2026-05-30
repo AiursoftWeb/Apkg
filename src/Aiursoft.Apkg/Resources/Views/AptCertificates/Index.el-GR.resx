@@ -45,14 +45,26 @@
   <data name="Generate New Key" xml:space="preserve">
     <value>Δημιουργία Νέου Κλειδιού</value>
   </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>Τα πιστοποιητικά GPG υπογράφουν τα μεταδεδομένα του αποθετηρίου σας, ώστε οι πελάτες apt να μπορούν να επαληθεύουν ότι τα πακέτα δεν έχουν τροποποιηθεί.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Όνομα</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>Αλλάζετε τα πιστοποιητικά τακτικά και διατηρείτε τα ιδιωτικά κλειδιά ασφαλή. Οι αφοιρογράφητοι αποθηκευτές απαιτούν &lt;code&gt;Trusted: yes&lt;/code&gt; στον клиент.</value>
   </data>
   <data name="Signing Certificates" xml:space="preserve">
     <value>Πιστοποιητικά Υπογραφής</value>
   </data>
   <data name="This will break all repositories using it!" xml:space="preserve">
     <value>Αυτό θα καταστρέψει όλα τα αποθετήρια που το χρησιμοποιούν!</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Συμβουλή:</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>Τι είναι ένα Πιστοποιητικό;</value>
   </data>
 
 </root>

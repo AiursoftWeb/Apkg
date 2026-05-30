@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Actions" xml:space="preserve">
+      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+    <value>बकेट किसी रेपॉज़िटरी के पैकेजों का एक समयबद्ध स्नैपशॉट होता है। प्राथमिक बकेट वह लाइव बकेट होता है जिसे apt क्लाइंट्स को सर्व किया जाता है।</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
     <value>क्रियाएँ</value>
   </data>
   <data name="Active Usage" xml:space="preserve">
@@ -29,6 +32,9 @@
   </data>
   <data name="Bucket Snapshots History" xml:space="preserve">
     <value>बकेट स्नैपशॉट इतिहास</value>
+  </data>
+  <data name="Buckets allow atomic updates. New packages are built into a fresh bucket, then the primary pointer switches over seamlessly." xml:space="preserve">
+    <value>बकेट परमाणु अपडेट की अनुमति देते हैं। नए पैकेज एक नए बकेट में बनाए जाते हैं, फिर प्राथमिक पॉइंटर सहज रूप से स्विच हो जाता है।</value>
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>निर्माण समय</value>
@@ -62,6 +68,12 @@
   </data>
   <data name="This snapshot is actively served to apt clients as the current index." xml:space="preserve">
     <value>यह स्नैपशॉट वर्तमान सूचकांक के रूप में apt क्लाइंट्स को सक्रिय रूप से प्रदान किया जा रहा है।</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>सुझाव:</value>
+  </data>
+  <data name="What is a Bucket?" xml:space="preserve">
+    <value>बकेट क्या है?</value>
   </data>
 
 </root>

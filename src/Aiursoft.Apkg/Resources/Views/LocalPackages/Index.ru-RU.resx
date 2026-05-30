@@ -69,6 +69,9 @@
   <data name="Staged (Waiting for Sign)" xml:space="preserve">
     <value>Сценарий (Ожидание подписи)</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Заменен</value>
+  </data>
   <data name="Sync Status" xml:space="preserve">
     <value>Статус синхронизации</value>
   </data>

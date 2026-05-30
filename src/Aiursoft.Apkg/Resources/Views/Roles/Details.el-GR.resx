@@ -21,11 +21,17 @@
       <data name="A comprehensive overview of the role, its permissions, and assigned users." xml:space="preserve">
     <value>Μια περιεκτική επισκόπηση του ρόλου, των δικαιωμάτων του και των αντιστοιχισμένων χρηστών.</value>
   </data>
+  <data name="A role is a named collection of permissions. Assign roles to users to grant them the ability to perform specific actions." xml:space="preserve">
+    <value>Ο ρόλος είναι μια ονομασμένη συλλογή δικαιωμάτων. Αντιστοιχίστε ρόλους στους χρήστες για να τους παραχωρήσετε τη δυνατότητα εκτέλεσης συγκεκριμένων ενεργειών.</value>
+  </data>
   <data name="Assigned Users" xml:space="preserve">
     <value>Ανατεθειμένοι Χρήστες</value>
   </data>
   <data name="Back to Roles List" xml:space="preserve">
     <value>Πίσω στη Λίστα Ρόλων</value>
+  </data>
+  <data name="Create roles around job functions (e.g. &apos;Mirror Manager&apos;) rather than per-user to simplify administration." xml:space="preserve">
+    <value>Δημιουργήστε ρόλους με βάση τις εργασιακές λειτουργίες (π.χ. «Mirror Manager») αντί για κάθε χρήστη, ώστε να απλοποιηθεί η διαχείριση.</value>
   </data>
   <data name="Delete this Role" xml:space="preserve">
     <value>Διαγραφή αυτού του Ρόλου</value>
@@ -48,6 +54,9 @@
   <data name="This role has no specific permissions assigned." xml:space="preserve">
     <value>Αυτός ο ρόλος δεν έχει καμία συγκεκριμένη ανάθεση δικαιωμάτων.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Συμβουλή:</value>
+  </data>
   <data name="Users with this Role" xml:space="preserve">
     <value>Χρήστες με αυτόν τον Ρόλο</value>
   </data>
@@ -56,6 +65,9 @@
   </data>
   <data name="View User" xml:space="preserve">
     <value>Προβολή Χρήστη</value>
+  </data>
+  <data name="What is a Role?" xml:space="preserve">
+    <value>Τι είναι ένα Ρόλο;</value>
   </data>
 
 </root>

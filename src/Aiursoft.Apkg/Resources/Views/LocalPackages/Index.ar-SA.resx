@@ -69,6 +69,9 @@
   <data name="Staged (Waiting for Sign)" xml:space="preserve">
     <value>مُعدّ (في انتظار التوقيع)</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>منسوخ</value>
+  </data>
   <data name="Sync Status" xml:space="preserve">
     <value>حالة المزامنة</value>
   </data>

@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- कोई नहीं (स्वतंत्र) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>इस रेपोजिटरी के लिए एक मानव-पठनीय लेबल। इसका उपयोग डेबियन/APT द्वारा बिल्कुल नहीं किया जाता।</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>वास्तुकला</value>
   </data>

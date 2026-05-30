@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to List" xml:space="preserve">
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>Ένα αποθετήριο APT είναι μια συλλογή πακέτων .deb από τα οποία το σύστημά σας μπορεί να εγκαταστήσει εφαρμογές. Φανταστείτε το ως ένα κατάστημα εφαρμογών για το σύστημα Linux σας.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Αρχιτεκτονική</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
     <value>Επιστροφή στη λίστα</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
@@ -39,11 +45,20 @@
   <data name="Distro" xml:space="preserve">
     <value>Κατανομή</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Δεν έχετε &lt;code&gt;apkg&lt;/code&gt;;</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Τρόπος χρήσης:</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>Πληροφορίες</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>Ζωντανό Bucket</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>Χειροκίνητη Ρύθμιση (bash):</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>Πηγή Καθρέφτη</value>
@@ -54,8 +69,17 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>Ρύθμιση σε μία γραμμή:</value>
   </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>Γρήγορη εγκατάσταση με το APKG CLI:</value>
+  </data>
   <data name="Repository Details" xml:space="preserve">
     <value>Λεπτομέρειες Αποθετηρίου</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>Τρέξτε τη εντολή &lt;code&gt;sudo apkg add-source&lt;/code&gt; στα δεξιά για να ρυθμίσετε αυτό το αποθετήριο και στη συνέχεια χρησιμοποιήστε την εντολή &lt;code&gt;sudo apt install&lt;/code&gt; κανονικά.</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Δείτε πώς να εγκαταστήσετε το APKG CLI.</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Κατανομή</value>
@@ -66,9 +90,8 @@
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>Αυτό χρησιμοποιεί τη σύγχρονη μορφή DEB822 και ένα εστιασμένο keyring για μέγιστη ασφάλεια και αξιοπιστία.</value>
   </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>Αρχιτεκτονική</value>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Τι είναι ένα Αποθετήριο;</value>
   </data>
 
 </root>

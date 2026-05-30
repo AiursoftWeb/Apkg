@@ -42,8 +42,14 @@
   <data name="Disabled" xml:space="preserve">
     <value>Απενεργοποιημένο</value>
   </data>
+  <data name="Each LocalPackage maps to one repo+suite+arch combination. The Repository Sync job copies them into live buckets." xml:space="preserve">
+    <value>Κάθε LocalPackage αντιστοιχεί σε έναν συνδυασμό αποθήκης+συνόλου+αρχιτεκτονικής. Η εργασία συγχρονισμού αποθετηρίου τα αντιγράφει σε ενεργούς δίσκους.</value>
+  </data>
   <data name="Live" xml:space="preserve">
     <value>Ζωντανό</value>
+  </data>
+  <data name="LocalPackages are .deb files extracted from .apkg uploads. They sit in a staging area before being synced to APT repositories." xml:space="preserve">
+    <value>Τα LocalPackages είναι αρχεία .deb που εξάγονται από μεταφορτωμένα .apkg. Βρίσκονται σε περιοχή προετοιμασίας πριν συγχρονιστούν με τα αποθετήρια APT.</value>
   </data>
   <data name="My Packages" xml:space="preserve">
     <value>Τα Πακέτα Μου</value>
@@ -63,11 +69,17 @@
   <data name="Staged (Waiting for Sign)" xml:space="preserve">
     <value>Προετοιμασμένο (Αναμονή για Υπογραφή)</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Αντικαταστάθηκε</value>
+  </data>
   <data name="Sync Status" xml:space="preserve">
     <value>Κατάσταση Συγχρονισμού</value>
   </data>
   <data name="The current progress of this package being merged and signed into the live repository. The sync job runs every 20 minutes, followed by a sign job every 5 minutes." xml:space="preserve">
     <value>Η τρέχουσα πρόοδος της συγχώνευσης και υπογραφής αυτού του πακέτου στο ζωντανό αποθετήριο. Η εργασία συγχρονισμού εκτελείται κάθε 20 λεπτά, ακολουθούμενη από μια εργασία υπογραφής κάθε 5 λεπτά.</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Συμβουλή:</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Ανέβασμα Πακέτου</value>
@@ -83,6 +95,9 @@
   </data>
   <data name="View Details &amp; Install Instructions" xml:space="preserve">
     <value>Προβολή Λεπτομερειών &amp; Οδηγιών Εγκατάστασης</value>
+  </data>
+  <data name="What is a LocalPackage?" xml:space="preserve">
+    <value>Τι είναι ένα LocalPackage;</value>
   </data>
 
 </root>

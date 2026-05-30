@@ -21,6 +21,12 @@
       <data name="Actions" xml:space="preserve">
     <value>Ενέργειες</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>Ένα αποθετήριο APT παρέχει πακέτα .deb στα συστήματά σας. Σκεφτείτε το ως ένα ιδιωτικό κατάστημα εφαρμογών — εσείς ελέγχετε ποια πακέτα είναι διαθέσιμα.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Αρχιτεκτονική</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>Είστε σίγουροι ότι θέλετε να διαγράψετε το αποθετήριο</value>
   </data>
@@ -50,6 +56,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>Διστρο</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>Κάθε αποθετήριο αντιστοιχεί σε έναν οικόγρο (π.χ. questing). Χρησιμοποιήστε την εντολή &lt;code&gt;apkg add-source&lt;/code&gt; για να ρυθμίσετε ένα αποθετήριο στο μηχάνημά σας.</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Επεξεργασία</value>
@@ -87,8 +96,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Η στιγμιότυπο που κατασκευάζεται από μια ενεργή εργασία συγχρονισμού αποθετηρίου. Αντικαθιστά το ζωντανό κάδο όταν η εργασία ολοκληρωθεί με επιτυχία.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Συμβουλή:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>Συνολικά Πακέτα</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Τι είναι ένα αποθετήριο;</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>Είτε το αρχείο Release του αποθετηρίου είναι υπογεγραμμένο με GPG. Οι πελάτες apt, που έχουν διαμορφωθεί με την παράμετρο &apos;signed-by=&apos; στο sources.list, θα απορρίπτουν αποθετήρια που δεν είναι υπογεγραμμένα ή υπογράφονται με το λάθος κλειδί.</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>Μια άδεια είναι μια διακριτή δυνατότητα (π.χ. &apos;Δημιουργία Ανάκλασης&apos;, &apos;Διαγραφή Πακέτου&apos;). Οι άδειες ομαδοποιούνται σε ρόλους και παραχωρούνται σε χρήστες.</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>Πίσω στα Δικαιώματα</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>Όνομα Δικαιώματος</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>Τα δικαιώματα πρόσβασης είναι λεπτομερή. Ελέγξτε τους ρόλους που παραχωρούν κάθε δικαίωμα πρόσβασης για να κατανοήσετε ποιοι χρήστες μπορούν να εκτελέσουν ποιες ενέργειες.</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>Όνομα Ρόλου</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>Οι παρακάτω χρήστες έχουν αυτήν την άδεια μέσω της συμμετοχής τους σε ρόλους.</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Συμβουλή:</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>Όνομα Χρήστη</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>Χρήστες με αυτήν την Άδεια</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>Τι είναι μια Άδεια;</value>
   </data>
 
 </root>

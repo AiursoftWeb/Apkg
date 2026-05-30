@@ -87,6 +87,9 @@
   <data name="Status" xml:space="preserve">
     <value>状态</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>已过时</value>
+  </data>
   <data name="Sync Status" xml:space="preserve">
     <value>同步状态</value>
   </data>

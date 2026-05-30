@@ -69,6 +69,9 @@
   <data name="Staged (Waiting for Sign)" xml:space="preserve">
     <value>Đã lưu trữ (Chờ ký)</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Đã thay thế</value>
+  </data>
   <data name="Sync Status" xml:space="preserve">
     <value>Trạng thái đồng bộ</value>
   </data>

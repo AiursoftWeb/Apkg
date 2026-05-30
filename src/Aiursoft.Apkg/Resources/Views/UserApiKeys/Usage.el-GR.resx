@@ -21,14 +21,29 @@
       <data name="1. Upload a .deb Package" xml:space="preserve">
     <value>1. Ανεβάστε ένα πακέτο .deb</value>
   </data>
+  <data name="1. Upload an .apkg Package (Recommended)" xml:space="preserve">
+    <value>1. Αναφορτοποίηση πακέτου .apkg (Συνιστάται)</value>
+  </data>
   <data name="2. Parameters" xml:space="preserve">
     <value>2. Παράμετροι</value>
+  </data>
+  <data name="2. Upload a .deb Package (Manual)" xml:space="preserve">
+    <value>2. Ανέβασμα πακέτου .deb (Χειροκίνητα)</value>
+  </data>
+  <data name="3. Parameters" xml:space="preserve">
+    <value>3. Παράμετροι</value>
   </data>
   <data name="3. Response Codes" xml:space="preserve">
     <value>3. Κώδες Αντίδρασης</value>
   </data>
   <data name="4. Example with Python" xml:space="preserve">
     <value>4. Παράδειγμα με Python</value>
+  </data>
+  <data name="4. Response Codes" xml:space="preserve">
+    <value>4. Κωδικοί Απόκρισης</value>
+  </data>
+  <data name="5. Example with Python" xml:space="preserve">
+    <value>5. Παράδειγμα με Python</value>
   </data>
   <data name="API Key Created!" xml:space="preserve">
     <value>Το API Key δημιουργήθηκε!</value>
@@ -50,6 +65,9 @@
   </data>
   <data name="Form field" xml:space="preserve">
     <value>Πεδίο φόρμας</value>
+  </data>
+  <data name="Full workflow: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. Install the CLI with: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;" xml:space="preserve">
+    <value>Ολόκληρη η εργολεξία: &lt;code&gt;apkg new&lt;/code&gt; → &lt;code&gt;apkg add&lt;/code&gt; → &lt;code&gt;apkg publish&lt;/code&gt; → &lt;code&gt;apkg push&lt;/code&gt;. Εγκαταστήστε το CLI με: &lt;code&gt;dotnet tool install -g Aiursoft.Apkg.Client&lt;/code&gt;</value>
   </data>
   <data name="Invalid or missing API key." xml:space="preserve">
     <value>Μη έγκυρο ή απών κλειδί API.</value>
@@ -90,11 +108,17 @@
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>Το αρχείο .deb (multipart/form-data, υποχρεωτικό).</value>
   </data>
+  <data name="Use the &lt;code&gt;apkg&lt;/code&gt; CLI to build and push .apkg packages. The apkg tool handles manifest generation, multi-architecture builds, and one-command uploads." xml:space="preserve">
+    <value>Χρησιμοποιήστε το CLI &lt;code&gt;apkg&lt;/code&gt; για να δημιουργήσετε και να ανεβάσετε πακέτα .apkg. Το εργαλείο apkg διαχειρίζεται τη δημιουργία αρχείων metadata, τις συσχετίσεις πολλαπλών αρχιτεκτονικών και τις μεταφορτώσεις με μία εντολή.</value>
+  </data>
   <data name="Use the following curl command to upload a package to a repository:" xml:space="preserve">
     <value>Χρησιμοποιήστε την ακόλουθη εντολή curl για να ανεβάσετε ένα πακέτο σε ένα αποθετήριο:</value>
   </data>
   <data name="Use this API key to upload .deb packages programmatically. The base URL is:" xml:space="preserve">
     <value>Χρησιμοποιήστε αυτό το κλειδί API για να ανεβάσετε πακέτα .deb προγραμματισμένα. Η βασική διεύθυνση URL είναι:</value>
+  </data>
+  <data name="Use this API key to upload packages programmatically. The base URL is:" xml:space="preserve">
+    <value>Χρησιμοποιήστε αυτό το API key για να ανεβάσετε πακέτα προγραμματιστικά. Η βασική διεύθυνση URL είναι:</value>
   </data>
   <data name="Using API Key" xml:space="preserve">
     <value>Χρήση Κλειδιού API</value>

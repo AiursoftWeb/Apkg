@@ -69,6 +69,9 @@
   <data name="Staged (Waiting for Sign)" xml:space="preserve">
     <value>Voorbereid (Wachten op ondertekening)</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Vervangen</value>
+  </data>
   <data name="Sync Status" xml:space="preserve">
     <value>Synchronisatiestatus</value>
   </data>

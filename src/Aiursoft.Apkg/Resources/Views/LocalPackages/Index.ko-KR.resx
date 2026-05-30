@@ -87,6 +87,9 @@
   <data name="Status" xml:space="preserve">
     <value>상태</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>대체됨</value>
+  </data>
   <data name="Sync Status" xml:space="preserve">
     <value>동기화 상태</value>
   </data>

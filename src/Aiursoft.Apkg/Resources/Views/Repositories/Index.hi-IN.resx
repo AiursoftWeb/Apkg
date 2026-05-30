@@ -21,6 +21,12 @@
       <data name="Actions" xml:space="preserve">
     <value>कार्रियाँ</value>
   </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>एक APT रिपॉजिटरी आपके सिस्टम को .deb पैकेज प्रदान करती है। इसे एक निजी ऐप स्टोर की तरह सोचें — आप नियंत्रित करते हैं कि कौन से पैकेज उपलब्ध हैं।</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>आर्किटेक्चर</value>
+  </data>
   <data name="Are you sure you want to delete repository" xml:space="preserve">
     <value>क्या आप वाकई रिपॉजिटरी को हटाना चाहते हैं</value>
   </data>
@@ -50,6 +56,9 @@
   </data>
   <data name="Distro" xml:space="preserve">
     <value>वितरण</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>प्रत्येक रिपोजिटरी किसी सूट (जैसे कि questing) से मैप होती है। अपने मशीन पर रिपो कॉन्फ़िगर करने के लिए &lt;code&gt;apkg add-source&lt;/code&gt; का उपयोग करें।</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>संपादित करें</value>
@@ -87,8 +96,14 @@
   <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
     <value>Repository Sync कार्य चल रहा है के दौरान बनाया जा रहा स्नैपशॉट। जब कार्य सफल होता है, तो यह लाइव बकेट को प्रतिस्थापित करता है।</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>सुझाव:</value>
+  </data>
   <data name="Total Packages" xml:space="preserve">
     <value>कुल पैकेज</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>रेपॉजिटरी क्या है?</value>
   </data>
   <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
     <value>क्या रिपॉजिटरी का Release फ़ाइल GPG-हस्ताक्षरित है। sources.list में &apos;signed-by=&apos; के साथ कॉन्फ़िगर किए गए apt क्लाइंट हस्ताक्षरित नहीं होने वाले या गलत कुंजी से हस्ताक्षरित रिपॉजिटरीओं को अस्वीकार कर देंगे।</value>

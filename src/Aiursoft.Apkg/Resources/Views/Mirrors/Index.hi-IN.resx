@@ -24,6 +24,9 @@
   <data name="Add New Mirror" xml:space="preserve">
     <value>नया मिरर जोड़ें</value>
   </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>एक अपस्ट्रीम मिरर बाहरी APT रिपॉजिटरी (जैसे Ubuntu) से पैकेज मेटाडेटा को APKG में सिंक करता है। यह आपके स्थानीय रिपॉजिटरी के लिए डेटा स्रोत है।</value>
+  </data>
   <data name="Arch" xml:space="preserve">
     <value>आर्किटेक्चर</value>
   </data>
@@ -71,6 +74,9 @@
   </data>
   <data name="Last Pull" xml:space="preserve">
     <value>अंतिम खींचाई</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>मिरर एक शेड्यूल पर चलते हैं। यह देखने के लिए कि प्रत्येक मिरर का आखिरी सिंक कब हुआ था, &apos;लास्ट पुल&apos; कॉलम की जांच करें।</value>
   </data>
   <data name="Never Pull" xml:space="preserve">
     <value>कभी खींचा नहीं</value>
@@ -126,6 +132,9 @@
   <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
     <value>इससे सभी संबंधित पैकेज और बकेट भी हट जाएंगे!</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>सुझाव:</value>
+  </data>
   <data name="Unprotected" xml:space="preserve">
     <value>असुरक्षित</value>
   </data>
@@ -137,6 +146,9 @@
   </data>
   <data name="Verified" xml:space="preserve">
     <value>सत्यापित</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>मिरर क्या है?</value>
   </data>
 
 </root>

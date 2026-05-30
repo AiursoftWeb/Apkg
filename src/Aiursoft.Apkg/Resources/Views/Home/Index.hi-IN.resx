@@ -18,8 +18,14 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name=".NET Global Tool" xml:space="preserve">
+    <value>.NET वैश्विक टूल</value>
+  </data>
+  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>लंबे समय तक चलने वाले कार्यों (जैसे ईमेल या AI) के लिए &quot;Fire-and-forget&quot; समर्थन, जिसमें कतार प्रबंधन, समानांतर प्रसंस्करण और रद्द करने के लिए GUI शामिल है।</value>
+  </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; शुरू से काम नहीं करेगा क्योंकि root का PATH &lt;code&gt;~/.dotnet/tools&lt;/code&gt; को शामिल नहीं करता है। एक बार सिमलिंक बनाएं और यह हमेशा के लिए काम करता है:</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>अनुमति प्रबंधन के लिए एक अंतर्निहित रोल-आधारित एक्सेस कंट्रोल (RBAC) प्रणाली।</value>
@@ -36,8 +42,14 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>आपके अगले वेब एप्लिकेशन के लिए एक आधुनिक, सुविधा-संपन्न, और अत्यधिक विस्तार योग्य आधारशिला।</value>
   </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>APKG क्लाइंट इंस्टॉल करने और अपने APT पैकेजों का प्रबंधन शुरू करने के लिए एक ही कमांड।</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Aiursoft टेम्पलेट के साथ और अधिक हासिल करें</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>स्रोत जोड़ें</value>
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>प्रशासनिक साइट शामिल है</value>
@@ -68,6 +80,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>एपीटी पैकेज रिपॉजिटरी</value>
   </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>कृत्रिम बुद्धिमत्ता अनुवाद</value>
@@ -120,6 +135,9 @@
   <data name="Bilingual Tutorials" xml:space="preserve">
     <value>द्विभाषी पाठ्यचर्या</value>
   </data>
+  <data name="Browse All Packages" xml:space="preserve">
+    <value>सभी पैकेज ब्राउज़ करें</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>एक बार बनाएं, कहीं भी चलाएं। पूरी तरह से कंटेनरीकृत आर्किटेक्चर।</value>
   </data>
@@ -167,6 +185,12 @@
   </data>
   <data name="Concise Docs" xml:space="preserve">
     <value>संक्षिप्त दस्तावेज़</value>
+  </data>
+  <data name="Configure complex APT sources, GPG keys, and suites with a single command." xml:space="preserve">
+    <value>एकमात्र कमांड के साथ जटिल APT स्रोत, GPG कुंजियां और सुइट्स कॉन्फ़िगर करें।</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>sudo apkg को कॉन्फ़िगर करें (एक बार सेटअप)</value>
   </data>
   <data name="Consistency Validation" xml:space="preserve">
     <value>सांतत्य जाँच</value>
@@ -239,6 +263,9 @@
   </data>
   <data name="Dockerized for Easy Deployment" xml:space="preserve">
     <value>Dockerized for Easy Deployment</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>.NET SDK डाउनलोड करें</value>
   </data>
   <data name="Dynamic Navigation Bar" xml:space="preserve">
     <value>डायनामिक नेविगेशन बार</value>
@@ -378,6 +405,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>हॉराइज़न शामिल है</value>
   </data>
+  <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
+    <value>आधुनिक NuGet-से मिलते-जुलते अनुभव के साथ .deb पैकेज होस्ट, प्रबंधित और वितरित करें। APKG द्वारा संचालित।</value>
+  </data>
   <data name="How can I get support?" xml:space="preserve">
     <value>मुझे सहायता कैसे मिल सकती है?</value>
   </data>
@@ -398,6 +428,15 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>ट्यूटोरियल्स शामिल हैं</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>.NET SDK इंस्टॉल करें</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>APKG CLI इंस्टॉल करें</value>
+  </data>
+  <data name="Install via &lt;code&gt;dotnet tool install -g&lt;/code&gt;. Auto-updates, no native dependencies." xml:space="preserve">
+    <value>&lt;code&gt;dotnet tool install -g&lt;/code&gt; के माध्यम से इंस्टॉल करें। स्वचालित अपडेट, कोई नेटिव निर्भरता नहीं।</value>
   </data>
   <data name="Integrated File Management" xml:space="preserve">
     <value>एकीकृत फ़ाइल प्रबंधन</value>
@@ -428,6 +467,9 @@
   </data>
   <data name="Lint Check" xml:space="preserve">
     <value>लिंट चेक</value>
+  </data>
+  <data name="Made Simple." xml:space="preserve">
+    <value>सरल बनाया गया।</value>
   </data>
   <data name="Maintain High Code Quality" xml:space="preserve">
     <value>उच्च कोड गुणवत्ता बनाए रखें</value>
@@ -516,6 +558,9 @@
   <data name="One Click Start" xml:space="preserve">
     <value>एक क्लिक से शुरू करें</value>
   </data>
+  <data name="One-Click APT Source Setup" xml:space="preserve">
+    <value>एक-क्लिक APT स्रोत सेटअप</value>
+  </data>
   <data name="Open Source" xml:space="preserve">
     <value>ओपन सोर्स</value>
   </data>
@@ -531,8 +576,14 @@
   <data name="Out-of-the-box" xml:space="preserve">
     <value>बिना किसी सेटअप के तैयार</value>
   </data>
+  <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
+    <value>एक मैनIFEST के साथ कई .deb फ़ाइलों को एक .apkg बंडल में पैक करें। किसी भी APKG सर्वर पर पश करें।</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>अनुमति खोज और समन्वय</value>
+  </data>
+  <data name="Powered by AnduinOS" xml:space="preserve">
+    <value>AnduinOS द्वारा संचालित</value>
   </data>
   <data name="Pre-configured and tested" xml:space="preserve">
     <value>पूर्व-कॉन्फ़िगर और परीक्षण किया गया</value>
@@ -545,6 +596,9 @@
   </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>गुणवत्ता गेट</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>त्वरित प्रारंभ</value>
   </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC प्राधिकरण</value>
@@ -567,6 +621,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>रॉबस्ट इंटीग्रेशन टेस्टिंग</value>
   </data>
+  <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
+    <value>.NET के माध्यम से Windows, Linux, और macOS पर चलता है।</value>
+  </data>
   <data name="Runs without any internet connection required." xml:space="preserve">
     <value>कोई इंटरनेट कनेक्शन की आवश्यकता के बिना चलता है।</value>
   </data>
@@ -576,11 +633,20 @@
   <data name="Seamlessly integrate with any OpenID Connect provider, with automatic role synchronization." xml:space="preserve">
     <value>किसी भी OpenID Connect प्रदाता के साथ सहज एकीकरण, स्वचालित भूमिका सिंक्रनाइज़ेशन के साथ।</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>खोजें</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>पाकेज खोजें...</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>आत्मविश्वास के साथ शिफ्ट करें</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>सरल और आसान</value>
+  </data>
+  <data name="Simplified dpkg Packaging" xml:space="preserve">
+    <value>सरलीकृत dpkg पैकेजिंग</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>एकल कंटेनर</value>
@@ -648,6 +714,9 @@
   <data name="The navigation bar automatically adjusts based on user roles and permissions." xml:space="preserve">
     <value>नेविगेशन बार स्वचालित रूप से उपयोगकर्ता की भूमिकाओं और अनुमतियों के आधार पर समायोजित होता है।</value>
   </data>
+  <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
+    <value>AnduinOS इकोसिस्टम द्वारा चुना गया आधिकारिक पैकेज मैनेजर।</value>
+  </data>
   <data name="The Philosophy" xml:space="preserve">
     <value>द फिलॉसफी</value>
   </data>
@@ -665,6 +734,9 @@
   </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>उत्पादन-ग्रेड एप्लिकेशन जैसे AnduinOS, StatHub, और Warp द्वारा विश्वास किया गया। हम सिर्फ इस कोड को साझा नहीं करते; हम अपने पूरे व्यवसाय को इस पर चलाते हैं।</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>यूबंटू:</value>
   </data>
   <data name="Unified Env" xml:space="preserve">
     <value>एकीकृत वातावरण</value>
@@ -689,6 +761,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>हमारे डेवलपर्स क्या कहते हैं</value>
+  </data>
+  <data name="Why APKG?" xml:space="preserve">
+    <value>APKG क्यों?</value>
   </data>
   <data name="Why choose Aiursoft Template?" xml:space="preserve">
     <value>Aiursoft टेम्पलेट क्यों चुनें?</value>

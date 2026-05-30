@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- कोई नहीं (स्टैंडअलोन) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>इस रिपॉजिटरी के लिए मानव-पाठ्य लेबल। इसका Debian/APT द्वारा बिल्कुल उपयोग नहीं किया जाता है।</value>
+  </data>
   <data name="Allow Anyone to Upload" xml:space="preserve">
     <value>कोई भी अपलोड करने की अनुमति दें</value>
   </data>

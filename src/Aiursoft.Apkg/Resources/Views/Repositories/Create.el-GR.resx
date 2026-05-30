@@ -21,6 +21,9 @@
       <data name="-- None (Standalone) --" xml:space="preserve">
     <value>-- Κανένα (Αυτόνομο) --</value>
   </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>Ενα_human-readable label (έτικα) για αυτό το αποθετήριο. Δεν χρησιμοποιείται καθόλου από το Debian/APT.</value>
+  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Αρχιτεκτονική</value>
   </data>

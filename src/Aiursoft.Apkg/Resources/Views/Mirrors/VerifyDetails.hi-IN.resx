@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Mirrors" xml:space="preserve">
+      <data name="A &apos;Passed&apos; status means the mirror&apos;s signature is valid. &apos;Failed&apos; may indicate expired keys or corrupted data." xml:space="preserve">
+    <value>&apos;उत्तीर्ण&apos; स्थिति का अर्थ है कि मिरर की हस्ताक्षर वैध है। &apos;असफल&apos; की समाप्ति कुंजियों या भ्रष्ट डेटा को इंगित कर सकता है।</value>
+  </data>
+  <data name="Back to Mirrors" xml:space="preserve">
     <value>मिरर पर वापस जाएं</value>
   </data>
   <data name="Bucket Replacements" xml:space="preserve">
@@ -35,6 +38,9 @@
   </data>
   <data name="file" xml:space="preserve">
     <value>फ़ाइल</value>
+  </data>
+  <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
+    <value>GPG साइनिंग सुनिश्चित करती है कि पैकेज भरोसेमंद स्रोत से आए हैं और उनकी हस्तक्षेप नहीं किया गया है। मिरर का InRelease फ़ाइल इसके GPG कुंजी के खिलाफ सत्यापित किया जाता है।</value>
   </data>
   <data name="GPG Verify Details" xml:space="preserve">
     <value>GPG सत्यापन विवरण</value>
@@ -69,11 +75,17 @@
   <data name="Target" xml:space="preserve">
     <value>लक्ष्य</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>सुझाव:</value>
+  </data>
   <data name="Verification Log" xml:space="preserve">
     <value>सत्यापन लॉग</value>
   </data>
   <data name="Verification Target" xml:space="preserve">
     <value>सत्यापन लक्ष्य</value>
+  </data>
+  <data name="What is GPG Verification?" xml:space="preserve">
+    <value>जीपीजी सत्यापन क्या है?</value>
   </data>
 
 </root>

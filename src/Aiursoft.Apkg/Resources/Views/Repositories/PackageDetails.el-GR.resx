@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Architecture" xml:space="preserve">
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>Ένα .deb πακέτο είναι ένα λογισμικό έτοιμο για εγκατάσταση σε συστήματα Debian/Ubuntu. Περιέχει δυαδικά αρχεία, ρυθμίσεις και μεταδεδομένα εξαρτήσεων.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
     <value>Αρχιτεκτονική</value>
   </data>
   <data name="Back" xml:space="preserve">
@@ -33,6 +36,9 @@
   <data name="Description" xml:space="preserve">
     <value>Περιγραφή</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Δεν έχετε &lt;code&gt;apkg&lt;/code&gt;;</value>
+  </data>
   <data name="Download .deb" xml:space="preserve">
     <value>Λήψη .deb</value>
   </data>
@@ -42,6 +48,9 @@
   <data name="Failed to load reverse dependencies." xml:space="preserve">
     <value>Αποτυχία φόρτωσης των αντιστρόφων εξαρτήσεων.</value>
   </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>Πρώτα προσθέστε το αποθετήριο APT μέσω &lt;code&gt;sudo apkg add-source&lt;/code&gt;, στη συνέχεια &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Ή κατεβάστε το .deb απευθείας.</value>
+  </data>
   <data name="Hashes" xml:space="preserve">
     <value>Αθροίσματα ελέγχου</value>
   </data>
@@ -50,6 +59,9 @@
   </data>
   <data name="How to Install" xml:space="preserve">
     <value>Πώς να εγκαταστήσετε</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Τρόπος χρήσης:</value>
   </data>
   <data name="Installed Size" xml:space="preserve">
     <value>Μέγεθος Εγκατάστασης</value>
@@ -71,6 +83,12 @@
   </data>
   <data name="No relations." xml:space="preserve">
     <value>Καμία σχέση.</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>Επιλογή Α: Χρήση του APKG CLI (προτείνεται):</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>Επιλογή B:Χειροκίνητη ρύθμιση bash:</value>
   </data>
   <data name="Origin" xml:space="preserve">
     <value>Προέλευση</value>
@@ -108,6 +126,9 @@
   <data name="Section" xml:space="preserve">
     <value>Τμήμα</value>
   </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Δείτε πώς να εγκαταστήσετε το APKG CLI.</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Πηγή</value>
   </data>
@@ -131,6 +152,9 @@
   </data>
   <data name="Virtual (Lazy Sync)" xml:space="preserve">
     <value>Εικονικό (Αργή Συγχρονισμός)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Τι είναι ένα Πακέτο;</value>
   </data>
 
 </root>

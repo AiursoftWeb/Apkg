@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An APKG Upload is a .apkg bundle pushed by a user via CLI or Web UI. The server unpacks it into LocalPackages and syncs them to APT repositories." xml:space="preserve">
+    <value>एक एपीकेजी अपलोड एक .apkg बंडल है जिसे उपयोगकर्ता द्वारा CLI या वेब UI के माध्यम से पुश किया जाता है। सर्वर इसे लोकेल पैकेज में अनपैक करता है और उन्हें एपीटी रिपॉजिटरी में सिंक करता है।</value>
+  </data>
+  <data name="Listed packages are publicly visible; unlisted ones are hidden until an admin publishes them." xml:space="preserve">
+    <value>सूचीबद्ध पैकेज सार्वजनिक रूप से दृश्यमान होते हैं; सूचीबद्ध नहीं वाले छिपे रहते हैं जब तक कि कोई व्यवस्थापक उन्हें प्रकाशित नहीं कर देता।</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>सुझाव:</value>
+  </data>
+  <data name="What is an Upload?" xml:space="preserve">
+    <value>अपलोड क्या है?</value>
+  </data>
+
+</root>

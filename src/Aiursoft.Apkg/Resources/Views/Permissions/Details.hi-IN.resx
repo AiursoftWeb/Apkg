@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to Permissions" xml:space="preserve">
+      <data name="A permission is a discrete capability (e.g. &apos;Create Mirror&apos;, &apos;Delete Package&apos;). Permissions are grouped into roles and assigned to users." xml:space="preserve">
+    <value>अनुमति एक विशिष्ट क्षमता है (जैसे &apos;मिरर बनाएँ&apos;, &apos;पैकेज हटाएँ&apos;)। अनुमतियों को भूमिकाओं में समूहित किया जाता है और उन्हें उपयोगकर्ताओं को सौंपा जाता है।</value>
+  </data>
+  <data name="Back to Permissions" xml:space="preserve">
     <value>अनुमतियों पर वापस जाएं</value>
   </data>
   <data name="Description" xml:space="preserve">
@@ -48,6 +51,9 @@
   <data name="Permission Name" xml:space="preserve">
     <value>अनुमति का नाम</value>
   </data>
+  <data name="Permissions are fine-grained. Check the roles that grant each permission to understand who can perform what actions." xml:space="preserve">
+    <value>अनुमतियाँ बारीक़ीयूक्त हैं। यह समझने के लिए कि कौन कौन से कार्य कर सकता है, उन भूमिकाओं की जाँच करें जो प्रत्येक अनुमति प्रदान करती हैं।</value>
+  </data>
   <data name="Role Name" xml:space="preserve">
     <value>भूमिका का नाम</value>
   </data>
@@ -60,11 +66,17 @@
   <data name="The following users have this permission through their role memberships." xml:space="preserve">
     <value>निम्नलिखित उपयोगकर्ताओं को उनकी भूमिका सदस्यता के माध्यम से यह अनुमति प्राप्त है।</value>
   </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>सुझाव:</value>
+  </data>
   <data name="User Name" xml:space="preserve">
     <value>उपयोगकर्ता नाम</value>
   </data>
   <data name="Users with this Permission" xml:space="preserve">
     <value>इस अनुमति वाले उपयोगकर्ता</value>
+  </data>
+  <data name="What is a Permission?" xml:space="preserve">
+    <value>अनुमति क्या है?</value>
   </data>
 
 </root>

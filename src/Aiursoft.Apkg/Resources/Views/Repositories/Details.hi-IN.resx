@@ -18,7 +18,13 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Back to List" xml:space="preserve">
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>एक APT रिपॉज़िटरी .deb पैकेजों का संग्रह है जिसे आपका सिस्टम इन्स्टॉल कर सकता है। इसे अपने लिनक्स सिस्टम के लिए ऐप स्टोर के रूप में सोचें।</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>वास्तुकला</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
     <value>सूची पर वापस जाएं</value>
   </data>
   <data name="Browse Packages" xml:space="preserve">
@@ -39,11 +45,20 @@
   <data name="Distro" xml:space="preserve">
     <value>वितरण</value>
   </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>क्या आपके पास &lt;code&gt;apkg&lt;/code&gt; नहीं है?</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>कैसे उपयोग करें:</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>जानकारी</value>
   </data>
   <data name="Live Bucket" xml:space="preserve">
     <value>लाइव बकेट</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>मैन्युअल सेटअप (bash):</value>
   </data>
   <data name="Mirror Source" xml:space="preserve">
     <value>मिरर स्रोत</value>
@@ -54,8 +69,17 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>एक-पंक्ति स्थापना:</value>
   </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>APKG CLI के साथ तेज़ सेटअप:</value>
+  </data>
   <data name="Repository Details" xml:space="preserve">
     <value>रेपॉजिटरी विवरण</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>इस रिपॉजिटरी की कॉन्फ़िगरेशन के लिए दाईं ओर &lt;code&gt;sudo apkg add-source&lt;/code&gt; कमांड चलाएं, फिर जैसा कि आप आमतौर पर करते हैं, &lt;code&gt;sudo apt install&lt;/code&gt; का उपयोग करें।</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>देखें कि APKG CLI कैसे इंस्टॉल करें।</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>सूट</value>
@@ -66,9 +90,8 @@
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>यह अधिकतम सुरक्षा और विश्वसनीयता के लिए आधुनिक DEB822 प्रारूप और सीमित कुंजीरिंग का उपयोग करता है।</value>
   </data>
-
-  <data name="Architecture" xml:space="preserve">
-    <value>वास्तुकला</value>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>रेपॉजिटरी क्या है?</value>
   </data>
 
 </root>
