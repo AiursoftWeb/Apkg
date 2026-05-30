@@ -72,4 +72,55 @@ public class ArchitectureMatchesTests
             Assert.AreEqual(a, b, $"Mismatch: repo={repo} entry={entry}");
         }
     }
+
+    // ── Comma-separated multi-arch repo tests ──
+
+    [TestMethod]
+    public void MultiArchRepo_MatchesEachListedArch()
+    {
+        Assert.IsTrue(ApkgUploadsController.ArchitectureMatches("amd64,arm64", "amd64"));
+        Assert.IsTrue(ApkgUploadsController.ArchitectureMatches("amd64,arm64", "arm64"));
+    }
+
+    [TestMethod]
+    public void MultiArchRepo_DoesNotMatchUnlistedArch()
+    {
+        Assert.IsFalse(ApkgUploadsController.ArchitectureMatches("amd64,arm64", "i386"));
+        Assert.IsFalse(ApkgUploadsController.ArchitectureMatches("amd64,arm64", "mips64el"));
+    }
+
+    [TestMethod]
+    public void MultiArchRepo_EntryAll_Matches()
+    {
+        Assert.IsTrue(ApkgUploadsController.ArchitectureMatches("amd64,arm64,i386", "all"));
+    }
+
+    [TestMethod]
+    public void MultiArchRepo_WithSpaces_MatchesAfterTrim()
+    {
+        Assert.IsTrue(ApkgUploadsController.ArchitectureMatches("amd64, arm64", "amd64"));
+        Assert.IsTrue(ApkgUploadsController.ArchitectureMatches("amd64 , arm64", "arm64"));
+        Assert.IsTrue(ApkgUploadsController.ArchitectureMatches(" amd64 , arm64 ", "amd64"));
+    }
+
+    [TestMethod]
+    public void MultiArchRepo_CaseInsensitive()
+    {
+        Assert.IsTrue(ApkgUploadsController.ArchitectureMatches("AMD64,ARM64", "amd64"));
+        Assert.IsTrue(ApkgUploadsController.ArchitectureMatches("amd64,arm64", "ARM64"));
+    }
+
+    [TestMethod]
+    public void MultiArchRepo_BothControllers_AreIdentical()
+    {
+        string[] repos = ["amd64,arm64", "amd64, arm64", "amd64,i386,arm64", "all", "amd64"];
+        string[] entries = ["amd64", "arm64", "i386", "mips64el", "all", "ALL"];
+        foreach (var entry in entries)
+        foreach (var repo in repos)
+        {
+            var a = ApiPackagesController.ArchitectureMatches(repo, entry);
+            var b = ApkgUploadsController.ArchitectureMatches(repo, entry);
+            Assert.AreEqual(a, b, $"Mismatch: repo={repo} entry={entry}");
+        }
+    }
 }

@@ -339,17 +339,17 @@ public class ApkgUploadsController(
                 }
 
                 // KEEP IN SYNC with ArchitectureMatches helper below and ApiPackagesController line 165
-                var candidateRepositories = await db.AptRepositories
-                    .Where(r => r.Distro == entry.Distro
-                                && r.Suite == entry.Suite
-                                && (r.Architecture == entry.Architecture
-                                    || string.Equals(entry.Architecture, "all", StringComparison.OrdinalIgnoreCase)))
-                    .ToListAsync();
-
-                var matchingRepositories = candidateRepositories
+                var matchingRepositories = (await db.AptRepositories
+                        .Where(r => r.Distro == entry.Distro
+                                    && r.Suite == entry.Suite)
+                        .ToListAsync())
                     .Where(r => r.Components
                         .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-                        .Contains(entryComponent, StringComparer.OrdinalIgnoreCase))
+                        .Contains(entryComponent, StringComparer.OrdinalIgnoreCase)
+                        && (r.Architecture
+                                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                                .Any(a => string.Equals(a, entry.Architecture, StringComparison.OrdinalIgnoreCase))
+                            || string.Equals(entry.Architecture, "all", StringComparison.OrdinalIgnoreCase)))
                     .ToList();
 
                 if (matchingRepositories.Count == 0)
@@ -599,17 +599,17 @@ public class ApkgUploadsController(
         foreach (var entry in manifest.Entries)
         {
             var entryComponent = entry.Component.Trim();
-            var matchingRepos = await db.AptRepositories
-                .Where(r => r.Distro == entry.Distro
-                            && r.Suite == entry.Suite
-                            && (r.Architecture == entry.Architecture
-                                || string.Equals(entry.Architecture, "all", StringComparison.OrdinalIgnoreCase)))
-                .ToListAsync();
-
-            matchingRepos = matchingRepos
+            var matchingRepos = (await db.AptRepositories
+                    .Where(r => r.Distro == entry.Distro
+                                && r.Suite == entry.Suite)
+                    .ToListAsync())
                 .Where(r => r.Components
                     .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-                    .Contains(entryComponent, StringComparer.OrdinalIgnoreCase))
+                    .Contains(entryComponent, StringComparer.OrdinalIgnoreCase)
+                    && (r.Architecture
+                            .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                            .Any(a => string.Equals(a, entry.Architecture, StringComparison.OrdinalIgnoreCase))
+                        || string.Equals(entry.Architecture, "all", StringComparison.OrdinalIgnoreCase)))
                 .ToList();
 
             targets.Add(new ApkgPreviewTargetInfo
@@ -812,12 +812,16 @@ public class ApkgUploadsController(
         return string.IsNullOrWhiteSpace(value) ? null : value;
     }
 
-    // KEEP IN SYNC with inline conditions at lines ~290, ~492, and ApiPackagesController line 165.
+    // KEEP IN SYNC with inline conditions and ApiPackagesController.ArchitectureMatches.
     // EF can't translate this helper to SQL, so queries duplicate the logic inline.
-    // Any change must be mirrored to all 3 locations AND ApiPackagesController.ArchitectureMatches.
+    // Any change must be mirrored to all locations AND ApiPackagesController.ArchitectureMatches.
     internal static bool ArchitectureMatches(string repoArchitecture, string entryArchitecture)
     {
-        return string.Equals(repoArchitecture, entryArchitecture, StringComparison.OrdinalIgnoreCase)
-            || string.Equals(entryArchitecture, "all", StringComparison.OrdinalIgnoreCase);
+        if (string.Equals(entryArchitecture, "all", StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        return repoArchitecture
+            .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+            .Any(a => string.Equals(a, entryArchitecture, StringComparison.OrdinalIgnoreCase));
     }
 }
