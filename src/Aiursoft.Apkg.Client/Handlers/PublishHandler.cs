@@ -103,7 +103,7 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
         var project = await aosprojSerializer.DeserializeFromFileAsync(projectFile);
 
         // ── Build (unless --no-build) ─────────────────────────────────────────
-        HashSet<string> resolvedVersions = [];
+        List<DebBuildResult> buildResults = [];
 
         if (!noBuild)
         {
@@ -136,8 +136,8 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
             foreach (var (distro, suite, arch) in targets)
             {
                 logger.LogInformation("  [{Distro}/{Suite}/{Arch}]", distro, suite, arch);
-                var (_, builtVersion) = await debBuilder.BuildAsync(projectDir, project, distro, suite, arch, binDir);
-                resolvedVersions.Add(builtVersion);
+                var result = await debBuilder.BuildAsync(projectDir, project, distro, suite, arch, binDir);
+                buildResults.Add(result);
             }
         }
 
@@ -147,41 +147,38 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
             ? Path.Combine(projectDir, "bin")
             : Path.GetFullPath(outputArg);
 
-        if (!Directory.Exists(binDirectory))
-            throw new DirectoryNotFoundException(
-                $"bin/ directory not found at {binDirectory}. Run 'apkg publish' without --no-build first.");
+        var entries = new List<ApkgPackageEntry>();
 
-        var allDebFiles = Directory.GetFiles(binDirectory, $"{project.PackageName}_*.deb");
-        if (allDebFiles.Length == 0)
-            throw new FileNotFoundException(
-                $"No .deb files found in {binDirectory} matching '{project.PackageName}_*.deb'.");
-
-        // Filter to only include .deb files whose version matches what we just built.
-        // When --no-build is used, resolvedVersions is empty and we accept all files.
-        List<string> debFiles;
-
-        if (!noBuild && resolvedVersions.Count > 0)
+        if (!noBuild && buildResults.Count > 0)
         {
-            debFiles = [];
-            foreach (var debPath in allDebFiles)
-            {
-                var v = DeriveVersionFromDeb(debPath, project.PackageName);
-                if (resolvedVersions.Contains(v))
-                    debFiles.Add(debPath);
-                else
-                    logger.LogWarning("  Skipping {File} — version {Version} was not built in this run",
-                        Path.GetFileName(debPath), v);
-            }
+            logger.LogInformation("Packing {Count} .deb file(s) into .apkg:", buildResults.Count);
 
-            if (debFiles.Count == 0)
-                throw new FileNotFoundException(
-                    $"No .deb files matched the built versions. Something may have gone wrong during the build.");
+            foreach (var result in buildResults)
+            {
+                var debFileName = Path.GetFileName(result.DebPath);
+                entries.Add(new ApkgPackageEntry
+                {
+                    DebFile = debFileName,
+                    Distro = project.TargetDistro,
+                    Suite = result.Suite,
+                    Component = project.Component,
+                    Architecture = result.Arch
+                });
+                logger.LogInformation("  + {File} → {Distro}/{Suite}", debFileName, project.TargetDistro, result.Suite);
+            }
         }
         else
         {
-            debFiles = [..allDebFiles];
+            // --no-build: scan bin/ for existing .deb files
+            if (!Directory.Exists(binDirectory))
+                throw new DirectoryNotFoundException(
+                    $"bin/ directory not found at {binDirectory}. Run 'apkg publish' without --no-build first.");
 
-            // Warn if multiple versions are present (common user error when bumping versions)
+            var allDebFiles = Directory.GetFiles(binDirectory, $"{project.PackageName}_*.deb");
+            if (allDebFiles.Length == 0)
+                throw new FileNotFoundException(
+                    $"No .deb files found in {binDirectory} matching '{project.PackageName}_*.deb'.");
+
             var versionsFound = allDebFiles
                 .Select(f => DeriveVersionFromDeb(f, project.PackageName))
                 .Distinct()
@@ -191,27 +188,25 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
                     "Found multiple versions in bin/: {Versions}. Only .deb files matching " +
                     "the project's PackageVersion should be present.",
                     string.Join(", ", versionsFound));
-        }
 
-        logger.LogInformation("Packing {Count} .deb file(s) into .apkg:", debFiles.Count);
+            logger.LogInformation("Packing {Count} .deb file(s) into .apkg:", allDebFiles.Length);
 
-        var entries = new List<ApkgPackageEntry>();
-        foreach (var debPath in debFiles)
-        {
-            var debFileName = Path.GetFileName(debPath);
-            var (suite, arch) = ParseDebFileName(debFileName);
-            var distro = project.TargetDistro;
-
-            entries.Add(new ApkgPackageEntry
+            foreach (var debPath in allDebFiles)
             {
-                DebFile = debFileName,
-                Distro = distro,
-                Suite = suite,
-                Component = project.Component,
-                Architecture = arch
-            });
+                var debFileName = Path.GetFileName(debPath);
+                var (suite, arch) = ParseDebFileName(debFileName);
 
-            logger.LogInformation("  + {File} → {Distro}/{Suite}", debFileName, distro, suite);
+                entries.Add(new ApkgPackageEntry
+                {
+                    DebFile = debFileName,
+                    Distro = project.TargetDistro,
+                    Suite = suite,
+                    Component = project.Component,
+                    Architecture = arch
+                });
+
+                logger.LogInformation("  + {File} → {Distro}/{Suite}", debFileName, project.TargetDistro, suite);
+            }
         }
 
         var manifest = new ApkgPackageManifest
@@ -244,11 +239,11 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
             await tar.WriteEntryAsync(manifestEntry);
             logger.LogDebug("  + manifest.xml");
 
-            foreach (var debPath in debFiles)
+            foreach (var entry in entries)
             {
-                var debFileName = Path.GetFileName(debPath);
-                await tar.WriteEntryAsync(debPath, debFileName);
-                logger.LogDebug("  + {File}", debFileName);
+                var debPath = Path.Combine(binDirectory, entry.DebFile);
+                await tar.WriteEntryAsync(debPath, entry.DebFile);
+                logger.LogDebug("  + {File}", entry.DebFile);
             }
         }
 

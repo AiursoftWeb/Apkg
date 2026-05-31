@@ -24,7 +24,7 @@ public class DebBuilder
     /// Builds a .deb for the given target and writes it to <paramref name="outputDir"/>.
     /// Returns the absolute path to the produced .deb file and the resolved version.
     /// </summary>
-    public async Task<(string DebPath, string ResolvedVersion)> BuildAsync(
+    public async Task<DebBuildResult> BuildAsync(
         string projectDir,
         AosprojProject project,
         string distro,
@@ -357,7 +357,13 @@ public class DebBuilder
         await RunCommandAsync("dpkg-deb", ["--build", "--root-owner-group", stagingRoot, debOutputPath], projectDir);
 
         _logger.LogInformation("  ✓ {DebFile}", debOutputPath);
-        return (debOutputPath, resolvedVersion);
+        return new DebBuildResult
+        {
+            DebPath = debOutputPath,
+            Version = resolvedVersion,
+            Suite = suite,
+            Arch = arch
+        };
     }
 
     // ── Helpers ───────────────────────────────────────────────────────────────
