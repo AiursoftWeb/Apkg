@@ -1,0 +1,242 @@
+@using Aiursoft.Apkg.Models.LocalPackagesViewModels
+@model Aiursoft.Apkg.Models.ApkgPackagesViewModels.ApkgPackagesPackageHistoryViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <a asp-action="Index" class="btn btn-sm btn-outline-secondary me-2">
+            <i class="align-middle me-1" data-lucide="arrow-left"></i>
+            Back to Packages
+        </a>
+    </div>
+    <div class="col-auto">
+        <h3 class="mb-0">@Model.PackageName — Version History</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-10">
+        <div class="card h-100">
+            <div class="card-body">
+                @{
+                    var uploadDates = Model.Revisions.ToDictionary(u => u.Id, u => u.UploadedAt);
+                    var uploaderDict = Model.Revisions.ToDictionary(u => u.Id, u => u.UploadedByUser?.UserName ?? "—");
+                    var uploadListedDict = Model.Revisions.ToDictionary(u => u.Id, u => u.IsListed);
+
+                    var filteredPkgs = (Model.VersionsFilter switch
+                    {
+                        "live" => Model.AllPackageStatuses
+                            .Where(ps => ps.Status == LocalPackageStatus.Live),
+                        "all" => Model.AllPackageStatuses.AsEnumerable(),
+                        _ => Model.AllPackageStatuses
+                            .Where(ps => ps.Package.ApkgRevisionId == Model.LatestVersionId)
+                    })
+                    .OrderByDescending(ps => ps.Package.ApkgRevisionId.HasValue
+                        ? uploadDates.GetValueOrDefault(ps.Package.ApkgRevisionId.Value)
+                        : DateTime.MinValue)
+                    .ThenBy(ps => ps.Package.Architecture)
+                    .ThenBy(ps => ps.Package.Repository?.Suite ?? "")
+                    .ToList();
+                }
+
+                <div class="d-flex gap-2 mb-3">
+                    <a asp-action="PackageHistory" asp-route-name="@Model.PackageName" asp-route-versionsFilter="latest"
+                       class="btn btn-sm @(Model.VersionsFilter == "latest" ? "btn-primary" : "btn-outline-secondary")">
+                        Latest
+                    </a>
+                    <a asp-action="PackageHistory" asp-route-name="@Model.PackageName" asp-route-versionsFilter="live"
+                       class="btn btn-sm @(Model.VersionsFilter == "live" ? "btn-primary" : "btn-outline-secondary")">
+                        Live
+                    </a>
+                    <a asp-action="PackageHistory" asp-route-name="@Model.PackageName" asp-route-versionsFilter="all"
+                       class="btn btn-sm @(Model.VersionsFilter == "all" ? "btn-primary" : "btn-outline-secondary")">
+                        All
+                    </a>
+                    <small class="text-muted align-self-center ms-1">@filteredPkgs.Count package(s)</small>
+                </div>
+
+                @if (!filteredPkgs.Any())
+                {
+                    <p class="text-muted mb-0">No versions found for this package.</p>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-striped align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Architecture</th>
+                                    <th>Version</th>
+                                    <th>Suite</th>
+                                    <th>Sync Status</th>
+                                    <th>Uploaded</th>
+                                    @if (Model.IsAdmin)
+                                    {
+                                        <th>Uploader</th>
+                                    }
+                                    <th class="text-end">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var ps in filteredPkgs)
+                                {
+                                    var pkg = ps.Package;
+                                    var uploadedAt = pkg.ApkgRevisionId.HasValue
+                                        ? uploadDates.GetValueOrDefault(pkg.ApkgRevisionId.Value)
+                                        : (DateTime?)null;
+                                    <tr>
+                                        <td><span class="badge bg-dark">@pkg.Architecture</span></td>
+                                        <td><span class="badge bg-info">@pkg.Version</span></td>
+                                        <td><small>@(pkg.Repository?.Suite ?? "—")</small></td>
+                                        <td>
+                                            @switch (ps.Status)
+                                            {
+                                                case LocalPackageStatus.Live:
+                                                    <span class="badge bg-success" title="@ps.StatusMessage">
+                                                        <i class="align-middle me-1" data-lucide="check-circle" style="width:12px;height:12px;"></i> Live
+                                                    </span>
+                                                    break;
+                                                case LocalPackageStatus.StagedForSigning:
+                                                    <span class="badge bg-info" title="@ps.StatusMessage">
+                                                        <i class="align-middle me-1" data-lucide="clock" style="width:12px;height:12px;"></i> Signing
+                                                    </span>
+                                                    break;
+                                                case LocalPackageStatus.PendingSync:
+                                                    <span class="badge bg-warning text-dark" title="@ps.StatusMessage">
+                                                        <i class="align-middle me-1" data-lucide="refresh-cw" style="width:12px;height:12px;"></i> Syncing
+                                                    </span>
+                                                    break;
+                                                case LocalPackageStatus.Superseded:
+                                                    <span class="badge bg-secondary"
+                                                          data-bs-toggle="tooltip"
+                                                          title="Superseded — a newer version is live. This deb file remains in CAS storage until the garbage collection job runs (~70 min) and removes unreferenced content.">
+                                                        <i class="align-middle me-1" data-lucide="archive" style="width:12px;height:12px;"></i> Superseded
+                                                    </span>
+                                                    break;
+                                                case LocalPackageStatus.Disabled:
+                                                    <span class="badge bg-secondary" title="@ps.StatusMessage">
+                                                        <i class="align-middle me-1" data-lucide="slash" style="width:12px;height:12px;"></i> Disabled
+                                                    </span>
+                                                    break;
+                                                default:
+                                                    <span class="badge bg-secondary">Unknown</span>
+                                                    break;
+                                            }
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">
+                                                @(uploadedAt.HasValue ? uploadedAt.Value.ToString("yyyy/M/d HH:mm") : "—")
+                                            </small>
+                                        </td>
+                                        @if (Model.IsAdmin)
+                                        {
+                                            var uploader = pkg.ApkgRevisionId.HasValue
+                                                ? uploaderDict.GetValueOrDefault(pkg.ApkgRevisionId.Value, "—")
+                                                : "—";
+                                            <td><small>@uploader</small></td>
+                                        }
+                                        <td class="text-end">
+                                            <div class="btn-group">
+                                                @if (ps.Status == LocalPackageStatus.Live && ps.LivePackageId.HasValue)
+                                                {
+                                                    <a asp-controller="Repositories" asp-action="PackageDetails" asp-route-id="@ps.LivePackageId.Value"
+                                                       class="btn btn-sm btn-outline-info" title="View in repository">
+                                                        <i class="align-middle" data-lucide="external-link"></i>
+                                                    </a>
+                                                }
+                                                @if (pkg.ApkgRevisionId.HasValue)
+                                                {
+                                                    <a asp-action="Details" asp-route-id="@pkg.ApkgRevisionId.Value"
+                                                       class="btn btn-sm btn-outline-secondary" title="View upload details">
+                                                        <i class="align-middle" data-lucide="eye"></i>
+                                                    </a>
+                                                    var uploadId = pkg.ApkgRevisionId.Value;
+                                                    var isListed = uploadListedDict.GetValueOrDefault(uploadId, false);
+                                                    if (isListed)
+                                                    {
+                                                        <button type="button" class="btn btn-sm btn-outline-warning"
+                                                                data-bs-toggle="modal" data-bs-target="#unlistUpload-@uploadId" title="Unlist">
+                                                            <i class="align-middle" data-lucide="archive-x"></i>
+                                                        </button>
+                                                    }
+                                                    if (Model.IsAdmin)
+                                                    {
+                                                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                                                data-bs-toggle="modal" data-bs-target="#deleteUpload-@uploadId" title="Delete">
+                                                            <i class="align-middle" data-lucide="trash-2"></i>
+                                                        </button>
+                                                    }
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    @foreach (var revision in Model.Revisions)
+                    {
+                        if (revision.IsListed)
+                        {
+                            <div class="modal fade" id="unlistUpload-@revision.Id" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content text-start">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Confirm Unlist</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Unlist <strong>@Model.PackageName @(revision.LocalPackages.FirstOrDefault()?.Version ?? "")</strong>? Generated packages will be disabled.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="post" asp-action="Unlist" asp-route-id="@revision.Id">
+                                                @Html.AntiForgeryToken()
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-warning">Unlist</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        if (Model.IsAdmin)
+                        {
+                            <div class="modal fade" id="deleteUpload-@revision.Id" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content text-start">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Confirm Delete</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Permanently delete <strong>@Model.PackageName @(revision.LocalPackages.FirstOrDefault()?.Version ?? "")</strong> and all generated Local Packages?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="post" asp-action="Delete" asp-route-id="@revision.Id">
+                                                @Html.AntiForgeryToken()
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="d-none d-xl-block col-xl-2">
+        <div class="card border-primary">
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <i data-lucide="history" style="width:48px;height:48px;"></i>
+                </div>
+                <h6 class="mb-2">Version History</h6>
+                <p class="text-muted small mb-2">This page shows all uploaded versions of <strong>@Model.PackageName</strong>.</p>
+                <p class="text-muted small mb-0">Only the latest enabled version appears in APT repositories.</p>
+            </div>
+        </div>
+    </div>
+</div>

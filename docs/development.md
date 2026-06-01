@@ -69,7 +69,7 @@ Dockerfile 先单独复制 `package.json`/`package-lock.json` 再复制完整源
 
 ### Redirect 路径混淆
 
-`/ApkgUploads` vs `/ApkgUploads/Index` — ASP.NET Core 的路由匹配可能将一个重定向到另一个，导致 POST 数据在重定向中丢失（HTTP 302 将 POST 转为 GET）。始终在表单 action 中使用完整路径 `/Controller/Action`。
+`/ApkgPackages` vs `/ApkgPackages/Index` — ASP.NET Core 的路由匹配可能将一个重定向到另一个，导致 POST 数据在重定向中丢失（HTTP 302 将 POST 转为 GET）。始终在表单 action 中使用完整路径 `/Controller/Action`。
 
 ### 编译缓存竞争 MSB3492
 

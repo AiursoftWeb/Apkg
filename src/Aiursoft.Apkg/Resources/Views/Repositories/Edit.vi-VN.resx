@@ -88,4 +88,38 @@
     <value>Khi được bật, tệp Release sẽ được ký bằng khóa GPG đã chọn sau mỗi lần Đồng bộ hóa Kho. Các máy khách sử dụng &apos;signed-by=&apos; trong sources.list của chúng sẽ xác minh chữ ký này và từ chối các kho không có chữ ký hoặc có chữ ký sai.</value>
   </data>
 
+  <data name="Single value" xml:space="preserve">
+    <value>Single value</value>
+  </data>
+  <data name="This field accepts only a single value." xml:space="preserve">
+    <value>This field accepts only a single value.</value>
+  </data>
+  <data name="Multiple values" xml:space="preserve">
+    <value>Multiple values</value>
+  </data>
+  <data name="This field accepts multiple values. Separate them with commas." xml:space="preserve">
+    <value>This field accepts multiple values. Separate them with commas.</value>
+  </data>
+  <data name="The URL prefix for this repository. Must be a single lowercase identifier (e.g. &apos;anduinos&apos;, &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>The URL prefix for this repository. Must be a single lowercase identifier (e.g. &apos;anduinos&apos;, &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="The APT suite name. Must be a single identifier (e.g. &apos;noble&apos;, &apos;stable&apos;, &apos;bookworm&apos;)." xml:space="preserve">
+    <value>The APT suite name. Must be a single identifier (e.g. &apos;noble&apos;, &apos;stable&apos;, &apos;bookworm&apos;).</value>
+  </data>
+  <data name="Comma-separated list. Each value becomes a component subdirectory in the APT repository (e.g. &apos;main,universe,multiverse&apos;)." xml:space="preserve">
+    <value>Comma-separated list. Each value becomes a component subdirectory in the APT repository (e.g. &apos;main,universe,multiverse&apos;).</value>
+  </data>
+  <data name="Comma-separated list. Use Debian architecture names (e.g. &apos;amd64,arm64,i386&apos;). &apos;all&apos; packages are always included regardless of this setting." xml:space="preserve">
+    <value>Comma-separated list. Use Debian architecture names (e.g. &apos;amd64,arm64,i386&apos;). &apos;all&apos; packages are always included regardless of this setting.</value>
+  </data>
+  <data name="Repository Name" xml:space="preserve">
+    <value>Repository Name</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distro</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+
 </root>

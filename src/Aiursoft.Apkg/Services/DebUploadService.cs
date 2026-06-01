@@ -25,7 +25,7 @@ public class DebUploadService(
         string component,
         string tempDebPath,
         string uploadedByUserId,
-        int? apkgUploadId = null,
+        int? apkgRevisionId = null,
         bool allowDowngrade = false)
     {
         if (string.IsNullOrWhiteSpace(component))
@@ -162,7 +162,7 @@ public class DebUploadService(
         {
             UploadedByUserId = uploadedByUserId,
             RepositoryId = repo.Id,
-            ApkgUploadId = apkgUploadId,
+            ApkgRevisionId = apkgRevisionId,
             Package = pkgName,
             Version = pkgVersion,
             Architecture = pkgArch,

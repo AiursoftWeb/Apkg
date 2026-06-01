@@ -55,4 +55,14 @@
     <value>Виртуальный</value>
   </data>
 
+  <data name="All Architectures" xml:space="preserve">
+    <value>All Architectures</value>
+  </data>
+  <data name="All Components" xml:space="preserve">
+    <value>All Components</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+
 </root>

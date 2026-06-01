@@ -1,0 +1,117 @@
+@model Aiursoft.Apkg.Models.ApkgPackagesViewModels.ApkgUploadHistoryViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@Localizer["My Upload History"]</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-10">
+        <div class="card h-100">
+            <div class="card-body">
+                @if (!Model.Uploads.Any())
+                {
+                    <p class="text-muted mb-0">@Localizer["No uploads yet."]</p>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-striped align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>@Localizer["Package"]</th>
+                                    <th>@Localizer["Distro"]</th>
+                                    <th>@Localizer["Component"]</th>
+                                    <th>@Localizer["File"]</th>
+                                    <th>@Localizer["Packages"]</th>
+                                    <th>@Localizer["Status"]</th>
+                                    <th>@Localizer["Uploaded"]</th>
+                                    <th class="text-end">@Localizer["Actions"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Uploads)
+                                {
+                                    var rev = item.Revision;
+                                    <tr>
+                                        <td>
+                                            <a asp-action="PackageHistory"
+                                               asp-route-name="@item.PackageName"
+                                               asp-route-distro="@item.Distro"
+                                               asp-route-component="@item.Component"
+                                               class="text-decoration-none">
+                                                <strong>@item.PackageName</strong>
+                                            </a>
+                                        </td>
+                                        <td><span class="badge bg-dark">@item.Distro</span></td>
+                                        <td><span class="badge bg-dark">@item.Component</span></td>
+                                        <td><small class="text-muted">@rev.FileName</small></td>
+                                        <td><span class="badge bg-secondary">@item.PackageCount</span></td>
+                                        <td>
+                                            @if (rev.IsPublished)
+                                            {
+                                                <span class="badge bg-success">Published</span>
+                                            }
+                                            else if (!string.IsNullOrWhiteSpace(rev.VaultPath))
+                                            {
+                                                <span class="badge bg-warning text-dark">Draft</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-secondary">—</span>
+                                            }
+                                            @if (!rev.IsListed)
+                                            {
+                                                <span class="badge bg-secondary ms-1">Unlisted</span>
+                                            }
+                                        </td>
+                                        <td><small class="text-muted">@rev.UploadedAt.ToString("yyyy/M/d HH:mm")</small></td>
+                                        <td class="text-end">
+                                            <div class="btn-group">
+                                                @if (!rev.IsPublished && !string.IsNullOrWhiteSpace(rev.VaultPath))
+                                                {
+                                                    <a asp-action="Preview" asp-route-vaultPath="@rev.VaultPath"
+                                                       class="btn btn-sm btn-warning" title="Continue to Publish">
+                                                        <i class="align-middle me-1" data-lucide="upload-cloud"></i> Continue →
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a asp-action="Details" asp-route-id="@rev.Id"
+                                                       class="btn btn-sm btn-outline-info" title="@Localizer["View Details"]">
+                                                        <i class="align-middle" data-lucide="eye"></i>
+                                                    </a>
+                                                    <a asp-action="PackageHistory"
+                                                       asp-route-name="@item.PackageName"
+                                                       asp-route-distro="@item.Distro"
+                                                       asp-route-component="@item.Component"
+                                                       class="btn btn-sm btn-outline-info" title="@Localizer["Version History"]">
+                                                        <i class="align-middle" data-lucide="history"></i>
+                                                    </a>
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="d-none d-xl-block col-xl-2">
+        <div class="card border-primary">
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <i data-lucide="history" style="width:48px;height:48px;"></i>
+                </div>
+                <h6 class="mb-2">@Localizer["Upload History"]</h6>
+                <p class="text-muted small mb-2">@Localizer["Every <code>apkg push</code> creates a revision record. This page lists every upload you have made, whether it created a new package family or added a version to an existing one."]</p>
+                <hr />
+                <p class="text-muted small mb-0"><strong>@Localizer["Tip:"]</strong> @Localizer["Click a package name to see its full version history, or click the eye icon to inspect a specific revision."]</p>
+            </div>
+        </div>
+    </div>
+</div>

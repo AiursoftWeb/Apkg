@@ -1,0 +1,205 @@
+@model Aiursoft.Apkg.Models.ApkgPackagesViewModels.ApkgPackagesIndexViewModel
+@using Aiursoft.Apkg.Models.ApkgPackagesViewModels
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>@Localizer["My Packages (APKG)"]</h3>
+    </div>
+    <div class="col-auto ms-auto">
+        <a asp-action="Upload" class="btn btn-primary">
+            <i class="align-middle me-1" data-lucide="upload"></i>
+            @Localizer["Upload apkg mixed package"]
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-10">
+        <div class="card h-100">
+    <div class="card-body">
+        @if (!Model.Packages.Any())
+        {
+            <p class="text-muted mb-0">@Localizer["No APKG uploads yet."]</p>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-striped align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>@Localizer["Package"]</th>
+                            <th>@Localizer["Distro"]</th>
+                            <th>@Localizer["Component"]</th>
+                            <th>@Localizer["Published"]</th>
+                            <th>@Localizer["Active Versions"]</th>
+                            <th>@Localizer["Status"]</th>
+                            <th>@Localizer["Next Version"]</th>
+                            <th>@Localizer["Uploaded"]</th>
+                            <th class="text-end">@Localizer["Actions"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Packages)
+                        {
+                            var revision = item.DisplayRevision;
+                            var syncStatus = item.SyncStatus;
+                            var (statusText, statusClass) = syncStatus switch
+                            {
+                                UploadSyncStatus.Live       => ("Live",       "bg-success"),
+                                UploadSyncStatus.Signing    => ("Signing",    "bg-info"),
+                                UploadSyncStatus.Syncing    => ("Syncing",    "bg-info"),
+                                UploadSyncStatus.Superseded => ("Superseded", "bg-secondary"),
+                                UploadSyncStatus.Unlisted   => ("Unlisted",   "bg-secondary"),
+                                _                           => ("Draft",      "bg-secondary"),
+                            };
+
+                            string publishBadgeClass;
+                            if (item.TotalPackageCount == 0)
+                                publishBadgeClass = "bg-secondary";
+                            else if (item.PublishedCount == item.TotalPackageCount)
+                                publishBadgeClass = "bg-success";
+                            else if (item.PublishedCount > 0)
+                                publishBadgeClass = "bg-warning text-dark";
+                            else
+                                publishBadgeClass = "bg-danger";
+                            <tr>
+                                <td>
+                                    <a asp-action="PackageHistory" asp-route-name="@item.Package.Name" asp-route-distro="@item.Package.Distro" asp-route-component="@item.Package.Component" class="text-decoration-none">
+                                        <strong>@item.Package.Name</strong>
+                                    </a>
+                                </td>
+                                <td><span class="badge bg-dark">@item.Package.Distro</span></td>
+                                <td><span class="badge bg-dark">@item.Package.Component</span></td>
+                                <td>
+                                    <span class="badge @publishBadgeClass">
+                                        @item.PublishedCount/@item.TotalPackageCount
+                                    </span>
+                                </td>
+                                <td>
+                                    @if (item.LiveVersions.Count > 0)
+                                    {
+                                        @foreach (var version in item.LiveVersions)
+                                        {
+                                            <span class="badge bg-info me-1">@version</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <small class="text-muted">—</small>
+                                    }
+                                </td>
+                                <td><span class="badge @statusClass">@statusText</span></td>
+                                <td>
+                                    @if (item.NextVersionRevisionId.HasValue)
+                                    {
+                                        <a asp-action="Details" asp-route-id="@item.NextVersionRevisionId.Value" class="badge bg-warning text-dark text-decoration-none">
+                                            @item.NextVersionSummary
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <small class="text-muted">—</small>
+                                    }
+                                </td>
+                                <td><small class="text-muted">@revision.UploadedAt.ToString("yyyy/M/d HH:mm")</small></td>
+                                <td class="text-end">
+                                    <div class="btn-group">
+                                        @if (syncStatus == UploadSyncStatus.Draft && !string.IsNullOrWhiteSpace(revision.VaultPath))
+                                        {
+                                            <a asp-action="Preview" asp-route-vaultPath="@revision.VaultPath" class="btn btn-sm btn-warning" title="Continue to Preview &amp; Publish">
+                                                <i class="align-middle me-1" data-lucide="upload-cloud"></i> Continue →
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="Details" asp-route-id="@revision.Id" asp-route-tab="versions" class="btn btn-sm btn-outline-info" title="@Localizer["Version History"]">
+                                                <i class="align-middle" data-lucide="history"></i>
+                                            </a>
+                                            <a asp-action="Details" asp-route-id="@revision.Id" class="btn btn-sm btn-outline-info" title="@Localizer["Details"]">
+                                                <i class="align-middle" data-lucide="eye"></i>
+                                            </a>
+                                        }
+                                        @if (revision.IsListed)
+                                        {
+                                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#unlistUpload-@revision.Id" title="@Localizer["Unlist"]">
+                                                <i class="align-middle" data-lucide="archive-x"></i>
+                                            </button>
+                                        }
+                                        @if (Model.IsAdmin)
+                                        {
+                                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteUpload-@revision.Id" title="@Localizer["Delete"]">
+                                                <i class="align-middle" data-lucide="trash-2"></i>
+                                            </button>
+                                        }
+                                    </div>
+
+                                    @if (revision.IsListed)
+                                    {
+                                        <div class="modal fade" id="unlistUpload-@revision.Id" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content text-start">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">@Localizer["Confirm Unlist"]</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Localizer["Close"]"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @Localizer["Unlist"] <strong>@item.Package.Name</strong>? @Localizer["Generated packages will be disabled."]
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <form method="post" asp-action="Unlist" asp-route-id="@revision.Id">
+                                                            @Html.AntiForgeryToken()
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                                            <button type="submit" class="btn btn-warning">@Localizer["Unlist"]</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.IsAdmin)
+                                    {
+                                        <div class="modal fade" id="deleteUpload-@revision.Id" tabindex="-1" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content text-start">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Localizer["Close"]"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @Localizer["Permanently delete"] <strong>@item.Package.Name</strong> @Localizer["and all generated LocalPackages?"]
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <form method="post" asp-action="Delete" asp-route-id="@revision.Id">
+                                                            @Html.AntiForgeryToken()
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                                            <button type="submit" class="btn btn-danger">@Localizer["Delete"]</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+            </div>
+        </div>
+    </div>
+    <div class="d-none d-xl-block col-xl-2">
+        <div class="card border-primary">
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <i data-lucide="inbox" style="width:48px;height:48px;"></i>
+                </div>
+                <h6 class="mb-2">@Localizer["What is a mixed package?"]</h6>
+                <p class="text-muted small mb-2">@Localizer["An .apkg mixed package is Apkg's proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository."]</p>
+                <p class="text-muted small mb-0"><strong>@Localizer["Tip:"]</strong> @Localizer["Upload via CLI with <code>apkg push</code> or use the Web UI. Uploads must be published before they appear in repositories."]</p>
+            </div>
+        </div>
+    </div>
+</div>

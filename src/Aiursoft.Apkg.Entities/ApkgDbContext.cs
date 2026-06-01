@@ -13,7 +13,8 @@ public abstract class ApkgDbContext(DbContextOptions options) : IdentityDbContex
     public DbSet<AptBucket> AptBuckets => Set<AptBucket>();
     public DbSet<AptPackage> AptPackages => Set<AptPackage>();
     public DbSet<AptCertificate> AptCertificates => Set<AptCertificate>();
-    public DbSet<ApkgUpload> ApkgUploads => Set<ApkgUpload>();
+    public DbSet<ApkgPackage> ApkgPackages => Set<ApkgPackage>();
+    public DbSet<ApkgRevision> ApkgRevisions => Set<ApkgRevision>();
     public DbSet<LocalPackage> LocalPackages => Set<LocalPackage>();
     public DbSet<UserApiKey> UserApiKeys => Set<UserApiKey>();
     public DbSet<DependencyCheckReport> DependencyCheckReports => Set<DependencyCheckReport>();
@@ -21,6 +22,19 @@ public abstract class ApkgDbContext(DbContextOptions options) : IdentityDbContex
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+
+        builder.Entity<ApkgPackage>()
+            .HasMany(p => p.Revisions)
+            .WithOne(r => r.ApkgPackage)
+            .HasForeignKey(r => r.ApkgPackageId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<ApkgRevision>()
+            .HasMany(r => r.LocalPackages)
+            .WithOne(lp => lp.ApkgRevision)
+            .HasForeignKey(lp => lp.ApkgRevisionId)
+            .OnDelete(DeleteBehavior.Cascade);
+
         builder.Entity<AptPackage>()
             .Property(p => p.Extras)
             .HasConversion(

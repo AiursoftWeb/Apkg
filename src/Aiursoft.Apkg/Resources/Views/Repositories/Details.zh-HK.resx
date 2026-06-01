@@ -97,4 +97,32 @@
     <value>什麼是儲存庫？</value>
   </data>
 
+  <data name="Components" xml:space="preserve">
+    <value>組件</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>軟體包</value>
+  </data>
+  <data name="GPG Signing" xml:space="preserve">
+    <value>GPG 簽署</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>已啟用</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>已停用</value>
+  </data>
+  <data name="Upload Permission" xml:space="preserve">
+    <value>上傳權限</value>
+  </data>
+  <data name="Open to all" xml:space="preserve">
+    <value>對所有人開放</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>受限</value>
+  </data>
+  <data name="Staging Bucket" xml:space="preserve">
+    <value>暫存儲存桶</value>
+  </data>
+
 </root>

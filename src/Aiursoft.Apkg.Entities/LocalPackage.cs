@@ -19,10 +19,10 @@ public class LocalPackage
     [ForeignKey(nameof(UploadedByUserId))]
     public User? UploadedByUser { get; set; }
 
-    public int? ApkgUploadId { get; set; }
+    public int? ApkgRevisionId { get; set; }
 
-    [ForeignKey(nameof(ApkgUploadId))]
-    public ApkgUpload? ApkgUpload { get; set; }
+    [ForeignKey(nameof(ApkgRevisionId))]
+    public ApkgRevision? ApkgRevision { get; set; }
 
     public int RepositoryId { get; set; }
 

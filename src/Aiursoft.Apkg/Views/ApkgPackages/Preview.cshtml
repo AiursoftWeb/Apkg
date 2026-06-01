@@ -1,0 +1,151 @@
+@model Aiursoft.Apkg.Models.ApkgPackagesViewModels.ApkgPackagesPreviewViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>Preview APKG Upload</h3>
+    </div>
+</div>
+
+@if (ViewData.ModelState.ErrorCount > 0)
+{
+    <div class="alert alert-danger">
+        <div asp-validation-summary="All"></div>
+    </div>
+}
+
+@if (Model.AllTargetsUnmatched)
+{
+    <div class="alert alert-warning d-flex align-items-start" role="alert">
+        <div class="alert-icon me-3">
+            <i data-lucide="alert-triangle" style="width:24px;height:24px;"></i>
+        </div>
+        <div class="alert-message">
+            No targets matched any repository. Publishing will have no effect.
+        </div>
+    </div>
+}
+else if (Model.HasWarnings)
+{
+    <div class="alert alert-warning d-flex align-items-start" role="alert">
+        <div class="alert-icon me-3">
+            <i data-lucide="alert-triangle" style="width:24px;height:24px;"></i>
+        </div>
+        <div class="alert-message">
+            Some targets do not match any repository. You can still publish, but those targets will be skipped.
+        </div>
+    </div>
+}
+
+<div class="card mb-3">
+    <div class="card-header">Manifest</div>
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label text-muted">Package</label>
+                <div><strong>@Model.Manifest.Name</strong></div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label text-muted">Distro</label>
+                <div><span class="badge bg-dark">@Model.Manifest.Distro</span></div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label text-muted">Component</label>
+                <div><span class="badge bg-dark">@Model.Manifest.Component</span></div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label text-muted">Maintainer</label>
+                <div>@(string.IsNullOrWhiteSpace(Model.Manifest.Maintainer) ? "—" : Model.Manifest.Maintainer)</div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label text-muted">Homepage</label>
+                <div>
+                    @if (string.IsNullOrWhiteSpace(Model.Manifest.Homepage))
+                    {
+                        <span>—</span>
+                    }
+                    else
+                    {
+                        <a href="@Model.Manifest.Homepage" target="_blank" rel="noopener noreferrer">@Model.Manifest.Homepage</a>
+                    }
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label text-muted">License</label>
+                <div>@(string.IsNullOrWhiteSpace(Model.Manifest.License) ? "—" : Model.Manifest.License)</div>
+            </div>
+            <div class="col-12">
+                <label class="form-label text-muted">Description</label>
+                <div>@(string.IsNullOrWhiteSpace(Model.Manifest.Description) ? "—" : Model.Manifest.Description)</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Targets</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Target</th>
+                        <th>Distro</th>
+                        <th>Suites</th>
+                        <th>Arch</th>
+                        <th>Matching Repos</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Targets)
+                    {
+                        <tr>
+                            <td><code>@item.Entry.DebFile</code></td>
+                            <td>@Model.Manifest.Distro</td>
+                            <td>@item.Entry.Suite</td>
+                            <td><span class="badge bg-dark">@item.Entry.Architecture</span></td>
+                            <td>
+                                @if (item.HasMatch)
+                                {
+                                    <div class="d-flex flex-wrap gap-1">
+                                        @foreach (var repo in item.MatchingRepositories)
+                                        {
+                                            <span class="badge bg-light text-dark border">@repo.Name (@repo.Suite)</span>
+                                        }
+                                    </div>
+                                }
+                                else
+                                {
+                                    <span class="text-warning">No matching repository</span>
+                                }
+                            </td>
+                            <td>
+                                @if (item.HasMatch)
+                                {
+                                    <span class="badge bg-success">Ready</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning text-dark">Warning</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <hr />
+        <form asp-action="Publish" method="post" class="d-inline">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="vaultPath" value="@Model.VaultPath" />
+            <input type="hidden" name="fileName" value="@Model.FileName" />
+            <button type="submit" class="btn btn-primary">Publish</button>
+        </form>
+        <form asp-action="DiscardDraft" method="post" class="d-inline ms-2">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="vaultPath" value="@Model.VaultPath" />
+            <button type="submit" class="btn btn-secondary">Discard &amp; Re-upload</button>
+        </form>
+    </div>
+</div>

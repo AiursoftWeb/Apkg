@@ -20,6 +20,18 @@
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto">
         <h3>@Localizer["Package Details"] - <code>@pkg.Package</code></h3>
+        @if (Model.Repo != null)
+        {
+            <div class="mt-1">
+                <i class="align-middle" data-lucide="database" style="width:14px;height:14px;"></i>
+                <a asp-action="Details" asp-route-id="@Model.Repo.Id" class="text-decoration-none">
+                    @Model.Repo.Name
+                </a>
+                <span class="text-muted small ms-2">
+                    @Model.Repo.Distro / @Model.Repo.Suite / @Model.Repo.Components / @Model.Repo.Architecture
+                </span>
+            </div>
+        }
     </div>
 </div>
 

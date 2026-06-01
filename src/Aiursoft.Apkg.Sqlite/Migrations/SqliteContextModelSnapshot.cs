@@ -17,7 +17,7 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.8");
 
-            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgUpload", b =>
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgPackage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,13 +36,48 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("FileName")
-                        .IsRequired()
+                    b.Property<string>("Homepage")
+                        .HasMaxLength(512)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("License")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Homepage")
-                        .HasMaxLength(512)
+                    b.Property<string>("Maintainer")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OwnerUserId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerUserId");
+
+                    b.HasIndex("Name", "Distro", "Component")
+                        .IsUnique();
+
+                    b.ToTable("ApkgPackages");
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgRevision", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ApkgPackageId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(256)
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsListed")
@@ -50,14 +85,6 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 
                     b.Property<bool>("IsPublished")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Maintainer")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Package")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("TEXT");
 
                     b.Property<DateTime>("UploadedAt")
                         .HasColumnType("TEXT");
@@ -72,9 +99,11 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApkgPackageId");
+
                     b.HasIndex("UploadedByUserId");
 
-                    b.ToTable("ApkgUploads");
+                    b.ToTable("ApkgRevisions");
                 });
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptBucket", b =>
@@ -482,7 +511,7 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ApkgUploadId")
+                    b.Property<int?>("ApkgRevisionId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Architecture")
@@ -589,7 +618,7 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApkgUploadId");
+                    b.HasIndex("ApkgRevisionId");
 
                     b.HasIndex("UploadedByUserId");
 
@@ -847,13 +876,32 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgUpload", b =>
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgPackage", b =>
                 {
+                    b.HasOne("Aiursoft.Apkg.Entities.User", "OwnerUser")
+                        .WithMany()
+                        .HasForeignKey("OwnerUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OwnerUser");
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgRevision", b =>
+                {
+                    b.HasOne("Aiursoft.Apkg.Entities.ApkgPackage", "ApkgPackage")
+                        .WithMany("Revisions")
+                        .HasForeignKey("ApkgPackageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Aiursoft.Apkg.Entities.User", "UploadedByUser")
                         .WithMany()
                         .HasForeignKey("UploadedByUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ApkgPackage");
 
                     b.Navigation("UploadedByUser");
                 });
@@ -924,9 +972,10 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.LocalPackage", b =>
                 {
-                    b.HasOne("Aiursoft.Apkg.Entities.ApkgUpload", "ApkgUpload")
-                        .WithMany("Packages")
-                        .HasForeignKey("ApkgUploadId");
+                    b.HasOne("Aiursoft.Apkg.Entities.ApkgRevision", "ApkgRevision")
+                        .WithMany("LocalPackages")
+                        .HasForeignKey("ApkgRevisionId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Aiursoft.Apkg.Entities.AptRepository", "Repository")
                         .WithMany()
@@ -940,7 +989,7 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ApkgUpload");
+                    b.Navigation("ApkgRevision");
 
                     b.Navigation("Repository");
 
@@ -1009,9 +1058,14 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgUpload", b =>
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgPackage", b =>
                 {
-                    b.Navigation("Packages");
+                    b.Navigation("Revisions");
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgRevision", b =>
+                {
+                    b.Navigation("LocalPackages");
                 });
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptBucket", b =>

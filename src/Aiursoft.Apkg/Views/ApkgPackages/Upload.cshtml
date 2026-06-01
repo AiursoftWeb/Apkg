@@ -1,0 +1,44 @@
+@model Aiursoft.Apkg.Models.ApkgPackagesViewModels.ApkgPackagesUploadViewModel
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto">
+        <h3>Upload APKG Package</h3>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Upload" method="post">
+            @Html.AntiForgeryToken()
+
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="ApkgFilePath" class="form-label"></label>
+                <vc:file-upload
+                    asp-for="ApkgFilePath"
+                    subfolder="apkg-upload"
+                    allowed-extensions="apkg"
+                    is-vault="true"
+                    max-size-in-mb="2048">
+                </vc:file-upload>
+                <div class="form-text">Upload a .apkg bundle stored in Vault. You will review the manifest before publishing.</div>
+                <span asp-validation-for="ApkgFilePath" class="text-danger"></span>
+            </div>
+
+            <hr />
+            <button type="submit" class="btn btn-primary">Preview</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section styles {
+    <link rel="stylesheet" href="~/node_modules/dropify/dist/css/dropify.min.css" />
+    <link rel="stylesheet" href="~/styles/uploader.css" />
+}
+@* ReSharper disable once Razor.SectionNotResolved *@
+@section scripts {
+    <script src="~/node_modules/dropify/dist/js/dropify.min.js"></script>
+}

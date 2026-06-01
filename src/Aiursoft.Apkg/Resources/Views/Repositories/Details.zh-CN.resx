@@ -97,4 +97,32 @@
     <value>什么是软件仓库？</value>
   </data>
 
+  <data name="Components" xml:space="preserve">
+    <value>组件</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>软件包</value>
+  </data>
+  <data name="GPG Signing" xml:space="preserve">
+    <value>GPG 签名</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>已启用</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>已禁用</value>
+  </data>
+  <data name="Upload Permission" xml:space="preserve">
+    <value>上传权限</value>
+  </data>
+  <data name="Open to all" xml:space="preserve">
+    <value>对所有人开放</value>
+  </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>受限</value>
+  </data>
+  <data name="Staging Bucket" xml:space="preserve">
+    <value>暂存存储桶</value>
+  </data>
+
 </root>

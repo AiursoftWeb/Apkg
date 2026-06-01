@@ -17,8 +17,8 @@ public class ApkgTempCleanupJob(
     public async Task ExecuteAsync()
     {
         var cutoff = DateTime.UtcNow.AddMinutes(-30);
-        var expiredUploads = await db.ApkgUploads
-            .Where(u => !u.IsPublished && !u.Packages.Any() && u.UploadedAt < cutoff)
+        var expiredUploads = await db.ApkgRevisions
+            .Where(u => !u.IsPublished && !u.LocalPackages.Any() && u.UploadedAt < cutoff)
             .ToListAsync();
 
         if (expiredUploads.Count == 0)
@@ -44,7 +44,7 @@ public class ApkgTempCleanupJob(
             }
         }
 
-        db.ApkgUploads.RemoveRange(expiredUploads);
+        db.ApkgRevisions.RemoveRange(expiredUploads);
         await db.SaveChangesAsync();
         logger.LogInformation("ApkgTempCleanupJob finished. Deleted {Count} stale pending upload record(s).", expiredUploads.Count);
     }

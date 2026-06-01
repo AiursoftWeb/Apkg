@@ -88,4 +88,38 @@
     <value>啟用後，每次儲存庫同步完成後，Release 檔案都會使用所選的 GPG 金鑰進行簽章。在 sources.list 中使用 &apos;signed-by=&apos; 的用戶端將驗證此簽章，並拒絕未簽章或簽章錯誤的儲存庫。</value>
   </data>
 
+  <data name="Single value" xml:space="preserve">
+    <value>單值</value>
+  </data>
+  <data name="This field accepts only a single value." xml:space="preserve">
+    <value>此欄位僅接受單個值。</value>
+  </data>
+  <data name="Multiple values" xml:space="preserve">
+    <value>多值</value>
+  </data>
+  <data name="This field accepts multiple values. Separate them with commas." xml:space="preserve">
+    <value>此欄位接受多個值，請用逗號分隔。</value>
+  </data>
+  <data name="The URL prefix for this repository. Must be a single lowercase identifier (e.g. &apos;anduinos&apos;, &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>此倉庫的 URL 前綴。必須為單個小寫標識符（例如 &apos;anduinos&apos;、&apos;ubuntu&apos;）。</value>
+  </data>
+  <data name="The APT suite name. Must be a single identifier (e.g. &apos;noble&apos;, &apos;stable&apos;, &apos;bookworm&apos;)." xml:space="preserve">
+    <value>APT 套件名稱。必須為單個標識符（例如 &apos;noble&apos;、&apos;stable&apos;、&apos;bookworm&apos;）。</value>
+  </data>
+  <data name="Comma-separated list. Each value becomes a component subdirectory in the APT repository (e.g. &apos;main,universe,multiverse&apos;)." xml:space="preserve">
+    <value>逗號分隔的列表。每個值對應 APT 倉庫中的一個組件子目錄（例如 &apos;main,universe,multiverse&apos;）。</value>
+  </data>
+  <data name="Comma-separated list. Use Debian architecture names (e.g. &apos;amd64,arm64,i386&apos;). &apos;all&apos; packages are always included regardless of this setting." xml:space="preserve">
+    <value>逗號分隔的列表。使用 Debian 架構名稱（例如 &apos;amd64,arm64,i386&apos;）。&apos;all&apos; 架構的包始終包含，不受此設定影響。</value>
+  </data>
+  <data name="Repository Name" xml:space="preserve">
+    <value>倉庫名稱</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>發行版</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>套件</value>
+  </data>
+
 </root>

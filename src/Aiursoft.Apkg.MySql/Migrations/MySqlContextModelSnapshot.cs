@@ -22,7 +22,7 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgUpload", b =>
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgPackage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,28 +43,57 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
+                    b.Property<string>("Homepage")
+                        .HasMaxLength(512)
+                        .HasColumnType("varchar(512)");
+
+                    b.Property<string>("License")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<string>("Maintainer")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
+
+                    b.Property<string>("OwnerUserId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerUserId");
+
+                    b.HasIndex("Name", "Distro", "Component")
+                        .IsUnique();
+
+                    b.ToTable("ApkgPackages");
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgRevision", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ApkgPackageId")
+                        .HasColumnType("int");
+
                     b.Property<string>("FileName")
                         .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("varchar(256)");
-
-                    b.Property<string>("Homepage")
-                        .HasMaxLength(512)
-                        .HasColumnType("varchar(512)");
 
                     b.Property<bool>("IsListed")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsPublished")
                         .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("Maintainer")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Package")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("varchar(128)");
 
                     b.Property<DateTime>("UploadedAt")
                         .HasColumnType("datetime(6)");
@@ -79,9 +108,11 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApkgPackageId");
+
                     b.HasIndex("UploadedByUserId");
 
-                    b.ToTable("ApkgUploads");
+                    b.ToTable("ApkgRevisions");
                 });
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptBucket", b =>
@@ -503,7 +534,7 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("ApkgUploadId")
+                    b.Property<int?>("ApkgRevisionId")
                         .HasColumnType("int");
 
                     b.Property<string>("Architecture")
@@ -610,7 +641,7 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApkgUploadId");
+                    b.HasIndex("ApkgRevisionId");
 
                     b.HasIndex("UploadedByUserId");
 
@@ -874,13 +905,32 @@ namespace Aiursoft.Apkg.MySql.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgUpload", b =>
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgPackage", b =>
                 {
+                    b.HasOne("Aiursoft.Apkg.Entities.User", "OwnerUser")
+                        .WithMany()
+                        .HasForeignKey("OwnerUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OwnerUser");
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgRevision", b =>
+                {
+                    b.HasOne("Aiursoft.Apkg.Entities.ApkgPackage", "ApkgPackage")
+                        .WithMany("Revisions")
+                        .HasForeignKey("ApkgPackageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Aiursoft.Apkg.Entities.User", "UploadedByUser")
                         .WithMany()
                         .HasForeignKey("UploadedByUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ApkgPackage");
 
                     b.Navigation("UploadedByUser");
                 });
@@ -951,9 +1001,10 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.LocalPackage", b =>
                 {
-                    b.HasOne("Aiursoft.Apkg.Entities.ApkgUpload", "ApkgUpload")
-                        .WithMany("Packages")
-                        .HasForeignKey("ApkgUploadId");
+                    b.HasOne("Aiursoft.Apkg.Entities.ApkgRevision", "ApkgRevision")
+                        .WithMany("LocalPackages")
+                        .HasForeignKey("ApkgRevisionId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Aiursoft.Apkg.Entities.AptRepository", "Repository")
                         .WithMany()
@@ -967,7 +1018,7 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ApkgUpload");
+                    b.Navigation("ApkgRevision");
 
                     b.Navigation("Repository");
 
@@ -1036,9 +1087,14 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgUpload", b =>
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgPackage", b =>
                 {
-                    b.Navigation("Packages");
+                    b.Navigation("Revisions");
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgRevision", b =>
+                {
+                    b.Navigation("LocalPackages");
                 });
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptBucket", b =>

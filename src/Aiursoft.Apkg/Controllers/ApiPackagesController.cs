@@ -88,10 +88,9 @@ public class ApiPackagesController(
             }
 
             // Ownership check: (Name, Distro, Component) triplet is unique
-            var ownedByOther = await db.ApkgUploads
-                .AnyAsync(u => u.Package == manifest.Name && u.Distro == distro && u.Component == component
-                               && u.UploadedByUserId != userId);
-            if (ownedByOther)
+            var existingPackage = await db.ApkgPackages
+                .FirstOrDefaultAsync(p => p.Name == manifest.Name && p.Distro == distro && p.Component == component);
+            if (existingPackage != null && existingPackage.OwnerUserId != userId)
             {
                 summary.Errors.Add(
                     $"Package '{manifest.Name}' for distro '{distro}' component '{component}' is already owned by another user.");
@@ -109,23 +108,36 @@ public class ApiPackagesController(
                 }
             }
 
-            var uploadRecord = new ApkgUpload
+            // Find or create ApkgPackage
+            if (existingPackage == null)
             {
+                existingPackage = new ApkgPackage
+                {
+                    Name = manifest.Name,
+                    Distro = distro,
+                    Component = component,
+                    Description = NullIfEmpty(manifest.Description),
+                    Maintainer = NullIfEmpty(manifest.Maintainer),
+                    Homepage = NullIfEmpty(manifest.Homepage),
+                    License = NullIfEmpty(manifest.License),
+                    OwnerUserId = userId
+                };
+                db.ApkgPackages.Add(existingPackage);
+                await db.SaveChangesAsync();
+            }
+
+            var revisionRecord = new ApkgRevision
+            {
+                ApkgPackageId = existingPackage.Id,
                 UploadedByUserId = userId,
                 FileName = Path.GetFileName(apkg.FileName),
-                Package = manifest.Name,
-                Distro = distro,
-                Component = component,
-                Description = NullIfEmpty(manifest.Description),
-                Maintainer = NullIfEmpty(manifest.Maintainer),
-                Homepage = NullIfEmpty(manifest.Homepage),
                 VaultPath = null,
                 IsPublished = false,
                 IsListed = true
             };
-            db.ApkgUploads.Add(uploadRecord);
+            db.ApkgRevisions.Add(revisionRecord);
             await db.SaveChangesAsync();
-            summary.UploadId = uploadRecord.Id;
+            summary.UploadId = revisionRecord.Id;
 
             var isAdmin = User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageRepositories);
             var canUploadRestricted = User.HasClaim(AppPermissions.Type, AppPermissionNames.CanUploadToRestrictedRepositories);
@@ -135,7 +147,7 @@ public class ApiPackagesController(
                 var archiveDebPath = NormalizeArchiveEntryName(entry.DebFile);
                 var extractedDebSource = extractedEntries[archiveDebPath];
 
-                // KEEP IN SYNC with ArchitectureMatches helper below and ApkgUploadsController
+                // KEEP IN SYNC with ArchitectureMatches helper below and ApkgPackagesController
                 var matchingRepositories = (await db.AptRepositories
                         .Where(r => r.Distro == distro
                                     && r.Suite == entry.Suite)
@@ -174,7 +186,7 @@ public class ApiPackagesController(
                         await using (var destination = System.IO.File.Create(uploadTempPath))
                             await source.CopyToAsync(destination);
 
-                        var result = await debUploadService.UploadDebToRepositoryAsync(repo, component, uploadTempPath, userId, uploadRecord.Id,
+                        var result = await debUploadService.UploadDebToRepositoryAsync(repo, component, uploadTempPath, userId, revisionRecord.Id,
                             allowDowngrade: allowDowngrade);
                         if (result.Package != null)
                         {
@@ -225,14 +237,14 @@ public class ApiPackagesController(
                 if (summary.Errors.Count > 0 && !skipDuplicate)
                     return Conflict(summary);
 
-                uploadRecord.IsPublished = true;
+                revisionRecord.IsPublished = true;
                 await db.SaveChangesAsync();
                 return Ok(summary);
             }
 
             // Nothing was uploaded — clean up the record and any associated packages
-            db.LocalPackages.RemoveRange(uploadRecord.Packages);
-            db.ApkgUploads.Remove(uploadRecord);
+            db.LocalPackages.RemoveRange(revisionRecord.LocalPackages);
+            db.ApkgRevisions.Remove(revisionRecord);
             await db.SaveChangesAsync();
 
             if (summary.Errors.Count > 0 && !skipDuplicate)
@@ -336,7 +348,7 @@ public class ApiPackagesController(
         public required string Arch { get; init; }
     }
 
-    // KEEP IN SYNC with inline condition and ApkgUploadsController.ArchitectureMatches.
+    // KEEP IN SYNC with inline condition and ApkgPackagesController.ArchitectureMatches.
     // EF can't translate this to SQL, so queries duplicate the logic inline.
     // Any change to the inline condition must be mirrored here.
     internal static bool ArchitectureMatches(string repoArchitecture, string entryArchitecture)

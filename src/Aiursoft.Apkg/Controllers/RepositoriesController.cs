@@ -58,7 +58,7 @@ public class RepositoriesController(
 
     [HttpGet]
     [AllowAnonymous]
-    public async Task<IActionResult> Packages(int id, string? searchName, string? sortOrder, int page = 1)
+    public async Task<IActionResult> Packages(int id, string? searchName, string? sortOrder, string? filterArchitecture, string? filterComponent, int page = 1)
     {
         if (!await CheckAccessAsync(SettingsMap.AllowAnonymousBrowseRepository))
             return User.Identity?.IsAuthenticated == true ? Forbid() : Challenge();
@@ -77,6 +77,16 @@ public class RepositoriesController(
 
         var baseQuery = dbContext.AptPackages
             .Where(p => p.BucketId == repo.PrimaryBucketId);
+
+        // Apply filter dropdowns
+        if (!string.IsNullOrWhiteSpace(filterArchitecture))
+        {
+            baseQuery = baseQuery.Where(p => p.Architecture == filterArchitecture);
+        }
+        if (!string.IsNullOrWhiteSpace(filterComponent))
+        {
+            baseQuery = baseQuery.Where(p => p.Component == filterComponent);
+        }
 
         const int pageSize = 100;
         List<AptPackage> items;
@@ -108,12 +118,31 @@ public class RepositoriesController(
                 .ToListAsync();
         }
 
+        // Distinct filter values (from ALL packages in bucket, not filtered)
+        var allArchitectures = await dbContext.AptPackages
+            .Where(p => p.BucketId == repo.PrimaryBucketId)
+            .Select(p => p.Architecture)
+            .Distinct()
+            .OrderBy(a => a)
+            .ToListAsync();
+
+        var allComponents = await dbContext.AptPackages
+            .Where(p => p.BucketId == repo.PrimaryBucketId)
+            .Select(p => p.Component)
+            .Distinct()
+            .OrderBy(c => c)
+            .ToListAsync();
+
         var model = new RepoPackagesViewModel
         {
             Repo = repo,
             Packages = items,
             SearchName = searchName,
             SortOrder = sortOrder,
+            FilterArchitecture = filterArchitecture,
+            FilterComponent = filterComponent,
+            AllArchitectures = allArchitectures,
+            AllComponents = allComponents,
             Page = page,
             TotalCount = totalCount,
             PageSize = pageSize,
@@ -221,15 +250,20 @@ public class RepositoriesController(
 
         var repo = await dbContext.AptRepositories
             .Include(r => r.PrimaryBucket)
+            .Include(r => r.SecondaryBucket)
             .Include(r => r.Certificate)
             .Include(r => r.Mirror)
             .FirstOrDefaultAsync(r => r.Id == id);
 
         if (repo == null) return NotFound();
 
+        var packageCount = await dbContext.LocalPackages
+            .CountAsync(lp => lp.RepositoryId == id && lp.IsEnabled);
+
         var model = new RepoDetailsViewModel
         {
             Repo = repo,
+            PackageCount = packageCount,
             PageTitle = $"Repository - {repo.Name}"
         };
         return this.StackView(model);

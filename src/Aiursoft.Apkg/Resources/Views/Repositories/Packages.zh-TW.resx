@@ -55,4 +55,14 @@
     <value>虛擬</value>
   </data>
 
+  <data name="All Architectures" xml:space="preserve">
+    <value>全部架構</value>
+  </data>
+  <data name="All Components" xml:space="preserve">
+    <value>全部組件</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>清除篩選</value>
+  </data>
+
 </root>

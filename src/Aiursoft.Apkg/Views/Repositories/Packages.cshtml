@@ -8,14 +8,40 @@
 
 <div class="card">
     <div class="card-header">
-        <form method="get" class="row g-3">
+        <form method="get" class="row g-3 align-items-end">
             <input type="hidden" name="id" value="@Model.Repo.Id" />
             <input type="hidden" name="sortOrder" value="@Model.SortOrder" />
             <div class="col-auto">
+                <label class="form-label small text-muted mb-1">@Localizer["Architecture"]</label>
+                <select name="filterArchitecture" class="form-select" onchange="this.form.submit()">
+                    <option value="">@Localizer["All Architectures"]</option>
+                    @foreach (var arch in Model.AllArchitectures)
+                    {
+                        <option value="@arch" selected="@(Model.FilterArchitecture == arch)">@arch</option>
+                    }
+                </select>
+            </div>
+            <div class="col-auto">
+                <label class="form-label small text-muted mb-1">@Localizer["Component"]</label>
+                <select name="filterComponent" class="form-select" onchange="this.form.submit()">
+                    <option value="">@Localizer["All Components"]</option>
+                    @foreach (var comp in Model.AllComponents)
+                    {
+                        <option value="@comp" selected="@(Model.FilterComponent == comp)">@comp</option>
+                    }
+                </select>
+            </div>
+            <div class="col-auto">
+                <label class="form-label small text-muted mb-1">&nbsp;</label>
                 <input type="text" name="searchName" class="form-control" placeholder="@Localizer["Search package..."]" value="@Model.SearchName">
             </div>
             <div class="col-auto">
+                <label class="form-label small text-muted mb-1">&nbsp;</label>
                 <button type="submit" class="btn btn-primary">@Localizer["Search"]</button>
+                @if (!string.IsNullOrEmpty(Model.FilterArchitecture) || !string.IsNullOrEmpty(Model.FilterComponent) || !string.IsNullOrEmpty(Model.SearchName))
+                {
+                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@Model.SortOrder" class="btn btn-outline-secondary ms-1">@Localizer["Clear"]</a>
+                }
             </div>
         </form>
     </div>
@@ -24,24 +50,24 @@
             <thead>
             <tr>
                 <th>
-                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "name_asc" ? "name_desc" : "name_asc")" asp-route-searchName="@Model.SearchName">
+                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "name_asc" ? "name_desc" : "name_asc")" asp-route-searchName="@Model.SearchName" asp-route-filterArchitecture="@Model.FilterArchitecture" asp-route-filterComponent="@Model.FilterComponent">
                         @Localizer["Package"]
                     </a>
                 </th>
                 <th>@Localizer["Version"]</th>
                 <th>@Localizer["Architecture"]</th>
                 <th>
-                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "component_asc" ? "component_desc" : "component_asc")" asp-route-searchName="@Model.SearchName">
+                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "component_asc" ? "component_desc" : "component_asc")" asp-route-searchName="@Model.SearchName" asp-route-filterArchitecture="@Model.FilterArchitecture" asp-route-filterComponent="@Model.FilterComponent">
                         @Localizer["Component"]
                     </a>
                 </th>
                 <th>
-                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "size_asc" ? "size_desc" : "size_asc")" asp-route-searchName="@Model.SearchName">
+                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "size_asc" ? "size_desc" : "size_asc")" asp-route-searchName="@Model.SearchName" asp-route-filterArchitecture="@Model.FilterArchitecture" asp-route-filterComponent="@Model.FilterComponent">
                         @Localizer["Size"]
                     </a>
                 </th>
                 <th>
-                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "status_asc" ? "status_desc" : "status_asc")" asp-route-searchName="@Model.SearchName">
+                    <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "status_asc" ? "status_desc" : "status_asc")" asp-route-searchName="@Model.SearchName" asp-route-filterArchitecture="@Model.FilterArchitecture" asp-route-filterComponent="@Model.FilterComponent">
                         @Localizer["Status"]
                     </a>
                 </th>
@@ -88,7 +114,7 @@
                         }
                         var p = i;
                         <li class="page-item @(Model.Page == p ? "active" : "")">
-                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-page="@p" asp-route-searchName="@Model.SearchName" asp-route-sortOrder="@Model.SortOrder">@p</a>
+                            <a class="page-link" asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-page="@p" asp-route-searchName="@Model.SearchName" asp-route-sortOrder="@Model.SortOrder" asp-route-filterArchitecture="@Model.FilterArchitecture" asp-route-filterComponent="@Model.FilterComponent">@p</a>
                         </li>
                     }
                 }

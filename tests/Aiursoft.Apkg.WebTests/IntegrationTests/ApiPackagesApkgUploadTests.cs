@@ -178,7 +178,7 @@ public class ApiPackagesApkgUploadTests : TestBase
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
             "Upload with no matching repo should return OK (warnings only).");
 
-        var uploadCount = _db.ApkgUploads.Count();
+        var uploadCount = _db.ApkgRevisions.Count();
         Assert.AreEqual(0, uploadCount,
             "Upload record should be deleted when nothing was uploaded.");
     }
@@ -192,7 +192,7 @@ public class ApiPackagesApkgUploadTests : TestBase
         var manifestXml = """
             <?xml version="1.0" encoding="utf-8"?>
             <ApkgPackage>
-              <Name>test-pkg</Name>
+              <Name>preflight-test-pkg</Name>
               <Distro>anduinos</Distro>
               <Component>main</Component>
               <Entries>
@@ -219,7 +219,7 @@ public class ApiPackagesApkgUploadTests : TestBase
         Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode,
             "Pre-flight should reject missing entries before creating a record.");
 
-        var uploadCount = _db.ApkgUploads.Count();
+        var uploadCount = _db.ApkgRevisions.Count();
         Assert.AreEqual(0, uploadCount,
             "No upload record should exist when pre-flight validation fails.");
     }
@@ -294,7 +294,7 @@ public class ApiPackagesApkgUploadTests : TestBase
         };
         await userManager.CreateAsync(userB, "Test@123456!");
 
-        // Persist an upload record for User A via the API endpoint
+        // Persist a package record for User A via a direct DB insert
         var manifestXml = """
             <?xml version="1.0" encoding="utf-8"?>
             <ApkgPackage>
@@ -311,18 +311,15 @@ public class ApiPackagesApkgUploadTests : TestBase
             </ApkgPackage>
             """;
 
-        // Insert an upload record directly into the DB for User A
-        // (avoid relying on real .deb processing to create a persistent record)
+        // Insert a package record directly into the DB for User A
+        // The ownership check now looks at ApkgPackages table, not ApkgUploads
         var userARecord = _db.Users.First(u => u.Email!.StartsWith("apkgupload-"));
-        _db.ApkgUploads.Add(new ApkgUpload
+        _db.ApkgPackages.Add(new ApkgPackage
         {
-            UploadedByUserId = userARecord.Id,
-            FileName = "owned-pkg.apkg",
-            Package = "owned-pkg",
+            Name = "owned-pkg",
             Distro = "anduinos",
             Component = "main",
-            IsPublished = true,
-            IsListed = true
+            OwnerUserId = userARecord.Id
         });
         await _db.SaveChangesAsync();
 
@@ -359,7 +356,7 @@ public class ApiPackagesApkgUploadTests : TestBase
     {
         // Same user uploading the same triplet should succeed (not be rejected)
 
-        // First, directly insert an upload record in the DB
+        // First, directly insert a package record in the DB
         var userEmail = $"apkgupload-{Guid.NewGuid():N}@test.com";
         var userManager = GetService<UserManager<User>>();
         var user = new User
@@ -371,15 +368,12 @@ public class ApiPackagesApkgUploadTests : TestBase
         };
         await userManager.CreateAsync(user, "Test@123456!");
 
-        _db.ApkgUploads.Add(new ApkgUpload
+        _db.ApkgPackages.Add(new ApkgPackage
         {
-            UploadedByUserId = user.Id,
-            FileName = "mypkg.apkg",
-            Package = "mypkg",
+            Name = "mypkg",
             Distro = "anduinos",
             Component = "main",
-            IsPublished = true,
-            IsListed = true
+            OwnerUserId = user.Id
         });
         await _db.SaveChangesAsync();
 
@@ -425,6 +419,139 @@ public class ApiPackagesApkgUploadTests : TestBase
         var responseJson = await response.Content.ReadAsStringAsync();
         Assert.IsFalse(responseJson.Contains("already owned"),
             "Must not mention 'already owned' when the user owns the triplet.");
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Ownership: different triplet = no conflict
+    // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task ApkgUpload_Ownership_DifferentDistro_NoConflict()
+    {
+        var rawKeyA = await CreateApiKeyAsync(withManageRepos: true);
+        var userManager = GetService<UserManager<User>>();
+
+        // User A creates package "a1" for distro "anduinos"
+        var manifestA = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage>
+              <Name>a1</Name>
+              <Distro>anduinos</Distro>
+              <Component>main</Component>
+              <Entries>
+                <Entry>
+                  <DebFile>a1.deb</DebFile>
+                  <Suite>noble</Suite>
+                  <Architecture>amd64</Architecture>
+                </Entry>
+              </Entries>
+            </ApkgPackage>
+            """;
+        var apkgA = CreateApkgArchive(manifestA, ("a1.deb", new byte[64]));
+        using var formA = new MultipartFormDataContent();
+        formA.Add(CreateOctetStreamContent(apkgA), "apkg", "a1.apkg");
+        using var reqA = CreateAuthedUploadRequest(rawKeyA, formA);
+        await Http.SendAsync(reqA);
+
+        // User B tries same name "a1" but DIFFERENT distro "ubuntu"
+        var rawKeyB = await CreateApiKeyAsync(withManageRepos: true);
+        var manifestB = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage>
+              <Name>a1</Name>
+              <Distro>ubuntu</Distro>
+              <Component>main</Component>
+              <Entries>
+                <Entry>
+                  <DebFile>a1.deb</DebFile>
+                  <Suite>noble</Suite>
+                  <Architecture>amd64</Architecture>
+                </Entry>
+              </Entries>
+            </ApkgPackage>
+            """;
+        var apkgB = CreateApkgArchive(manifestB, ("a1.deb", new byte[64]));
+        using var formB = new MultipartFormDataContent();
+        formB.Add(CreateOctetStreamContent(apkgB), "apkg", "a1-ubuntu.apkg");
+        using var reqB = CreateAuthedUploadRequest(rawKeyB, formB);
+
+        var response = await Http.SendAsync(reqB);
+
+        // Must NOT be 403 — different distro = different triplet = different namespace
+        Assert.AreNotEqual(HttpStatusCode.Forbidden, response.StatusCode,
+            "Different distro means different triplet; must not return 403.");
+        var responseJson = await response.Content.ReadAsStringAsync();
+        Assert.IsFalse(responseJson.Contains("already owned"),
+            "Must not mention 'already owned' when triplet differs by distro.");
+
+        // Both packages should exist in DB as separate families
+        var packageCount = _db.ApkgPackages.Count(p => p.Name == "a1");
+        Assert.AreEqual(2, packageCount,
+            "Two separate ApkgPackages should exist for the same name with different distros.");
+    }
+
+    [TestMethod]
+    public async Task ApkgUpload_Ownership_DifferentComponent_NoConflict()
+    {
+        var rawKeyA = await CreateApiKeyAsync(withManageRepos: true);
+
+        // User A creates "a1" for "anduinos/main"
+        var manifestA = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage>
+              <Name>a1</Name>
+              <Distro>anduinos</Distro>
+              <Component>main</Component>
+              <Entries>
+                <Entry>
+                  <DebFile>a1.deb</DebFile>
+                  <Suite>noble</Suite>
+                  <Architecture>amd64</Architecture>
+                </Entry>
+              </Entries>
+            </ApkgPackage>
+            """;
+        var apkgA = CreateApkgArchive(manifestA, ("a1.deb", new byte[64]));
+        using var formA = new MultipartFormDataContent();
+        formA.Add(CreateOctetStreamContent(apkgA), "apkg", "a1.apkg");
+        using var reqA = CreateAuthedUploadRequest(rawKeyA, formA);
+        await Http.SendAsync(reqA);
+
+        // User B tries same name + same distro but DIFFERENT component
+        var rawKeyB = await CreateApiKeyAsync(withManageRepos: true);
+        var manifestB = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage>
+              <Name>a1</Name>
+              <Distro>anduinos</Distro>
+              <Component>restricted</Component>
+              <Entries>
+                <Entry>
+                  <DebFile>a1.deb</DebFile>
+                  <Suite>noble</Suite>
+                  <Architecture>amd64</Architecture>
+                </Entry>
+              </Entries>
+            </ApkgPackage>
+            """;
+        var apkgB = CreateApkgArchive(manifestB, ("a1.deb", new byte[64]));
+        using var formB = new MultipartFormDataContent();
+        formB.Add(CreateOctetStreamContent(apkgB), "apkg", "a1-restricted.apkg");
+        using var reqB = CreateAuthedUploadRequest(rawKeyB, formB);
+
+        var response = await Http.SendAsync(reqB);
+
+        // Must NOT be 403 — different component = different triplet
+        Assert.AreNotEqual(HttpStatusCode.Forbidden, response.StatusCode,
+            "Different component means different triplet; must not return 403.");
+        var responseJson = await response.Content.ReadAsStringAsync();
+        Assert.IsFalse(responseJson.Contains("already owned"),
+            "Must not mention 'already owned' when triplet differs by component.");
+
+        // Both packages should exist
+        var packageCount = _db.ApkgPackages.Count(p => p.Name == "a1" && p.Distro == "anduinos");
+        Assert.AreEqual(2, packageCount,
+            "Two separate ApkgPackages should exist for same (name, distro) with different components.");
     }
 
     // ──────────────────────────────────────────────────────────────────────

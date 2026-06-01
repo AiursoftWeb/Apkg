@@ -19,7 +19,11 @@
             <div class="card-body">
                 <p><strong>@Localizer["Distro"]:</strong> @Model.Repo.Distro</p>
                 <p><strong>@Localizer["Suite"]:</strong> @Model.Repo.Suite</p>
+                <p><strong>@Localizer["Components"]:</strong> @Model.Repo.Components</p>
                 <p><strong>@Localizer["Architecture"]:</strong> @Model.Repo.Architecture</p>
+                <p><strong>@Localizer["Packages"]:</strong> @Model.PackageCount</p>
+                <p><strong>@Localizer["GPG Signing"]:</strong> @(Model.Repo.EnableGpgSign ? Localizer["Enabled"] : Localizer["Disabled"])</p>
+                <p><strong>@Localizer["Upload Permission"]:</strong> @(Model.Repo.AllowAnyoneToUpload ? Localizer["Open to all"] : Localizer["Restricted"])</p>
                 <p><strong>@Localizer["Mirror Source"]:</strong> @(Model.Repo.Mirror?.Suite ?? "None")</p>
                 @if (canManage)
                 {
@@ -27,6 +31,16 @@
                     @if (Model.Repo.PrimaryBucketId != null)
                     {
                         <a asp-controller="Buckets" asp-action="Packages" asp-route-id="@Model.Repo.PrimaryBucketId" class="badge bg-success text-decoration-none">#@Model.Repo.PrimaryBucketId</a>
+                    }
+                    else
+                    {
+                        <span class="text-muted">-</span>
+                    }
+                    </p>
+                    <p><strong>@Localizer["Staging Bucket"]:</strong>
+                    @if (Model.Repo.SecondaryBucketId != null)
+                    {
+                        <a asp-controller="Buckets" asp-action="Packages" asp-route-id="@Model.Repo.SecondaryBucketId" class="badge bg-warning text-decoration-none">#@Model.Repo.SecondaryBucketId</a>
                     }
                     else
                     {

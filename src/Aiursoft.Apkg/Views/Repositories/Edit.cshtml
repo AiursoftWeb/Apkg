@@ -15,23 +15,32 @@
             }
 
             <div class="mb-3">
-                <label asp-for="Distro" class="form-label"></label>
+                <label asp-for="Distro" class="form-label">
+                    @Localizer["Distro"]
+                    <span class="badge bg-info ms-1" title="@Localizer["This field accepts only a single value."]">@Localizer["Single value"]</span>
+                </label>
                 <input asp-for="Distro" class="form-control" placeholder="ubuntu" required />
-                <div class="form-text">@Localizer["The URL prefix for this repository (e.g. 'ubuntu')."]</div>
+                <div class="form-text">@Localizer["The URL prefix for this repository. Must be a single lowercase identifier (e.g. 'anduinos', 'ubuntu')."]</div>
                 <span asp-validation-for="Distro" class="text-danger"></span>
             </div>
 
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label asp-for="Name" class="form-label"></label>
+                    <label asp-for="Name" class="form-label">
+                        @Localizer["Repository Name"]
+                        <span class="badge bg-info ms-1" title="@Localizer["This field accepts only a single value."]">@Localizer["Single value"]</span>
+                    </label>
                     <input asp-for="Name" class="form-control" placeholder="my-custom-repo" required />
                     <div class="form-text">@Localizer["A human-readable label for this repository. Not used by Debian/APT at all."]</div>
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label asp-for="Suite" class="form-label"></label>
+                    <label asp-for="Suite" class="form-label">
+                        @Localizer["Suite"]
+                        <span class="badge bg-info ms-1" title="@Localizer["This field accepts only a single value."]">@Localizer["Single value"]</span>
+                    </label>
                     <input asp-for="Suite" class="form-control" placeholder="stable" required />
-                    <div class="form-text">@Localizer["The APT suite name (e.g. jammy, stable)."]</div>
+                    <div class="form-text">@Localizer["The APT suite name. Must be a single identifier (e.g. 'noble', 'stable', 'bookworm')."]</div>
                     <span asp-validation-for="Suite" class="text-danger"></span>
                 </div>
             </div>
@@ -40,21 +49,25 @@
                 <div class="col-md-6 mb-3">
                     <label asp-for="Components" class="form-label">
                         @Localizer["Components"]
+                        <span class="badge bg-warning ms-1" title="@Localizer["This field accepts multiple values. Separate them with commas."]" style="color:#000;">@Localizer["Multiple values"]</span>
                         <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
                            data-bs-toggle="tooltip" data-bs-placement="top"
                            data-bs-title="@Localizer["Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run."]"></i>
                     </label>
                     <input asp-for="Components" class="form-control" placeholder="main,universe,multiverse,restricted" required />
+                    <div class="form-text">@Localizer["Comma-separated list. Each value becomes a component subdirectory in the APT repository (e.g. 'main,universe,multiverse')."]</div>
                     <span asp-validation-for="Components" class="text-danger"></span>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label asp-for="Architecture" class="form-label">
                         @Localizer["Architecture"]
+                        <span class="badge bg-warning ms-1" title="@Localizer["This field accepts multiple values. Separate them with commas."]" style="color:#000;">@Localizer["Multiple values"]</span>
                         <i data-lucide="circle-help" style="width:14px;height:14px;vertical-align:middle;margin-left:3px;cursor:help;"
                            data-bs-toggle="tooltip" data-bs-placement="top"
-                           data-bs-title="@Localizer["Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except 'all') are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. \"amd64,arm64\")."]"></i>
+                           data-bs-title="@Localizer["Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except 'all') are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run."]"></i>
                     </label>
                     <input asp-for="Architecture" class="form-control" placeholder="amd64,arm64" required />
+                    <div class="form-text">@Localizer["Comma-separated list. Use Debian architecture names (e.g. 'amd64,arm64,i386'). 'all' packages are always included regardless of this setting."]</div>
                     <span asp-validation-for="Architecture" class="text-danger"></span>
                 </div>
             </div>
