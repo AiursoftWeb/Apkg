@@ -61,11 +61,59 @@ public class ApkgUploadsController(
 
         var uploadStatuses = await ComputeUploadStatusesAsync(latestUploads);
 
+        // Determine which LocalPackages are live (in primary buckets) for Published N/M and Active Versions display
+        var allRepoIds = latestUploads
+            .SelectMany(u => u.Packages)
+            .Select(p => p.RepositoryId)
+            .Distinct()
+            .ToList();
+
+        var repoPrimaryBuckets = await db.AptRepositories
+            .Where(r => allRepoIds.Contains(r.Id) && r.PrimaryBucketId != null)
+            .Select(r => new { r.Id, r.PrimaryBucketId })
+            .ToListAsync();
+        var repoPrimaryMap = repoPrimaryBuckets.ToDictionary(r => r.Id, r => r.PrimaryBucketId!.Value);
+
+        var allPrimaryBucketIds = repoPrimaryBuckets
+            .Select(r => r.PrimaryBucketId!.Value)
+            .Distinct()
+            .ToList();
+
+        var liveKeySet = new HashSet<(int BucketId, string Package, string Version, string Architecture)>();
+        if (allPrimaryBucketIds.Count > 0)
+        {
+            var aptPackages = await db.AptPackages
+                .Where(p => allPrimaryBucketIds.Contains(p.BucketId))
+                .Select(p => new { p.BucketId, p.Package, p.Version, p.Architecture })
+                .ToListAsync();
+            foreach (var ap in aptPackages)
+                liveKeySet.Add((ap.BucketId, ap.Package, ap.Version, ap.Architecture));
+        }
+
+        var indexItems = latestUploads.Select(upload =>
+        {
+            var totalCount = upload.Packages.Count;
+            var livePackages = upload.Packages
+                .Where(lp =>
+                    lp.IsEnabled &&
+                    repoPrimaryMap.TryGetValue(lp.RepositoryId, out var bucketId) &&
+                    liveKeySet.Contains((bucketId, lp.Package, lp.Version, lp.Architecture)))
+                .ToList();
+
+            return new ApkgUploadIndexItem
+            {
+                Upload = upload,
+                PublishedCount = livePackages.Count,
+                TotalPackageCount = totalCount,
+                LiveVersions = livePackages.Select(lp => lp.Version).Distinct().ToList(),
+                SyncStatus = uploadStatuses.GetValueOrDefault(upload.Id, UploadSyncStatus.Draft)
+            };
+        }).ToList();
+
         return this.StackView(new ApkgUploadsIndexViewModel
         {
-            Uploads = latestUploads,
-            IsAdmin = isAdmin,
-            UploadStatuses = uploadStatuses
+            Uploads = indexItems,
+            IsAdmin = isAdmin
         });
     }
 

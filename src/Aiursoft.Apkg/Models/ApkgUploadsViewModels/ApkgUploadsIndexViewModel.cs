@@ -1,4 +1,3 @@
-using Aiursoft.Apkg.Entities;
 using Aiursoft.UiStack.Layout;
 
 namespace Aiursoft.Apkg.Models.ApkgUploadsViewModels;
@@ -26,7 +25,7 @@ public class ApkgUploadsIndexViewModel : UiStackLayoutViewModel
         PageTitle = "My Packages (APKG)";
     }
 
-    public required List<ApkgUpload> Uploads { get; init; }
+    public required List<ApkgUploadIndexItem> Uploads { get; init; }
     public bool IsAdmin { get; init; }
     public Dictionary<int, UploadSyncStatus> UploadStatuses { get; init; } = new();
 }

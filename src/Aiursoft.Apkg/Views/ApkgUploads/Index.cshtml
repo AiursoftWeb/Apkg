@@ -3,12 +3,12 @@
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto">
-        <h3>My Packages (APKG)</h3>
+        <h3>@Localizer["My Packages (APKG)"]</h3>
     </div>
     <div class="col-auto ms-auto">
         <a asp-action="Upload" class="btn btn-primary">
             <i class="align-middle me-1" data-lucide="upload"></i>
-            Upload New Package
+            @Localizer["Upload New Package"]
         </a>
     </div>
 </div>
@@ -19,7 +19,7 @@
     <div class="card-body">
         @if (!Model.Uploads.Any())
         {
-            <p class="text-muted mb-0">No APKG uploads yet.</p>
+            <p class="text-muted mb-0">@Localizer["No APKG uploads yet."]</p>
         }
         else
         {
@@ -27,30 +27,39 @@
                 <table class="table table-striped align-middle mb-0">
                     <thead>
                         <tr>
-                            <th>Package</th>
-                            <th>Component</th>
-                            <th>Status</th>
-                            <th>Uploaded</th>
-                            @if (Model.IsAdmin)
-                            {
-                                <th>Uploader</th>
-                            }
-                            <th class="text-end">Actions</th>
+                            <th>@Localizer["Package"]</th>
+                            <th>@Localizer["Component"]</th>
+                            <th>@Localizer["Published"]</th>
+                            <th>@Localizer["Active Versions"]</th>
+                            <th>@Localizer["Status"]</th>
+                            <th>@Localizer["Uploaded"]</th>
+                            <th class="text-end">@Localizer["Actions"]</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var upload in Model.Uploads)
+                        @foreach (var item in Model.Uploads)
                         {
-                            var syncStatus = Model.UploadStatuses.GetValueOrDefault(upload.Id, UploadSyncStatus.Draft);
+                            var upload = item.Upload;
+                            var syncStatus = item.SyncStatus;
                             var (statusText, statusClass) = syncStatus switch
                             {
-                                UploadSyncStatus.Live      => ("Live",      "bg-success"),
-                                UploadSyncStatus.Signing   => ("Signing",   "bg-info"),
-                                UploadSyncStatus.Syncing   => ("Syncing",   "bg-info"),
+                                UploadSyncStatus.Live       => ("Live",       "bg-success"),
+                                UploadSyncStatus.Signing    => ("Signing",    "bg-info"),
+                                UploadSyncStatus.Syncing    => ("Syncing",    "bg-info"),
                                 UploadSyncStatus.Superseded => ("Superseded", "bg-secondary"),
-                                UploadSyncStatus.Unlisted  => ("Unlisted",  "bg-secondary"),
-                                _                          => ("Draft",     "bg-secondary"),
+                                UploadSyncStatus.Unlisted   => ("Unlisted",   "bg-secondary"),
+                                _                           => ("Draft",      "bg-secondary"),
                             };
+
+                            string publishBadgeClass;
+                            if (item.TotalPackageCount == 0)
+                                publishBadgeClass = "bg-secondary";
+                            else if (item.PublishedCount == item.TotalPackageCount)
+                                publishBadgeClass = "bg-success";
+                            else if (item.PublishedCount > 0)
+                                publishBadgeClass = "bg-warning text-dark";
+                            else
+                                publishBadgeClass = "bg-danger";
                             <tr>
                                 <td>
                                     <a asp-action="Details" asp-route-id="@upload.Id" class="text-decoration-none">
@@ -58,12 +67,26 @@
                                     </a>
                                 </td>
                                 <td><span class="badge bg-dark">@upload.Component</span></td>
+                                <td>
+                                    <span class="badge @publishBadgeClass">
+                                        @item.PublishedCount/@item.TotalPackageCount
+                                    </span>
+                                </td>
+                                <td>
+                                    @if (item.LiveVersions.Count > 0)
+                                    {
+                                        @foreach (var version in item.LiveVersions)
+                                        {
+                                            <span class="badge bg-info me-1">@version</span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <small class="text-muted">—</small>
+                                    }
+                                </td>
                                 <td><span class="badge @statusClass">@statusText</span></td>
                                 <td><small class="text-muted">@upload.UploadedAt.ToString("yyyy/M/d HH:mm")</small></td>
-                                @if (Model.IsAdmin)
-                                {
-                                    <td><small>@(upload.UploadedByUser?.UserName ?? "—")</small></td>
-                                }
                                 <td class="text-end">
                                     <div class="btn-group">
                                         @if (syncStatus == UploadSyncStatus.Draft && !string.IsNullOrWhiteSpace(upload.VaultPath))
@@ -74,22 +97,22 @@
                                         }
                                         else
                                         {
-                                            <a asp-action="Details" asp-route-id="@upload.Id" asp-route-tab="versions" class="btn btn-sm btn-outline-info" title="Version History">
+                                            <a asp-action="Details" asp-route-id="@upload.Id" asp-route-tab="versions" class="btn btn-sm btn-outline-info" title="@Localizer["Version History"]">
                                                 <i class="align-middle" data-lucide="history"></i>
                                             </a>
-                                            <a asp-action="Details" asp-route-id="@upload.Id" class="btn btn-sm btn-outline-info" title="Details">
+                                            <a asp-action="Details" asp-route-id="@upload.Id" class="btn btn-sm btn-outline-info" title="@Localizer["Details"]">
                                                 <i class="align-middle" data-lucide="eye"></i>
                                             </a>
                                         }
                                         @if (upload.IsListed)
                                         {
-                                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#unlistUpload-@upload.Id" title="Unlist">
+                                            <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#unlistUpload-@upload.Id" title="@Localizer["Unlist"]">
                                                 <i class="align-middle" data-lucide="archive-x"></i>
                                             </button>
                                         }
                                         @if (Model.IsAdmin)
                                         {
-                                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteUpload-@upload.Id" title="Delete">
+                                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteUpload-@upload.Id" title="@Localizer["Delete"]">
                                                 <i class="align-middle" data-lucide="trash-2"></i>
                                             </button>
                                         }
@@ -101,17 +124,17 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content text-start">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Confirm Unlist</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        <h5 class="modal-title">@Localizer["Confirm Unlist"]</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Localizer["Close"]"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Unlist <strong>@upload.Package</strong>? Generated packages will be disabled.
+                                                        @Localizer["Unlist"] <strong>@upload.Package</strong>? @Localizer["Generated packages will be disabled."]
                                                     </div>
                                                     <div class="modal-footer">
                                                         <form method="post" asp-action="Unlist" asp-route-id="@upload.Id">
                                                             @Html.AntiForgeryToken()
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                            <button type="submit" class="btn btn-warning">Unlist</button>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                                            <button type="submit" class="btn btn-warning">@Localizer["Unlist"]</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -125,17 +148,17 @@
                                             <div class="modal-dialog">
                                                 <div class="modal-content text-start">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Confirm Delete</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Localizer["Close"]"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Permanently delete <strong>@upload.Package</strong> and all generated LocalPackages?
+                                                        @Localizer["Permanently delete"] <strong>@upload.Package</strong> @Localizer["and all generated LocalPackages?"]
                                                     </div>
                                                     <div class="modal-footer">
                                                         <form method="post" asp-action="Delete" asp-route-id="@upload.Id">
                                                             @Html.AntiForgeryToken()
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                                            <button type="submit" class="btn btn-danger">@Localizer["Delete"]</button>
                                                         </form>
                                                     </div>
                                                 </div>
