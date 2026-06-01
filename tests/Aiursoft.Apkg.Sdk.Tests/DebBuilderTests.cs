@@ -1347,6 +1347,60 @@ public class DebBuilderTests
         Assert.AreEqual("$(Unknown)", result);
     }
 
+    // ── ResolvePackageVersion ─────────────────────────────────────────────────
+
+    [TestMethod]
+    public void ResolvePackageVersion_ReplacesSuite()
+    {
+        var result = DebBuilder.ResolvePackageVersion("1.0.0+$(Suite)", "jammy");
+        Assert.AreEqual("1.0.0+jammy", result);
+    }
+
+    [TestMethod]
+    public void ResolvePackageVersion_ReplacesSuiteShortName()
+    {
+        var map = new Dictionary<string, string> { ["questing-addon"] = "questing" };
+        var result = DebBuilder.ResolvePackageVersion("1.0+$(SuiteShortName)", "questing-addon", map);
+        Assert.AreEqual("1.0+questing", result);
+    }
+
+    [TestMethod]
+    public void ResolvePackageVersion_SuiteShortNameFallsBackToSuite()
+    {
+        var map = new Dictionary<string, string>();
+        var result = DebBuilder.ResolvePackageVersion("1.0+$(SuiteShortName)", "jammy", map);
+        Assert.AreEqual("1.0+jammy", result);
+    }
+
+    [TestMethod]
+    public void ResolvePackageVersion_NullMap_FallsBackToSuite()
+    {
+        var result = DebBuilder.ResolvePackageVersion("1.0+$(SuiteShortName)", "noble");
+        Assert.AreEqual("1.0+noble", result);
+    }
+
+    [TestMethod]
+    public void ResolvePackageVersion_NoVariables_Unchanged()
+    {
+        var result = DebBuilder.ResolvePackageVersion("2.1.0", "jammy");
+        Assert.AreEqual("2.1.0", result);
+    }
+
+    [TestMethod]
+    public void ResolvePackageVersion_MultipleVariables()
+    {
+        var map = new Dictionary<string, string> { ["noble-addon"] = "noble" };
+        var result = DebBuilder.ResolvePackageVersion("$(Suite).$(SuiteShortName).1", "noble-addon", map);
+        Assert.AreEqual("noble-addon.noble.1", result);
+    }
+
+    [TestMethod]
+    public void ResolvePackageVersion_EmptyInput_ReturnsEmpty()
+    {
+        var result = DebBuilder.ResolvePackageVersion("", "jammy");
+        Assert.AreEqual("", result);
+    }
+
     /// <summary>
     /// Regression test for non-deterministic .deb builds.
     ///

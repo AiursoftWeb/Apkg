@@ -64,18 +64,8 @@ public class DebBuilder
         string? upstreamPostinst = null;
         string? upstreamPrerm = null;
         string? upstreamPostrm = null;
-        var resolvedVersion = project.PackageVersion;
-
-        // Resolve $(Suite) and $(SuiteShortName) early so downstream code (including
-        // upstream-version derivation) always works with a concrete version string.
-        // $(SuiteShortName) uses DependencyCheckSuiteMap (e.g. "noble-addon=noble"), falling
-        // back to the raw suite name when no mapping is found.
-        var suiteShortName = project.GetDependencyCheckSuiteMap().TryGetValue(suite, out var mappedShortName)
-            ? mappedShortName
-            : suite;
-        resolvedVersion = resolvedVersion
-            .Replace("$(Suite)", suite)
-            .Replace("$(SuiteShortName)", suiteShortName);
+        var resolvedVersion = ResolvePackageVersion(
+            project.PackageVersion, suite, project.GetDependencyCheckSuiteMap());
 
         if (project.HasUpstreamSource)
         {
@@ -545,6 +535,23 @@ public class DebBuilder
     /// <summary>
     /// Substitutes $(Property) variables in a string value using the current build context.
     /// </summary>
+    /// <summary>
+    /// Resolves $(Suite) and $(SuiteShortName) placeholders in a package version string.
+    /// Pure function with no I/O — safe to call before building.
+    /// </summary>
+    public static string ResolvePackageVersion(
+        string packageVersion,
+        string suite,
+        Dictionary<string, string>? suiteShortNameMap = null)
+    {
+        var suiteShortName = suiteShortNameMap != null && suiteShortNameMap.TryGetValue(suite, out var mapped)
+            ? mapped
+            : suite;
+        return packageVersion
+            .Replace("$(Suite)", suite)
+            .Replace("$(SuiteShortName)", suiteShortName);
+    }
+
     internal static string ResolveVariables(
         string value, AosprojProject project, string distro, string suite, string arch)
     {
