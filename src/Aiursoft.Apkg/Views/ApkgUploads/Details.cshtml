@@ -296,7 +296,6 @@
                                         <th>Architecture</th>
                                         <th>Version</th>
                                         <th>Suite</th>
-                                        <th>Distro</th>
                                         <th>Sync Status</th>
                                         <th>Uploaded</th>
                                         @if (Model.IsAdmin)
@@ -328,7 +327,6 @@
                                             </td>
                                             <td><span class="badge bg-info">@pkg.Version</span></td>
                                             <td><small>@(pkg.Repository?.Suite ?? "—")</small></td>
-                                            <td><small>@(pkg.Repository?.Distro ?? "—")</small></td>
                                             <td>
                                                 @switch (ps.Status)
                                                 {

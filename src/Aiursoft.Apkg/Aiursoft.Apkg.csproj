@@ -10,7 +10,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Aiursoft.WebTools" Version="10.0.13" />
+
     <PackageReference Include="Aiursoft.ClickhouseLoggerProvider" Version="10.0.20" />
     <PackageReference Include="Aiursoft.DbTools.Switchable" Version="10.0.20" />
     <PackageReference Include="Aiursoft.Scanner" Version="10.0.8" />
@@ -30,14 +30,14 @@
   </ItemGroup>
   <ItemGroup>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>Aiursoft.Apkg.WebTests</_Parameter1>
-    </AssemblyAttribute>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Aiursoft.Apkg.InMemory\Aiursoft.Apkg.InMemory.csproj" />
-    <ProjectReference Include="..\Aiursoft.Apkg.MySql\Aiursoft.Apkg.MySql.csproj" />
-    <ProjectReference Include="..\Aiursoft.Apkg.Sdk\Aiursoft.Apkg.Sdk.csproj" />
-    <ProjectReference Include="..\Aiursoft.Apkg.Sqlite\Aiursoft.Apkg.Sqlite.csproj" />
-    <ProjectReference Include="..\Aiursoft.AptClient\Aiursoft.AptClient.csproj" />
-  </ItemGroup>
-</Project>
+      <_Parameter1>Aiursoft.Apkg.WebTests<</_Parameter1>
+      </AssemblyAttribute>
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Aiursoft.Apkg.InMemory\Aiursoft.Apkg.InMemory.csproj" />
+      <ProjectReference Include="..\Aiursoft.Apkg.MySql\Aiursoft.Apkg.MySql.csproj" />
+      <ProjectReference Include="..\Aiursoft.Apkg.Sdk\Aiursoft.Apkg.Sdk.csproj" />
+      <ProjectReference Include="..\Aiursoft.Apkg.Sqlite\Aiursoft.Apkg.Sqlite.csproj" />
+      <ProjectReference Include="..\Aiursoft.AptClient\Aiursoft.AptClient.csproj" />
+    </ItemGroup>
+  </Project>
