@@ -222,7 +222,10 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
         var manifestXml = SerializeManifest(manifest);
 
         Directory.CreateDirectory(outputDir);
-        var apkgFileName = $"{project.PackageName}.apkg";
+        var staticVersion = DeriveStaticVersion(project.PackageVersion);
+        var apkgFileName = string.IsNullOrWhiteSpace(staticVersion)
+            ? $"{project.PackageName}.apkg"
+            : $"{project.PackageName}.{staticVersion}.apkg";
         var apkgPath = Path.Combine(outputDir, apkgFileName);
 
         logger.LogInformation("Writing {File}...", apkgFileName);
@@ -291,6 +294,24 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
         var middle = rest[..lastUnderscore];
         var secondLastUnderscore = middle.LastIndexOf('_');
         return middle[..secondLastUnderscore];
+    }
+
+    /// <summary>
+    /// Derives a static, filesystem-safe version string from a PackageVersion template.
+    /// Template variables like $(SuiteShortName) are stripped so that e.g.
+    /// "1.0.3+$(SuiteShortName)1" becomes "1.0.3" and "1.0.2" stays "1.0.2".
+    /// </summary>
+    internal static string DeriveStaticVersion(string packageVersion)
+    {
+        if (string.IsNullOrWhiteSpace(packageVersion))
+            return string.Empty;
+
+        var dollarIdx = packageVersion.IndexOf("$(", StringComparison.Ordinal);
+        if (dollarIdx < 0)
+            return packageVersion.Trim();
+
+        // Trim any trailing separator characters left before the template variable
+        return packageVersion[..dollarIdx].TrimEnd('+', '-', '~', '.');
     }
 
     internal static (string suite, string arch) ParseDebFileName(string fileName)

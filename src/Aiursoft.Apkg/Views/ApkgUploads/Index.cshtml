@@ -1,4 +1,5 @@
 @model Aiursoft.Apkg.Models.ApkgUploadsViewModels.ApkgUploadsIndexViewModel
+@using Aiursoft.Apkg.Models.ApkgUploadsViewModels
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto">
@@ -40,12 +41,16 @@
                     <tbody>
                         @foreach (var upload in Model.Uploads)
                         {
-                            var statusText = upload.IsListed
-                                ? (upload.IsPublished ? "Published" : "Pending")
-                                : "Unlisted";
-                            var statusClass = upload.IsListed
-                                ? (upload.IsPublished ? "bg-success" : "bg-warning text-dark")
-                                : "bg-secondary";
+                            var syncStatus = Model.UploadStatuses.GetValueOrDefault(upload.Id, UploadSyncStatus.Draft);
+                            var (statusText, statusClass) = syncStatus switch
+                            {
+                                UploadSyncStatus.Live      => ("Live",      "bg-success"),
+                                UploadSyncStatus.Signing   => ("Signing",   "bg-info"),
+                                UploadSyncStatus.Syncing   => ("Syncing",   "bg-info"),
+                                UploadSyncStatus.Superseded => ("Superseded", "bg-secondary"),
+                                UploadSyncStatus.Unlisted  => ("Unlisted",  "bg-secondary"),
+                                _                          => ("Draft",     "bg-secondary"),
+                            };
                             <tr>
                                 <td>
                                     <a asp-action="Details" asp-route-id="@upload.Id" class="text-decoration-none">
@@ -61,12 +66,21 @@
                                 }
                                 <td class="text-end">
                                     <div class="btn-group">
-                                        <a asp-action="Details" asp-route-id="@upload.Id" asp-route-tab="versions" class="btn btn-sm btn-outline-info" title="Version History">
-                                            <i class="align-middle" data-lucide="history"></i>
-                                        </a>
-                                        <a asp-action="Details" asp-route-id="@upload.Id" class="btn btn-sm btn-outline-info" title="Details">
-                                            <i class="align-middle" data-lucide="eye"></i>
-                                        </a>
+                                        @if (syncStatus == UploadSyncStatus.Draft && !string.IsNullOrWhiteSpace(upload.VaultPath))
+                                        {
+                                            <a asp-action="Preview" asp-route-vaultPath="@upload.VaultPath" class="btn btn-sm btn-warning" title="Continue to Preview &amp; Publish">
+                                                <i class="align-middle me-1" data-lucide="upload-cloud"></i> Continue →
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="Details" asp-route-id="@upload.Id" asp-route-tab="versions" class="btn btn-sm btn-outline-info" title="Version History">
+                                                <i class="align-middle" data-lucide="history"></i>
+                                            </a>
+                                            <a asp-action="Details" asp-route-id="@upload.Id" class="btn btn-sm btn-outline-info" title="Details">
+                                                <i class="align-middle" data-lucide="eye"></i>
+                                            </a>
+                                        }
                                         @if (upload.IsListed)
                                         {
                                             <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#unlistUpload-@upload.Id" title="Unlist">

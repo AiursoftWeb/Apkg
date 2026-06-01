@@ -25,6 +25,24 @@
 
 <div class="row">
     <div class="col-xl-10">
+        @{
+            var skippedWarnings = TempData["SkippedRepoWarnings"] as string;
+            if (!string.IsNullOrWhiteSpace(skippedWarnings))
+            {
+                <div class="alert alert-warning d-flex align-items-start gap-2 mb-3" role="alert">
+                    <i data-lucide="triangle-alert" style="width:18px;height:18px;flex-shrink:0;margin-top:2px;"></i>
+                    <div>
+                        <strong>Some repositories were skipped during publish</strong> because you do not have permission to upload to them:
+                        <ul class="mb-0 mt-1">
+                            @foreach (var repo in skippedWarnings.Split('|', StringSplitOptions.RemoveEmptyEntries))
+                            {
+                                <li><code>@repo</code></li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            }
+        }
         <div class="card">
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
@@ -47,6 +65,29 @@
                 @if (Model.ActiveTab == "overview")
                 {
                     @* ── Overview Tab ── *@
+                    @if (!Model.Upload.IsPublished)
+                    {
+                        <div class="alert alert-warning d-flex align-items-center gap-2 mb-3" role="alert">
+                            <i data-lucide="clock" style="width:18px;height:18px;flex-shrink:0;"></i>
+                            <div>
+                                This upload is a <strong>draft</strong> and has not been published yet. No packages have been generated.
+                                @if (!string.IsNullOrWhiteSpace(Model.Upload.VaultPath))
+                                {
+                                    <a asp-action="Preview" asp-route-vaultPath="@Model.Upload.VaultPath" class="alert-link ms-1">Go to Preview to Publish →</a>
+                                }
+                            </div>
+                        </div>
+                    }
+                    @if (Model.LatestVersionId.HasValue && Model.Upload.Id != Model.LatestVersionId)
+                    {
+                        <div class="alert alert-info d-flex align-items-center gap-2 mb-3" role="alert">
+                            <i data-lucide="info" style="width:18px;height:18px;flex-shrink:0;"></i>
+                            <div>
+                                A newer version of <strong>@Model.Upload.Package</strong> was uploaded.
+                                <a asp-action="Details" asp-route-id="@Model.LatestVersionId" class="alert-link ms-1">View the latest version →</a>
+                            </div>
+                        </div>
+                    }
                     <div class="row g-3 mb-3">
                         <div class="col-md-3">
                             <label class="form-label text-muted">Component</label>
@@ -109,10 +150,10 @@
                         }
                     </div>
 
-                    <h6 class="mb-3">Generated LocalPackages</h6>
+                    <h6 class="mb-3">Generated Local Packages</h6>
                     @if (!Model.Packages.Any())
                     {
-                        <p class="text-muted mb-0">No LocalPackages were generated for this upload.</p>
+                        <p class="text-muted mb-0">No Local Packages were generated for this upload.</p>
                     }
                     else
                     {
@@ -123,7 +164,8 @@
                                         <th>Package</th>
                                         <th>Version</th>
                                         <th>Architecture</th>
-                                        <th>Repository</th>
+                                        <th>Distro</th>
+                                        <th>Suite</th>
                                         <th>Sync Status</th>
                                         <th class="text-end">Actions</th>
                                     </tr>
@@ -136,6 +178,7 @@
                                             <td><strong>@pkg.Package</strong></td>
                                             <td><span class="badge bg-info">@pkg.Version</span></td>
                                             <td><span class="badge bg-dark">@pkg.Architecture</span></td>
+                                            <td><small>@(pkg.Repository?.Distro ?? "—")</small></td>
                                             <td><small>@(pkg.Repository?.Suite ?? "—")</small></td>
                                             <td>
                                                 @switch (info.Status)
@@ -195,7 +238,7 @@
                             <table class="table table-striped align-middle mb-0">
                                 <thead>
                                     <tr>
-                                        <th>Versions</th>
+                                        <th>Version</th>
                                         <th>Component</th>
                                         <th>Status</th>
                                         <th>Uploaded</th>
@@ -211,22 +254,32 @@
                                     {
                                         var uploadVersions = v.Packages.Select(p => p.Version).Distinct().ToList();
                                         var isLive = uploadVersions.Any(ver => Model.LiveVersions.Contains(ver));
-                                        var rowStatus = v.IsListed
-                                            ? (isLive ? "Live" : "Superseded")
-                                            : "Unlisted";
-                                        var rowClass = v.IsListed
-                                            ? (isLive ? "bg-success" : "bg-secondary")
-                                            : "bg-secondary";
+                                        var isDraft = !v.IsPublished;
+                                        var rowStatus = !v.IsListed
+                                            ? "Unlisted"
+                                            : isDraft
+                                                ? "Draft"
+                                                : isLive ? "Live" : "Superseded";
+                                        var rowClass = !v.IsListed || isDraft
+                                            ? "bg-secondary"
+                                            : isLive ? "bg-success" : "bg-secondary";
                                         var isCurrent = v.Id == Model.Upload.Id;
                                         <tr class="@(isCurrent ? "table-active" : "")">
                                             <td>
-                                                @foreach (var ver in uploadVersions)
+                                                @if (uploadVersions.Count > 0)
                                                 {
-                                                    <span class="badge bg-info">@ver</span>
+                                                    foreach (var ver in uploadVersions)
+                                                    {
+                                                        <span class="badge bg-info">@ver</span>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <span class="text-muted">—</span>
                                                 }
                                                 @if (Model.LatestVersionId == v.Id)
                                                 {
-                                                    <span class="badge bg-success ms-1">Latest</span>
+                                                    <span class="badge bg-success ms-1">Newest</span>
                                                 }
                                                 @if (isCurrent)
                                                 {
@@ -234,7 +287,20 @@
                                                 }
                                             </td>
                                             <td><span class="badge bg-dark">@v.Component</span></td>
-                                            <td><span class="badge @rowClass">@rowStatus</span></td>
+                                            <td>
+                                                @if (rowStatus == "Superseded")
+                                                {
+                                                    <span class="badge @rowClass"
+                                                          data-bs-toggle="tooltip"
+                                                          title="This version's packages are superseded. They remain in storage until garbage collection removes unreferenced content.">
+                                                        @rowStatus
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge @rowClass">@rowStatus</span>
+                                                }
+                                            </td>
                                             <td><small class="text-muted">@v.UploadedAt.ToString("yyyy/M/d HH:mm")</small></td>
                                             @if (Model.IsAdmin)
                                             {

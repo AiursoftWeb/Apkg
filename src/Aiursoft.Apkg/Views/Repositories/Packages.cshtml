@@ -29,6 +29,7 @@
                     </a>
                 </th>
                 <th>@Localizer["Version"]</th>
+                <th>@Localizer["Architecture"]</th>
                 <th>
                     <a asp-action="Packages" asp-route-id="@Model.Repo.Id" asp-route-sortOrder="@(Model.SortOrder == "component_asc" ? "component_desc" : "component_asc")" asp-route-searchName="@Model.SearchName">
                         @Localizer["Component"]
@@ -56,6 +57,7 @@
                         </a>
                     </td>
                     <td><small>@pkg.Version</small></td>
+                    <td><span class="badge bg-dark">@pkg.Architecture</span></td>
                     <td><span class="badge bg-secondary">@pkg.Component</span></td>
                     <td>@pkg.Size</td>
                     <td>

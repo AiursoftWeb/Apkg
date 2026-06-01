@@ -42,6 +42,7 @@ public class ApkgUploadsController(
 
         var query = db.ApkgUploads
             .Include(u => u.UploadedByUser)
+            .Include(u => u.Packages)
             .AsQueryable();
 
         if (!isAdmin)
@@ -58,10 +59,13 @@ public class ApkgUploadsController(
             .OrderByDescending(u => u.UploadedAt)
             .ToList();
 
+        var uploadStatuses = await ComputeUploadStatusesAsync(latestUploads);
+
         return this.StackView(new ApkgUploadsIndexViewModel
         {
             Uploads = latestUploads,
-            IsAdmin = isAdmin
+            IsAdmin = isAdmin,
+            UploadStatuses = uploadStatuses
         });
     }
 
@@ -320,6 +324,7 @@ public class ApkgUploadsController(
 
         var isAdmin = User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageRepositories);
         var canUploadRestricted = User.HasClaim(AppPermissions.Type, AppPermissionNames.CanUploadToRestrictedRepositories);
+        var skippedRepos = new List<string>();
 
         try
         {
@@ -363,10 +368,12 @@ public class ApkgUploadsController(
                 {
                     if (!CanUploadToRepository(repo, isAdmin, canUploadRestricted))
                     {
+                        var repoName = DebUploadService.GetRepositoryDisplayName(repo);
                         logger.LogWarning(
                             "Skipping repository {Repository} because user {UserId} cannot upload to it.",
-                            DebUploadService.GetRepositoryDisplayName(repo),
+                            repoName,
                             userId);
+                        skippedRepos.Add(repoName);
                         continue;
                     }
 
@@ -404,6 +411,9 @@ public class ApkgUploadsController(
             upload.IsPublished = true;
             upload.IsListed = true;
             await db.SaveChangesAsync();
+
+            if (skippedRepos.Count > 0)
+                TempData["SkippedRepoWarnings"] = string.Join("|", skippedRepos.Distinct());
 
             return RedirectToAction(nameof(Details), new { id = upload.Id });
         }
@@ -678,6 +688,65 @@ public class ApkgUploadsController(
             extension = $".{extension}";
 
         return Path.Combine(folders.GetWorkspaceFolder(), $"apkg-upload-{Guid.NewGuid()}{extension}");
+    }
+
+    private async Task<Dictionary<int, UploadSyncStatus>> ComputeUploadStatusesAsync(
+        IReadOnlyList<ApkgUpload> uploads)
+    {
+        var result = new Dictionary<int, UploadSyncStatus>(uploads.Count);
+
+        // Handle non-package statuses immediately
+        var toCompute = new List<ApkgUpload>();
+        foreach (var upload in uploads)
+        {
+            if (!upload.IsListed)
+                result[upload.Id] = UploadSyncStatus.Unlisted;
+            else if (!upload.IsPublished)
+                result[upload.Id] = UploadSyncStatus.Draft;
+            else
+                toCompute.Add(upload);
+        }
+
+        if (toCompute.Count == 0)
+            return result;
+
+        var allPackages = toCompute.SelectMany(u => u.Packages).ToList();
+
+        // Uploads with no packages yet are still syncing
+        foreach (var upload in toCompute.Where(u => !u.Packages.Any()))
+            result[upload.Id] = UploadSyncStatus.Syncing;
+
+        if (allPackages.Count == 0)
+            return result;
+
+        var packageStatuses = await BuildPackageStatusAsync(allPackages);
+
+        // Group computed statuses by ApkgUploadId
+        var statusesByUpload = packageStatuses
+            .Where(ps => ps.Package.ApkgUploadId.HasValue)
+            .GroupBy(ps => ps.Package.ApkgUploadId!.Value)
+            .ToDictionary(g => g.Key, g => g.ToList());
+
+        foreach (var upload in toCompute.Where(u => u.Packages.Any()))
+        {
+            var statuses = statusesByUpload.GetValueOrDefault(upload.Id, []);
+            if (statuses.Count == 0)
+            {
+                result[upload.Id] = UploadSyncStatus.Syncing;
+                continue;
+            }
+
+            var hasLive = statuses.Any(s => s.Status == LocalPackageStatus.Live);
+            var hasStaged = statuses.Any(s => s.Status == LocalPackageStatus.StagedForSigning);
+            var allSuperseded = statuses.All(s => s.Status is LocalPackageStatus.Superseded or LocalPackageStatus.Disabled);
+
+            result[upload.Id] = hasLive ? UploadSyncStatus.Live
+                : hasStaged ? UploadSyncStatus.Signing
+                : allSuperseded ? UploadSyncStatus.Superseded
+                : UploadSyncStatus.Syncing;
+        }
+
+        return result;
     }
 
     private async Task<List<PackageStatusInfo>> BuildPackageStatusAsync(List<LocalPackage> packages)

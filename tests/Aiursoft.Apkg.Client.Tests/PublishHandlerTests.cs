@@ -299,7 +299,63 @@ public class PublishHandlerTests
         Assert.AreEqual("amd64", arch);
     }
 
-    // ── Multi-version contamination ──────────────────────────────────────────
+    // ── DeriveStaticVersion ───────────────────────────────────────────────────
+
+    [TestMethod]
+    public void DeriveStaticVersion_PlainVersion_ReturnsAsIs()
+    {
+        Assert.AreEqual("1.0.3", PublishHandler.DeriveStaticVersion("1.0.3"));
+    }
+
+    [TestMethod]
+    public void DeriveStaticVersion_TemplateWithPlusSeparator_StripsTemplate()
+    {
+        Assert.AreEqual("1.0.3", PublishHandler.DeriveStaticVersion("1.0.3+$(SuiteShortName)1"));
+    }
+
+    [TestMethod]
+    public void DeriveStaticVersion_TemplateWithTildeSeparator_StripsTemplate()
+    {
+        Assert.AreEqual("1.0.3", PublishHandler.DeriveStaticVersion("1.0.3~$(SuiteShortName)"));
+    }
+
+    [TestMethod]
+    public void DeriveStaticVersion_TemplateWithDotSeparator_StripsTemplate()
+    {
+        Assert.AreEqual("1.0.3", PublishHandler.DeriveStaticVersion("1.0.3.$(Build)"));
+    }
+
+    [TestMethod]
+    public void DeriveStaticVersion_TemplateWithHyphenSeparator_StripsTemplate()
+    {
+        Assert.AreEqual("1.0.3", PublishHandler.DeriveStaticVersion("1.0.3-$(Rev)"));
+    }
+
+    [TestMethod]
+    public void DeriveStaticVersion_EmptyString_ReturnsEmpty()
+    {
+        Assert.AreEqual(string.Empty, PublishHandler.DeriveStaticVersion(""));
+    }
+
+    [TestMethod]
+    public void DeriveStaticVersion_WhitespaceOnly_ReturnsEmpty()
+    {
+        Assert.AreEqual(string.Empty, PublishHandler.DeriveStaticVersion("   "));
+    }
+
+    [TestMethod]
+    public void DeriveStaticVersion_VersionStartsWithTemplate_ReturnsEmpty()
+    {
+        Assert.AreEqual(string.Empty, PublishHandler.DeriveStaticVersion("$(Version)"));
+    }
+
+    [TestMethod]
+    public void DeriveStaticVersion_MultipleSeparatorChars_AllTrimmed()
+    {
+        // e.g. "2.0.0+-$(Var)" → trim "+- " before "$(Var)" → "2.0.0"
+        Assert.AreEqual("2.0.0", PublishHandler.DeriveStaticVersion("2.0.0+-$(Var)"));
+    }
+
 
     [TestMethod]
     public void CollectDebFiles_MultipleVersionsInBin_AllVersionsCollected()
