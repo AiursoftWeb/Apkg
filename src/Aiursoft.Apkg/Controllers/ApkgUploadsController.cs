@@ -81,6 +81,7 @@ public class ApkgUploadsController(
         var query = db.ApkgUploads
             .Include(u => u.UploadedByUser)
             .Include(u => u.Packages)
+                .ThenInclude(p => p.Repository)
             .Where(u => u.Package == name)
             .AsQueryable();
 
@@ -94,24 +95,14 @@ public class ApkgUploadsController(
         if (uploads.Count == 0)
             return NotFound();
 
-        // Determine which versions are currently live in any primary bucket.
-        var primaryBucketIds = await db.AptRepositories
-            .Where(r => r.PrimaryBucketId != null)
-            .Select(r => r.PrimaryBucketId!.Value)
-            .Distinct()
-            .ToListAsync();
-        var liveVersions = (await db.AptPackages
-            .Where(p => primaryBucketIds.Contains(p.BucketId) && p.Package == name)
-            .Select(p => p.Version)
-            .Distinct()
-            .ToListAsync())
-            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+        var allPackages = uploads.SelectMany(u => u.Packages).ToList();
+        var allPackageStatuses = await BuildPackageStatusAsync(allPackages);
 
         return this.StackView(new ApkgUploadsPackageHistoryViewModel
         {
             PackageName = name,
             Uploads = uploads,
-            LiveVersions = liveVersions,
+            AllPackageStatuses = allPackageStatuses,
             IsAdmin = isAdmin
         });
     }
@@ -493,7 +484,6 @@ public class ApkgUploadsController(
             AllPackageStatuses = allPackageStatuses,
             VersionHistory = versionHistory,
             LatestVersionId = latestVersionId,
-            LiveVersions = [],
             ActiveTab = activeTab,
             IsAdmin = isAdmin,
             IsOwner = isOwner,
