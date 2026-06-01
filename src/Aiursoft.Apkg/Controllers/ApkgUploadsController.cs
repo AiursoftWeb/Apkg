@@ -118,7 +118,7 @@ public class ApkgUploadsController(
     }
 
     [HttpGet]
-    public async Task<IActionResult> PackageHistory(string name)
+    public async Task<IActionResult> PackageHistory(string name, string? versionsFilter = null)
     {
         if (string.IsNullOrWhiteSpace(name))
             return BadRequest();
@@ -146,12 +146,22 @@ public class ApkgUploadsController(
         var allPackages = uploads.SelectMany(u => u.Packages).ToList();
         var allPackageStatuses = await BuildPackageStatusAsync(allPackages);
 
+        int? latestVersionId = uploads.FirstOrDefault(u => u.IsPublished)?.Id;
+        var normalizedFilter = versionsFilter?.ToLowerInvariant() switch
+        {
+            "live" => "live",
+            "all"  => "all",
+            _      => "latest"
+        };
+
         return this.StackView(new ApkgUploadsPackageHistoryViewModel
         {
             PackageName = name,
             Uploads = uploads,
             AllPackageStatuses = allPackageStatuses,
-            IsAdmin = isAdmin
+            IsAdmin = isAdmin,
+            LatestVersionId = latestVersionId,
+            VersionsFilter = normalizedFilter
         });
     }
 
@@ -494,7 +504,9 @@ public class ApkgUploadsController(
             .OrderByDescending(v => v.UploadedAt)
             .ToListAsync();
 
-        int? latestVersionId = versionHistory.Count > 0 ? versionHistory.First().Id : null;
+        // Use the most recent *published* upload as "latest" so that Draft uploads
+        // don't cause the Latest filter to return an empty table.
+        int? latestVersionId = versionHistory.FirstOrDefault(v => v.IsPublished)?.Id;
 
         // Gather ALL packages across all uploads for the Versions tab
         var allHistoryPackages = versionHistory.SelectMany(v => v.Packages).ToList();
@@ -582,6 +594,39 @@ public class ApkgUploadsController(
 
         await db.SaveChangesAsync();
         return RedirectToAction(nameof(Details), new { id });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DiscardDraft(string vaultPath)
+    {
+        var userId = userManager.GetUserId(User)!;
+        var isAdmin = User.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageRepositories);
+
+        var draft = await db.ApkgUploads
+            .Include(u => u.Packages)
+            .FirstOrDefaultAsync(u => u.VaultPath == vaultPath && !u.IsPublished);
+
+        if (draft == null)
+            return RedirectToAction(nameof(Upload));
+
+        if (draft.UploadedByUserId != userId && !isAdmin)
+            return Forbid();
+
+        if (!string.IsNullOrWhiteSpace(draft.VaultPath))
+        {
+            try
+            {
+                var physicalPath = storageService.GetFilePhysicalPath(draft.VaultPath, isVault: true);
+                DeleteIfExists(physicalPath);
+            }
+            catch (ArgumentException) { }
+        }
+
+        db.LocalPackages.RemoveRange(draft.Packages);
+        db.ApkgUploads.Remove(draft);
+        await db.SaveChangesAsync();
+        return RedirectToAction(nameof(Upload));
     }
 
     [HttpPost]

@@ -137,7 +137,11 @@ else if (Model.HasWarnings)
             <input type="hidden" name="vaultPath" value="@Model.VaultPath" />
             <input type="hidden" name="fileName" value="@Model.FileName" />
             <button type="submit" class="btn btn-primary">Publish</button>
-            <a asp-action="Upload" class="btn btn-secondary">Cancel / Re-upload</a>
+        </form>
+        <form asp-action="DiscardDraft" method="post" class="d-inline ms-2">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="vaultPath" value="@Model.VaultPath" />
+            <button type="submit" class="btn btn-secondary">Discard &amp; Re-upload</button>
         </form>
     </div>
 </div>

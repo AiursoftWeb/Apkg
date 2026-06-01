@@ -27,5 +27,4 @@ public class ApkgUploadsIndexViewModel : UiStackLayoutViewModel
 
     public required List<ApkgUploadIndexItem> Uploads { get; init; }
     public bool IsAdmin { get; init; }
-    public Dictionary<int, UploadSyncStatus> UploadStatuses { get; init; } = new();
 }

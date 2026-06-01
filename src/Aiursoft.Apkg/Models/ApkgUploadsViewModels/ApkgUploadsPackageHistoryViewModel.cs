@@ -10,4 +10,6 @@ public class ApkgUploadsPackageHistoryViewModel : UiStackLayoutViewModel
     public required List<ApkgUpload> Uploads { get; init; }
     public List<PackageStatusInfo> AllPackageStatuses { get; init; } = [];
     public bool IsAdmin { get; init; }
+    public int? LatestVersionId { get; init; }
+    public string VersionsFilter { get; init; } = "latest";
 }

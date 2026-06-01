@@ -56,7 +56,11 @@
                         <a class="nav-link @(Model.ActiveTab == "versions" ? "active" : "")"
                            asp-action="Details" asp-route-id="@Model.Upload.Id" asp-route-tab="versions" asp-route-versionsFilter="@Model.VersionsFilter">
                             <i class="align-middle me-1" data-lucide="history"></i> Versions
-                            <span class="badge bg-secondary ms-1">@Model.AllPackageStatuses.Count</span>
+                            @{ var publishedCount = Model.VersionHistory.Count(v => v.IsPublished); }
+                            @if (publishedCount > 0)
+                            {
+                                <span class="badge bg-secondary ms-1">@publishedCount</span>
+                            }
                         </a>
                     </li>
                 </ul>
@@ -379,6 +383,13 @@
                                                         <a asp-controller="Repositories" asp-action="PackageDetails" asp-route-id="@ps.LivePackageId.Value"
                                                            class="btn btn-sm btn-outline-info" title="View in repository">
                                                             <i class="align-middle" data-lucide="external-link"></i>
+                                                        </a>
+                                                    }
+                                                    @if (pkg.ApkgUploadId.HasValue && pkg.ApkgUploadId.Value != Model.Upload.Id)
+                                                    {
+                                                        <a asp-action="Details" asp-route-id="@pkg.ApkgUploadId.Value"
+                                                           class="btn btn-sm btn-outline-secondary" title="View upload details">
+                                                            <i class="align-middle" data-lucide="eye"></i>
                                                         </a>
                                                     }
                                                     @if (pkg.ApkgUploadId.HasValue)

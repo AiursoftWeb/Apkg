@@ -22,15 +22,39 @@
                     var uploaderDict = Model.Uploads.ToDictionary(u => u.Id, u => u.UploadedByUser?.UserName ?? "—");
                     var uploadListedDict = Model.Uploads.ToDictionary(u => u.Id, u => u.IsListed);
 
-                    var sortedPkgs = Model.AllPackageStatuses
-                        .OrderByDescending(ps => ps.Package.ApkgUploadId.HasValue
-                            ? uploadDates.GetValueOrDefault(ps.Package.ApkgUploadId.Value)
-                            : DateTime.MinValue)
-                        .ThenBy(ps => ps.Package.Architecture)
-                        .ThenBy(ps => ps.Package.Repository?.Suite ?? "")
-                        .ToList();
+                    var filteredPkgs = (Model.VersionsFilter switch
+                    {
+                        "live" => Model.AllPackageStatuses
+                            .Where(ps => ps.Status == LocalPackageStatus.Live),
+                        "all" => Model.AllPackageStatuses.AsEnumerable(),
+                        _ => Model.AllPackageStatuses
+                            .Where(ps => ps.Package.ApkgUploadId == Model.LatestVersionId)
+                    })
+                    .OrderByDescending(ps => ps.Package.ApkgUploadId.HasValue
+                        ? uploadDates.GetValueOrDefault(ps.Package.ApkgUploadId.Value)
+                        : DateTime.MinValue)
+                    .ThenBy(ps => ps.Package.Architecture)
+                    .ThenBy(ps => ps.Package.Repository?.Suite ?? "")
+                    .ToList();
                 }
-                @if (!sortedPkgs.Any())
+
+                <div class="d-flex gap-2 mb-3">
+                    <a asp-action="PackageHistory" asp-route-name="@Model.PackageName" asp-route-versionsFilter="latest"
+                       class="btn btn-sm @(Model.VersionsFilter == "latest" ? "btn-primary" : "btn-outline-secondary")">
+                        Latest
+                    </a>
+                    <a asp-action="PackageHistory" asp-route-name="@Model.PackageName" asp-route-versionsFilter="live"
+                       class="btn btn-sm @(Model.VersionsFilter == "live" ? "btn-primary" : "btn-outline-secondary")">
+                        Live
+                    </a>
+                    <a asp-action="PackageHistory" asp-route-name="@Model.PackageName" asp-route-versionsFilter="all"
+                       class="btn btn-sm @(Model.VersionsFilter == "all" ? "btn-primary" : "btn-outline-secondary")">
+                        All
+                    </a>
+                    <small class="text-muted align-self-center ms-1">@filteredPkgs.Count package(s)</small>
+                </div>
+
+                @if (!filteredPkgs.Any())
                 {
                     <p class="text-muted mb-0">No versions found for this package.</p>
                 }
@@ -54,7 +78,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var ps in sortedPkgs)
+                                @foreach (var ps in filteredPkgs)
                                 {
                                     var pkg = ps.Package;
                                     var uploadedAt = pkg.ApkgUploadId.HasValue
@@ -123,6 +147,10 @@
                                                 }
                                                 @if (pkg.ApkgUploadId.HasValue)
                                                 {
+                                                    <a asp-action="Details" asp-route-id="@pkg.ApkgUploadId.Value"
+                                                       class="btn btn-sm btn-outline-secondary" title="View upload details">
+                                                        <i class="align-middle" data-lucide="eye"></i>
+                                                    </a>
                                                     var uploadId = pkg.ApkgUploadId.Value;
                                                     var isListed = uploadListedDict.GetValueOrDefault(uploadId, false);
                                                     if (isListed)
