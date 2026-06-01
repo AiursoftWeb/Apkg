@@ -1095,7 +1095,7 @@ public class ApkgPackagesControllerTests : TestBase
         var response = await Http.GetAsync("/ApkgPackages");
         var html = await response.Content.ReadAsStringAsync();
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
-            $"Expected 200 OK but got {response.StatusCode}. Body: {html[..Math.Min(200, html.Length)]}");
+            $"Expected 200 OK but got {response.StatusCode}. Body: {html[..Math.Min(2000, html.Length)]}");
 
         // One row per package — older filenames must not appear.
         // The Index view renders item.Package.Name, not revision filenames.
@@ -1110,7 +1110,7 @@ public class ApkgPackagesControllerTests : TestBase
     // ──────────────────────────────────────────────────────────────────────
 
     [TestMethod]
-    public async Task Index_UnpublishedRevision_IsHiddenFromIndex()
+    public async Task Index_UnpublishedRevision_ShowsUnpublishedStatus()
     {
         var pkgName = $"unpub-idx-{Guid.NewGuid():N}";
         var pkg = new ApkgPackage
@@ -1133,9 +1133,12 @@ public class ApkgPackagesControllerTests : TestBase
         var response = await Http.GetAsync("/ApkgPackages");
         var html = await response.Content.ReadAsStringAsync();
 
-        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-        Assert.IsFalse(html.Contains(pkgName),
-            "Unpublished package (TempApkgFileInVaultPath != null) must not appear in Index.");
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
+            $"Expected 200 OK but got {response.StatusCode}. Body: {html[..Math.Min(2000, html.Length)]}");
+        Assert.IsTrue(html.Contains(pkgName),
+            "Unpublished package should appear in Index with Unpublished status.");
+        Assert.IsTrue(html.Contains("Unpublished"),
+            "Index should show 'Unpublished' badge for unpublished revisions.");
     }
 
     [TestMethod]
@@ -1162,7 +1165,8 @@ public class ApkgPackagesControllerTests : TestBase
         var response = await Http.GetAsync("/ApkgPackages");
         var html = await response.Content.ReadAsStringAsync();
 
-        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
+            $"Expected 200 OK but got {response.StatusCode}. Body: {html[..Math.Min(2000, html.Length)]}");
         Assert.IsTrue(html.Contains("Syncing"),
             "Published but not-yet-live package must show Syncing badge in Index.");
     }
@@ -1488,7 +1492,8 @@ public class ApkgPackagesControllerTests : TestBase
         var response = await Http.GetAsync("/ApkgPackages");
         var html = await response.Content.ReadAsStringAsync();
 
-        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode,
+            $"Expected 200 OK but got {response.StatusCode}. Body: {html[..Math.Min(2000, html.Length)]}");
         Assert.IsTrue(html.Contains(pkgName), "Live package must appear in Index.");
         Assert.IsTrue(html.Contains("Live"),
             "Index must show Live badge when a revision's packages are confirmed in the APT repo.");

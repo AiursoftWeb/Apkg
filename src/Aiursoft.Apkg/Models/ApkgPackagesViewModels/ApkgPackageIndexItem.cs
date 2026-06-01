@@ -12,4 +12,5 @@ public class ApkgPackageIndexItem
     public UploadSyncStatus SyncStatus { get; init; }
     public int? NextVersionRevisionId { get; init; }
     public string? NextVersionSummary { get; init; }
+    public bool IsUnpublished { get; init; }
 }

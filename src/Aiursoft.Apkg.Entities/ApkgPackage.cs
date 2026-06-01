@@ -107,5 +107,11 @@ public class ApkgPackage
     [ForeignKey(nameof(OwnerUserId))]
     public User? OwnerUser { get; set; }
 
+    /// <summary>
+    /// When this package family was first created. Used by <c>ApkgOrphanPackageCleanupJob</c>
+    /// to delete packages with 0 revisions older than 2 hours.
+    /// </summary>
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
     public ICollection<ApkgRevision> Revisions { get; set; } = [];
 }

@@ -49,11 +49,8 @@ public class ApkgPackagesController(
         if (!isAdmin)
             query = query.Where(p => p.OwnerUserId == userId);
 
-        // Only show packages with at least one published revision
-        query = query.Where(p => p.Revisions.Any(r => r.TempApkgFileInVaultPath == null));
-
         var packages = await query
-            .OrderByDescending(p => p.Revisions.Max(r => r.UploadedAt))
+            .OrderByDescending(p => p.Revisions.Max(r => (DateTime?)r.UploadedAt))
             .ToListAsync();
 
         // Collect all ApkgDebPackages across all revisions for live-status computation
@@ -91,6 +88,7 @@ public class ApkgPackagesController(
         foreach (var pkg in packages)
         {
             var orderedRevisions = pkg.Revisions.OrderByDescending(r => r.UploadedAt).ToList();
+            if (orderedRevisions.Count == 0) continue;
             var latestRevision = orderedRevisions.First();
 
             // Find the latest published revision that has live packages
@@ -140,7 +138,8 @@ public class ApkgPackagesController(
                 SyncStatus = liveRevision != null ? UploadSyncStatus.Live
                     : UploadSyncStatus.Syncing,
                 NextVersionRevisionId = nextVersionRevisionId,
-                NextVersionSummary = nextVersionSummary
+                NextVersionSummary = nextVersionSummary,
+                IsUnpublished = !string.IsNullOrEmpty(displayRevision.TempApkgFileInVaultPath)
             });
         }
 

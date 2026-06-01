@@ -71,6 +71,7 @@ public class Startup : IWebStartup
         // Background jobs
         var orphanAvatarCleanupJob = services.RegisterBackgroundJob<OrphanAvatarCleanupJob>();
         var apkgTempCleanupJob = services.RegisterBackgroundJob<ApkgTempCleanupJob>();
+        var apkgOrphanPackageCleanupJob = services.RegisterBackgroundJob<ApkgOrphanPackageCleanupJob>();
         var mirrorSyncJob = services.RegisterBackgroundJob<MirrorSyncJob>();
         var repositorySyncJob = services.RegisterBackgroundJob<RepositorySyncJob>();
         var repositorySignJob = services.RegisterBackgroundJob<RepositorySignJob>();
@@ -86,6 +87,11 @@ public class Startup : IWebStartup
             registration: apkgTempCleanupJob,
             period: TimeSpan.FromMinutes(10),
             startDelay: TimeSpan.FromMinutes(7));
+
+        services.RegisterScheduledTask(
+            registration: apkgOrphanPackageCleanupJob,
+            period: TimeSpan.FromMinutes(10),
+            startDelay: TimeSpan.FromMinutes(8));
 
         // Mirror Job runs every 6 hours, delay 10 minutes.
         services.RegisterScheduledTask(
