@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+    <value>Un paquete mixto .apkg es el formato propietario de Apkg que agrupa varios paquetes .deb y un archivo manifest.xml en un único archivo tar comprimido con gzip. El servidor descomprime cada .deb, extrae los metadatos de su archivo de control y los sincroniza con los repositorios APT de destino.</value>
+  </data>
+  <data name="Dead (Invariant) Attributes" xml:space="preserve">
+    <value>Atributos fijos (invariantes)</value>
+  </data>
+  <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
+    <value>Cada .apkg tiene tres &lt;strong&gt;atributos estáticos&lt;/strong&gt; definidos en la raíz del manifiesto que se aplican a todo el paquete: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt; y &lt;strong&gt;Component&lt;/strong&gt;. Estos identifican la familia de paquetes y su repositorio destino. No pueden variar entre las entradas dentro de un único .apkg.</value>
+  </data>
+  <data name="Live (Variant) Attributes" xml:space="preserve">
+    <value>Atributos en vivo (variantes)</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Consejo:</value>
+  </data>
+  <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
+    <value>Usa &lt;code&gt;apkg push&lt;/code&gt; desde la CLI para crear y subir archivos .apkg. Las subidas deben publicarse antes de aparecer en los repositorios APT.</value>
+  </data>
+  <data name="What is an APKG Mixed Package?" xml:space="preserve">
+    <value>¿Qué es un paquete mixto APKG?</value>
+  </data>
+  <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
+    <value>Dentro de un único .apkg, cada entrada puede variar en tres &lt;strong&gt;atributos vivos&lt;/strong&gt;: &lt;strong&gt;Versión&lt;/strong&gt; (extraída del binario .deb, nunca escrita en manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt; y &lt;strong&gt;Arquitectura&lt;/strong&gt;. Esto le permite enviar, por ejemplo, compilaciones amd64 y arm64 de la misma versión en una sola carga.</value>
+  </data>
+
+</root>

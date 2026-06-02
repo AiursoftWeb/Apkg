@@ -39,6 +39,9 @@
   <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>يتحكم في ملفات فهرس binary-[arch]/Packages التي يتم إنشاؤها. يتم تخزين الحزم ذات البنى غير المتطابقة (باستثناء &apos;all&apos;) لكنها غير مرئية لعملاء apt. كما يحدد سطر Architectures: في دليل إعداد العميل. تدخل التغييرات حيز التنفيذ في تشغيل مهمة مزامنة المستودع التالية.</value>
   </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. &quot;amd64,arm64&quot;)." xml:space="preserve">
+    <value>يتحكم في ملفات فهرس Packages التي سيتم إنشاؤها في المجلدات binary-[arch]/. يتم تخزين الحزم ذات البنى غير المتطابقة (باستثناء &apos;all&apos;) لكنها تبقى غير مرئية لعملاء apt. كما يحدد سطر Architectures: في دليل إعداد العميل. تدخل التغييرات حيز التنفيذ عند تشغيل وظيفة مزامنة المستودع التالية. افصل بين البنى المتعددة بعلامات فاصلة (مثال: &quot;amd64,arm64&quot;).</value>
+  </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>يحدد دليل المكونات الفرعية المدرجة عند إنشاء فهرس الحزم. يتم تخزين الحزم الموجودة في المكونات غير المدرجة لكنها غير مرئية لعملاء apt. يحدد أيضًا سطر المكونات: في دليل إعداد العميل. تدخل التغييرات حيز التنفيذ عند تشغيل مهمة مزامنة المستودع التالية.</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>إذا تم ربطه بمرآة، ستقوم مستودع هذا بتقديم الحزم من ذلك المصدر الخارجي.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>في حال وجود ربط، يتم تهيئة فهرس Packages الخاص بهذا المستوداع من المرآة أثناء كل مزامنة المستوداع. تتجاوز حزم ApkgDebPackages ذات نفس اسم الحزمة والهندسة المعمارية (Architecture) نسخة المرآة.</value>
   </data>
   <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
     <value>إذا تم ربطه، يتم تغذية فهرس الحزم لهذا المستودع من المرآة أثناء كل مزامنة للمستودع. تتجاوز الحزم المحلية لنفس اسم الحزمة والبنية المعمارية إصدار المرآة.</value>

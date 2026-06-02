@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+    <value>حزمة .apkg المختلطة هي تنسيق Apkg الخاص الذي يجمع بين حزم .deb المتعددة وملف manifest.xml في أرشيف tar مضغوط بـ gzip واحد. يقوم الخادم بفك ضغط كل .deb، واستخراج البيانات الوصفية من ملف التحكم الخاص به، ومزامنتها مع مستودعات APT المستهدفة الخاصة بها.</value>
+  </data>
+  <data name="Dead (Invariant) Attributes" xml:space="preserve">
+    <value>السمات الثابتة (غير المتغيرة)</value>
+  </data>
+  <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
+    <value>تحتوي كل وحدة .apkg على ثلاثة &lt;strong&gt;خصائص ثابتة&lt;/strong&gt; مُعرَّفة في جذر الوصفة وتُطبَّق على الحزمة بأكملها: &lt;strong&gt;الاسم (Name)&lt;/strong&gt;، و&lt;strong&gt;التوزيع (Distro)&lt;/strong&gt;، و&lt;strong&gt;المكون (Component)&lt;/strong&gt;. تحدد هذه الخصائص عائلة الحزمة ومستودعها المستهدف. ولا يمكن أن تختلف بين الإدخالات داخل وحدة .apkg واحدة.</value>
+  </data>
+  <data name="Live (Variant) Attributes" xml:space="preserve">
+    <value>الخصائص الحية (المتغيرة)</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>نصيحة:</value>
+  </data>
+  <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
+    <value>استخدم الأمر &lt;code&gt;apkg push&lt;/code&gt; من سطر الأوامر (CLI) لإنشاء وتحميل ملفات .apkg. يجب نشر الملفات المرفوعة قبل أن تظهر في مستودعات APT.</value>
+  </data>
+  <data name="What is an APKG Mixed Package?" xml:space="preserve">
+    <value>ما هو حزمة APKG المختلطة؟</value>
+  </data>
+  <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
+    <value>داخل ملف `.apkg` واحد، قد يختلف كل إدخال في ثلاثة &lt;strong&gt;سمات متغيرة&lt;/strong&gt;: &lt;strong&gt;الإصدار&lt;/strong&gt; (يُستخرج من الثنائي .deb، ولا يُكتب أبدًا في manifest.xml)، و&lt;strong&gt;السويت&lt;/strong&gt;، و&lt;strong&gt;الهندسة المعمارية&lt;/strong&gt;. هذا يتيح لك شحن مثلاً builds من amd64 و arm64 للإصدار نفسه في عملية رفع واحدة.</value>
+  </data>
+
+</root>
