@@ -62,7 +62,7 @@
                                                 <span class="badge bg-secondary ms-1">Unlisted</span>
                                             }
                                         </td>
-                                        <td><small class="text-muted">@rev.UploadedAt.ToString("yyyy/M/d HH:mm")</small></td>
+                                        <td><label data-utc-time="@rev.UploadedAt.ToHtmlDateTime()"></label></td>
                                         <td class="text-end">
                                             <div class="btn-group">
                                                 @if (!string.IsNullOrWhiteSpace(rev.TempApkgFileInVaultPath))

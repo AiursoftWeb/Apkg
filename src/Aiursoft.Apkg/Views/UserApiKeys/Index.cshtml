@@ -48,11 +48,11 @@
                                     @if (key.IsExpired)
                                     {
                                         <span class="badge bg-danger">@Localizer["Expired"]</span>
-                                        <small class="text-muted ms-1">@key.ExpiresAt!.Value.ToString("yyyy-MM-dd")</small>
+                                        <small class="text-muted ms-1"><label data-utc-time="@key.ExpiresAt!.Value.ToHtmlDateTime()"></label></small>
                                     }
                                     else if (key.ExpiresAt.HasValue)
                                     {
-                                        @key.ExpiresAt.Value.ToString("yyyy-MM-dd")
+                                        <label data-utc-time="@key.ExpiresAt.Value.ToHtmlDateTime()"></label>
                                     }
                                     else
                                     {
@@ -62,7 +62,7 @@
                                 <td>
                                     @if (key.LastUsedAt.HasValue)
                                     {
-                                        @key.LastUsedAt.Value.ToString("yyyy-MM-dd HH:mm")
+                                        <label data-utc-time="@key.LastUsedAt.Value.ToHtmlDateTime()"></label>
                                     }
                                     else
                                     {

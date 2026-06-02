@@ -37,7 +37,7 @@
                             <td class="text-end text-monospace small">
                                 @if (m.AppliedAt.HasValue)
                                 {
-                                    <label data-utc-time="@m.AppliedAt.Value.ToString("o")"></label>
+                                    <label data-utc-time="@m.AppliedAt.Value.ToHtmlDateTime()"></label>
                                 }
                                 else
                                 {

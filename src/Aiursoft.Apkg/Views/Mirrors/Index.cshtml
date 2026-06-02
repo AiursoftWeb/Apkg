@@ -4,6 +4,17 @@
 @inject IAuthorizationService AuthorizationService
 @{
     var canManage = (await AuthorizationService.AuthorizeAsync(User, AppPermissionNames.CanManageMirrors)).Succeeded;
+    var errorMessage = TempData["ErrorMessage"] as string;
+}
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger d-flex align-items-start mb-3" role="alert">
+        <div class="alert-icon me-2">
+            <i data-lucide="alert-triangle" style="width:20px;height:20px;"></i>
+        </div>
+        <div class="alert-message">@errorMessage</div>
+    </div>
 }
 
 <div class="row mb-2 mb-xl-3">
@@ -161,7 +172,7 @@
                     <td>
                         @if (item.LastPullTime != null)
                         {
-                            <small class="d-block text-muted">@item.LastPullTime.Value.ToLocalTime().ToString("g")</small>
+                            <small class="d-block text-muted"><label data-utc-time="@item.LastPullTime.Value.ToHtmlDateTime()"></label></small>
                             @if (item.LastPullSuccess == true)
                             {
                                 <span class="badge bg-success">@Localizer["Success"]</span>

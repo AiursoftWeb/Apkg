@@ -123,9 +123,14 @@
                                             }
                                         </td>
                                         <td>
-                                            <small class="text-muted">
-                                                @(uploadedAt.HasValue ? uploadedAt.Value.ToString("yyyy/M/d HH:mm") : "—")
-                                            </small>
+                                            @if (uploadedAt.HasValue)
+                                            {
+                                                <label data-utc-time="@uploadedAt.Value.ToHtmlDateTime()"></label>
+                                            }
+                                            else
+                                            {
+                                                <small class="text-muted">—</small>
+                                            }
                                         </td>
                                         @if (Model.IsAdmin)
                                         {

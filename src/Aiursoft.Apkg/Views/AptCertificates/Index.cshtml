@@ -32,7 +32,7 @@
                     <td><code>@item.Name</code></td>
                     <td><strong>@item.FriendlyName</strong></td>
                     <td><code>@item.Fingerprint</code></td>
-                    <td>@item.CreatedAt.ToShortDateString()</td>
+                    <td><label data-utc-time="@item.CreatedAt.ToHtmlDateTime()"></label></td>
                     <td class="text-end">
                         <a asp-controller="AptMirror" asp-action="GetCert" asp-route-name="@item.Name" class="btn btn-sm btn-outline-primary me-1">
                             <i class="align-middle" data-lucide="download"></i>

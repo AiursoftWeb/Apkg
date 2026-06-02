@@ -58,7 +58,7 @@
                             <span class="badge badge-subtle-warning" title="@Localizer["Not referenced by any Mirror or Repository. Will be permanently deleted on the next Garbage Collection run."]">@Localizer["Orphaned"]</span>
                         }
                     </td>
-                    <td>@bucket.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td><label data-utc-time="@bucket.CreatedAt.ToHtmlDateTime()"></label></td>
                     <td class="text-end"><strong>@Model.PackageCounts.GetValueOrDefault(bucket.Id, 0).ToString("N0")</strong></td>
                     <td class="text-end">@((Model.StorageUsage.GetValueOrDefault(bucket.Id, 0) / 1024.0 / 1024.0).ToString("F2")) MB</td>
                     <td>

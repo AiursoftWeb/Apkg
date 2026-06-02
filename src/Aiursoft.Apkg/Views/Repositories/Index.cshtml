@@ -87,9 +87,9 @@
                     <td>
                         @if (item.PrimaryBucket?.SignedAt != null)
                         {
-                            <span class="badge bg-success" title="Signed at @item.PrimaryBucket.SignedAt.Value.ToString("u")">
+                            <span class="badge bg-success" title="Signed at @item.PrimaryBucket.SignedAt.Value.ToString("u") UTC">
                                 <i class="align-middle" data-lucide="shield-check"></i>
-                                @Localizer["Signed at"] @item.PrimaryBucket.SignedAt.Value.ToString("yyyy-MM-dd HH:mm") UTC
+                                @Localizer["Signed at"] <label data-utc-time="@item.PrimaryBucket.SignedAt.Value.ToHtmlDateTime()" class="fw-normal mb-0" style="display:inline;"></label>
                             </span>
                         }
                         else if (item.PrimaryBucket?.InReleaseContent != null)

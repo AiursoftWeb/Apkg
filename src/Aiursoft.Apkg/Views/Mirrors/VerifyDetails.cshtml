@@ -65,7 +65,7 @@
                             <dd class="col-sm-6">
                                 @if (Model.Mirror.LastPrimaryReplacedAt.HasValue)
                                 {
-                                    @Model.Mirror.LastPrimaryReplacedAt.Value.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss")
+                                    <label data-utc-time="@Model.Mirror.LastPrimaryReplacedAt.Value.ToHtmlDateTime()"></label>
                                 }
                                 else
                                 {
@@ -77,7 +77,7 @@
                             <dd class="col-sm-6">
                                 @if (Model.Mirror.PrimaryBucket != null)
                                 {
-                                    @Model.Mirror.PrimaryBucket.CreatedAt.ToLocalTime().ToString("yyyy-MM-dd HH:mm:ss")
+                                    <label data-utc-time="@Model.Mirror.PrimaryBucket.CreatedAt.ToHtmlDateTime()"></label>
                                 }
                                 else
                                 {

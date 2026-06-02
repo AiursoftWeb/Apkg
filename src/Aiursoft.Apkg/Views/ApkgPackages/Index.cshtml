@@ -102,7 +102,7 @@
                                         <small class="text-muted">—</small>
                                     }
                                 </td>
-                                <td><small class="text-muted">@(revision!.UploadedAt.ToString("yyyy/M/d HH:mm"))</small></td>
+                                <td><label data-utc-time="@revision!.UploadedAt.ToHtmlDateTime()"></label></td>
                                 <td class="text-end">
                                     <div class="btn-group">
                                         @if (item.IsUnpublished)
