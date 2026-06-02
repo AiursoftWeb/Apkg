@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Azioni</value>
+  </data>
+  <data name="Active Versions" xml:space="preserve">
+    <value>Versioni attive</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
+    <value>Un pacchetto mixed .apkg è il formato proprietario di Apkg che raggruppa più pacchetti .deb in un unico upload. Dopo l&apos;elaborazione, ogni .deb contenuto viene estratto e sincronizzato con il repository APT di destinazione.</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>e TUTTE le sue revisioni e pacchetti locali. Il nome del pacchetto sarà rilasciato per altri utenti. Questa operazione non può essere annullata.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Componente</value>
+  </data>
+  <data name="Delete Entire Package" xml:space="preserve">
+    <value>Elimina l&apos;intero pacchetto</value>
+  </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>Elimina pacchetto</value>
+  </data>
+  <data name="Delete Package Family" xml:space="preserve">
+    <value>Elimina famiglia di pacchetti</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Dettagli</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distribuzione</value>
+  </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>I miei pacchetti (APKG)</value>
+  </data>
+  <data name="Next Version" xml:space="preserve">
+    <value>Versione successiva</value>
+  </data>
+  <data name="No APKG uploads yet." xml:space="preserve">
+    <value>Ancora nessun caricamento APKG.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Pacchetto</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Pubblicato</value>
+  </data>
+  <data name="Relist" xml:space="preserve">
+    <value>Ripubblica</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stato</value>
+  </data>
+  <data name="This will permanently delete the entire package family" xml:space="preserve">
+    <value>Questa operazione eliminerà definitivamente l&apos;intera famiglia di pacchetti</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Suggerimento:</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Rimuovi dalla lista</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>Carica pacchetto APKG misto</value>
+  </data>
+  <data name="Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories." xml:space="preserve">
+    <value>Carica via CLI con &lt;code&gt;apkg push&lt;/code&gt; oppure usa l&apos;interfaccia Web. Le pubblicazioni devono essere rese disponibili prima che vengano visualizzate nei repository.</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Caricato</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>Cronologia versioni</value>
+  </data>
+  <data name="What is a mixed package?" xml:space="preserve">
+    <value>Cos&apos;è un pacchetto misto?</value>
+  </data>
+
+</root>

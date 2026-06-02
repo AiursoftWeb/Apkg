@@ -93,6 +93,9 @@
   <data name="Origin" xml:space="preserve">
     <value>الأصل</value>
   </data>
+  <data name="Origin Suite" xml:space="preserve">
+    <value>مجموعة المنشأ</value>
+  </data>
   <data name="Original Maintainer" xml:space="preserve">
     <value>المُصِين الأصلي</value>
   </data>

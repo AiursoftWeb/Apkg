@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Ações</value>
+  </data>
+  <data name="Click a package name to see its full version history, or click the eye icon to inspect a specific revision." xml:space="preserve">
+    <value>Clique no nome de um pacote para ver todo o histórico de versões, ou clique no ícone de olho para inspecionar uma revisão específica.</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Componente</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distro</value>
+  </data>
+  <data name="Every &lt;code&gt;apkg push&lt;/code&gt; creates a revision record. This page lists every upload you have made, whether it created a new package family or added a version to an existing one." xml:space="preserve">
+    <value>Cada comando &lt;code&gt;apkg push&lt;/code&gt; cria um registro de revisão. Esta página lista todos os uploads que você fez, seja criando uma nova família de pacotes ou adicionando uma versão a uma existente.</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Arquivo</value>
+  </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>Meu Histórico de Uploads</value>
+  </data>
+  <data name="No uploads yet." xml:space="preserve">
+    <value>Nenhum upload ainda.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Pacote</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Pacotes</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Dica:</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Histórico de Uploads</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Carregado</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>Histórico de Versões</value>
+  </data>
+  <data name="View Details" xml:space="preserve">
+    <value>Ver Detalhes</value>
+  </data>
+
+</root>
