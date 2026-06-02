@@ -93,6 +93,9 @@
   <data name="Origin" xml:space="preserve">
     <value>起源</value>
   </data>
+  <data name="Origin Suite" xml:space="preserve">
+    <value>オジンスイート</value>
+  </data>
   <data name="Original Maintainer" xml:space="preserve">
     <value>元のメンテナー</value>
   </data>

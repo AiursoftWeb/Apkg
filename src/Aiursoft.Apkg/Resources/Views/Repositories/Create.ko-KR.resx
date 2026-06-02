@@ -39,6 +39,9 @@
   <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>binary-[arch]/Packages 인덱스 파일 생성을 제어합니다. 아키텍처가 일치하지 않는 패키지는 저장되지만 apt 클라이언트에서 보이지 않습니다. 또한 클라이언트 설정 가이드의 &apos;Architectures:&apos; 행을 설정합니다. 변경 사항은 다음 Repository Sync 작업 실행 시 적용됩니다.</value>
   </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. &quot;amd64,arm64&quot;)." xml:space="preserve">
+    <value>생성할 binary-[arch]/Packages 인덱스 파일을 결정합니다. 아키텍처가 일치하지 않는 패키지는 &apos;all&apos;을 제외한 상태에서 저장되지만 apt 클라이언트에는 표시되지 않습니다. 또한 클라이언트 설정 안내서에서 Architectures: 줄을 설정합니다. 변경사항은 다음 Repository Sync 작업 실행 시 적용됩니다. 여러 아키텍처는 쉼표로 구분하십시오 (예: &quot;amd64,arm64&quot;).</value>
+  </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Packages 인덱스를 생성할 때 포함될 구성 요소 하위 디렉토리를 제어합니다. 나열되지 않은 구성 요소의 패키지는 저장되지만 apt 클라이언트에게는 보이지 않습니다. 또한 클라이언트 설정 가이드의 Components: 행을 설정합니다. 변경 사항은 다음 Repository Sync 작업 실행 시 적용됩니다.</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>미러에 연결된 경우 이 저장소는 해당 상위 소스에서 패키지를 제공합니다.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>연결된 경우, 이 저장소의 Packages 색인은 모든 Repository Sync 중에 거울(Mirror)에서 생성됩니다. 동일한 패키지 이름과 아키텍처를 가진 ApkgDebPackages는 거울(Mirror) 버전을 덮어씁니다.</value>
   </data>
   <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
     <value>연결된 경우, 이 저장소의 Packages 인덱스는 매번 Repository Sync 중에 미러에서 시드됩니다. 동일한 패키지 이름과 아키텍처의 LocalPackages는 미러 버전을 덮어씁니다.</value>

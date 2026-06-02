@@ -131,6 +131,8 @@ public class ViewModelArgsInjector(
         _ = localizer["APKG Package Details"];
         _ = localizer["My Upload History"];
         _ = localizer["Upload History"];
+    
+        _ = localizer["Confirm Unlist"];
     }
 
     public void InjectSimple(

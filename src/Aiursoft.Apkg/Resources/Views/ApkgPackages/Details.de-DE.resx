@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+    <value>Ein .apkg-Mixpaket ist das proprietäre Format von Apkg, das mehrere .deb-Pakete und eine manifest.xml in ein einzelnes gzip-komprimiertes tar-Archiv bündelt. Der Server entpackt jedes .deb, extrahiert die Metadaten aus seiner Steuerdatei und synchronisiert diese mit ihren Ziel-APT-Repositories.</value>
+  </data>
+  <data name="Dead (Invariant) Attributes" xml:space="preserve">
+    <value>Inaktive (invariante) Attribute</value>
+  </data>
+  <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
+    <value>Jede .apkg enthält drei im Stammbereich des Manifests definierte &lt;strong&gt;statische Attribute&lt;/strong&gt;, die für das gesamte Bundle gelten: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt; und &lt;strong&gt;Component&lt;/strong&gt;. Diese identifizieren die Paketfamilie sowie das Zielrepository. Sie dürfen sich innerhalb einer einzelnen .apkg nicht zwischen den Einträgen unterscheiden.</value>
+  </data>
+  <data name="Live (Variant) Attributes" xml:space="preserve">
+    <value>Aktuelle (variable) Attribute</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tipp:</value>
+  </data>
+  <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
+    <value>Erstellen und laden Sie .apkg-Dateien mit &lt;code&gt;apkg push&lt;/code&gt; über die CLI hoch. Uploads müssen veröffentlicht werden, bevor sie in APT-Repositories erscheinen.</value>
+  </data>
+  <data name="What is an APKG Mixed Package?" xml:space="preserve">
+    <value>Was ist ein APKG-Mischpaket?</value>
+  </data>
+  <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
+    <value>Innerhalb einer einzigen .apkg kann jeder Eintrag in drei &lt;strong&gt;dynamischen Attributen&lt;/strong&gt; variieren: &lt;strong&gt;Version&lt;/strong&gt; (wird aus der .deb-Datei extrahiert, niemals in manifest.xml geschrieben), &lt;strong&gt;Suite&lt;/strong&gt; und &lt;strong&gt;Aarchitektur&lt;/strong&gt;. Dies ermöglicht es Ihnen, z. B. amd64- und arm64-Builds derselben Version in einem einzigen Upload zu veröffentlichen.</value>
+  </data>
+
+</root>

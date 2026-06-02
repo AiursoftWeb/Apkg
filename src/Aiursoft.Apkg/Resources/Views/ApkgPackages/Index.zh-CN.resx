@@ -75,6 +75,9 @@
   <data name="Published" xml:space="preserve">
     <value>已发布</value>
   </data>
+  <data name="Relist" xml:space="preserve">
+    <value>重新上架</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>状态</value>
   </data>

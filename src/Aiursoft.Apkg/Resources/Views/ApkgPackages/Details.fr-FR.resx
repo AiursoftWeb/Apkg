@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+    <value>Un package mixte .apkg est le format propriétaire d&apos;Apkg qui regroupe plusieurs packages .deb et un fichier manifest.xml dans une seule archive tar compressée au format gzip. Le serveur décompresse chaque package .deb, extrait les métadonnées de son fichier de contrôle, puis les synchronise avec leurs dépôts APT cibles.</value>
+  </data>
+  <data name="Dead (Invariant) Attributes" xml:space="preserve">
+    <value>Attributs statiques (invariants)</value>
+  </data>
+  <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
+    <value>Chaque fichier .apkg possède trois &lt;strong&gt;attributs invariants&lt;/strong&gt; définis à la racine du manifeste qui s&apos;appliquent à l&apos;intégralité du bundle : &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt; et &lt;strong&gt;Component&lt;/strong&gt;. Ils identifient la famille de paquets et son référentiel cible. Ils ne peuvent pas varier entre les entrées d&apos;un même fichier .apkg.</value>
+  </data>
+  <data name="Live (Variant) Attributes" xml:space="preserve">
+    <value>Attributs actifs (variables)</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Conseil :</value>
+  </data>
+  <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
+    <value>Utilisez &lt;code&gt;apkg push&lt;/code&gt; depuis l’invite de commande pour créer et télécharger des fichiers .apkg. Les téléchargements doivent être publiés avant de figurer dans les dépôts APT.</value>
+  </data>
+  <data name="What is an APKG Mixed Package?" xml:space="preserve">
+    <value>Qu&apos;est-ce qu&apos;un package mixte APKG ?</value>
+  </data>
+  <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
+    <value>Au sein d&apos;un seul fichier .apkg, chaque entrée peut varier selon trois &lt;strong&gt;attributs dynamiques&lt;/strong&gt; : &lt;strong&gt;Version&lt;/strong&gt; (extraite du binaire .deb, jamais inscrite dans manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt; et &lt;strong&gt;Architecture&lt;/strong&gt;. Cela vous permet de distribuer, par exemple, les versions amd64 et arm64 d&apos;une même release lors d&apos;un seul téléchargement.</value>
+  </data>
+
+</root>

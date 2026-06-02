@@ -75,6 +75,9 @@
   <data name="Published" xml:space="preserve">
     <value>Published</value>
   </data>
+  <data name="Relist" xml:space="preserve">
+    <value>Relist</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>

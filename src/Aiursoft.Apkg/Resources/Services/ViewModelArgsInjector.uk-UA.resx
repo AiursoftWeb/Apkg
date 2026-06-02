@@ -81,6 +81,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Натисніть, щоб увійти</value>
   </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Підтвердити приховування</value>
+  </data>
   <data name="Create Certificate" xml:space="preserve">
     <value>Створити сертифікат</value>
   </data>

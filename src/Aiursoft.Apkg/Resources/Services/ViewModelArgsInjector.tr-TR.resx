@@ -81,6 +81,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Giriş yapmak için tıklayın</value>
   </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Listeden Çıkarmayı Onayla</value>
+  </data>
   <data name="Create Certificate" xml:space="preserve">
     <value>Sertifika Oluştur</value>
   </data>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>동작</value>
+  </data>
+  <data name="Active Versions" xml:space="preserve">
+    <value>활성 버전</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
+    <value>.apkg 혼합 패키지는 여러 .deb 패키지를 하나의 업로드로 번들링하는 Apkg의 독자적인 포맷입니다. 처리 후, 포함된 각 .deb가 추출되어 대상 APT 저장소로 동기화됩니다.</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>그리고 모든 수정본 및 로컬 패키지를 영구적으로 삭제합니다. 패키지 이름은 다른 사용자가 사용할 수 있도록 공개됩니다. 이 작업은 되돌릴 수 없습니다.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>구성 요소</value>
+  </data>
+  <data name="Delete Entire Package" xml:space="preserve">
+    <value>전체 패키지 삭제</value>
+  </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>패키지 삭제</value>
+  </data>
+  <data name="Delete Package Family" xml:space="preserve">
+    <value>패키지 패밀리 삭제</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>자세히</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>디스트로</value>
+  </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>내 패키지 (APKG)</value>
+  </data>
+  <data name="Next Version" xml:space="preserve">
+    <value>다음 버전</value>
+  </data>
+  <data name="No APKG uploads yet." xml:space="preserve">
+    <value>아직 업로드된 APKG 파일이 없습니다.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>패키지</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>게시됨</value>
+  </data>
+  <data name="Relist" xml:space="preserve">
+    <value>다시 등록</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="This will permanently delete the entire package family" xml:space="preserve">
+    <value>이 작업은 패키지 패밀리 전체를 영구적으로 삭제합니다</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>팁:</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>제출 취소</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>APKG 혼합 패키지 업로드</value>
+  </data>
+  <data name="Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories." xml:space="preserve">
+    <value>CLI에서 &lt;code&gt;apkg push&lt;/code&gt;를 사용하여 업로드하거나 웹 UI를 사용하세요. 업로드된 패키지는 저장소에 나타나기 전에 반드시 게시되어야 합니다.</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>업로드됨</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>버전 기록</value>
+  </data>
+  <data name="What is a mixed package?" xml:space="preserve">
+    <value>혼합 패키지란 무엇인가요?</value>
+  </data>
+
+</root>

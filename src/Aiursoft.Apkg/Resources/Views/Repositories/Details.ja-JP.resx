@@ -39,14 +39,26 @@
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>クライアント設定ガイド</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>Components</value>
+  </data>
   <data name="Copy to clipboard" xml:space="preserve">
     <value>クリップボードにコピー</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>ディストリビューション</value>
   </data>
   <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
     <value>apkgをお持ちでないですか？</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="GPG Signing" xml:space="preserve">
+    <value>GPG Signing</value>
   </data>
   <data name="How to use:" xml:space="preserve">
     <value>使い方:</value>
@@ -72,17 +84,29 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>ワンライナー設定:</value>
   </data>
+  <data name="Open to all" xml:space="preserve">
+    <value>Open to all</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Packages</value>
+  </data>
   <data name="Quick Setup with APKG CLI:" xml:space="preserve">
     <value>APKG CLI によるクイックセットアップ:</value>
   </data>
   <data name="Repository Details" xml:space="preserve">
     <value>リポジトリの詳細</value>
   </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Restricted</value>
+  </data>
   <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
     <value>右側の&lt;code&gt;sudo apkg add-source&lt;/code&gt;コマンドを実行してこのリポジトリを設定し、その後は通常通り&lt;code&gt;sudo apt install&lt;/code&gt;を使用してください。</value>
   </data>
   <data name="See how to install APKG CLI." xml:space="preserve">
     <value>APKG CLIのインストール方法をご覧ください。</value>
+  </data>
+  <data name="Staging Bucket" xml:space="preserve">
+    <value>Staging Bucket</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>スート</value>
@@ -93,36 +117,11 @@
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>これは最大限のセキュリティと信頼性を実現するため、最新のDEB822形式とスコープ付きキーリングを使用しています。</value>
   </data>
-  <data name="What is a Repository?" xml:space="preserve">
-    <value>リポジトリとは？</value>
-  </data>
-
-  <data name="Components" xml:space="preserve">
-    <value>Components</value>
-  </data>
-  <data name="Packages" xml:space="preserve">
-    <value>Packages</value>
-  </data>
-  <data name="GPG Signing" xml:space="preserve">
-    <value>GPG Signing</value>
-  </data>
-  <data name="Enabled" xml:space="preserve">
-    <value>Enabled</value>
-  </data>
-  <data name="Disabled" xml:space="preserve">
-    <value>Disabled</value>
-  </data>
   <data name="Upload Permission" xml:space="preserve">
     <value>Upload Permission</value>
   </data>
-  <data name="Open to all" xml:space="preserve">
-    <value>Open to all</value>
-  </data>
-  <data name="Restricted" xml:space="preserve">
-    <value>Restricted</value>
-  </data>
-  <data name="Staging Bucket" xml:space="preserve">
-    <value>Staging Bucket</value>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>リポジトリとは？</value>
   </data>
 
 </root>

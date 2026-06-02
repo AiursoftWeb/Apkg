@@ -81,6 +81,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Clique para fazer login</value>
   </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Confirmar Exclusão do Catálogo</value>
+  </data>
   <data name="Create Certificate" xml:space="preserve">
     <value>Criar Certificado</value>
   </data>

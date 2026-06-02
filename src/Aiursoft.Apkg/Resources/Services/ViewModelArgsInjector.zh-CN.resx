@@ -84,6 +84,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>点击登录</value>
   </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>确认取消发布</value>
+  </data>
   <data name="Create Certificate" xml:space="preserve">
     <value>创建证书</value>
   </data>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Active Versions" xml:space="preserve">
+    <value>有効なバージョン</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
+    <value>.apkg ミックスパッケージは、複数の .deb パッケージを単一のアップロードにまとめる Apkg 独自のフォーマットです。処理が完了すると、含まれる各 .deb が抽出され、対象の APT リポジトリと同期されます。</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>およびすべてのリビジョンとローカルパッケージ。パッケージ名は他のユーザーのために解放されます。この操作は元に戻せません。</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>コンポーネント</value>
+  </data>
+  <data name="Delete Entire Package" xml:space="preserve">
+    <value>パッケージ全体を削除</value>
+  </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>パッケージを削除</value>
+  </data>
+  <data name="Delete Package Family" xml:space="preserve">
+    <value>パッケージファミリを削除</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>詳細</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>ディストロ</value>
+  </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>マイパッケージ (APKG)</value>
+  </data>
+  <data name="Next Version" xml:space="preserve">
+    <value>次のバージョン</value>
+  </data>
+  <data name="No APKG uploads yet." xml:space="preserve">
+    <value>まだ APKG のアップロードがありません。</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>パッケージ</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>公開済み</value>
+  </data>
+  <data name="Relist" xml:space="preserve">
+    <value>再公開</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="This will permanently delete the entire package family" xml:space="preserve">
+    <value>これにより、パッケージファミリー全体が完全に削除されます。</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>ヒント：</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>リストから削除</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>APKGミックスパッケージをアップロード</value>
+  </data>
+  <data name="Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories." xml:space="preserve">
+    <value>CLI の &lt;code&gt;apkg push&lt;/code&gt; でアップロードするか、Web UI を使用してください。アップロードは公開しないとリポジトリに表示されません。</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>アップロード済み</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>バージョン履歴</value>
+  </data>
+  <data name="What is a mixed package?" xml:space="preserve">
+    <value>混合パッケージとは？</value>
+  </data>
+
+</root>

@@ -39,14 +39,26 @@
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>클라이언트 구성 가이드</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>Components</value>
+  </data>
   <data name="Copy to clipboard" xml:space="preserve">
     <value>클립보드에 복사</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>배포판</value>
   </data>
   <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
     <value>&lt;code&gt;apkg&lt;/code&gt;가 없으신가요?</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="GPG Signing" xml:space="preserve">
+    <value>GPG Signing</value>
   </data>
   <data name="How to use:" xml:space="preserve">
     <value>사용 방법:</value>
@@ -72,17 +84,29 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>원라인 설정:</value>
   </data>
+  <data name="Open to all" xml:space="preserve">
+    <value>Open to all</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Packages</value>
+  </data>
   <data name="Quick Setup with APKG CLI:" xml:space="preserve">
     <value>APKG CLI로 빠른 설정:</value>
   </data>
   <data name="Repository Details" xml:space="preserve">
     <value>저장소 세부 정보</value>
   </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>Restricted</value>
+  </data>
   <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
     <value>오른쪽에서 &lt;code&gt;sudo apkg add-source&lt;/code&gt; 명령을 실행하여 이 저장소를 구성한 다음, 평소처럼 &lt;code&gt;sudo apt install&lt;/code&gt;을 사용하세요.</value>
   </data>
   <data name="See how to install APKG CLI." xml:space="preserve">
     <value>APKG CLI 설치 방법을 확인하세요.</value>
+  </data>
+  <data name="Staging Bucket" xml:space="preserve">
+    <value>Staging Bucket</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>Suite</value>
@@ -93,36 +117,11 @@
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>이 방법은 최대 보안과 신뢰성을 위해 현대적인 DEB822 형식과 범위가 지정된 키링을 사용합니다.</value>
   </data>
-  <data name="What is a Repository?" xml:space="preserve">
-    <value>리포지토리란 무엇인가요?</value>
-  </data>
-
-  <data name="Components" xml:space="preserve">
-    <value>Components</value>
-  </data>
-  <data name="Packages" xml:space="preserve">
-    <value>Packages</value>
-  </data>
-  <data name="GPG Signing" xml:space="preserve">
-    <value>GPG Signing</value>
-  </data>
-  <data name="Enabled" xml:space="preserve">
-    <value>Enabled</value>
-  </data>
-  <data name="Disabled" xml:space="preserve">
-    <value>Disabled</value>
-  </data>
   <data name="Upload Permission" xml:space="preserve">
     <value>Upload Permission</value>
   </data>
-  <data name="Open to all" xml:space="preserve">
-    <value>Open to all</value>
-  </data>
-  <data name="Restricted" xml:space="preserve">
-    <value>Restricted</value>
-  </data>
-  <data name="Staging Bucket" xml:space="preserve">
-    <value>Staging Bucket</value>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>리포지토리란 무엇인가요?</value>
   </data>
 
 </root>

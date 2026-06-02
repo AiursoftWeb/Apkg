@@ -93,6 +93,9 @@
   <data name="Origin" xml:space="preserve">
     <value>แหล่งที่มา</value>
   </data>
+  <data name="Origin Suite" xml:space="preserve">
+    <value>ชุดต้นทาง</value>
+  </data>
   <data name="Original Maintainer" xml:space="preserve">
     <value>ผู้ดูแลต้นฉบับ</value>
   </data>

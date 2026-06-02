@@ -81,6 +81,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Klikkaa kirjautuaksesi</value>
   </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Vahvista listaamaton</value>
+  </data>
   <data name="Create Certificate" xml:space="preserve">
     <value>Luo sertifikaatti</value>
   </data>

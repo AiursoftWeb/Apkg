@@ -93,6 +93,9 @@
   <data name="Origin" xml:space="preserve">
     <value>기원</value>
   </data>
+  <data name="Origin Suite" xml:space="preserve">
+    <value>출처 수트</value>
+  </data>
   <data name="Original Maintainer" xml:space="preserve">
     <value>원래 유지 관리자</value>
   </data>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+    <value>.apkg 혼합 패키지는 Apkg의 독점 포맷으로, 여러 .deb 패키지와 manifest.xml을 단일 gzip tar 아카이브로 묶습니다. 서버는 각 .deb를解压하고, 제어 파일에서 메타데이터를 추출한 후 이를 대상 APT 저장소와 동기화합니다.</value>
+  </data>
+  <data name="Dead (Invariant) Attributes" xml:space="preserve">
+    <value>정적(불변) 속성</value>
+  </data>
+  <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
+    <value>모든 .apkg에는 번들 전체에 적용되는 manifest 루트에서 정의된 세 개의 &lt;strong&gt;불변 속성(dead attributes)&lt;/strong&gt;이 있습니다: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, &lt;strong&gt;Component&lt;/strong&gt;입니다. 이들은 패키지 패밀리와 대상 저장소를 식별합니다. 단일 .apkg 내의 항목 간에는 이러한 속성이 변경될 수 없습니다.</value>
+  </data>
+  <data name="Live (Variant) Attributes" xml:space="preserve">
+    <value>라이브(가변) 특성</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>팁:</value>
+  </data>
+  <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
+    <value>CLI에서 &lt;code&gt;apkg push&lt;/code&gt;를 사용하여 .apkg 파일을 생성하고 업로드하세요. 업로드된 파일은 게시되어야 APT 저장소에 표시됩니다.</value>
+  </data>
+  <data name="What is an APKG Mixed Package?" xml:space="preserve">
+    <value>APKG 혼합 패키지가 무엇인가요?</value>
+  </data>
+  <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
+    <value>단일 .apkg 내에서 각 항목은 세 가지 &lt;strong&gt;라이브 속성&lt;/strong&gt;(&lt;strong&gt;Version&lt;/strong&gt;(.deb 바이너리에서 추출되며, manifest.xml에는 기록되지 않음), &lt;strong&gt;Suite&lt;/strong&gt;, &lt;strong&gt;Architecture&lt;/strong&gt;)에서 다를 수 있습니다. 이를 통해 예를 들어 동일한 버전의 amd64 및 arm64 빌드를 한 번의 업로드로 배포할 수 있습니다.</value>
+  </data>
+
+</root>

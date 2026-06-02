@@ -39,6 +39,9 @@
   <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>binary-[arch]/Packagesインデックスファイルの生成対象を制御します。アーキテクチャが一致しないパッケージ（&apos;all&apos;を除く）は保存されますが、aptクライアントからは見えません。また、クライアント設定ガイドのArchitectures:行にも設定されます。変更は次のリポジトリ同期ジョブの実行時に有効になります。</value>
   </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. &quot;amd64,arm64&quot;)." xml:space="preserve">
+    <value>生成される binary-[arch]/Packages インデックスファイルを制御します。一致しないアーキテクチャを持つパッケージ（「all」を除く）は保存されますが、apt クライアントからは見えなくなります。また、クライアント設定ガイド内の「Architectures:」行も設定します。変更は次回リポジトリ同期ジョブ実行時に反映されます。複数のアーキテクチャはカンマで区切ってください（例:「amd64,arm64」）。</value>
+  </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Packages インデックスを生成する際に含めるコンポーネントサブディレクトリを制御します。リストされていないコンポーネントのパッケージは保存されますが、apt クライアントからは表示されません。また、クライアント設定ガイドの Components: 行も設定されます。変更は次の Repository Sync ジョブの実行時に有効になります。</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>ミラーにリンクされている場合、このリポジトリはそのアップストリームソースからパッケージを提供します。</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>リンクが設定されている場合、このリポジトリのPackagesインデックスは、リポジトリ同期のたびにミラーから生成されます。同じパッケージ名とアーキテクチャのApkgDebPackagesは、ミラーのバージョンを上書きします。</value>
   </data>
   <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
     <value>リンクされている場合、このリポジトリのPackagesインデックスは、リポジトリ同期の実行ごとにミラーから初期化されます。同じパッケージ名とアーキテクチャのLocalPackagesは、ミラーのバージョンを優先します。</value>

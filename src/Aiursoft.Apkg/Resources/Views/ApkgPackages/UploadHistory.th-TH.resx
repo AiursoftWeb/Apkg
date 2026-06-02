@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>การดำเนินการ</value>
+  </data>
+  <data name="Click a package name to see its full version history, or click the eye icon to inspect a specific revision." xml:space="preserve">
+    <value>คลิกชื่อแพ็กเกจเพื่อดูประวัติเวอร์ชันทั้งหมด หรือคลิกไอคอนตาเพื่อตรวจสอบการแก้ไขเฉพาะเจาะจง</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>คอมโพเนนต์</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>ดิสทริบิวชัน</value>
+  </data>
+  <data name="Every &lt;code&gt;apkg push&lt;/code&gt; creates a revision record. This page lists every upload you have made, whether it created a new package family or added a version to an existing one." xml:space="preserve">
+    <value>คำสั่ง &lt;code&gt;apkg push&lt;/code&gt; ทุกครั้งจะสร้างบันทึกการแก้ไข หน้าปกรายการอัปโหลดทั้งหมดของคุณ ไม่ว่าจะเป็นการสร้างครอบครัวแพ็กเกจใหม่หรือการเพิ่มเวอร์ชันลงในแพ็กเกจที่มีอยู่</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>ไฟล์</value>
+  </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>ประวัติการอัปโหลดของฉัน</value>
+  </data>
+  <data name="No uploads yet." xml:space="preserve">
+    <value>ยังไม่มีไฟล์อัปโหลด</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>แพ็กเกจ</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>แพ็กเกจ</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>เคล็ดลับ:</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>ประวัติการอัปโหลด</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>อัปโหลดแล้ว</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>ประวัติเวอร์ชัน</value>
+  </data>
+  <data name="View Details" xml:space="preserve">
+    <value>ดูรายละเอียด</value>
+  </data>
+
+</root>

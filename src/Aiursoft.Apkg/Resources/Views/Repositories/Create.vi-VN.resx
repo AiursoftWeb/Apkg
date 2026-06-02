@@ -39,6 +39,9 @@
   <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Kiểm soát các tệp chỉ mục Packages của binary-[arch] được tạo ra. Các gói có kiến trúc không khớp (ngoại trừ &apos;all&apos;) được lưu trữ nhưng ẩn đối với các khách hàng apt. Cũng thiết lập dòng Architectures: trong hướng dẫn thiết lập khách hàng. Các thay đổi có hiệu lực khi chạy tác nghiệp Đồng bộ hóa Kho tiếp theo.</value>
   </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. &quot;amd64,arm64&quot;)." xml:space="preserve">
+    <value>Kiểm soát việc tạo các file chỉ mục Packages cho binary-[kiến trúc]/. Các gói có kiến trúc không khớp (trừ &apos;all&apos;) sẽ được lưu trữ nhưng ẩn đối với các máy khách apt. Đồng thời thiết lập dòng Architectures: trong hướng dẫn thiết lập cho máy khách. Các thay đổi sẽ có hiệu lực khi công việc Đồng bộ Hóa Kho lưu trữ tiếp theo chạy. Tách các kiến trúc bằng dấu phẩy (ví dụ: &quot;amd64,arm64&quot;).</value>
+  </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Kiểm soát các thư mục con của thành phần nào được bao gồm khi tạo chỉ mục Packages. Các gói trong các thành phần không được liệt kê sẽ được lưu trữ nhưng không hiển thị đối với các khách hàng apt. Đồng thời thiết lập dòng Components: trong hướng dẫn thiết lập khách hàng. Các thay đổi có hiệu lực khi chạy tác nghiệp Đồng bộ Kho lưu trữ tiếp theo.</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Nếu được liên kết với một máy phản chiếu, kho lưu trữ này sẽ cung cấp các gói từ nguồn gốc upstream đó.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Nếu được liên kết, chỉ mục Packages của kho lưu trữ này sẽ được khởi tạo từ bản sao phản chiếu trong mỗi lần Đồng bộ hóa Kho lưu trữ. Các gói ApkgDebPackages có cùng tên và kiến trúc gói sẽ ghi đè phiên bản từ bản sao phản chiếu.</value>
   </data>
   <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
     <value>Nếu được liên kết, chỉ mục Packages của kho lưu trữ này sẽ được khởi tạo từ bản sao trong mỗi lần Đồng bộ hóa Kho lưu trữ. LocalPackages có cùng tên gói và kiến trúc sẽ ghi đè phiên bản từ bản sao.</value>

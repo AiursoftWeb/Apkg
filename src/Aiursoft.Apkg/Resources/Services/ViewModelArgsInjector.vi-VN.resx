@@ -84,6 +84,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Nhấp để đăng nhập</value>
   </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Xác nhận bỏ liệt kê</value>
+  </data>
   <data name="Create Certificate" xml:space="preserve">
     <value>Tạo Chứng chỉ</value>
   </data>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+    <value>แพ็กเกจแบบผสม .apkg เป็นรูปแบบเฉพาะของ Apkg ที่รวมแพ็กเกจ .deb หลายรายการและไฟล์ manifest.xml ไว้ในไฟล์ tar แบบ gzipped ไฟล์เดียว เซิร์ฟเวอร์จะคลายแพ็กเกจ .deb แต่ละรายการ ดึงข้อมูลเมตาจากไฟล์ control แล้วซิงค์ไปยังที่เก็บ APT เป้าหมาย</value>
+  </data>
+  <data name="Dead (Invariant) Attributes" xml:space="preserve">
+    <value>แอตทริบิวต์ตายตัว (ไม่แปรเปลี่ยน)</value>
+  </data>
+  <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
+    <value>ทุกไฟล์ .apkg จะมี &lt;strong&gt;แอตทริบิวต์แบบตายตัว (dead attributes)&lt;/strong&gt; จำนวนสามรายการที่กำหนดไว้ที่ส่วนรากของไฟล์ manifest และใช้กับแพ็กเกจทั้งหมดในบандล์ ได้แก่ &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt; และ &lt;strong&gt;Component&lt;/strong&gt; แอตทริบิวต์เหล่านี้ใช้ระบุกลุ่มแพ็กเกจและที่เก็บเป้าหมาย (target repository) โดยค่าเหล่านี้จะต้องไม่เปลี่ยนแปลงระหว่างรายการต่างๆ ภายในไฟล์ .apkg เดียวกัน</value>
+  </data>
+  <data name="Live (Variant) Attributes" xml:space="preserve">
+    <value>คุณลักษณะแบบเปลี่ยนแปลงได้ (Live)</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>เคล็ดลับ:</value>
+  </data>
+  <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
+    <value>ใช้ &lt;code&gt;apkg push&lt;/code&gt; จาก CLI เพื่อสร้างและอัปโหลดไฟล์ .apkg ต้องตีพิมพ์การอัปโหลดก่อนที่ไฟล์จะปรากฏในแหล่งเก็บข้อมูล APT</value>
+  </data>
+  <data name="What is an APKG Mixed Package?" xml:space="preserve">
+    <value>แพ็กเกจผสม APKG คืออะไร?</value>
+  </data>
+  <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
+    <value>ภายในไฟล์ .apkg ไฟล์เดียว แต่ละรายการสามารถแตกต่างกันได้ในด้าน &lt;strong&gt;แอตทริบิวต์แบบไดนามิก&lt;/strong&gt; (live attributes) สามประการ ได้แก่ &lt;strong&gt;Version&lt;/strong&gt; (เวอร์ชัน - ดึงมาจากไฟล์ไบนารี .deb และจะไม่ถูกบันทึกใน manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, และ &lt;strong&gt;Architecture&lt;/strong&gt; ซึ่งช่วยให้คุณอัปโหลดการรวบรวม (builds) ของเวอร์ชันเดียวกันสำหรับสถาปัตยกรรมต่าง ๆ เช่น amd64 และ arm64 พร้อมกันในครั้งเดียว</value>
+  </data>
+
+</root>

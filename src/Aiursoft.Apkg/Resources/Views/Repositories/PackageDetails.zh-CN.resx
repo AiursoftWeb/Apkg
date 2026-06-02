@@ -93,6 +93,9 @@
   <data name="Origin" xml:space="preserve">
     <value>来源</value>
   </data>
+  <data name="Origin Suite" xml:space="preserve">
+    <value>源套件</value>
+  </data>
   <data name="Original Maintainer" xml:space="preserve">
     <value>原始维护者</value>
   </data>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Active Versions" xml:space="preserve">
+    <value>Versions actives</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
+    <value>Un package mixte .apkg est un format propriétaire d&apos;Apkg qui regroupe plusieurs packages .deb dans un seul téléchargement. Après traitement, chaque .deb contenu est extrait et synchronisé vers son référentiel APT cible.</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>et TOUTES ses révisions et paquets locaux. Le nom du paquet sera libéré pour d&apos;autres utilisateurs. Cette action est irréversible.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Composant</value>
+  </data>
+  <data name="Delete Entire Package" xml:space="preserve">
+    <value>Supprimer tout le package</value>
+  </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>Supprimer le package</value>
+  </data>
+  <data name="Delete Package Family" xml:space="preserve">
+    <value>Supprimer la famille de packages</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distribution</value>
+  </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>Mes packages (APKG)</value>
+  </data>
+  <data name="Next Version" xml:space="preserve">
+    <value>Prochaine Version</value>
+  </data>
+  <data name="No APKG uploads yet." xml:space="preserve">
+    <value>Aucun téléchargement d&apos;APKG pour le moment.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Paquet</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Publié</value>
+  </data>
+  <data name="Relist" xml:space="preserve">
+    <value>Réinscrire</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="This will permanently delete the entire package family" xml:space="preserve">
+    <value>Cela supprimera définitivement toute la famille de paquets</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Astuce :</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Dépublier</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>Télécharger le package mixte APKG</value>
+  </data>
+  <data name="Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories." xml:space="preserve">
+    <value>Téléchargez via l&apos;interface de ligne de commande avec &lt;code&gt;apkg push&lt;/code&gt; ou utilisez l&apos;interface Web. Les téléchargements doivent être publiés avant d&apos;apparaître dans les référentiels.</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Téléversé</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>Historique des versions</value>
+  </data>
+  <data name="What is a mixed package?" xml:space="preserve">
+    <value>Qu&apos;est-ce qu&apos;un package mixte ?</value>
+  </data>
+
+</root>

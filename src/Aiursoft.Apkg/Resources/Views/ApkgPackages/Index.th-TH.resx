@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>การดำเนินการ</value>
+  </data>
+  <data name="Active Versions" xml:space="preserve">
+    <value>เวอร์ชันที่ใช้งานอยู่</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
+    <value>แพ็กเกจผสม .apkg เป็นรูปแบบเฉพาะของ Apkg ที่รวมแพ็กเกจ .deb หลายตัวไว้ในหนึ่งการอัปโหลด หลังจากประมวลผลแล้ว แพ็กเกจ .deb แต่ละตัวที่บรรจุอยู่จะถูกแยกออกมาและซิงค์ไปยังที่เก็บ APT เป้าหมายของ它们</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>และทั้งหมดของการแก้ไขและแพ็กเกจท้องถิ่น ชื่อแพ็กเกจจะได้รับการปล่อยให้อื่นๆ ใช้ ไม่สามารถย้อนกลับได้</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>ส่วนประกอบ</value>
+  </data>
+  <data name="Delete Entire Package" xml:space="preserve">
+    <value>ลบแพ็กเกจทั้งหมด</value>
+  </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>ลบแพ็กเกจ</value>
+  </data>
+  <data name="Delete Package Family" xml:space="preserve">
+    <value>ลบกลุ่มแพ็กเกจ</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>รายละเอียด</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>ดิสโทร</value>
+  </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>แพ็กเกจของฉัน (APKG)</value>
+  </data>
+  <data name="Next Version" xml:space="preserve">
+    <value>เวอร์ชันถัดไป</value>
+  </data>
+  <data name="No APKG uploads yet." xml:space="preserve">
+    <value>ยังไม่มีอัปโหลด APKG เลย</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>แพ็กเกจ</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>เผยแพร่แล้ว</value>
+  </data>
+  <data name="Relist" xml:space="preserve">
+    <value>นำกลับมาแสดงอีกครั้ง</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="This will permanently delete the entire package family" xml:space="preserve">
+    <value>การดำเนินการนี้จะลบครอบครัวแพ็กเกจทั้งหมดอย่างถาวร</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>เคล็ดลับ:</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>ยกเลิกการจัดรายการ</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>อัปโหลดแพ็กเกจรวม APKG</value>
+  </data>
+  <data name="Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories." xml:space="preserve">
+    <value>อัปโหลดผ่าน CLI ด้วย &lt;code&gt;apkg push&lt;/code&gt; หรือใช้ Web UI การอัปโหลดต้องเผยแพร่ก่อนจึงจะปรากฏในรีพอสิทอรี</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>อัปโหลดแล้ว</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>ประวัติเวอร์ชัน</value>
+  </data>
+  <data name="What is a mixed package?" xml:space="preserve">
+    <value>แพ็กเกจผสมคืออะไร?</value>
+  </data>
+
+</root>

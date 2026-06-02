@@ -81,6 +81,9 @@
   <data name="Click to login" xml:space="preserve">
     <value>Apasă pentru a te autentifica</value>
   </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Confirmă dezlistarea</value>
+  </data>
   <data name="Create Certificate" xml:space="preserve">
     <value>Creează certificat</value>
   </data>

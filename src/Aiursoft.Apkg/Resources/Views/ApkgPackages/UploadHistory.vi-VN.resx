@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Thao tác</value>
+  </data>
+  <data name="Click a package name to see its full version history, or click the eye icon to inspect a specific revision." xml:space="preserve">
+    <value>Nhấp vào tên gói để xem lịch sử phiên bản đầy đủ của nó, hoặc nhấp vào biểu tượng mắt để kiểm tra một phiên bản cụ thể.</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Thành phần</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Bản phân phối</value>
+  </data>
+  <data name="Every &lt;code&gt;apkg push&lt;/code&gt; creates a revision record. This page lists every upload you have made, whether it created a new package family or added a version to an existing one." xml:space="preserve">
+    <value>Mỗi lệnh &lt;code&gt;apkg push&lt;/code&gt; tạo một bản ghi phiên bản. Trang này liệt kê tất cả các bản tải lên mà bạn đã thực hiện, cho dù đó là tạo một họ gói mới hay thêm một phiên bản vào gói hiện có.</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Tệp</value>
+  </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>Lịch sử tải lên của tôi</value>
+  </data>
+  <data name="No uploads yet." xml:space="preserve">
+    <value>Chưa có bản tải lên nào.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Gói</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Gói</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Mẹo:</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Lịch sử tải lên</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Đã tải lên</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>Lịch sử phiên bản</value>
+  </data>
+  <data name="View Details" xml:space="preserve">
+    <value>Xem chi tiết</value>
+  </data>
+
+</root>
