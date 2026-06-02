@@ -48,6 +48,9 @@
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>APKG 하이브리드</value>
   </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>APKG 패키지 세부 정보</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>APKG 업로드 세부 정보</value>
   </data>
@@ -174,6 +177,9 @@
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>내 패키지 (APKG)</value>
   </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>내 업로드 내역</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>새 API 키</value>
   </data>
@@ -261,11 +267,14 @@
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>APKG 패키지 업로드</value>
   </data>
-  <data name="Upload Package" xml:space="preserve">
-    <value>패키지 업로드</value>
-  </data>
   <data name="Upload deb package" xml:space="preserve">
     <value>Upload deb package</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>업로드 기록</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>패키지 업로드</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>상위 미러</value>

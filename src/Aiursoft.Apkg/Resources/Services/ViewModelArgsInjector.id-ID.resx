@@ -45,6 +45,9 @@
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Apkg Hybrid</value>
   </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>Detail Paket APKG</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>Detail Unggahan APKG</value>
   </data>
@@ -171,6 +174,9 @@
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Paket Saya (APKG)</value>
   </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>Riwayat Unggahan Saya</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Kunci API Baru</value>
   </data>
@@ -258,11 +264,14 @@
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>Unggah Paket APKG</value>
   </data>
-  <data name="Upload Package" xml:space="preserve">
-    <value>Unggah Paket</value>
-  </data>
   <data name="Upload deb package" xml:space="preserve">
     <value>Upload deb package</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Riwayat Unggah</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Unggah Paket</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Cermin Hulu</value>

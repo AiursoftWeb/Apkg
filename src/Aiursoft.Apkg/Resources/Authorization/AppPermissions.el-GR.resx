@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Επιτρέπει τη μόνιμη διαγραφή των λογαριασμών χρηστών.</value>
   </data>
+  <data name="Allows uploading ApkgDebPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>Επιτρέπει την ανανέωση πακέτων ApkgDeb σε αποθετήρια όπου η επιλογή AllowAnyoneToUpload είναι απενεργοποιημένη.</value>
+  </data>
   <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
     <value>Επιτρέπει την αποστολή τοπικών πακέτων σε αποθετήρια στα οποία έχει απενεργοποιηθεί το AllowAnyoneToUpload.</value>
   </data>

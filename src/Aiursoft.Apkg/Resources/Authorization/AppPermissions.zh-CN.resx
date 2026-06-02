@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>允许永久删除用户账户。</value>
   </data>
+  <data name="Allows uploading ApkgDebPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>允许将 ApkgDebPackages 上传至已禁用 AllowAnyoneToUpload 的存储库。</value>
+  </data>
   <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
     <value>允许将 LocalPackages 上传至禁用了 AllowAnyoneToUpload 的存储库。</value>
   </data>

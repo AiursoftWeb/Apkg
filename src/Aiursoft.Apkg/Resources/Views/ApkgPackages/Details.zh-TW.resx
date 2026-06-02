@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+    <value>.apkg 混合套件是 Apkg 的專屬格式，將多個 .deb 套件與 manifest.xml 打包成單一 gzipped tar 封存檔。伺服器會解壓每個 .deb，從其控制檔案提取中繼資料，並將它們同步至目標 APT 套件存放庫。</value>
+  </data>
+  <data name="Dead (Invariant) Attributes" xml:space="preserve">
+    <value>固定（不變）屬性</value>
+  </data>
+  <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
+    <value>每個 .apkg 檔案在 manifest 根層級都定義了三項&lt;strong&gt;固定屬性&lt;/strong&gt;，適用於整個套件組：&lt;strong&gt;Name&lt;/strong&gt;、&lt;strong&gt;Distro&lt;/strong&gt; 與 &lt;strong&gt;Component&lt;/strong&gt;。這些屬性用於識別套件系列及其目標存放庫。它們在單一 .apkg 內的各項條目之間不得變動。</value>
+  </data>
+  <data name="Live (Variant) Attributes" xml:space="preserve">
+    <value>動態（變體）屬性</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>提示：</value>
+  </data>
+  <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
+    <value>使用 CLI 中的 &lt;code&gt;apkg push&lt;/code&gt; 來建立並上傳 .apkg 檔案。上傳內容必須先經過發佈，才會顯示在 APT 套件存放庫中。</value>
+  </data>
+  <data name="What is an APKG Mixed Package?" xml:space="preserve">
+    <value>什麼是 APKG 混合套件？</value>
+  </data>
+  <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
+    <value>在單一 .apkg 中，每個項目可在三個&lt;strong&gt;動態屬性&lt;/strong&gt;上有所不同：&lt;strong&gt;版本&lt;/strong&gt;（從 .deb 二進位檔案提取，不會寫入 manifest.xml）、&lt;strong&gt;套件系列&lt;/strong&gt;，以及&lt;strong&gt;架構&lt;/strong&gt;。這讓您可以透過一次上傳，同時送出例如 amd64 和 arm64 的相同版本建置。</value>
+  </data>
+
+</root>

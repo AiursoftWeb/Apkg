@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="Active Versions" xml:space="preserve">
+    <value>活跃版本</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
+    <value>.apkg 混合包是 Apkg 的专有格式，它将多个 .deb 包捆绑为单个上传文件。处理完成后，每个包含的 .deb 包都会被提取并同步到其目标 APT 仓库。</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>以及其所有修订版本和本地包。该包名将被释放供其他用户使用。此操作无法撤销。</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>组件</value>
+  </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>确认取消上架</value>
+  </data>
+  <data name="Delete Entire Package" xml:space="preserve">
+    <value>删除整个软件包</value>
+  </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>删除软件包</value>
+  </data>
+  <data name="Delete Package Family" xml:space="preserve">
+    <value>删除软件包系列</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>详细信息</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>发行版</value>
+  </data>
+  <data name="Generated packages will be disabled." xml:space="preserve">
+    <value>生成的包将被禁用。</value>
+  </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>我的软件包 (APKG)</value>
+  </data>
+  <data name="Next Version" xml:space="preserve">
+    <value>下一版本</value>
+  </data>
+  <data name="No APKG uploads yet." xml:space="preserve">
+    <value>暂无 APKG 上传。</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>软件包</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>已发布</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="This will permanently delete the entire package family" xml:space="preserve">
+    <value>此操作将永久删除整个包系列</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>提示：</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>取消列出</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>上传 APKG 混合包</value>
+  </data>
+  <data name="Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories." xml:space="preserve">
+    <value>通过命令行界面使用 &lt;code&gt;apkg push&lt;/code&gt; 上传，或使用 Web 界面。上传内容必须发布后才会出现在存储库中。</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>上传时间</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>版本历史</value>
+  </data>
+  <data name="What is a mixed package?" xml:space="preserve">
+    <value>什么是混合包？</value>
+  </data>
+
+</root>

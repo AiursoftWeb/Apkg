@@ -45,6 +45,9 @@
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Υβριδικό Apkg</value>
   </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>Λεπτομέρειες Πaket APKG</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>Λεπτομέρειες Ανάθεσης APKG</value>
   </data>
@@ -171,6 +174,9 @@
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Τα πακέτα μου (APKG)</value>
   </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>Ιστορικό Αφορμών Μου</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Νέος Κλειδί API</value>
   </data>
@@ -258,11 +264,14 @@
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>Μεταφόρτωση πακέτου APKG</value>
   </data>
-  <data name="Upload Package" xml:space="preserve">
-    <value>Ανέβασμα Πακέτου</value>
-  </data>
   <data name="Upload deb package" xml:space="preserve">
     <value>Upload deb package</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Ιστορικό Εμφάνισης</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Ανέβασμα Πακέτου</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Κάτοψη Ανάστροφης Αντιγραφής</value>

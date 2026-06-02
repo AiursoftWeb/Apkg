@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Permite ștergerea permanentă a conturilor de utilizator.</value>
   </data>
+  <data name="Allows uploading ApkgDebPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>Permite încărcarea pachetelor ApkgDeb în depozite pentru care funcția AllowAnyoneToUpload este dezactivată.</value>
+  </data>
   <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
     <value>Permite încărcarea pachetelor locale în depozitele care au setată opțiunea AllowAnyoneToUpload dezactivată.</value>
   </data>

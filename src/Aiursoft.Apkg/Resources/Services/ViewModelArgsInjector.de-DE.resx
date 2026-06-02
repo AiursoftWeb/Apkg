@@ -48,6 +48,9 @@
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Apkg Hybrid</value>
   </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>APKG-Paketdetails</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>Details zum APKG-Upload</value>
   </data>
@@ -174,6 +177,9 @@
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Meine Pakete (APKG)</value>
   </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>Mein Upload-Verlauf</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Neuer API-Schlüssel</value>
   </data>
@@ -261,11 +267,14 @@
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>APKG-Paket hochladen</value>
   </data>
-  <data name="Upload Package" xml:space="preserve">
-    <value>Paket hochladen</value>
-  </data>
   <data name="Upload deb package" xml:space="preserve">
     <value>Upload deb package</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Upload-Historie</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Paket hochladen</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Upstream-Spiegel</value>

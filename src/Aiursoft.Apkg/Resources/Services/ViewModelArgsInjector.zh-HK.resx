@@ -48,6 +48,9 @@
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>APKG 混合模式</value>
   </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>APKG 套件詳細資料</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>APKG 上傳詳情</value>
   </data>
@@ -174,6 +177,9 @@
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>我的套件 (APKG)</value>
   </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>我嘅上傳記錄</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>新 API 金鑰</value>
   </data>
@@ -261,11 +267,14 @@
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>上傳 APKG 套件</value>
   </data>
-  <data name="Upload Package" xml:space="preserve">
-    <value>上傳套件</value>
-  </data>
   <data name="Upload deb package" xml:space="preserve">
     <value>Upload deb package</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>上傳歷史</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>上傳套件</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>上游鏡像</value>

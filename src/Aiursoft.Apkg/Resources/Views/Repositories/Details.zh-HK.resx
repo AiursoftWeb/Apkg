@@ -39,14 +39,26 @@
   <data name="Client Configuration Guide" xml:space="preserve">
     <value>客戶端配置指南</value>
   </data>
+  <data name="Components" xml:space="preserve">
+    <value>組件</value>
+  </data>
   <data name="Copy to clipboard" xml:space="preserve">
     <value>複製到剪貼簿</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>已停用</value>
   </data>
   <data name="Distro" xml:space="preserve">
     <value>發行版</value>
   </data>
   <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
     <value>沒有 &lt;code&gt;apkg&lt;/code&gt; 嗎？</value>
+  </data>
+  <data name="Enabled" xml:space="preserve">
+    <value>已啟用</value>
+  </data>
+  <data name="GPG Signing" xml:space="preserve">
+    <value>GPG 簽署</value>
   </data>
   <data name="How to use:" xml:space="preserve">
     <value>如何使用：</value>
@@ -72,17 +84,29 @@
   <data name="One-line Setup:" xml:space="preserve">
     <value>一行式設定：</value>
   </data>
+  <data name="Open to all" xml:space="preserve">
+    <value>對所有人開放</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>軟體包</value>
+  </data>
   <data name="Quick Setup with APKG CLI:" xml:space="preserve">
     <value>快速設定 with APKG CLI:</value>
   </data>
   <data name="Repository Details" xml:space="preserve">
     <value>儲存庫詳情</value>
   </data>
+  <data name="Restricted" xml:space="preserve">
+    <value>受限</value>
+  </data>
   <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
     <value>在右方執行 &lt;code&gt;sudo apkg add-source&lt;/code&gt; 指令以配置此倉庫，然後如常使用 &lt;code&gt;sudo apt install&lt;/code&gt;。</value>
   </data>
   <data name="See how to install APKG CLI." xml:space="preserve">
     <value>查看如何安裝 APKG CLI。</value>
+  </data>
+  <data name="Staging Bucket" xml:space="preserve">
+    <value>暫存儲存桶</value>
   </data>
   <data name="Suite" xml:space="preserve">
     <value>套件</value>
@@ -93,36 +117,11 @@
   <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
     <value>此功能採用現代的 DEB822 格式及受限金鑰環，以確保最高的安全性與可靠性。</value>
   </data>
-  <data name="What is a Repository?" xml:space="preserve">
-    <value>什麼是儲存庫？</value>
-  </data>
-
-  <data name="Components" xml:space="preserve">
-    <value>組件</value>
-  </data>
-  <data name="Packages" xml:space="preserve">
-    <value>軟體包</value>
-  </data>
-  <data name="GPG Signing" xml:space="preserve">
-    <value>GPG 簽署</value>
-  </data>
-  <data name="Enabled" xml:space="preserve">
-    <value>已啟用</value>
-  </data>
-  <data name="Disabled" xml:space="preserve">
-    <value>已停用</value>
-  </data>
   <data name="Upload Permission" xml:space="preserve">
     <value>上傳權限</value>
   </data>
-  <data name="Open to all" xml:space="preserve">
-    <value>對所有人開放</value>
-  </data>
-  <data name="Restricted" xml:space="preserve">
-    <value>受限</value>
-  </data>
-  <data name="Staging Bucket" xml:space="preserve">
-    <value>暫存儲存桶</value>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>什麼是儲存庫？</value>
   </data>
 
 </root>

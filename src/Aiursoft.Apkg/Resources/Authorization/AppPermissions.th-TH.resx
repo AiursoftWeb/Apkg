@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>อนุญาตให้ลบบัญชีผู้ใช้อย่างถาวร</value>
   </data>
+  <data name="Allows uploading ApkgDebPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>อนุญาตให้อัปโหลด ApkgDebPackages ไปยังที่เก็บข้อมูลที่มี AllowAnyoneToUpload ปิดอยู่</value>
+  </data>
   <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
     <value>อนุญาตให้อัปโหลด LocalPackages ไปยังคลังข้อมูลที่มี AllowAnyoneToUpload ปิดใช้งาน</value>
   </data>

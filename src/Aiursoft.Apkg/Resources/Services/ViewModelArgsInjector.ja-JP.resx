@@ -48,6 +48,9 @@
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>APKG ハイブリッド</value>
   </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>APKG パッケージ詳細</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>APKG アップロード詳細</value>
   </data>
@@ -174,6 +177,9 @@
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>マイパッケージ (APKG)</value>
   </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>マイアップロード履歴</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>新しいAPIキー</value>
   </data>
@@ -261,11 +267,14 @@
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>APKG パッケージをアップロード</value>
   </data>
-  <data name="Upload Package" xml:space="preserve">
-    <value>パッケージをアップロード</value>
-  </data>
   <data name="Upload deb package" xml:space="preserve">
     <value>Upload deb package</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>アップロード履歴</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>パッケージをアップロード</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>アップストリームミラー</value>

@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Permet la suppression définitive des comptes utilisateurs.</value>
   </data>
+  <data name="Allows uploading ApkgDebPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>Permet de télécharger des paquets Apkg/Deb vers des dépôts pour lesquels l&apos;option AllowAnyoneToUpload est désactivée.</value>
+  </data>
   <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
     <value>Permet de télécharger des LocalPackages vers des dépôts ayant AllowAnyoneToUpload désactivé.</value>
   </data>

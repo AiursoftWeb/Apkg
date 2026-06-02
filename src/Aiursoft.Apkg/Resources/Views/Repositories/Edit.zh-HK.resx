@@ -27,6 +27,9 @@
   <data name="Allow Anyone to Upload" xml:space="preserve">
     <value>允許任何人上傳</value>
   </data>
+  <data name="Allows any logged-in user to upload ApkgDebPackages to this repository." xml:space="preserve">
+    <value>允許任何已登入用戶將 ApkgDebPackages 上載到此儲存庫。</value>
+  </data>
   <data name="Allows any logged-in user to upload LocalPackages to this repository." xml:space="preserve">
     <value>允許任何已登入的使用者將 LocalPackages 上傳至此儲存庫。</value>
   </data>
@@ -38,6 +41,12 @@
   </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
+  </data>
+  <data name="Comma-separated list. Each value becomes a component subdirectory in the APT repository (e.g. &apos;main,universe,multiverse&apos;)." xml:space="preserve">
+    <value>逗號分隔的列表。每個值對應 APT 倉庫中的一個組件子目錄（例如 &apos;main,universe,multiverse&apos;）。</value>
+  </data>
+  <data name="Comma-separated list. Use Debian architecture names (e.g. &apos;amd64,arm64,i386&apos;). &apos;all&apos; packages are always included regardless of this setting." xml:space="preserve">
+    <value>逗號分隔的列表。使用 Debian 架構名稱（例如 &apos;amd64,arm64,i386&apos;）。&apos;all&apos; 架構的包始終包含，不受此設定影響。</value>
   </data>
   <data name="Components" xml:space="preserve">
     <value>組件</value>
@@ -51,6 +60,9 @@
   <data name="Create New Repository" xml:space="preserve">
     <value>建立新存放區</value>
   </data>
+  <data name="Distro" xml:space="preserve">
+    <value>發行版</value>
+  </data>
   <data name="Edit Repository" xml:space="preserve">
     <value>編輯儲存庫</value>
   </data>
@@ -59,6 +71,9 @@
   </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>若連結至鏡像伺服器，此存放區將提供來自該上游來源的套件。</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>如已鏈接，此倉庫的 Packages 索引將在每次 Repository Sync 期間從鏡像站點獲取初始數據。名稱和架構相同的 ApkgDebPackages 會覆蓋鏡像站點版本。</value>
   </data>
   <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
     <value>如已連結，此儲存庫的 Packages 索引在每次儲存庫同步時會由鏡像提供種子數據。相同套件名稱和架構的 LocalPackages 會覆蓋鏡像版本。</value>
@@ -69,11 +84,26 @@
   <data name="Mirror" xml:space="preserve">
     <value>鏡像</value>
   </data>
+  <data name="Multiple values" xml:space="preserve">
+    <value>多值</value>
+  </data>
+  <data name="Repository Name" xml:space="preserve">
+    <value>倉庫名稱</value>
+  </data>
   <data name="Save Repository" xml:space="preserve">
     <value>儲存儲存庫</value>
   </data>
+  <data name="Single value" xml:space="preserve">
+    <value>單值</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>套件</value>
+  </data>
   <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
     <value>APT 套件名稱（例如 jammy、stable）。</value>
+  </data>
+  <data name="The APT suite name. Must be a single identifier (e.g. &apos;noble&apos;, &apos;stable&apos;, &apos;bookworm&apos;)." xml:space="preserve">
+    <value>APT 套件名稱。必須為單個標識符（例如 &apos;noble&apos;、&apos;stable&apos;、&apos;bookworm&apos;）。</value>
   </data>
   <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
     <value>用於簽署此儲存庫 Release 檔案的 GPG 金鑰。</value>
@@ -84,42 +114,17 @@
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>此儲存庫的 URL 前綴（例如 &apos;ubuntu&apos;）。</value>
   </data>
-  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
-    <value>啟用後，每次執行 Repository Sync 後，Release 檔案都會使用所選的 GPG 金鑰進行簽章。在其 sources.list 中使用 &apos;signed-by=&apos; 的用戶端將驗證此簽章，並拒絕未簽章或簽章錯誤的套件庫。</value>
-  </data>
-
-  <data name="Single value" xml:space="preserve">
-    <value>單值</value>
-  </data>
-  <data name="This field accepts only a single value." xml:space="preserve">
-    <value>此欄位僅接受單個值。</value>
-  </data>
-  <data name="Multiple values" xml:space="preserve">
-    <value>多值</value>
+  <data name="The URL prefix for this repository. Must be a single lowercase identifier (e.g. &apos;anduinos&apos;, &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>此倉庫的 URL 前綴。必須為單個小寫標識符（例如 &apos;anduinos&apos;、&apos;ubuntu&apos;）。</value>
   </data>
   <data name="This field accepts multiple values. Separate them with commas." xml:space="preserve">
     <value>此欄位接受多個值，請用逗號分隔。</value>
   </data>
-  <data name="The URL prefix for this repository. Must be a single lowercase identifier (e.g. &apos;anduinos&apos;, &apos;ubuntu&apos;)." xml:space="preserve">
-    <value>此倉庫的 URL 前綴。必須為單個小寫標識符（例如 &apos;anduinos&apos;、&apos;ubuntu&apos;）。</value>
+  <data name="This field accepts only a single value." xml:space="preserve">
+    <value>此欄位僅接受單個值。</value>
   </data>
-  <data name="The APT suite name. Must be a single identifier (e.g. &apos;noble&apos;, &apos;stable&apos;, &apos;bookworm&apos;)." xml:space="preserve">
-    <value>APT 套件名稱。必須為單個標識符（例如 &apos;noble&apos;、&apos;stable&apos;、&apos;bookworm&apos;）。</value>
-  </data>
-  <data name="Comma-separated list. Each value becomes a component subdirectory in the APT repository (e.g. &apos;main,universe,multiverse&apos;)." xml:space="preserve">
-    <value>逗號分隔的列表。每個值對應 APT 倉庫中的一個組件子目錄（例如 &apos;main,universe,multiverse&apos;）。</value>
-  </data>
-  <data name="Comma-separated list. Use Debian architecture names (e.g. &apos;amd64,arm64,i386&apos;). &apos;all&apos; packages are always included regardless of this setting." xml:space="preserve">
-    <value>逗號分隔的列表。使用 Debian 架構名稱（例如 &apos;amd64,arm64,i386&apos;）。&apos;all&apos; 架構的包始終包含，不受此設定影響。</value>
-  </data>
-  <data name="Repository Name" xml:space="preserve">
-    <value>倉庫名稱</value>
-  </data>
-  <data name="Distro" xml:space="preserve">
-    <value>發行版</value>
-  </data>
-  <data name="Suite" xml:space="preserve">
-    <value>套件</value>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>啟用後，每次執行 Repository Sync 後，Release 檔案都會使用所選的 GPG 金鑰進行簽章。在其 sources.list 中使用 &apos;signed-by=&apos; 的用戶端將驗證此簽章，並拒絕未簽章或簽章錯誤的套件庫。</value>
   </data>
 
 </root>

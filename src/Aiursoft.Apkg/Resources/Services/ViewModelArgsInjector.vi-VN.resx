@@ -48,6 +48,9 @@
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Lai APKG</value>
   </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>Chi tiết gói APKG</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>Chi tiết tải lên APKG</value>
   </data>
@@ -174,6 +177,9 @@
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Gói của tôi (APKG)</value>
   </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>Lịch sử tải lên của tôi</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Khóa API Mới</value>
   </data>
@@ -261,11 +267,14 @@
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>Tải lên Gói APKG</value>
   </data>
-  <data name="Upload Package" xml:space="preserve">
-    <value>Tải gói lên</value>
-  </data>
   <data name="Upload deb package" xml:space="preserve">
     <value>Upload deb package</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Lịch sử tải lên</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Tải gói lên</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Các bản sao upstream</value>

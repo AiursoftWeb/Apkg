@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Cho phép xóa vĩnh viễn tài khoản người dùng.</value>
   </data>
+  <data name="Allows uploading ApkgDebPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>Cho phép tải lên ApkgDebPackages lên các kho lưu trữ đã tắt tùy chọn AllowAnyoneToUpload.</value>
+  </data>
   <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
     <value>Cho phép tải lên LocalPackages lên các kho lưu trữ có bật tùy chọn AllowAnyoneToUpload.</value>
   </data>

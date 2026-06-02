@@ -45,6 +45,9 @@
   <data name="Allows the permanent deletion of user accounts." xml:space="preserve">
     <value>Tillåter permanent borttagning av användarkonton.</value>
   </data>
+  <data name="Allows uploading ApkgDebPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
+    <value>Tillåter uppladdning av Apt, Rpm, Pkg, Nupkg, Deb- och Docker-paket till arkiv där AllowAnyoneToUpload är inaktiverat.</value>
+  </data>
   <data name="Allows uploading LocalPackages to repositories that have AllowAnyoneToUpload disabled." xml:space="preserve">
     <value>Tillåter uppladdning av LocalPackages till arkiv där AllowAnyoneToUpload är inaktiverat.</value>
   </data>

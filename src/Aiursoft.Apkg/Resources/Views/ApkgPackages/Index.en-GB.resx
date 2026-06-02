@@ -18,17 +18,86 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An .apkg mixed package is Apkg's proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
-    <value>An .apkg mixed package is Apkg's proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository.</value>
+      <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Active Versions" xml:space="preserve">
+    <value>Active Versions</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
+    <value>An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository.</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>and all its revisions and local packages. The package name will be made available for use by other users. This action cannot be reversed.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Component</value>
+  </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Confirm Unlisting</value>
+  </data>
+  <data name="Delete Entire Package" xml:space="preserve">
+    <value>Delete Entire Package</value>
+  </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>Delete Package</value>
+  </data>
+  <data name="Delete Package Family" xml:space="preserve">
+    <value>Delete Package Family</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distribution</value>
+  </data>
+  <data name="Generated packages will be disabled." xml:space="preserve">
+    <value>Generated packages will be disabled.</value>
+  </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>My Packages (APKG)</value>
+  </data>
+  <data name="Next Version" xml:space="preserve">
+    <value>Next Version</value>
+  </data>
+  <data name="No APKG uploads yet." xml:space="preserve">
+    <value>No APKG uploads yet.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Package</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Published</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="This will permanently delete the entire package family" xml:space="preserve">
+    <value>This will permanently delete the entire package family</value>
   </data>
   <data name="Tip:" xml:space="preserve">
     <value>Tip:</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Unlist</value>
   </data>
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>Upload apkg mixed package</value>
   </data>
   <data name="Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories." xml:space="preserve">
     <value>Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories.</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Uploaded</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>Version History</value>
   </data>
   <data name="What is a mixed package?" xml:space="preserve">
     <value>What is a mixed package?</value>

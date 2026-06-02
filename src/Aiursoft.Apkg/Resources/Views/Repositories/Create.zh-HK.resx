@@ -39,6 +39,9 @@
   <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>控制生成哪些 binary-[arch]/Packages 索引文件。架構不匹配（&apos;all&apos; 除外）的套件會被儲存，但對 apt 客戶端不可見。同時也會在客戶端設定指南中設定 Architectures: 行。更改會在下次執行儲存庫同步工作時生效。</value>
   </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. &quot;amd64,arm64&quot;)." xml:space="preserve">
+    <value>控制生成嘅 binary-[arch]/Packages 索引檔案。架構不符（「all」除外）嘅軟件包會儲住但對 apt 用戶端不可見。同時設定用戶端設定指南入面嘅 Architectures: 行。改動會喺下次執行儲存庫同步任務時生效。多個架構請用逗號分隔（例如「amd64,arm64」）。</value>
+  </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>控制生成 Packages 索引時包含哪些組件子目錄。未列出的組件中的套件會被儲存，但對 apt 客戶端不可見。同時也會設定客戶端設定指南中的 Components: 行。變更將在下次執行 Repository Sync 工作時生效。</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>如果連結至鏡像，此儲存庫將提供來自該上游來源的套件。</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>若已連結，此儲存庫的 Packages 索引將在每次儲存庫同步期間從鏡像站點獲取初始資料。同名且同架構的 ApkgDebPackages 會覆蓋鏡像版本的套件。</value>
   </data>
   <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
     <value>如已連結，此儲存庫的 Packages 索引將在每次 Repository Sync 時從鏡像種子化。相同套件名稱和架構的 LocalPackages 將覆蓋鏡像版本。</value>

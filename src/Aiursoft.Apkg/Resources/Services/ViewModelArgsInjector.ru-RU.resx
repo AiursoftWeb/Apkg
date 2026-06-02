@@ -45,6 +45,9 @@
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Гибридная APKG</value>
   </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>Детали пакета APKG</value>
+  </data>
   <data name="APKG Upload Details" xml:space="preserve">
     <value>Подробности загрузки APKG</value>
   </data>
@@ -171,6 +174,9 @@
   <data name="My Packages (APKG)" xml:space="preserve">
     <value>Мои пакеты (APKG)</value>
   </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>Моя история загрузок</value>
+  </data>
   <data name="New API Key" xml:space="preserve">
     <value>Новый ключ API</value>
   </data>
@@ -258,11 +264,14 @@
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>Загрузить пакет APKG</value>
   </data>
-  <data name="Upload Package" xml:space="preserve">
-    <value>Загрузить пакет</value>
-  </data>
   <data name="Upload deb package" xml:space="preserve">
     <value>Upload deb package</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>История загрузок</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Загрузить пакет</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Верхние зеркала</value>
