@@ -56,6 +56,27 @@ public class AosprojProjectTests
     }
 
     [TestMethod]
+    public void Defaults_SectionIsEmpty()
+    {
+        var project = new AosprojProject();
+        Assert.AreEqual("", project.Section);
+    }
+
+    [TestMethod]
+    public void Defaults_PriorityIsEmpty()
+    {
+        var project = new AosprojProject();
+        Assert.AreEqual("", project.Priority);
+    }
+
+    [TestMethod]
+    public void Defaults_BreaksIsEmpty()
+    {
+        var project = new AosprojProject();
+        Assert.AreEqual("", project.Breaks);
+    }
+
+    [TestMethod]
     public void SuiteList_SplitsBySpace()
     {
         var project = new AosprojProject { TargetSuites = "jammy noble plucky" };

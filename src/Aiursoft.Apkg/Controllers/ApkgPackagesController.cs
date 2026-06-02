@@ -485,6 +485,7 @@ public class ApkgPackagesController(
         package.Description = NullIfEmpty(manifest.Description) ?? package.Description;
         package.Maintainer = NullIfEmpty(manifest.Maintainer) ?? package.Maintainer;
         package.Homepage = NullIfEmpty(manifest.Homepage) ?? package.Homepage;
+        package.RepositoryUrl = NullIfEmpty(manifest.RepositoryUrl) ?? package.RepositoryUrl;
 
         var revision = await db.ApkgRevisions
             .Include(r => r.ApkgDebPackages)

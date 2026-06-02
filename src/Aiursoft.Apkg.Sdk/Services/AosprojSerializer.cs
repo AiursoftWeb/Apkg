@@ -52,6 +52,9 @@ public class AosprojSerializer
                 case "Provides":           project.Provides = el.Value; break;
                 case "Conflicts":          project.Conflicts = el.Value; break;
                 case "Replaces":           project.Replaces = el.Value; break;
+                case "Breaks":             project.Breaks = el.Value; break;
+                case "Section":            project.Section = el.Value; break;
+                case "Priority":           project.Priority = el.Value; break;
                 case "Component":          project.Component = el.Value; break;
                 case "TargetDistro":       project.TargetDistro = el.Value; break;
                 case "TargetSuites":       project.TargetSuites = el.Value; break;
@@ -191,7 +194,10 @@ public class AosprojSerializer
             Elem("Provides", project.Provides),
             Elem("Conflicts", project.Conflicts),
             Elem("Replaces", project.Replaces),
+            Elem("Breaks", project.Breaks),
             Elem("Component", project.Component),
+            Elem("Section", project.Section),
+            Elem("Priority", project.Priority),
             Elem("TargetDistro", project.TargetDistro),
             Elem("TargetSuites", project.TargetSuites),
             Elem("TargetArchitectures", project.TargetArchitectures),

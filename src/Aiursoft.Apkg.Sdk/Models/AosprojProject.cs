@@ -26,6 +26,7 @@ public class AosprojProject
     public string Provides { get; set; } = string.Empty;
     public string Conflicts { get; set; } = string.Empty;
     public string Replaces { get; set; } = string.Empty;
+    public string Breaks { get; set; } = string.Empty;
     /// <summary>
     /// One or more Recommends strings, each optionally scoped to a Suite via Condition.
     /// Corresponds to the deb control <c>Recommends:</c> field.
@@ -39,6 +40,20 @@ public class AosprojProject
     /// </summary>
     public List<ConditionalValue> Suggests { get; set; } = [];
     public string Component { get; set; } = "main";
+
+    // ── Classification ──────────────────────────────────────────────────────────
+    /// <summary>
+    /// Debian Section (e.g. "utils", "admin", "editors"). Defaults to empty
+    /// ("not set"); BuildControl falls back to "utils" when neither local nor
+    /// upstream provides a value.
+    /// </summary>
+    public string Section { get; set; } = string.Empty;
+    /// <summary>
+    /// Debian Priority (e.g. "optional", "required", "important"). Defaults to
+    /// empty ("not set"); BuildControl falls back to "optional" when neither
+    /// local nor upstream provides a value.
+    /// </summary>
+    public string Priority { get; set; } = string.Empty;
 
     // ── Build targets ────────────────────────────────────────────────────────
     /// <summary>The target distro for this package, e.g. "ubuntu", "anduinos".</summary>

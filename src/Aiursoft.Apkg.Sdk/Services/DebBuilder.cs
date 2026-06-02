@@ -467,14 +467,23 @@ public class DebBuilder
         else if (upstreamControl != null && upstreamControl.TryGetValue("Homepage", out var upHomepage) && !string.IsNullOrWhiteSpace(upHomepage))
             sb.AppendLine($"Homepage: {upHomepage}");
 
-        // Section and Priority: preserve from upstream if not set locally
-        if (upstreamControl != null)
-        {
-            if (upstreamControl.TryGetValue("Section", out var section) && !string.IsNullOrWhiteSpace(section))
-                sb.AppendLine($"Section: {section}");
-            if (upstreamControl.TryGetValue("Priority", out var priority) && !string.IsNullOrWhiteSpace(priority))
-                sb.AppendLine($"Priority: {priority}");
-        }
+        // Section: local → upstream → Debian standard "utils"
+        var effectiveSection = !string.IsNullOrWhiteSpace(p.Section) ? p.Section
+            : upstreamControl?.GetValueOrDefault("Section")
+            ?? "utils";
+        sb.AppendLine($"Section: {effectiveSection}");
+
+        // Priority: local → upstream → Debian standard "optional"
+        var effectivePriority = !string.IsNullOrWhiteSpace(p.Priority) ? p.Priority
+            : upstreamControl?.GetValueOrDefault("Priority")
+            ?? "optional";
+        sb.AppendLine($"Priority: {effectivePriority}");
+
+        // Breaks: local → upstream; omit when neither is set
+        var effectiveBreaks = !string.IsNullOrWhiteSpace(p.Breaks) ? p.Breaks
+            : upstreamControl?.GetValueOrDefault("Breaks") ?? string.Empty;
+        if (!string.IsNullOrWhiteSpace(effectiveBreaks))
+            sb.AppendLine($"Breaks: {effectiveBreaks}");
 
         // Description: first line is short desc, rest is long desc (indented with space)
         var descLines = p.PackageDescription.Split('\n');

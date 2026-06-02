@@ -35,6 +35,9 @@ public class ApkgPackageManifest
     [System.Xml.Serialization.XmlElement("License")]
     public string License { get; set; } = "MIT";
 
+    [System.Xml.Serialization.XmlElement("RepositoryUrl")]
+    public string? RepositoryUrl { get; set; }
+
     [System.Xml.Serialization.XmlArray("Entries")]
     [System.Xml.Serialization.XmlArrayItem("Entry")]
     public List<ApkgPackageEntry> Entries { get; set; } = [];

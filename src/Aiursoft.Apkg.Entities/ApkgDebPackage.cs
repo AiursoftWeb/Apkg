@@ -20,7 +20,10 @@ namespace Aiursoft.Apkg.Entities;
 ///   <item>Version is irrelevant for matching: v1.0 of a ApkgDebPackage overrides v99.0 of
 ///   an upstream package.</item>
 ///   <item>IsEnabled=false packages are skipped by RepositorySyncJob — effectively removed.</item>
-///   <item>Only one active ApkgDebPackage per (RepositoryId, Package, Architecture, Component) slot.</item>
+///   <item>Only one active ApkgDebPackage per (RepositoryId, Package, Version, Architecture) slot.
+///   Component is intentionally excluded from slot dedup — a package cannot coexist in
+///   multiple components within the same repository. Attempting to push the same package
+///   with a different Component will result in a 409 Conflict.</item>
 /// </list>
 ///
 /// <para><b>Usage:</b></para>
@@ -53,7 +56,8 @@ namespace Aiursoft.Apkg.Entities;
 ///   <item>Optionally linked to <see cref="ApkgRevision"/> via ApkgRevisionId
 ///   (nullable — standalone .deb uploads have no revision).</item>
 ///   <item>Has uploader <see cref="User"/> via UploadedByUserId.</item>
-///   <item>Index: <c>(RepositoryId, Package, Architecture)</c> for slot-lookup.</item>
+///   <item>Index: <c>(RepositoryId, Package, Architecture)</c> for slot-lookup.
+///   Component is intentionally excluded — see slot dedup note above.</item>
 /// </list>
 ///
 /// <para><b>Normal form compliance:</b></para>

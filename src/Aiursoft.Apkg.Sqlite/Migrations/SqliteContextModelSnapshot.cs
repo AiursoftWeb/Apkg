@@ -181,6 +181,10 @@ namespace Aiursoft.Apkg.Sqlite.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("RepositoryUrl")
+                        .HasMaxLength(2048)
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.HasIndex("OwnerUserId");

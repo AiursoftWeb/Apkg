@@ -214,6 +214,7 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
             Description = project.PackageDescription,
             Homepage = project.PackageHomepage,
             License = project.LicenseType,
+            RepositoryUrl = project.RepositoryUrl,
             Entries = entries
         };
 

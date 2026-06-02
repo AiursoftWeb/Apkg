@@ -83,6 +83,85 @@ docker run -d -p 5000:5000 -v /srv/apkg:/data apkg
 
 运行 JetBrains ReSharper Global Tools (`jb inspectcode`)。需先安装 `dotnet tool install JetBrains.ReSharper.GlobalTools`。过滤已知误报：InconsistentNaming、AssignNullToNotNullAttribute、UnusedAutoPropertyAccessor、DuplicateResource、NotOverriddenInSpecificCulture。任何 `WARNING` 或 `ERROR` 级别的问题都会导致构建失败。
 
+## 仓库配置与构建矩阵对齐
+
+### 核心概念
+
+每个 `AptRepository` 由三个字段唯一确定其路由：
+
+| 字段 | 含义 | 示例 |
+|------|------|------|
+| `Distro` | 操作系统家族标识 | `anduinos`, `ubuntu`, `debian` |
+| `Suite` | 发行代号/变体 | `noble-addon`, `questing-addon`, `resolute` |
+| `Architecture` | CPU 架构 | `amd64`, `arm64`, `all` |
+
+此外每个仓库有一个 `Components` 列表（如 `main restricted universe`），决定该仓库**包含哪些组件**。注意：**`Component` 不参与路由匹配**——路由只看 `(Distro, Suite, Architecture)`。
+
+### 为什么对齐很重要
+
+当包发布者用 `apkg push` 上传一个 `.apkg` 时，服务端对每个 Entry 执行路由：
+
+```
+Entry: (Distro, Suite, Architecture) → 查找 AptRepository → 找到 → 存 deb
+                                                         → 找不到 → 跳过，丢弃
+```
+
+**被跳过的 deb 不会出现在任何 APT 仓库中，且 `apkg push` 返回 200 不报错。** 详见 [aosproj.md § 静默跳过陷阱](aosproj.md)。
+
+### 管理员操作清单
+
+**1. 发布前对齐**
+
+在包发布者开始推送之前，确保服务器上的 `AptRepository` 覆盖了他们声明的所有 `(Distro, Suite, Architecture)` 组合。以 AnduinOS 为例，标准矩阵为：
+
+| Distro | Suite | Architectures |
+|--------|-------|--------------|
+| anduinos | noble-addon | amd64, arm64 |
+| anduinos | questing-addon | amd64, arm64 |
+| anduinos | resolute-addon | amd64, arm64 |
+
+每行对应一个 `AptRepository`（共 6 个），均配置 `Components = main`。
+
+**2. 发布后验证**
+
+在目标机器上执行以下命令确认包已正确发布到所有 suite：
+
+```bash
+# 检查 noble-addon
+apt-cache show my-package | grep -E "^Suite:|^Version:|^Architecture:"
+
+# 检查 questing-addon
+apt-cache show my-package -o Dir::Etc::SourceList=/dev/null \
+  -o APT::Default-Release=questing-addon 2>/dev/null
+```
+
+**3. 监控服务端日志**
+
+日志中出现以下 Warning 意味着有 deb 被丢弃，通常说明你需要新建仓库：
+
+```
+No repository found for (Distro=anduinos, Suite=questing-addon, Arch=amd64)
+```
+
+**4. 公开你的仓库矩阵**
+
+在 Web UI 或团队文档中明确列出所有可用的 `(Distro, Suite, Architecture)` 组合。包发布者编写 `.aosproj` 时应只声明此表中存在的组合。
+
+**5. 新建 Suite/Arch 时通知发布者**
+
+如果你新增了一个 Suite（如 `solstice-addon`），需要通知所有包发布者：
+- 如果他们希望包出现在新 suite 中，需要在 `.aosproj` 的 `TargetSuites` 中加入新 suite
+- 已推送的包需要**重新 `apkg push`** 一次——历史 push 中因不匹配被丢弃的 deb 不会自动恢复
+
+### 常见误区
+
+| 误区 | 事实 |
+|------|------|
+| "Component 对不上也会导致路由失败" | `Component` **不参与路由**。路由只看 `(Distro, Suite, Architecture)` |
+| "我可以事后补建仓库，deb 会自动出现" | 不会。历史 push 中无匹配仓库的 deb 已被丢弃，需重新 push |
+| "`apkg push` 返回 200 就说明所有 deb 都入库了" | 不是。服务端静默跳过无匹配仓库的 Entry，客户端不报错 |
+| "Distro 代表 CPU 架构" | `Distro` 是 OS 家族标识（如 `anduinos`），与 CPU 架构无关 |
+
 ## 生产环境证书
 
 每个 AptRepository 有独立 GPG 签名密钥。生产环境私钥可托管到外部服务（HashiCorp Vault、Azure Key Vault）— Apkg 通过网络调用签名 API，全程不接触私钥。

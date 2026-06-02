@@ -625,6 +625,50 @@ public class AosprojSerializerTests
         Assert.IsTrue(xml.Contains("Condition="), "Item with condition should have a Condition attribute.");
     }
 
+    // ── Section / Priority / Breaks round-trip ──────────────────────────────
+
+    [TestMethod]
+    public void RoundTrip_SectionPriorityBreaks()
+    {
+        var original = new AosprojProject
+        {
+            PackageName = "test",
+            PackageVersion = "1.0",
+            PackageDescription = "desc",
+            Section = "admin",
+            Priority = "required",
+            Breaks = "old-pkg (<< 2.0)"
+        };
+
+        var doc = _serializer.Serialize(original);
+        var roundTripped = _serializer.Deserialize(doc);
+
+        Assert.AreEqual("admin", roundTripped.Section);
+        Assert.AreEqual("required", roundTripped.Priority);
+        Assert.AreEqual("old-pkg (<< 2.0)", roundTripped.Breaks);
+    }
+
+    [TestMethod]
+    public void Deserialize_SectionPriorityBreaks_DefaultsWhenMissing()
+    {
+        var xml = XDocument.Parse("""
+            <Project>
+              <PropertyGroup>
+                <PackageName>test</PackageName>
+                <PackageVersion>1.0</PackageVersion>
+                <PackageDescription>desc</PackageDescription>
+              </PropertyGroup>
+            </Project>
+            """);
+
+        var project = _serializer.Deserialize(xml);
+        // Section/Priority default to empty (not set) — BuildControl applies
+        // Debian-standard fallbacks "utils"/"optional" at build time.
+        Assert.AreEqual("", project.Section);
+        Assert.AreEqual("", project.Priority);
+        Assert.AreEqual("", project.Breaks);
+    }
+
     [TestMethod]
     public void Serialize_ItemWithoutCondition_HasNoConditionAttribute()
     {

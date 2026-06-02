@@ -91,16 +91,19 @@
 | `TargetArchitectures` | ⚠️ | 空格分隔的架构列表（如 `amd64 arm64`），或 `all` 表示架构无关。lint Warning，构建全部 target 时硬依赖 |
 | `Component` | — | APT 组件，默认为 `main` |
 | `PackageHomepage` | — | 项目主页 URL |
-| `RepositoryUrl` | — | 源码仓库 URL |
+| `RepositoryUrl` | — | 源码仓库 URL（如 GitHub 链接）。传递至 manifest 和 ApkgPackage，供 Web UI 展示。不进 DEBIAN/control |
 | `LicenseType` | — | SPDX 标识符，如 `MIT`、`GPL-2.0` |
 | `LicenseFile` | — | 许可证文件相对路径 |
-| `PackageTags` | — | 逗号分隔的包标签 |
+| `PackageTags` | — | 逗号分隔的包标签。目前保留为未来使用，暂无后端路由支持 |
 | `Maintainer` | — | 覆盖 `PackageAuthors` 作为 deb 的 `Maintainer` 字段 |
 | `Provides` | — | deb `Provides` 字段，声明此包提供哪些虚包 |
 | `Conflicts` | — | deb `Conflicts` 字段，声明与哪些包冲突 |
 | `Replaces` | — | deb `Replaces` 字段，声明此包替换哪些旧包 |
+| `Breaks` | — | deb `Breaks` 字段，声明此包会破坏哪些其他包的特定版本。本地优先，未填时回退到上游值。仅在需要阻断旧版本兼容时才需填写 |
 | `Recommends` | — | deb `Recommends` 字段，声明强烈推荐但非必须的软件包（`apt install` 默认安装，`apt remove` 时不会破坏依赖） |
 | `Suggests` | — | deb `Suggests` 字段，声明可选的锦上添花软件包（`apt` 不自动安装，仅作提示） |
+| `Section` | — | deb `Section` 字段（如 `utils`, `admin`, `editors`）。三级回退：本地 → 上游 → Debian 标准默认 `"utils"`。影响 APT 分类搜索 |
+| `Priority` | — | deb `Priority` 字段（如 `optional`, `required`, `important`）。三级回退：本地 → 上游 → Debian 标准默认 `"optional"`。通常保持默认即可 |
 | `DependencyCheckUrl` | — | lint 阶段用于验证 Depends/Recommends 依赖是否存在的 apt 服务器 base URL（如 `https://mirror.aiursoft.com/ubuntu`）。**留空则跳过依赖检查**。不填写时默认跳过，建议在每个项目中显式配置 |
 | `DependencyCheckSuiteMap` | — | 将目标 suite 名映射到 `DependencyCheckUrl` 上的 suite 名。格式与 `UpstreamSuiteMapping` 相同：空格/逗号分隔的 `target=check` 对（如 `noble-addon=noble questing-addon=questing`）。若留空则直接用目标 suite 名查询 |
 | `UpstreamUrl` | ⚠️ | 上游 APT 仓库的 base URL（如 `http://archive.ubuntu.com/ubuntu`）。设置 `UpstreamPackage` 时必填 |
@@ -122,9 +125,9 @@
 5. **合并 control 字段**：
    - **Version**：若 `PackageVersion` 包含 `$(UpstreamVersion)`，则替换为上游的实际版本号（如 `13.1ubuntu1`）。这使得派生包的版本自动跟随上游
    - `Depends`：上游依赖在前，本地 `Dependency` 附录在后。以基础包名去重（如上游有 `libc6 (>= 2.34)` 而本地声明 `libc6`，保留上游版本）
-   - `Provides`、`Conflicts`、`Replaces`、`Recommends`、`Suggests`：本地优先，未填时回退到上游值
+   - `Provides`、`Conflicts`、`Replaces`、`Breaks`、`Recommends`、`Suggests`：本地优先，未填时回退到上游值
    - `Homepage`：本地优先，未填时回退到上游值
-   - `Section`、`Priority`：始终从上继承
+   - `Section`、`Priority`：三级回退 — 本地优先，未填时回退到上游值，上游也没有时使用 Debian 标准默认值（`"utils"` / `"optional"`）
 6. **链式 maintainer scripts**：上游 `postinst`/`prerm`/`postrm`（去除 shebang）→ 本地脚本 → systemd 自动脚本，按序追加
 
 这是 AnduinOS 替换 Ubuntu `base-files`（`Essential: yes`）等基础包的推荐模式：通过 APT pinning 设置 `Pin-Priority: 1001`，让 AnduinOS 的派生包覆盖 Ubuntu 原包，同时保持一切兼容。
@@ -545,8 +548,102 @@ gnome-shell (>= 42), gir1.2-glib-2.0, libssl3t64
 
 服务端根据 `(Distro, Suite, Architecture)` 元组定位目标仓库（`Distro` 来自根节点，`Suite` 和 `Architecture` 来自 Entry）。找不到匹配仓库时跳过该 Entry 并记录警告。
 
-> ⚠️ **静默跳过陷阱**：如果 `TargetDistro`、`TargetSuites` 或 `Component` 与服务器上配置的仓库不完全匹配，`apkg push` 会成功返回，但那个 `.deb` 不会出现在任何 APT 仓库里。打包者不会收到任何错误——包是静默丢失的。
-> 排查方法：检查服务器日志，或在目标机器上执行 `apt-cache show <pkgname>` 确认包是否可见。
+> ⚠️ **静默跳过陷阱**：`apkg push` 返回成功不代表所有 `.deb` 都进了仓库。如果服务器上没有配置匹配的仓库，对应的 `.deb` 会被静默丢弃，打包者不会收到任何错误提示。
+
+#### 为什么发生：两层身份体系
+
+Apkg 的 push 流程涉及**两套互相独立的三元组**，它们各司其职但只有一个交集字段 `Distro`：
+
+| 层面 | 三元组 | 作用 | 失败后果 |
+|------|--------|------|---------|
+| **ApkgPackage 身份** | `(Name, Distro, Component)` | 确定"这是谁的包"、归属哪个用户、Revision 往哪累积 | **显式错误**（403 所有权冲突、manifest 格式错误） |
+| **APT 仓库路由** | `(Distro, Suite, Architecture)` | 决定 `.deb` 文件落入哪个 AptRepository | **静默跳过**（仅服务端日志留一行 Warning） |
+
+注意两个三元组的字段是**不同的**：
+- 身份三元组包含 **`Component`**，不含 `Architecture`
+- 路由三元组包含 **`Architecture`**，不含 `Component`
+
+唯一的交集是 `Distro`。所以**即使你的 `Distro` 写对了（ApkgPackage 身份正常创建），只要 `Suite` 或 `Architecture` 与服务器上的仓库配置不一致，对应的 `.deb` 就会静默消失。**
+
+#### 具体场景
+
+假设你写了这样的 `.aosproj`：
+
+```xml
+<PackageName>my-tool</PackageName>
+<TargetDistro>anduinos</TargetDistro>
+<Component>main</Component>
+<TargetSuites>noble-addon questing-addon</TargetSuites>
+<TargetArchitectures>amd64</TargetArchitectures>
+```
+
+`apkg push` 时，身份三元组 `(my-tool, anduinos, main)` 正常命中 ApkgPackage。然后两个 Entry 分别路由：
+
+```
+Entry 1: (anduinos, noble-addon,    amd64) → 服务器上有这个仓库 ✅ → .deb 入库
+Entry 2: (anduinos, questing-addon, amd64) → 服务器上没有这个仓库   ❌ → 跳过，丢弃
+```
+
+push 返回 200。你以为 questing 用户也能 `apt install my-tool`，实际上那个 `.deb` 已经被丢弃了。下次管理员创建 questing-addon 仓库后，你**必须重新 push 一次**——已丢弃的 .deb 不会自动恢复。
+
+> **与 NuGet 的类比**：NuGet 服务器原样存储整个 .nupkg，TFM 匹配发生在**客户端**。如果管理员没配 `net10.0` feed，你以后配了就行，不需要重新上传。Apkg 不同——Suite/Architecture 路由发生在**服务端 push 时**，没匹配上就直接丢弃。这不是 Bug，而是 APT 仓库架构决定的：每个 `(Distro, Suite, Architecture)` 组合对应一个独立的仓库端点，服务端必须在 push 时决定 deb 存到哪。
+
+#### 给包发布者
+
+1. **Push 前先确认服务器上存在哪些仓库**。联系你的服务器管理员，确认你的 `TargetDistro`、`TargetSuites`、`TargetArchitectures` 对应的仓库都已创建。
+2. **Push 后验证**。在目标机器上执行 `apt-cache show <你的包名>` 确认包是否在各个 suite 下都可见。如果只在一个 suite 下能看到，说明其他的被丢弃了。
+3. **问题不是你的 `.aosproj` 写错了**——是服务器侧配置不完整。责任在仓库管理员，但你需要主动推动他们对齐配置。
+
+#### 给服务器管理员
+
+1. **仓库创建应当与包发布者的声明对齐**。如果你知道有包声明了 `TargetSuites="noble-addon questing-addon resolute-addon"`，就应当创建三个对应的 `AptRepository`，分别覆盖这三个 suite。
+2. **在 Web UI 或文档中公开你的仓库矩阵**。让包发布者能查到：
+   - 支持的 Distro 列表
+   - 每个 Distro 下的 Suite 列表
+   - 每个 Suite 支持的 Architecture 列表
+3. **监控服务端日志**。`"No repository found for (Distro=X, Suite=Y, Arch=Z)"` 这类 Warning 意味着有包发布者的 `.deb` 被丢弃了——这通常是你需要新建仓库的信号。
+4. **Component 不参与路由**。一个 AptRepository 的 Component 列表（如 `main restricted universe`）决定了该仓库**包含哪些组件**，但不影响路由匹配。路由只看 `(Distro, Suite, Architecture)`。
+
+> 💡 **最佳实践**：服务器管理员和包发布者应共享一份"支持的构建矩阵"文档。例如 AnduinOS 的官方矩阵是：
+>
+> | Distro | Suite | Architectures |
+> |--------|-------|--------------|
+> | anduinos | noble-addon | amd64, arm64 |
+> | anduinos | questing-addon | amd64, arm64 |
+> | anduinos | resolute-addon | amd64, arm64 |
+>
+> 包发布者只声明这张表里存在的 `(Distro, Suite, Arch)` 组合，管理员保证所有声明的组合都有对应的仓库。两边对齐就不会有静默丢失。
+
+排查方法：检查服务器日志中的 `"No repository found"` 警告，或在目标机器上执行 `apt-cache show <pkgname>` 确认包是否可见。
+
+### Component 冲突陷阱：改 Component 不会绕过 slot dedup
+
+与 Suite/Arch 的路由问题不同，Component 面临的是**另一个维度的陷阱**。如果你改了 `.aosproj` 的 `<Component>`，想把同一个包推到同一个仓库的不同组件，**第二次 push 会被服务端 409 拒绝**。
+
+#### 为什么：三层身份体系中 Component 的位置
+
+| 层面 | 实体 | Component 是否在唯一键中 | 效果 |
+|------|------|------------------------|------|
+| ApkgPackage 身份 | `ApkgPackage` | **是** — `(Name, Distro, Component)` | 改 Component → 全新包家族 ✅ |
+| LocalPackage 去重 | `ApkgDebPackage` | **否** — `(RepositoryId, Package, Version, Architecture)` | 改 Component → 仍然冲突 ❌ |
+| APT 输出 | `AptPackage` | 是 — `(Package, Version, Architecture, Component)` | 到不了这一层 |
+
+`ApkgPackage` 层会正确识别为新包，但 `DebUploadService` 的 slot conflict 检查用的是 `(RepositoryId, Package, Version, Architecture)` —— Component 不在其中。只要这四个字段相同，无论 Component 改成了什么，第二次 push 都会返回 **409 Conflict**。
+
+#### 这不是 Bug
+
+同一个仓库、同一个 `(Distro, Suite, Architecture)` 组合下，同一个包以相同版本出现在两个 Component 中在 APT 协议层面会造成混淆——APT 客户端看到两份完全相同的条目，Pin-Priority 无法区分。Apkg 的设计选择是"一个包只属于一个 Component"，这个限制是**有意为之**。
+
+#### 给包发布者
+
+- **改 Component 意味着换包的身份**。新的 Component 会创建新的 `ApkgPackage` 家族（可能由不同用户拥有），这是合法的。
+- **但如果目标仓库已经有同 (Package, Version, Architecture) 的包**——不管它是哪个 Component 来的——push 会被拒绝。
+- **如果你确实需要跨 Component 迁移**：先在服务器上 disable 旧 Component 下的 LocalPackage，再用新 Component 重新 push。
+
+#### 给服务器管理员
+
+- **409 Conflict 不是你的服务器配置问题**——是包发布者的 push 内容与已有数据冲突。
+- 如果你在日志中看到 409，告诉包发布者先 disable 旧包再重试，而不是让你在服务器侧做什么。
 
 ---
 

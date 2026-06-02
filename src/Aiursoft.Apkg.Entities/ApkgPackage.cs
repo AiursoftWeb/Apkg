@@ -98,6 +98,13 @@ public class ApkgPackage
     public string? License { get; set; }
 
     /// <summary>
+    /// Source repository URL from manifest.xml (e.g., GitHub link).
+    /// Set from RepositoryUrl in .aosproj; displayed in Web UI for discoverability.
+    /// </summary>
+    [MaxLength(2048)]
+    public string? RepositoryUrl { get; set; }
+
+    /// <summary>
     /// The user who first pushed this (Name, Distro, Component) triplet.
     /// Only this user can push subsequent revisions.
     /// </summary>

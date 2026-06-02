@@ -801,6 +801,109 @@ public class DebBuilderTests
     }
 
     [TestMethod]
+    public void BuildControl_WithBreaks()
+    {
+        var project = new AosprojProject
+        {
+            PackageName = "test",
+            PackageVersion = "1.0",
+            PackageDescription = "desc",
+            Breaks = "old-pkg (<< 1.5)"
+        };
+
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], string.Empty, string.Empty);
+
+        Assert.IsTrue(control.Contains("Breaks: old-pkg (<< 1.5)"), control);
+    }
+
+    [TestMethod]
+    public void BuildControl_LocalSectionPriorityOverrideUpstream()
+    {
+        var project = new AosprojProject
+        {
+            PackageName = "my-pkg",
+            PackageVersion = "1.0",
+            PackageDescription = "desc",
+            Section = "admin",
+            Priority = "required"
+        };
+
+        var upstreamControl = new Dictionary<string, string>
+        {
+            ["Section"] = "misc",
+            ["Priority"] = "optional"
+        };
+
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], string.Empty, string.Empty, upstreamControl);
+        Assert.IsTrue(control.Contains("Section: admin"), control);
+        Assert.IsTrue(control.Contains("Priority: required"), control);
+    }
+
+    [TestMethod]
+    public void BuildControl_SectionPriorityFallBackToUpstream()
+    {
+        var project = new AosprojProject
+        {
+            PackageName = "my-pkg",
+            PackageVersion = "1.0",
+            PackageDescription = "desc",
+            Section = "",  // empty → use upstream
+            Priority = ""  // empty → use upstream
+        };
+
+        var upstreamControl = new Dictionary<string, string>
+        {
+            ["Section"] = "admin",
+            ["Priority"] = "required"
+        };
+
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], string.Empty, string.Empty, upstreamControl);
+        Assert.IsTrue(control.Contains("Section: admin"), control);
+        Assert.IsTrue(control.Contains("Priority: required"), control);
+    }
+
+    [TestMethod]
+    public void BuildControl_BreaksFallsBackToUpstream()
+    {
+        var project = new AosprojProject
+        {
+            PackageName = "my-pkg",
+            PackageVersion = "1.0",
+            PackageDescription = "desc",
+            Breaks = ""
+        };
+
+        var upstreamControl = new Dictionary<string, string>
+        {
+            ["Breaks"] = "upstream-old-pkg"
+        };
+
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], string.Empty, string.Empty, upstreamControl);
+        Assert.IsTrue(control.Contains("Breaks: upstream-old-pkg"), control);
+    }
+
+    [TestMethod]
+    public void BuildControl_LocalBreaksOverridesUpstream()
+    {
+        var project = new AosprojProject
+        {
+            PackageName = "my-pkg",
+            PackageVersion = "1.0",
+            PackageDescription = "desc",
+            Breaks = "local-old-pkg"
+        };
+
+        var upstreamControl = new Dictionary<string, string>
+        {
+            ["Breaks"] = "upstream-old-pkg"
+        };
+
+        var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], string.Empty, string.Empty, upstreamControl);
+        Assert.IsTrue(control.Contains("Breaks: local-old-pkg"), control);
+        Assert.IsFalse(control.Contains("upstream-old-pkg"), control);
+    }
+
+    [TestMethod]
     public void BuildControl_UpstreamConflictsReplaces_FallBack()
     {
         var project = new AosprojProject
@@ -824,7 +927,7 @@ public class DebBuilderTests
     }
 
     [TestMethod]
-    public void BuildControl_NoUpstream_NoSectionPriority()
+    public void BuildControl_NoUpstream_WritesDebianStandardSectionPriority()
     {
         var project = new AosprojProject
         {
@@ -834,8 +937,11 @@ public class DebBuilderTests
         };
 
         var control = DebBuilder.BuildControl(project, project.PackageVersion, "amd64", [], string.Empty, string.Empty);
-        Assert.IsFalse(control.Contains("Section:"));
-        Assert.IsFalse(control.Contains("Priority:"));
+        // Section and Priority always output — three-tier fallback
+        // (local → upstream → Debian standard) ensures values are never missing.
+        Assert.IsTrue(control.Contains("Section: utils"), control);
+        Assert.IsTrue(control.Contains("Priority: optional"), control);
+        Assert.IsFalse(control.Contains("Breaks:"), control);
     }
 
     [TestMethod]
