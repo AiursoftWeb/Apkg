@@ -5,8 +5,8 @@ namespace Aiursoft.Apkg.Sdk.Services;
 /// Supported syntax:
 ///   '$(Property)' == 'value'
 ///   '$(Property)' != 'value'
-///   <expr> and <expr>
-///   <expr> or <expr>
+///   '&lt;expr&gt;' and '&lt;expr&gt;'
+///   '&lt;expr&gt;' or '&lt;expr&gt;'
 /// Absent condition (null/empty) always evaluates to true.
 /// </summary>
 public class ConditionEvaluator
