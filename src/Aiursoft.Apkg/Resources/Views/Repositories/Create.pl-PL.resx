@@ -39,6 +39,9 @@
   <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Kontroluje, które pliki indeksu binary-[arch]/Packages są generowane. Pakiety o niezgodnych architekturach (z wyjątkiem &apos;all&apos;) są przechowywane, ale niewidoczne dla klientów apt. Ustawia również linię Architectures: w przewodniku konfiguracji klienta. Zmiany wchodzą w życie podczas następnego uruchomienia zadania Synchronizacja repozytorium.</value>
   </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. &quot;amd64,arm64&quot;)." xml:space="preserve">
+    <value>Określa, które pliki indeksu binary-[arch]/Packages są generowane. Pakiety z niezgodnymi architekturami (z wyjątkiem &quot;all&quot;) są przechowywane, ale niewidoczne dla klientów apt. Ustawia również wiersz Architectures: w przewodniku konfiguracji klienta. Zmiany wejdą w życie po następnym uruchomieniu zadania Synchronizacji repozytorium. oddziel wiele architektur przecinkami (np. &quot;amd64,arm64&quot;).</value>
+  </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Określa, które podkatalogi komponentów są uwzględniane podczas generowania indeksu Packages. Pakiety w niewymienionych komponentach są przechowywane, ale niewidoczne dla klientów apt. Ustawia również linię Components: w przewodniku konfiguracji klienta. Zmiany zaczynają obowiązywać przy następnym uruchomieniu zadania Synchronizacja repozytorium.</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Jeśli połączony z lustrem, to repozytorium będzie udostępniać pakiety z tego źródła nadrzędnego.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Jeśli powiązany, indeks Packages tego repozytorium jest pobierany z lustra podczas każdego zsynchronizowania repozytorium. Pliki ApkgDebPackages o tej samej nazwie pakietu i architekturze zastępują wersję z lustra.</value>
   </data>
   <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
     <value>Jeśli połączony, indeks Packages tego repozytorium jest uzupełniany z lustra podczas każdej synchronizacji repozytorium. LocalPackages dla tej samej nazwy pakietu i architektury mają pierwszeństwo przed wersją z lustra.</value>

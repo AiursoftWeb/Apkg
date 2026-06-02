@@ -39,6 +39,9 @@
   <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Styrer, hvilke binary-[arch]/Packages-indeksfiler der genereres. Pakker med ikke-matchende arkitekturer (undtagen &apos;all&apos;) gemmes, men er usynlige for apt-klienter. Indstiller også Architectures: linjen i klientens opsætningsguide. Ændringer træder i kraft ved næste kørsel af Repository Sync-jobbet.</value>
   </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. &quot;amd64,arm64&quot;)." xml:space="preserve">
+    <value>Kontrollerer, hvilke binary-[arch]/Packages-indeksfiler der genereres. Pakker med ikke-matchinge arkitekturer (undtagen &apos;all&apos;) opbevares, men er usynlige for apt-klienter. Sætter også Architectures:-linjen i klientopsætningsguiden. Ændringer træder i kraft ved næste Repository Sync-job. Adskil flere arkitekturer med kommaer (f.eks. &quot;amd64,arm64&quot;).</value>
+  </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Styrer, hvilke undermapper til komponenter der inkludereres ved generering af Packages-indekset. Pakker i ikke-opførte komponenter gemmes, men er usynlige for apt-klienter. Indstiller også Components:-linjen i klientopsætningsguiden. Ændringer træder i kraft ved næste kørsel af Repository Sync-jobbet.</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Hvis den er knyttet til et spejl, vil dette arkiv levere pakker fra denne overordnede kilde.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Hvis koblet, så seedes dette lagerets Packages-indeks fra spejlet under hver Repository Sync. ApkgDebPackages med det samme pakkenavn og arkitektur overskriver spejlversionen.</value>
   </data>
   <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
     <value>Hvis den er linket, seedes dette repositories Packages-indeks fra spejlet under hver Repository Sync. LocalPackages med samme pakkenavn og arkitektur tilsidesætter spejlversionen.</value>

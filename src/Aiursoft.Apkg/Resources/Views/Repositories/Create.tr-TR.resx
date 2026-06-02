@@ -39,6 +39,9 @@
   <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>binary-[arch]/Packages dizin dosyalarının hangilerinin oluşturulacağını denetler. Uyumsuz mimarilere sahip paketler (sadece &apos;all&apos; hariç) depolanır ancak apt istemcileri tarafından görünmez hale getirilir. Ayrıca istemci kurulum kılavuzundaki Architectures: satırını ayarlar. Değişiklikler, sonraki Depo Eşitleme işi çalıştırıldığında geçerli olur.</value>
   </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. &quot;amd64,arm64&quot;)." xml:space="preserve">
+    <value>Üretilen binary-[arch]/Packages dizin dosyalarını belirler. Uyuşmayan mimariye sahip paketler (&apos;all&apos; hariç) saklanır ancak apt istemcileri tarafından görünmez olur. Ayrıca istemci kurulum rehberindeki Architectures: satırını ayarlar. Değişiklikler bir sonraki Depo Senkronizasyonu görevi çalıştığında etkili olur. Birden fazla mimariyi virgülle ayırın (örn. &quot;amd64,arm64&quot;).</value>
+  </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Packages indeksini oluştururken dahil edilecek bileşen alt dizinlerini denetler. Listelenmeyen bileşenlerdeki paketler saklanır ancak apt istemcileri için görünmez. Ayrıca istemci kurulum kılavuzundaki Components: satırını da ayarlar. Değişiklikler bir sonraki Repository Sync işi çalıştırmasında geçerli olur.</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Bir aynaya bağlandığında, bu depo paketleri o üst kaynaktan sunacaktır.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Bağlantı kurulmuşsa, bu depodaki Paketler dizini her depo senkronizasyonu sırasında ayna kullanılarak oluşturulur. Aynı paket adı ve mimarisine sahip ApkgDebPackages, ayna sürümünün üzerine yazar.</value>
   </data>
   <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
     <value>Bağlıysa, bu havuzun Packages dizini her Repository Eşzamanlaması sırasında aynaktan beslenir. Aynı paket adı ve mimariye sahip LocalPackages, ayna sürümünü geçersiz kılar.</value>

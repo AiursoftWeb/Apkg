@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Akcje</value>
+  </data>
+  <data name="Active Versions" xml:space="preserve">
+    <value>Wersje aktywne</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
+    <value>Mieszana paczka .apkg to własny format Apkg, który spakuje wiele paczek .deb do pojedynczego przesyłania. Po przetworzeniu każda zawarta paczka .deb jest wypakowywana i synchronizowana z docelowym repozytorium APT.</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>oraz WSZYSTKIE jej rewizje i pakiety lokalne. Nazwa pakietu zostanie zwolniona dla innych użytkowników. Tej operacji nie można cofnąć.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Składnik</value>
+  </data>
+  <data name="Delete Entire Package" xml:space="preserve">
+    <value>Usuń cały pakiet</value>
+  </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>Usuń pakiet</value>
+  </data>
+  <data name="Delete Package Family" xml:space="preserve">
+    <value>Usuń rodzinę pakietów</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Dystrybucja</value>
+  </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>Moje pakiety (APKG)</value>
+  </data>
+  <data name="Next Version" xml:space="preserve">
+    <value>Następna wersja</value>
+  </data>
+  <data name="No APKG uploads yet." xml:space="preserve">
+    <value>Brak jeszcze przesłanych pakietów APKG.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Pakiet</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Opublikowane</value>
+  </data>
+  <data name="Relist" xml:space="preserve">
+    <value>Przywróć do oferty</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="This will permanently delete the entire package family" xml:space="preserve">
+    <value>Spowoduje to trwałe usunięcie całej rodziny pakietów</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Wskazówka:</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Usuń z listy</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>Prześlij mieszany pakiet apkg</value>
+  </data>
+  <data name="Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories." xml:space="preserve">
+    <value>Prześlij przez CLI za pomocą &lt;code&gt;apkg push&lt;/code&gt; lub użyj interfejsu Web UI. Przesłane pakiety muszą zostać opublikowane, zanim pojawią się w repozytoriach.</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Prześlij</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>Historia wersji</value>
+  </data>
+  <data name="What is a mixed package?" xml:space="preserve">
+    <value>Czym jest mieszana paczka?</value>
+  </data>
+
+</root>

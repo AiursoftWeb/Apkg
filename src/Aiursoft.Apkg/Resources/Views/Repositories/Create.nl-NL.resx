@@ -39,6 +39,9 @@
   <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Bepaalt welke binary-[arch]/Packages-indexbestanden worden gegenereerd. Pakketten met niet-overeenkomende architecturen (behalve &apos;all&apos;) worden opgeslagen, maar zijn onzichtbaar voor apt-clients. Stelt ook de regel &apos;Architectures:&apos; in de client-configuratiegids in. Wijzigingen worden actief bij de volgende uitvoering van de taak Repository Sync.</value>
   </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. &quot;amd64,arm64&quot;)." xml:space="preserve">
+    <value>Bepaalt welke binary-[arch]/Packages-indexbestanden worden gegenereerd. Pakketten met niet-overeenkomende architecturen (behalve &apos;all&apos;) worden opgeslagen, maar zijn onzichtbaar voor apt-clients. Stelt ook de Architectures: regel in de opzetgids voor clients in. Wijzigingen worden actief bij de volgende run van de Repository Sync-job. Scheid meerdere architecturen met komma&apos;s (bijv. &quot;amd64,arm64&quot;).</value>
+  </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Bepaalt welke component-submappen worden opgenomen bij het genereren van de Packages-index. Pakketten in niet-lijstcomponenten worden opgeslagen, maar zijn onzichtbaar voor apt-clients. Stelt ook de Components: regel in de client-setupgids in. Wijzigingen worden actief bij de volgende uitvoering van de Repository Sync-job.</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Als gekoppeld aan een mirror, zal dit repository pakketten leveren vanuit die upstream-bron.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Indien gekoppeld, wordt de Packages-index van deze repository bij elke Repository Sync bijgewerkt vanuit de spiegelserver. ApkgDebPackages met dezelfde pakketnaam en -architectuur overschrijven de versie uit de spiegelserver.</value>
   </data>
   <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
     <value>Als gekoppeld, wordt de Packages-index van dit repository tijdens elke Repository Sync geinitialiseerd vanuit de mirror. LocalPackages voor dezelfde pakketnaam en architectuur hebben voorrang op de mirror-versie.</value>

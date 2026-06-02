@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+    <value>Et .apkg blandet pakke er Apkg&apos;s proprietære format, der samler flere .deb-pakker og en manifest.xml i et enkelt gzippet tar-arkiv. Serveren udpakker hver .deb, ekstraherer metadata fra kontrolfilen og synkroniserer dem til deres mål APT-repositories.</value>
+  </data>
+  <data name="Dead (Invariant) Attributes" xml:space="preserve">
+    <value>Inaktive (invariante) attributter</value>
+  </data>
+  <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
+    <value>Hver .apkg har tre &lt;strong&gt;døde attributter&lt;/strong&gt; defineret i manifestroden, der gælder for hele bunken: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt; og &lt;strong&gt;Component&lt;/strong&gt;. Disse identificerer pakkefamilien og det målrettede lager. De kan ikke variere mellem poster inden for en enkelt .apkg.</value>
+  </data>
+  <data name="Live (Variant) Attributes" xml:space="preserve">
+    <value>Levende (variant) attributter</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
+  <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
+    <value>Brug &lt;code&gt;apkg push&lt;/code&gt; fra CLI&apos;en til at oprette og uploade .apkg-filer. Uploads skal publiceres, før de vises i APT-lagre.</value>
+  </data>
+  <data name="What is an APKG Mixed Package?" xml:space="preserve">
+    <value>Hvad er en APKG mixed package?</value>
+  </data>
+  <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
+    <value>Inden for en enkelt .apkg kan hver post variere på tre &lt;strong&gt;dynamiske attributter&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (udtrukket fra .deb-binærfilen, aldrig skrevet i manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt; og &lt;strong&gt;Arkitektur&lt;/strong&gt;. Dette gør det muligt at levere f.eks. amd64 og arm64-bygninger af den samme version i én upload.</value>
+  </data>
+
+</root>

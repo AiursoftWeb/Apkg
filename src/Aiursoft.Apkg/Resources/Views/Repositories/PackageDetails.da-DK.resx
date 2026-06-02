@@ -93,6 +93,9 @@
   <data name="Origin" xml:space="preserve">
     <value>Oprindelse</value>
   </data>
+  <data name="Origin Suite" xml:space="preserve">
+    <value>Oprindelsessuite</value>
+  </data>
   <data name="Original Maintainer" xml:space="preserve">
     <value>Oprindelig vedligeholder</value>
   </data>

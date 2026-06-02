@@ -39,6 +39,9 @@
   <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Controlează fișierele index ale pachetelor generate pentru arhitectura binară-[arch]/Packages. Pachetele cu arhitecturi neconforme (cu excepția &apos;all&apos;) sunt stocate, dar invizibile pentru clienții apt. Setează, de asemenea, linia Architectures: în ghidul de configurare a clientului. Modificările devin efective la următoarea execuție a job-ului de sincronizare a depozitului.</value>
   </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. &quot;amd64,arm64&quot;)." xml:space="preserve">
+    <value>Controlează fișierelor de index Packages pentru binary-[arch] care sunt generate. Pachetele cu arhitecturi neconforme (cu excepția „all”) sunt stocate, dar sunt invizibile pentru clienții apt. De asemenea, setează linia Architectures: din ghidul de configurare al clientului. Modificările intră în vigoare la următoarea rulare a jobului de sincronizare a depozitului (Repository Sync). Separați mai multe arhitecturi prin virgule (de ex. „amd64,arm64”).</value>
+  </data>
   <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
     <value>Controlează care subdirectoare de componente sunt incluse la generarea indexului Packages. Pachetele din componente neînlistate sunt stocate, dar invizibile pentru clienții apt. De asemenea, setează linia Components: în ghidul de configurare a clientului. Modificările devin efective la următoarea execuție a job-ului de sincronizare a repository-ului.</value>
   </data>
@@ -53,6 +56,9 @@
   </data>
   <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
     <value>Dacă este legat de un mirror, acest depozit va servi pachete din acea sursă upstream.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Dacă este legat, indexul Packages al acestui depozit este populat din oglinzi în timpul fiecărei sincronizări a depozitului. Pachetele ApkgDebPackages cu același nume și arhitectură suprascriu versiunea din oglindă.</value>
   </data>
   <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. LocalPackages for the same package name and architecture override the mirror version." xml:space="preserve">
     <value>Dacă este legat, indexul Packages al acestui depozit este inițializat din oglindă la fiecare sincronizare a depozitului. LocalPackages pentru același nume de pachet și arhitectură anulează versiunea din oglindă.</value>

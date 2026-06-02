@@ -93,6 +93,9 @@
   <data name="Origin" xml:space="preserve">
     <value>Menşei</value>
   </data>
+  <data name="Origin Suite" xml:space="preserve">
+    <value>Köken Seti</value>
+  </data>
   <data name="Original Maintainer" xml:space="preserve">
     <value>Orijinal Bakımcı</value>
   </data>

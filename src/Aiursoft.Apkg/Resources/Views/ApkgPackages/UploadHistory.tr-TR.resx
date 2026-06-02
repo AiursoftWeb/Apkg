@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>İşlemler</value>
+  </data>
+  <data name="Click a package name to see its full version history, or click the eye icon to inspect a specific revision." xml:space="preserve">
+    <value>Tam sürüm geçmişini görmek için bir paket adına veya belirli bir revizyonu incelemek için göz simgesine tıklayın.</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Bileşen</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Dağıtım</value>
+  </data>
+  <data name="Every &lt;code&gt;apkg push&lt;/code&gt; creates a revision record. This page lists every upload you have made, whether it created a new package family or added a version to an existing one." xml:space="preserve">
+    <value>Her &lt;code&gt;apkg push&lt;/code&gt; bir gözden geçirme kaydı oluşturur. Bu sayfa, yeni bir paket ailesi oluşturup oluşturmamış olsa bile yaptığınız tüm yüklemeleri listeler.</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Dosya</value>
+  </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>Yükleme Geçmişim</value>
+  </data>
+  <data name="No uploads yet." xml:space="preserve">
+    <value>Henüz yükleme yok.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Paketler</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Durum</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>İpucu:</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Yükleme Geçmişi</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Yüklenen</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>Sürüm Geçmişi</value>
+  </data>
+  <data name="View Details" xml:space="preserve">
+    <value>Ayrıntıları Görüntüle</value>
+  </data>
+
+</root>

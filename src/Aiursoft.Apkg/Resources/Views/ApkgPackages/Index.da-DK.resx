@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Handlinger</value>
+  </data>
+  <data name="Active Versions" xml:space="preserve">
+    <value>Aktive versioner</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
+    <value>En .apkg mixed package er Apkg&apos;s proprietære format, der samler flere .deb-pakker i én upload. Efter behandling udtrækkes hver .deb-pakke, der er indeholdt, og synkroniseres med sin mål-APT-repositorie.</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>og ALLE dens revisioner og lokale pakker. Pakkens navn vil blive frigivet til andre brugere. Dette kan ikke fortrydes.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuller</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Luk</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Komponent</value>
+  </data>
+  <data name="Delete Entire Package" xml:space="preserve">
+    <value>Slet hele pakken</value>
+  </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>Slet paket</value>
+  </data>
+  <data name="Delete Package Family" xml:space="preserve">
+    <value>Slet pakkefamilie</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detaljer</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distribution</value>
+  </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>Mine pakker (APKG)</value>
+  </data>
+  <data name="Next Version" xml:space="preserve">
+    <value>Næste version</value>
+  </data>
+  <data name="No APKG uploads yet." xml:space="preserve">
+    <value>Endnu ingen APKG-uploads.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Pakke</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Udgivet</value>
+  </data>
+  <data name="Relist" xml:space="preserve">
+    <value>Genudgiv</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="This will permanently delete the entire package family" xml:space="preserve">
+    <value>Dette sletter permanent hele pakkenheden</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Fjern fra listen</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>Upload apkg blandet pakke</value>
+  </data>
+  <data name="Upload via CLI with &lt;code&gt;apkg push&lt;/code&gt; or use the Web UI. Uploads must be published before they appear in repositories." xml:space="preserve">
+    <value>Upload via CLI med &lt;code&gt;apkg push&lt;/code&gt; eller brug Web UI. Uploads skal publiceres, før de vises i repositories.</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Uploadet</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>Versionshistorik</value>
+  </data>
+  <data name="What is a mixed package?" xml:space="preserve">
+    <value>Hvad er en blandet pakke?</value>
+  </data>
+
+</root>
