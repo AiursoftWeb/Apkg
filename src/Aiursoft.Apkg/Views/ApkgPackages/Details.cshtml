@@ -161,6 +161,7 @@
                                         <th>Package</th>
                                         <th>Version</th>
                                         <th>Architecture</th>
+                                        <th>Suite</th>
                                         <th>Repository</th>
                                         <th>Uploaded At</th>
                                         <th>Sync Status</th>
@@ -176,6 +177,7 @@
                                             <td><strong>@deb.Package</strong></td>
                                             <td><span class="badge bg-info">@deb.Version</span></td>
                                             <td><span class="badge bg-dark">@deb.Architecture</span></td>
+                                            <td><span class="badge bg-secondary">@(deb.Repository?.Suite ?? "—")</span></td>
                                             <td>
                                                 @if (deb.Repository != null)
                                                 {
