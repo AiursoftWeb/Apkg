@@ -48,7 +48,7 @@ Try a running Apkg [here](https://apkg.aiursoft.com).
 
 ## Run in Ubuntu
 
-The following script will install\update this app on your Ubuntu server. Supports Ubuntu 25.04.
+The following script will install\update this app on your Ubuntu server. Supports Ubuntu 25.04. Also works on AnduinOS (an Ubuntu/Debian derivative).
 
 On your Ubuntu server, run the following command:
 
