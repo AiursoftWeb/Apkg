@@ -344,8 +344,8 @@ public class ApkgPackagesControllerTests : TestBase
         var response = await Http.GetAsync($"/ApkgPackages/PackageHistory?name={Uri.EscapeDataString(pkgName)}");
         var html = await response.Content.ReadAsStringAsync();
 
-        Assert.IsTrue(html.Contains("Back to Packages"),
-            "History page should have a back link to the package list.");
+        Assert.IsTrue(html.Contains("Back to Package"),
+            "History page should have a back link to the package details.");
     }
 
     // ──────────────────────────────────────────────────────────────────────
