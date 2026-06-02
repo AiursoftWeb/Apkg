@@ -6,6 +6,7 @@ namespace Aiursoft.Apkg.Models.ApkgPackagesViewModels;
 public class ApkgRevisionHistoryItem
 {
     public required ApkgRevision Revision { get; init; }
+    public int PackageId { get; init; }
     public required string PackageName { get; init; }
     public required string Distro { get; init; }
     public required string Component { get; init; }

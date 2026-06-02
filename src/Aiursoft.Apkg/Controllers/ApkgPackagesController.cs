@@ -190,6 +190,7 @@ public class ApkgPackagesController(
         var items = revisions.Select(r => new ApkgRevisionHistoryItem
         {
             Revision = r,
+            PackageId = r.ApkgPackageId,
             PackageName = r.ApkgPackage?.Name ?? "(deleted)",
             Distro = r.ApkgPackage?.Distro ?? "—",
             Component = r.ApkgPackage?.Component ?? "—",
