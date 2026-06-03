@@ -31,7 +31,7 @@
                             <th>@Localizer["Distro"]</th>
                             <th>@Localizer["Component"]</th>
                             <th>@Localizer["Published"]</th>
-                            <th>@Localizer["Active Versions"]</th>
+                            <th style="max-width: 200px;">@Localizer["Active Versions"]</th>
                             <th>@Localizer["Status"]</th>
                             <th>@Localizer["Next Version"]</th>
                             <th>@Localizer["Uploaded"]</th>
@@ -76,13 +76,15 @@
                                         @item.PublishedCount/@item.TotalPackageCount
                                     </span>
                                 </td>
-                                <td>
+                                <td style="max-width: 200px;">
                                     @if (item.LiveVersions.Count > 0)
                                     {
-                                        @foreach (var version in item.LiveVersions)
-                                        {
-                                            <span class="badge bg-info me-1">@version</span>
-                                        }
+                                        <div class="d-flex flex-wrap gap-1">
+                                            @foreach (var version in item.LiveVersions)
+                                            {
+                                                <span class="badge bg-info">@version</span>
+                                            }
+                                        </div>
                                     }
                                     else
                                     {
