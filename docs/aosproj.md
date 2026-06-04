@@ -114,6 +114,7 @@
 | `UpstreamComponent` | — | 上游 APT 组件，默认为 `main`。支持 `$(Suite)` 等变量 |
 | `UpstreamArch` | — | 上游包架构，默认为 `all` |
 | `SuppressUpstreamScripts` | — | 设为 `true` 时，不继承上游包的 maintainer scripts（postinst/prerm/postrm），仅继承其数据载荷。适用于仅需上游文件但需完全自控安装脚本的场景。默认为 `false` |
+| `SuppressUpstreamDependencies` | — | 空格/逗号分隔的上游包名列表，在合并本地依赖前从上游继承的 `Depends` 中移除。例如 `"ubuntu-pro-client ubuntu-advantage-desktop-daemon"`。移除时仅匹配基础包名（忽略版本约束），大小写不敏感 |
 
 ### 上游派生（UpstreamSource）
 
@@ -125,7 +126,7 @@
 4. **合并**：本地条目（`IncludeFile`、`IncludeScript`、`IncludeFolder`）覆盖到暂存区
 5. **合并 control 字段**：
    - **Version**：若 `PackageVersion` 包含 `$(UpstreamVersion)`，则替换为上游的实际版本号（如 `13.1ubuntu1`）。这使得派生包的版本自动跟随上游
-   - `Depends`：上游依赖在前，本地 `Dependency` 附录在后。以基础包名去重（如上游有 `libc6 (>= 2.34)` 而本地声明 `libc6`，保留上游版本）
+   - `Depends`：上游依赖在前，本地 `Dependency` 附录在后。以基础包名去重（如上游有 `libc6 (>= 2.34)` 而本地声明 `libc6`，保留上游版本）。设置 `SuppressUpstreamDependencies` 可在合并前按包名移除上游依赖
    - `Provides`、`Conflicts`、`Replaces`、`Breaks`、`Recommends`、`Suggests`：本地优先，未填时回退到上游值
    - `Homepage`：本地优先，未填时回退到上游值
    - `Section`、`Priority`：三级回退 — 本地优先，未填时回退到上游值，上游也没有时使用 Debian 标准默认值（`"utils"` / `"optional"`）

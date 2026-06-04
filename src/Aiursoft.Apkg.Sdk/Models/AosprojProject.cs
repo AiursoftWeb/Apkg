@@ -89,6 +89,12 @@ public class AosprojProject
     /// maintainer scripts via PostInstallScript / PreRemoveScript.
     /// </summary>
     public bool SuppressUpstreamScripts { get; set; }
+    /// <summary>
+    /// Space/comma-separated list of upstream package names to strip from the
+    /// inherited Depends before merging local dependencies.
+    /// e.g. "ubuntu-pro-client ubuntu-advantage-desktop-daemon".
+    /// </summary>
+    public string SuppressUpstreamDependencies { get; set; } = string.Empty;
 
     // ── Dependency check ─────────────────────────────────────────────────────
     /// <summary>

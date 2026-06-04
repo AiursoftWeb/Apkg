@@ -1145,6 +1145,156 @@ public class DebBuilderTests
         Assert.AreEqual("libssl3", result[1]);
     }
 
+    // ── SuppressUpstreamDependencies ──────────────────────────────────────────
+
+    [TestMethod]
+    public void MergeDepends_SuppressRemovesSinglePackage()
+    {
+        // Simulates what BuildAsync does: strip ubuntu-pro-client from upstream
+        // Depends before calling MergeDepends.
+        var local = new List<string> { "anduinos-software-properties-common" };
+        var upstream = new Dictionary<string, string>
+        {
+            ["Depends"] = "python3, ubuntu-pro-client, ubuntu-drivers-common"
+        };
+        var suppress = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "ubuntu-pro-client"
+        };
+
+        // Replicate the filtering logic from BuildAsync
+        if (upstream.TryGetValue("Depends", out var upsDeps) && !string.IsNullOrWhiteSpace(upsDeps))
+        {
+            var filtered = upsDeps
+                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(d => d.Trim())
+                .Where(d => !suppress.Contains(d.Split(' ', 2)[0]))
+                .ToList();
+            upstream["Depends"] = string.Join(", ", filtered);
+        }
+
+        var result = DebBuilder.MergeDepends(local, upstream);
+        Assert.AreEqual(3, result.Count);
+        Assert.AreEqual("python3", result[0]);
+        Assert.AreEqual("ubuntu-drivers-common", result[1]);
+        Assert.AreEqual("anduinos-software-properties-common", result[2]);
+    }
+
+    [TestMethod]
+    public void MergeDepends_SuppressRemovesMultiplePackages()
+    {
+        var local = new List<string> { "my-dep" };
+        var upstream = new Dictionary<string, string>
+        {
+            ["Depends"] = "python3, ubuntu-pro-client, ubuntu-advantage-desktop-daemon, ubuntu-drivers-common"
+        };
+        var suppress = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "ubuntu-pro-client", "ubuntu-advantage-desktop-daemon"
+        };
+
+        if (upstream.TryGetValue("Depends", out var upsDeps) && !string.IsNullOrWhiteSpace(upsDeps))
+        {
+            var filtered = upsDeps
+                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(d => d.Trim())
+                .Where(d => !suppress.Contains(d.Split(' ', 2)[0]))
+                .ToList();
+            upstream["Depends"] = string.Join(", ", filtered);
+        }
+
+        var result = DebBuilder.MergeDepends(local, upstream);
+        Assert.AreEqual(3, result.Count);
+        Assert.AreEqual("python3", result[0]);
+        Assert.AreEqual("ubuntu-drivers-common", result[1]);
+        Assert.AreEqual("my-dep", result[2]);
+    }
+
+    [TestMethod]
+    public void MergeDepends_SuppressWithVersionConstraint()
+    {
+        var local = new List<string>();
+        var upstream = new Dictionary<string, string>
+        {
+            ["Depends"] = "python3, ubuntu-pro-client (>= 33), ubuntu-drivers-common (>= 1:0.9.6)"
+        };
+        var suppress = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "ubuntu-pro-client"
+        };
+
+        if (upstream.TryGetValue("Depends", out var upsDeps) && !string.IsNullOrWhiteSpace(upsDeps))
+        {
+            var filtered = upsDeps
+                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(d => d.Trim())
+                .Where(d => !suppress.Contains(d.Split(' ', 2)[0]))
+                .ToList();
+            upstream["Depends"] = string.Join(", ", filtered);
+        }
+
+        var result = DebBuilder.MergeDepends(local, upstream);
+        Assert.AreEqual(2, result.Count);
+        Assert.AreEqual("python3", result[0]);
+        Assert.AreEqual("ubuntu-drivers-common (>= 1:0.9.6)", result[1]);
+    }
+
+    [TestMethod]
+    public void MergeDepends_SuppressNonExistent_NoChange()
+    {
+        var local = new List<string>();
+        var upstream = new Dictionary<string, string>
+        {
+            ["Depends"] = "python3, libc6"
+        };
+        var suppress = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+        {
+            "nonexistent-package"
+        };
+
+        if (upstream.TryGetValue("Depends", out var upsDeps) && !string.IsNullOrWhiteSpace(upsDeps))
+        {
+            var filtered = upsDeps
+                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(d => d.Trim())
+                .Where(d => !suppress.Contains(d.Split(' ', 2)[0]))
+                .ToList();
+            upstream["Depends"] = string.Join(", ", filtered);
+        }
+
+        var result = DebBuilder.MergeDepends(local, upstream);
+        Assert.AreEqual(2, result.Count);
+        Assert.AreEqual("python3", result[0]);
+        Assert.AreEqual("libc6", result[1]);
+    }
+
+    [TestMethod]
+    public void MergeDepends_EmptySuppress_NoChange()
+    {
+        var local = new List<string>();
+        var upstream = new Dictionary<string, string>
+        {
+            ["Depends"] = "python3, ubuntu-pro-client"
+        };
+        // Empty suppress set — nothing filtered
+        var suppress = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        if (upstream.TryGetValue("Depends", out var upsDeps) && !string.IsNullOrWhiteSpace(upsDeps))
+        {
+            var filtered = upsDeps
+                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                .Select(d => d.Trim())
+                .Where(d => !suppress.Contains(d.Split(' ', 2)[0]))
+                .ToList();
+            upstream["Depends"] = string.Join(", ", filtered);
+        }
+
+        var result = DebBuilder.MergeDepends(local, upstream);
+        Assert.AreEqual(2, result.Count);
+        Assert.AreEqual("python3", result[0]);
+        Assert.AreEqual("ubuntu-pro-client", result[1]);
+    }
+
     // ── Error paths ───────────────────────────────────────────────────────────
 
     [TestMethod]

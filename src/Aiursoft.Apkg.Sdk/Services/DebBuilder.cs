@@ -131,6 +131,23 @@ public class DebBuilder
             .Where(v => !string.IsNullOrWhiteSpace(v))
             .ToList();
 
+        // Strip suppressed upstream dependencies before merging
+        if (upstreamControl != null && !string.IsNullOrWhiteSpace(project.SuppressUpstreamDependencies))
+        {
+            var suppressNames = new HashSet<string>(
+                project.SuppressUpstreamDependencies.Split(' ', ',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries),
+                StringComparer.OrdinalIgnoreCase);
+            if (upstreamControl.TryGetValue("Depends", out var upsDeps) && !string.IsNullOrWhiteSpace(upsDeps))
+            {
+                var filtered = upsDeps
+                    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
+                    .Select(d => d.Trim())
+                    .Where(d => !suppressNames.Contains(d.Split(' ', 2)[0]))
+                    .ToList();
+                upstreamControl["Depends"] = string.Join(", ", filtered);
+            }
+        }
+
         var mergedDepends = MergeDepends(localDepends, upstreamControl);
 
         var localRecommends = project.Recommends
