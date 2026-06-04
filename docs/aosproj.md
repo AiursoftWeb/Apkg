@@ -254,6 +254,14 @@
   安装到 Target 指定的路径下。
   Include = 相对于 .aosproj 的源目录路径
   Target  = 安装后的目录路径
+
+  符号链接行为（v10.0.4 起）：
+  - 文件符号链接（如 libfoo.so -> libfoo.so.1）会被原样保留为符号链接，
+    不会展开（dereference）为实体文件拷贝。
+  - 目录符号链接（如 codecs/alias -> codecs/real）会被原样保留为目录
+    符号链接，不会递归进入。这避免了同一文件以多条路径重复出现在
+    最终 .deb 包中，也杜绝了循环符号链接导致的无限枚举。
+  - 普通文件和目录的行为不变：正常递归复制。
 -->
 <IncludeFolder Include="assets/" Target="/usr/share/anduinos/assets" />
 ```

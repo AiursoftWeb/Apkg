@@ -1878,6 +1878,245 @@ public class DebBuilderTests
         }
     }
 
+    // ── Symlink handling in IncludeFolder (CopyDirectory) ───────────────────
+
+    [TestMethod]
+    public async Task BuildAsync_IncludeFolder_FileSymlinksPreserved()
+    {
+        // File symlinks inside an IncludeFolder must be recreated as symlinks
+        // in the staging directory, NOT expanded (dereferenced) to regular files.
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            // Build a source tree: deploy/lib/libfoo.so (real) + deploy/lib/libfoo.so.1 -> libfoo.so (symlink)
+            var deployDir = Path.Combine(projectDir, "deploy");
+            var libDir = Path.Combine(deployDir, "lib");
+            Directory.CreateDirectory(libDir);
+            await File.WriteAllTextAsync(Path.Combine(libDir, "libfoo.so"), "ELF binary content");
+
+            var symlinkPath = Path.Combine(libDir, "libfoo.so.1");
+            var linkTarget = "libfoo.so"; // relative symlink
+            File.CreateSymbolicLink(symlinkPath, linkTarget);
+
+            Assert.IsTrue(File.Exists(symlinkPath), "Symlink should exist in source.");
+            Assert.IsNotNull(new FileInfo(symlinkPath).LinkTarget, "Created file should be a symlink.");
+
+            var project = new AosprojProject
+            {
+                PackageName = "symlink-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "Symlink preservation test",
+                Maintainer = "Test <test@example.com>",
+                TargetSuites = "jammy",
+                IncludeFolders =
+                {
+                    new IncludeFolderItem { Source = "deploy/lib/", Target = "/usr/lib/symlink-pkg/" }
+                }
+            };
+
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+            // Verify: libfoo.so is a regular file, libfoo.so.1 is a symlink
+            var staging = Path.Combine(projectDir, "obj", "jammy_amd64");
+            var destRealFile = Path.Combine(staging, "usr", "lib", "symlink-pkg", "libfoo.so");
+            var destSymlink = Path.Combine(staging, "usr", "lib", "symlink-pkg", "libfoo.so.1");
+
+            Assert.IsTrue(File.Exists(destRealFile), "Regular file should be copied.");
+            Assert.IsTrue(File.Exists(destSymlink), "Symlink should exist in staging.");
+
+            var actualTarget = new FileInfo(destSymlink).LinkTarget;
+            Assert.AreEqual(linkTarget, actualTarget, "Symlink target must match the original relative target.");
+
+            // The symlink target content should still resolve (proving it's a real symlink, not expanded)
+            var realContent = await File.ReadAllTextAsync(destRealFile);
+            var resolvedContent = await File.ReadAllTextAsync(destSymlink);
+            Assert.AreEqual(realContent, resolvedContent, "Following the symlink should yield the same content.");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task BuildAsync_IncludeFolder_DirectorySymlinksPreservedNotRecursed()
+    {
+        // Directory symlinks inside an IncludeFolder must be recreated as directory
+        // symlinks in staging and MUST NOT be recursed into (otherwise we'd
+        // duplicate files under two paths, corrupting the .deb data.tar).
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            // Source tree:
+            //   deploy/codecs/cs42l43-spk+cs35l56/init.conf       (real dir + file)
+            //   deploy/codecs/cs35l56+cs42l43-spk -> cs42l43-spk+cs35l56  (dir symlink)
+            var deployDir = Path.Combine(projectDir, "deploy");
+            var codecsDir = Path.Combine(deployDir, "codecs");
+            var realDir = Path.Combine(codecsDir, "cs42l43-spk+cs35l56");
+            Directory.CreateDirectory(realDir);
+            await File.WriteAllTextAsync(Path.Combine(realDir, "init.conf"), "# ALSA init config");
+
+            var symlinkDir = Path.Combine(codecsDir, "cs35l56+cs42l43-spk");
+            var dirLinkTarget = "cs42l43-spk+cs35l56"; // relative
+            Directory.CreateSymbolicLink(symlinkDir, dirLinkTarget);
+
+            Assert.IsTrue(Directory.Exists(symlinkDir), "Dir symlink should be traversable in source.");
+            Assert.IsNotNull(new DirectoryInfo(symlinkDir).LinkTarget, "Created directory should be a symlink.");
+
+            var project = new AosprojProject
+            {
+                PackageName = "dirsym-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "Directory symlink test",
+                Maintainer = "Test <test@example.com>",
+                TargetSuites = "jammy",
+                IncludeFolders =
+                {
+                    new IncludeFolderItem { Source = "deploy/codecs/", Target = "/usr/share/dirsym-pkg/codecs/" }
+                }
+            };
+
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+            var staging = Path.Combine(projectDir, "obj", "jammy_amd64");
+            var codecsStaging = Path.Combine(staging, "usr", "share", "dirsym-pkg", "codecs");
+
+            // Real dir + file should exist normally
+            Assert.IsTrue(File.Exists(Path.Combine(codecsStaging, "cs42l43-spk+cs35l56", "init.conf")),
+                "Real file under real dir should exist.");
+
+            // The symlink dir should exist as a directory symlink (not a real dir)
+            var destSymlinkDir = Path.Combine(codecsStaging, "cs35l56+cs42l43-spk");
+            var dirInfo = new DirectoryInfo(destSymlinkDir);
+            Assert.IsNotNull(dirInfo.LinkTarget, "Destination should be a directory symlink, not a real directory.");
+            Assert.AreEqual(dirLinkTarget, dirInfo.LinkTarget, "Directory symlink target must match original.");
+
+            // Verify the .deb archive has proper symlink entries and no duplicates.
+            // dpkg-deb -c lists tar member types: '-' for regular file,
+            // 'h' for hardlink, 'l' for symlink, 'd' for directory.
+            var debPath = Path.Combine(outputDir, "dirsym-pkg_1.0.0_jammy_amd64.deb");
+            Assert.IsTrue(File.Exists(debPath), ".deb should be produced.");
+            var debContents = await RunAndCaptureAsync("dpkg-deb", ["-c", debPath]);
+
+            // The real file must appear exactly once
+            Assert.IsTrue(debContents.Contains("cs42l43-spk+cs35l56/init.conf"),
+                "Real file path must be in the .deb listing.");
+            // The symlink must appear as a symlink entry (tar shows "-> target")
+            Assert.IsTrue(debContents.Contains("cs35l56+cs42l43-spk -> cs42l43-spk+cs35l56"),
+                ".deb must contain the directory symlink entry.");
+            // The real file must NOT also appear under the symlink path
+            Assert.IsFalse(debContents.Contains("cs35l56+cs42l43-spk/init.conf"),
+                "init.conf must NOT appear under the symlink path in the .deb — CopyDirectory must not recurse into directory symlinks.");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task BuildAsync_IncludeFolder_MixedRegularAndSymlinkContent()
+    {
+        // Comprehensive test: regular files, file symlinks, regular dirs,
+        // and dir symlinks all coexist in a single IncludeFolder.
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            var deployDir = Path.Combine(projectDir, "deploy");
+            var mixedDir = Path.Combine(deployDir, "mixed");
+            Directory.CreateDirectory(mixedDir);
+
+            // Regular file
+            await File.WriteAllTextAsync(Path.Combine(mixedDir, "readme.txt"), "hello");
+
+            // File symlink
+            await File.WriteAllTextAsync(Path.Combine(mixedDir, "real.conf"), "# real config");
+            File.CreateSymbolicLink(Path.Combine(mixedDir, "alias.conf"), "real.conf");
+
+            // Regular directory with a file inside
+            var nestedRealDir = Path.Combine(mixedDir, "plugins");
+            Directory.CreateDirectory(nestedRealDir);
+            await File.WriteAllTextAsync(Path.Combine(nestedRealDir, "plugin-a.so"), "plugin A");
+
+            // Directory symlink (must NOT be recursed)
+            Directory.CreateSymbolicLink(Path.Combine(mixedDir, "plugins-extra"), "plugins");
+
+            var project = new AosprojProject
+            {
+                PackageName = "mixed-sym-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "Mixed content symlink test",
+                Maintainer = "Test <test@example.com>",
+                TargetSuites = "jammy",
+                IncludeFolders =
+                {
+                    new IncludeFolderItem { Source = "deploy/mixed/", Target = "/usr/share/mixed/" }
+                }
+            };
+
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+            var staging = Path.Combine(projectDir, "obj", "jammy_amd64");
+            var m = Path.Combine(staging, "usr", "share", "mixed");
+
+            // Regular file
+            Assert.IsTrue(File.Exists(Path.Combine(m, "readme.txt")));
+            Assert.AreEqual("hello", await File.ReadAllTextAsync(Path.Combine(m, "readme.txt")));
+
+            // File symlink preserved
+            var aliasInfo = new FileInfo(Path.Combine(m, "alias.conf"));
+            Assert.IsNotNull(aliasInfo.LinkTarget, "alias.conf should be a symlink.");
+            Assert.AreEqual("real.conf", aliasInfo.LinkTarget);
+
+            // Regular nested dir
+            Assert.IsTrue(File.Exists(Path.Combine(m, "plugins", "plugin-a.so")));
+
+            // Dir symlink preserved (not recursed)
+            var pluginsExtraInfo = new DirectoryInfo(Path.Combine(m, "plugins-extra"));
+            Assert.IsNotNull(pluginsExtraInfo.LinkTarget, "plugins-extra should be a directory symlink.");
+            Assert.AreEqual("plugins", pluginsExtraInfo.LinkTarget);
+
+            // Verify no duplicates in the .deb: plugin-a.so must exist under
+            // plugins/ but NOT under plugins-extra/ (which is a dir symlink).
+            var debPath = Path.Combine(outputDir, "mixed-sym-pkg_1.0.0_jammy_amd64.deb");
+            Assert.IsTrue(File.Exists(debPath), ".deb should be produced.");
+            var debContents = await RunAndCaptureAsync("dpkg-deb", ["-c", debPath]);
+            Assert.IsTrue(debContents.Contains("plugins/plugin-a.so"),
+                "Real file must be in the .deb under the real directory path.");
+            Assert.IsFalse(debContents.Contains("plugins-extra/plugin-a.so"),
+                "File must NOT appear under the symlink path in the .deb.");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    private static async Task<string?> RunWhichAsync(string command)
+    {
+        var psi = new System.Diagnostics.ProcessStartInfo("which", command)
+        {
+            RedirectStandardOutput = true,
+            RedirectStandardError = true
+        };
+        var proc = System.Diagnostics.Process.Start(psi)!;
+        var stdout = (await proc.StandardOutput.ReadToEndAsync()).Trim();
+        await proc.WaitForExitAsync();
+        return proc.ExitCode == 0 ? stdout : null;
+    }
+
     private static async Task RunAsync(string command, string[] args, string? workingDir = null)
     {
         var psi = new System.Diagnostics.ProcessStartInfo(command)

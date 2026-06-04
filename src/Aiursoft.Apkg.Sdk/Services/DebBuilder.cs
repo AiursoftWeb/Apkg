@@ -626,12 +626,42 @@ public class DebBuilder
     private static void CopyDirectory(string src, string dest)
     {
         Directory.CreateDirectory(dest);
-        foreach (var file in Directory.EnumerateFiles(src, "*", SearchOption.AllDirectories))
+        CopyDirectoryRecursive(src, dest);
+    }
+
+    private static void CopyDirectoryRecursive(string src, string dest)
+    {
+        foreach (var file in Directory.EnumerateFiles(src))
         {
-            var relative = Path.GetRelativePath(src, file);
-            var destFile = Path.Combine(dest, relative);
-            EnsureParentDirectory(destFile);
-            File.Copy(file, destFile, overwrite: true);
+            var destFile = Path.Combine(dest, Path.GetFileName(file));
+            var fileInfo = new FileInfo(file);
+            var linkTarget = fileInfo.LinkTarget;
+
+            if (linkTarget != null)
+            {
+                File.CreateSymbolicLink(destFile, linkTarget);
+            }
+            else
+            {
+                File.Copy(file, destFile, overwrite: true);
+            }
+        }
+
+        foreach (var dir in Directory.EnumerateDirectories(src))
+        {
+            var destDir = Path.Combine(dest, Path.GetFileName(dir));
+            var dirInfo = new DirectoryInfo(dir);
+            var linkTarget = dirInfo.LinkTarget;
+
+            if (linkTarget != null)
+            {
+                Directory.CreateSymbolicLink(destDir, linkTarget);
+            }
+            else
+            {
+                Directory.CreateDirectory(destDir);
+                CopyDirectoryRecursive(dir, destDir);
+            }
         }
     }
 
@@ -650,11 +680,30 @@ public class DebBuilder
 
     private static long ComputeDirectorySizeKb(string dir)
     {
-        long totalBytes = Directory
-            .EnumerateFiles(dir, "*", SearchOption.AllDirectories)
-            .Where(f => !f.Contains(Path.DirectorySeparatorChar + "DEBIAN" + Path.DirectorySeparatorChar))
-            .Sum(f => new FileInfo(f).Length);
+        long totalBytes = ComputeSizeRecursive(dir);
         return Math.Max(1, totalBytes / 1024);
+    }
+
+    private static long ComputeSizeRecursive(string path)
+    {
+        long size = 0;
+        foreach (var file in Directory.EnumerateFiles(path))
+        {
+            var fi = new FileInfo(file);
+            if (fi.LinkTarget != null)
+                continue;
+            size += fi.Length;
+        }
+        foreach (var subDir in Directory.EnumerateDirectories(path))
+        {
+            if (subDir.Contains(Path.DirectorySeparatorChar + "DEBIAN" + Path.DirectorySeparatorChar))
+                continue;
+            var di = new DirectoryInfo(subDir);
+            if (di.LinkTarget != null)
+                continue;
+            size += ComputeSizeRecursive(subDir);
+        }
+        return size;
     }
 
     private static async Task RunShellAsync(string command, string workingDir)
