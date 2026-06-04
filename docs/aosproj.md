@@ -113,6 +113,7 @@
 | `UpstreamSuiteMapping` | — | 输出 suite → 上游 suite 的映射表。格式：`out1=up1, out2=up2`。当 `UpstreamSuite` 解析后的值命中了映射的 key，则替换为对应的上游 suite |
 | `UpstreamComponent` | — | 上游 APT 组件，默认为 `main`。支持 `$(Suite)` 等变量 |
 | `UpstreamArch` | — | 上游包架构，默认为 `all` |
+| `SuppressUpstreamScripts` | — | 设为 `true` 时，不继承上游包的 maintainer scripts（postinst/prerm/postrm），仅继承其数据载荷。适用于仅需上游文件但需完全自控安装脚本的场景。默认为 `false` |
 
 ### 上游派生（UpstreamSource）
 
@@ -128,7 +129,7 @@
    - `Provides`、`Conflicts`、`Replaces`、`Breaks`、`Recommends`、`Suggests`：本地优先，未填时回退到上游值
    - `Homepage`：本地优先，未填时回退到上游值
    - `Section`、`Priority`：三级回退 — 本地优先，未填时回退到上游值，上游也没有时使用 Debian 标准默认值（`"utils"` / `"optional"`）
-6. **链式 maintainer scripts**：上游 `postinst`/`prerm`/`postrm`（去除 shebang）→ 本地脚本 → systemd 自动脚本，按序追加
+6. **链式 maintainer scripts**：上游 `postinst`/`prerm`/`postrm`（去除 shebang）→ 本地脚本 → systemd 自动脚本，按序追加。设置 `<SuppressUpstreamScripts>true</SuppressUpstreamScripts>` 可跳过上游脚本，仅保留本地脚本和 systemd 自动脚本
 
 这是 AnduinOS 替换 Ubuntu `base-files`（`Essential: yes`）等基础包的推荐模式：通过 APT pinning 设置 `Pin-Priority: 1001`，让 AnduinOS 的派生包覆盖 Ubuntu 原包，同时保持一切兼容。
 

@@ -82,6 +82,13 @@ public class AosprojProject
     public string UpstreamComponent { get; set; } = "main";
     /// <summary>Architecture of the upstream package, e.g. "all", "amd64".</summary>
     public string UpstreamArch { get; set; } = "all";
+    /// <summary>
+    /// When true, upstream maintainer scripts (postinst, prerm, postrm) are NOT
+    /// prepended to the package's own scripts. Use this when deriving from an
+    /// upstream .deb solely for its data payload and you want full control over
+    /// maintainer scripts via PostInstallScript / PreRemoveScript.
+    /// </summary>
+    public bool SuppressUpstreamScripts { get; set; }
 
     // ── Dependency check ─────────────────────────────────────────────────────
     /// <summary>

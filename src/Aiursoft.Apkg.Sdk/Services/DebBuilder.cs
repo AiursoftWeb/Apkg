@@ -224,7 +224,7 @@ public class DebBuilder
         bool hasPostinst = false;
 
         // Upstream postinst comes first (if present)
-        if (upstreamPostinst != null)
+        if (upstreamPostinst != null && !project.SuppressUpstreamScripts)
         {
             postinstLines.AppendLine(StripShebang(upstreamPostinst));
             hasPostinst = true;
@@ -270,7 +270,7 @@ public class DebBuilder
         var prermLines = new StringBuilder("#!/bin/sh\nset -e\n");
         bool hasPrerm = false;
 
-        if (upstreamPrerm != null)
+        if (upstreamPrerm != null && !project.SuppressUpstreamScripts)
         {
             prermLines.AppendLine(StripShebang(upstreamPrerm));
             hasPrerm = true;
@@ -306,7 +306,7 @@ public class DebBuilder
         var postrmLines = new StringBuilder("#!/bin/sh\nset -e\n");
         bool hasPostrm = false;
 
-        if (upstreamPostrm != null)
+        if (upstreamPostrm != null && !project.SuppressUpstreamScripts)
         {
             postrmLines.AppendLine(StripShebang(upstreamPostrm));
             hasPostrm = true;
@@ -379,7 +379,10 @@ public class DebBuilder
 
         try
         {
-            var sourceLine = $"deb {project.UpstreamUrl.TrimEnd('/')} {resolvedUpstreamSuite} {resolvedUpstreamComponent}";
+            var uri = project.UpstreamUrl.TrimEnd('/');
+            var trusted = uri.StartsWith("file://", StringComparison.OrdinalIgnoreCase)
+                ? " [trusted=yes]" : "";
+            var sourceLine = $"deb{trusted} {uri} {resolvedUpstreamSuite} {resolvedUpstreamComponent}";
             await File.WriteAllTextAsync(sourceListPath, sourceLine + "\n");
 
             _logger.LogInformation("Downloading {Package} from {Url} ({Suite})...",

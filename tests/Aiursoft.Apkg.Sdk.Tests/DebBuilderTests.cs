@@ -1714,4 +1714,200 @@ public class DebBuilderTests
         Directory.CreateDirectory(path);
         return path;
     }
+
+    // ── SuppressUpstreamScripts ──────────────────────────────────────────────
+
+    [TestMethod]
+    public async Task BuildAsync_SuppressUpstreamScripts_ExcludesUpstreamPostinst()
+    {
+        // Verifies that SuppressUpstreamScripts=true prevents the upstream
+        // postinst (which ends with exit 0) from being prepended, so the
+        // user's PostInstallScript runs as the sole postinst content.
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            // ── 1. Build a minimal upstream .deb with a postinst that has exit 0 ──
+            var upstreamBuildDir = Path.Combine(tempDir, "upstream-build");
+            var upstreamDebianDir = Path.Combine(upstreamBuildDir, "DEBIAN");
+            Directory.CreateDirectory(upstreamDebianDir);
+
+            await File.WriteAllTextAsync(Path.Combine(upstreamDebianDir, "control"),
+                "Package: fake-upstream\n"
+                + "Version: 1.0\n"
+                + "Architecture: all\n"
+                + "Maintainer: Test <test@example.com>\n"
+                + "Description: Fake upstream for SuppressUpstreamScripts test\n");
+
+            var upstreamPostinstPath = Path.Combine(upstreamDebianDir, "postinst");
+            await File.WriteAllTextAsync(upstreamPostinstPath,
+                "#!/bin/sh\nset -e\n"
+                + "case \"$1\" in\n"
+                + "    configure)\n"
+                + "        echo \"upstream postinst ran\"\n"
+                + "    ;;\n"
+                + "esac\n"
+                + "exit 0\n");
+            File.SetUnixFileMode(upstreamPostinstPath,
+                UnixFileMode.UserRead | UnixFileMode.UserExecute | UnixFileMode.GroupRead | UnixFileMode.GroupExecute | UnixFileMode.OtherRead | UnixFileMode.OtherExecute);
+
+            var upstreamDebName = "fake-upstream_1.0_all.deb";
+            var upstreamDebPath = Path.Combine(tempDir, upstreamDebName);
+            await RunAsync("dpkg-deb", ["--build", "--root-owner-group", upstreamBuildDir, upstreamDebPath]);
+
+            // ── 2. Set up a local APT repo with proper dists/ structure ──
+            var repoDir = Path.Combine(tempDir, "repo");
+            var distsDir = Path.Combine(repoDir, "dists", "jammy", "main", "binary-all");
+            Directory.CreateDirectory(distsDir);
+
+            // Put .deb at repo root (relative filename in Packages references it from repo root)
+            File.Copy(upstreamDebPath, Path.Combine(repoDir, upstreamDebName), overwrite: true);
+            var fi = new FileInfo(Path.Combine(repoDir, upstreamDebName));
+            var debSize = fi.Length;
+
+            // Compute hashes
+            string md5, sha256;
+            using (var fs = fi.OpenRead())
+            {
+                using var md5Alg = System.Security.Cryptography.MD5.Create();
+                md5 = Convert.ToHexStringLower(md5Alg.ComputeHash(fs));
+                fs.Position = 0;
+                using var sha256Alg = System.Security.Cryptography.SHA256.Create();
+                sha256 = Convert.ToHexStringLower(sha256Alg.ComputeHash(fs));
+            }
+
+            // Manually craft a Packages file (more reliable than dpkg-scanpackages for file:// repos)
+            var packagesContent =
+                $"Package: fake-upstream\n"
+                + $"Version: 1.0\n"
+                + $"Architecture: all\n"
+                + $"Maintainer: Test <test@example.com>\n"
+                + $"Description: Fake upstream for SuppressUpstreamScripts test\n"
+                + $"Filename: {upstreamDebName}\n"
+                + $"Size: {debSize}\n"
+                + $"MD5sum: {md5}\n"
+                + $"SHA256: {sha256}\n";
+            var packagesPath = Path.Combine(distsDir, "Packages");
+            await File.WriteAllTextAsync(packagesPath, packagesContent);
+            await RunAsync("gzip", ["-kf", packagesPath]);
+
+            // apt also tries to fetch Packages for native/foreign architectures;
+            // create empty index files to avoid "File not found" errors (exit 100)
+            foreach (var extraArch in new[] { "amd64", "i386" })
+            {
+                var extraDir = Path.Combine(repoDir, "dists", "jammy", "main", $"binary-{extraArch}");
+                Directory.CreateDirectory(extraDir);
+                var p = Path.Combine(extraDir, "Packages");
+                await File.WriteAllTextAsync(p, "");
+                await RunAsync("gzip", ["-kf", p]);
+            }
+
+            // apt-get download with /suite suffix requires a Release file
+            // identifying the suite. apt-ftparchive generates the checksums,
+            // then we prepend Suite/Codename headers so apt can find the release.
+            var release = await RunAndCaptureAsync("apt-ftparchive",
+                ["release", Path.Combine(repoDir, "dists", "jammy")]);
+            release = "Suite: jammy\nCodename: jammy\nOrigin: Test\nLabel: Test\n"
+                + "Architectures: all amd64 i386\nComponents: main\nDescription: Test repo\n"
+                + release;
+            await File.WriteAllTextAsync(Path.Combine(repoDir, "dists", "jammy", "Release"), release);
+
+            var repoUri = "file://" + repoDir;
+
+            // ── 3. Create user postinst ──
+            var scriptsDir = Path.Combine(projectDir, "scripts");
+            Directory.CreateDirectory(scriptsDir);
+            await File.WriteAllTextAsync(Path.Combine(scriptsDir, "postinst.sh"),
+                "if [ \"$1\" = \"configure\" ]; then\n"
+                + "    echo \"my custom postinst ran\"\n"
+                + "fi\n");
+            await File.WriteAllTextAsync(Path.Combine(scriptsDir, "prerm.sh"),
+                "if [ \"$1\" = \"remove\" ]; then\n"
+                + "    echo \"my custom prerm ran\"\n"
+                + "fi\n");
+
+            // ── 4. Build with SuppressUpstreamScripts=true ──
+            var project = new AosprojProject
+            {
+                PackageName = "my-derived-pkg",
+                PackageVersion = "2.0.0",
+                PackageDescription = "Derived package with suppressed upstream scripts",
+                Maintainer = "Test <test@example.com>",
+                TargetSuites = "jammy",
+                TargetArchitectures = "all",
+                UpstreamUrl = repoUri,
+                UpstreamDistro = "ubuntu",
+                UpstreamPackage = "fake-upstream",
+                UpstreamSuite = "jammy",
+                UpstreamComponent = "main",
+                UpstreamArch = "all",
+                SuppressUpstreamScripts = true,
+                PostInstallScripts =
+                {
+                    new PostInstallScriptItem { Source = "scripts/postinst.sh" }
+                },
+                PreRemoveScripts =
+                {
+                    new PreRemoveScriptItem { Source = "scripts/prerm.sh" }
+                }
+            };
+
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "all", outputDir);
+
+            // ── 5. Verify ──
+            var staging = Path.Combine(projectDir, "obj", "jammy_all");
+            var postinstContent = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "postinst"));
+
+            Assert.IsFalse(postinstContent.Contains("upstream postinst ran"),
+                "Upstream postinst content should NOT appear when SuppressUpstreamScripts=true.");
+            Assert.IsFalse(postinstContent.Contains("exit 0"),
+                "postinst should NOT contain exit 0 from upstream.");
+            Assert.IsTrue(postinstContent.Contains("my custom postinst ran"),
+                "Custom PostInstallScript should be present.");
+
+            var prermContent = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "prerm"));
+            Assert.IsTrue(prermContent.Contains("my custom prerm ran"),
+                "Custom PreRemoveScript should be present.");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    private static async Task RunAsync(string command, string[] args, string? workingDir = null)
+    {
+        var psi = new System.Diagnostics.ProcessStartInfo(command)
+        {
+            RedirectStandardOutput = true,
+            RedirectStandardError = true
+        };
+        foreach (var a in args) psi.ArgumentList.Add(a);
+        if (workingDir != null) psi.WorkingDirectory = workingDir;
+        var proc = System.Diagnostics.Process.Start(psi)!;
+        await proc.WaitForExitAsync();
+        if (proc.ExitCode != 0)
+        {
+            var err = await proc.StandardError.ReadToEndAsync();
+            throw new InvalidOperationException($"{command} exited {proc.ExitCode}: {err}");
+        }
+    }
+
+    private static async Task<string> RunAndCaptureAsync(string command, string[] args, string? workingDir = null)
+    {
+        var psi = new System.Diagnostics.ProcessStartInfo(command)
+        {
+            RedirectStandardOutput = true,
+            RedirectStandardError = true
+        };
+        foreach (var a in args) psi.ArgumentList.Add(a);
+        if (workingDir != null) psi.WorkingDirectory = workingDir;
+        var proc = System.Diagnostics.Process.Start(psi)!;
+        var stdout = await proc.StandardOutput.ReadToEndAsync();
+        await proc.WaitForExitAsync();
+        return stdout;
+    }
 }
