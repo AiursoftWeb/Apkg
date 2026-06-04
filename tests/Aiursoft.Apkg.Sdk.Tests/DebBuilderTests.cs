@@ -1277,14 +1277,11 @@ public class DebBuilderTests
             ["Depends"] = "python3, ubuntu-pro-client"
         };
         // Empty suppress set — nothing filtered
-        var suppress = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-
         if (upstream.TryGetValue("Depends", out var upsDeps) && !string.IsNullOrWhiteSpace(upsDeps))
         {
             var filtered = upsDeps
                 .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
                 .Select(d => d.Trim())
-                .Where(d => !suppress.Contains(d.Split(' ', 2)[0]))
                 .ToList();
             upstream["Depends"] = string.Join(", ", filtered);
         }
