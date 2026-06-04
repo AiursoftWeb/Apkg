@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 using Aiursoft.Apkg.Sdk.Models;
@@ -349,7 +350,7 @@ public class DebBuilder
         }
 
         // ── Compute installed-size (kibibytes) ────────────────────────────────
-        var installedSizeKb = ComputeDirectorySizeKb(stagingRoot);
+        var installedSizeKb = await ComputeDirectorySizeKbAsync(stagingRoot);
         // Patch control with Installed-Size
         var controlText = await File.ReadAllTextAsync(Path.Combine(debianDir, "control"));
         controlText = controlText.Replace("__INSTALLED_SIZE__", installedSizeKb.ToString());
@@ -695,32 +696,84 @@ public class DebBuilder
         catch (PlatformNotSupportedException) { }
     }
 
-    private static long ComputeDirectorySizeKb(string dir)
+    internal static async Task<long> ComputeDirectorySizeKbAsync(string dir)
     {
-        long totalBytes = ComputeSizeRecursive(dir);
-        return Math.Max(1, totalBytes / 1024);
+        using var process = new Process();
+        process.StartInfo = new ProcessStartInfo
+        {
+            FileName = "find",
+            WorkingDirectory = dir,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        };
+        foreach (var arg in new[]
+        {
+            ".",
+            "-mindepth", "1",
+            "(",
+            "-path", "./DEBIAN",
+            "-o",
+            "-path", "./DEBIAN/*",
+            ")",
+            "-prune",
+            "-o",
+            "-printf", "%y\t%s\t%i\n"
+        })
+        {
+            process.StartInfo.ArgumentList.Add(arg);
+        }
+
+        try
+        {
+            process.Start();
+        }
+        catch (Win32Exception ex) when (ex.NativeErrorCode == 2)
+        {
+            throw new InvalidOperationException("Cannot compute Installed-Size: 'find' was not found.", ex);
+        }
+
+        var outputTask = process.StandardOutput.ReadToEndAsync();
+        var errorTask = process.StandardError.ReadToEndAsync();
+
+        await process.WaitForExitAsync();
+
+        var output = await outputTask;
+        var error = (await errorTask).Trim();
+        if (process.ExitCode != 0)
+            throw new InvalidOperationException($"Cannot compute Installed-Size: find exited with code {process.ExitCode}. {error}".Trim());
+
+        long totalKb = 0;
+        var seenRegularFileInodes = new HashSet<string>(StringComparer.Ordinal);
+
+        foreach (var line in output.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+        {
+            var parts = line.Split('\t');
+            if (parts.Length != 3 || parts[0].Length != 1 || !long.TryParse(parts[1], out var sizeBytes))
+                throw new InvalidOperationException($"Cannot compute Installed-Size: unexpected find output '{line}'.");
+
+            switch (parts[0][0])
+            {
+                case 'f':
+                    if (seenRegularFileInodes.Add(parts[2]))
+                        totalKb += RoundUpToKiB(sizeBytes);
+                    break;
+                case 'l':
+                    totalKb += RoundUpToKiB(sizeBytes);
+                    break;
+                default:
+                    totalKb += 1;
+                    break;
+            }
+        }
+
+        return Math.Max(1, totalKb);
     }
 
-    private static long ComputeSizeRecursive(string path)
+    private static long RoundUpToKiB(long sizeBytes)
     {
-        long size = 0;
-        foreach (var file in Directory.EnumerateFiles(path))
-        {
-            var fi = new FileInfo(file);
-            if (fi.LinkTarget != null)
-                continue;
-            size += fi.Length;
-        }
-        foreach (var subDir in Directory.EnumerateDirectories(path))
-        {
-            if (subDir.Contains(Path.DirectorySeparatorChar + "DEBIAN" + Path.DirectorySeparatorChar))
-                continue;
-            var di = new DirectoryInfo(subDir);
-            if (di.LinkTarget != null)
-                continue;
-            size += ComputeSizeRecursive(subDir);
-        }
-        return size;
+        return Math.Max(1, (sizeBytes + 1023) / 1024);
     }
 
     private static async Task RunShellAsync(string command, string workingDir)

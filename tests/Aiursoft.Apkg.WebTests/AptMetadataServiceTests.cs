@@ -139,4 +139,18 @@ public class AptMetadataServiceTests
         Assert.IsTrue(text.Contains("Description: Summary\n Line 1\n Line 2"),
             "Multiline description should be written with continuation spaces added. Actual:\n" + text);
     }
+
+    [TestMethod]
+    public async Task WritePackageEntry_IncludesInstalledSizeWhenPresent()
+    {
+        await using var ms = new MemoryStream();
+        await using (var writer = new StreamWriter(ms, leaveOpen: true))
+        {
+            await _service.WritePackageEntryAsync(writer, MakePackage());
+        }
+
+        var text = Encoding.UTF8.GetString(ms.ToArray());
+        Assert.IsTrue(text.Contains("Installed-Size: 48"),
+            "Packages metadata should preserve Installed-Size so apt sees the same control metadata as dpkg status.");
+    }
 }

@@ -32,6 +32,7 @@ public class AptMetadataService : ITransientDependency
         await WriteField(writer, "Provides", pkg.Provides);
         await WriteField(writer, "Source", pkg.Source);
         await WriteField(writer, "Homepage", pkg.Homepage);
+        await WriteField(writer, "Installed-Size", pkg.InstalledSize);
         await WriteField(writer, "Filename", filenameOverride ?? pkg.Filename);
         await WriteField(writer, "Size", pkg.Size);
         await WriteField(writer, "MD5sum", pkg.MD5sum);

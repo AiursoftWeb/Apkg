@@ -581,7 +581,58 @@ public class DebBuilderTests
             var match = System.Text.RegularExpressions.Regex.Match(control, @"Installed-Size: (\d+)");
             Assert.IsTrue(match.Success);
             var size = int.Parse(match.Groups[1].Value);
-            Assert.IsTrue(size >= 1, "Installed-Size should be at least 1 KB.");
+            Assert.AreEqual(5, size, "Installed-Size should count each installed directory and file in 1 KiB units.");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task ComputeDirectorySizeKbAsync_RoundsEachFileAndDirectoryIndividually()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var usrShareApp = Path.Combine(tempDir, "usr", "share", "app");
+            Directory.CreateDirectory(usrShareApp);
+            await File.WriteAllTextAsync(Path.Combine(usrShareApp, "a.txt"), "a");
+            await File.WriteAllTextAsync(Path.Combine(usrShareApp, "b.txt"), "b");
+
+            Directory.CreateDirectory(Path.Combine(tempDir, "DEBIAN"));
+            await File.WriteAllTextAsync(Path.Combine(tempDir, "DEBIAN", "control"), "ignored");
+
+            var sizeKb = await DebBuilder.ComputeDirectorySizeKbAsync(tempDir);
+
+            Assert.AreEqual(5L, sizeKb,
+                "Installed-Size should round each regular file to 1 KiB, count each directory as 1 KiB, and ignore DEBIAN metadata.");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task ComputeDirectorySizeKbAsync_CountsSymlinks()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var binDir = Path.Combine(tempDir, "usr", "bin");
+            Directory.CreateDirectory(binDir);
+
+            var targetFile = Path.Combine(binDir, "tool");
+            await File.WriteAllTextAsync(targetFile, "x");
+
+            var symlinkPath = Path.Combine(binDir, "tool-link");
+            File.CreateSymbolicLink(symlinkPath, "tool");
+
+            var sizeKb = await DebBuilder.ComputeDirectorySizeKbAsync(tempDir);
+
+            Assert.AreEqual(4L, sizeKb,
+                "Installed-Size should include directory baselines plus a 1 KiB charge for the symlink itself.");
         }
         finally
         {

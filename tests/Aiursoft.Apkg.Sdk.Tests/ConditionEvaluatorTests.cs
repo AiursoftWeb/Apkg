@@ -247,4 +247,31 @@ public class ConditionEvaluatorTests
         var ctx = ConditionEvaluator.BuildContext("ubuntu", "noble-addon", "amd64");
         Assert.IsTrue(_evaluator.Evaluate("'$(Suite)' == 'noble-addon' and '$(Arch)' == 'amd64'", ctx));
     }
+
+    // ── Production condition: anduinos-desktop software-properties-gtk ──────
+
+    [TestMethod]
+    public void Evaluate_Production_SoftwarePropertiesGtk_ResoluteAddon_ReturnsTrue()
+    {
+        // Exact condition from anduinos-desktop.aosproj:
+        //   Condition="'$(Suite)' == 'resolute-addon'"
+        var ctx = ConditionEvaluator.BuildContext("anduinos", "resolute-addon", "all");
+        Assert.IsTrue(_evaluator.Evaluate("'$(Suite)' == 'resolute-addon'", ctx));
+    }
+
+    [TestMethod]
+    public void Evaluate_Production_SoftwarePropertiesGtk_QuestingAddon_ReturnsFalse()
+    {
+        // questing-addon must NOT pull in resolute-only deps
+        var ctx = ConditionEvaluator.BuildContext("anduinos", "questing-addon", "all");
+        Assert.IsFalse(_evaluator.Evaluate("'$(Suite)' == 'resolute-addon'", ctx));
+    }
+
+    [TestMethod]
+    public void Evaluate_Production_SoftwarePropertiesGtk_NobleAddon_ReturnsFalse()
+    {
+        // noble-addon must NOT pull in resolute-only deps
+        var ctx = ConditionEvaluator.BuildContext("anduinos", "noble-addon", "all");
+        Assert.IsFalse(_evaluator.Evaluate("'$(Suite)' == 'resolute-addon'", ctx));
+    }
 }
