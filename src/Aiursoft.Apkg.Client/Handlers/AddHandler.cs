@@ -56,7 +56,7 @@ public class AddHandler : ExecutableCommandHandlerBuilder
         new(name: "--mode")
         {
             Description = "Unix permission mode in octal (e.g. 755, 644, 600). Sets Mode attribute on the item.",
-            DefaultValueFactory = _ => (string?)null
+            DefaultValueFactory = _ => null
         };
 
     protected override IEnumerable<Option> GetCommandOptions() =>

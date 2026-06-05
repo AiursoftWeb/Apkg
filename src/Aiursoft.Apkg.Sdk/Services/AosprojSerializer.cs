@@ -325,9 +325,9 @@ public class AosprojSerializer
     private static XElement? Elem(string name, string value) =>
         string.IsNullOrWhiteSpace(value) ? null : new XElement(name, value);
 
-    private static XElement ItemElem(string name, string? condition, params object[] attrs)
+    private static XElement ItemElem(string name, string? condition, params XAttribute[] attrs)
     {
-        var el = new XElement(name, attrs);
+        var el = new XElement(name, attrs.Cast<object>().ToArray());
         if (!string.IsNullOrWhiteSpace(condition))
             el.Add(new XAttribute("Condition", condition));
         return el;
