@@ -645,6 +645,14 @@ public class AosprojLinterTests
                 {
                     new PreRemoveScriptItem { Source = "missing-prerm.sh" }
                 },
+                PreInstallScripts =
+                {
+                    new PreInstallScriptItem { Source = "missing-preinst.sh" }
+                },
+                PostRemoveScripts =
+                {
+                    new PostRemoveScriptItem { Source = "missing-postrm.sh" }
+                },
                 SystemdUnits =
                 {
                     new SystemdUnitItem { Source = "missing.service" }
@@ -653,7 +661,7 @@ public class AosprojLinterTests
 
             var issues = _linter.Lint(project, dir);
             var sourceWarnings = issues.Where(i => i.Message.Contains("not found")).ToList();
-            Assert.AreEqual(5, sourceWarnings.Count);
+            Assert.AreEqual(7, sourceWarnings.Count);
             Assert.IsTrue(sourceWarnings.Any(i => i.Message.Contains("IncludeScript")));
             Assert.IsTrue(sourceWarnings.Any(i => i.Message.Contains("ConfFile")));
             Assert.IsTrue(sourceWarnings.Any(i => i.Message.Contains("PostInstallScript")));

@@ -170,7 +170,7 @@ bin/pkgname.apkg
 
 核心要点：
 - **构建矩阵**：`TargetSuites × TargetArchitectures` 笛卡尔积，每个组合产出一个 `.deb`
-- **ItemGroup 条目**：`IncludeFile`、`IncludeFolder`、`IncludeScript`（自动 0755）、`ConfFile`（dpkg conffile 保护）、`SystemdUnit`（自动生成 postinst/prerm/postrm）、`Dependency`（合并为 Depends）
+- **ItemGroup 条目**：`IncludeFile`、`IncludeFolder`、`IncludeScript`（自动 0755）、`ConfFile`（dpkg conffile 保护）、`PreInstallScript`（DEBIAN/preinst）、`PostInstallScript`（DEBIAN/postinst）、`PreRemoveScript`（DEBIAN/prerm）、`PostRemoveScript`（DEBIAN/postrm）、`SystemdUnit`（自动生成 postinst/prerm/postrm）、`Dependency`（合并为 Depends）
 - **Condition 语法**：MSBuild 风格 — `'$(Suite)' == 'resolute'`，可用 `$(Distro)`、`$(Suite)`、`$(Arch)`（别名 `$(Architecture)`）、`$(Component)`、`$(UpstreamDistro)`、`$(UpstreamSuite)`、`$(UpstreamArch)`（别名 `$(UpstreamArchitecture)`）
 - **版本模板变量**：`$(UpstreamVersion)` 可在 `PackageVersion` 中使用，构建时自动替换为上游包的实际版本号
 - **manifest.xml v2**：`apkg publish` 自动生成。根层声明 `Name/Distro/Component`（三死属性，唯一确定包身份）和 `Entries`。每个 Entry 声明 `DebFile/Suite/Architecture`（三活属性）。Version 从 .deb 文件内部解析，不出现在 manifest 中。服务器按 `(Distro, Suite, Architecture)` 三元组路由到目标仓库。详见 **[aosproj.md](aosproj.md)**

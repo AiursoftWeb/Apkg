@@ -162,6 +162,20 @@ public class AosprojSerializer
                         Condition = condition
                     });
                     break;
+                case "PreInstallScript":
+                    project.PreInstallScripts.Add(new PreInstallScriptItem
+                    {
+                        Source = (string?)el.Attribute("Include")  ?? el.Value,
+                        Condition = condition
+                    });
+                    break;
+                case "PostRemoveScript":
+                    project.PostRemoveScripts.Add(new PostRemoveScriptItem
+                    {
+                        Source = (string?)el.Attribute("Include")  ?? el.Value,
+                        Condition = condition
+                    });
+                    break;
                 case "SystemdUnit":
                     var autoEnableAttr = (string?)el.Attribute("AutoEnable");
                     project.SystemdUnits.Add(new SystemdUnitItem
@@ -273,6 +287,12 @@ public class AosprojSerializer
                 new XAttribute("Include", s.Source))));
         scriptItems.AddRange(project.PreRemoveScripts.Select(s =>
             (object)ItemElem("PreRemoveScript", s.Condition,
+                new XAttribute("Include", s.Source))));
+        scriptItems.AddRange(project.PreInstallScripts.Select(s =>
+            (object)ItemElem("PreInstallScript", s.Condition,
+                new XAttribute("Include", s.Source))));
+        scriptItems.AddRange(project.PostRemoveScripts.Select(s =>
+            (object)ItemElem("PostRemoveScript", s.Condition,
                 new XAttribute("Include", s.Source))));
         scriptItems.AddRange(project.SystemdUnits.Select(u =>
             (object)ItemElem("SystemdUnit", u.Condition,

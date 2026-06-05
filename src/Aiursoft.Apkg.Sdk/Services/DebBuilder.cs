@@ -63,6 +63,7 @@ public class DebBuilder
         // ── Upstream derivation (before PrebuildCommands so scripts can modify upstream files) ─
         Dictionary<string, string>? upstreamControl = null;
         string? upstreamPostinst = null;
+        string? upstreamPreinst = null;
         string? upstreamPrerm = null;
         string? upstreamPostrm = null;
         var resolvedVersion = ResolvePackageVersion(
@@ -94,6 +95,9 @@ public class DebBuilder
                 // Read upstream maintainer scripts
                 upstreamPostinst = File.Exists(Path.Combine(upstreamDebianDir, "postinst"))
                     ? await File.ReadAllTextAsync(Path.Combine(upstreamDebianDir, "postinst"))
+                    : null;
+                upstreamPreinst = File.Exists(Path.Combine(upstreamDebianDir, "preinst"))
+                    ? await File.ReadAllTextAsync(Path.Combine(upstreamDebianDir, "preinst"))
                     : null;
                 upstreamPrerm = File.Exists(Path.Combine(upstreamDebianDir, "prerm"))
                     ? await File.ReadAllTextAsync(Path.Combine(upstreamDebianDir, "prerm"))
@@ -237,6 +241,30 @@ public class DebBuilder
             _logger.LogDebug("  + /lib/systemd/system/{Unit}", unitName);
         }
 
+        // ── PreInstallScript → DEBIAN/preinst ─────────────────────────────────
+        var preinstLines = new StringBuilder("#!/bin/sh\nset -e\n");
+        bool hasPreinst = false;
+
+        if (upstreamPreinst != null && !project.SuppressUpstreamScripts)
+        {
+            preinstLines.AppendLine(StripShebang(upstreamPreinst));
+            hasPreinst = true;
+        }
+
+        foreach (var item in project.PreInstallScripts.Where(s => Include(s.Condition)))
+        {
+            var src = Path.GetFullPath(Path.Combine(projectDir, item.Source));
+            preinstLines.AppendLine(await File.ReadAllTextAsync(src));
+            hasPreinst = true;
+        }
+
+        if (hasPreinst)
+        {
+            var preinstPath = Path.Combine(debianDir, "preinst");
+            await File.WriteAllTextAsync(preinstPath, preinstLines.ToString());
+            MakeExecutable(preinstPath);
+        }
+
         // ── PostInstallScript → DEBIAN/postinst ───────────────────────────────
         var postinstLines = new StringBuilder("#!/bin/sh\nset -e\n");
         bool hasPostinst = false;
@@ -327,6 +355,13 @@ public class DebBuilder
         if (upstreamPostrm != null && !project.SuppressUpstreamScripts)
         {
             postrmLines.AppendLine(StripShebang(upstreamPostrm));
+            hasPostrm = true;
+        }
+
+        foreach (var item in project.PostRemoveScripts.Where(s => Include(s.Condition)))
+        {
+            var src = Path.GetFullPath(Path.Combine(projectDir, item.Source));
+            postrmLines.AppendLine(await File.ReadAllTextAsync(src));
             hasPostrm = true;
         }
 

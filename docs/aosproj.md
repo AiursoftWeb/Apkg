@@ -113,7 +113,7 @@
 | `UpstreamSuiteMapping` | — | 输出 suite → 上游 suite 的映射表。格式：`out1=up1, out2=up2`。当 `UpstreamSuite` 解析后的值命中了映射的 key，则替换为对应的上游 suite |
 | `UpstreamComponent` | — | 上游 APT 组件，默认为 `main`。支持 `$(Suite)` 等变量 |
 | `UpstreamArch` | — | 上游包架构，默认为 `all` |
-| `SuppressUpstreamScripts` | — | 设为 `true` 时，不继承上游包的 maintainer scripts（postinst/prerm/postrm），仅继承其数据载荷。适用于仅需上游文件但需完全自控安装脚本的场景。默认为 `false` |
+| `SuppressUpstreamScripts` | — | 设为 `true` 时，不继承上游包的 maintainer scripts（preinst/postinst/prerm/postrm），仅继承其数据载荷。适用于仅需上游文件但需完全自控安装脚本的场景。默认为 `false` |
 | `SuppressUpstreamDependencies` | — | 空格/逗号分隔的上游包名列表，在合并本地依赖前从上游继承的 `Depends` 中移除。例如 `"ubuntu-pro-client ubuntu-advantage-desktop-daemon"`。移除时仅匹配基础包名（忽略版本约束），大小写不敏感 |
 
 ### 上游派生（UpstreamSource）
@@ -130,7 +130,7 @@
    - `Provides`、`Conflicts`、`Replaces`、`Breaks`、`Recommends`、`Suggests`：本地优先，未填时回退到上游值
    - `Homepage`：本地优先，未填时回退到上游值
    - `Section`、`Priority`：三级回退 — 本地优先，未填时回退到上游值，上游也没有时使用 Debian 标准默认值（`"utils"` / `"optional"`）
-6. **链式 maintainer scripts**：上游 `postinst`/`prerm`/`postrm`（去除 shebang）→ 本地脚本 → systemd 自动脚本，按序追加。设置 `<SuppressUpstreamScripts>true</SuppressUpstreamScripts>` 可跳过上游脚本，仅保留本地脚本和 systemd 自动脚本
+6. **链式 maintainer scripts**：上游 `preinst`/`postinst`/`prerm`/`postrm`（去除 shebang）→ 本地脚本 → systemd 自动脚本，按序追加。设置 `<SuppressUpstreamScripts>true</SuppressUpstreamScripts>` 可跳过上游脚本，仅保留本地脚本和 systemd 自动脚本
 
 这是 AnduinOS 替换 Ubuntu `base-files`（`Essential: yes`）等基础包的推荐模式：通过 APT pinning 设置 `Pin-Priority: 1001`，让 AnduinOS 的派生包覆盖 Ubuntu 原包，同时保持一切兼容。
 
@@ -380,6 +380,28 @@
   适合服务停止之外需要额外清理的操作。
 -->
 <PreRemoveScript Include="scripts/prerm.sh" />
+```
+
+#### PreInstallScript — 安装前脚本
+
+```xml
+<!--
+  安装前由 dpkg 执行的自定义 shell 脚本（DEBIAN/preinst）。
+  适合安装前需要的准备工作（如备份旧数据、检查先决条件）。
+  多个条目按声明顺序追加到同一个 preinst 脚本中。
+-->
+<PreInstallScript Include="scripts/preinst.sh" />
+```
+
+#### PostRemoveScript — 卸载后脚本
+
+```xml
+<!--
+  卸载后由 dpkg 执行的自定义 shell 脚本（DEBIAN/postrm）。
+  适合卸载后的残留清理操作（如删除日志、清理缓存）。
+  systemd unit 的 disable + daemon-reload 会在自定义脚本之后自动追加。
+-->
+<PostRemoveScript Include="scripts/postrm.sh" />
 ```
 
 ### 完整示例（带条件依赖与构建矩阵）

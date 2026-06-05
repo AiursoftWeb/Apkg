@@ -76,6 +76,12 @@ public class AosprojLinter
         foreach (var item in project.PreRemoveScripts)
             CheckSourceExists(issues, projectDir, item.Source, "PreRemoveScript");
 
+        foreach (var item in project.PreInstallScripts)
+            CheckSourceExists(issues, projectDir, item.Source, "PreInstallScript");
+
+        foreach (var item in project.PostRemoveScripts)
+            CheckSourceExists(issues, projectDir, item.Source, "PostRemoveScript");
+
         foreach (var item in project.SystemdUnits)
             CheckSourceExists(issues, projectDir, item.Source, "SystemdUnit");
 
@@ -87,6 +93,8 @@ public class AosprojLinter
             .Concat(project.ConfFiles.Select(f => f.Condition))
             .Concat(project.PostInstallScripts.Select(s => s.Condition))
             .Concat(project.PreRemoveScripts.Select(s => s.Condition))
+            .Concat(project.PreInstallScripts.Select(s => s.Condition))
+            .Concat(project.PostRemoveScripts.Select(s => s.Condition))
             .Concat(project.SystemdUnits.Select(u => u.Condition))
             .Concat(project.PrebuildCommands.Select(c => c.Condition));
 

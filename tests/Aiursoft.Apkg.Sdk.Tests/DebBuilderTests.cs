@@ -718,6 +718,84 @@ public class DebBuilderTests
         }
     }
 
+    [TestMethod]
+    public async Task BuildAsync_PreInstallScript_Appended()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            var scriptsDir = Path.Combine(projectDir, "scripts");
+            Directory.CreateDirectory(scriptsDir);
+            await File.WriteAllTextAsync(Path.Combine(scriptsDir, "preinst.sh"), "echo \"Custom pre-install\"\n");
+
+            var project = new AosprojProject
+            {
+                PackageName = "preinst-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "Pre-install test",
+                Maintainer = "Test <test@example.com>",
+                TargetSuites = "jammy",
+                PreInstallScripts =
+                {
+                    new PreInstallScriptItem { Source = "scripts/preinst.sh" }
+                }
+            };
+
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+            var staging = Path.Combine(projectDir, "obj", "jammy_amd64");
+            var preinst = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "preinst"));
+            Assert.IsTrue(preinst.Contains("Custom pre-install"), "Custom preinst script should be included.");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task BuildAsync_PostRemoveScript_Appended()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            var scriptsDir = Path.Combine(projectDir, "scripts");
+            Directory.CreateDirectory(scriptsDir);
+            await File.WriteAllTextAsync(Path.Combine(scriptsDir, "postrm.sh"), "echo \"Custom post-remove\"\n");
+
+            var project = new AosprojProject
+            {
+                PackageName = "postrm-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "Post-remove test",
+                Maintainer = "Test <test@example.com>",
+                TargetSuites = "jammy",
+                PostRemoveScripts =
+                {
+                    new PostRemoveScriptItem { Source = "scripts/postrm.sh" }
+                }
+            };
+
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+            var staging = Path.Combine(projectDir, "obj", "jammy_amd64");
+            var postrm = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "postrm"));
+            Assert.IsTrue(postrm.Contains("Custom post-remove"), "Custom postrm script should be included.");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
     // ── Upstream control merging ──────────────────────────────────────────────
 
     [TestMethod]
@@ -1408,6 +1486,8 @@ public class DebBuilderTests
                 "[Unit]\nDescription=App\n\n[Service]\nExecStart=/usr/bin/app\n\n[Install]\nWantedBy=multi-user.target\n");
             await File.WriteAllTextAsync(Path.Combine(projectDir, "postinst.sh"), "echo postinstall\n");
             await File.WriteAllTextAsync(Path.Combine(projectDir, "prerm.sh"), "echo preremove\n");
+            await File.WriteAllTextAsync(Path.Combine(projectDir, "preinst.sh"), "echo preinstall\n");
+            await File.WriteAllTextAsync(Path.Combine(projectDir, "postrm.sh"), "echo postremove\n");
 
             var project = new AosprojProject
             {
@@ -1439,6 +1519,14 @@ public class DebBuilderTests
                 PreRemoveScripts =
                 {
                     new PreRemoveScriptItem { Source = "prerm.sh" }
+                },
+                PreInstallScripts =
+                {
+                    new PreInstallScriptItem { Source = "preinst.sh" }
+                },
+                PostRemoveScripts =
+                {
+                    new PostRemoveScriptItem { Source = "postrm.sh" }
                 }
             };
 
@@ -1460,6 +1548,12 @@ public class DebBuilderTests
             // PreRemoveScript merged into prerm
             var prerm = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "prerm"));
             Assert.IsTrue(prerm.Contains("echo preremove"));
+            // PreInstallScript merged into preinst
+            var preinst = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "preinst"));
+            Assert.IsTrue(preinst.Contains("echo preinstall"));
+            // PostRemoveScript merged into postrm
+            var postrm = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "postrm"));
+            Assert.IsTrue(postrm.Contains("echo postremove"));
             // conffiles
             Assert.IsTrue(File.Exists(Path.Combine(staging, "DEBIAN", "conffiles")));
             // .deb produced
@@ -1952,6 +2046,12 @@ public class DebBuilderTests
             File.SetUnixFileMode(upstreamPostinstPath,
                 UnixFileMode.UserRead | UnixFileMode.UserExecute | UnixFileMode.GroupRead | UnixFileMode.GroupExecute | UnixFileMode.OtherRead | UnixFileMode.OtherExecute);
 
+            var upstreamPreinstPath = Path.Combine(upstreamDebianDir, "preinst");
+            await File.WriteAllTextAsync(upstreamPreinstPath,
+                "#!/bin/sh\nset -e\necho \"upstream preinst ran\"\nexit 0\n");
+            File.SetUnixFileMode(upstreamPreinstPath,
+                UnixFileMode.UserRead | UnixFileMode.UserExecute | UnixFileMode.GroupRead | UnixFileMode.GroupExecute | UnixFileMode.OtherRead | UnixFileMode.OtherExecute);
+
             var upstreamDebName = "fake-upstream_1.0_all.deb";
             var upstreamDebPath = Path.Combine(tempDir, upstreamDebName);
             await RunAsync("dpkg-deb", ["--build", "--root-owner-group", upstreamBuildDir, upstreamDebPath]);
@@ -2026,6 +2126,8 @@ public class DebBuilderTests
                 "if [ \"$1\" = \"remove\" ]; then\n"
                 + "    echo \"my custom prerm ran\"\n"
                 + "fi\n");
+            await File.WriteAllTextAsync(Path.Combine(scriptsDir, "preinst.sh"),
+                "echo \"my custom preinst ran\"\n");
 
             // ── 4. Build with SuppressUpstreamScripts=true ──
             var project = new AosprojProject
@@ -2050,6 +2152,10 @@ public class DebBuilderTests
                 PreRemoveScripts =
                 {
                     new PreRemoveScriptItem { Source = "scripts/prerm.sh" }
+                },
+                PreInstallScripts =
+                {
+                    new PreInstallScriptItem { Source = "scripts/preinst.sh" }
                 }
             };
 
@@ -2069,6 +2175,12 @@ public class DebBuilderTests
             var prermContent = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "prerm"));
             Assert.IsTrue(prermContent.Contains("my custom prerm ran"),
                 "Custom PreRemoveScript should be present.");
+
+            var preinstContent = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "preinst"));
+            Assert.IsFalse(preinstContent.Contains("upstream preinst ran"),
+                "Upstream preinst content should NOT appear when SuppressUpstreamScripts=true.");
+            Assert.IsTrue(preinstContent.Contains("my custom preinst ran"),
+                "Custom PreInstallScript should be present.");
         }
         finally
         {

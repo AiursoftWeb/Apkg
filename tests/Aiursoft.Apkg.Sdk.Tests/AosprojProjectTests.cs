@@ -52,6 +52,8 @@ public class AosprojProjectTests
         Assert.IsNotNull(project.ConfFiles);
         Assert.IsNotNull(project.PostInstallScripts);
         Assert.IsNotNull(project.PreRemoveScripts);
+        Assert.IsNotNull(project.PreInstallScripts);
+        Assert.IsNotNull(project.PostRemoveScripts);
         Assert.IsNotNull(project.SystemdUnits);
     }
 

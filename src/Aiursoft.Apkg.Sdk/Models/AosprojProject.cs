@@ -120,6 +120,8 @@ public class AosprojProject
     public List<ConfFileItem> ConfFiles { get; set; } = [];
     public List<PostInstallScriptItem> PostInstallScripts { get; set; } = [];
     public List<PreRemoveScriptItem> PreRemoveScripts { get; set; } = [];
+    public List<PreInstallScriptItem> PreInstallScripts { get; set; } = [];
+    public List<PostRemoveScriptItem> PostRemoveScripts { get; set; } = [];
     public List<SystemdUnitItem> SystemdUnits { get; set; } = [];
 
     // ── Computed helpers ─────────────────────────────────────────────────────
@@ -209,6 +211,12 @@ public class PostInstallScriptItem : BaseItem { }
 
 /// <summary>Shell script to invoke before the package is removed (becomes DEBIAN/prerm).</summary>
 public class PreRemoveScriptItem : BaseItem { }
+
+/// <summary>Shell script to invoke before the package is installed (becomes DEBIAN/preinst).</summary>
+public class PreInstallScriptItem : BaseItem { }
+
+/// <summary>Shell script to invoke after the package is removed (becomes DEBIAN/postrm).</summary>
+public class PostRemoveScriptItem : BaseItem { }
 
 /// <summary>A systemd unit file to ship and optionally auto-enable on install.</summary>
 public class SystemdUnitItem : BaseItem

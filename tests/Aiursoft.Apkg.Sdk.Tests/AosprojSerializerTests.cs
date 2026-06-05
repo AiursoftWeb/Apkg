@@ -262,6 +262,44 @@ public class AosprojSerializerTests
         Assert.AreEqual("scripts/prerm.sh", roundTripped.PreRemoveScripts[0].Source);
     }
 
+    [TestMethod]
+    public void RoundTrip_PreInstallScript()
+    {
+        var original = new AosprojProject
+        {
+            PackageName = "test",
+            PreInstallScripts =
+            {
+                new PreInstallScriptItem { Source = "scripts/preinst.sh" }
+            }
+        };
+
+        var doc = _serializer.Serialize(original);
+        var roundTripped = _serializer.Deserialize(doc);
+
+        Assert.AreEqual(1, roundTripped.PreInstallScripts.Count);
+        Assert.AreEqual("scripts/preinst.sh", roundTripped.PreInstallScripts[0].Source);
+    }
+
+    [TestMethod]
+    public void RoundTrip_PostRemoveScript()
+    {
+        var original = new AosprojProject
+        {
+            PackageName = "test",
+            PostRemoveScripts =
+            {
+                new PostRemoveScriptItem { Source = "scripts/postrm.sh" }
+            }
+        };
+
+        var doc = _serializer.Serialize(original);
+        var roundTripped = _serializer.Deserialize(doc);
+
+        Assert.AreEqual(1, roundTripped.PostRemoveScripts.Count);
+        Assert.AreEqual("scripts/postrm.sh", roundTripped.PostRemoveScripts[0].Source);
+    }
+
     // ── Round-trip: full project with all item types ──────────────────────────
 
     [TestMethod]
@@ -305,6 +343,14 @@ public class AosprojSerializerTests
             {
                 new PreRemoveScriptItem { Source = "scripts/prerm.sh" }
             },
+            PreInstallScripts =
+            {
+                new PreInstallScriptItem { Source = "scripts/preinst.sh" }
+            },
+            PostRemoveScripts =
+            {
+                new PostRemoveScriptItem { Source = "scripts/postrm.sh" }
+            },
             SystemdUnits =
             {
                 new SystemdUnitItem { Source = "deploy/app.service", AutoEnable = true }
@@ -323,6 +369,8 @@ public class AosprojSerializerTests
         Assert.AreEqual(1, roundTripped.ConfFiles.Count);
         Assert.AreEqual(1, roundTripped.PostInstallScripts.Count);
         Assert.AreEqual(1, roundTripped.PreRemoveScripts.Count);
+        Assert.AreEqual(1, roundTripped.PreInstallScripts.Count);
+        Assert.AreEqual(1, roundTripped.PostRemoveScripts.Count);
         Assert.AreEqual(1, roundTripped.SystemdUnits.Count);
     }
 
