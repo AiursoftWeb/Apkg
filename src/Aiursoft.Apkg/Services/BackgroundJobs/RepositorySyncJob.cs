@@ -3,6 +3,7 @@ using System.Text;
 using System.IO.Compression;
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Services.FileStorage;
+using Aiursoft.Apkg.Services.Contents;
 using Aiursoft.Canon.BackgroundJobs;
 using Microsoft.EntityFrameworkCore;
 
@@ -278,6 +279,46 @@ public class RepositorySyncJob(
 
                 releaseSb.AppendLine($" {rawSha256} {rawSize} {relativePath}/Packages");
                 releaseSb.AppendLine($" {gzSha256} {gzSize} {relativePath}/Packages.gz");
+            }
+        }
+
+        // ── Contents-<arch>.gz generation ────────────────────────────────────
+        // apt-file needs these to map file paths → packages.
+        var objectsRoot = folders.GetObjectsFolder();
+        foreach (var arch in architectures)
+        {
+            foreach (var component in components)
+            {
+                var contentsDir = Path.Combine(BucketsRoot, newBucketId.ToString(), component);
+                Directory.CreateDirectory(contentsDir);
+
+                var pkgs = await db.AptPackages
+                    .AsNoTracking()
+                    .Where(p => p.BucketId == newBucketId
+                                && p.Component == component
+                                && (p.Architecture == arch || p.Architecture == "all"))
+                    .Select(p => new { p.SHA256, p.Package, p.Section })
+                    .ToListAsync();
+
+                var contentsPackages = pkgs
+                    .Select(p =>
+                    {
+                        var casPath = Path.Combine(objectsRoot, p.SHA256[..2], $"{p.SHA256}.deb");
+                        return new ContentsPackage(casPath, p.Package, p.Section);
+                    })
+                    .ToList();
+
+                var tempDir = Path.Combine(contentsDir, "_contents-tmp");
+                var result = await ContentsGeneratorService.GenerateContentsFilesAsync(
+                    tempDir, arch, contentsDir, contentsPackages);
+
+                // Clean up temp dir
+                try { if (Directory.Exists(tempDir)) Directory.Delete(tempDir, recursive: true); }
+                catch { /* best-effort */ }
+
+                var relativePath = $"{component}/Contents-{arch}";
+                releaseSb.AppendLine($" {result.RawSha256} {result.RawSize} {relativePath}");
+                releaseSb.AppendLine($" {result.GzSha256} {result.GzSize} {relativePath}.gz");
             }
         }
 

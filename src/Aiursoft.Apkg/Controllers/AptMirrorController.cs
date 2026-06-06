@@ -51,7 +51,7 @@ public class AptMirrorController(
         if (path.EndsWith("Release") && bucket.ReleaseContent != null)
             return ConditionalContent(bucket.ReleaseContent, bucket.CreatedAt, "text/plain");
 
-        if (path.Contains("Packages"))
+        if (path.Contains("Packages") || path.Contains("Contents"))
         {
             var localPath = Path.Combine(BucketsRoot, bucket.Id.ToString(), path);
             if (System.IO.File.Exists(localPath))
