@@ -105,19 +105,21 @@ public class AosprojProject
 
     // ── Dependency check ─────────────────────────────────────────────────────
     /// <summary>
-    /// Base URL of the apt server used to validate declared dependencies during lint.
-    /// Must be explicitly set per-project. Leave empty to disable dependency validation.
-    /// e.g. "https://mirror.aiursoft.com/ubuntu" or "http://archive.ubuntu.com/ubuntu"
+    /// One or more APT repositories to validate declared dependencies against.
+    /// Each entry defines a Url (apt server base URL) and optional SuiteMap
+    /// (target suite → check suite mapping) and Condition.
+    /// A dependency passes validation if it is found in ANY configured source (union semantics).
+    /// Leave empty to skip dependency validation entirely.
     /// </summary>
-    public string DependencyCheckUrl { get; set; } = string.Empty;
+    public List<DependencyCheckSourceItem> DependencyCheckSources { get; set; } = [];
 
     /// <summary>
-    /// Maps target suite names to the suite names used on <see cref="DependencyCheckUrl"/>.
-    /// Same format as <see cref="UpstreamSuiteMapping"/>: space/comma-separated "target=check" pairs.
-    /// Required when TargetSuites use custom suffixes (e.g. "noble-addon=noble questing-addon=questing").
-    /// If empty, suite names are used as-is.
+    /// Maps target suite names to the short suite names used in <c>$(SuiteShortName)</c>
+    /// version placeholder expansion. Same format as upstream suite mapping:
+    /// space/comma-separated "target=short" pairs.
+    /// e.g. "noble-addon=noble questing-addon=questing resolute-addon=resolute"
     /// </summary>
-    public string DependencyCheckSuiteMap { get; set; } = string.Empty;
+    public string SuiteShortNameMap { get; set; } = string.Empty;
 
     // ── Items ────────────────────────────────────────────────────────────────
     public List<PrebuildCommandItem> PrebuildCommands { get; set; } = [];
@@ -140,9 +142,9 @@ public class AosprojProject
     public Dictionary<string, string> GetUpstreamSuiteMap() => ParseSuiteMap(UpstreamSuiteMapping);
 
     /// <summary>
-    /// Parses <see cref="DependencyCheckSuiteMap"/> into a dictionary: target suite → check suite.
+    /// Parses <see cref="SuiteShortNameMap"/> into a dictionary: target suite → short name.
     /// </summary>
-    public Dictionary<string, string> GetDependencyCheckSuiteMap() => ParseSuiteMap(DependencyCheckSuiteMap);
+    public Dictionary<string, string> GetSuiteShortNameMap() => ParseSuiteMap(SuiteShortNameMap);
 
     private static Dictionary<string, string> ParseSuiteMap(string raw)
     {
@@ -219,6 +221,29 @@ public class PrebuildCommandItem
 {
     public string Run { get; set; } = string.Empty;
     public string? Condition { get; set; }
+}
+
+/// <summary>An APT repository source for dependency validation during lint.</summary>
+public class DependencyCheckSourceItem
+{
+    public string Url { get; set; } = string.Empty;
+    public string SuiteMap { get; set; } = string.Empty;
+    public string? Condition { get; set; }
+
+    /// <summary>Parses SuiteMap into dictionary: target suite → check suite.</summary>
+    public Dictionary<string, string> GetSuiteMap()
+    {
+        var map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        if (string.IsNullOrWhiteSpace(SuiteMap)) return map;
+        var normalized = System.Text.RegularExpressions.Regex.Replace(SuiteMap, @"\s*=\s*", "=");
+        foreach (var pair in normalized.Split([',', ' '], StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
+        {
+            var eqIdx = pair.IndexOf('=');
+            if (eqIdx > 0 && eqIdx < pair.Length)
+                map[pair[..eqIdx]] = pair[(eqIdx + 1)..];
+        }
+        return map;
+    }
 }
 
 /// <summary>Shell script to invoke after the package is installed (becomes DEBIAN/postinst).</summary>

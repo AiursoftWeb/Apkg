@@ -44,8 +44,8 @@ public class LintHandler : ExecutableCommandHandlerBuilder
         var project = await aosprojSerializer.DeserializeFromFileAsync(projectFile);
         var staticIssues = linter.Lint(project, projectDir);
 
-        if (!string.IsNullOrWhiteSpace(project.DependencyCheckUrl))
-            logger.LogInformation("Validating dependencies against {Url}...", project.DependencyCheckUrl);
+        if (project.DependencyCheckSources.Count > 0)
+            logger.LogInformation("Validating dependencies against {Count} source(s)...", project.DependencyCheckSources.Count);
         var depIssues = await depValidator.ValidateAsync(project);
 
         var issues = staticIssues

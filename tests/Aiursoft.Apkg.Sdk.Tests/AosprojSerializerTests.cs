@@ -982,4 +982,116 @@ public class AosprojSerializerTests
         var project = _serializer.Deserialize(xml);
         Assert.AreEqual("keys/anduinos-archive-keyring.gpg", project.UpstreamSignedBy);
     }
+
+    // ── DependencyCheckSource round-trip ────────────────────────────────────────
+
+    [TestMethod]
+    public void RoundTrip_DependencyCheckSources()
+    {
+        var original = new AosprojProject
+        {
+            PackageName = "test",
+            PackageVersion = "1.0.0",
+            PackageDescription = "desc",
+            DependencyCheckSources =
+            {
+                new DependencyCheckSourceItem
+                {
+                    Url = "https://mirror.aiursoft.com/ubuntu",
+                    SuiteMap = "noble-addon=noble questing-addon=questing"
+                },
+                new DependencyCheckSourceItem
+                {
+                    Url = "https://apkg-dev.aiursoft.com/artifacts/anduinos",
+                    SuiteMap = "noble-addon=noble-addon questing-addon=questing-addon",
+                    Condition = "'$(Suite)' != 'jammy'"
+                }
+            }
+        };
+
+        var doc = _serializer.Serialize(original);
+        var roundTripped = _serializer.Deserialize(doc);
+
+        Assert.AreEqual(2, roundTripped.DependencyCheckSources.Count);
+        Assert.AreEqual("https://mirror.aiursoft.com/ubuntu", roundTripped.DependencyCheckSources[0].Url);
+        Assert.AreEqual("noble-addon=noble questing-addon=questing", roundTripped.DependencyCheckSources[0].SuiteMap);
+        Assert.IsNull(roundTripped.DependencyCheckSources[0].Condition);
+
+        Assert.AreEqual("https://apkg-dev.aiursoft.com/artifacts/anduinos", roundTripped.DependencyCheckSources[1].Url);
+        Assert.AreEqual("noble-addon=noble-addon questing-addon=questing-addon", roundTripped.DependencyCheckSources[1].SuiteMap);
+        Assert.AreEqual("'$(Suite)' != 'jammy'", roundTripped.DependencyCheckSources[1].Condition);
+    }
+
+    [TestMethod]
+    public void Serialize_EmptyDependencyCheckSources_Omitted()
+    {
+        var project = new AosprojProject
+        {
+            PackageName = "test",
+            PackageVersion = "1.0.0",
+            PackageDescription = "desc"
+        };
+
+        var doc = _serializer.Serialize(project);
+        var xml = doc.ToString();
+
+        Assert.IsFalse(xml.Contains("DependencyCheckSource"), "Empty DependencyCheckSources should be omitted.");
+    }
+
+    [TestMethod]
+    public void Deserialize_DependencyCheckSource_FromXml()
+    {
+        var xml = XDocument.Parse("""
+            <Project>
+              <PropertyGroup>
+                <PackageName>test</PackageName>
+                <PackageVersion>1.0</PackageVersion>
+                <PackageDescription>desc</PackageDescription>
+              </PropertyGroup>
+              <ItemGroup>
+                <DependencyCheckSource
+                    Url="https://mirror.aiursoft.com/ubuntu"
+                    SuiteMap="noble-addon=noble questing-addon=questing" />
+                <DependencyCheckSource
+                    Url="https://apkg-dev.aiursoft.com/artifacts/anduinos"
+                    SuiteMap="noble-addon=noble-addon questing-addon=questing-addon"
+                    Condition="'$(Distro)' == 'anduinos'" />
+              </ItemGroup>
+            </Project>
+            """);
+
+        var project = _serializer.Deserialize(xml);
+
+        Assert.AreEqual(2, project.DependencyCheckSources.Count);
+        Assert.AreEqual("https://mirror.aiursoft.com/ubuntu", project.DependencyCheckSources[0].Url);
+        Assert.AreEqual("noble-addon=noble questing-addon=questing", project.DependencyCheckSources[0].SuiteMap);
+        Assert.IsNull(project.DependencyCheckSources[0].Condition);
+
+        Assert.AreEqual("https://apkg-dev.aiursoft.com/artifacts/anduinos", project.DependencyCheckSources[1].Url);
+        Assert.AreEqual("noble-addon=noble-addon questing-addon=questing-addon", project.DependencyCheckSources[1].SuiteMap);
+        Assert.AreEqual("'$(Distro)' == 'anduinos'", project.DependencyCheckSources[1].Condition);
+    }
+
+    [TestMethod]
+    public void Deserialize_DependencyCheckSource_NoSuiteMap()
+    {
+        var xml = XDocument.Parse("""
+            <Project>
+              <PropertyGroup>
+                <PackageName>test</PackageName>
+                <PackageVersion>1.0</PackageVersion>
+                <PackageDescription>desc</PackageDescription>
+              </PropertyGroup>
+              <ItemGroup>
+                <DependencyCheckSource Url="https://example.com/apt" />
+              </ItemGroup>
+            </Project>
+            """);
+
+        var project = _serializer.Deserialize(xml);
+
+        Assert.AreEqual(1, project.DependencyCheckSources.Count);
+        Assert.AreEqual("https://example.com/apt", project.DependencyCheckSources[0].Url);
+        Assert.AreEqual("", project.DependencyCheckSources[0].SuiteMap);
+    }
 }

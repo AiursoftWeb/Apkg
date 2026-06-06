@@ -73,8 +73,7 @@ public class AosprojSerializer
                     project.SuppressUpstreamDependencies = el.Value;
                     break;
                 case "UpstreamSuiteMapping": project.UpstreamSuiteMapping = el.Value; break;
-                case "DependencyCheckUrl":    project.DependencyCheckUrl = el.Value; break;
-                case "DependencyCheckSuiteMap": project.DependencyCheckSuiteMap = el.Value; break;
+                case "SuiteShortNameMap": project.SuiteShortNameMap = el.Value; break;
             }
         }
     }
@@ -190,6 +189,14 @@ public class AosprojSerializer
                         AutoEnable = autoEnableAttr == null || bool.Parse(autoEnableAttr)
                     });
                     break;
+                case "DependencyCheckSource":
+                    project.DependencyCheckSources.Add(new DependencyCheckSourceItem
+                    {
+                        Url = (string?)el.Attribute("Url") ?? string.Empty,
+                        SuiteMap = (string?)el.Attribute("SuiteMap") ?? string.Empty,
+                        Condition = condition
+                    });
+                    break;
             }
         }
     }
@@ -235,8 +242,7 @@ public class AosprojSerializer
             Elem("UpstreamSignedBy", project.UpstreamSignedBy),
             Elem("UpstreamSuiteMapping", project.UpstreamSuiteMapping),
             Elem("SuppressUpstreamDependencies", project.SuppressUpstreamDependencies),
-            Elem("DependencyCheckUrl", project.DependencyCheckUrl),
-            Elem("DependencyCheckSuiteMap", project.DependencyCheckSuiteMap)
+            Elem("SuiteShortNameMap", project.SuiteShortNameMap)
         );
 
         var itemGroups = new List<XElement>();
@@ -303,6 +309,18 @@ public class AosprojSerializer
 
         if (scriptItems.Count > 0)
             itemGroups.Add(new XElement("ItemGroup", scriptItems));
+
+        if (project.DependencyCheckSources.Count > 0)
+        {
+            itemGroups.Add(new XElement("ItemGroup",
+                project.DependencyCheckSources.Select(s =>
+                {
+                    var attrs = new List<XAttribute> { new("Url", s.Url) };
+                    if (!string.IsNullOrWhiteSpace(s.SuiteMap))
+                        attrs.Add(new XAttribute("SuiteMap", s.SuiteMap));
+                    return ItemElem("DependencyCheckSource", s.Condition, attrs.ToArray());
+                })));
+        }
 
         var root = new XElement("Project",
             new XAttribute("Sdk", "Aiursoft.Apkg.Sdk"),

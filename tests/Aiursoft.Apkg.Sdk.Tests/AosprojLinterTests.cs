@@ -1256,6 +1256,137 @@ public class AosprojLinterTests
         }
     }
 
+    // ── DependencyCheckSource linting ──────────────────────────────────────
+
+    [TestMethod]
+    public void Lint_DependencyCheckSource_EmptyUrl_Error()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            var project = new AosprojProject
+            {
+                PackageName = "my-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "desc",
+                TargetSuites = "jammy",
+                Maintainer = "Test <test@example.com>",
+                DependencyCheckSources =
+                {
+                    new DependencyCheckSourceItem { Url = "", SuiteMap = "jammy=jammy" }
+                }
+            };
+
+            var issues = _linter.Lint(project, dir);
+            Assert.IsTrue(issues.Any(i => i.Level == AosprojLinter.Severity.Error
+                && i.Message.Contains("DependencyCheckSource")
+                && i.Message.Contains("empty Url")));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public void Lint_DependencyCheckSource_NoSuiteMap_Warning()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            var project = new AosprojProject
+            {
+                PackageName = "my-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "desc",
+                TargetSuites = "jammy",
+                Maintainer = "Test <test@example.com>",
+                DependencyCheckSources =
+                {
+                    new DependencyCheckSourceItem { Url = "https://example.com/apt", SuiteMap = "" }
+                }
+            };
+
+            var issues = _linter.Lint(project, dir);
+            Assert.IsTrue(issues.Any(i => i.Level == AosprojLinter.Severity.Warning
+                && i.Message.Contains("DependencyCheckSource")
+                && i.Message.Contains("no SuiteMap")));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public void Lint_DependencyCheckSource_InvalidCondition_Error()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            var project = new AosprojProject
+            {
+                PackageName = "my-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "desc",
+                TargetSuites = "jammy",
+                Maintainer = "Test <test@example.com>",
+                DependencyCheckSources =
+                {
+                    new DependencyCheckSourceItem
+                    {
+                        Url = "https://example.com/apt",
+                        SuiteMap = "jammy=jammy",
+                        Condition = "$(Suite) junk $(Distro)"
+                    }
+                }
+            };
+
+            var issues = _linter.Lint(project, dir);
+            Assert.IsTrue(issues.Any(i => i.Level == AosprojLinter.Severity.Error
+                && i.Message.Contains("DependencyCheckSource")
+                && i.Message.Contains("Invalid condition")));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public void Lint_DependencyCheckSource_ValidCondition_NoError()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            var project = new AosprojProject
+            {
+                PackageName = "my-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "desc",
+                TargetSuites = "jammy",
+                Maintainer = "Test <test@example.com>",
+                DependencyCheckSources =
+                {
+                    new DependencyCheckSourceItem
+                    {
+                        Url = "https://example.com/apt",
+                        SuiteMap = "jammy=jammy",
+                        Condition = "'$(Suite)' == 'jammy'"
+                    }
+                }
+            };
+
+            var issues = _linter.Lint(project, dir);
+            Assert.IsFalse(issues.Any(i => i.Message.Contains("DependencyCheckSource")
+                && i.Message.Contains("Invalid condition")));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
     private static string CreateTempDir()
     {
         var path = Path.Combine(Path.GetTempPath(), "lint-tests", Guid.NewGuid().ToString("N"));

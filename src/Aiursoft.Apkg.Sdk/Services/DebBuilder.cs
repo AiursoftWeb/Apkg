@@ -73,7 +73,7 @@ public class DebBuilder
         string? upstreamPrerm = null;
         string? upstreamPostrm = null;
         var resolvedVersion = ResolvePackageVersion(
-            project.PackageVersion, suite, project.GetDependencyCheckSuiteMap());
+            project.PackageVersion, suite, project.GetSuiteShortNameMap());
 
         if (project.HasUpstreamSource)
         {

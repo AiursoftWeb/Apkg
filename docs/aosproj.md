@@ -104,8 +104,8 @@
 | `Suggests` | — | deb `Suggests` 字段，声明可选的锦上添花软件包（`apt` 不自动安装，仅作提示） |
 | `Section` | — | deb `Section` 字段（如 `utils`, `admin`, `editors`）。三级回退：本地 → 上游 → Debian 标准默认 `"utils"`。影响 APT 分类搜索 |
 | `Priority` | — | deb `Priority` 字段（如 `optional`, `required`, `important`）。三级回退：本地 → 上游 → Debian 标准默认 `"optional"`。通常保持默认即可 |
-| `DependencyCheckUrl` | — | lint 阶段用于验证 Depends/Recommends 依赖是否存在的 apt 服务器 base URL（如 `https://mirror.aiursoft.com/ubuntu`）。**留空则跳过依赖检查**。不填写时默认跳过，建议在每个项目中显式配置 |
-| `DependencyCheckSuiteMap` | — | 将目标 suite 名映射到 `DependencyCheckUrl` 上的 suite 名。格式与 `UpstreamSuiteMapping` 相同：空格/逗号分隔的 `target=check` 对（如 `noble-addon=noble questing-addon=questing`）。若留空则直接用目标 suite 名查询 |
+| `DependencyCheckSource` | — | ItemGroup 元素，声明一个用于验证依赖是否存在的 APT 仓库源。支持配置多个源，任一源命中即通过（union 语义）。属性：`Url`（必填，APT 服务器 base URL）、`SuiteMap`（可选，目标 suite → 检查 suite 映射）、`Condition`（可选，MSBuild 风格条件过滤）。**不配置任何源则跳过依赖检查**。详见 [§依赖验证](#依赖验证) |
+| `SuiteShortNameMap` | — | 将目标 suite 名映射为短名，供 `$(SuiteShortName)` 版本占位符使用。格式与 `UpstreamSuiteMapping` 相同：空格/逗号分隔的 `target=short` 对（如 `noble-addon=noble questing-addon=questing`）。若留空则 `$(SuiteShortName)` 回退为完整 suite 名 |
 | `UpstreamUrl` | ⚠️ | 上游 APT 仓库的 base URL（如 `http://archive.ubuntu.com/ubuntu`）。设置 `UpstreamPackage` 时必填 |
 | `UpstreamDistro` | ⚠️ | 上游仓库的发行版标识（如 `ubuntu`）。设置 `UpstreamPackage` 时必填 |
 | `UpstreamPackage` | — | 上游 .deb 的包名（如 `base-files`）。一旦设置，触发上游派生模式 |
@@ -209,6 +209,38 @@
 
 **与 PrebuildCommand 的协作**：如果公钥文件由 `PrebuildCommand` 动态生成，lint 阶段仅发出 Warning（不阻止构建）。构建时会做硬错误检查——文件缺失则中止。
 
+#### 依赖验证
+
+`apkg lint` 会联网验证所有 `<Dependency>` 和 `<Recommend>` 声明中的包名是否在配置的 APT 源中真实存在。通过 `<DependencyCheckSource>` ItemGroup 元素配置一个或多个验证源，**union 语义**——包只要在任意一个源中存在就通过验证。
+
+```xml
+<ItemGroup>
+  <!-- 源 1: Ubuntu 官方镜像 — 验证标准 Ubuntu 包 -->
+  <DependencyCheckSource
+      Url="https://mirror.aiursoft.com/ubuntu"
+      SuiteMap="noble-addon=noble questing-addon=questing resolute-addon=resolute" />
+
+  <!-- 源 2: AnduinOS 私有仓库 — 验证 AnduinOS 定制包 -->
+  <DependencyCheckSource
+      Url="https://apkg-dev.aiursoft.com/artifacts/anduinos"
+      SuiteMap="noble-addon=noble-addon questing-addon=questing-addon resolute-addon=resolute-addon" />
+</ItemGroup>
+```
+
+**属性说明**：
+| 属性 | 必填 | 说明 |
+|------|------|------|
+| `Url` | 是 | APT 仓库 base URL（如 `https://mirror.aiursoft.com/ubuntu`） |
+| `SuiteMap` | 否 | 目标 suite → 检查 suite 映射，格式与 `UpstreamSuiteMapping` 相同。不设时直接使用目标 suite 名查询 |
+| `Condition` | 否 | MSBuild 风格条件。仅当条件为真时才使用该源（如 `'$(Suite)' != 'jammy'`） |
+
+**行为**：
+- 不配置任何 `DependencyCheckSource` 则**跳过依赖验证**（opt-out）
+- 任一条目中的任一备选包名（`|` 分隔）在任一源中存在即认为通过
+- 版本约束（如 `gnome-shell (>= 46~)`）会被自动剥离，仅验证包名
+- 网络错误 per-source 产生 Warning，不会阻止验证继续或构建中止
+- `Provides` 字段也会被检查（通过 APT Packages.gz 中的 Provides 行）
+
 `apkg lint` 可单独执行，也由 `apkg build` 在构建前自动调用。Error 级别问题会中止构建，Warning 仅打印提示。以下是它检查的全部规则：
 
 | 规则 | 级别 |
@@ -228,6 +260,9 @@
 | `TargetDistro` 未设（构建全部 target 时必须，默认回退 `ubuntu`） | Warning |
 | `TargetArchitectures` 未设（构建全部 target 时必须） | Warning |
 | `UpstreamSignedBy` 指向的公钥文件不存在（可能由 PrebuildCommand 生成，仅提示） | Warning |
+| `<DependencyCheckSource>` Url 为空 | **Error** |
+| `<DependencyCheckSource>` 未设 SuiteMap（suite 名将原样使用） | Warning |
+| `DependencyCheckSource` Condition 语法无效 | **Error** |
 | 所有 `Include=` 指向的源文件/目录在磁盘上实际存在 | Warning |
 | 至少声明一个文件条目（`IncludeFile`/`IncludeScript`/`IncludeFolder`/`ConfFile`），否则包为空 | Warning |
 

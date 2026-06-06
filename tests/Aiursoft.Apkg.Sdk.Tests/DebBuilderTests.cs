@@ -1919,7 +1919,7 @@ public class DebBuilderTests
     public async Task BuildAsync_PackageVersion_SubstitutesSuiteShortNameVariable()
     {
         // Arrange: PackageVersion contains $(SuiteShortName) — should expand to the short name
-        // from DependencyCheckSuiteMap (e.g. "questing-addon" → "questing").
+        // from SuiteShortNameMap (e.g. "questing-addon" → "questing").
         var tempDir = CreateTestDirectory();
         try
         {
@@ -1936,7 +1936,7 @@ public class DebBuilderTests
                 Maintainer              = "Test <test@example.com>",
                 TargetDistro            = "ubuntu",
                 TargetSuites            = "questing-addon",
-                DependencyCheckSuiteMap = "noble-addon=noble questing-addon=questing resolute-addon=resolute",
+                SuiteShortNameMap = "noble-addon=noble questing-addon=questing resolute-addon=resolute",
             };
 
             // Act
@@ -1961,7 +1961,7 @@ public class DebBuilderTests
     [TestMethod]
     public async Task BuildAsync_PackageVersion_SuiteShortNameFallsBackToSuiteWhenNotInMap()
     {
-        // Arrange: $(SuiteShortName) with no DependencyCheckSuiteMap entry → falls back to suite name.
+        // Arrange: $(SuiteShortName) with no SuiteShortNameMap entry → falls back to suite name.
         var tempDir = CreateTestDirectory();
         try
         {
@@ -1978,7 +1978,7 @@ public class DebBuilderTests
                 Maintainer              = "Test <test@example.com>",
                 TargetDistro            = "ubuntu",
                 TargetSuites            = "jammy",
-                DependencyCheckSuiteMap = "",  // no map → fall back to suite name
+                SuiteShortNameMap = "",  // no map → fall back to suite name
             };
 
             // Act

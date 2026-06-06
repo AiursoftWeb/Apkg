@@ -101,7 +101,8 @@ public class AosprojLinter
             .Concat(project.PreInstallScripts.Select(s => s.Condition))
             .Concat(project.PostRemoveScripts.Select(s => s.Condition))
             .Concat(project.SystemdUnits.Select(u => u.Condition))
-            .Concat(project.PrebuildCommands.Select(c => c.Condition));
+            .Concat(project.PrebuildCommands.Select(c => c.Condition))
+            .Concat(project.DependencyCheckSources.Select(s => s.Condition));
 
         var dummyCtx = ConditionEvaluator.BuildContext("ubuntu", "jammy", "amd64",
             upstreamDistro: project.UpstreamDistro,
@@ -113,6 +114,25 @@ public class AosprojLinter
             catch (Exception ex)
             {
                 issues.Add(new LintIssue(Severity.Error, $"Invalid condition '{cond}': {ex.Message}"));
+            }
+        }
+
+        // Validate DependencyCheckSource entries
+        foreach (var src in project.DependencyCheckSources)
+        {
+            if (string.IsNullOrWhiteSpace(src.Url))
+                issues.Add(new LintIssue(Severity.Error, "<DependencyCheckSource> has empty Url."));
+            if (string.IsNullOrWhiteSpace(src.SuiteMap))
+                issues.Add(new LintIssue(Severity.Warning,
+                    $"<DependencyCheckSource Url=\"{src.Url}\"> has no SuiteMap. Suite names will be used as-is."));
+            if (!string.IsNullOrWhiteSpace(src.Condition))
+            {
+                try { _evaluator.Evaluate(src.Condition, dummyCtx); }
+                catch (Exception ex)
+                {
+                    issues.Add(new LintIssue(Severity.Error,
+                        $"DependencyCheckSource Invalid condition '{src.Condition}': {ex.Message}"));
+                }
             }
         }
 
