@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.IO.Compression;
 using System.Security.Cryptography;
 using System.Text;
+using Aiursoft.Apkg.Services;
 
 namespace Aiursoft.Apkg.Services.Contents;
 
@@ -110,8 +111,8 @@ public class ContentsGeneratorService
             using var rawHasher = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
             using var gzHasher = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
 
-            await using (var rawHashing = new HashingWriteStream(rawFs, rawHasher))
-            await using (var gzHashing = new HashingWriteStream(gzFs, gzHasher))
+            await using (var rawHashing = new HashingStream(rawFs, rawHasher))
+            await using (var gzHashing = new HashingStream(gzFs, gzHasher))
             await using (var gzipStream = new GZipStream(gzHashing, CompressionLevel.Optimal))
             {
                 var rawWriter = new StreamWriter(rawHashing, utf8NoBom, leaveOpen: true);
@@ -167,46 +168,5 @@ public class ContentsGeneratorService
         }
 
         return ParseDpkgDebContents(output);
-    }
-}
-
-/// <summary>
-/// A write-only stream wrapper that feeds written data into an <see cref="IncrementalHash"/>
-/// while forwarding to the underlying stream. Used during Contents file generation to compute
-/// SHA-256 on the fly without a second pass.
-/// </summary>
-internal class HashingWriteStream(Stream baseStream, IncrementalHash hasher) : Stream
-{
-    public override bool CanRead => false;
-    public override bool CanSeek => false;
-    public override bool CanWrite => true;
-    public override long Length => baseStream.Length;
-    public override long Position
-    {
-        get => baseStream.Position;
-        set => throw new NotSupportedException();
-    }
-
-    public override void Flush() => baseStream.Flush();
-    public override int Read(byte[] buffer, int offset, int count) => throw new NotSupportedException();
-    public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
-    public override void SetLength(long value) => baseStream.SetLength(value);
-
-    public override void Write(byte[] buffer, int offset, int count)
-    {
-        hasher.AppendData(buffer, offset, count);
-        baseStream.Write(buffer, offset, count);
-    }
-
-    public override async Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
-    {
-        hasher.AppendData(buffer, offset, count);
-        await baseStream.WriteAsync(buffer.AsMemory(offset, count), cancellationToken);
-    }
-
-    public override async ValueTask WriteAsync(ReadOnlyMemory<byte> buffer, CancellationToken cancellationToken = default)
-    {
-        hasher.AppendData(buffer.Span);
-        await baseStream.WriteAsync(buffer, cancellationToken);
     }
 }

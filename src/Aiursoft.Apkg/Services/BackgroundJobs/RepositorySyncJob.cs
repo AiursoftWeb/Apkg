@@ -46,307 +46,135 @@ public class RepositorySyncJob(
         logger.LogInformation("RepositorySyncJob finished. Pending buckets are staged; RepositorySignJob will sign and promote them.");
     }
 
+    // ═══════════════════════════════════════════════════════════════════════
+    // Orchestrator
+    // ═══════════════════════════════════════════════════════════════════════
+
     private async Task SyncAndSignRepositoryAsync(AptRepository repo)
     {
         logger.LogInformation("Processing and signing repository {RepoName}...", repo.Name);
 
-        // 1. Create a new bucket and immediately link it as SecondaryBucketId in a single
-        //    SaveChanges call. Using the navigation property lets EF Core resolve the INSERT
-        //    order automatically (INSERT bucket first, then UPDATE repo.SecondaryBucketId),
-        //    eliminating any window where GC could delete the unreferenced new bucket.
+        var (bucketId, realHashes) = await CreateBucketAndLoadRealHashes(repo);
+
+        if (repo.MirrorId != null && repo.Mirror?.PrimaryBucketId != null)
+            await CopyMirrorPackagesAsync(repo.Mirror.PrimaryBucketId.Value, bucketId, realHashes);
+
+        await MergeLocalPackagesAsync(repo.Id, bucketId, repo.Suite);
+
+        var (architectures, components) = ParseArchComponents(repo);
+        var releaseContent = await BuildReleaseMetadata(bucketId, repo.Suite, architectures, components);
+
+        await StoreReleaseContent(bucketId, releaseContent);
+
+        db.ChangeTracker.Clear();
+        logger.LogInformation("Repository {RepoName} bucket {BucketId} is staged and awaiting signing.", repo.Name, bucketId);
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
+    // Step 1 — Bucket creation
+    // ═══════════════════════════════════════════════════════════════════════
+
+    private async Task<(int BucketId, HashSet<string> RealHashes)> CreateBucketAndLoadRealHashes(
+        AptRepository repo)
+    {
+        var realHashes = await LoadRealHashes(repo.PrimaryBucketId);
+
         var newBucket = new AptBucket { CreatedAt = DateTime.UtcNow };
         db.AptRepositories.Update(repo);
         repo.SecondaryBucket = newBucket;
-        await db.SaveChangesAsync(); // atomic: bucket inserted + SecondaryBucketId updated in one round-trip
+        await db.SaveChangesAsync();
 
-        var newBucketId = newBucket.Id;
+        return (newBucket.Id, realHashes);
+    }
 
-        // Pre-load the SHA256 hashes of packages that are already materialized
-        // (IsVirtual = false) in the current primary bucket. When a re-sync produces
-        // a package with an identical SHA256, the CAS file is already on disk — there
-        // is no need to re-download it, so we carry IsVirtual = false forward.
-        // A package with a different SHA256 (new version) correctly remains virtual.
-        var previouslyRealHashes = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-        if (repo.PrimaryBucketId != null)
-        {
-            var realHashes = await db.AptPackages
-                .AsNoTracking()
-                .Where(p => p.BucketId == repo.PrimaryBucketId.Value && !p.IsVirtual)
-                .Select(p => p.SHA256)
-                .Distinct()
-                .ToListAsync();
-            previouslyRealHashes = new HashSet<string>(realHashes, StringComparer.OrdinalIgnoreCase);
-            if (previouslyRealHashes.Count > 0)
-            {
-                logger.LogInformation(
-                    "Repository {RepoName}: found {Count} already-materialized SHA256s in current primary; these will remain IsVirtual=false if unchanged.",
-                    repo.Name, previouslyRealHashes.Count);
-            }
-        }
+    // ═══════════════════════════════════════════════════════════════════════
+    // Pure helpers
+    // ═══════════════════════════════════════════════════════════════════════
 
-        // 2. Data Transfer (Copy from Mirror Bucket to Repo Bucket)
-        if (repo.MirrorId != null)
-        {
-            if (repo.Mirror?.PrimaryBucketId == null)
-            {
-                logger.LogWarning("Repository {RepoName} is linked to mirror {MirrorSuite} which has no active bucket. Skipping data copy.", repo.Name, repo.Mirror?.Suite);
-            }
-            else
-            {
-                var mirrorBucketId = repo.Mirror.PrimaryBucketId.Value;
-                logger.LogInformation("Copying packages from Mirror Bucket {MirrorBucketId} to New Bucket {NewBucketId}...", mirrorBucketId, newBucketId);
-
-                // Stream from DB and insert to avoid loading all in memory
-                var query = db.AptPackages
-                    .AsNoTracking()
-                    .Where(p => p.BucketId == mirrorBucketId)
-                    .AsAsyncEnumerable();
-
-                var batchBuffer = new List<AptPackage>(1000);
-
-                await foreach (var pkg in query)
-                {
-                    pkg.Id = 0;
-                    pkg.BucketId = newBucketId;
-                    // If this exact binary was already downloaded (same SHA256), the CAS
-                    // file is still on disk. Preserve IsVirtual = false so the first
-                    // subsequent request skips the lazy-sync entirely.
-                    if (previouslyRealHashes.Contains(pkg.SHA256))
-                    {
-                        pkg.IsVirtual = false;
-                    }
-                    batchBuffer.Add(pkg);
-
-                    if (batchBuffer.Count >= 1000)
-                    {
-                        db.AptPackages.AddRange(batchBuffer);
-                        await db.SaveChangesAsync();
-                        db.ChangeTracker.Clear();
-                        batchBuffer.Clear();
-                    }
-                }
-
-                if (batchBuffer.Count > 0)
-                {
-                    db.AptPackages.AddRange(batchBuffer);
-                    await db.SaveChangesAsync();
-                    db.ChangeTracker.Clear();
-                }
-            }
-        }
-
-        // 2b. Merge ApkgDebPackages: override all upstream (Package, Architecture) pairs.
-        // Only insert the winning (latest-version) deb per slot — debResolution handles dedup.
-        var allLocalPackages = await db.ApkgDebPackages
-            .AsNoTracking()
-            .Include(lp => lp.ApkgRevision).ThenInclude(r => r!.ApkgPackage)
-            .Where(lp => lp.RepositoryId == repo.Id && lp.IsEnabled)
-            .ToListAsync();
-
-        var localPackages = debResolution.ResolveWinningDebs(allLocalPackages);
-
-        if (localPackages.Count > 0)
-        {
-            logger.LogInformation(
-                "Merging {Count} local packages (from {Total} total) into Bucket {BucketId}...",
-                localPackages.Count, allLocalPackages.Count, newBucketId);
-
-            // Remove upstream packages that conflict with a winning ApkgDebPackage by (Package, Architecture)
-            foreach (var lp in localPackages)
-            {
-                var toRemove = db.AptPackages
-                    .Where(p => p.BucketId == newBucketId && p.Package == lp.Package && p.Architecture == lp.Architecture);
-                db.AptPackages.RemoveRange(toRemove);
-            }
-            await db.SaveChangesAsync();
-            db.ChangeTracker.Clear();
-
-            // Insert only the winning ApkgDebPackages as AptPackages in the new bucket
-            foreach (var lp in localPackages)
-            {
-                var component = lp.ApkgRevision?.ApkgPackage?.Component ?? "main";
-                db.AptPackages.Add(new AptPackage
-                {
-                    BucketId = newBucketId,
-                    Component = component,
-                    OriginSuite = repo.Suite,
-                    OriginComponent = component,
-                    Package = lp.Package,
-                    Version = lp.Version,
-                    Architecture = lp.Architecture,
-                    Maintainer = lp.Maintainer,
-                    OriginalMaintainer = lp.OriginalMaintainer,
-                    Description = lp.Description ?? string.Empty,
-                    DescriptionMd5 = string.Empty,
-                    Section = lp.Section ?? string.Empty,
-                    Priority = lp.Priority ?? string.Empty,
-                    Origin = "ApkgDebPackage",
-                    Bugs = string.Empty,
-                    Homepage = lp.Homepage,
-                    InstalledSize = lp.InstalledSize,
-                    Depends = lp.Depends,
-                    Recommends = lp.Recommends,
-                    Suggests = lp.Suggests,
-                    Conflicts = lp.Conflicts,
-                    Breaks = lp.Breaks,
-                    Replaces = lp.Replaces,
-                    Provides = lp.Provides,
-                    Source = lp.Source,
-                    MultiArch = lp.MultiArch,
-                    Filename = lp.Filename,
-                    Size = lp.Size,
-                    MD5sum = lp.MD5sum ?? string.Empty,
-                    SHA1 = lp.SHA1 ?? string.Empty,
-                    SHA256 = lp.SHA256,
-                    SHA512 = lp.SHA512 ?? string.Empty,
-                    IsVirtual = false,
-                    RemoteUrl = null
-                });
-            }
-            await db.SaveChangesAsync();
-            db.ChangeTracker.Clear();
-        }
-
-        // 3. Metadata Generation & Signing
-        logger.LogInformation("Generating and signing metadata for Bucket {BucketId}...", newBucketId);
-
+    /// <summary>
+    /// Parses <c>repo.Architecture</c> and <c>repo.Components</c> into arrays.
+    /// </summary>
+    private static (string[] Architectures, string[] Components) ParseArchComponents(AptRepository repo)
+    {
         var architectures = repo.Architecture.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         var components = repo.Components.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-
-        var releaseSb = new StringBuilder();
-        releaseSb.AppendLine($"Origin: Aiursoft Apkg");
-        releaseSb.AppendLine($"Label: Aiursoft Apkg");
-        releaseSb.AppendLine($"Suite: {repo.Suite}");
-        releaseSb.AppendLine($"Codename: {repo.Suite}");
-        releaseSb.AppendLine($"Date: {DateTime.UtcNow:R}");
-        releaseSb.AppendLine($"Architectures: {string.Join(" ", architectures)}");
-        releaseSb.AppendLine($"Components: {string.Join(" ", components)}");
-        releaseSb.AppendLine("SHA256:");
-
-        foreach (var arch in architectures)
-        {
-            foreach (var component in components)
-            {
-                var relativePath = $"{component}/binary-{arch}";
-                var packageDir = Path.Combine(BucketsRoot, newBucketId.ToString(), relativePath);
-                Directory.CreateDirectory(packageDir);
-
-                var packagesPath = Path.Combine(packageDir, "Packages");
-                var gzPath = packagesPath + ".gz";
-
-                string rawSha256;
-                long rawSize;
-                string gzSha256;
-                long gzSize;
-
-                // Open file streams
-                await using (var rawFs = new FileStream(packagesPath, FileMode.Create, FileAccess.Write, FileShare.None))
-                await using (var gzFs = new FileStream(gzPath, FileMode.Create, FileAccess.Write, FileShare.None))
-                {
-                    using (var rawHasher = IncrementalHash.CreateHash(HashAlgorithmName.SHA256))
-                    using (var gzHasher = IncrementalHash.CreateHash(HashAlgorithmName.SHA256))
-                    {
-                        // Use wrappers to hash while writing
-                        await using (var rawHashingStream = new HashingStream(rawFs, rawHasher))
-                        await using (var gzHashingStream = new HashingStream(gzFs, gzHasher))
-                        await using (var gzipStream = new GZipStream(gzHashingStream, CompressionLevel.Optimal))
-                        {
-                            var utf8NoBom = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
-                            var rawWriter = new StreamWriter(rawHashingStream, utf8NoBom, leaveOpen: true);
-                            var gzWriter = new StreamWriter(gzipStream, utf8NoBom, leaveOpen: true);
-
-                            var query = db.AptPackages
-                                .AsNoTracking()
-                                .Where(p => p.BucketId == newBucketId && p.Component == component && (p.Architecture == arch || p.Architecture == "all"))
-                                .AsAsyncEnumerable();
-
-                            await foreach (var pkg in query)
-                            {
-                                var suitedFilename = RewritePoolFilenameForSuite(pkg.Filename, repo.Suite);
-                                await metadataService.WritePackageEntryAsync(rawWriter, pkg, filenameOverride: suitedFilename);
-                                await metadataService.WritePackageEntryAsync(gzWriter, pkg, filenameOverride: suitedFilename);
-                            }
-
-                            await rawWriter.FlushAsync();
-                            await gzWriter.FlushAsync();
-                        }
-                        rawSha256 = BitConverter.ToString(rawHasher.GetHashAndReset()).Replace("-", "").ToLower();
-                        gzSha256 = BitConverter.ToString(gzHasher.GetHashAndReset()).Replace("-", "").ToLower();
-                    }
-                    rawSize = rawFs.Length;
-                    gzSize = gzFs.Length;
-                }
-
-                releaseSb.AppendLine($" {rawSha256} {rawSize} {relativePath}/Packages");
-                releaseSb.AppendLine($" {gzSha256} {gzSize} {relativePath}/Packages.gz");
-            }
-        }
-
-        // ── Contents-<arch>.gz generation ────────────────────────────────────
-        // apt-file needs these to map file paths → packages.
-        var objectsRoot = folders.GetObjectsFolder();
-        foreach (var arch in architectures)
-        {
-            foreach (var component in components)
-            {
-                var contentsDir = Path.Combine(BucketsRoot, newBucketId.ToString(), component);
-                Directory.CreateDirectory(contentsDir);
-
-                var pkgs = await db.AptPackages
-                    .AsNoTracking()
-                    .Where(p => p.BucketId == newBucketId
-                                && p.Component == component
-                                && (p.Architecture == arch || p.Architecture == "all"))
-                    .Select(p => new { p.SHA256, p.Package, p.Section })
-                    .ToListAsync();
-
-                var contentsPackages = pkgs
-                    .Select(p =>
-                    {
-                        var casPath = Path.Combine(objectsRoot, p.SHA256[..2], $"{p.SHA256}.deb");
-                        return new ContentsPackage(casPath, p.Package, p.Section);
-                    })
-                    .ToList();
-
-                var tempDir = Path.Combine(contentsDir, "_contents-tmp");
-                var result = await ContentsGeneratorService.GenerateContentsFilesAsync(
-                    tempDir, arch, contentsDir, contentsPackages);
-
-                // Clean up temp dir
-                try { if (Directory.Exists(tempDir)) Directory.Delete(tempDir, recursive: true); }
-                catch { /* best-effort */ }
-
-                var relativePath = $"{component}/Contents-{arch}";
-                releaseSb.AppendLine($" {result.RawSha256} {result.RawSize} {relativePath}");
-                releaseSb.AppendLine($" {result.GzSha256} {result.GzSize} {relativePath}.gz");
-            }
-        }
-
-        var releaseContent = releaseSb.ToString();
-
-        // Fetch newBucket again to avoid tracking issues
-        var bucketEntity = await db.AptBuckets.FindAsync(newBucketId);
-        if (bucketEntity != null)
-        {
-            bucketEntity.ReleaseContent = releaseContent;
-            await db.SaveChangesAsync();
-        }
-
-        // SecondaryBucketId was already set at the top of this method; no change needed here.
-        // RepositorySignJob will detect ReleaseContent != null and promote it.
-        db.ChangeTracker.Clear();
-        logger.LogInformation("Repository {RepoName} bucket {BucketId} is staged and awaiting signing.", repo.Name, newBucketId);
+        return (architectures, components);
     }
+
     /// <summary>
-    /// Rewrites a conventional pool path to include the suite name as a leading path segment,
-    /// e.g. "pool/main/g/pkg/pkg_1.0_all.deb" → "questing-addon/pool/main/g/pkg/pkg_1.0_all.deb".
-    ///
-    /// This makes every Filename reference in a suite's Packages index unique to that suite.
-    /// The APT client constructs the download URL as {base}/{Filename}, so the resulting URL
-    /// becomes ".../artifacts/{distro}/questing-addon/pool/main/g/…".  A matching controller
-    /// route (artifacts/{distro}/{suite}/pool/{**path}) passes the suite name to
-    /// GetLocalPoolPath as repoName, scoping the CAS lookup to that suite's primary bucket
-    /// and avoiding cross-suite hash mismatches for packages with suite-specific content.
+    /// Builds the Release file header lines (everything before the SHA256 file list).
+    /// </summary>
+    private static string BuildReleasePreamble(string suite, string[] architectures, string[] components)
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine("Origin: Aiursoft Apkg");
+        sb.AppendLine("Label: Aiursoft Apkg");
+        sb.AppendLine($"Suite: {suite}");
+        sb.AppendLine($"Codename: {suite}");
+        sb.AppendLine($"Date: {DateTime.UtcNow:R}");
+        sb.AppendLine($"Architectures: {string.Join(" ", architectures)}");
+        sb.AppendLine($"Components: {string.Join(" ", components)}");
+        sb.AppendLine("SHA256:");
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// Formats a single Release file SHA256 entry:
+    /// <c> {sha256} {size} {relativePath}</c>
+    /// </summary>
+    private static string BuildReleaseFileEntry(string sha256, long size, string relativePath)
+    {
+        return $" {sha256} {size} {relativePath}";
+    }
+
+    /// <summary>
+    /// Maps an <see cref="ApkgDebPackage"/> to an <see cref="AptPackage"/> entity.
+    /// Pure transformation — no side effects.
+    /// </summary>
+    private static AptPackage MapLocalToAptPackage(ApkgDebPackage lp, int bucketId, string repoSuite, string component)
+    {
+        return new AptPackage
+        {
+            BucketId = bucketId,
+            Component = component,
+            OriginSuite = repoSuite,
+            OriginComponent = component,
+            Package = lp.Package,
+            Version = lp.Version,
+            Architecture = lp.Architecture,
+            Maintainer = lp.Maintainer,
+            OriginalMaintainer = lp.OriginalMaintainer,
+            Description = lp.Description ?? string.Empty,
+            DescriptionMd5 = string.Empty,
+            Section = lp.Section ?? string.Empty,
+            Priority = lp.Priority ?? string.Empty,
+            Origin = "ApkgDebPackage",
+            Bugs = string.Empty,
+            Homepage = lp.Homepage,
+            InstalledSize = lp.InstalledSize,
+            Depends = lp.Depends,
+            Recommends = lp.Recommends,
+            Suggests = lp.Suggests,
+            Conflicts = lp.Conflicts,
+            Breaks = lp.Breaks,
+            Replaces = lp.Replaces,
+            Provides = lp.Provides,
+            Source = lp.Source,
+            MultiArch = lp.MultiArch,
+            Filename = lp.Filename,
+            Size = lp.Size,
+            MD5sum = lp.MD5sum ?? string.Empty,
+            SHA1 = lp.SHA1 ?? string.Empty,
+            SHA256 = lp.SHA256,
+            SHA512 = lp.SHA512 ?? string.Empty,
+            IsVirtual = false,
+            RemoteUrl = null
+        };
+    }
+
+    /// <summary>
+    /// Rewrites a pool path to include the suite name, e.g.
+    /// "pool/main/g/pkg/pkg_1.0_all.deb" → "questing-addon/pool/main/g/pkg/pkg_1.0_all.deb".
     /// </summary>
     private static string RewritePoolFilenameForSuite(string filename, string suite)
     {
@@ -355,39 +183,240 @@ public class RepositorySyncJob(
             return $"{suite}/{filename}";
         return filename;
     }
-}
 
-internal class HashingStream(Stream baseStream, IncrementalHash hasher) : Stream
-{
-    public override bool CanRead => false;
-    public override bool CanSeek => false;
-    public override bool CanWrite => true;
-    public override long Length => baseStream.Length;
-    public override long Position { get => baseStream.Position; set => throw new NotSupportedException(); }
+    // ═══════════════════════════════════════════════════════════════════════
+    // I/O operations
+    // ═══════════════════════════════════════════════════════════════════════
 
-    public override void Flush() => baseStream.Flush();
-
-    public override int Read(byte[] buffer, int offset, int count) => throw new NotSupportedException();
-
-    public override long Seek(long offset, SeekOrigin origin) => throw new NotSupportedException();
-
-    public override void SetLength(long value) => baseStream.SetLength(value);
-
-    public override void Write(byte[] buffer, int offset, int count)
+    private async Task<HashSet<string>> LoadRealHashes(int? primaryBucketId)
     {
-        hasher.AppendData(buffer, offset, count);
-        baseStream.Write(buffer, offset, count);
+        if (primaryBucketId == null)
+            return new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        var realHashes = await db.AptPackages
+            .AsNoTracking()
+            .Where(p => p.BucketId == primaryBucketId.Value && !p.IsVirtual)
+            .Select(p => p.SHA256)
+            .Distinct()
+            .ToListAsync();
+
+        var set = new HashSet<string>(realHashes, StringComparer.OrdinalIgnoreCase);
+        if (set.Count > 0)
+            logger.LogInformation("Found {Count} already-materialized SHA256s in current primary.", set.Count);
+
+        return set;
     }
 
-    public override async Task WriteAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+    /// <summary>
+    /// Batch-copies packages from the mirror bucket into the new bucket.
+    /// Packages whose SHA256 matches a previously-materialized hash are
+    /// kept as IsVirtual=false (their CAS file is already on disk).
+    /// </summary>
+    private async Task CopyMirrorPackagesAsync(
+        int mirrorBucketId, int newBucketId, HashSet<string> realHashes)
     {
-        hasher.AppendData(buffer, offset, count);
-        await baseStream.WriteAsync(buffer.AsMemory(offset, count), cancellationToken);
+        logger.LogInformation("Copying packages from Mirror Bucket {MirrorBucketId} to New Bucket {NewBucketId}...",
+            mirrorBucketId, newBucketId);
+
+        var batchBuffer = new List<AptPackage>(1000);
+
+        await foreach (var pkg in db.AptPackages
+            .AsNoTracking()
+            .Where(p => p.BucketId == mirrorBucketId)
+            .AsAsyncEnumerable())
+        {
+            pkg.Id = 0;
+            pkg.BucketId = newBucketId;
+            if (realHashes.Contains(pkg.SHA256))
+                pkg.IsVirtual = false;
+
+            batchBuffer.Add(pkg);
+
+            if (batchBuffer.Count >= 1000)
+            {
+                db.AptPackages.AddRange(batchBuffer);
+                await db.SaveChangesAsync();
+                db.ChangeTracker.Clear();
+                batchBuffer.Clear();
+            }
+        }
+
+        if (batchBuffer.Count > 0)
+        {
+            db.AptPackages.AddRange(batchBuffer);
+            await db.SaveChangesAsync();
+            db.ChangeTracker.Clear();
+        }
     }
 
-    public override async ValueTask WriteAsync(ReadOnlyMemory<byte> buffer, CancellationToken cancellationToken = default)
+    /// <summary>
+    /// Merges enabled ApkgDebPackages into the new bucket, replacing
+    /// upstream entries that share the same (Package, Architecture).
+    /// </summary>
+    private async Task MergeLocalPackagesAsync(int repoId, int newBucketId, string repoSuite)
     {
-        hasher.AppendData(buffer.Span);
-        await baseStream.WriteAsync(buffer, cancellationToken);
+        var allLocalPackages = await db.ApkgDebPackages
+            .AsNoTracking()
+            .Include(lp => lp.ApkgRevision).ThenInclude(r => r!.ApkgPackage)
+            .Where(lp => lp.RepositoryId == repoId && lp.IsEnabled)
+            .ToListAsync();
+
+        var localPackages = debResolution.ResolveWinningDebs(allLocalPackages);
+        if (localPackages.Count == 0) return;
+
+        logger.LogInformation("Merging {Count} local packages (from {Total} total) into Bucket {BucketId}...",
+            localPackages.Count, allLocalPackages.Count, newBucketId);
+
+        // Remove upstream packages that conflict with a winning local
+        foreach (var lp in localPackages)
+        {
+            var toRemove = db.AptPackages
+                .Where(p => p.BucketId == newBucketId && p.Package == lp.Package && p.Architecture == lp.Architecture);
+            db.AptPackages.RemoveRange(toRemove);
+        }
+        await db.SaveChangesAsync();
+        db.ChangeTracker.Clear();
+
+        // Insert winning locals
+        foreach (var lp in localPackages)
+        {
+            var component = lp.ApkgRevision?.ApkgPackage?.Component ?? "main";
+            db.AptPackages.Add(MapLocalToAptPackage(lp, newBucketId, repoSuite, component));
+        }
+        await db.SaveChangesAsync();
+        db.ChangeTracker.Clear();
+    }
+
+    /// <summary>
+    /// Builds the full Release metadata content by generating Packages and Contents
+    /// files for every arch×component combination.
+    /// </summary>
+    private async Task<string> BuildReleaseMetadata(
+        int bucketId, string suite, string[] architectures, string[] components)
+    {
+        logger.LogInformation("Generating metadata for Bucket {BucketId}...", bucketId);
+
+        var sb = new StringBuilder(BuildReleasePreamble(suite, architectures, components));
+
+        foreach (var arch in architectures)
+        foreach (var component in components)
+        {
+            var (pkgRaw, pkgRawSz, pkgGz, pkgGzSz) =
+                await WritePackagesFileAsync(bucketId, arch, component, suite);
+
+            sb.AppendLine(BuildReleaseFileEntry(pkgRaw, pkgRawSz, $"{component}/binary-{arch}/Packages"));
+            sb.AppendLine(BuildReleaseFileEntry(pkgGz, pkgGzSz, $"{component}/binary-{arch}/Packages.gz"));
+
+            var (cntRaw, cntRawSz, cntGz, cntGzSz) =
+                await WriteContentsFileAsync(bucketId, arch, component);
+
+            sb.AppendLine(BuildReleaseFileEntry(cntRaw, cntRawSz, $"{component}/Contents-{arch}"));
+            sb.AppendLine(BuildReleaseFileEntry(cntGz, cntGzSz, $"{component}/Contents-{arch}.gz"));
+        }
+
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// Writes Packages + Packages.gz for a single (arch, component) pair.
+    /// Returns SHA256 and size for both the raw and gzipped files.
+    /// </summary>
+    private async Task<(string RawSha256, long RawSize, string GzSha256, long GzSize)>
+        WritePackagesFileAsync(int bucketId, string arch, string component, string suite)
+    {
+        var packageDir = Path.Combine(BucketsRoot, bucketId.ToString(), $"{component}/binary-{arch}");
+        Directory.CreateDirectory(packageDir);
+
+        var packagesPath = Path.Combine(packageDir, "Packages");
+        var gzPath = packagesPath + ".gz";
+
+        string rawSha256;
+        long rawSize;
+        string gzSha256;
+        long gzSize;
+
+        await using (var rawFs = new FileStream(packagesPath, FileMode.Create, FileAccess.Write, FileShare.None))
+        await using (var gzFs = new FileStream(gzPath, FileMode.Create, FileAccess.Write, FileShare.None))
+        {
+            using var rawHasher = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
+            using var gzHasher = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
+
+            await using (var rawHashing = new HashingStream(rawFs, rawHasher))
+            await using (var gzHashing = new HashingStream(gzFs, gzHasher))
+            await using (var gzipStream = new GZipStream(gzHashing, CompressionLevel.Optimal))
+            {
+                var utf8NoBom = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
+                var rawWriter = new StreamWriter(rawHashing, utf8NoBom, leaveOpen: true);
+                var gzWriter = new StreamWriter(gzipStream, utf8NoBom, leaveOpen: true);
+
+                await foreach (var pkg in db.AptPackages
+                    .AsNoTracking()
+                    .Where(p => p.BucketId == bucketId && p.Component == component
+                        && (p.Architecture == arch || p.Architecture == "all"))
+                    .AsAsyncEnumerable())
+                {
+                    var filename = RewritePoolFilenameForSuite(pkg.Filename, suite);
+                    await metadataService.WritePackageEntryAsync(rawWriter, pkg, filenameOverride: filename);
+                    await metadataService.WritePackageEntryAsync(gzWriter, pkg, filenameOverride: filename);
+                }
+
+                await rawWriter.FlushAsync();
+                await gzWriter.FlushAsync();
+            }
+
+            rawSha256 = BitConverter.ToString(rawHasher.GetHashAndReset()).Replace("-", "").ToLower();
+            gzSha256 = BitConverter.ToString(gzHasher.GetHashAndReset()).Replace("-", "").ToLower();
+            rawSize = rawFs.Length;
+            gzSize = gzFs.Length;
+        }
+
+        return (rawSha256, rawSize, gzSha256, gzSize);
+    }
+
+    /// <summary>
+    /// Writes Contents-{arch} + Contents-{arch}.gz for a single (arch, component) pair.
+    /// </summary>
+    private async Task<(string RawSha256, long RawSize, string GzSha256, long GzSize)>
+        WriteContentsFileAsync(int bucketId, string arch, string component)
+    {
+        var contentsDir = Path.Combine(BucketsRoot, bucketId.ToString(), component);
+        Directory.CreateDirectory(contentsDir);
+
+        var pkgs = await db.AptPackages
+            .AsNoTracking()
+            .Where(p => p.BucketId == bucketId && p.Component == component
+                && (p.Architecture == arch || p.Architecture == "all"))
+            .Select(p => new { p.SHA256, p.Package, p.Section })
+            .ToListAsync();
+
+        var objectsRoot = folders.GetObjectsFolder();
+        var contentsPackages = pkgs
+            .Select(p => new ContentsPackage(
+                Path.Combine(objectsRoot, p.SHA256[..2], $"{p.SHA256}.deb"),
+                p.Package,
+                p.Section))
+            .ToList();
+
+        var tempDir = Path.Combine(contentsDir, "_contents-tmp");
+        var result = await ContentsGeneratorService.GenerateContentsFilesAsync(
+            tempDir, arch, contentsDir, contentsPackages);
+
+        try { if (Directory.Exists(tempDir)) Directory.Delete(tempDir, recursive: true); }
+        catch { /* best-effort */ }
+
+        return (result.RawSha256, result.RawSize, result.GzSha256, result.GzSize);
+    }
+
+    /// <summary>
+    /// Saves the Release content to the bucket entity in the database.
+    /// </summary>
+    private async Task StoreReleaseContent(int bucketId, string releaseContent)
+    {
+        var bucket = await db.AptBuckets.FindAsync(bucketId);
+        if (bucket != null)
+        {
+            bucket.ReleaseContent = releaseContent;
+            await db.SaveChangesAsync();
+        }
     }
 }
