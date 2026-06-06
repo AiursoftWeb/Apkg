@@ -760,7 +760,7 @@ public class AosprojSerializerTests
         Assert.AreEqual(1, project.IncludeFiles.Count);
         var item = project.IncludeFiles[0];
         Assert.IsTrue(item.Mode.HasValue);
-        var mode = item.Mode.Value;
+        var mode = item.Mode!.Value;
         Assert.IsTrue(mode.HasFlag(UnixFileMode.UserRead));
         Assert.IsTrue(mode.HasFlag(UnixFileMode.UserWrite));
         Assert.IsTrue(mode.HasFlag(UnixFileMode.UserExecute));
@@ -896,7 +896,7 @@ public class AosprojSerializerTests
         var deserialized = _serializer.Deserialize(doc);
         var item = deserialized.IncludeFiles[0];
         Assert.IsTrue(item.Mode.HasValue);
-        var mode = item.Mode.Value;
+        var mode = item.Mode!.Value;
         Assert.IsTrue(mode.HasFlag(UnixFileMode.UserRead));
         Assert.IsFalse(mode.HasFlag(UnixFileMode.UserExecute));
         Assert.IsFalse(mode.HasFlag(UnixFileMode.GroupExecute));
