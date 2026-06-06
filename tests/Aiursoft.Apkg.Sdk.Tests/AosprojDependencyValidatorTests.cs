@@ -246,19 +246,8 @@ public class AosprojDependencyValidatorTests
     [TestMethod]
     public async Task ValidateDependencies_MultiSource_PackageInSecondSource_NoIssues()
     {
-        // Source 1 has gnome-shell but not firefox-anduinos
-        // Source 2 has firefox-anduinos but not gnome-shell
-        // Both should pass (union semantics)
-        var handler1 = new FakePackagesHandler(MinimalPackages); // has gnome-shell
-        var handler2 = new FakePackagesHandler(
-            "Package: firefox-anduinos\nVersion: 151.0\nArchitecture: amd64\n\n");
-        var client1 = new AptPackageIndexClient(new HttpClient(handler1));
-        var client2 = new AptPackageIndexClient(new HttpClient(handler2));
-
-        // We need a validator that uses different clients per URL.
-        // Since the real AptPackageIndexClient uses a single HttpClient,
-        // we test with two separate validations or use a mock.
-        // For this test, we use a single handler that has all packages.
+        // Both gnome-shell and firefox-anduinos exist in the combined source.
+        // With multi-source union semantics, both should pass.
         var combinedHandler = new FakePackagesHandler(
             MinimalPackages +
             "Package: firefox-anduinos\nVersion: 151.0\nArchitecture: amd64\n\n");
@@ -296,14 +285,8 @@ public class AosprojDependencyValidatorTests
     [TestMethod]
     public async Task ValidateDependencies_ConditionFiltersSource()
     {
-        // Source 1: only for jammy, Source 2: only for noble
-        // When suite is "noble", Source 1 should be skipped
-        var handler1 = new FakePackagesHandler(
-            "Package: only-in-jammy\nVersion: 1.0\nArchitecture: amd64\n\n");
-        var handler2 = new FakePackagesHandler(
-            "Package: only-in-noble\nVersion: 1.0\nArchitecture: amd64\n\n");
-
-        // Both handlers share same client — but since URLs differ the cache key differs
+        // Source 1: only for jammy (skipped by Condition)
+        // Source 2: for noble — should find only-in-noble
         var handler = new FakePackagesHandler(
             "Package: only-in-noble\nVersion: 1.0\nArchitecture: amd64\n\n");
         var validator = new AosprojDependencyValidator(
