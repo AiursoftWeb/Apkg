@@ -77,7 +77,7 @@ public class ContentsGeneratorService
             List<string> files;
             try
             {
-                files = await GetDebContentsAsync(pkg.DebPath, tempDir);
+                files = await GetDebContentsAsync(pkg.DebPath);
             }
             catch
             {
@@ -140,7 +140,7 @@ public class ContentsGeneratorService
     /// <summary>
     /// Runs <c>dpkg-deb -c</c> on a .deb file and parses the output.
     /// </summary>
-    private static async Task<List<string>> GetDebContentsAsync(string debPath, string tempDir)
+    private static async Task<List<string>> GetDebContentsAsync(string debPath)
     {
         if (!File.Exists(debPath))
             throw new FileNotFoundException("Deb file not found.", debPath);
