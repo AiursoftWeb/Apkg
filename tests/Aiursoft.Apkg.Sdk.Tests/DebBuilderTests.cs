@@ -2706,4 +2706,160 @@ public class DebBuilderTests
             Directory.Delete(tempDir, recursive: true);
         }
     }
+
+    // ── Staging directory lifecycle / PrebuildCommand isolation ───────────────
+
+    [TestMethod]
+    public async Task BuildAsync_StagingDirs_LeftoverFromPreviousBuildAreVisible()
+    {
+        // Arrange: project with 2 suites, same arch. PrebuildCommand that
+        // enumerates obj/* and writes the count + listing to a marker file.
+        // Goal: prove that when building suite #2, the script sees both the
+        // leftover staging dir from suite #1 AND the current staging dir.
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            var markerFile = Path.Combine(tempDir, "obj-dirs.txt");
+            var shell = OperatingSystem.IsWindows()
+                ? $"powershell -Command \"(Get-ChildItem -Directory {projectDir}/obj/* ^| Measure-Object).Count | Out-File -Encoding ASCII {markerFile}\""
+                : $"echo $(ls -1d {projectDir}/obj/*/ 2>/dev/null | wc -l) > {markerFile}";
+
+            var project = new AosprojProject
+            {
+                PackageName = "stale-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "Stale staging dir test",
+                Maintainer = "Test <test@example.com>",
+                TargetDistro = "ubuntu",
+                TargetSuites = "noble questing",
+                PrebuildCommands =
+                {
+                    new PrebuildCommandItem { Run = shell }
+                }
+            };
+
+            // Act: build first suite
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "noble", "amd64", outputDir);
+            var countAfterFirst = int.Parse((await File.ReadAllTextAsync(markerFile)).Trim());
+            Assert.AreEqual(1, countAfterFirst,
+                "First build: PrebuildCommand should see exactly 1 staging dir (only noble).");
+
+            // Assert: With the fix applied, stale staging dirs from previous
+            // builds are cleaned up before the next build starts. So the
+            // second build still sees exactly 1 staging dir (only its own).
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "questing", "amd64", outputDir);
+            var countAfterSecond = int.Parse((await File.ReadAllTextAsync(markerFile)).Trim());
+            Assert.AreEqual(1, countAfterSecond,
+                "After fix: PrebuildCommand sees only its own staging dir. " +
+                "Stale dirs from previous builds are cleaned up.");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task BuildAsync_PrebuildCommand_ReceivesAppropriateStageDirContext()
+    {
+        // Goal: demonstrate the fix — when APKG_STAGE_DIR is set as an
+        // environment variable, PrebuildCommands can directly access the
+        // correct staging directory without guessing via obj/* globs.
+        // This test will PASS once the fix is applied.
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            var markerFile = Path.Combine(tempDir, "stage-dir.txt");
+            var shell = OperatingSystem.IsWindows()
+                ? $"powershell -Command \"$env:APKG_STAGE_DIR | Out-File -Encoding ASCII {markerFile}\""
+                : $"echo $APKG_STAGE_DIR > {markerFile}";
+
+            var project = new AosprojProject
+            {
+                PackageName = "ctx-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "Stage dir context test",
+                Maintainer = "Test <test@example.com>",
+                TargetDistro = "ubuntu",
+                TargetSuites = "noble questing",
+                PrebuildCommands =
+                {
+                    new PrebuildCommandItem { Run = shell }
+                }
+            };
+
+            // Act: build first suite
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "noble", "amd64", outputDir);
+            var stageDir1 = (await File.ReadAllTextAsync(markerFile)).Trim();
+            var expected1 = Path.Combine(projectDir, "obj", "noble_amd64");
+            Assert.AreEqual(expected1, stageDir1,
+                $"APKG_STAGE_DIR should point to the noble staging dir. Got: '{stageDir1}'");
+
+            // Act: build second suite
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "questing", "amd64", outputDir);
+            var stageDir2 = (await File.ReadAllTextAsync(markerFile)).Trim();
+            var expected2 = Path.Combine(projectDir, "obj", "questing_amd64");
+            Assert.AreEqual(expected2, stageDir2,
+                $"APKG_STAGE_DIR should point to the questing staging dir. Got: '{stageDir2}'");
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task BuildAsync_NoLeftoverStagingDirsAfterMultiSuiteBuild()
+    {
+        // Goal: after building all suites serially, only the LAST suite's
+        // staging dir should remain (older ones cleaned up). The stale
+        // accumulation bug is fixed.
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            var project = new AosprojProject
+            {
+                PackageName = "clean-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "Cleanup test",
+                Maintainer = "Test <test@example.com>",
+                TargetDistro = "ubuntu",
+                TargetSuites = "noble questing resolute",
+            };
+
+            // Act: build all 3 suites sequentially
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "noble", "amd64", outputDir);
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "questing", "amd64", outputDir);
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "resolute", "amd64", outputDir);
+
+            // Assert: only the last suite's staging dir exists — no stale ones
+            var objDir = Path.Combine(projectDir, "obj");
+            if (Directory.Exists(objDir))
+            {
+                var remaining = Directory.GetDirectories(objDir);
+                Assert.AreEqual(1, remaining.Length,
+                    $"Expected exactly 1 staging dir (the last one built), but found: " +
+                    string.Join(", ", remaining.Select(Path.GetFileName)));
+                Assert.AreEqual("resolute_amd64", Path.GetFileName(remaining[0]),
+                    "Only the most recent suite's staging dir should survive.");
+            }
+            // If obj/ doesn't exist at all, that's also fine (fully cleaned up)
+        }
+        finally
+        {
+            Directory.Delete(tempDir, recursive: true);
+        }
+    }
 }

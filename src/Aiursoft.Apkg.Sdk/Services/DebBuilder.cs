@@ -63,6 +63,20 @@ public class DebBuilder
             Directory.Delete(stagingRoot, recursive: true);
         Directory.CreateDirectory(stagingRoot);
 
+        // Clean up stale staging dirs left over from previous suite/arch builds
+        // so that PrebuildCommands that enumerate obj/* never pick up dead data.
+        var objDir = Path.Combine(projectDir, "obj");
+        if (Directory.Exists(objDir))
+        {
+            foreach (var stale in Directory.GetDirectories(objDir, "*_*"))
+            {
+                if (stale != stagingRoot)
+                {
+                    Directory.Delete(stale, recursive: true);
+                }
+            }
+        }
+
         var debianDir = Path.Combine(stagingRoot, "DEBIAN");
         Directory.CreateDirectory(debianDir);
 
@@ -132,7 +146,10 @@ public class DebBuilder
         foreach (var cmd in project.PrebuildCommands.Where(c => Include(c.Condition)))
         {
             _logger.LogInformation("Running prebuild command: {Cmd}", cmd.Run);
-            await RunShellAsync(cmd.Run, projectDir);
+            await RunShellAsync(cmd.Run, projectDir, new Dictionary<string, string>
+            {
+                ["APKG_STAGE_DIR"] = stagingRoot
+            });
         }
 
         // ── DEBIAN/control ───────────────────────────────────────────────────
@@ -844,12 +861,12 @@ public class DebBuilder
         return Math.Max(1, (sizeBytes + 1023) / 1024);
     }
 
-    private static async Task RunShellAsync(string command, string workingDir)
+    private static async Task RunShellAsync(string command, string workingDir, Dictionary<string, string>? env = null)
     {
-        await RunCommandAsync("/bin/sh", ["-c", command], workingDir);
+        await RunCommandAsync("/bin/sh", ["-c", command], workingDir, env);
     }
 
-    private static async Task RunCommandAsync(string executable, string[] args, string workingDir)
+    private static async Task RunCommandAsync(string executable, string[] args, string workingDir, Dictionary<string, string>? env = null)
     {
         using var process = new Process();
         process.StartInfo = new ProcessStartInfo
@@ -866,6 +883,11 @@ public class DebBuilder
         // output.  Without this every CI run embeds a different mtime in the
         // ar/tar archives, yielding a different SHA-256 for the same content.
         process.StartInfo.Environment["SOURCE_DATE_EPOCH"] = "0";
+        if (env != null)
+        {
+            foreach (var (key, value) in env)
+                process.StartInfo.Environment[key] = value;
+        }
         foreach (var arg in args)
             process.StartInfo.ArgumentList.Add(arg);
 
