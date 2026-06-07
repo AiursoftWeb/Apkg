@@ -27,6 +27,12 @@ public class DebBuilder
         UnixFileMode.GroupRead | UnixFileMode.GroupExecute |
         UnixFileMode.OtherRead | UnixFileMode.OtherExecute;
 
+    /// <summary>Default permissions for non-executable data/config files (0644, rw-r--r--).</summary>
+    private const UnixFileMode DefaultFileMode =
+        UnixFileMode.UserRead | UnixFileMode.UserWrite |
+        UnixFileMode.GroupRead |
+        UnixFileMode.OtherRead;
+
     /// <summary>
     /// Builds a .deb for the given target and writes it to <paramref name="outputDir"/>.
     /// Returns the absolute path to the produced .deb file and the resolved version.
@@ -209,8 +215,7 @@ public class DebBuilder
             var dest = Path.Combine(stagingRoot, NormalizeTargetPath(item.Target));
             EnsureParentDirectory(dest);
             File.Copy(src, dest, overwrite: true);
-            if (item.Mode.HasValue)
-                SetFileMode(dest, item.Mode.Value);
+            SetFileMode(dest, item.Mode ?? DefaultFileMode);
             _logger.LogDebug("  + {Target}", item.Target);
         }
 
@@ -241,8 +246,7 @@ public class DebBuilder
             var dest = Path.Combine(stagingRoot, NormalizeTargetPath(item.Target));
             EnsureParentDirectory(dest);
             File.Copy(src, dest, overwrite: true);
-            if (item.Mode.HasValue)
-                SetFileMode(dest, item.Mode.Value);
+            SetFileMode(dest, item.Mode ?? DefaultFileMode);
             var confPath = item.Target;
             if (confPath.StartsWith("./", StringComparison.Ordinal)) confPath = confPath[1..];
             if (!confPath.StartsWith('/')) confPath = "/" + confPath;
@@ -265,6 +269,7 @@ public class DebBuilder
             var unitDest = Path.Combine(stagingRoot, "lib", "systemd", "system", unitName);
             EnsureParentDirectory(unitDest);
             File.Copy(src, unitDest, overwrite: true);
+            SetFileMode(unitDest, unit.Mode ?? DefaultFileMode);
             _logger.LogDebug("  + /lib/systemd/system/{Unit}", unitName);
         }
 
