@@ -283,20 +283,19 @@ public class RepositoryExportJob(
             var hashPrefix = hash[..2];
             var casPath = Path.Combine(objectsRoot, hashPrefix, $"{hash}.deb");
 
-            // The Filename field from the Packages index is already rewritten to:
-            //   {suite}/pool/{component}/{firstLetter}/{packageName}/{fileName}
-            // We need to produce:
+            // The Filename field stored in DB is: pool/{component}/{firstLetter}/{pkg}/{...}.deb
+            // (no suite prefix — the suite prefix is only injected into Packages.gz output).
+            // We need to produce both URL patterns:
             //   artifacts/{distro}/{suite}/pool/... (suite-scoped, matching GetSuitePool route)
+            //   artifacts/{distro}/pool/...          (distro-scoped, matching GetPool route)
             var filename = pkg.Filename.TrimStart('/');
 
-            // Suite-scoped pool: artifacts/{distro}/{filename}
-            // Where filename = "{suite}/pool/main/..."
-            var suitePoolPath = Path.Combine(stageDir, "artifacts", repo.Distro, filename);
+            // Suite-scoped pool: artifacts/{distro}/{suite}/pool/...
+            var suitePoolPath = Path.Combine(stageDir, "artifacts", repo.Distro, repo.Suite, filename);
             LinkDebFile(casPath, suitePoolPath);
 
-            // Also create distro-scoped pool (without suite prefix):
+            // Also create distro-scoped pool (without suite):
             // artifacts/{distro}/pool/... (matching GetPool route)
-            // Strip the suite prefix from filename
             var poolPrefix = "pool/";
             var poolIdx = filename.IndexOf(poolPrefix, StringComparison.Ordinal);
             if (poolIdx >= 0)

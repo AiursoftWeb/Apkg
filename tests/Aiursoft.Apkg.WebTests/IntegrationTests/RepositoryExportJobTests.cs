@@ -280,7 +280,7 @@ public class RepositoryExportJobTests : TestBase
         await File.WriteAllTextAsync(Path.Combine(casDir, $"{sha256}.deb"), "fake-deb-content");
 
         var pkg = CreatePackage(bucket.Id, "test-pkg", "1.0", "amd64", "main", sha256,
-            "noble/pool/main/t/test-pkg/test-pkg_1.0_amd64.deb");
+            "pool/main/t/test-pkg/test-pkg_1.0_amd64.deb");
         _db.AptPackages.Add(pkg);
 
         _db.AptRepositories.Add(CreateRepo("testos", "pool1", "noble", "main", "amd64", bucket.Id));
@@ -311,7 +311,7 @@ public class RepositoryExportJobTests : TestBase
         var sha256 = "deadbeef0000000000000000000000000000000000000000000000000000dead";
 
         _db.AptPackages.Add(CreatePackage(bucket.Id, "missing-pkg", "1.0", "amd64", "main", sha256,
-            "noble/pool/main/m/missing-pkg/missing-pkg_1.0_amd64.deb"));
+            "pool/main/m/missing-pkg/missing-pkg_1.0_amd64.deb"));
         _db.AptRepositories.Add(CreateRepo("testos", "pool2", "noble", "main", "amd64", bucket.Id));
         await _db.SaveChangesAsync();
 
@@ -451,7 +451,7 @@ public class RepositoryExportJobTests : TestBase
         await File.WriteAllTextAsync(Path.Combine(contentsDir, "Contents-amd64.gz"), "gz");
 
         _db.AptPackages.Add(CreatePackage(bucket.Id, "test", "1.0", "amd64", "main", sha256,
-            "noble/pool/main/t/test/test_1.0_amd64.deb"));
+            "pool/main/t/test/test_1.0_amd64.deb"));
         _db.AptRepositories.Add(CreateRepo("testos", "route", "noble", "main", "amd64", bucket.Id));
         await _db.SaveChangesAsync();
 
