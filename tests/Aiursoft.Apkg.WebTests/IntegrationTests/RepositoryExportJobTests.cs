@@ -32,13 +32,10 @@ public class RepositoryExportJobTests : TestBase
     public override void CleanTestContext()
     {
         var cleanRoot = _exportRoot.TrimEnd('/');
-        if (cleanRoot != null)
+        foreach (var dir in new[] { cleanRoot, cleanRoot + "_stage", cleanRoot + "_prev" })
         {
-            foreach (var dir in new[] { cleanRoot, cleanRoot + "_stage", cleanRoot + "_prev" })
-            {
-                try { if (Directory.Exists(dir)) Directory.Delete(dir, recursive: true); }
-                catch { /* best-effort */ }
-            }
+            try { if (Directory.Exists(dir)) Directory.Delete(dir, recursive: true); }
+            catch { /* best-effort */ }
         }
         base.CleanTestContext();
     }
