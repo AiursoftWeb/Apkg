@@ -306,7 +306,7 @@
 `IncludeFile`、`IncludeScript`、`ConfFile` 支持可选的 `Mode` 属性，用于设置文件的 Unix 权限。
 值为 3 位八进制字符串，如 `"755"`、`"644"`、`"600"`。
 
-- 对 `IncludeFile` 和 `ConfFile`：不设 `Mode` 时保留源文件原始权限
+- 对 `IncludeFile`、`ConfFile` 和 `SystemdUnit`：不设 `Mode` 时默认为 `644`（不可执行）
 - 对 `IncludeScript`：不设 `Mode` 时默认为 `755`（可执行）
 
 ```xml
@@ -425,6 +425,8 @@
   Include    = .service 文件相对于 .aosproj 的路径
   AutoEnable = true（默认）表示安装后立即 enable+start；
                false 表示只安装 unit 文件，不自动启动
+  Mode       = 可选，Unix 权限（3 位八进制字符串，如 "644"）。
+               不设时默认为 644（不可执行）。
 -->
 <SystemdUnit Include="service/my-daemon.service" AutoEnable="true" />
 ```

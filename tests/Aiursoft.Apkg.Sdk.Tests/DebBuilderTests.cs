@@ -2658,6 +2658,291 @@ public class DebBuilderTests
         finally { Directory.Delete(tempDir, recursive: true); }
     }
 
+    [TestMethod]
+    public async Task BuildAsync_IncludeFile_WithoutMode_DefaultsTo0644()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            // Create a source file that is executable (0755) — the builder should
+            // override it with the default 0644 since no explicit Mode is set.
+            File.WriteAllText(Path.Combine(projectDir, "data.txt"), "data");
+            var srcPath = Path.Combine(projectDir, "data.txt");
+#pragma warning disable CA1416
+            try { File.SetUnixFileMode(srcPath, UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute | UnixFileMode.GroupRead | UnixFileMode.GroupExecute | UnixFileMode.OtherRead | UnixFileMode.OtherExecute); }
+            catch (PlatformNotSupportedException) { }
+#pragma warning restore CA1416
+
+            var project = new AosprojProject
+            {
+                PackageName = "default-file-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "IncludeFile default mode test",
+                Maintainer = "Test <test@example.com>",
+                TargetSuites = "jammy",
+                IncludeFiles =
+                {
+                    new IncludeFileItem
+                    {
+                        Source = "data.txt",
+                        Target = "/usr/share/default-file-pkg/data.txt"
+                        // No Mode set — should default to 0644
+                    }
+                }
+            };
+
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+            var dest = Path.Combine(projectDir, "obj", "jammy_amd64", "usr", "share", "default-file-pkg", "data.txt");
+            Assert.IsTrue(File.Exists(dest));
+
+#pragma warning disable CA1416
+            try
+            {
+                var mode = File.GetUnixFileMode(dest);
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.UserRead));
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.UserWrite));
+                Assert.IsFalse(mode.HasFlag(UnixFileMode.UserExecute), "IncludeFile without Mode should default to 0644 (not user-executable).");
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.GroupRead));
+                Assert.IsFalse(mode.HasFlag(UnixFileMode.GroupExecute), "IncludeFile without Mode should default to 0644 (not group-executable).");
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.OtherRead));
+                Assert.IsFalse(mode.HasFlag(UnixFileMode.OtherExecute), "IncludeFile without Mode should default to 0644 (not other-executable).");
+            }
+            catch (PlatformNotSupportedException) { }
+#pragma warning restore CA1416
+        }
+        finally { Directory.Delete(tempDir, recursive: true); }
+    }
+
+    [TestMethod]
+    public async Task BuildAsync_ConfFile_WithoutMode_DefaultsTo0644()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            // Source file is executable — builder should override with 0644
+            File.WriteAllText(Path.Combine(projectDir, "app.conf"), "key=value\n");
+            var srcPath = Path.Combine(projectDir, "app.conf");
+#pragma warning disable CA1416
+            try { File.SetUnixFileMode(srcPath, UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute | UnixFileMode.GroupRead | UnixFileMode.GroupExecute | UnixFileMode.OtherRead | UnixFileMode.OtherExecute); }
+            catch (PlatformNotSupportedException) { }
+#pragma warning restore CA1416
+
+            var project = new AosprojProject
+            {
+                PackageName = "default-conf-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "ConfFile default mode test",
+                Maintainer = "Test <test@example.com>",
+                TargetSuites = "jammy",
+                ConfFiles =
+                {
+                    new ConfFileItem
+                    {
+                        Source = "app.conf",
+                        Target = "/etc/default-conf-pkg/app.conf"
+                        // No Mode set — should default to 0644
+                    }
+                }
+            };
+
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+            var dest = Path.Combine(projectDir, "obj", "jammy_amd64", "etc", "default-conf-pkg", "app.conf");
+            Assert.IsTrue(File.Exists(dest));
+
+#pragma warning disable CA1416
+            try
+            {
+                var mode = File.GetUnixFileMode(dest);
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.UserRead));
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.UserWrite));
+                Assert.IsFalse(mode.HasFlag(UnixFileMode.UserExecute), "ConfFile without Mode should default to 0644.");
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.GroupRead));
+                Assert.IsFalse(mode.HasFlag(UnixFileMode.GroupExecute), "ConfFile without Mode should default to 0644.");
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.OtherRead));
+                Assert.IsFalse(mode.HasFlag(UnixFileMode.OtherExecute), "ConfFile without Mode should default to 0644.");
+            }
+            catch (PlatformNotSupportedException) { }
+#pragma warning restore CA1416
+        }
+        finally { Directory.Delete(tempDir, recursive: true); }
+    }
+
+    [TestMethod]
+    public async Task BuildAsync_SystemdUnit_WithoutMode_DefaultsTo0644()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            // Source file is executable — builder should override with 0644
+            var deployDir = Path.Combine(projectDir, "deploy");
+            Directory.CreateDirectory(deployDir);
+            await File.WriteAllTextAsync(Path.Combine(deployDir, "app.service"),
+                "[Unit]\nDescription=App\n\n[Service]\nExecStart=/usr/bin/app\n\n[Install]\nWantedBy=multi-user.target\n");
+            var srcPath = Path.Combine(deployDir, "app.service");
+#pragma warning disable CA1416
+            try { File.SetUnixFileMode(srcPath, UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute | UnixFileMode.GroupRead | UnixFileMode.GroupExecute | UnixFileMode.OtherRead | UnixFileMode.OtherExecute); }
+            catch (PlatformNotSupportedException) { }
+#pragma warning restore CA1416
+
+            var project = new AosprojProject
+            {
+                PackageName = "default-unit-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "SystemdUnit default mode test",
+                Maintainer = "Test <test@example.com>",
+                TargetSuites = "jammy",
+                SystemdUnits =
+                {
+                    new SystemdUnitItem
+                    {
+                        Source = "deploy/app.service",
+                        AutoEnable = false
+                        // No Mode set — should default to 0644
+                    }
+                }
+            };
+
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+            var dest = Path.Combine(projectDir, "obj", "jammy_amd64", "lib", "systemd", "system", "app.service");
+            Assert.IsTrue(File.Exists(dest));
+
+#pragma warning disable CA1416
+            try
+            {
+                var mode = File.GetUnixFileMode(dest);
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.UserRead));
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.UserWrite));
+                Assert.IsFalse(mode.HasFlag(UnixFileMode.UserExecute), "SystemdUnit without Mode should default to 0644.");
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.GroupRead));
+                Assert.IsFalse(mode.HasFlag(UnixFileMode.GroupExecute), "SystemdUnit without Mode should default to 0644.");
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.OtherRead));
+                Assert.IsFalse(mode.HasFlag(UnixFileMode.OtherExecute), "SystemdUnit without Mode should default to 0644.");
+            }
+            catch (PlatformNotSupportedException) { }
+#pragma warning restore CA1416
+        }
+        finally { Directory.Delete(tempDir, recursive: true); }
+    }
+
+    [TestMethod]
+    public async Task BuildAsync_ConfFile_WithMode755_OverridesDefault()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+            File.WriteAllText(Path.Combine(projectDir, "exec-config"), "#!/bin/sh\necho config-tool");
+
+            var project = new AosprojProject
+            {
+                PackageName = "conf-mode755-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "ConfFile explicit Mode overrides default",
+                Maintainer = "Test <test@example.com>",
+                TargetSuites = "jammy",
+                ConfFiles =
+                {
+                    new ConfFileItem
+                    {
+                        Source = "exec-config",
+                        Target = "/etc/conf-mode755-pkg/exec-config",
+                        Mode = UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute |
+                               UnixFileMode.GroupRead | UnixFileMode.GroupExecute |
+                               UnixFileMode.OtherRead | UnixFileMode.OtherExecute
+                    }
+                }
+            };
+
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+            var dest = Path.Combine(projectDir, "obj", "jammy_amd64", "etc", "conf-mode755-pkg", "exec-config");
+            Assert.IsTrue(File.Exists(dest));
+
+#pragma warning disable CA1416
+            try
+            {
+                var mode = File.GetUnixFileMode(dest);
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.UserExecute), "ConfFile with explicit Mode=755 should be executable.");
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.GroupExecute));
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.OtherExecute));
+            }
+            catch (PlatformNotSupportedException) { }
+#pragma warning restore CA1416
+        }
+        finally { Directory.Delete(tempDir, recursive: true); }
+    }
+
+    [TestMethod]
+    public async Task BuildAsync_SystemdUnit_WithMode755_OverridesDefault()
+    {
+        var tempDir = CreateTestDirectory();
+        try
+        {
+            var projectDir = Path.Combine(tempDir, "project");
+            var outputDir = Path.Combine(tempDir, "output");
+            Directory.CreateDirectory(projectDir);
+
+            var deployDir = Path.Combine(projectDir, "deploy");
+            Directory.CreateDirectory(deployDir);
+            await File.WriteAllTextAsync(Path.Combine(deployDir, "special.service"),
+                "[Unit]\nDescription=Special\n\n[Service]\nExecStart=/usr/bin/special\n");
+
+            var project = new AosprojProject
+            {
+                PackageName = "unit-mode755-pkg",
+                PackageVersion = "1.0.0",
+                PackageDescription = "SystemdUnit explicit Mode overrides default",
+                Maintainer = "Test <test@example.com>",
+                TargetSuites = "jammy",
+                SystemdUnits =
+                {
+                    new SystemdUnitItem
+                    {
+                        Source = "deploy/special.service",
+                        AutoEnable = false,
+                        Mode = UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute |
+                               UnixFileMode.GroupRead | UnixFileMode.GroupExecute |
+                               UnixFileMode.OtherRead | UnixFileMode.OtherExecute
+                    }
+                }
+            };
+
+            await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+            var dest = Path.Combine(projectDir, "obj", "jammy_amd64", "lib", "systemd", "system", "special.service");
+            Assert.IsTrue(File.Exists(dest));
+
+#pragma warning disable CA1416
+            try
+            {
+                var mode = File.GetUnixFileMode(dest);
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.UserExecute), "SystemdUnit with explicit Mode=755 should be executable.");
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.GroupExecute));
+                Assert.IsTrue(mode.HasFlag(UnixFileMode.OtherExecute));
+            }
+            catch (PlatformNotSupportedException) { }
+#pragma warning restore CA1416
+        }
+        finally { Directory.Delete(tempDir, recursive: true); }
+    }
+
     // ── UpstreamSignedBy ──────────────────────────────────────────────────────
 
     [TestMethod]
