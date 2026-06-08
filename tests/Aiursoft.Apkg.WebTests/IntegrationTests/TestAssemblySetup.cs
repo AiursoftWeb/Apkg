@@ -62,7 +62,8 @@ public class TestAssemblySetup
             host = await AppAsync<Startup>(
             [
                 $"--ConnectionStrings:DefaultConnection={dbName}",
-                $"--Storage:Path=/tmp/data/{dbName}"
+                $"--Storage:Path=/tmp/data/{dbName}",
+                $"--Storage:ExportPath=/tmp/export/{dbName}"
             ], port: port);
             await host.StartAsync();
         }

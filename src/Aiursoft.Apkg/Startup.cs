@@ -77,6 +77,7 @@ public class Startup : IWebStartup
         var repositorySyncJob = services.RegisterBackgroundJob<RepositorySyncJob>();
         var repositorySignJob = services.RegisterBackgroundJob<RepositorySignJob>();
         var garbageCollectionJob = services.RegisterBackgroundJob<GarbageCollectionJob>();
+        var repositoryExportJob = services.RegisterBackgroundJob<RepositoryExportJob>();
 
         // Scheduled tasks (attach a schedule to any registered background job)
         services.RegisterScheduledTask(
@@ -117,6 +118,14 @@ public class Startup : IWebStartup
             registration: garbageCollectionJob,
             period: TimeSpan.FromMinutes(70),
             startDelay: TimeSpan.FromMinutes(15));
+
+        // Repository Export Job runs every 10 minutes, delay 30 minutes.
+        // Materializes all APT repositories as static files for rsync/nginx edge distribution.
+        // Delay is set to 30 minutes so RepositorySignJob (25min) has promoted at least one bucket.
+        services.RegisterScheduledTask(
+            registration: repositoryExportJob,
+            period: TimeSpan.FromMinutes(10),
+            startDelay: TimeSpan.FromMinutes(30));
 
         // So an idea run steps are:
         // 1. At 00:00, Mirror Sync Job runs
