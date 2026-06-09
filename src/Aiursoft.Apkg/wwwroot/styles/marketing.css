@@ -199,22 +199,6 @@
     background: linear-gradient(180deg, rgba(11, 18, 32, 0), rgba(11, 18, 32, 0.9));
 }
 
-.apkg-hero-preview {
-    width: min(100%, 520px);
-    max-height: 240px;
-    overflow: hidden;
-    transform: rotateY(-20deg) rotateX(2deg);
-    transform-origin: center;
-}
-
-.apkg-hero-preview img {
-    display: block;
-    width: 100%;
-    max-height: 220px;
-    object-fit: contain;
-    object-position: top center;
-}
-
 .apkg-hero-search {
     max-width: 620px;
 }
