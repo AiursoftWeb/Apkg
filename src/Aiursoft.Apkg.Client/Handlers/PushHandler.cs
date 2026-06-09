@@ -49,6 +49,13 @@ public class PushHandler : ExecutableCommandHandlerBuilder
             DefaultValueFactory = _ => false
         };
 
+    private static readonly Option<long> ChunkSizeOption =
+        new(name: "--chunk-size")
+        {
+            Description = "Maximum size of each upload chunk in bytes. Files larger than this will be uploaded in chunks to bypass CDN limits. Set to 0 to disable chunked upload.",
+            DefaultValueFactory = _ => 90L * 1024 * 1024 // 90 MB
+        };
+
     protected override IEnumerable<Option> GetCommandOptions() =>
     [
         FileOption,
@@ -56,6 +63,7 @@ public class PushHandler : ExecutableCommandHandlerBuilder
         ApiKeyOption,
         SkipDuplicateOption,
         AllowDowngradeOption,
+        ChunkSizeOption,
     ];
 
     protected override async Task Execute(ParseResult context)
@@ -66,6 +74,7 @@ public class PushHandler : ExecutableCommandHandlerBuilder
         var apiKey = context.GetValue(ApiKeyOption)!;
         var skipDuplicate = context.GetValue(SkipDuplicateOption);
         var allowDowngrade = context.GetValue(AllowDowngradeOption);
+        var chunkSize = context.GetValue(ChunkSizeOption);
 
         var filePath = Path.GetFullPath(file);
         if (!File.Exists(filePath))
@@ -79,8 +88,32 @@ public class PushHandler : ExecutableCommandHandlerBuilder
         var pushService = services.GetRequiredService<ApkgPushService>();
         var logger = services.GetRequiredService<ILogger<PushHandler>>();
 
-        logger.LogInformation("Pushing {FileName} to {Source}...", Path.GetFileName(filePath), source);
-        var responseBody = await pushService.PushAsync(filePath, source, apiKey, skipDuplicate, allowDowngrade);
+        var fileSize = new FileInfo(filePath).Length;
+        string responseBody;
+
+        if (chunkSize > 0 && fileSize > chunkSize)
+        {
+            var chunkCount = (int)Math.Ceiling((double)fileSize / chunkSize);
+            logger.LogInformation(
+                "File {FileName} is {FileSize}MB — using chunked upload ({ChunkCount} chunks of up to {ChunkSize}MB)",
+                Path.GetFileName(filePath),
+                fileSize / (1024 * 1024),
+                chunkCount,
+                chunkSize / (1024 * 1024));
+
+            var progress = new Progress<ChunkedUploadProgress>(p =>
+            {
+                logger.LogInformation("  {Message}", p.Message);
+            });
+
+            responseBody = await pushService.PushChunkedAsync(
+                filePath, source, apiKey, skipDuplicate, allowDowngrade, chunkSize, progress);
+        }
+        else
+        {
+            logger.LogInformation("Pushing {FileName} to {Source}...", Path.GetFileName(filePath), source);
+            responseBody = await pushService.PushAsync(filePath, source, apiKey, skipDuplicate, allowDowngrade);
+        }
 
         using var document = JsonDocument.Parse(responseBody);
         var root = document.RootElement;
@@ -146,3 +179,4 @@ public class PushHandler : ExecutableCommandHandlerBuilder
         return TryGetPropertyIgnoreCase(element, propertyName, out var value) ? value.GetString() : null;
     }
 }
+

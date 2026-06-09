@@ -20,6 +20,8 @@ public class FeatureFoldersProvider(StorageRootPathProvider rootPathProvider) : 
 
     public string GetBucketsFolder() => EnsureExists(Path.Combine(BasePath, "Buckets"));
 
+    public string GetChunkedUploadsFolder() => EnsureExists(Path.Combine(BasePath, "Workspace", "chunked-uploads"));
+
     private string EnsureExists(string path)
     {
         if (!Directory.Exists(path)) Directory.CreateDirectory(path);

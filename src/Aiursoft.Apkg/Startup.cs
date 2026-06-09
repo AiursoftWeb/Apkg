@@ -58,6 +58,7 @@ public class Startup : IWebStartup
         services.AddAssemblyDependencies(typeof(Startup).Assembly);
         services.AddTransient<IGpgSigningService, GpgSigningService>();
         services.AddScoped<DebUploadService>();
+        services.AddScoped<ApkgUploadProcessor>();
         services.AddSingleton<NavigationState<Startup>>();
 
         // Explicitly register dependency check services
