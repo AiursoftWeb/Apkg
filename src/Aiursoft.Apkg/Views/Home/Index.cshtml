@@ -68,24 +68,34 @@
             <div class="col-lg-8">
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
+                        <h5 class="card-title mb-3">@Localizer["Quick Start"]</h5>
                         <div class="mb-3">
                             <span class="badge badge-subtle-primary me-2">1</span>
-                            <strong>@Localizer["Prerequisite: Install .NET SDK"]</strong>
+                            <strong>@Localizer["Install .NET SDK"]</strong>
                             <p class="text-muted small mt-1 ms-4 ps-1 mb-0">
-                                <a href="https://dotnet.microsoft.com/en-us/download" target="_blank">@Localizer["Download .NET 8.0 or later"]</a>
+                                <a href="https://dotnet.microsoft.com/en-us/download" target="_blank">@Localizer["Download .NET SDK"]</a>
+                                <span class="mx-1">|</span>
+                                @Localizer["Ubuntu:"] <code>sudo apt install dotnet10</code>
                             </p>
                         </div>
                         <div class="mb-3">
                             <span class="badge badge-subtle-primary me-2">2</span>
                             <strong>@Localizer["Install APKG CLI"]</strong>
                             <pre class="bg-dark text-white p-2 rounded small mt-1 ms-4 ps-1 mb-0" style="white-space:pre-wrap;"><code>dotnet tool install -g Aiursoft.Apkg.Client</code></pre>
+                            <a rel="nofollow noreferrer noopener" href="https://www.nuget.org/packages/Aiursoft.Apkg.Client/" target="_blank" class="mt-1 ms-4 ps-1 d-inline-block">
+                                <img alt="NuGet version (Aiursoft.Apkg.Client)" src="https://img.shields.io/nuget/v/Aiursoft.Apkg.Client.svg">
+                            </a>
+                        </div>
+                        <div class="mb-3">
+                            <span class="badge badge-subtle-primary me-2">3</span>
+                            <strong>@Localizer["Configure sudo apkg (one-time setup)"]</strong>
+                            <p class="text-muted small mt-1 ms-4 ps-1 mb-1">@Localizer["<code>sudo apkg</code> cannot run directly because root's PATH does not include <code>~/.dotnet/tools</code>. Create a symlink once and it works permanently:"]</p>
+                            <pre class="bg-dark text-white p-2 rounded small mt-1 ms-4 ps-1 mb-0" style="white-space:pre-wrap;"><code>sudo ln -s ~/.dotnet/tools/apkg /usr/local/bin/apkg</code></pre>
                         </div>
                         <div>
-                            <span class="badge badge-subtle-primary me-2">3</span>
-                            <strong>@Localizer["Add a source (requires sudo)"]</strong>
-                            <p class="text-muted small mt-1 ms-4 ps-1 mb-1">@Localizer["To use <code>sudo apkg</code>, make the dotnet tools path available to root:"]</p>
-                            <pre class="bg-dark text-white p-2 rounded small mt-1 ms-4 ps-1 mb-0" style="white-space:pre-wrap;"><code>sudo env "PATH=$PATH" apkg add-source https://apkg-dev.aiursoft.com/api/sources/{id}</code></pre>
-                            <p class="text-muted small mt-1 ms-4 ps-1 mb-0">@Localizer["Or configure it permanently:"] <code>sudo sh -c 'echo "export PATH=\"\$PATH:$HOME/.dotnet/tools\"" >> /root/.bashrc'</code></p>
+                            <span class="badge badge-subtle-primary me-2">4</span>
+                            <strong>@Localizer["Add a source"]</strong>
+                            <pre class="bg-dark text-white p-2 rounded small mt-1 ms-4 ps-1 mb-0" style="white-space:pre-wrap;"><code>sudo apkg add-source https://apkg.aiursoft.com/api/sources/{id}</code></pre>
                         </div>
                     </div>
                 </div>
