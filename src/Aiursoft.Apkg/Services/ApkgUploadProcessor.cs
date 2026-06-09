@@ -6,7 +6,6 @@ using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Sdk.Models;
 using Aiursoft.Apkg.Sdk.Services;
 using Aiursoft.Apkg.Services.FileStorage;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.Apkg.Services;
@@ -210,7 +209,7 @@ public class ApkgUploadProcessor(
                     try
                     {
                         await using (var source = new FileStream(extractedDebSource, FileMode.Open, FileAccess.Read, FileShare.Read))
-                        await using (var destination = System.IO.File.Create(uploadTempPath))
+                        await using (var destination = File.Create(uploadTempPath))
                             await source.CopyToAsync(destination);
 
                         var result = await debUploadService.UploadDebToRepositoryAsync(repo, component, uploadTempPath, userId, revisionRecord.Id,
@@ -303,7 +302,7 @@ public class ApkgUploadProcessor(
                 continue;
 
             var tempEntryPath = CreateWorkspaceTempFilePath(Path.GetExtension(entryName));
-            await using (var tempStream = System.IO.File.Create(tempEntryPath))
+            await using (var tempStream = File.Create(tempEntryPath))
                 await entry.DataStream.CopyToAsync(tempStream);
 
             if (extractedEntries.Remove(entryName, out var oldEntryPath))
@@ -313,7 +312,7 @@ public class ApkgUploadProcessor(
 
             if (string.Equals(entryName, "manifest.xml", StringComparison.OrdinalIgnoreCase))
             {
-                var manifestXml = await System.IO.File.ReadAllTextAsync(tempEntryPath);
+                var manifestXml = await File.ReadAllTextAsync(tempEntryPath);
                 manifest = manifestSerializer.DeserializePackageManifest(manifestXml);
             }
         }
@@ -346,8 +345,8 @@ public class ApkgUploadProcessor(
 
     private static void DeleteIfExists(string? path)
     {
-        if (!string.IsNullOrWhiteSpace(path) && System.IO.File.Exists(path))
-            System.IO.File.Delete(path);
+        if (!string.IsNullOrWhiteSpace(path) && File.Exists(path))
+            File.Delete(path);
     }
 
     private static string? NullIfEmpty(string? value)

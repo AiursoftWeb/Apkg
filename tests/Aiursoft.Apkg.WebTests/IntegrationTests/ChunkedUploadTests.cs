@@ -119,10 +119,8 @@ public class ChunkedUploadTests : TestBase
             allowDowngrade
         }, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
-        using var request = new HttpRequestMessage(HttpMethod.Post, "/api/upload/init")
-        {
-            Content = new StringContent(initBody, Encoding.UTF8, "application/json")
-        };
+        using var request = new HttpRequestMessage(HttpMethod.Post, "/api/upload/init");
+        request.Content = new StringContent(initBody, Encoding.UTF8, "application/json");
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
         var response = await Http.SendAsync(request);
@@ -140,10 +138,8 @@ public class ChunkedUploadTests : TestBase
         content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
 
         using var request = new HttpRequestMessage(HttpMethod.Put,
-            $"/api/upload/{sessionId}/chunks/{chunkIndex}")
-        {
-            Content = content
-        };
+            $"/api/upload/{sessionId}/chunks/{chunkIndex}");
+        request.Content = content;
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
         var response = await Http.SendAsync(request);
@@ -175,10 +171,8 @@ public class ChunkedUploadTests : TestBase
             fileHash = ComputeSha256Hex(new byte[1024])
         }, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
-        using var request = new HttpRequestMessage(HttpMethod.Post, "/api/upload/init")
-        {
-            Content = new StringContent(body, Encoding.UTF8, "application/json")
-        };
+        using var request = new HttpRequestMessage(HttpMethod.Post, "/api/upload/init");
+        request.Content = new StringContent(body, Encoding.UTF8, "application/json");
 
         var response = await Http.SendAsync(request);
         Assert.AreEqual(HttpStatusCode.Unauthorized, response.StatusCode);
@@ -211,10 +205,8 @@ public class ChunkedUploadTests : TestBase
         content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
 
         using var request = new HttpRequestMessage(HttpMethod.Put,
-            "/api/upload/nonexistent/chunks/0")
-        {
-            Content = content
-        };
+            "/api/upload/nonexistent/chunks/0");
+        request.Content = content;
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
         var response = await Http.SendAsync(request);
@@ -238,10 +230,8 @@ public class ChunkedUploadTests : TestBase
         content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
 
         using var request = new HttpRequestMessage(HttpMethod.Put,
-            $"/api/upload/{sessionId}/chunks/0")
-        {
-            Content = content
-        };
+            $"/api/upload/{sessionId}/chunks/0");
+        request.Content = content;
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKeyB);
 
         var response = await Http.SendAsync(request);
@@ -262,10 +252,8 @@ public class ChunkedUploadTests : TestBase
 
         // Index 2 is out of range for chunkCount=2 (valid: 0, 1)
         using var request = new HttpRequestMessage(HttpMethod.Put,
-            $"/api/upload/{sessionId}/chunks/2")
-        {
-            Content = content
-        };
+            $"/api/upload/{sessionId}/chunks/2");
+        request.Content = content;
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
         var response = await Http.SendAsync(request);
@@ -472,7 +460,7 @@ public class ChunkedUploadTests : TestBase
         var staleSessionId = Guid.NewGuid().ToString("N");
         var staleDir = Path.Combine(chunkedRoot, staleSessionId);
         Directory.CreateDirectory(staleDir);
-        var staleSession = new Aiursoft.Apkg.Models.ChunkedUploadSession
+        var staleSession = new ChunkedUploadSession
         {
             SessionId = staleSessionId,
             FileName = "stale.apkg",
@@ -486,7 +474,7 @@ public class ChunkedUploadTests : TestBase
         };
         await File.WriteAllTextAsync(
             Path.Combine(staleDir, "session.json"),
-            System.Text.Json.JsonSerializer.Serialize(staleSession,
+            JsonSerializer.Serialize(staleSession,
                 new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }));
         // Write a fake chunk file to verify full directory deletion
         await File.WriteAllBytesAsync(Path.Combine(staleDir, "chunk_0"), new byte[64]);
@@ -495,7 +483,7 @@ public class ChunkedUploadTests : TestBase
         var freshSessionId = Guid.NewGuid().ToString("N");
         var freshDir = Path.Combine(chunkedRoot, freshSessionId);
         Directory.CreateDirectory(freshDir);
-        var freshSession = new Aiursoft.Apkg.Models.ChunkedUploadSession
+        var freshSession = new ChunkedUploadSession
         {
             SessionId = freshSessionId,
             FileName = "fresh.apkg",
@@ -509,7 +497,7 @@ public class ChunkedUploadTests : TestBase
         };
         await File.WriteAllTextAsync(
             Path.Combine(freshDir, "session.json"),
-            System.Text.Json.JsonSerializer.Serialize(freshSession,
+            JsonSerializer.Serialize(freshSession,
                 new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }));
 
         // Run the cleanup job

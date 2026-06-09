@@ -92,10 +92,8 @@ public class ApkgPushService(HttpClient httpClient)
             allowDowngrade
         }, JsonOptions);
 
-        using var initRequest = new HttpRequestMessage(HttpMethod.Post, $"{serverUrl}/api/upload/init")
-        {
-            Content = new StringContent(initBody, Encoding.UTF8, "application/json")
-        };
+        using var initRequest = new HttpRequestMessage(HttpMethod.Post, $"{serverUrl}/api/upload/init");
+        initRequest.Content = new StringContent(initBody, Encoding.UTF8, "application/json");
         initRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
         using var initResponse = await httpClient.SendAsync(initRequest);
@@ -116,7 +114,7 @@ public class ApkgPushService(HttpClient httpClient)
 
         for (var i = 0; i < chunkCount; i++)
         {
-            var bytesToRead = (int)Math.Min(chunkSize, totalSize - (long)i * chunkSize);
+            var bytesToRead = (int)Math.Min(chunkSize, totalSize - i * chunkSize);
             var bytesRead = 0;
             while (bytesRead < bytesToRead)
             {
@@ -173,10 +171,8 @@ public class ApkgPushService(HttpClient httpClient)
                 chunkContent.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
 
                 using var chunkRequest = new HttpRequestMessage(HttpMethod.Put,
-                    $"{serverUrl}/api/upload/{sessionId}/chunks/{chunkIndex}")
-                {
-                    Content = chunkContent
-                };
+                    $"{serverUrl}/api/upload/{sessionId}/chunks/{chunkIndex}");
+                chunkRequest.Content = chunkContent;
                 chunkRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
                 using var chunkResponse = await httpClient.SendAsync(chunkRequest);
