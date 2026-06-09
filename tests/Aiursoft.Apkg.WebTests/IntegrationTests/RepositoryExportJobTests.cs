@@ -296,12 +296,6 @@ public class RepositoryExportJobTests : TestBase
             "noble/pool/main/t/test-pkg/test-pkg_1.0_amd64.deb");
         Assert.IsTrue(File.Exists(suitePath));
         Assert.AreEqual("fake-deb-content", await File.ReadAllTextAsync(suitePath));
-
-        // Distro-scoped (without suite prefix)
-        var distroPath = Path.Combine(liveDir, "artifacts", "testos",
-            "pool/main/t/test-pkg/test-pkg_1.0_amd64.deb");
-        Assert.IsTrue(File.Exists(distroPath));
-        Assert.AreEqual("fake-deb-content", await File.ReadAllTextAsync(distroPath));
     }
 
     [TestMethod]
@@ -471,9 +465,6 @@ public class RepositoryExportJobTests : TestBase
 
         // Controller: GET artifacts/{distro}/{suite}/pool/{**path} (GetSuitePool)
         Assert.IsTrue(File.Exists(Path.Combine(artifacts, "testos/noble/pool/main/t/test/test_1.0_amd64.deb")));
-
-        // Controller: GET artifacts/{distro}/pool/{**path} (GetPool, distro-scoped fallback)
-        Assert.IsTrue(File.Exists(Path.Combine(artifacts, "testos/pool/main/t/test/test_1.0_amd64.deb")));
 
         // Controller: GET artifacts/certs/{name}
         var cert = await _db.AptCertificates.FirstOrDefaultAsync();

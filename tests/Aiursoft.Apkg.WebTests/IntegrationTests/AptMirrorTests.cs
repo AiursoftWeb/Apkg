@@ -65,8 +65,8 @@ public class AptMirrorTests : TestBase
         var content = await response.Content.ReadAsStringAsync();
         Assert.AreEqual("SIGNED-TEST-CONTENT", content);
 
-        // 3. Test Pool Download (Lazy Sync Path)
-        var poolResponse = await Http.GetAsync($"/artifacts/{repo.Distro}/pool/main/t/test-pkg/test.deb");
+        // 3. Test Suite-scoped Pool Download (GetSuitePool)
+        var poolResponse = await Http.GetAsync($"/artifacts/{repo.Distro}/{repo.Suite}/pool/main/t/test-pkg/test.deb");
         Assert.IsTrue(poolResponse.StatusCode is HttpStatusCode.OK or HttpStatusCode.InternalServerError or HttpStatusCode.NotFound);
     }
 

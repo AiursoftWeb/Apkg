@@ -39,12 +39,7 @@ namespace Aiursoft.Apkg.Services.BackgroundJobs;
 ///           {component}/
 ///             {firstLetter}/
 ///               {packageName}/
-///                 {packageName}_{version}_{arch}.deb        ← Hardlink to CAS (suite-scoped)
-///       pool/
-///         {component}/
-///           {firstLetter}/
-///             {packageName}/
-///               {fileName}.deb                              ← Hardlink to CAS (distro-scoped)
+///                 {packageName}_{version}_{arch}.deb        ← Hardlink to CAS
 /// </code>
 ///
 /// <para><b>Atomic swap:</b> Files are written to <c>.stage/artifacts/</c> inside the export path.
@@ -266,18 +261,15 @@ public class RepositoryExportJob(
             }
         }
 
-        // ── pool files (.deb symlinks) ──────────────────────────────────
+        // ── pool files (hardlinks from CAS) ────────────────────────────
         // The Packages file has Filename entries rewritten by RepositorySyncJob as:
         //   {suite}/pool/{component}/{firstLetter}/{packageName}/{fileName}
         //
-        // AptMirrorController serves these at two URL patterns:
+        // APT clients read the rewritten Filename and construct URLs of the form:
         //   artifacts/{distro}/{suite}/pool/{**path}  → GetSuitePool
-        //   artifacts/{distro}/pool/{**path}          → GetPool
         //
-        // We materialize the suite-scoped path:
+        // We materialize this suite-scoped path:
         //   artifacts/{distro}/{suite}/pool/...
-        // And also the distro-scoped fallback (without suite):
-        //   artifacts/{distro}/pool/...
         await ExportPoolFilesAsync(stageDir, repo, bucket);
 
         logger.LogInformation("Repository {RepoName} exported successfully.", repo.Name);
@@ -305,26 +297,13 @@ public class RepositoryExportJob(
 
             // The Filename field stored in DB is: pool/{component}/{firstLetter}/{pkg}/{...}.deb
             // (no suite prefix — the suite prefix is only injected into Packages.gz output).
-            // We need to produce both URL patterns:
-            //   artifacts/{distro}/{suite}/pool/... (suite-scoped, matching GetSuitePool route)
-            //   artifacts/{distro}/pool/...          (distro-scoped, matching GetPool route)
+            // APT clients read the rewritten Filename from Packages.gz and request URLs of the
+            // form artifacts/{distro}/{suite}/pool/..., so we only need suite-scoped paths.
             var filename = pkg.Filename.TrimStart('/');
 
-            // Suite-scoped pool: artifacts/{distro}/{suite}/pool/...
+            // artifacts/{distro}/{suite}/pool/...
             var suitePoolPath = Path.Combine(stageDir, "artifacts", repo.Distro, repo.Suite, filename);
             LinkDebFile(casPath, suitePoolPath);
-
-            // Also create distro-scoped pool (without suite):
-            // artifacts/{distro}/pool/... (matching GetPool route)
-            var poolPrefix = "pool/";
-            var poolIdx = filename.IndexOf(poolPrefix, StringComparison.Ordinal);
-            if (poolIdx >= 0)
-            {
-                var distroPoolRelative = filename[poolIdx..]; // "pool/main/..."
-                var distroPoolPath = Path.Combine(stageDir, "artifacts", repo.Distro, distroPoolRelative);
-                // Only create if not already present (avoid overwriting from another suite)
-                LinkDebFile(casPath, distroPoolPath, skipIfExists: true);
-            }
         }
     }
 
