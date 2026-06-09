@@ -133,6 +133,8 @@ public class ViewModelArgsInjector(
         _ = localizer["Upload History"];
     
         _ = localizer["Confirm Unlist"];
+    
+        _ = localizer["Apkg"];
     }
 
     public void InjectSimple(
