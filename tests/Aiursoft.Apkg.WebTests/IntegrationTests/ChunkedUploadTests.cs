@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using Aiursoft.Apkg.Authorization;
 using Aiursoft.Apkg.Entities;
+using Aiursoft.Apkg.Models;
 using Aiursoft.Apkg.Services.Authentication;
 using Microsoft.AspNetCore.Identity;
 
