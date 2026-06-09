@@ -215,6 +215,14 @@
     object-position: top center;
 }
 
+.apkg-hero-search {
+    max-width: 620px;
+}
+
+.apkg-hero-search .input-group {
+    box-shadow: 0 16px 44px rgba(0, 0, 0, 0.24);
+}
+
 .apkg-stats {
     margin-top: -1px;
 }
@@ -311,5 +319,26 @@
 
     .apkg-pipeline-item {
         grid-template-columns: 2.5rem 1fr;
+    }
+}
+
+@media (max-width: 575px) {
+    .apkg-hero-search .input-group {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+
+    .apkg-hero-search .input-group-text {
+        border-bottom-left-radius: 0;
+    }
+
+    .apkg-hero-search .form-control {
+        border-top-right-radius: var(--bs-border-radius-lg) !important;
+    }
+
+    .apkg-hero-search .btn {
+        grid-column: 1 / -1;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
     }
 }

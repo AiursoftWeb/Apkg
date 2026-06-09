@@ -21,6 +21,20 @@
                 <p class="text-lg text-white-50">
                     Host signed Debian package repositories, mirror upstream Ubuntu archives, and publish distribution-specific package overrides without asking client machines to run fragile post-install scripts.
                 </p>
+                <form method="get" asp-action="Index" asp-controller="Dashboard" class="apkg-hero-search my-4">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i data-lucide="search" style="width:20px;height:20px;"></i>
+                        </span>
+                        <input type="text"
+                               name="q"
+                               maxlength="40"
+                               class="form-control border-start-0 ps-0"
+                               placeholder="Search packages..."
+                               aria-label="Search packages"/>
+                        <button class="btn btn-primary px-4" type="submit">Search</button>
+                    </div>
+                </form>
                 <div class="my-4 d-flex flex-wrap gap-3">
                     <a asp-controller="Dashboard" asp-action="Index" class="btn btn-primary btn-lg btn-pill">
                         <i class="align-middle" data-lucide="layout-dashboard"></i> Enter Dashboard
