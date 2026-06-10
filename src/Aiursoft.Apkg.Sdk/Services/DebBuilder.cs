@@ -493,6 +493,24 @@ public class DebBuilder
                 aptOption = "";
             }
 
+            // Add arch qualifier to prevent multi-arch pollution from host dpkg.
+            // Without this, APT fetches Packages for every foreign architecture
+            // (e.g. arm64) registered on the host, which 404s on single-arch mirrors.
+            // Skip for "all" — binary-all packages don't need an arch qualifier.
+            if (!string.Equals(resolvedUpstreamArch, "all", StringComparison.OrdinalIgnoreCase)
+                && !string.IsNullOrEmpty(resolvedUpstreamArch))
+            {
+                if (aptOption.Contains('['))
+                {
+                    // Merge into existing bracket, e.g. " [signed-by=...]" → " [arch=amd64 signed-by=...]"
+                    aptOption = aptOption.Replace("[", $"[arch={resolvedUpstreamArch} ");
+                }
+                else
+                {
+                    aptOption = $" [arch={resolvedUpstreamArch}]";
+                }
+            }
+
             var sourceLine = $"deb{aptOption} {uri} {resolvedUpstreamSuite} {resolvedUpstreamComponent}";
             await File.WriteAllTextAsync(sourceListPath, sourceLine + "\n");
 
