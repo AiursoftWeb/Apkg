@@ -62,6 +62,9 @@ public class ViewModelArgsInjector(
         _ = localizer["Change Avatar"];
         _ = localizer["Change Password"];
         _ = localizer["Home"];
+        _ = localizer["Self Host"];
+        _ = localizer["Deployment"];
+        _ = localizer["Recommended local deployment"];
         _ = localizer["Settings"];
         _ = localizer["Profile Settings"];
         _ = localizer["Personal"];
