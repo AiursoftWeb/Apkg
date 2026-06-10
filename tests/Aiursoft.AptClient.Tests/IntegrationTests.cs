@@ -442,6 +442,36 @@ Description-md5: 5d41402abc4b2a76b9719d911017c592
         Assert.IsTrue(lines.Length > 1, $"Description should have multiple lines, but got: {lines.Length}");
     }
 
+    /// <summary>
+    /// Mozilla and some third-party repos omit Description-md5.
+    /// MapToPackage must tolerate this — treat it as empty.
+    /// </summary>
+    [TestMethod]
+    public void MapToPackage_MissingDescriptionMd5_SucceedsWithEmpty()
+    {
+        var dict = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+        {
+            ["Package"] = "firefox",
+            ["Version"] = "150.0",
+            ["Architecture"] = "amd64",
+            ["Maintainer"] = "Mozilla <release@mozilla.com>",
+            ["Description"] = "Mozilla Firefox",
+            // Description-md5 intentionally omitted — Mozilla doesn't provide it
+            ["Section"] = "web",
+            ["Priority"] = "optional",
+            ["Filename"] = "pool/mozilla/firefox_150.0_amd64.deb",
+            ["Size"] = "86309810",
+            ["SHA256"] = "3eae3d0f50fb26c6133565de5aae15ca64de1ef3c23b428f7aecd0034ee8ba99"
+        };
+
+        var pkg = DebianPackageParser.MapToPackage(dict, "mozilla", "main");
+
+        Assert.AreEqual("firefox", pkg.Package);
+        Assert.AreEqual("150.0", pkg.Version);
+        Assert.AreEqual("amd64", pkg.Architecture);
+        Assert.AreEqual("", pkg.DescriptionMd5); // missing field → empty string
+    }
+
     private (string PublicKey, string SignedContent) GenerateGpgKeyAndSignedContent(string content)
     {
         var tempHome = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());

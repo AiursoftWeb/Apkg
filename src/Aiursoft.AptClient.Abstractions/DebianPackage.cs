@@ -73,7 +73,7 @@ public class DebianPackage
     /// <summary>
     /// MD5 hash of the long Description (for APT translation support).
     /// </summary>
-    public required string DescriptionMd5 { get; set; }
+    public string DescriptionMd5 { get; set; } = string.Empty;
 
     /// <summary>
     /// Section classification (e.g., "utils", "editors", "libs").

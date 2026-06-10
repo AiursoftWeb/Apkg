@@ -98,7 +98,7 @@ public static class DebianPackageParser
             Architecture = GetReq("Architecture"),
             Maintainer = GetReq("Maintainer"),
             Description = GetReq("Description"),
-            DescriptionMd5 = GetReq("Description-md5"),
+            DescriptionMd5 = GetOpt("Description-md5") ?? "", // Often missing in non-Debian repos (e.g. Mozilla)
             Section = GetReq("Section"),
             Priority = GetReq("Priority"),
             Origin = GetOpt("Origin") ?? string.Empty, // Often missing in PPAs
