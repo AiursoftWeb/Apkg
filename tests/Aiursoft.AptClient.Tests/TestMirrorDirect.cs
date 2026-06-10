@@ -1,6 +1,4 @@
 namespace Aiursoft.AptClient.Tests;
-using Aiursoft.AptClient;
-using Aiursoft.AptClient.Abstractions;
 
 [TestClass]
 public class TestMirrorDirect
