@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Ключі API</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Гібрид APKG</value>
   </data>
@@ -107,6 +110,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>Видалити користувача</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>Розгортання</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Каталог</value>
@@ -222,6 +228,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>Публічні сховища</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>Рекомендоване локальне розгортання</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Реєстрація</value>
   </data>
@@ -239,6 +248,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Ролі</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Власний хостинг</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Налаштування</value>

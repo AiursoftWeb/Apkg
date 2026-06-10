@@ -45,6 +45,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API 키</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>APKG 하이브리드</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>사용자 삭제</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>배포</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>디렉터리</value>
@@ -225,6 +231,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>공개 저장소</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>권장되는 로컬 배포</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>회원가입</value>
   </data>
@@ -242,6 +251,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>역할</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>셀프 호스트</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>설정</value>

@@ -45,6 +45,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API 金鑰</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>APKG 混合型</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>刪除使用者</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>部署</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>目錄</value>
@@ -225,6 +231,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>公開程式庫</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>建議的本機部署</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>註冊</value>
   </data>
@@ -242,6 +251,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>角色</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>自我託管</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>設定</value>

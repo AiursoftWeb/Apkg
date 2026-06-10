@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API Anahtarları</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>APKG Hibrit</value>
   </data>
@@ -107,6 +110,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>Kullanıcıyı Sil</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>Dağıtım</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Dizin</value>
@@ -222,6 +228,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>Halka Açık Depolar</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>Önerilen yerel dağıtım</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Kayıt Ol</value>
   </data>
@@ -239,6 +248,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Roller</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Kendi Barındırma</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Ayarlar</value>

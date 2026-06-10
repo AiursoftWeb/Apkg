@@ -45,6 +45,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>APIキー</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>APKG ハイブリッド</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>ユーザーを削除</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>デプロイ</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>ディレクトリ</value>
@@ -225,6 +231,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>公開リポジトリ</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>推奨されるローカルデプロイメント</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>登録</value>
   </data>
@@ -242,6 +251,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>ロール</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>セルフホスト</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>設定</value>

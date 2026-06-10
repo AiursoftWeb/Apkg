@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Apkg" xml:space="preserve">
+    <value>Apkg について</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>デフォルトのパスワードは次のとおりです：</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg is an APT repository server and Debian package publishing platform. Host it when you need signed repository snapshots, upstream Ubuntu mirror ingestion, API-key package publishing, and browser-based operations for repositories, certificates, users, roles, and jobs." xml:space="preserve">
+    <value>Apkgは、APTリポジトリサーバーおよびDebianパッケージ公開プラットフォームです。署名付きリポジトリスナップショット、アップストリームUbuntuミラーのインジェスト、APIキーによるパッケージ公開、リポジトリ/証明書/ユーザー/ロール/ジョブのブラウザ上での操作が必要な場合に、Apkgをホストしてください。</value>
+  </data>
+  <data name="Apkg uses SQLite by default. For production MySQL, edit the ConnectionStrings section in appsettings.json and set DbType to MySql with your server connection string." xml:space="preserve">
+    <value>Apkg はデフォルトで SQLite を使用します。本番環境で MySQL を使用するには、appsettings.json の ConnectionStrings セクションを編集し、DbType を MySql に設定してサーバーの接続文字列を指定してください。</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>認証</value>
+  </data>
+  <data name="Binary path" xml:space="preserve">
+    <value>バイナリパス</value>
+  </data>
+  <data name="Change the default administrator password immediately." xml:space="preserve">
+    <value>デフォルトの管理者パスワードは直ちに書き換えてください。</value>
+  </data>
+  <data name="Config path" xml:space="preserve">
+    <value>構成ファイルパス</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>コンテキスト</value>
+  </data>
+  <data name="Create repositories for every distro, suite, and architecture that package publishers will target." xml:space="preserve">
+    <value>パッケージ公開者が対象とするすべてのディストリビューション、スイート、アーキテクチャごとにリポジトリを作成してください。</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>ダッシュボード</value>
+  </data>
+  <data name="Data path" xml:space="preserve">
+    <value>データパス</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>データベース</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>開発と手動実行</value>
+  </data>
+  <data name="Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app." xml:space="preserve">
+    <value>`dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` を実行してアプリを起動します。</value>
+  </data>
+  <data name="Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies." xml:space="preserve">
+    <value>「src/Aiursoft.Apkg/wwwroot」フォルダで「npm install」を実行して、依存関係をインストールしてください。</value>
+  </data>
+  <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>まず、Docker をインストールします。次に、Linux シェルで以下のコマンドを実行してください：</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Health check" xml:space="preserve">
+    <value>ヘルスチェック</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>イメージ</value>
+  </data>
+  <data name="Local accounts are enabled by default. Set AppSettings:AuthProvider to OIDC and fill the OIDC section when you want to delegate sign-in to an identity provider." xml:space="preserve">
+    <value>ローカルアカウントはデフォルトで有効です。サインインをアイデンティティプロバイダーに委任する場合は、AppSettings:AuthProvider を OIDC に設定し、OIDC セクションを埋めてください。</value>
+  </data>
+  <data name="Open the `.sln` file in the project path." xml:space="preserve">
+    <value>プロジェクトパスにある `.sln` ファイルを開きます。</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>または、カスタムポートを使用:</value>
+  </data>
+  <data name="Ports" xml:space="preserve">
+    <value>ポート</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>前提条件</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>「F5」キーを押してアプリを実行します。</value>
+  </data>
+  <data name="Production checklist" xml:space="preserve">
+    <value>運用チェックリスト</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>プロパティ</value>
+  </data>
+  <data name="Put the site behind your normal TLS and network controls." xml:space="preserve">
+    <value>Webサイトを通常のTLSおよびネットワーク制御の背後に配置してください。</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>推奨</value>
+  </data>
+  <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
+    <value>本番のリポジトリを提供する前に、デフォルトで設定された署名証明書を置き換えてください。</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>Docker で実行</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>Ubuntu で実行</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>Visual Studio で実行</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>手動実行</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>独自ホスティング</value>
+  </data>
+  <data name="Storage" xml:space="preserve">
+    <value>ストレージ</value>
+  </data>
+  <data name="Storage:Path keeps package objects, local packages, avatars, and GPG keyrings. Storage:ExportPath keeps exported static repository artifacts. Both paths should be durable on a real server." xml:space="preserve">
+    <value>Storage:Path はパッケージオブジェクト、ローカルパッケージ、アバター、GPG キーリングを保持します。Storage:ExportPath はエクスポートされた静的リポジトリアーティファクトを保持します。実際のサーバーでは、両方のパスは永続的であるべきです。</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>これにより、http://localhost:5000 で Web サーバーが起動し、アプリのテストが可能です。</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>デフォルトのユーザー名は:</value>
+  </data>
+  <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
+    <value>Docker イメージは http://localhost:5000/health を監視します。アプリケーションの起動後、外部の稼働状況監視にも同じエンドポイントを使用してください。</value>
+  </data>
+  <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
+    <value>Dockerイメージには、リポジトリの署名およびアップストリーム署名検証のためにgnupgとubuntu-keyringがインストールされています。appsettings.json、SQLiteデータベース、パッケージオブジェクト、アバター、GPGキーリングを保持しているため、/data を永続化してください。</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>以下のスクリプトを使用して、Ubuntuサーバーにこのアプリをインストールまたは更新できます。Ubuntu 25.04に対応しています。</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>値</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>http://localhost:5000 にアクセスしてください。</value>
+  </data>
+
+</root>

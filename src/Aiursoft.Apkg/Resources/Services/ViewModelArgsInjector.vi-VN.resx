@@ -45,6 +45,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Khóa API</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Lai APKG</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>Xóa Người Dùng</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>Triển khai</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Thư mục</value>
@@ -225,6 +231,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>Kho lưu trữ Công khai</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>Cài đặt cục bộ được khuyến nghị</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Đăng ký</value>
   </data>
@@ -242,6 +251,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Vai trò</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Tự lưu trữ</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Cài đặt</value>

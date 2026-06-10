@@ -45,6 +45,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Claves API</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Híbrido de APKG</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>Eliminar usuario</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>Despliegue</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Directorio</value>
@@ -225,6 +231,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>Repositorios públicos</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>Implementación local recomendada</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Registrarse</value>
   </data>
@@ -242,6 +251,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Roles</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Autoalojamiento</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Configuración</value>

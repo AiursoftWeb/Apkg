@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Chei API</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Apkg Hibrid</value>
   </data>
@@ -107,6 +110,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>Șterge utilizator</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>Desfășurare</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Director</value>
@@ -222,6 +228,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>Repozitoare Publice</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>Implementare locală recomandată</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Înregistrare</value>
   </data>
@@ -239,6 +248,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Roluri</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Găzduire proprie</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Setări</value>

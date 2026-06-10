@@ -24,6 +24,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>長時間実行タスク（メールやAIなど）に対する「Fire-and-forget」サポート。キュー管理、並列処理、キャンセルを備えたGUIを備えています。</value>
   </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; cannot run directly because root&apos;s PATH does not include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works permanently:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; は、rootのPATHに&lt;code&gt;~/.dotnet/tools&lt;/code&gt;が含まれていないため直接実行できません。シンボリックリンクを一度作成すれば、恒久的に動作するようになります：</value>
+  </data>
   <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
     <value>&lt;code&gt;sudo apkg&lt;/code&gt; はそのままでは動作しません。これは、root の PATH に &lt;code&gt;~/.dotnet/tools&lt;/code&gt; が含まれていないためです。シンボリックリンクを一度作成すれば、 thereafter ずっと動作します：</value>
   </data>
@@ -83,6 +86,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="Apkg brings the full APT repository lifecycle into one server — mirror upstream archives, override packages locally, sign and promote atomically, then serve to client machines worldwide." xml:space="preserve">
+    <value>Apkg は APT リポジトリの全ライフサイクルを1つのサーバーに統合します — 上流アーカイブのミラーリング、ローカルパッケージの上書き、アトミックな署名とプロモーション、そして世界中のクライアントマシンへの配信を行います。</value>
   </data>
   <data name="APT Package Repository" xml:space="preserve">
     <value>APT パッケージリポジトリ</value>
@@ -149,6 +155,9 @@
   </data>
   <data name="Built for engineers who care about quality." xml:space="preserve">
     <value>品質を気にするエンジニアのために設計されています。</value>
+  </data>
+  <data name="Built on AnduinOS" xml:space="preserve">
+    <value>AnduinOSを基盤としています</value>
   </data>
   <data name="Built with Aiursoft Template" xml:space="preserve">
     <value>Aiursoft Template で構築</value>
@@ -237,6 +246,9 @@
   <data name="Default SQLite database, no configuration needed." xml:space="preserve">
     <value>デフォルトのSQLiteデータベース、設定は不要です。</value>
   </data>
+  <data name="Describe packages once in a declarative &lt;code&gt;.aosproj&lt;/code&gt; file. No fragile post-install scripts, no per-distro boilerplate — just files, folders, dependencies, and services." xml:space="preserve">
+    <value>宣言的な&lt;code&gt;.aosproj&lt;/code&gt;ファイルで1回だけパッケージを記述します。不安定なインストール後スクリプトやディストリビューション固有の定型コードは一切不要。必要なものはファイル、フォルダー、依存関係、サービスだけです。</value>
+  </data>
   <data name="Designed for everyone, from beginners to experts." xml:space="preserve">
     <value>初心者から専門家まで、誰もが使えるように設計されています。</value>
   </data>
@@ -302,6 +314,9 @@
   </data>
   <data name="Entity Framework Core included" xml:space="preserve">
     <value>Entity Framework Core 搭載</value>
+  </data>
+  <data name="Export static artifacts for nginx, caddy, or rsync to edge nodes. APT clients anywhere get &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — no proprietary agents, no custom tooling." xml:space="preserve">
+    <value>nginx、Caddy、rsync用の静的アーティファクトをエッジノードにエクスポート。どこからでも APT クライアントは &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; が使えます。プロプライエタリなエージェントやカスタムツールは不要です。</value>
   </data>
   <data name="FAQ" xml:space="preserve">
     <value>よくある質問</value>
@@ -375,6 +390,9 @@
   <data name="GitLab CI/CD Native" xml:space="preserve">
     <value>GitLab CI/CD ネイティブ</value>
   </data>
+  <data name="Global Debian delivery" xml:space="preserve">
+    <value>Debian のグローバル配信</value>
+  </data>
   <data name="Global Scale" xml:space="preserve">
     <value>グローバルスケール</value>
   </data>
@@ -422,6 +440,9 @@
   </data>
   <data name="IDE Support" xml:space="preserve">
     <value>IDEサポート</value>
+  </data>
+  <data name="If you have written a &lt;code&gt;.csproj&lt;/code&gt; you already know &lt;code&gt;.aosproj&lt;/code&gt;. XML-based, toolable, and integrated with the Apkg CLI for linting, building, and publishing." xml:space="preserve">
+    <value>&lt;code&gt;.csproj&lt;/code&gt; を記述した経験があれば、&lt;code&gt;.aosproj&lt;/code&gt; も理解できます。XML ベースでツール対応が可能、そして Apkg CLI と統合され、リンティング、ビルド、公開をサポートします。</value>
   </data>
   <data name="Included" xml:space="preserve">
     <value>含まれる</value>
@@ -491,6 +512,9 @@
   </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>モデルはデータ注釈に基づいて、クライアントおよびサーバーの両方で検証されます。</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>MSBuild スタイルの構文</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>マルチタイムゾーン処理</value>
@@ -600,6 +624,9 @@
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>開発/本番環境用の事前設定済みパイプライン</value>
   </data>
+  <data name="Production-hardened on the same infrastructure that powers AnduinOS package delivery. Battle-tested mirror ingestion, signing pipelines, and atomic snapshot promotion." xml:space="preserve">
+    <value>AnduinOSのパッケージ配信を支える基盤で堅牢性が証明済み。ミラーの取り込み、署名パイプライン、アトミックスナップショットのPromotionが実戦で検証されています。</value>
+  </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>品質ゲート</value>
   </data>
@@ -648,11 +675,17 @@
   <data name="Shift with confidence" xml:space="preserve">
     <value>自信を持ってシフト</value>
   </data>
+  <data name="Ship Debian packages at scale." xml:space="preserve">
+    <value>大規模にDebianパッケージを配布</value>
+  </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>シンプルで簡単</value>
   </data>
   <data name="Simplified dpkg Packaging" xml:space="preserve">
     <value>簡易dpkgパッケージング</value>
+  </data>
+  <data name="Simplify your distribution" xml:space="preserve">
+    <value>ディストリビューションの簡素化</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>シングルコンテナ</value>

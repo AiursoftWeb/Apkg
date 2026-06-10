@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>مفاتيح واجهة برمجة التطبيقات</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>APKG الهجين</value>
   </data>
@@ -107,6 +110,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>حذف المستخدم</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>النشر</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>دليل</value>
@@ -222,6 +228,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>المستودعات العامة</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>النشر المحلي الموصى به</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>تسجيل</value>
   </data>
@@ -239,6 +248,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>الأدوار</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>استضافة ذاتية</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>الإعدادات</value>

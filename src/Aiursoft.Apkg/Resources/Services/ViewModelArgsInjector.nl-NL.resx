@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API-sleutels</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Apkg Hybride</value>
   </data>
@@ -107,6 +110,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>Gebruiker verwijderen</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>Implementatie</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Map</value>
@@ -222,6 +228,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>Openbare repositories</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>Aanbevolen lokale implementatie</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Registreren</value>
   </data>
@@ -239,6 +248,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Rollen</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Zelfhosten</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Instellingen</value>

@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Kunci API</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Apkg Hybrid</value>
   </data>
@@ -107,6 +110,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>Hapus Pengguna</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>Penyebaran</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Direktori</value>
@@ -222,6 +228,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>Repositori Publik</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>Penyorotan lokal yang direkomendasikan</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Daftar</value>
   </data>
@@ -239,6 +248,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Peran</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Self Host</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Pengaturan</value>

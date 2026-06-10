@@ -24,6 +24,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>支持“即发即弃”的长运行任务（如邮件发送或 AI 推理），内置队列管理、并行处理及任务取消的可视化面板。</value>
   </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; cannot run directly because root&apos;s PATH does not include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works permanently:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; 无法直接运行，因为 root 用户的 PATH 环境变量中不包含 &lt;code&gt;~/.dotnet/tools&lt;/code&gt;。只需创建一次符号链接，即可永久生效：</value>
+  </data>
   <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
     <value>&lt;code&gt;sudo apkg&lt;/code&gt; 无法直接运行，因为 root 用户的 PATH 中不包含 &lt;code&gt;~/.dotnet/tools&lt;/code&gt;。只需创建一次符号链接，即可永久生效：</value>
   </data>
@@ -83,6 +86,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="Apkg brings the full APT repository lifecycle into one server — mirror upstream archives, override packages locally, sign and promote atomically, then serve to client machines worldwide." xml:space="preserve">
+    <value>Apkg 将完整的 APT 软件仓库生命周期集成到单台服务器中——同步上游归档，在本地覆盖软件包，原子化签名与发布，然后为全球客户端机器提供服务。</value>
   </data>
   <data name="APT Package Repository" xml:space="preserve">
     <value>APT 软件包仓库</value>
@@ -149,6 +155,9 @@
   </data>
   <data name="Built for engineers who care about quality." xml:space="preserve">
     <value>专为追求卓越的工程师打造。</value>
+  </data>
+  <data name="Built on AnduinOS" xml:space="preserve">
+    <value>基于 AnduinOS 构建</value>
   </data>
   <data name="Built with Aiursoft Template" xml:space="preserve">
     <value>基于 Aiursoft 模板构建</value>
@@ -237,6 +246,9 @@
   <data name="Default SQLite database, no configuration needed." xml:space="preserve">
     <value>默认 SQLite 数据库，无需配置</value>
   </data>
+  <data name="Describe packages once in a declarative &lt;code&gt;.aosproj&lt;/code&gt; file. No fragile post-install scripts, no per-distro boilerplate — just files, folders, dependencies, and services." xml:space="preserve">
+    <value>通过声明式 &lt;code&gt;.aosproj&lt;/code&gt; 文件对软件包进行一次描述。无需脆弱的安装后脚本，也无需针对特定发行版的样板代码——只需关注文件、文件夹、依赖项和服务。</value>
+  </data>
   <data name="Designed for everyone, from beginners to experts." xml:space="preserve">
     <value>专为每个人设计，从新手到专家皆宜。</value>
   </data>
@@ -302,6 +314,9 @@
   </data>
   <data name="Entity Framework Core included" xml:space="preserve">
     <value>包含 Entity Framework Core</value>
+  </data>
+  <data name="Export static artifacts for nginx, caddy, or rsync to edge nodes. APT clients anywhere get &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — no proprietary agents, no custom tooling." xml:space="preserve">
+    <value>将静态制品导出至边缘节点，以配合 nginx、caddy 或 rsync 使用。全球各地的 APT 客户端只需运行 &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; 即可获取——无需专有代理，亦无需自定义工具。</value>
   </data>
   <data name="FAQ" xml:space="preserve">
     <value>常见问题解答</value>
@@ -375,6 +390,9 @@
   <data name="GitLab CI/CD Native" xml:space="preserve">
     <value>原生支持 GitLab CI/CD</value>
   </data>
+  <data name="Global Debian delivery" xml:space="preserve">
+    <value>全球 Debian 分发</value>
+  </data>
   <data name="Global Scale" xml:space="preserve">
     <value>全球规模</value>
   </data>
@@ -422,6 +440,9 @@
   </data>
   <data name="IDE Support" xml:space="preserve">
     <value>IDE 支持</value>
+  </data>
+  <data name="If you have written a &lt;code&gt;.csproj&lt;/code&gt; you already know &lt;code&gt;.aosproj&lt;/code&gt;. XML-based, toolable, and integrated with the Apkg CLI for linting, building, and publishing." xml:space="preserve">
+    <value>如果您编写过 &lt;code&gt;.csproj&lt;/code&gt;，您就已经熟悉 &lt;code&gt;.aosproj&lt;/code&gt;。基于 XML，支持工具化，并集成 Apkg CLI 以进行代码检查、构建和发布。</value>
   </data>
   <data name="Included" xml:space="preserve">
     <value>包含</value>
@@ -491,6 +512,9 @@
   </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>基于数据注解 (Data Annotations)，自动实现客户端与服务端的双重逻辑验证。</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>类 MSBuild 语法</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>多时区处理</value>
@@ -600,6 +624,9 @@
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>预配置的 Dev/Prod 流水线</value>
   </data>
+  <data name="Production-hardened on the same infrastructure that powers AnduinOS package delivery. Battle-tested mirror ingestion, signing pipelines, and atomic snapshot promotion." xml:space="preserve">
+    <value>依托为 AnduinOS 软件包分发提供动力的同一基础设施，经过生产环境验证。镜像拉取、签名流水线及原子快照发布均经实战检验。</value>
+  </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>质量门禁 - 强制合规</value>
   </data>
@@ -648,11 +675,17 @@
   <data name="Shift with confidence" xml:space="preserve">
     <value>无忧迁移 - 发布即交付</value>
   </data>
+  <data name="Ship Debian packages at scale." xml:space="preserve">
+    <value>大规模交付 Debian 软件包。</value>
+  </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>简单且易于使用</value>
   </data>
   <data name="Simplified dpkg Packaging" xml:space="preserve">
     <value>简化 dpkg 打包</value>
+  </data>
+  <data name="Simplify your distribution" xml:space="preserve">
+    <value>简化您的发行版维护</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>单容器</value>

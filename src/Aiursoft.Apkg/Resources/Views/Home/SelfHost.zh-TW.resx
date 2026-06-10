@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Apkg" xml:space="preserve">
+    <value>關於 Apkg</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>而預設密碼為：</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg is an APT repository server and Debian package publishing platform. Host it when you need signed repository snapshots, upstream Ubuntu mirror ingestion, API-key package publishing, and browser-based operations for repositories, certificates, users, roles, and jobs." xml:space="preserve">
+    <value>Apkg 是一個 APT 套件儲存庫伺服器與 Debian 套件發布平台。當您需要簽署的儲存庫快照、上游 Ubuntu 鏡像匯入、透過 API 金鑰發布套件，以及透過瀏覽器管理儲存庫、憑證、使用者、角色與工作時，請自行部署此服務。</value>
+  </data>
+  <data name="Apkg uses SQLite by default. For production MySQL, edit the ConnectionStrings section in appsettings.json and set DbType to MySql with your server connection string." xml:space="preserve">
+    <value>Apkg 預設使用 SQLite。若要使用生產環境的 MySQL，請編輯 appsettings.json 中的 ConnectionStrings 區段，並將 DbType 設定為 MySql，並填入您的伺服器連線字串。</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>驗證</value>
+  </data>
+  <data name="Binary path" xml:space="preserve">
+    <value>二進位路徑</value>
+  </data>
+  <data name="Change the default administrator password immediately." xml:space="preserve">
+    <value>立即變更預設的管理員密碼。</value>
+  </data>
+  <data name="Config path" xml:space="preserve">
+    <value>設定路徑</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>容器環境變數</value>
+  </data>
+  <data name="Create repositories for every distro, suite, and architecture that package publishers will target." xml:space="preserve">
+    <value>為套件發布者將針對的每個發行版本、套件系列與架構建立儲存庫。</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>儀表板</value>
+  </data>
+  <data name="Data path" xml:space="preserve">
+    <value>資料路徑</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>資料庫</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>開發與手動執行</value>
+  </data>
+  <data name="Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app." xml:space="preserve">
+    <value>執行 `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` 來運行應用程式。</value>
+  </data>
+  <data name="Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies." xml:space="preserve">
+    <value>在 `src/Aiursoft.Apkg/wwwroot` 資料夾中執行 `npm install` 以安裝相依套件。</value>
+  </data>
+  <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>首先，安裝 Docker。然後在 Linux 命令提示字元中執行以下指令：</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Health check" xml:space="preserve">
+    <value>健康檢查</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>映像檔</value>
+  </data>
+  <data name="Local accounts are enabled by default. Set AppSettings:AuthProvider to OIDC and fill the OIDC section when you want to delegate sign-in to an identity provider." xml:space="preserve">
+    <value>本地帳戶預設已啟用。若要將登入委派至身分識別提供者，請將 AppSettings:AuthProvider 設為 OIDC 並填入 OIDC 區段。</value>
+  </data>
+  <data name="Open the `.sln` file in the project path." xml:space="preserve">
+    <value>開啟專案路徑中的 `.sln` 檔案。</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>或自訂埠號：</value>
+  </data>
+  <data name="Ports" xml:space="preserve">
+    <value>通訊埠</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>前置需求</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>按下 `F5` 以執行應用程式。</value>
+  </data>
+  <data name="Production checklist" xml:space="preserve">
+    <value>生產環境檢查清單</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>屬性</value>
+  </data>
+  <data name="Put the site behind your normal TLS and network controls." xml:space="preserve">
+    <value>將網站置於您慣用的 TLS 與網路控制之後。</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>推薦</value>
+  </data>
+  <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
+    <value>在提供實際儲存庫服務之前，請替換預設的簽署憑證。</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>在 Docker 中執行</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>在 Ubuntu 中執行</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>在 Visual Studio 中執行</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>手動執行</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>自行託管</value>
+  </data>
+  <data name="Storage" xml:space="preserve">
+    <value>儲存空間</value>
+  </data>
+  <data name="Storage:Path keeps package objects, local packages, avatars, and GPG keyrings. Storage:ExportPath keeps exported static repository artifacts. Both paths should be durable on a real server." xml:space="preserve">
+    <value>Storage:Path 儲存套件物件、本地套件、頭像以及 GPG 金鑰環。Storage:ExportPath 儲存匯出的靜態套件庫產物。在實際伺服器上，這兩個路徑都必須具備資料持久性。</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>這將啟動一個 Web 伺服器，位址為 http://localhost:5000，您可以在此測試應用程式。</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>預設使用者名稱為：</value>
+  </data>
+  <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
+    <value>Docker 映像會檢查 http://localhost:5000/health。在應用程式啟動後，請使用相同的端點進行外部正常運行時間監控。</value>
+  </data>
+  <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
+    <value>Docker 映像會安裝 gnupg 與 ubuntu-keyring，用於儲存庫簽署及上游簽章驗證。請保留 /data 資料夾，因為它存放著 appsettings.json、SQLite 資料庫、套件物件、大頭照以及 GPG 金鑰環。</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>以下指令將在此 Ubuntu 伺服器上安裝／更新此應用程式。支援 Ubuntu 25.04。</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>造訪 http://localhost:5000。</value>
+  </data>
+
+</root>

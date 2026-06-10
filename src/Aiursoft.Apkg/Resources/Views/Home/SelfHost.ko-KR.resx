@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Apkg" xml:space="preserve">
+    <value>Apkg 소개</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>기본 비밀번호는 다음과 같습니다:</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg is an APT repository server and Debian package publishing platform. Host it when you need signed repository snapshots, upstream Ubuntu mirror ingestion, API-key package publishing, and browser-based operations for repositories, certificates, users, roles, and jobs." xml:space="preserve">
+    <value>Apkg은 APT 리포지토리 서버이자 Debian 패키지 배포 플랫폼입니다. 서명된 리포지토리 스냅샷,上游 Ubuntu 미러 흡수, API 키 기반 패키지 배포가 필요하거나 리포지토리, 인증서, 사용자, 역할, 작업에 대한 브라우저 기반 운영이 필요할 때 자체 호스팅하세요.</value>
+  </data>
+  <data name="Apkg uses SQLite by default. For production MySQL, edit the ConnectionStrings section in appsettings.json and set DbType to MySql with your server connection string." xml:space="preserve">
+    <value>Apkg는 기본적으로 SQLite를 사용합니다. 프로덕션 환경에서 MySQL을 사용하려면 appsettings.json의 ConnectionStrings 섹션을 편집하고 DbType을 MySql로, 서버 연결 문자열을 설정하세요.</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>인증</value>
+  </data>
+  <data name="Binary path" xml:space="preserve">
+    <value>바이너리 경로</value>
+  </data>
+  <data name="Change the default administrator password immediately." xml:space="preserve">
+    <value>기본 관리자 암호를 즉시 변경하세요.</value>
+  </data>
+  <data name="Config path" xml:space="preserve">
+    <value>설정 경로</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>구성</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>컨텍스트 컨텍스트</value>
+  </data>
+  <data name="Create repositories for every distro, suite, and architecture that package publishers will target." xml:space="preserve">
+    <value>패키지 게시자가 대상이 되는 모든 배포판, 수트, 아키텍처에 대해 리포지토리를 생성합니다.</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>대시보드</value>
+  </data>
+  <data name="Data path" xml:space="preserve">
+    <value>데이터 경로</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>데이터베이스</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>개발 및 수동 실행</value>
+  </data>
+  <data name="Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app." xml:space="preserve">
+    <value>앱을 실행하려면 `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj`를 실행하십시오.</value>
+  </data>
+  <data name="Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies." xml:space="preserve">
+    <value>의존 항목을 설치하려면 `src/Aiursoft.Apkg/wwwroot` 폴더에서 `npm install`을 실행하십시오.</value>
+  </data>
+  <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>먼저 Docker를 설치하세요. 그런 다음 리눅스 셸에서 다음 명령어를 실행하세요:</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Health check" xml:space="preserve">
+    <value>상태 확인</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>이미지</value>
+  </data>
+  <data name="Local accounts are enabled by default. Set AppSettings:AuthProvider to OIDC and fill the OIDC section when you want to delegate sign-in to an identity provider." xml:space="preserve">
+    <value>로컬 계정은 기본적으로 활성화됩니다. 인증 제공자에 로그인을 위임하려면 AppSettings:AuthProvider를 OIDC로 설정하고 OIDC 섹션을 채워야 합니다.</value>
+  </data>
+  <data name="Open the `.sln` file in the project path." xml:space="preserve">
+    <value>프로젝트 경로에서 `.sln` 파일을 엽니다.</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>사용자 정의 포트 사용:</value>
+  </data>
+  <data name="Ports" xml:space="preserve">
+    <value>포트</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>선행 조건</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>`F5`를 눌러 앱을 실행하세요.</value>
+  </data>
+  <data name="Production checklist" xml:space="preserve">
+    <value>운영 환경 확인 사항</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>속성</value>
+  </data>
+  <data name="Put the site behind your normal TLS and network controls." xml:space="preserve">
+    <value>일반적인 TLS 및 네트워크 컨트롤 뒤에 사이트를 배치하세요.</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>추천</value>
+  </data>
+  <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
+    <value>실제 저장소를 제공하기 전에 미리 제공된 서명 인증서를 교체하세요.</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>Docker에서 실행하기</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>Ubuntu에서 실행하기</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>Visual Studio에서 실행하기</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>직접 실행하기</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>셀프 호스팅</value>
+  </data>
+  <data name="Storage" xml:space="preserve">
+    <value>저장소</value>
+  </data>
+  <data name="Storage:Path keeps package objects, local packages, avatars, and GPG keyrings. Storage:ExportPath keeps exported static repository artifacts. Both paths should be durable on a real server." xml:space="preserve">
+    <value>Storage:Path에는 패키지 개체, 로컬 패키지, 아바타 및 GPG 키링이 저장됩니다. Storage:ExportPath에는 내보낸 정적 리포지토리 아티팩트가 저장됩니다. 실제 서버에서 두 경로 모두 데이터가 지속적으로 유지되도록 해야 합니다.</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>이렇게 하면 http://localhost:5000에서 웹 서버가 시작되어 앱을 테스트할 수 있습니다.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>기본 사용자 이름은:</value>
+  </data>
+  <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
+    <value>Docker 이미지에서 http://localhost:5000/health 엔드포인트를 점검합니다. 앱이 시작된 후 외부 가동 시간 모니터링에는 동일한 엔드포인트를 사용하세요.</value>
+  </data>
+  <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
+    <value>Docker 이미지는 저장소 서명 및 업스트림 서명 확인을 위해 gnupg 및 ubuntu-keyring을 설치합니다. appsettings.json, SQLite 데이터베이스, 패키지 객체, 아바타 및 GPG 키링을 저장하므로 /data를 영구적으로 유지하십시오.</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>다음 스크립트는 Ubuntu 서버에 이 앱을 설치하거나 업데이트합니다. Ubuntu 25.04를 지원합니다.</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>값</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>http://localhost:5000을(를) 방문하세요.</value>
+  </data>
+
+</root>

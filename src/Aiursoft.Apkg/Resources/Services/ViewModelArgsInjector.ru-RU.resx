@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>Ключи API</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Гибридная APKG</value>
   </data>
@@ -107,6 +110,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>Удалить пользователя</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>Развёртывание</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Каталог</value>
@@ -222,6 +228,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>Публичные репозитории</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>Рекомендуемое локальное развертывание</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Зарегистрироваться</value>
   </data>
@@ -239,6 +248,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Роли</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Собственный хостинг</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Настройки</value>

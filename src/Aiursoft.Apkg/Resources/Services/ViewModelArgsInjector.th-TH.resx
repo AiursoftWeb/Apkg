@@ -45,6 +45,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>คีย์ API</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Apkg แบบไฮบริด</value>
   </data>
@@ -110,6 +113,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>ลบผู้ใช้</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>การติดตั้ง</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>ไดเรกทอรี</value>
@@ -225,6 +231,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>ที่เก็บสาธารณะ</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>การปรับใช้ในพื้นที่ที่แนะนำ</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>สมัครสมาชิก</value>
   </data>
@@ -242,6 +251,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>บทบาท</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>โฮสต์เอง</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>การตั้งค่า</value>

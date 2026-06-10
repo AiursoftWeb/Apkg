@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API-avaimet</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Apkg Hybrid</value>
   </data>
@@ -107,6 +110,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>Poista käyttäjä</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>Järjestelmän asennus</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Hakemisto</value>
@@ -222,6 +228,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>Julkiset arkistot</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>Suositeltu paikallinen käyttöönotto</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Rekisteröidy</value>
   </data>
@@ -239,6 +248,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Roolit</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Itse-isäntä</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Asetukset</value>

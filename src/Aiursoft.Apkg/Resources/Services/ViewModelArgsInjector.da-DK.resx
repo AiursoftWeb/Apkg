@@ -42,6 +42,9 @@
   <data name="API Keys" xml:space="preserve">
     <value>API-nøgler</value>
   </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Apkg Hybrid</value>
   </data>
@@ -107,6 +110,9 @@
   </data>
   <data name="Delete User" xml:space="preserve">
     <value>Slet bruger</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>Udrulning</value>
   </data>
   <data name="Directory" xml:space="preserve">
     <value>Mappe</value>
@@ -222,6 +228,9 @@
   <data name="Public Repositories" xml:space="preserve">
     <value>Offentlige repositories</value>
   </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>Anbefalet lokal implementering</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Registrer</value>
   </data>
@@ -239,6 +248,9 @@
   </data>
   <data name="Roles" xml:space="preserve">
     <value>Roller</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Selvhost</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Indstillinger</value>
