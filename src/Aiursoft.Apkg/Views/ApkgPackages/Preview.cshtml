@@ -2,7 +2,7 @@
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto">
-        <h3>Preview APKG Upload</h3>
+        <h3>@Localizer["Preview APKG Upload"]</h3>
     </div>
 </div>
 
@@ -20,7 +20,7 @@
             <i data-lucide="alert-triangle" style="width:24px;height:24px;"></i>
         </div>
         <div class="alert-message">
-            No targets matched any repository. Publishing will have no effect.
+            @Localizer["No targets matched any repository. Publishing will have no effect."]
         </div>
     </div>
 }
@@ -31,37 +31,37 @@ else if (Model.HasWarnings)
             <i data-lucide="alert-triangle" style="width:24px;height:24px;"></i>
         </div>
         <div class="alert-message">
-            Some targets do not match any repository. You can still publish, but those targets will be skipped.
+            @Localizer["Some targets do not match any repository. You can still publish, but those targets will be skipped."]
         </div>
     </div>
 }
 
 <div class="card mb-3">
-    <div class="card-header">Manifest</div>
+    <div class="card-header">@Localizer["Manifest"]</div>
     <div class="card-body">
         <div class="row g-3">
             <div class="col-md-4">
-                <label class="form-label text-muted">Package</label>
+                <label class="form-label text-muted">@Localizer["Package"]</label>
                 <div><strong>@Model.Manifest.Name</strong></div>
             </div>
             <div class="col-md-4">
-                <label class="form-label text-muted">Distro</label>
+                <label class="form-label text-muted">@Localizer["Distro"]</label>
                 <div><span class="badge bg-dark">@Model.Manifest.Distro</span></div>
             </div>
             <div class="col-md-4">
-                <label class="form-label text-muted">Component</label>
+                <label class="form-label text-muted">@Localizer["Component"]</label>
                 <div><span class="badge bg-dark">@Model.Manifest.Component</span></div>
             </div>
             <div class="col-md-6">
-                <label class="form-label text-muted">Maintainer</label>
-                <div>@(string.IsNullOrWhiteSpace(Model.Manifest.Maintainer) ? "—" : Model.Manifest.Maintainer)</div>
+                <label class="form-label text-muted">@Localizer["Maintainer"]</label>
+                <div>@(string.IsNullOrWhiteSpace(Model.Manifest.Maintainer) ? Localizer["—"].Value : Model.Manifest.Maintainer)</div>
             </div>
             <div class="col-md-6">
-                <label class="form-label text-muted">Homepage</label>
+                <label class="form-label text-muted">@Localizer["Homepage"]</label>
                 <div>
                     @if (string.IsNullOrWhiteSpace(Model.Manifest.Homepage))
                     {
-                        <span>—</span>
+                        <span>@Localizer["—"]</span>
                     }
                     else
                     {
@@ -70,30 +70,30 @@ else if (Model.HasWarnings)
                 </div>
             </div>
             <div class="col-md-6">
-                <label class="form-label text-muted">License</label>
-                <div>@(string.IsNullOrWhiteSpace(Model.Manifest.License) ? "—" : Model.Manifest.License)</div>
+                <label class="form-label text-muted">@Localizer["License"]</label>
+                <div>@(string.IsNullOrWhiteSpace(Model.Manifest.License) ? Localizer["—"].Value : Model.Manifest.License)</div>
             </div>
             <div class="col-12">
-                <label class="form-label text-muted">Description</label>
-                <div>@(string.IsNullOrWhiteSpace(Model.Manifest.Description) ? "—" : Model.Manifest.Description)</div>
+                <label class="form-label text-muted">@Localizer["Description"]</label>
+                <div>@(string.IsNullOrWhiteSpace(Model.Manifest.Description) ? Localizer["—"].Value : Model.Manifest.Description)</div>
             </div>
         </div>
     </div>
 </div>
 
 <div class="card">
-    <div class="card-header">Targets</div>
+    <div class="card-header">@Localizer["Targets"]</div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-striped align-middle mb-0">
                 <thead>
                     <tr>
-                        <th>Target</th>
-                        <th>Distro</th>
-                        <th>Suites</th>
-                        <th>Arch</th>
-                        <th>Matching Repos</th>
-                        <th>Status</th>
+                        <th>@Localizer["Target"]</th>
+                        <th>@Localizer["Distro"]</th>
+                        <th>@Localizer["Suites"]</th>
+                        <th>@Localizer["Arch"]</th>
+                        <th>@Localizer["Matching Repos"]</th>
+                        <th>@Localizer["Status"]</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -116,17 +116,17 @@ else if (Model.HasWarnings)
                                 }
                                 else
                                 {
-                                    <span class="text-warning">No matching repository</span>
+                                    <span class="text-warning">@Localizer["No matching repository"]</span>
                                 }
                             </td>
                             <td>
                                 @if (item.HasMatch)
                                 {
-                                    <span class="badge bg-success">Ready</span>
+                                    <span class="badge bg-success">@Localizer["Ready"]</span>
                                 }
                                 else
                                 {
-                                    <span class="badge bg-warning text-dark">Warning</span>
+                                    <span class="badge bg-warning text-dark">@Localizer["Warning"]</span>
                                 }
                             </td>
                         </tr>
@@ -140,7 +140,7 @@ else if (Model.HasWarnings)
             @Html.AntiForgeryToken()
             <input type="hidden" name="vaultPath" value="@Model.TempApkgFileInVaultPath" />
             <input type="hidden" name="fileName" value="@Model.FileName" />
-            <button type="submit" class="btn btn-primary">Publish</button>
+            <button type="submit" class="btn btn-primary">@Localizer["Publish"]</button>
         </form>
     </div>
 </div>

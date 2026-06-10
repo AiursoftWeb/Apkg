@@ -15,7 +15,7 @@
                 <i data-lucide="info" style="width:24px;height:24px;"></i>
             </div>
             <div class="alert-message">
-                <strong>GC Policy:</strong> Unreferenced buckets (not primary or secondary in any Mirror/Repository) are immediately pruned on the next GC run. In-progress builds are protected because both SyncJobs set <code>SecondaryBucketId</code> immediately upon bucket creation.
+                <strong>@Localizer["GC Policy:"]</strong> @Localizer["Unreferenced buckets (not primary or secondary in any Mirror/Repository) are immediately pruned on the next GC run. In-progress builds are protected because both SyncJobs set <code>SecondaryBucketId</code> immediately upon bucket creation."]
             </div>
         </div>
         
@@ -68,7 +68,7 @@
                         }
                         else if (isPending)
                         {
-                            <small class="text-info">@pendingFor <span class="text-muted">(pending)</span></small>
+                            <small class="text-info">@pendingFor <span class="text-muted">@Localizer["(pending)"]</span></small>
                         }
                     </td>
                     <td class="text-end">

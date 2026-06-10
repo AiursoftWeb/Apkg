@@ -24,7 +24,7 @@
                 <p><strong>@Localizer["Packages"]:</strong> @Model.PackageCount</p>
                 <p><strong>@Localizer["GPG Signing"]:</strong> @(Model.Repo.EnableGpgSign ? Localizer["Enabled"] : Localizer["Disabled"])</p>
                 <p><strong>@Localizer["Upload Permission"]:</strong> @(Model.Repo.AllowAnyoneToUpload ? Localizer["Open to all"] : Localizer["Restricted"])</p>
-                <p><strong>@Localizer["Mirror Source"]:</strong> @(Model.Repo.Mirror?.Suite ?? "None")</p>
+                <p><strong>@Localizer["Mirror Source"]:</strong> @(Model.Repo.Mirror?.Suite ?? Localizer["None"].Value)</p>
                 @if (canManage)
                 {
                     <p><strong>@Localizer["Live Bucket"]:</strong>
@@ -48,7 +48,7 @@
                     }
                     </p>
                 }
-                <p><strong>@Localizer["Certificate"]:</strong> @(Model.Repo.Certificate?.FriendlyName ?? "None")</p>
+                <p><strong>@Localizer["Certificate"]:</strong> @(Model.Repo.Certificate?.FriendlyName ?? Localizer["None"].Value)</p>
             </div>
         </div>
     </div>

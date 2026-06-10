@@ -5,11 +5,11 @@
     <div class="col-auto">
         <a asp-action="Details" asp-route-id="@Model.PackageId" class="btn btn-sm btn-outline-secondary me-2">
             <i class="align-middle me-1" data-lucide="arrow-left"></i>
-            Back to Package
+            @Localizer["Back to Package"]
         </a>
     </div>
     <div class="col-auto">
-        <h3 class="mb-0">@Model.PackageName — Version History</h3>
+        <h3 class="mb-0">@Model.PackageName — @Localizer["Version History"]</h3>
     </div>
 </div>
 
@@ -41,22 +41,22 @@
                 <div class="d-flex gap-2 mb-3">
                     <a asp-action="PackageHistory" asp-route-name="@Model.PackageName" asp-route-versionsFilter="latest"
                        class="btn btn-sm @(Model.VersionsFilter == "latest" ? "btn-primary" : "btn-outline-secondary")">
-                        Latest
+                        @Localizer["Latest"]
                     </a>
                     <a asp-action="PackageHistory" asp-route-name="@Model.PackageName" asp-route-versionsFilter="live"
                        class="btn btn-sm @(Model.VersionsFilter == "live" ? "btn-primary" : "btn-outline-secondary")">
-                        Live
+                        @Localizer["Live"]
                     </a>
                     <a asp-action="PackageHistory" asp-route-name="@Model.PackageName" asp-route-versionsFilter="all"
                        class="btn btn-sm @(Model.VersionsFilter == "all" ? "btn-primary" : "btn-outline-secondary")">
-                        All
+                        @Localizer["All"]
                     </a>
-                    <small class="text-muted align-self-center ms-1">@filteredPkgs.Count package(s)</small>
+                    <small class="text-muted align-self-center ms-1">@filteredPkgs.Count @Localizer["package(s)"]</small>
                 </div>
 
                 @if (!filteredPkgs.Any())
                 {
-                    <p class="text-muted mb-0">No versions found for this package.</p>
+                    <p class="text-muted mb-0">@Localizer["No versions found for this package."]</p>
                 }
                 else
                 {
@@ -64,16 +64,16 @@
                         <table class="table table-striped align-middle mb-0">
                             <thead>
                                 <tr>
-                                    <th>Architecture</th>
-                                    <th>Version</th>
-                                    <th>Suite</th>
-                                    <th>Sync Status</th>
-                                    <th>Uploaded</th>
+                                    <th>@Localizer["Architecture"]</th>
+                                    <th>@Localizer["Version"]</th>
+                                    <th>@Localizer["Suite"]</th>
+                                    <th>@Localizer["Sync Status"]</th>
+                                    <th>@Localizer["Uploaded"]</th>
                                     @if (Model.IsAdmin)
                                     {
-                                        <th>Uploader</th>
+                                        <th>@Localizer["Uploader"]</th>
                                     }
-                                    <th class="text-end">Actions</th>
+                                    <th class="text-end">@Localizer["Actions"]</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,33 +92,33 @@
                                             {
                                                 case LocalPackageStatus.Live:
                                                     <span class="badge bg-success" title="@ps.StatusMessage">
-                                                        <i class="align-middle me-1" data-lucide="check-circle" style="width:12px;height:12px;"></i> Live
+                                                        <i class="align-middle me-1" data-lucide="check-circle" style="width:12px;height:12px;"></i> @Localizer["Live"]
                                                     </span>
                                                     break;
                                                 case LocalPackageStatus.StagedForSigning:
                                                     <span class="badge bg-info" title="@ps.StatusMessage">
-                                                        <i class="align-middle me-1" data-lucide="clock" style="width:12px;height:12px;"></i> Signing
+                                                        <i class="align-middle me-1" data-lucide="clock" style="width:12px;height:12px;"></i> @Localizer["Signing"]
                                                     </span>
                                                     break;
                                                 case LocalPackageStatus.PendingSync:
                                                     <span class="badge bg-warning text-dark" title="@ps.StatusMessage">
-                                                        <i class="align-middle me-1" data-lucide="refresh-cw" style="width:12px;height:12px;"></i> Syncing
+                                                        <i class="align-middle me-1" data-lucide="refresh-cw" style="width:12px;height:12px;"></i> @Localizer["Syncing"]
                                                     </span>
                                                     break;
                                                 case LocalPackageStatus.Superseded:
                                                     <span class="badge bg-secondary"
                                                           data-bs-toggle="tooltip"
-                                                          title="Superseded — a newer version is live. This deb file remains in CAS storage until the garbage collection job runs (~70 min) and removes unreferenced content.">
-                                                        <i class="align-middle me-1" data-lucide="archive" style="width:12px;height:12px;"></i> Superseded
+                                                          title="@Localizer["Superseded — a newer version is live. This deb file remains in CAS storage until the garbage collection job runs (~70 min) and removes unreferenced content."]">
+                                                        <i class="align-middle me-1" data-lucide="archive" style="width:12px;height:12px;"></i> @Localizer["Superseded"]
                                                     </span>
                                                     break;
                                                 case LocalPackageStatus.Disabled:
                                                     <span class="badge bg-secondary" title="@ps.StatusMessage">
-                                                        <i class="align-middle me-1" data-lucide="slash" style="width:12px;height:12px;"></i> Disabled
+                                                        <i class="align-middle me-1" data-lucide="slash" style="width:12px;height:12px;"></i> @Localizer["Disabled"]
                                                     </span>
                                                     break;
                                                 default:
-                                                    <span class="badge bg-secondary">Unknown</span>
+                                                    <span class="badge bg-secondary">@Localizer["Unknown"]</span>
                                                     break;
                                             }
                                         </td>
@@ -144,7 +144,7 @@
                                                 @if (ps.Status == LocalPackageStatus.Live && ps.LivePackageId.HasValue)
                                                 {
                                                     <a asp-controller="Repositories" asp-action="PackageDetails" asp-route-id="@ps.LivePackageId.Value"
-                                                       class="btn btn-sm btn-outline-info" title="View in repository">
+                                                       class="btn btn-sm btn-outline-info" title="@Localizer["View in repository"]">
                                                         <i class="align-middle" data-lucide="external-link"></i>
                                                     </a>
                                                 }
@@ -187,17 +187,17 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content text-start">
                                         <div class="modal-header">
-                                            <h5 class="modal-title">Confirm Unlist</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h5 class="modal-title">@Localizer["Confirm Unlist"]</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Localizer["Close"]"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Unlist <strong>@Model.PackageName @(revision.ApkgDebPackages.FirstOrDefault()?.Version ?? "")</strong>? Generated packages will be disabled.
+                                            @Localizer["Unlist"] <strong>@Model.PackageName @(revision.ApkgDebPackages.FirstOrDefault()?.Version ?? "")</strong>? @Localizer["Generated packages will be disabled."]
                                         </div>
                                         <div class="modal-footer">
                                             <form method="post" asp-action="Unlist" asp-route-id="@revision.Id">
                                                 @Html.AntiForgeryToken()
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="btn btn-warning">Unlist</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                                <button type="submit" class="btn btn-warning">@Localizer["Unlist"]</button>
                                             </form>
                                         </div>
                                     </div>
@@ -210,17 +210,17 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content text-start">
                                         <div class="modal-header">
-                                            <h5 class="modal-title">Confirm Delete</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h5 class="modal-title">@Localizer["Confirm Delete"]</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="@Localizer["Close"]"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Permanently delete <strong>@Model.PackageName @(revision.ApkgDebPackages.FirstOrDefault()?.Version ?? "")</strong> and all generated Local Packages?
+                                            @Localizer["Permanently delete"] <strong>@Model.PackageName @(revision.ApkgDebPackages.FirstOrDefault()?.Version ?? "")</strong> @Localizer["and all generated Local Packages?"]
                                         </div>
                                         <div class="modal-footer">
                                             <form method="post" asp-action="Delete" asp-route-id="@revision.Id">
                                                 @Html.AntiForgeryToken()
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Localizer["Cancel"]</button>
+                                                <button type="submit" class="btn btn-danger">@Localizer["Delete"]</button>
                                             </form>
                                         </div>
                                     </div>
@@ -238,9 +238,9 @@
                 <div class="text-center mb-3">
                     <i data-lucide="history" style="width:48px;height:48px;"></i>
                 </div>
-                <h6 class="mb-2">Version History</h6>
-                <p class="text-muted small mb-2">This page shows all uploaded versions of <strong>@Model.PackageName</strong>.</p>
-                <p class="text-muted small mb-0">Only the latest enabled version appears in APT repositories.</p>
+                <h6 class="mb-2">@Localizer["Version History"]</h6>
+                <p class="text-muted small mb-2">@Localizer["This page shows all uploaded versions of"] <strong>@Model.PackageName</strong>.</p>
+                <p class="text-muted small mb-0">@Localizer["Only the latest enabled version appears in APT repositories."]</p>
             </div>
         </div>
     </div>

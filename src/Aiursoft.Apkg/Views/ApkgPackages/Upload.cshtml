@@ -2,7 +2,7 @@
 
 <div class="row mb-2 mb-xl-3">
     <div class="col-auto">
-        <h3>Upload APKG Package</h3>
+        <h3>@Localizer["Upload APKG Package"]</h3>
     </div>
 </div>
 
@@ -22,13 +22,13 @@
                     is-vault="true"
                     max-size-in-mb="2048">
                 </vc:file-upload>
-                <div class="form-text">Upload a .apkg bundle stored in Vault. You will review the manifest before publishing.</div>
+                <div class="form-text">@Localizer["Upload a .apkg bundle stored in Vault. You will review the manifest before publishing."]</div>
                 <span asp-validation-for="ApkgFilePath" class="text-danger"></span>
             </div>
 
             <hr />
-            <button type="submit" class="btn btn-primary">Preview</button>
-            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-primary">@Localizer["Preview"]</button>
+            <a asp-action="Index" class="btn btn-secondary">@Localizer["Cancel"]</a>
         </form>
     </div>
 </div>

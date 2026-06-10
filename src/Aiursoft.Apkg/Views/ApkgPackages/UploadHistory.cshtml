@@ -53,32 +53,32 @@
                                                 switch (item.AggregateStatus.Value)
                                                 {
                                                     case LocalPackageStatus.Live:
-                                                        <span class="badge bg-success">Live</span>
+                                                        <span class="badge bg-success">@Localizer["Live"]</span>
                                                         break;
                                                     case LocalPackageStatus.StagedForSigning:
-                                                        <span class="badge bg-info">Staged for Signing</span>
+                                                        <span class="badge bg-info">@Localizer["Staged for Signing"]</span>
                                                         break;
                                                     case LocalPackageStatus.PendingSync:
-                                                        <span class="badge bg-warning text-dark">Pending Sync</span>
+                                                        <span class="badge bg-warning text-dark">@Localizer["Pending Sync"]</span>
                                                         break;
                                                     case LocalPackageStatus.Superseded:
-                                                        <span class="badge bg-danger">Superseded</span>
+                                                        <span class="badge bg-danger">@Localizer["Superseded"]</span>
                                                         break;
                                                     case LocalPackageStatus.Disabling:
-                                                        <span class="badge bg-warning text-dark">Disabling</span>
+                                                        <span class="badge bg-warning text-dark">@Localizer["Disabling"]</span>
                                                         break;
                                                     case LocalPackageStatus.Disabled:
-                                                        <span class="badge bg-secondary">Disabled</span>
+                                                        <span class="badge bg-secondary">@Localizer["Disabled"]</span>
                                                         break;
                                                 }
                                             }
                                             else
                                             {
-                                                <span class="badge bg-warning text-dark">Unpublished</span>
+                                                <span class="badge bg-warning text-dark">@Localizer["Unpublished"]</span>
                                             }
                                             @if (!rev.IsListed)
                                             {
-                                                <span class="badge bg-secondary ms-1">Unlisted</span>
+                                                <span class="badge bg-secondary ms-1">@Localizer["Unlisted"]</span>
                                             }
                                         </td>
                                         <td><label data-utc-time="@rev.UploadedAt.ToHtmlDateTime()"></label></td>
@@ -88,7 +88,7 @@
                                                 {
                                                     <a asp-action="Preview" asp-route-vaultPath="@rev.TempApkgFileInVaultPath"
                                                        class="btn btn-sm btn-warning" title="Continue to Publish">
-                                                        <i class="align-middle me-1" data-lucide="upload-cloud"></i> Continue →
+                                                        <i class="align-middle me-1" data-lucide="upload-cloud"></i> @Localizer["Continue"]
                                                     </a>
                                                 }
                                                 else
