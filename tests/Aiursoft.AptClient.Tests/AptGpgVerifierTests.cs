@@ -13,7 +13,7 @@ public class AptGpgVerifierTests
     [TestMethod]
     public async Task VerifyInRelease_AsciiArmoredKeyring_ReturnsValid()
     {
-        var (armoredKey, _, signedContent) = GenerateTestKeyAndContent();
+        var (armoredKey, signedContent) = GenerateTestKeyAndContent();
 
         var ascPath = Path.GetTempFileName() + ".asc";
 
@@ -40,7 +40,7 @@ public class AptGpgVerifierTests
     [TestMethod]
     public async Task VerifyInRelease_BinaryKeyring_ReturnsValid()
     {
-        var (armoredKey, _, signedContent) = GenerateTestKeyAndContent();
+        var (armoredKey, signedContent) = GenerateTestKeyAndContent();
 
         var gpgPath = Path.GetTempFileName() + ".gpg";
 
@@ -66,7 +66,7 @@ public class AptGpgVerifierTests
     [TestMethod]
     public async Task VerifyInRelease_MissingKeyring_ReturnsInvalid()
     {
-        var (_, _, signedContent) = GenerateTestKeyAndContent();
+        var (_, signedContent) = GenerateTestKeyAndContent();
 
         var nonexistentPath = "/tmp/nonexistent-keyring-42d8361a.gpg";
 
@@ -80,10 +80,9 @@ public class AptGpgVerifierTests
     /// <summary>
     /// Generates a GPG key pair and returns:
     /// 1. ASCII-armored public key (-----BEGIN PGP PUBLIC KEY BLOCK-----)
-    /// 2. Binary public key
-    /// 3. A clear-signed InRelease-style message signed with that key
+    /// 2. A clear-signed InRelease-style message signed with that key
     /// </summary>
-    private static (string ArmoredKey, string BinaryKey, string SignedContent) GenerateTestKeyAndContent()
+    private static (string ArmoredKey, string SignedContent) GenerateTestKeyAndContent()
     {
         var tempHome = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
         Directory.CreateDirectory(tempHome);
@@ -97,9 +96,6 @@ public class AptGpgVerifierTests
 
             // Export public key as ASCII-armored
             var armoredKey = RunGpg(tempHome, "--export --armor \"Apkg Test Key\"");
-
-            // Export public key as binary
-            var binaryKeyHex = RunGpg(tempHome, "--export \"Apkg Test Key\"");
 
             // Create unsigned content (simulates InRelease control data)
             var unsignedContent =
@@ -123,7 +119,7 @@ public class AptGpgVerifierTests
                 $"--clearsign --output \"{unsignedFile}.asc\" \"{unsignedFile}\"");
             var signedContent = File.ReadAllText(unsignedFile + ".asc");
 
-            return (armoredKey, binaryKeyHex, signedContent);
+            return (armoredKey, signedContent);
         }
         finally
         {
