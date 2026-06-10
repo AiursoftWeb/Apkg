@@ -11,15 +11,15 @@
         <div class="row align-items-center h-100">
             <div class="col-lg-5 mx-auto">
                 <div class="d-flex flex-wrap gap-2 mb-4">
-                    <span class="badge badge-subtle-primary p-2">APT repository server</span>
-                    <span class="badge badge-subtle-primary p-2">.apkg publishing</span>
-                    <span class="badge badge-subtle-primary p-2">AnduinOS ready</span>
+                    <span class="badge badge-subtle-primary p-2">@Localizer["APT repository server"]</span>
+                    <span class="badge badge-subtle-primary p-2">@Localizer[".apkg publishing"]</span>
+                    <span class="badge badge-subtle-primary p-2">@Localizer["AnduinOS ready"]</span>
                 </div>
                 <h1 id="main-slogan" class="my-4 text-white" style="font-size: 3rem;">
-                    Apkg <span class="text-primary">Repository Platform</span>
+                    @Localizer["Apkg"] <span class="text-primary">@Localizer["Repository Platform"]</span>
                 </h1>
                 <p class="text-lg text-white-50">
-                    Host signed Debian package repositories, mirror upstream Ubuntu archives, and publish distribution-specific package overrides without asking client machines to run fragile post-install scripts.
+                    @Localizer["Host signed Debian package repositories, mirror upstream Ubuntu archives, and publish distribution-specific package overrides without asking client machines to run fragile post-install scripts."]
                 </p>
                 <form method="get" asp-action="Index" asp-controller="Dashboard" class="apkg-hero-search my-4">
                     <div class="input-group input-group-lg">
@@ -30,29 +30,29 @@
                                name="q"
                                maxlength="40"
                                class="form-control border-start-0 ps-0"
-                               placeholder="Search packages..."
-                               aria-label="Search packages"/>
-                        <button class="btn btn-primary px-4" type="submit">Search</button>
+                               placeholder="@Localizer["Search packages..."]"
+                               aria-label="@Localizer["Search packages"]"/>
+                        <button class="btn btn-primary px-4" type="submit">@Localizer["Search"]</button>
                     </div>
                 </form>
                 <div class="my-4 d-flex flex-wrap gap-3">
                     <a asp-controller="Dashboard" asp-action="Index" class="btn btn-primary btn-lg btn-pill">
-                        <i class="align-middle" data-lucide="layout-dashboard"></i> Enter Dashboard
+                        <i class="align-middle" data-lucide="layout-dashboard"></i> @Localizer["Enter Dashboard"]
                     </a>
                     <a asp-controller="Home" asp-action="SelfHost" class="btn btn-outline-primary btn-lg btn-pill">
-                        <i class="align-middle" data-lucide="server"></i> Self Host
+                        <i class="align-middle" data-lucide="server"></i> @Localizer["Self Host"]
                     </a>
                     <a href="#quick-start" class="btn btn-outline-primary btn-lg btn-pill">
-                        <i class="align-middle" data-lucide="terminal"></i> Start Publishing
+                        <i class="align-middle" data-lucide="terminal"></i> @Localizer["Start Publishing"]
                     </a>
                     <a href="https://github.com/aiursoftweb/apkg" target="_blank" class="btn btn-outline-primary btn-lg btn-pill">
-                        <i class="align-middle" data-lucide="github"></i> View on GitHub
+                        <i class="align-middle" data-lucide="github"></i> @Localizer["View on GitHub"]
                     </a>
                 </div>
             </div>
             <div class="col-lg-7 d-none d-lg-flex mx-auto text-center">
                 <div class="apkg-hero-preview landing-intro-screenshot shadow-lg">
-                    <img src="~/images/screenshot.png" alt="Apkg dashboard showing package repository management" class="img-fluid rounded"/>
+                    <img src="~/images/screenshot.png" alt="@Localizer["Apkg dashboard showing package repository management"]" class="img-fluid rounded"/>
                 </div>
             </div>
         </div>
@@ -113,19 +113,19 @@
             <div class="col-md-4">
                 <div class="apkg-metric">
                     <div class="apkg-metric-value">APT</div>
-                    <div class="apkg-metric-label">Standard Debian repository endpoints for <code>apt update</code>, <code>apt install</code>, GPG keys, package indexes, and pool downloads.</div>
+                    <div class="apkg-metric-label">@Localizer["Standard Debian repository endpoints for <code>apt update</code>, <code>apt install</code>, GPG keys, package indexes, and pool downloads."]</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="apkg-metric">
                     <div class="apkg-metric-value">.apkg</div>
-                    <div class="apkg-metric-label">Portable publishing bundles with a manifest plus one or more <code>.deb</code> files for multiple suites and architectures.</div>
+                    <div class="apkg-metric-label">@Localizer["Portable publishing bundles with a manifest plus one or more <code>.deb</code> files for multiple suites and architectures."]</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="apkg-metric">
                     <div class="apkg-metric-value">.aosproj</div>
-                    <div class="apkg-metric-label">A declarative project file that defines files, folders, scripts, dependencies, systemd services, suites, and architectures — all in one place.</div>
+                    <div class="apkg-metric-label">@Localizer["A declarative project file that defines files, folders, scripts, dependencies, systemd services, suites, and architectures — all in one place."]</div>
                 </div>
             </div>
         </div>
@@ -135,10 +135,10 @@
 <section class="py-6">
     <div class="container">
         <div class="mb-5 text-center">
-            <span class="text-uppercase text-primary text-sm fw-medium mb-1 d-block">Distribution Infrastructure</span>
-            <h2 class="h1">Everything needed to publish an APT repository.</h2>
+            <span class="text-uppercase text-primary text-sm fw-medium mb-1 d-block">@Localizer["Distribution Infrastructure"]</span>
+            <h2 class="h1">@Localizer["Everything needed to publish an APT repository."]</h2>
             <p class="text-muted fs-lg mx-auto mb-0" style="max-width: 760px;">
-                Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots.
+                @Localizer["Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots."]
             </p>
         </div>
 
@@ -149,8 +149,8 @@
                         <i data-lucide="server"></i>
                     </div>
                     <div class="flex-grow-1">
-                        <h4 class="mt-0">Signed APT hosting</h4>
-                        <p class="fs-lg">Serve <code>InRelease</code>, <code>Release</code>, <code>Packages.gz</code>, <code>Contents</code>, certificates, and pool files from Debian-style URLs.</p>
+                        <h4 class="mt-0">@Localizer["Signed APT hosting"]</h4>
+                        <p class="fs-lg">@Localizer["Serve <code>InRelease</code>, <code>Release</code>, <code>Packages.gz</code>, <code>Contents</code>, certificates, and pool files from Debian-style URLs."]</p>
                     </div>
                 </div>
             </div>
@@ -160,8 +160,8 @@
                         <i data-lucide="git-compare-arrows"></i>
                     </div>
                     <div class="flex-grow-1">
-                        <h4 class="mt-0">Upstream mirror ingestion</h4>
-                        <p class="fs-lg">Track upstream suites and components as metadata snapshots, then compose downstream repositories from those mirror buckets.</p>
+                        <h4 class="mt-0">@Localizer["Upstream mirror ingestion"]</h4>
+                        <p class="fs-lg">@Localizer["Track upstream suites and components as metadata snapshots, then compose downstream repositories from those mirror buckets."]</p>
                     </div>
                 </div>
             </div>
@@ -171,8 +171,8 @@
                         <i data-lucide="package-plus"></i>
                     </div>
                     <div class="flex-grow-1">
-                        <h4 class="mt-0">Local package overrides</h4>
-                        <p class="fs-lg">Upload <code>.deb</code> packages that replace upstream entries by package name and architecture in the final published bucket.</p>
+                        <h4 class="mt-0">@Localizer["Local package overrides"]</h4>
+                        <p class="fs-lg">@Localizer["Upload <code>.deb</code> packages that replace upstream entries by package name and architecture in the final published bucket."]</p>
                     </div>
                 </div>
             </div>
@@ -182,8 +182,8 @@
                         <i data-lucide="shield-check"></i>
                     </div>
                     <div class="flex-grow-1">
-                        <h4 class="mt-0">Atomic snapshot promotion</h4>
-                        <p class="fs-lg">APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible.</p>
+                        <h4 class="mt-0">@Localizer["Atomic snapshot promotion"]</h4>
+                        <p class="fs-lg">@Localizer["APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible."]</p>
                     </div>
                 </div>
             </div>
@@ -193,8 +193,8 @@
                         <i data-lucide="key-round"></i>
                     </div>
                     <div class="flex-grow-1">
-                        <h4 class="mt-0">Certificate management</h4>
-                        <p class="fs-lg">Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes.</p>
+                        <h4 class="mt-0">@Localizer["Certificate management"]</h4>
+                        <p class="fs-lg">@Localizer["Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes."]</p>
                     </div>
                 </div>
             </div>
@@ -204,8 +204,8 @@
                         <i data-lucide="users"></i>
                     </div>
                     <div class="flex-grow-1">
-                        <h4 class="mt-0">RBAC and API keys</h4>
-                        <p class="fs-lg">Use local accounts or OIDC, grant repository permissions, and publish from CI with scoped API keys.</p>
+                        <h4 class="mt-0">@Localizer["RBAC and API keys"]</h4>
+                        <p class="fs-lg">@Localizer["Use local accounts or OIDC, grant repository permissions, and publish from CI with scoped API keys."]</p>
                     </div>
                 </div>
             </div>
@@ -220,14 +220,14 @@
                 <div class="text-start pe-lg-4">
                     <div class="d-inline-flex align-items-center px-3 py-1 mb-3 rounded-pill border border-white-10 bg-dark-glass-sm backdrop-blur">
                         <span class="text-info me-2"><i class="fas fa-layer-group"></i></span>
-                        <span class="text-gray-300 small fw-medium text-uppercase tracking-wider">Snapshot Pipeline</span>
+                        <span class="text-gray-300 small fw-medium text-uppercase tracking-wider">@Localizer["Snapshot Pipeline"]</span>
                     </div>
                     <h2 class="display-4 fw-bold text-white mb-3">
-                        <span class="text-primary">Build safely.</span><br>
-                        Publish atomically.
+                        <span class="text-primary">@Localizer["Build safely."]</span><br>
+                        @Localizer["Publish atomically."]
                     </h2>
                     <p class="lead text-gray-400 fs-5">
-                        Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared.
+                        @Localizer["Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared."]
                     </p>
                 </div>
             </div>
@@ -236,22 +236,22 @@
                     <div class="apkg-pipeline-item">
                         <i data-lucide="download-cloud"></i>
                         <strong>MirrorSyncJob</strong>
-                        <span>Pull upstream metadata into mirror buckets.</span>
+                        <span>@Localizer["Pull upstream metadata into mirror buckets."]</span>
                     </div>
                     <div class="apkg-pipeline-item">
                         <i data-lucide="replace"></i>
                         <strong>RepositorySyncJob</strong>
-                        <span>Copy mirror data, apply package overrides, and build release metadata.</span>
+                        <span>@Localizer["Copy mirror data, apply package overrides, and build release metadata."]</span>
                     </div>
                     <div class="apkg-pipeline-item">
                         <i data-lucide="badge-check"></i>
                         <strong>RepositorySignJob</strong>
-                        <span>Sign pending buckets and promote them to primary.</span>
+                        <span>@Localizer["Sign pending buckets and promote them to primary."]</span>
                     </div>
                     <div class="apkg-pipeline-item">
                         <i data-lucide="archive"></i>
                         <strong>RepositoryExportJob</strong>
-                        <span>Materialize static artifacts for nginx, caddy, rsync, or edge distribution.</span>
+                        <span>@Localizer["Materialize static artifacts for nginx, caddy, rsync, or edge distribution."]</span>
                     </div>
                 </div>
             </div>
@@ -326,10 +326,10 @@
 <section class="py-6">
     <div class="container">
         <div class="mb-5 text-center">
-            <span class="text-uppercase text-primary text-sm fw-medium mb-2 d-block">Publishing workflow</span>
-            <h2 class="h1">From <code>.aosproj</code> to <code>apt install</code>.</h2>
+            <span class="text-uppercase text-primary text-sm fw-medium mb-2 d-block">@Localizer["Publishing workflow"]</span>
+            <h2 class="h1">@Localizer["From <code>.aosproj</code> to <code>apt install</code>."]</h2>
             <p class="text-muted fs-lg mx-auto mb-0" style="max-width: 760px;">
-                Developers describe package contents once, build Debian artifacts locally or in CI, push a <code>.apkg</code> bundle, and let the server route packages into the right repositories.
+                @Localizer["Developers describe package contents once, build Debian artifacts locally or in CI, push a <code>.apkg</code> bundle, and let the server route packages into the right repositories."]
             </p>
         </div>
 
@@ -338,8 +338,8 @@
                 <div class="card h-100 shadow-sm">
                     <div class="card-body p-4">
                         <div class="apkg-step">1</div>
-                        <h3 class="h5">Create</h3>
-                        <p class="text-muted mb-0">Start a package project with <code>.aosproj</code>, then declare files, folders, scripts, dependencies, services, suites, and architectures.</p>
+                        <h3 class="h5">@Localizer["Create"]</h3>
+                        <p class="text-muted mb-0">@Localizer["Start a package project with <code>.aosproj</code>, then declare files, folders, scripts, dependencies, services, suites, and architectures."]</p>
                     </div>
                 </div>
             </div>
@@ -347,8 +347,8 @@
                 <div class="card h-100 shadow-sm">
                     <div class="card-body p-4">
                         <div class="apkg-step">2</div>
-                        <h3 class="h5">Build</h3>
-                        <p class="text-muted mb-0">Generate <code>.deb</code> packages with Debian control metadata and maintainer scripts produced from the project file.</p>
+                        <h3 class="h5">@Localizer["Build"]</h3>
+                        <p class="text-muted mb-0">@Localizer["Generate <code>.deb</code> packages with Debian control metadata and maintainer scripts produced from the project file."]</p>
                     </div>
                 </div>
             </div>
@@ -356,8 +356,8 @@
                 <div class="card h-100 shadow-sm">
                     <div class="card-body p-4">
                         <div class="apkg-step">3</div>
-                        <h3 class="h5">Push</h3>
-                        <p class="text-muted mb-0">Pack <code>.deb</code> files into a <code>.apkg</code> archive and upload it with an API key from a developer shell or CI pipeline.</p>
+                        <h3 class="h5">@Localizer["Push"]</h3>
+                        <p class="text-muted mb-0">@Localizer["Pack <code>.deb</code> files into a <code>.apkg</code> archive and upload it with an API key from a developer shell or CI pipeline."]</p>
                     </div>
                 </div>
             </div>
@@ -365,8 +365,8 @@
                 <div class="card h-100 shadow-sm">
                     <div class="card-body p-4">
                         <div class="apkg-step">4</div>
-                        <h3 class="h5">Install</h3>
-                        <p class="text-muted mb-0">After sync and signing, machines consume the repository with normal APT source files and <code>apt install</code> commands.</p>
+                        <h3 class="h5">@Localizer["Install"]</h3>
+                        <p class="text-muted mb-0">@Localizer["After sync and signing, machines consume the repository with normal APT source files and <code>apt install</code> commands."]</p>
                     </div>
                 </div>
             </div>
@@ -378,10 +378,10 @@
     <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6">
-                <span class="text-uppercase text-primary text-sm fw-medium mb-2 d-block">CLI quick start</span>
-                <h2 class="h1 mb-3">Publish from any machine with the .NET tool.</h2>
+                <span class="text-uppercase text-primary text-sm fw-medium mb-2 d-block">@Localizer["CLI quick start"]</span>
+                <h2 class="h1 mb-3">@Localizer["Publish from any machine with the .NET tool."]</h2>
                 <p class="text-muted fs-lg mb-4">
-                    The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration.
+                    @Localizer["The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration."]
                 </p>
                 <div class="d-flex flex-wrap gap-2">
                     <span class="badge bg-light text-dark border">new</span>
@@ -398,7 +398,7 @@
                     <div class="card-body p-4">
                         <div class="d-flex align-items-center mb-3">
                             <i data-lucide="terminal" class="text-primary me-2"></i>
-                            <h5 class="mb-0 fw-bold">Command line flow</h5>
+                            <h5 class="mb-0 fw-bold">@Localizer["Command line flow"]</h5>
                         </div>
                         <pre class="apkg-terminal"><code>dotnet tool install --global Aiursoft.Apkg.Client \
   --add-source https://nuget.aiursoft.com/v3/index.json
@@ -424,20 +424,20 @@ sudo apt install my-package</code></pre>
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-7">
-                <span class="text-uppercase text-primary text-sm fw-medium mb-2 d-block">Web Operations</span>
-                <h2 class="h1 text-white mb-3">Operate it from the browser.</h2>
+                <span class="text-uppercase text-primary text-sm fw-medium mb-2 d-block">@Localizer["Web Operations"]</span>
+                <h2 class="h1 text-white mb-3">@Localizer["Operate it from the browser."]</h2>
                 <p class="text-white-50 fs-lg mb-0">
-                    Administrators can manage repositories, upstream mirrors, signing certificates, API keys, package upload history, background jobs, permissions, users, and global settings from the web UI.
+                    @Localizer["Administrators can manage repositories, upstream mirrors, signing certificates, API keys, package upload history, background jobs, permissions, users, and global settings from the web UI."]
                 </p>
             </div>
             <div class="col-lg-5 text-lg-end">
                 <a asp-controller="Dashboard" asp-action="Index" class="btn btn-primary btn-lg btn-pill me-2 mb-2">
                     <i class="align-middle me-1" data-lucide="search"></i>
-                    Browse packages
+                    @Localizer["Browse packages"]
                 </a>
                 <a asp-controller="Jobs" asp-action="Index" class="btn btn-outline-primary btn-lg btn-pill mb-2">
                     <i class="align-middle me-1" data-lucide="clock-3"></i>
-                    View jobs
+                    @Localizer["View jobs"]
                 </a>
             </div>
         </div>

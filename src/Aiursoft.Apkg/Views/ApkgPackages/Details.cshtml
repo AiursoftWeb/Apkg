@@ -8,7 +8,7 @@
     <div class="col-auto">
         <a asp-action="Index" class="btn btn-sm btn-outline-secondary me-2">
             <i class="align-middle me-1" data-lucide="arrow-left"></i>
-            Back to Packages
+            @Localizer["Back to Packages"]
         </a>
     </div>
     <div class="col-auto">
@@ -33,7 +33,7 @@
                 <div class="alert alert-warning d-flex align-items-start gap-2 mb-3" role="alert">
                     <i data-lucide="triangle-alert" style="width:18px;height:18px;flex-shrink:0;margin-top:2px;"></i>
                     <div>
-                        <strong>Some repositories were skipped during publish</strong> because you do not have permission to upload to them:
+                        <strong>@Localizer["Some repositories were skipped during publish"]</strong> @Localizer["because you do not have permission to upload to them:"]
                         <ul class="mb-0 mt-1">
                             @foreach (var repo in skippedWarnings.Split('|', StringSplitOptions.RemoveEmptyEntries))
                             {
@@ -50,19 +50,19 @@
                     <li class="nav-item">
                         <a class="nav-link @(Model.ActiveTab == "overview" ? "active" : "")"
                            asp-action="Details" asp-route-id="@pkg.Id" asp-route-tab="overview">
-                            <i class="align-middle me-1" data-lucide="info"></i> Overview
+                            <i class="align-middle me-1" data-lucide="info"></i> @Localizer["Overview"]
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @(Model.ActiveTab == "versions" ? "active" : "")"
                            asp-action="Details" asp-route-id="@pkg.Id" asp-route-tab="versions" asp-route-versionsFilter="@Model.VersionsFilter">
-                            <i class="align-middle me-1" data-lucide="history"></i> Versions
+                            <i class="align-middle me-1" data-lucide="history"></i> @Localizer["Versions"]
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link @(Model.ActiveTab == "history" ? "active" : "")"
                            asp-action="Details" asp-route-id="@pkg.Id" asp-route-tab="history">
-                            <i class="align-middle me-1" data-lucide="upload-cloud"></i> Upload History
+                            <i class="align-middle me-1" data-lucide="upload-cloud"></i> @Localizer["Upload History"]
                             @if (Model.UploadHistory.Count > 0)
                             {
                                 <span class="badge bg-secondary ms-1">@Model.UploadHistory.Count</span>
@@ -83,41 +83,41 @@
                         <div class="alert alert-warning d-flex align-items-center gap-2 mb-3" role="alert">
                             <i data-lucide="clock" style="width:18px;height:18px;flex-shrink:0;"></i>
                             <div>
-                                @unpublishedRevisions.Count unpublished upload(s) pending publish.
+                                @unpublishedRevisions.Count @Localizer["unpublished upload(s) pending publish."]
                                 @foreach (var uh in unpublishedRevisions)
                                 {
-                                    <a asp-action="Preview" asp-route-vaultPath="@uh.Revision.TempApkgFileInVaultPath" class="alert-link ms-1">Go to Preview →</a>
+                                    <a asp-action="Preview" asp-route-vaultPath="@uh.Revision.TempApkgFileInVaultPath" class="alert-link ms-1">@Localizer["Go to Preview →"]</a>
                                 }
                             </div>
                         </div>
                     }
                     <div class="row g-3 mb-3">
                         <div class="col-md-3">
-                            <label class="form-label text-muted">Package</label>
+                            <label class="form-label text-muted">@Localizer["Package"]</label>
                             <div><strong>@pkg.Name</strong></div>
                         </div>
                         <div class="col-md-3">
-                            <label class="form-label text-muted">Distro</label>
+                            <label class="form-label text-muted">@Localizer["Distro"]</label>
                             <div><span class="badge bg-dark">@pkg.Distro</span></div>
                         </div>
                         <div class="col-md-3">
-                            <label class="form-label text-muted">Component</label>
+                            <label class="form-label text-muted">@Localizer["Component"]</label>
                             <div><span class="badge bg-dark">@pkg.Component</span></div>
                         </div>
                         <div class="col-md-3">
-                            <label class="form-label text-muted">Created</label>
+                            <label class="form-label text-muted">@Localizer["Created"]</label>
                             <div><label data-utc-time="@pkg.CreatedAt.ToHtmlDateTime()"></label></div>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label text-muted">Maintainer</label>
-                            <div>@(string.IsNullOrWhiteSpace(pkg.Maintainer) ? "—" : pkg.Maintainer)</div>
+                            <label class="form-label text-muted">@Localizer["Maintainer"]</label>
+                            <div>@(string.IsNullOrWhiteSpace(pkg.Maintainer) ? Localizer["—"].Value : pkg.Maintainer)</div>
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label text-muted">Homepage</label>
+                            <label class="form-label text-muted">@Localizer["Homepage"]</label>
                             <div>
                                 @if (string.IsNullOrWhiteSpace(pkg.Homepage))
                                 {
-                                    <span>—</span>
+                                    <span>@Localizer["—"]</span>
                                 }
                                 else
                                 {
@@ -126,8 +126,8 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <label class="form-label text-muted">Description</label>
-                            <div>@(string.IsNullOrWhiteSpace(pkg.Description) ? "—" : pkg.Description)</div>
+                            <label class="form-label text-muted">@Localizer["Description"]</label>
+                            <div>@(string.IsNullOrWhiteSpace(pkg.Description) ? Localizer["—"].Value : pkg.Description)</div>
                         </div>
                     </div>
 
@@ -139,18 +139,18 @@
                             <form method="post" asp-action="DeletePackage" asp-route-id="@pkg.Id">
                                 @Html.AntiForgeryToken()
                                 <button type="submit" class="btn btn-danger"
-                                        onclick="return confirm('Permanently delete the entire package family @pkg.Name and ALL its revisions? This cannot be undone.')">
-                                    <i class="align-middle me-1" data-lucide="folder-x"></i> Delete Package
+                                        onclick="return confirm('@Localizer["Permanently delete the entire package family"] @pkg.Name @Localizer["and ALL its revisions? This cannot be undone."]')">
+                                    <i class="align-middle me-1" data-lucide="folder-x"></i> @Localizer["Delete Package"]
                                 </button>
                             </form>
                         }
                     </div>
 
-                    <h6 class="mb-3">Effective Packages</h6>
-                    <p class="text-muted small mb-2">Latest version per (Architecture, Suite) across all uploads. These are the debs that will be sent to APT repositories.</p>
+                    <h6 class="mb-3">@Localizer["Effective Packages"]</h6>
+                    <p class="text-muted small mb-2">@Localizer["Latest version per (Architecture, Suite) across all uploads. These are the debs that will be sent to APT repositories."]</p>
                     @if (!Model.EffectivePackages.Any())
                     {
-                        <p class="text-muted mb-0">No packages have been uploaded yet.</p>
+                        <p class="text-muted mb-0">@Localizer["No packages have been uploaded yet."]</p>
                     }
                     else
                     {
@@ -158,14 +158,14 @@
                             <table class="table table-striped align-middle mb-0">
                                 <thead>
                                     <tr>
-                                        <th>Package</th>
-                                        <th>Version</th>
-                                        <th>Architecture</th>
-                                        <th>Suite</th>
-                                        <th>Repository</th>
-                                        <th>Uploaded At</th>
-                                        <th>Sync Status</th>
-                                        <th class="text-end">Actions</th>
+                                        <th>@Localizer["Package"]</th>
+                                        <th>@Localizer["Version"]</th>
+                                        <th>@Localizer["Architecture"]</th>
+                                        <th>@Localizer["Suite"]</th>
+                                        <th>@Localizer["Repository"]</th>
+                                        <th>@Localizer["Uploaded At"]</th>
+                                        <th>@Localizer["Sync Status"]</th>
+                                        <th class="text-end">@Localizer["Actions"]</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -205,32 +205,32 @@
                                                 {
                                                     case LocalPackageStatus.Live:
                                                         <span class="badge bg-success" title="@info.StatusMessage">
-                                                            <i class="align-middle me-1" data-lucide="check-circle" style="width:12px; height:12px;"></i> Live
+                                                            <i class="align-middle me-1" data-lucide="check-circle" style="width:12px; height:12px;"></i> @Localizer["Live"]
                                                         </span>
                                                         break;
                                                     case LocalPackageStatus.StagedForSigning:
                                                         <span class="badge bg-info" title="@info.StatusMessage">
-                                                            <i class="align-middle me-1" data-lucide="clock" style="width:12px; height:12px;"></i> Staged
+                                                            <i class="align-middle me-1" data-lucide="clock" style="width:12px; height:12px;"></i> @Localizer["Staged"]
                                                         </span>
                                                         break;
                                                     case LocalPackageStatus.PendingSync:
                                                         <span class="badge bg-warning text-dark" title="@info.StatusMessage">
-                                                            <i class="align-middle me-1" data-lucide="refresh-cw" style="width:12px; height:12px;"></i> Pending Sync
+                                                            <i class="align-middle me-1" data-lucide="refresh-cw" style="width:12px; height:12px;"></i> @Localizer["Pending Sync"]
                                                         </span>
                                                         break;
                                                     case LocalPackageStatus.Superseded:
                                                         <span class="badge bg-secondary" title="@info.StatusMessage">
-                                                            <i class="align-middle me-1" data-lucide="archive" style="width:12px; height:12px;"></i> Superseded
+                                                            <i class="align-middle me-1" data-lucide="archive" style="width:12px; height:12px;"></i> @Localizer["Superseded"]
                                                         </span>
                                                         break;
                                                     case LocalPackageStatus.Disabled:
                                                         <span class="badge bg-secondary" title="@info.StatusMessage">
-                                                            <i class="align-middle me-1" data-lucide="slash" style="width:12px; height:12px;"></i> Disabled
+                                                            <i class="align-middle me-1" data-lucide="slash" style="width:12px; height:12px;"></i> @Localizer["Disabled"]
                                                         </span>
                                                         break;
                                                     case LocalPackageStatus.Disabling:
                                                         <span class="badge bg-warning text-dark" title="@info.StatusMessage">
-                                                            <i class="align-middle me-1" data-lucide="alert-circle" style="width:12px; height:12px;"></i> Disabling
+                                                            <i class="align-middle me-1" data-lucide="alert-circle" style="width:12px; height:12px;"></i> @Localizer["Disabling"]
                                                         </span>
                                                         break;
                                                 }
@@ -255,7 +255,7 @@
                     @* ── Upload History Tab ── *@
                     @if (!Model.UploadHistory.Any())
                     {
-                        <p class="text-muted mb-0">No upload history yet.</p>
+                        <p class="text-muted mb-0">@Localizer["No upload history yet."]</p>
                     }
                     else
                     {
@@ -269,43 +269,43 @@
                                         <strong>@rev.FileName</strong>
                                         @if (isUnpublished)
                                         {
-                                            <span class="badge bg-warning text-dark ms-2">Unpublished</span>
+                                            <span class="badge bg-warning text-dark ms-2">@Localizer["Unpublished"]</span>
                                         }
                                         @if (!rev.IsListed)
                                         {
-                                            <span class="badge bg-secondary ms-2">Unlisted</span>
+                                            <span class="badge bg-secondary ms-2">@Localizer["Unlisted"]</span>
                                         }
                                     </div>
                                     <div class="d-flex gap-2">
                                         <small class="text-muted align-self-center">
                                             <label data-utc-time="@rev.UploadedAt.ToHtmlDateTime()" class="mb-0"></label>
-                                            by @(rev.UploadedByUser?.UserName ?? "—")
+                                            @Localizer["by"] @(rev.UploadedByUser?.UserName ?? "—")
                                         </small>
                                         @if (isUnpublished)
                                         {
-                                            <a asp-action="Preview" asp-route-vaultPath="@rev.TempApkgFileInVaultPath" class="btn btn-sm btn-primary">Publish</a>
+                                            <a asp-action="Preview" asp-route-vaultPath="@rev.TempApkgFileInVaultPath" class="btn btn-sm btn-primary">@Localizer["Publish"]</a>
                                         }
                                         @if (!isUnpublished && rev.IsListed && (Model.IsOwner || Model.IsAdmin))
                                         {
-                                            <a asp-action="Unlist" asp-route-id="@rev.Id" class="btn btn-sm btn-outline-warning">Unlist</a>
+                                            <a asp-action="Unlist" asp-route-id="@rev.Id" class="btn btn-sm btn-outline-warning">@Localizer["Unlist"]</a>
                                         }
                                     </div>
                                 </div>
                                 <div class="card-body">
                                     @if (!uploadItem.DebStatuses.Any())
                                     {
-                                        <p class="text-muted mb-0 small">No debs in this upload. The .apkg has not been published yet.</p>
+                                        <p class="text-muted mb-0 small">@Localizer["No debs in this upload. The .apkg has not been published yet."]</p>
                                     }
                                     else
                                     {
                                         <table class="table table-sm table-striped mb-0">
                                             <thead>
                                                 <tr>
-                                                    <th>Package</th>
-                                                    <th>Version</th>
-                                                    <th>Architecture</th>
-                                                    <th>Suite</th>
-                                                    <th>Status</th>
+                                                    <th>@Localizer["Package"]</th>
+                                                    <th>@Localizer["Version"]</th>
+                                                    <th>@Localizer["Architecture"]</th>
+                                                    <th>@Localizer["Suite"]</th>
+                                                    <th>@Localizer["Status"]</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -332,22 +332,22 @@
                                                             @switch (info.Status)
                                                             {
                                                                 case LocalPackageStatus.Live:
-                                                                    <span class="badge bg-success">Live</span>
+                                                                    <span class="badge bg-success">@Localizer["Live"]</span>
                                                                     break;
                                                                 case LocalPackageStatus.StagedForSigning:
-                                                                    <span class="badge bg-info">Staged</span>
+                                                                    <span class="badge bg-info">@Localizer["Staged"]</span>
                                                                     break;
                                                                 case LocalPackageStatus.PendingSync:
-                                                                    <span class="badge bg-warning text-dark">Pending Sync</span>
+                                                                    <span class="badge bg-warning text-dark">@Localizer["Pending Sync"]</span>
                                                                     break;
                                                                 case LocalPackageStatus.Superseded:
-                                                                    <span class="badge bg-secondary">Superseded</span>
+                                                                    <span class="badge bg-secondary">@Localizer["Superseded"]</span>
                                                                     break;
                                                                 case LocalPackageStatus.Disabled:
-                                                                    <span class="badge bg-secondary">Disabled</span>
+                                                                    <span class="badge bg-secondary">@Localizer["Disabled"]</span>
                                                                     break;
                                                                 case LocalPackageStatus.Disabling:
-                                                                    <span class="badge bg-warning text-dark">Disabling</span>
+                                                                    <span class="badge bg-warning text-dark">@Localizer["Disabling"]</span>
                                                                     break;
                                                             }
                                                         </td>
@@ -390,22 +390,22 @@
                     <div class="d-flex gap-2 mb-3">
                         <a asp-action="Details" asp-route-id="@pkg.Id" asp-route-tab="versions" asp-route-versionsFilter="latest"
                            class="btn btn-sm @(Model.VersionsFilter == "latest" ? "btn-primary" : "btn-outline-secondary")">
-                            Latest
+                            @Localizer["Latest"]
                         </a>
                         <a asp-action="Details" asp-route-id="@pkg.Id" asp-route-tab="versions" asp-route-versionsFilter="live"
                            class="btn btn-sm @(Model.VersionsFilter == "live" ? "btn-primary" : "btn-outline-secondary")">
-                            Live
+                            @Localizer["Live"]
                         </a>
                         <a asp-action="Details" asp-route-id="@pkg.Id" asp-route-tab="versions" asp-route-versionsFilter="all"
                            class="btn btn-sm @(Model.VersionsFilter == "all" ? "btn-primary" : "btn-outline-secondary")">
-                            All
+                            @Localizer["All"]
                         </a>
-                        <small class="text-muted align-self-center ms-1">@filteredPkgs.Count package(s)</small>
+                        <small class="text-muted align-self-center ms-1">@filteredPkgs.Count @Localizer["package(s)"]</small>
                     </div>
 
                     @if (!filteredPkgs.Any())
                     {
-                        <p class="text-muted mb-0">No packages match this filter.</p>
+                        <p class="text-muted mb-0">@Localizer["No packages match this filter."]</p>
                     }
                     else
                     {
@@ -413,16 +413,16 @@
                             <table class="table table-striped align-middle mb-0">
                                 <thead>
                                     <tr>
-                                        <th>Architecture</th>
-                                        <th>Version</th>
-                                        <th>Suite</th>
-                                        <th>Sync Status</th>
-                                        <th>Uploaded</th>
+                                        <th>@Localizer["Architecture"]</th>
+                                        <th>@Localizer["Version"]</th>
+                                        <th>@Localizer["Suite"]</th>
+                                        <th>@Localizer["Sync Status"]</th>
+                                        <th>@Localizer["Uploaded"]</th>
                                         @if (Model.IsAdmin)
                                         {
-                                            <th>Uploader</th>
+                                            <th>@Localizer["Uploader"]</th>
                                         }
-                                        <th class="text-end">Actions</th>
+                                        <th class="text-end">@Localizer["Actions"]</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -438,7 +438,7 @@
                                                 <span class="badge bg-dark">@deb.Architecture</span>
                                                 @if (isFromLatest)
                                                 {
-                                                    <span class="badge bg-success ms-1">Newest</span>
+                                                    <span class="badge bg-success ms-1">@Localizer["Newest"]</span>
                                                 }
                                             </td>
                                             <td><span class="badge bg-info">@deb.Version</span></td>
@@ -458,22 +458,22 @@
                                                 @switch (ps.Status)
                                                 {
                                                     case LocalPackageStatus.Live:
-                                                        <span class="badge bg-success">Live</span>
+                                                        <span class="badge bg-success">@Localizer["Live"]</span>
                                                         break;
                                                     case LocalPackageStatus.StagedForSigning:
-                                                        <span class="badge bg-info">Staged</span>
+                                                        <span class="badge bg-info">@Localizer["Staged"]</span>
                                                         break;
                                                     case LocalPackageStatus.PendingSync:
-                                                        <span class="badge bg-warning text-dark">Pending Sync</span>
+                                                        <span class="badge bg-warning text-dark">@Localizer["Pending Sync"]</span>
                                                         break;
                                                     case LocalPackageStatus.Superseded:
-                                                        <span class="badge bg-secondary">Superseded</span>
+                                                        <span class="badge bg-secondary">@Localizer["Superseded"]</span>
                                                         break;
                                                     case LocalPackageStatus.Disabled:
-                                                        <span class="badge bg-secondary">Disabled</span>
+                                                        <span class="badge bg-secondary">@Localizer["Disabled"]</span>
                                                         break;
                                                     case LocalPackageStatus.Disabling:
-                                                        <span class="badge bg-warning text-dark">Disabling</span>
+                                                        <span class="badge bg-warning text-dark">@Localizer["Disabling"]</span>
                                                         break;
                                                 }
                                             </td>
@@ -498,7 +498,7 @@
                                                 @if (ps.Status == LocalPackageStatus.Live && ps.LivePackageId.HasValue)
                                                 {
                                                     <a asp-controller="Repositories" asp-action="PackageDetails" asp-route-id="@ps.LivePackageId.Value"
-                                                       class="btn btn-sm btn-outline-info" title="View in repository">
+                                                       class="btn btn-sm btn-outline-info" title="@Localizer["View in repository"]">
                                                         <i class="align-middle" data-lucide="external-link"></i>
                                                     </a>
                                                 }

@@ -25,7 +25,7 @@
                             <dd class="col-sm-8">InRelease @Localizer["file"]</dd>
 
                             <dt class="col-sm-4">@Localizer["Keyring"]</dt>
-                            <dd class="col-sm-8">@(Model.Mirror.SignedBy ?? "None")</dd>
+                            <dd class="col-sm-8">@(Model.Mirror.SignedBy ?? Localizer["None"].Value)</dd>
 
                             <dt class="col-sm-4">@Localizer["Status"]</dt>
                             <dd class="col-sm-8">

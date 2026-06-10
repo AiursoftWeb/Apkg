@@ -143,11 +143,11 @@ else if (Model.Report.Status == "Completed")
                                     <td>
                                         @if (issue.IsVirtual)
                                         {
-                                            <span class="badge bg-warning text-dark">Virtual</span>
+                                            <span class="badge bg-warning text-dark">@Localizer["Virtual"]</span>
                                         }
                                         else
                                         {
-                                            <span class="badge bg-info">Real</span>
+                                            <span class="badge bg-info">@Localizer["Real"]</span>
                                         }
                                     </td>
                                     <td>

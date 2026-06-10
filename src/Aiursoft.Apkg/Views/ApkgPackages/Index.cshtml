@@ -43,16 +43,39 @@
                         {
                             var revision = item.DisplayRevision;
                             var syncStatus = item.SyncStatus;
-                            var (statusText, statusClass) = syncStatus switch
+                            string statusText;
+                            string statusClass;
+                            switch (syncStatus)
                             {
-                                UploadSyncStatus.Live       => ("Live",       "bg-success"),
-                                UploadSyncStatus.Signing    => ("Signing",    "bg-info"),
-                                UploadSyncStatus.Syncing    => ("Syncing",    "bg-info"),
-                                UploadSyncStatus.Superseded => ("Superseded", "bg-secondary"),
-                                UploadSyncStatus.Unlisted   => ("Unlisted",   "bg-secondary"),
-                                UploadSyncStatus.Unlisting => ("Unlisting", "bg-warning text-dark"),
-                                _                           => ("Syncing",    "bg-info"),
-                            };
+                                case UploadSyncStatus.Live:
+                                    statusText = Localizer["Live"].Value;
+                                    statusClass = "bg-success";
+                                    break;
+                                case UploadSyncStatus.Signing:
+                                    statusText = Localizer["Signing"].Value;
+                                    statusClass = "bg-info";
+                                    break;
+                                case UploadSyncStatus.Syncing:
+                                    statusText = Localizer["Syncing"].Value;
+                                    statusClass = "bg-info";
+                                    break;
+                                case UploadSyncStatus.Superseded:
+                                    statusText = Localizer["Superseded"].Value;
+                                    statusClass = "bg-secondary";
+                                    break;
+                                case UploadSyncStatus.Unlisted:
+                                    statusText = Localizer["Unlisted"].Value;
+                                    statusClass = "bg-secondary";
+                                    break;
+                                case UploadSyncStatus.Unlisting:
+                                    statusText = Localizer["Unlisting"].Value;
+                                    statusClass = "bg-warning text-dark";
+                                    break;
+                                default:
+                                    statusText = Localizer["Syncing"].Value;
+                                    statusClass = "bg-info";
+                                    break;
+                            }
 
                             string publishBadgeClass;
                             if (item.TotalPackageCount == 0)
@@ -109,7 +132,7 @@
                                     <div class="btn-group">
                                         @if (item.IsUnpublished)
                                         {
-                                            <span class="badge bg-warning text-dark me-1">Unpublished</span>
+                                            <span class="badge bg-warning text-dark me-1">@Localizer["Unpublished"]</span>
                                         }
                                         <a asp-action="Details" asp-route-id="@item.Package.Id" asp-route-tab="versions" class="btn btn-sm btn-outline-info" title="@Localizer["Version History"]">
                                             <i class="align-middle" data-lucide="history"></i>
