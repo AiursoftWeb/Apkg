@@ -207,7 +207,7 @@ public class RepositoryExportJobTests : TestBase
         Assert.IsTrue(File.Exists(inReleasePath));
         var inReleaseBytes = await File.ReadAllBytesAsync(inReleasePath);
         Assert.IsTrue(inReleaseBytes.Length >= 3, "InRelease file should have at least 3 bytes.");
-        var inReleaseBom = new byte[] { inReleaseBytes[0], inReleaseBytes[1], inReleaseBytes[2] };
+        var inReleaseBom = new[] { inReleaseBytes[0], inReleaseBytes[1], inReleaseBytes[2] };
         var bom = new byte[] { 0xEF, 0xBB, 0xBF };
         CollectionAssert.AreNotEqual(bom, inReleaseBom,
             "InRelease must NOT start with UTF-8 BOM (EF BB BF). " +
@@ -219,7 +219,7 @@ public class RepositoryExportJobTests : TestBase
         Assert.IsTrue(File.Exists(releasePath));
         var releaseBytes = await File.ReadAllBytesAsync(releasePath);
         Assert.IsTrue(releaseBytes.Length >= 3, "Release file should have at least 3 bytes.");
-        var releaseBom = new byte[] { releaseBytes[0], releaseBytes[1], releaseBytes[2] };
+        var releaseBom = new[] { releaseBytes[0], releaseBytes[1], releaseBytes[2] };
         CollectionAssert.AreNotEqual(bom, releaseBom,
             "Release must NOT start with UTF-8 BOM (EF BB BF). " +
             "APT expects an ASCII header field at byte 0. " +
@@ -234,7 +234,7 @@ public class RepositoryExportJobTests : TestBase
                 var certBytes = await File.ReadAllBytesAsync(certFile);
                 if (certBytes.Length >= 3)
                 {
-                    var certBom = new byte[] { certBytes[0], certBytes[1], certBytes[2] };
+                    var certBom = new[] { certBytes[0], certBytes[1], certBytes[2] };
                     CollectionAssert.AreNotEqual(bom, certBom,
                         $"Certificate {Path.GetFileName(certFile)} must NOT start with UTF-8 BOM.");
                 }
