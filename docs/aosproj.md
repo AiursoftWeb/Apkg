@@ -106,7 +106,7 @@
 | `Priority` | — | deb `Priority` 字段（如 `optional`, `required`, `important`）。三级回退：本地 → 上游 → Debian 标准默认 `"optional"`。通常保持默认即可 |
 | `DependencyCheckSource` | — | ItemGroup 元素，声明一个用于验证依赖是否存在的 APT 仓库源。支持配置多个源，任一源命中即通过（union 语义）。属性：`Url`（必填，APT 服务器 base URL）、`SuiteMap`（可选，目标 suite → 检查 suite 映射）、`Condition`（可选，MSBuild 风格条件过滤）。**不配置任何源则跳过依赖检查**。详见 [§依赖验证](#依赖验证) |
 | `SuiteShortNameMap` | — | 将目标 suite 名映射为短名，供 `$(SuiteShortName)` 版本占位符使用。格式与 `UpstreamSuiteMapping` 相同：空格/逗号分隔的 `target=short` 对（如 `noble-addon=noble questing-addon=questing`）。若留空则 `$(SuiteShortName)` 回退为完整 suite 名 |
-| `UpstreamUrl` | ⚠️ | 上游 APT 仓库的 base URL（如 `http://archive.ubuntu.com/ubuntu`）。设置 `UpstreamPackage` 时必填 |
+| `UpstreamUrl` | ⚠️ | 上游 APT 仓库的 base URL（如 `http://archive.ubuntu.com/ubuntu`）。设置 `UpstreamPackage` 时必填。**支持多条声明**，通过 `Condition` 属性区分架构，实现多架构上游源路由（如 amd64 → archive.ubuntu.com，arm64 → ports.ubuntu.com）。也支持 `$(Arch)` 等变量解析 |
 | `UpstreamDistro` | ⚠️ | 上游仓库的发行版标识（如 `ubuntu`）。设置 `UpstreamPackage` 时必填 |
 | `UpstreamPackage` | — | 上游 .deb 的包名（如 `base-files`）。一旦设置，触发上游派生模式 |
 | `UpstreamSuite` | ⚠️ | 上游 suite（如 `$(Suite)` 表示与构建 suite 同名）。设置 `UpstreamPackage` 时必填 |
@@ -148,8 +148,10 @@
     <TargetSuites>resolute questing</TargetSuites>
     <TargetArchitectures>amd64 arm64</TargetArchitectures>
 
-    <!-- 上游派生：从 Ubuntu archive 下载 base-files .deb 并在此基础上叠加本地文件 -->
-    <UpstreamUrl>http://archive.ubuntu.com/ubuntu</UpstreamUrl>
+    <!-- 上游派生：从 Ubuntu 下载 base-files .deb 并在此基础上叠加本地文件 -->
+    <!-- 多架构上游源路由：amd64 → archive，arm64 → ports -->
+    <UpstreamUrl Condition="'$(Arch)' == 'amd64'">http://archive.ubuntu.com/ubuntu</UpstreamUrl>
+    <UpstreamUrl Condition="'$(Arch)' == 'arm64'">http://ports.ubuntu.com</UpstreamUrl>
     <UpstreamDistro>ubuntu</UpstreamDistro>
     <UpstreamPackage>base-files</UpstreamPackage>
     <UpstreamSuite>$(Suite)</UpstreamSuite>
@@ -167,6 +169,8 @@
 ```
 
 `$(Suite)` 变量会在构建时解析为 `resolute`、`questing` 等，实现同一 `.aosproj` 从不同上游 suite 下载对应版本。`$(Arch)` 同理——在 `UpstreamArch` 中使用 `$(Arch)` 时，构建 amd64 target 会从上游下载 amd64 包，构建 arm64 target 会下载 arm64 包，实现单一 `.aosproj` 的多架构上游派生。
+
+**多架构上游源路由**：Ubuntu 的 amd64 包在 `archive.ubuntu.com`，arm64 包在 `ports.ubuntu.com`——两个域互不包含对方架构。通过声明多条带 `Condition` 的 `<UpstreamUrl>`，构建时根据当前目标架构自动选择正确的上游源。Condition 采用 first-match 语义：找到第一个满足条件的即停止，未声明 Condition 的条目作为默认 fallback。
 
 `$(UpstreamVersion)` 变量仅在 `<PackageVersion>` 中可用。构建时，Apkg 从下载的上游 `.deb` 控制文件中读取 `Version` 字段并替换该占位符。例如 `<PackageVersion>$(UpstreamVersion)-anduinos</PackageVersion>` 对 noble suite（上游版本为 `13ubuntu10`）会生成 `13ubuntu10-anduinos`，对 questing suite（上游版本为 `14ubuntu3`）会生成 `14ubuntu3-anduinos`。
 
