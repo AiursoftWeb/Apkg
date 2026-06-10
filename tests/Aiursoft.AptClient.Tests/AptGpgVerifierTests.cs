@@ -13,16 +13,13 @@ public class AptGpgVerifierTests
     [TestMethod]
     public async Task VerifyInRelease_AsciiArmoredKeyring_ReturnsValid()
     {
-        var (armoredKey, binaryKey, signedContent) = GenerateTestKeyAndContent();
+        var (armoredKey, _, signedContent) = GenerateTestKeyAndContent();
 
-        // Write keyrings to temp files
         var ascPath = Path.GetTempFileName() + ".asc";
-        var gpgPath = Path.GetTempFileName() + ".gpg";
 
         try
         {
             await File.WriteAllTextAsync(ascPath, armoredKey);
-            await File.WriteAllBytesAsync(gpgPath, ConvertArmoredToBinary(armoredKey));
 
             // Verify with ASCII-armored keyring (should auto-dearmor)
             var (isValid, log) = await AptGpgVerifier.VerifyInReleaseAsync(
@@ -34,7 +31,6 @@ public class AptGpgVerifierTests
         finally
         {
             DeleteIfExists(ascPath);
-            DeleteIfExists(gpgPath);
         }
     }
 
@@ -44,7 +40,7 @@ public class AptGpgVerifierTests
     [TestMethod]
     public async Task VerifyInRelease_BinaryKeyring_ReturnsValid()
     {
-        var (armoredKey, binaryKey, signedContent) = GenerateTestKeyAndContent();
+        var (armoredKey, _, signedContent) = GenerateTestKeyAndContent();
 
         var gpgPath = Path.GetTempFileName() + ".gpg";
 
@@ -70,7 +66,7 @@ public class AptGpgVerifierTests
     [TestMethod]
     public async Task VerifyInRelease_MissingKeyring_ReturnsInvalid()
     {
-        var (armoredKey, _, signedContent) = GenerateTestKeyAndContent();
+        var (_, _, signedContent) = GenerateTestKeyAndContent();
 
         var nonexistentPath = "/tmp/nonexistent-keyring-42d8361a.gpg";
 
