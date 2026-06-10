@@ -31,17 +31,52 @@ gpgv --keyring /tmp/keyring.gpg /tmp/inrelease
 # → GOODSIG
 ```
 
-## Fix location
+## Fix
 
 `src/Aiursoft.AptClient/AptGpgVerifier.cs` → `VerifyFileAsync()`
 
-Before passing `keyringPath` to gpgv, detect ASCII format and convert:
+Before:
 
+```csharp
+var startInfo = new ProcessStartInfo
+{
+    FileName = "gpgv",
+    Arguments = $"--status-fd 1 --keyring \"{keyringPath}\" \"{signedFilePath}\"",
+    ...
+};
 ```
-if keyring starts with "-----BEGIN PGP"
-  → gpg --dearmor → temp binary file → use that
-else
-  → use as-is
+
+After:
+
+```csharp
+// gpgv only supports binary keyrings. Convert ASCII-armored keys first.
+string actualKeyring = keyringPath;
+if (keyringPath.EndsWith(".asc", StringComparison.OrdinalIgnoreCase) ||
+    (File.Exists(keyringPath) && File.ReadAllText(keyringPath).StartsWith("-----BEGIN PGP")))
+{
+    var tempKeyring = Path.GetTempFileName();
+    var psi = new ProcessStartInfo
+    {
+        FileName = "gpg",
+        Arguments = $"--dearmor --output \"{tempKeyring}\" \"{keyringPath}\"",
+        RedirectStandardOutput = true,
+        RedirectStandardError = true,
+        UseShellExecute = false,
+        CreateNoWindow = true
+    };
+    using var p = Process.Start(psi)!;
+    await p.WaitForExitAsync();
+    if (p.ExitCode != 0)
+        throw new InvalidOperationException($"Failed to dearmor keyring: {keyringPath}");
+    actualKeyring = tempKeyring;
+}
+
+var startInfo = new ProcessStartInfo
+{
+    FileName = "gpgv",
+    Arguments = $"--status-fd 1 --keyring \"{actualKeyring}\" \"{signedFilePath}\"",
+    ...
+};
 ```
 
 ## Acceptance criteria
