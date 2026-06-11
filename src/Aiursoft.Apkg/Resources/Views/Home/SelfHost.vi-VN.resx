@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Apkg" xml:space="preserve">
+    <value>Giới thiệu về Apkg</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>và mật khẩu mặc định là:</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg is an APT repository server and Debian package publishing platform. Host it when you need signed repository snapshots, upstream Ubuntu mirror ingestion, API-key package publishing, and browser-based operations for repositories, certificates, users, roles, and jobs." xml:space="preserve">
+    <value>Apkg là một máy chủ kho APT và nền tảng phát hành gói Debian. Hãy tự triển khai nó khi bạn cần các bản chụp kho được ký, nạp镜像 Ubuntu gốc, phát hành gói qua API-key, và thao tác qua trình duyệt cho các kho, chứng chỉ, người dùng, vai trò, và tác vụ.</value>
+  </data>
+  <data name="Apkg uses SQLite by default. For production MySQL, edit the ConnectionStrings section in appsettings.json and set DbType to MySql with your server connection string." xml:space="preserve">
+    <value>Apkg sử dụng SQLite theo mặc định. Để triển khai MySQL trong môi trường sản xuất, hãy chỉnh sửa phần ConnectionStrings trong file appsettings.json và đặt DbType thành MySql kèm theo chuỗi kết nối máy chủ của bạn.</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>Xác thực</value>
+  </data>
+  <data name="Binary path" xml:space="preserve">
+    <value>Đường dẫn nhị phân</value>
+  </data>
+  <data name="Change the default administrator password immediately." xml:space="preserve">
+    <value>Thay đổi mật khẩu quản trị viên mặc định ngay lập tức.</value>
+  </data>
+  <data name="Config path" xml:space="preserve">
+    <value>Thư mục cấu hình</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Cấu hình</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>Bối cảnh Container</value>
+  </data>
+  <data name="Create repositories for every distro, suite, and architecture that package publishers will target." xml:space="preserve">
+    <value>Tạo kho lưu trữ cho từng bản phân phối, bộ suite, và kiến trúc mà nhà phát hành gói sẽ nhắm đến.</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Bảng điều khiển</value>
+  </data>
+  <data name="Data path" xml:space="preserve">
+    <value>Đường dẫn dữ liệu</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>Cơ sở dữ liệu</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>Phát triển &amp; Chạy thủ công</value>
+  </data>
+  <data name="Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app." xml:space="preserve">
+    <value>Thực thi `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` để chạy ứng dụng.</value>
+  </data>
+  <data name="Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies." xml:space="preserve">
+    <value>Thực thi `npm install` trong thư mục `src/Aiursoft.Apkg/wwwroot` để cài đặt các phụ thuộc.</value>
+  </data>
+  <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>Trước tiên, cài đặt Docker. Sau đó chạy các lệnh sau trong cửa sổ Linux:</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Health check" xml:space="preserve">
+    <value>Kiểm tra sức khỏe</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Hình ảnh</value>
+  </data>
+  <data name="Local accounts are enabled by default. Set AppSettings:AuthProvider to OIDC and fill the OIDC section when you want to delegate sign-in to an identity provider." xml:space="preserve">
+    <value>Tài khoản cục bộ được kích hoạt theo mặc định. Đặt AppSettings:AuthProvider thành OIDC và điền phần OIDC khi bạn muốn ủy quyền đăng nhập cho nhà cung cấp danh tính.</value>
+  </data>
+  <data name="Open the `.sln` file in the project path." xml:space="preserve">
+    <value>Mở tệp `.sln` trong thư mục dự án.</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>Hoặc với cổng tùy chỉnh:</value>
+  </data>
+  <data name="Ports" xml:space="preserve">
+    <value>Cổng</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>Điều kiện tiên quyết</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>Nhấn `F5` để chạy ứng dụng.</value>
+  </data>
+  <data name="Production checklist" xml:space="preserve">
+    <value>Danh sách kiểm tra sản xuất</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Thuộc tính</value>
+  </data>
+  <data name="Put the site behind your normal TLS and network controls." xml:space="preserve">
+    <value>Đặt trang web phía sau các biện pháp kiểm soát TLS và mạng thông thường của bạn.</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>Đề xuất</value>
+  </data>
+  <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
+    <value>Thay thế chứng chỉ ký mặc định trước khi phục vụ các kho chứa thực tế.</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>Chạy trong Docker</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>Chạy trên Ubuntu</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>Chạy trong Visual Studio</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>Chạy thủ công</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Tự Chủ Đề</value>
+  </data>
+  <data name="Storage" xml:space="preserve">
+    <value>Lưu trữ</value>
+  </data>
+  <data name="Storage:Path keeps package objects, local packages, avatars, and GPG keyrings. Storage:ExportPath keeps exported static repository artifacts. Both paths should be durable on a real server." xml:space="preserve">
+    <value>Storage:Path lưu trữ các đối tượng gói, gói cục bộ, ảnh đại diện và kho khóa GPG. Storage:ExportPath lưu trữ các đối tượng kho tĩnh đã xuất. Cả hai đường dẫn đều phải bền vững trên máy chủ thực tế.</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>Điều này sẽ khởi động một máy chủ web tại http://localhost:5000 và bạn có thể kiểm tra ứng dụng.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>Tên người dùng mặc định là:</value>
+  </data>
+  <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
+    <value>Tệp ảnh Docker kiểm tra http://localhost:5000/health. Sử dụng cùng điểm cuối này để giám sát thời gian hoạt động bên ngoài sau khi ứng dụng đã khởi động.</value>
+  </data>
+  <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
+    <value>Tạo ảnh Docker cài đặt gnupg và ubuntu-keyring để ký kho lưu trữ và xác minh chữ ký từ nguồn gốc. Lưu trữ /data vì nó chứa appsettings.json, cơ sở dữ liệu SQLite, đối tượng gói, avatar, và khóa GPG.</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>Script sau sẽ cài đặt/cập nhật ứng dụng này trên máy chủ Ubuntu của bạn. Hỗ trợ Ubuntu 25.04.</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Giá trị</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>Truy cập http://localhost:5000.</value>
+  </data>
+
+</root>

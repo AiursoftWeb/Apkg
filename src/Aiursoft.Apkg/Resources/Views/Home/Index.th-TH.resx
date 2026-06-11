@@ -24,6 +24,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>การสนับสนุนแบบ &quot;Fire-and-forget&quot; สำหรับงานที่ใช้เวลานาน (เช่น อีเมลหรือ AI) พร้อมด้วย GUI สำหรับการจัดการคิว การประมวลผลแบบขนาน และการยกเลิก</value>
   </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; cannot run directly because root&apos;s PATH does not include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works permanently:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; ไม่สามารถทำงานได้โดยตรง เนื่องจาก PATH ของ root ไม่ได้รวม &lt;code&gt;~/.dotnet/tools&lt;/code&gt; ไว้ สร้าง symlink เพียงครั้งเดียวก็จะใช้งานได้ถาวร:</value>
+  </data>
   <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
     <value>&lt;code&gt;sudo apkg&lt;/code&gt; จะไม่สามารถใช้งานได้ทันที เนื่องจาก PATH ของ root ไม่รวม &lt;code&gt;~/.dotnet/tools&lt;/code&gt; สร้าง symlink เพียงครั้งเดียวก็จะใช้งานได้ตลอดไป:</value>
   </data>
@@ -83,6 +86,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="Apkg brings the full APT repository lifecycle into one server — mirror upstream archives, override packages locally, sign and promote atomically, then serve to client machines worldwide." xml:space="preserve">
+    <value>Apkg รวมวงจรชีวิตเต็มรูปแบบของ APT repository ไว้ในเซิร์ฟเวอร์เดียว — กระจกสะท้อนอาร์ไคว์ต้นทาง, แทนที่แพ็กเกจระดับท้องถิ่น, ลงชื่อและเผยแพร่แบบอะตอมิก จากนั้นให้บริการแก่เครื่องไคลเอนต์ทั่วโลก</value>
   </data>
   <data name="APT Package Repository" xml:space="preserve">
     <value>ที่เก็บแพ็กเก็ต APT</value>
@@ -149,6 +155,9 @@
   </data>
   <data name="Built for engineers who care about quality." xml:space="preserve">
     <value>ออกแบบมาสำหรับวิศวกรที่ใส่ใจคุณภาพ</value>
+  </data>
+  <data name="Built on AnduinOS" xml:space="preserve">
+    <value>สร้างขึ้นบน AnduinOS</value>
   </data>
   <data name="Built with Aiursoft Template" xml:space="preserve">
     <value>สร้างด้วย Aiursoft Template</value>
@@ -237,6 +246,9 @@
   <data name="Default SQLite database, no configuration needed." xml:space="preserve">
     <value>ฐานข้อมูล SQLite แบบเริ่มต้น ไม่ต้องตั้งค่า</value>
   </data>
+  <data name="Describe packages once in a declarative &lt;code&gt;.aosproj&lt;/code&gt; file. No fragile post-install scripts, no per-distro boilerplate — just files, folders, dependencies, and services." xml:space="preserve">
+    <value>อธิบายแพ็กเกจเพียงครั้งเดียวในไฟล์ &lt;code&gt;.aosproj&lt;/code&gt; แบบ Declarative ไม่ต้องใช้สคริปต์หลังติดตั้งที่บอบบาง ไม่ต้องเขียนโค้ดพื้นฐานซ้ำสำหรับแต่ละระบบแจกจ่าย — มีเพียงไฟล์ โฟลเดอร์ การอ้างอิง 의존성 และบริการ</value>
+  </data>
   <data name="Designed for everyone, from beginners to experts." xml:space="preserve">
     <value>ออกแบบมาเพื่อทุกคน ตั้งแต่มือใหม่จนถึงผู้เชี่ยวชาญ</value>
   </data>
@@ -302,6 +314,9 @@
   </data>
   <data name="Entity Framework Core included" xml:space="preserve">
     <value>รวม Entity Framework Core แล้ว</value>
+  </data>
+  <data name="Export static artifacts for nginx, caddy, or rsync to edge nodes. APT clients anywhere get &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — no proprietary agents, no custom tooling." xml:space="preserve">
+    <value>ส่งออกไฟล์สถิตินิพจน์สำหรับ nginx, caddy, หรือ rsync ไปยังโหนดขอบ เครือข่าย APT clients ใดๆ สามารถใช้คำสั่ง &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — ไม่จำเป็นต้องใช้เอเจนต์เฉพาะหรือเครื่องมือเฉพาะ</value>
   </data>
   <data name="FAQ" xml:space="preserve">
     <value>คำถามที่พบบ่อย</value>
@@ -375,6 +390,9 @@
   <data name="GitLab CI/CD Native" xml:space="preserve">
     <value>GitLab CI/CD แบบเนทีฟ</value>
   </data>
+  <data name="Global Debian delivery" xml:space="preserve">
+    <value>การจัดส่ง Debian ทั่วโลก</value>
+  </data>
   <data name="Global Scale" xml:space="preserve">
     <value>ขนาดทั่วโลก</value>
   </data>
@@ -422,6 +440,9 @@
   </data>
   <data name="IDE Support" xml:space="preserve">
     <value>การรองรับ IDE</value>
+  </data>
+  <data name="If you have written a &lt;code&gt;.csproj&lt;/code&gt; you already know &lt;code&gt;.aosproj&lt;/code&gt;. XML-based, toolable, and integrated with the Apkg CLI for linting, building, and publishing." xml:space="preserve">
+    <value>หากคุณเคยเขียนไฟล์ &lt;code&gt;.csproj&lt;/code&gt; คุณจะต้องคุ้นเคยกับ &lt;code&gt;.aosproj&lt;/code&gt; อยู่แล้ว โดยใช้โครงสร้าง XML รองรับการใช้งานผ่านเครื่องมือต่างๆ และผสานรวมกับ Apkg CLI เพื่อการตรวจสอบ linting การสร้าง build และการเผยแพร่ publishing</value>
   </data>
   <data name="Included" xml:space="preserve">
     <value>รวมไว้แล้ว</value>
@@ -491,6 +512,9 @@
   </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>โมเดลจะได้รับการตรวจสอบความถูกต้องทั้งในด้านไคลเอนต์และเซิร์ฟเวอร์โดยอิงจาก annotation ข้อมูล</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>รูปแบบไวยากรณ์สไตล์ MSBuild</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>การจัดการหลายเขตเวลา</value>
@@ -600,6 +624,9 @@
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>ท่อส่งงานที่พร้อมใช้งานสำหรับ dev/prod</value>
   </data>
+  <data name="Production-hardened on the same infrastructure that powers AnduinOS package delivery. Battle-tested mirror ingestion, signing pipelines, and atomic snapshot promotion." xml:space="preserve">
+    <value>ผ่านการตรวจสอบความเสถียรสำหรับใช้งานจริงบนโครงสร้างพื้นฐานเดียวกับที่ขับเคลื่อนการส่งมอบแพ็กเกจของ AnduinOS ระบบการนำเข้ามิเรอร์ สายงานการเซ็นดิจิทัล และการอัปเดตรูปแบบ Atomic Snapshot ที่ผ่านการทดสอบมาอย่างหนักในสถานการณ์จริง</value>
+  </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>เกตเวย์คุณภาพ</value>
   </data>
@@ -648,11 +675,17 @@
   <data name="Shift with confidence" xml:space="preserve">
     <value>เปลี่ยนไปอย่างมั่นใจ</value>
   </data>
+  <data name="Ship Debian packages at scale." xml:space="preserve">
+    <value>จัดส่งแพ็กเกจ Debian ในระดับใหญ่ได้อย่างมีประสิทธิภาพ</value>
+  </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>ง่ายและสะดวก</value>
   </data>
   <data name="Simplified dpkg Packaging" xml:space="preserve">
     <value>การแพ็ก dpkg ที่เรียบง่าย</value>
+  </data>
+  <data name="Simplify your distribution" xml:space="preserve">
+    <value>ทำให้การจัดการการแจกจ่ายของคุณง่ายขึ้น</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>Single Container</value>

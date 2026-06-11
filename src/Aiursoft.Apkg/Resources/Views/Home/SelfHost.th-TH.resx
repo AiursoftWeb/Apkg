@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Apkg" xml:space="preserve">
+    <value>เกี่ยวกับ Apkg</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>และรหัสผ่านเริ่มต้นคือ:</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg is an APT repository server and Debian package publishing platform. Host it when you need signed repository snapshots, upstream Ubuntu mirror ingestion, API-key package publishing, and browser-based operations for repositories, certificates, users, roles, and jobs." xml:space="preserve">
+    <value>Apkg เป็นเซิร์ฟเวอร์ APT repository และแพลตฟอร์มสำหรับเผยแพร่แพ็กเกจ Debian ให้บริการเมื่อคุณต้องการสแนปช็อตของ repository ที่ผ่านการลงนาม การนำเข้ามิเรอร์ Ubuntu จากต้นทาง การเผยแพร่แพ็กเกจโดยใช้ API key และการจัดการ repository, ใบรับรอง, ผู้ใช้, บทบาท และงาน ผ่านทางเบราว์เซอร์</value>
+  </data>
+  <data name="Apkg uses SQLite by default. For production MySQL, edit the ConnectionStrings section in appsettings.json and set DbType to MySql with your server connection string." xml:space="preserve">
+    <value>Apkg ใช้ SQLite เป็นค่าเริ่มต้น หากต้องการใช้ MySQL ในการผลิต ให้แก้ไขส่วน ConnectionStrings ในไฟล์ appsettings.json แล้วตั้งค่า DbType เป็น MySql พร้อมระบุสตริงการเชื่อมต่อเซิร์ฟเวอร์ของคุณ</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>การตรวจสอบสิทธิ์</value>
+  </data>
+  <data name="Binary path" xml:space="preserve">
+    <value>เส้นทางไบนารี</value>
+  </data>
+  <data name="Change the default administrator password immediately." xml:space="preserve">
+    <value>เปลี่ยนรหัสผ่านผู้ดูแลระบบเริ่มต้นทันที</value>
+  </data>
+  <data name="Config path" xml:space="preserve">
+    <value>เส้นทางไฟล์กำหนดค่า</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>การตั้งค่า</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>บริบทของคอนเทนเนอร์</value>
+  </data>
+  <data name="Create repositories for every distro, suite, and architecture that package publishers will target." xml:space="preserve">
+    <value>สร้างรีพอซิทอรีสำหรับแต่ละระบบปฏิบัติการ เวอร์ชัน และสถาปัตยกรรมที่ผู้เผยแพร่แพ็กเกจจะกำหนดเป้าหมาย</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>แดชบอร์ด</value>
+  </data>
+  <data name="Data path" xml:space="preserve">
+    <value>พาธข้อมูล</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>ฐานข้อมูล</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>การพัฒนาและการรันด้วยตนเอง</value>
+  </data>
+  <data name="Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app." xml:space="preserve">
+    <value>รันคำสั่ง `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` เพื่อเริ่มการทำงานของแอปพลิเคชัน</value>
+  </data>
+  <data name="Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies." xml:space="preserve">
+    <value>รัน `npm install` ในโฟลเดอร์ `src/Aiursoft.Apkg/wwwroot` เพื่อติดตั้ง dependencies</value>
+  </data>
+  <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>ติดตั้ง Docker ก่อน จากนั้นรันคำสั่งต่อไปนี้ใน Linux shell:</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Health check" xml:space="preserve">
+    <value>การตรวจสอบสถานะสุขภาพ</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>รูปภาพ</value>
+  </data>
+  <data name="Local accounts are enabled by default. Set AppSettings:AuthProvider to OIDC and fill the OIDC section when you want to delegate sign-in to an identity provider." xml:space="preserve">
+    <value>เปิดใช้งานบัญชีผู้ใช้งานในเครื่องโดยค่าเริ่มต้น ตั้งค่า AppSettings:AuthProvider เป็น OIDC และกรอกข้อมูลในส่วน OIDC เมื่อต้องการโอนการลงชื่อเข้าใช้ไปยังผู้ให้บริการตัวตน</value>
+  </data>
+  <data name="Open the `.sln` file in the project path." xml:space="preserve">
+    <value>เปิดไฟล์ `.sln` ในพาธของโปรเจกต์</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>หรือระบุพอร์ตเอง:</value>
+  </data>
+  <data name="Ports" xml:space="preserve">
+    <value>พอร์ต</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>ข้อกำหนดเบื้องต้น</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>กด `F5` เพื่อเริ่มแอปพลิเคชัน</value>
+  </data>
+  <data name="Production checklist" xml:space="preserve">
+    <value>รายการตรวจสอบสำหรับระบบผลิตภัณฑ์</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>คุณสมบัติ</value>
+  </data>
+  <data name="Put the site behind your normal TLS and network controls." xml:space="preserve">
+    <value>วางเว็บไซต์ภายใต้การควบคุม TLS และเครือข่ายของคุณตามปกติ</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>แนะนำ</value>
+  </data>
+  <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
+    <value>เปลี่ยนใบรับรองลายเซ็นที่ติดตั้งล่วงหน้าก่อนให้บริการรีพ็อกซีที่ใช้งานจริง</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>รันใน Docker</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>เรียกใช้ใน Ubuntu</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>เรียกใช้ใน Visual Studio</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>เรียกใช้งานด้วยตนเอง</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>โฮสต์ด้วยตนเอง</value>
+  </data>
+  <data name="Storage" xml:space="preserve">
+    <value>ที่จัดเก็บ</value>
+  </data>
+  <data name="Storage:Path keeps package objects, local packages, avatars, and GPG keyrings. Storage:ExportPath keeps exported static repository artifacts. Both paths should be durable on a real server." xml:space="preserve">
+    <value>Storage:Path เก็บวัตถุของแพ็กเกจ, แพ็กเกจท้องถิ่น, แอวตาร, และ GPG keyrings Storage:ExportPath เก็บผลงานคงที่จากที่นำเข้า ทั้งสองเส้นทางควรมีความทนทานบนเซิร์ฟเวอร์จริง</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>คำสั่งนี้จะเริ่มต้นเซิร์ฟเวอร์เว็บที่ http://localhost:5000 และคุณสามารถทดสอบแอปพลิเคชันได้</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>ชื่อผู้ใช้เริ่มต้นคือ:</value>
+  </data>
+  <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
+    <value>Docker image จะตรวจสอบที่ http://localhost:5000/health ใช้ endpoint เดียวกันสำหรับการตรวจสอบสถานะระบบจากภายนอกหลังจากที่แอปพลิเคชันเริ่มทำงานแล้ว</value>
+  </data>
+  <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
+    <value>Docker image จะติดตั้ง gnupg และ ubuntu-keyring เพื่อการลงนามของ repository และการตรวจสอบลายเซ็นจากแหล่งต้นทาง ให้รักษาข้อมูลใน /data ไว้ เนื่องจากเป็นตำแหน่งที่เก็บไฟล์ appsettings.json, ฐานข้อมูล SQLite, ออบเจกต์แพ็กเกจ, ภาพประกอบ (avatars) และ GPG keyrings</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>สคริปต์ต่อไปนี้将进行ติดตั้ง/อัปเดตแอปพลิเคชันนี้บนเซิร์ฟเวอร์ Ubuntu ของคุณ รองรับ Ubuntu 25.04</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>ค่า</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>เปิด http://localhost:5000</value>
+  </data>
+
+</root>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Apkg" xml:space="preserve">
+    <value>О Apkg</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>а пароль по умолчанию:</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg is an APT repository server and Debian package publishing platform. Host it when you need signed repository snapshots, upstream Ubuntu mirror ingestion, API-key package publishing, and browser-based operations for repositories, certificates, users, roles, and jobs." xml:space="preserve">
+    <value>Apkg — это сервер APT-репозиториев и платформа для публикации пакетов Debian. Разверните его, если вам нужны подписанные снимки репозиториев, загрузка зеркал Ubuntu, публикация пакетов по API-ключу и управление репозиториями, сертификатами, пользователями, ролями и задачами через веб-интерфейс.</value>
+  </data>
+  <data name="Apkg uses SQLite by default. For production MySQL, edit the ConnectionStrings section in appsettings.json and set DbType to MySql with your server connection string." xml:space="preserve">
+    <value>По умолчанию Apkg использует SQLite. Для развертывания в производственной среде с MySQL отредактируйте раздел ConnectionStrings в файле appsettings.json и установите DbType значение MySql, указав строку подключения к вашему серверу.</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>Аутентификация</value>
+  </data>
+  <data name="Binary path" xml:space="preserve">
+    <value>Путь к бинарному файлу</value>
+  </data>
+  <data name="Change the default administrator password immediately." xml:space="preserve">
+    <value>Немедленно смените пароль администратора по умолчанию.</value>
+  </data>
+  <data name="Config path" xml:space="preserve">
+    <value>Путь к конфигурации</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Конфигурация</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>Контекст контейнера</value>
+  </data>
+  <data name="Create repositories for every distro, suite, and architecture that package publishers will target." xml:space="preserve">
+    <value>Создайте репозитории для каждого дистрибутива, комплекта и архитектуры, на которые будут ориентироваться издатели пакетов.</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Панель управления</value>
+  </data>
+  <data name="Data path" xml:space="preserve">
+    <value>Путь к данным</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>База данных</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>Разработка и ручной запуск</value>
+  </data>
+  <data name="Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app." xml:space="preserve">
+    <value>Выполните `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` для запуска приложения.</value>
+  </data>
+  <data name="Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies." xml:space="preserve">
+    <value>Выполните команду `npm install` в папке `src/Aiursoft.Apkg/wwwroot`, чтобы установить зависимости.</value>
+  </data>
+  <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>Сначала установите Docker. Затем выполните следующие команды в оболочке Linux:</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Health check" xml:space="preserve">
+    <value>Проверка работоспособности</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Образ</value>
+  </data>
+  <data name="Local accounts are enabled by default. Set AppSettings:AuthProvider to OIDC and fill the OIDC section when you want to delegate sign-in to an identity provider." xml:space="preserve">
+    <value>Локальные учетные записи включены по умолчанию. Установите AppSettings:AuthProvider в значение OIDC и заполните раздел OIDC, если хотите делегировать процесс входа поставщику удостоверений.</value>
+  </data>
+  <data name="Open the `.sln` file in the project path." xml:space="preserve">
+    <value>Откройте файл `.sln` в пути к проекту.</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>Или с пользовательским портом:</value>
+  </data>
+  <data name="Ports" xml:space="preserve">
+    <value>Порты</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>Предварительные требования</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>Нажмите `F5`, чтобы запустить приложение.</value>
+  </data>
+  <data name="Production checklist" xml:space="preserve">
+    <value>Список задач для развертывания</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Свойство</value>
+  </data>
+  <data name="Put the site behind your normal TLS and network controls." xml:space="preserve">
+    <value>Настройте стандартные TLS-соединения и сетевые настройки для сайта.</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>Рекомендуется</value>
+  </data>
+  <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
+    <value>Замените тестовый сертификат подписи перед обслуживанием репозиториев.</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>Запуск в Docker</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>Запуск в Ubuntu</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>Запуск в Visual Studio</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>Запустить вручную</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Самостоятельный хостинг</value>
+  </data>
+  <data name="Storage" xml:space="preserve">
+    <value>Хранилище</value>
+  </data>
+  <data name="Storage:Path keeps package objects, local packages, avatars, and GPG keyrings. Storage:ExportPath keeps exported static repository artifacts. Both paths should be durable on a real server." xml:space="preserve">
+    <value>Storage:Path хранит объекты пакетов, локальные пакеты, аватары и связки ключей GPG. Storage:ExportPath хранит экспортированные артефакты статических репозиториев. Оба пути должны сохраняться на реальном сервере.</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>Это запустит веб-сервер по адресу http://localhost:5000, где вы сможете протестировать приложение.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>Имя пользователя по умолчанию:</value>
+  </data>
+  <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
+    <value>Docker-образ выполняет проверку по адресу http://localhost:5000/health. Используйте этот же конечный пункт для внешнего мониторинга доступности после запуска приложения.</value>
+  </data>
+  <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
+    <value>Образ Docker устанавливает gnupg и ubuntu-keyring для подписи репозитория и проверки сигнатур вышестоящих компонентов. Сохраните /data, так как в нём хранятся appsettings.json, база данных SQLite, объекты пакетов, аватары и ключевые кольца GPG.</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>Следующий скрипт установит или обновит это приложение на вашем сервере Ubuntu. Поддерживается Ubuntu 25.04.</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Значение</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>Перейдите по адресу http://localhost:5000.</value>
+  </data>
+
+</root>

@@ -24,6 +24,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Soporte &quot;Fire-and-forget&quot; para tareas de larga duración (como correos electrónicos o IA), con una interfaz gráfica para la gestión de colas, procesamiento paralelo y cancelación.</value>
   </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; cannot run directly because root&apos;s PATH does not include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works permanently:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; no puede ejecutarse directamente porque la variable PATH de root no incluye &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Crea un enlace simbólico una vez y funcionará de forma permanente:</value>
+  </data>
   <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
     <value>&lt;code&gt;sudo apkg&lt;/code&gt; no funcionará directamente porque la variable PATH de root no incluye &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Cree un enlace simbólico una vez y funcionará para siempre:</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="Apkg brings the full APT repository lifecycle into one server — mirror upstream archives, override packages locally, sign and promote atomically, then serve to client machines worldwide." xml:space="preserve">
+    <value>Apkg integra el ciclo de vida completo del repositorio APT en un solo servidor: espejea los archivos upstream, aplica anulaciones de paquetes localmente, firma y promociona de forma atómica y, a continuación, sirve a equipos cliente en todo el mundo.</value>
   </data>
   <data name="APT Package Repository" xml:space="preserve">
     <value>Repositorio de paquetes APT</value>
@@ -146,6 +152,9 @@
   </data>
   <data name="Built for engineers who care about quality." xml:space="preserve">
     <value>Diseñado para ingenieros que se preocupan por la calidad.</value>
+  </data>
+  <data name="Built on AnduinOS" xml:space="preserve">
+    <value>Construido en AnduinOS</value>
   </data>
   <data name="Built with Aiursoft Template" xml:space="preserve">
     <value>Construido con Aiursoft Template</value>
@@ -234,6 +243,9 @@
   <data name="Default SQLite database, no configuration needed." xml:space="preserve">
     <value>Base de datos SQLite predeterminada, sin necesidad de configuración.</value>
   </data>
+  <data name="Describe packages once in a declarative &lt;code&gt;.aosproj&lt;/code&gt; file. No fragile post-install scripts, no per-distro boilerplate — just files, folders, dependencies, and services." xml:space="preserve">
+    <value>Describe los paquetes una vez en un archivo &lt;code&gt;.aosproj&lt;/code&gt; declarativo. Sin scripts de postinstalación frágiles, sin código repetitivo específico de cada distribución: solo archivos, carpetas, dependencias y servicios.</value>
+  </data>
   <data name="Designed for everyone, from beginners to experts." xml:space="preserve">
     <value>Diseñado para todos, desde principiantes hasta expertos.</value>
   </data>
@@ -299,6 +311,9 @@
   </data>
   <data name="Entity Framework Core included" xml:space="preserve">
     <value>Entity Framework Core incluido</value>
+  </data>
+  <data name="Export static artifacts for nginx, caddy, or rsync to edge nodes. APT clients anywhere get &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — no proprietary agents, no custom tooling." xml:space="preserve">
+    <value>Exporte artefactos estáticos para nginx, caddy o rsync a nodos perimetrales. Los clientes APT de cualquier ubicación pueden ejecutar &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt;: sin agentes propietarios ni herramientas personalizadas.</value>
   </data>
   <data name="FAQ" xml:space="preserve">
     <value>Preguntas frecuentes</value>
@@ -372,6 +387,9 @@
   <data name="GitLab CI/CD Native" xml:space="preserve">
     <value>GitLab CI/CD Nativo</value>
   </data>
+  <data name="Global Debian delivery" xml:space="preserve">
+    <value>Distribución global de Debian</value>
+  </data>
   <data name="Global Scale" xml:space="preserve">
     <value>Escala global</value>
   </data>
@@ -419,6 +437,9 @@
   </data>
   <data name="IDE Support" xml:space="preserve">
     <value>Compatibilidad con IDE</value>
+  </data>
+  <data name="If you have written a &lt;code&gt;.csproj&lt;/code&gt; you already know &lt;code&gt;.aosproj&lt;/code&gt;. XML-based, toolable, and integrated with the Apkg CLI for linting, building, and publishing." xml:space="preserve">
+    <value>Si has escrito un &lt;code&gt;.csproj&lt;/code&gt;, ya conoces el &lt;code&gt;.aosproj&lt;/code&gt;. Basado en XML, compatible con herramientas e integrado con el CLI de Apkg para la validación, compilación y publicación.</value>
   </data>
   <data name="Included" xml:space="preserve">
     <value>Incluido</value>
@@ -488,6 +509,9 @@
   </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>Los modelos se validan en ambos lados, cliente y servidor, basándose en las anotaciones de datos.</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>Sintaxis al estilo MSBuild</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>Gestión de múltiples zonas horarias</value>
@@ -594,6 +618,9 @@
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>Pipelines preconfigurados para dev/prod</value>
   </data>
+  <data name="Production-hardened on the same infrastructure that powers AnduinOS package delivery. Battle-tested mirror ingestion, signing pipelines, and atomic snapshot promotion." xml:space="preserve">
+    <value>Validado en producción en la misma infraestructura que impulsa la entrega de paquetes de AnduinOS. Ingestión de espejos probada en entornos reales, flujos de firma y promoción atómica de instantáneas.</value>
+  </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>Puerta de calidad</value>
   </data>
@@ -642,11 +669,17 @@
   <data name="Shift with confidence" xml:space="preserve">
     <value>Desplázate con confianza</value>
   </data>
+  <data name="Ship Debian packages at scale." xml:space="preserve">
+    <value>Distribuye paquetes Debian a gran escala.</value>
+  </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>Sencillo y fácil</value>
   </data>
   <data name="Simplified dpkg Packaging" xml:space="preserve">
     <value>Empaquetado de dpkg simplificado</value>
+  </data>
+  <data name="Simplify your distribution" xml:space="preserve">
+    <value>Simplifica tu distribución</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>Contenedor único</value>

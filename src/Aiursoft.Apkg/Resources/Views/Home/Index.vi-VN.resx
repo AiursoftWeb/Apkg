@@ -24,6 +24,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Hỗ trợ kiểu &quot;Fire-and-forget&quot; cho các tác vụ dài hạn (như email hoặc AI), đi kèm giao diện người dùng đồ họa (GUI) để quản lý hàng đợi, xử lý song song và hủy bỏ.</value>
   </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; cannot run directly because root&apos;s PATH does not include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works permanently:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; không thể chạy trực tiếp vì PATH của root không bao gồm &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Hãy tạo liên kết symbol một lần và nó sẽ hoạt động vĩnh viễn:</value>
+  </data>
   <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
     <value>&lt;code&gt;sudo apkg&lt;/code&gt; sẽ không hoạt động ngay lập tức vì biến PATH của root không bao gồm &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Hãy tạo một liên kết符号 một lần và nó sẽ hoạt động mãi mãi:</value>
   </data>
@@ -83,6 +86,9 @@
   </data>
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
+  </data>
+  <data name="Apkg brings the full APT repository lifecycle into one server — mirror upstream archives, override packages locally, sign and promote atomically, then serve to client machines worldwide." xml:space="preserve">
+    <value>Apkg tích hợp toàn bộ vòng đời kho APT vào một máy chủ duy nhất — phản ánh kho lưu trữ nguồn gốc, ghi đè gói cục bộ, ký và nâng cấp nguyên tử, sau đó phân phối đến các máy khách trên toàn cầu.</value>
   </data>
   <data name="APT Package Repository" xml:space="preserve">
     <value>Kho gói APT</value>
@@ -149,6 +155,9 @@
   </data>
   <data name="Built for engineers who care about quality." xml:space="preserve">
     <value>Xây dựng dành cho các kỹ sư quan tâm đến chất lượng.</value>
+  </data>
+  <data name="Built on AnduinOS" xml:space="preserve">
+    <value>Được xây dựng trên AnduinOS</value>
   </data>
   <data name="Built with Aiursoft Template" xml:space="preserve">
     <value>Xây dựng với Aiursoft Template</value>
@@ -237,6 +246,9 @@
   <data name="Default SQLite database, no configuration needed." xml:space="preserve">
     <value>Cơ sở dữ liệu SQLite mặc định, không cần cấu hình</value>
   </data>
+  <data name="Describe packages once in a declarative &lt;code&gt;.aosproj&lt;/code&gt; file. No fragile post-install scripts, no per-distro boilerplate — just files, folders, dependencies, and services." xml:space="preserve">
+    <value>Mô tả gói một lần duy nhất trong tệp &lt;code&gt;.aosproj&lt;/code&gt; khai báo. Không còn các kịch bản hậu cài đặt dễ lỗi, không còn mã mẫu riêng cho từng bản phân phối — chỉ còn tệp, thư mục, phụ thuộc và dịch vụ.</value>
+  </data>
   <data name="Designed for everyone, from beginners to experts." xml:space="preserve">
     <value>Thiết kế dành cho mọi người, từ người mới bắt đầu đến chuyên gia.</value>
   </data>
@@ -302,6 +314,9 @@
   </data>
   <data name="Entity Framework Core included" xml:space="preserve">
     <value>Đã bao gồm Entity Framework Core</value>
+  </data>
+  <data name="Export static artifacts for nginx, caddy, or rsync to edge nodes. APT clients anywhere get &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — no proprietary agents, no custom tooling." xml:space="preserve">
+    <value>Xuất bản đồ tĩnh dành cho nginx, caddy, hoặc rsync đến các nút biên. Máy khách APT ở bất cứ đâu đều dùng được &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — không cần tác nhân độc quyền, không cần công cụ tùy chỉnh.</value>
   </data>
   <data name="FAQ" xml:space="preserve">
     <value>Câu hỏi thường gặp</value>
@@ -375,6 +390,9 @@
   <data name="GitLab CI/CD Native" xml:space="preserve">
     <value>GitLab CI/CD Native</value>
   </data>
+  <data name="Global Debian delivery" xml:space="preserve">
+    <value>Cung cấp gói Debian toàn cầu</value>
+  </data>
   <data name="Global Scale" xml:space="preserve">
     <value>Thang toàn cầu</value>
   </data>
@@ -422,6 +440,9 @@
   </data>
   <data name="IDE Support" xml:space="preserve">
     <value>Hỗ trợ IDE</value>
+  </data>
+  <data name="If you have written a &lt;code&gt;.csproj&lt;/code&gt; you already know &lt;code&gt;.aosproj&lt;/code&gt;. XML-based, toolable, and integrated with the Apkg CLI for linting, building, and publishing." xml:space="preserve">
+    <value>Nếu bạn đã từng viết một file &lt;code&gt;.csproj&lt;/code&gt;, bạn đã quen thuộc với &lt;code&gt;.aosproj&lt;/code&gt;. Được xây dựng dựa trên XML, hỗ trợ công cụ và tích hợp với Apkg CLI để kiểm tra cú pháp, xây dựng và xuất bản.</value>
   </data>
   <data name="Included" xml:space="preserve">
     <value>Đã bao gồm</value>
@@ -491,6 +512,9 @@
   </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>Các mô hình được xác thực ở cả phía khách và phía máy chủ dựa trên các chú thích dữ liệu.</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>Cú pháp kiểu MSBuild</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>Xử lý đa múi giờ</value>
@@ -600,6 +624,9 @@
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>Quy trình đã cấu hình sẵn cho môi trường phát triển/sản xuất</value>
   </data>
+  <data name="Production-hardened on the same infrastructure that powers AnduinOS package delivery. Battle-tested mirror ingestion, signing pipelines, and atomic snapshot promotion." xml:space="preserve">
+    <value>Được kiểm chứng trong môi trường sản xuất trên cùng hạ tầng hỗ trợ phân phối gói AnduinOS. Quy trình đồng bộ mirror, ký gói và nâng cấp snapshot nguyên tử đã được thử nghiệm thực chiến.</value>
+  </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>Cổng chất lượng</value>
   </data>
@@ -648,11 +675,17 @@
   <data name="Shift with confidence" xml:space="preserve">
     <value>Chuyển đổi với sự tự tin</value>
   </data>
+  <data name="Ship Debian packages at scale." xml:space="preserve">
+    <value>Phân phối gói Debian quy mô lớn.</value>
+  </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>Đơn giản &amp; Dễ dàng</value>
   </data>
   <data name="Simplified dpkg Packaging" xml:space="preserve">
     <value>Đóng gói dpkg đơn giản hóa</value>
+  </data>
+  <data name="Simplify your distribution" xml:space="preserve">
+    <value>Đơn giản hóa phân phối của bạn</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>Một Container</value>
