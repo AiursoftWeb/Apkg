@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+      <data name="(pending)" xml:space="preserve">
+    <value>（等待处理）</value>
+  </data>
+  <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
     <value>存储桶是仓库包在某一时间点的版本化快照。主存储桶是向 apt 客户端提供服务的实时存储桶。</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>创建时间</value>
+  </data>
+  <data name="GC Policy:" xml:space="preserve">
+    <value>垃圾回收策略：</value>
   </data>
   <data name="ID" xml:space="preserve">
     <value>ID</value>
@@ -74,6 +80,9 @@
   </data>
   <data name="Tip:" xml:space="preserve">
     <value>提示：</value>
+  </data>
+  <data name="Unreferenced buckets (not primary or secondary in any Mirror/Repository) are immediately pruned on the next GC run. In-progress builds are protected because both SyncJobs set &lt;code&gt;SecondaryBucketId&lt;/code&gt; immediately upon bucket creation." xml:space="preserve">
+    <value>未引用的 Bucket（在任何镜像/存储库中均非主要或次要）将在下一次 GC 运行时立即被清理。正在进行的构建受到保护，因为两个 SyncJobs 都会在 Bucket 创建时立即设置 &lt;code&gt;SecondaryBucketId&lt;/code&gt;。</value>
   </data>
   <data name="What is a Bucket?" xml:space="preserve">
     <value>什么是存储桶？</value>

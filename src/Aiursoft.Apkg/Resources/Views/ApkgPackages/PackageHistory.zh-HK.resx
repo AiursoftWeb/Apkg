@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>操作</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>及所有產生的本地套件？</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>架構</value>
+  </data>
+  <data name="Back to Package" xml:space="preserve">
+    <value>返回套件</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>確認刪除</value>
+  </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>確認取消上架</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>已停用</value>
+  </data>
+  <data name="Generated packages will be disabled." xml:space="preserve">
+    <value>已產生的軟件包將被停用。</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>最新</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>上架</value>
+  </data>
+  <data name="No versions found for this package." xml:space="preserve">
+    <value>未找到此軟體封包的版本。</value>
+  </data>
+  <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
+    <value>只有最新已啟用的版本會顯示在 APT 存放庫中。</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>套件</value>
+  </data>
+  <data name="Permanently delete" xml:space="preserve">
+    <value>永久刪除</value>
+  </data>
+  <data name="Signing" xml:space="preserve">
+    <value>簽署中</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>套件</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>已取代</value>
+  </data>
+  <data name="Superseded — a newer version is live. This deb file remains in CAS storage until the garbage collection job runs (~70 min) and removes unreferenced content." xml:space="preserve">
+    <value>已取代 — 較新版本已上線。此 deb 檔案會保留於 CAS 儲存空間中，直至垃圾回收工作執行（約 70 分鐘）並移除未被引用的內容。</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>同步狀態</value>
+  </data>
+  <data name="Syncing" xml:space="preserve">
+    <value>同步中</value>
+  </data>
+  <data name="This page shows all uploaded versions of" xml:space="preserve">
+    <value>此頁面顯示所有已上傳版本</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>下架</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>已上傳</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>上載者</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>版本</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>版本歷史</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>在儲存庫中查看</value>
+  </data>
+
+</root>

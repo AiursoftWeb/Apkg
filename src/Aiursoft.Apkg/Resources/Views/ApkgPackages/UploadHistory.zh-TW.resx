@@ -27,6 +27,15 @@
   <data name="Component" xml:space="preserve">
     <value>元件</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>繼續</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>已停用</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>停用中</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>發行版</value>
   </data>
@@ -35,6 +44,9 @@
   </data>
   <data name="File" xml:space="preserve">
     <value>檔案</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>上線</value>
   </data>
   <data name="My Upload History" xml:space="preserve">
     <value>我的上傳歷史</value>
@@ -48,11 +60,26 @@
   <data name="Packages" xml:space="preserve">
     <value>套件</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>等待同步</value>
+  </data>
+  <data name="Staged for Signing" xml:space="preserve">
+    <value>已進入簽章階段</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>狀態</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>已取代</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>提示：</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>未上架</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>未發布</value>
   </data>
   <data name="Upload History" xml:space="preserve">
     <value>上傳歷史記錄</value>

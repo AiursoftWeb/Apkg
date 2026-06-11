@@ -90,6 +90,9 @@
   <data name="Unlist" xml:space="preserve">
     <value>取消列出</value>
   </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>未发布</value>
+  </data>
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>上传 APKG 混合包</value>
   </data>

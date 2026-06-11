@@ -93,6 +93,9 @@
   <data name="Package Details" xml:space="preserve">
     <value>软件包详情</value>
   </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>软件包</value>
+  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>物理（已缓存）</value>
   </data>

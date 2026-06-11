@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name=".NET Global Tool" xml:space="preserve">
+      <data name=".apkg publishing" xml:space="preserve">
+    <value>.apkg 發布</value>
+  </data>
+  <data name=".NET Global Tool" xml:space="preserve">
     <value>.NET 全域工具</value>
   </data>
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="A complete solution for user authentication and profile management." xml:space="preserve">
     <value>用戶身分驗證和個人資料管理的完整解決方案。</value>
+  </data>
+  <data name="A declarative project file that defines files, folders, scripts, dependencies, systemd services, suites, and architectures — all in one place." xml:space="preserve">
+    <value>宣告式專案檔案，可集中定義檔案、資料夾、指令稿、相依性、systemd 服務、套件版本與架構。</value>
   </data>
   <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
     <value>完全響應式佈局，在桌面和行動裝置上都能呈現絕佳外觀。</value>
@@ -59,6 +65,12 @@
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>內建管理後台</value>
+  </data>
+  <data name="Administrators can manage repositories, upstream mirrors, signing certificates, API keys, package upload history, background jobs, permissions, users, and global settings from the web UI." xml:space="preserve">
+    <value>管理員可透過網頁介面管理儲存庫、上游鏡像、簽署憑證、API 金鑰、套件上傳記錄、背景工作、權限、使用者及全球設定。</value>
+  </data>
+  <data name="After sync and signing, machines consume the repository with normal APT source files and &lt;code&gt;apt install&lt;/code&gt; commands." xml:space="preserve">
+    <value>同步並簽署完成後，機器將使用標準 APT 來源檔案與 &lt;code&gt;apt install&lt;/code&gt; 命令來存取存放庫。</value>
   </data>
   <data name="AI Driven Translation" xml:space="preserve">
     <value>AI 驅動翻譯</value>
@@ -87,14 +99,35 @@
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
   </data>
+  <data name="AnduinOS ready" xml:space="preserve">
+    <value>AnduinOS 就緒</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg brings the full APT repository lifecycle into one server — mirror upstream archives, override packages locally, sign and promote atomically, then serve to client machines worldwide." xml:space="preserve">
     <value>Apkg 將完整的 APT 套件存放庫生命週期整合於單一伺服器中——匯入上游封存、在地覆寫套件、以原子性進行簽署與升級，並提供給全球用戶端機器。</value>
+  </data>
+  <data name="Apkg dashboard showing package repository management" xml:space="preserve">
+    <value>Apkg 儀表板顯示套件儲存庫管理</value>
+  </data>
+  <data name="Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots." xml:space="preserve">
+    <value>Apkg 介於上游套件庫、套件開發人員與客戶端電腦之間，將鏡像金鑰與上傳的覆寫設定轉換為經過簽署且穩定的套件庫快照。</value>
+  </data>
+  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
+    <value>APT 用戶端僅讀取主要倉儲。未完成的同步、未簽署的中繼資料以及階段性倉儲將保持不可見。</value>
   </data>
   <data name="APT Package Repository" xml:space="preserve">
     <value>APT套件庫</value>
   </data>
+  <data name="APT repository server" xml:space="preserve">
+    <value>APT 套件存放庫伺服器</value>
+  </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>人工智慧翻譯</value>
+  </data>
+  <data name="Atomic snapshot promotion" xml:space="preserve">
+    <value>原子快照升級</value>
   </data>
   <data name="Authentik &amp; Okta" xml:space="preserve">
     <value>Authentik &amp; Okta</value>
@@ -147,8 +180,17 @@
   <data name="Browse All Packages" xml:space="preserve">
     <value>瀏覽所有套件</value>
   </data>
+  <data name="Browse packages" xml:space="preserve">
+    <value>瀏覽套件</value>
+  </data>
+  <data name="Build" xml:space="preserve">
+    <value>建構</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>一次建置，随处執行。完全容器化架構。</value>
+  </data>
+  <data name="Build safely." xml:space="preserve">
+    <value>安全建置。</value>
   </data>
   <data name="Build your next big thing," xml:space="preserve">
     <value>打造你的下一個大事業，</value>
@@ -180,6 +222,12 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>內建使用者管理</value>
   </data>
+  <data name="Certificate management" xml:space="preserve">
+    <value>憑證管理</value>
+  </data>
+  <data name="CLI quick start" xml:space="preserve">
+    <value>CLI 快速入門</value>
+  </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>內建 Docker 支援，可簡化並一致地進行部署。</value>
   </data>
@@ -188,6 +236,9 @@
   </data>
   <data name="Comes with strict unit tests, making test-driven development easy." xml:space="preserve">
     <value>內建嚴格的單元測試，讓測試驅動開發變得輕鬆簡單。</value>
+  </data>
+  <data name="Command line flow" xml:space="preserve">
+    <value>命令列流程</value>
   </data>
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>完整說明文件</value>
@@ -210,11 +261,17 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>協調得宜</value>
   </data>
+  <data name="Copy mirror data, apply package overrides, and build release metadata." xml:space="preserve">
+    <value>複製鏡像資料，套用套件覆寫設定，並建置版本中繼資料。</value>
+  </data>
   <data name="Core Routing &amp; DI" xml:space="preserve">
     <value>核心路由與依賴注入</value>
   </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>覆蓋率報表</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>建立</value>
   </data>
   <data name="Cross Platform" xml:space="preserve">
     <value>跨平台</value>
@@ -264,11 +321,17 @@
   <data name="Developer Experience" xml:space="preserve">
     <value>開發者體驗</value>
   </data>
+  <data name="Developers describe package contents once, build Debian artifacts locally or in CI, push a &lt;code&gt;.apkg&lt;/code&gt; bundle, and let the server route packages into the right repositories." xml:space="preserve">
+    <value>開發人員只需一次描述套件內容，即可在當地或 CI 中建構 Debian 產物，上傳 &lt;code&gt;.apkg&lt;/code&gt; 軟體包，並由伺服器自動將套件路由至正確的儲存庫。</value>
+  </data>
   <data name="DevOps Native" xml:space="preserve">
     <value>DevOps 原生</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>討論頁面</value>
+  </data>
+  <data name="Distribution Infrastructure" xml:space="preserve">
+    <value>發行基礎架構</value>
   </data>
   <data name="Docker Native" xml:space="preserve">
     <value>Docker 原生</value>
@@ -300,6 +363,9 @@
   <data name="Enforced quality gate" xml:space="preserve">
     <value>強制品質閘道</value>
   </data>
+  <data name="Enter Dashboard" xml:space="preserve">
+    <value>進入控制面板</value>
+  </data>
   <data name="Enterprise C#" xml:space="preserve">
     <value>企業級 C#</value>
   </data>
@@ -314,6 +380,9 @@
   </data>
   <data name="Entity Framework Core included" xml:space="preserve">
     <value>內建 Entity Framework Core</value>
+  </data>
+  <data name="Everything needed to publish an APT repository." xml:space="preserve">
+    <value>發佈 APT 軟體套件存放庫所需的一切工具。</value>
   </data>
   <data name="Export static artifacts for nginx, caddy, or rsync to edge nodes. APT clients anywhere get &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — no proprietary agents, no custom tooling." xml:space="preserve">
     <value>匯出靜態產出物至 nginx、caddy 或 rsync 的邊緣節點。任何地方的 APT 客戶端皆可執行 &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt;——無需專有代理程式，亦無需客製化工具。</value>
@@ -363,6 +432,9 @@
   <data name="Frequently asked questions" xml:space="preserve">
     <value>常見問題</value>
   </data>
+  <data name="From &lt;code&gt;.aosproj&lt;/code&gt; to &lt;code&gt;apt install&lt;/code&gt;." xml:space="preserve">
+    <value>從 &lt;code&gt;.aosproj&lt;/code&gt; 到 &lt;code&gt;apt install&lt;/code&gt;。</value>
+  </data>
   <data name="From the Architect" xml:space="preserve">
     <value>來自架構師</value>
   </data>
@@ -377,6 +449,12 @@
   </data>
   <data name="Fully Offline" xml:space="preserve">
     <value>完全離線</value>
+  </data>
+  <data name="Generate &lt;code&gt;.deb&lt;/code&gt; packages with Debian control metadata and maintainer scripts produced from the project file." xml:space="preserve">
+    <value>產生包含由專案檔案生成的 Debian 控制金鑰及維護者指令稿的 &lt;code&gt;.deb&lt;/code&gt; 套件。</value>
+  </data>
+  <data name="Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes." xml:space="preserve">
+    <value>產生並管理 GPG 簽署憑證，然後透過對套件倉庫友善的物件路徑公開金鑰。</value>
   </data>
   <data name="Generic configuration" xml:space="preserve">
     <value>通用設定</value>
@@ -426,6 +504,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>內建 Horizon</value>
   </data>
+  <data name="Host signed Debian package repositories, mirror upstream Ubuntu archives, and publish distribution-specific package overrides without asking client machines to run fragile post-install scripts." xml:space="preserve">
+    <value>託管已簽署的 Debian 套件存放庫、鏡像上游 Ubuntu 封存檔案，並發布特定於發行版的套件覆寫設定，無需要求用戶端機器執行不穩定的安裝後指令碼。</value>
+  </data>
   <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
     <value>主控、管理並分發 .deb 套件，提供現代化的 NuGet 風格體驗。由 APKG 提供技術支援。</value>
   </data>
@@ -452,6 +533,9 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>包含教學文件</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>安裝</value>
   </data>
   <data name="Install .NET SDK" xml:space="preserve">
     <value>安裝 .NET SDK</value>
@@ -492,6 +576,9 @@
   <data name="Lint Check" xml:space="preserve">
     <value>Lint Check</value>
   </data>
+  <data name="Local package overrides" xml:space="preserve">
+    <value>當地套件覆寫</value>
+  </data>
   <data name="Made Simple." xml:space="preserve">
     <value>簡單化</value>
   </data>
@@ -503,6 +590,12 @@
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>Markdown 轉 HTML</value>
+  </data>
+  <data name="Materialize static artifacts for nginx, caddy, rsync, or edge distribution." xml:space="preserve">
+    <value>為 Nginx、Caddy、Rsync 或邊緣分發生成靜態工件。</value>
+  </data>
+  <data name="Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared." xml:space="preserve">
+    <value>鏡像同步、儲存庫組成、簽署、匯出及垃圾回收已拆分為獨立的任務。在準備新的後設資料期間，已發布的客戶端會持續讀取最後簽署的主要儲存桶。</value>
   </data>
   <data name="MIT Licence" xml:space="preserve">
     <value>MIT 授權</value>
@@ -594,6 +687,9 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 整合</value>
   </data>
+  <data name="Operate it from the browser." xml:space="preserve">
+    <value>透過瀏覽器操作。</value>
+  </data>
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>優化的 Docker 與 K8s 設定</value>
   </data>
@@ -606,11 +702,17 @@
   <data name="Out-of-the-box" xml:space="preserve">
     <value>開箱即用</value>
   </data>
+  <data name="Pack &lt;code&gt;.deb&lt;/code&gt; files into a &lt;code&gt;.apkg&lt;/code&gt; archive and upload it with an API key from a developer shell or CI pipeline." xml:space="preserve">
+    <value>將 &lt;code&gt;.deb&lt;/code&gt; 檔案打包為 &lt;code&gt;.apkg&lt;/code&gt; 封存檔，並使用 API 金鑰從開發人員殼層或 CI 管線上傳。</value>
+  </data>
   <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
     <value>將多個 .deb 檔案打包成一個包含清單的 .apkg 套件，並推送至任何 APKG 伺服器。</value>
   </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>權限偵測與同步</value>
+  </data>
+  <data name="Portable publishing bundles with a manifest plus one or more &lt;code&gt;.deb&lt;/code&gt; files for multiple suites and architectures." xml:space="preserve">
+    <value>便攜式發布套件，包含清單檔案以及一個或多個 &lt;code&gt;.deb&lt;/code&gt; 檔案，適用於多個軟體版本與架構。</value>
   </data>
   <data name="Powered by AnduinOS" xml:space="preserve">
     <value>由 AnduinOS 提供支援</value>
@@ -627,17 +729,38 @@
   <data name="Production-hardened on the same infrastructure that powers AnduinOS package delivery. Battle-tested mirror ingestion, signing pipelines, and atomic snapshot promotion." xml:space="preserve">
     <value>於驅動 AnduinOS 套件分發的相同基礎架構上進行生產級強化。經實戰驗證的鏡像匯入、簽署流程，以及原子快照升級機制。</value>
   </data>
+  <data name="Publish atomically." xml:space="preserve">
+    <value>以原子方式發布。</value>
+  </data>
+  <data name="Publish from any machine with the .NET tool." xml:space="preserve">
+    <value>使用 .NET 工具從任何裝置發行。</value>
+  </data>
+  <data name="Publishing workflow" xml:space="preserve">
+    <value>發布工作流程</value>
+  </data>
+  <data name="Pull upstream metadata into mirror buckets." xml:space="preserve">
+    <value>將上游中繼資料拉取至鏡像儲存桶。</value>
+  </data>
+  <data name="Push" xml:space="preserve">
+    <value>推送</value>
+  </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>品質門檻</value>
   </data>
   <data name="Quick Start" xml:space="preserve">
     <value>快速入門</value>
   </data>
+  <data name="RBAC and API keys" xml:space="preserve">
+    <value>RBAC 與 API 金鑰</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC 授權</value>
   </data>
   <data name="Read the document" xml:space="preserve">
     <value>閱讀文件</value>
+  </data>
+  <data name="Repository Platform" xml:space="preserve">
+    <value>套件儲存庫平台</value>
   </data>
   <data name="Requires Laravel Socialite config" xml:space="preserve">
     <value>需要 Laravel Socialite 設定</value>
@@ -669,14 +792,29 @@
   <data name="Search" xml:space="preserve">
     <value>搜尋</value>
   </data>
+  <data name="Search packages" xml:space="preserve">
+    <value>搜尋套件</value>
+  </data>
   <data name="Search packages..." xml:space="preserve">
     <value>搜尋套件...</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>自行托管</value>
+  </data>
+  <data name="Serve &lt;code&gt;InRelease&lt;/code&gt;, &lt;code&gt;Release&lt;/code&gt;, &lt;code&gt;Packages.gz&lt;/code&gt;, &lt;code&gt;Contents&lt;/code&gt;, certificates, and pool files from Debian-style URLs." xml:space="preserve">
+    <value>透過類 Debian 的 URL 提供 &lt;code&gt;InRelease&lt;/code&gt;、&lt;code&gt;Release&lt;/code&gt;、&lt;code&gt;Packages.gz&lt;/code&gt;、&lt;code&gt;Contents&lt;/code&gt;、憑證及套件庫檔案。</value>
   </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>自信移轉</value>
   </data>
   <data name="Ship Debian packages at scale." xml:space="preserve">
     <value>大規模發行 Debian 套件</value>
+  </data>
+  <data name="Sign pending buckets and promote them to primary." xml:space="preserve">
+    <value>簽署待處理的儲存區並將其提升為主要儲存區。</value>
+  </data>
+  <data name="Signed APT hosting" xml:space="preserve">
+    <value>簽署過的 APT 託管</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>簡單且容易</value>
@@ -699,6 +837,12 @@
   <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>智慧深色模式，可自動適應使用者的系統設定。</value>
   </data>
+  <data name="Snapshot Pipeline" xml:space="preserve">
+    <value>快照管線</value>
+  </data>
+  <data name="Standard Debian repository endpoints for &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG keys, package indexes, and pool downloads." xml:space="preserve">
+    <value>適用於 &lt;code&gt;apt update&lt;/code&gt;、&lt;code&gt;apt install&lt;/code&gt;、GPG 金鑰、套件索引及套件下載之標準 Debian 存放庫端點。</value>
+  </data>
   <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
     <value>標準實作。無需重新編譯即可切換提供者。</value>
   </data>
@@ -707,6 +851,12 @@
   </data>
   <data name="Start a new project" xml:space="preserve">
     <value>開始新專案</value>
+  </data>
+  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
+    <value>使用 &lt;code&gt;.aosproj&lt;/code&gt; 建立套件專案，接著宣告檔案、資料夾、指令碼、相依項目、服務、套裝套件與架構。</value>
+  </data>
+  <data name="Start Publishing" xml:space="preserve">
+    <value>開始發布</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>開始交付價值。</value>
@@ -747,6 +897,9 @@
   <data name="Technical Lead" xml:space="preserve">
     <value>技術負責人</value>
   </data>
+  <data name="The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration." xml:space="preserve">
+    <value>Apkg CLI 處理專案建立、語法檢查、套件建置、套件集發布、伺服器上傳、本機解壓縮以及 APT 來源設定。</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>最權威、經過實戰考驗的 .NET 企業級基礎架構。從驗證到人工智慧，我們已解決所有困難的問題，讓您無需再煩惱。</value>
   </data>
@@ -774,6 +927,9 @@
   <data name="To use &lt;code&gt;sudo apkg&lt;/code&gt;, make the dotnet tools path available to root:" xml:space="preserve">
     <value>若要使用 &lt;code&gt;sudo apkg&lt;/code&gt;，請讓 dotnet tools 路徑可供 root 使用：</value>
   </data>
+  <data name="Track upstream suites and components as metadata snapshots, then compose downstream repositories from those mirror buckets." xml:space="preserve">
+    <value>追蹤上游套件組與元件的元數據快照，並從這些鏡像儲存庫組合下游存放庫。</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>由包括 AnduinOS、StatHub 和 Warp 在內的生產級應用程式所信賴。我們不僅分享這段程式碼；我們整個事業都建立在這之上。</value>
   </data>
@@ -786,14 +942,29 @@
   <data name="Unified Identity" xml:space="preserve">
     <value>統一身分識別</value>
   </data>
+  <data name="Upload &lt;code&gt;.deb&lt;/code&gt; packages that replace upstream entries by package name and architecture in the final published bucket." xml:space="preserve">
+    <value>上傳 &lt;code&gt;.deb&lt;/code&gt; 套件，以取代最終發布儲存桶中依據套件名稱與架構對應的上游項目。</value>
+  </data>
+  <data name="Upstream mirror ingestion" xml:space="preserve">
+    <value>上游鏡像匯入</value>
+  </data>
   <data name="Usage" xml:space="preserve">
     <value>使用方式</value>
   </data>
   <data name="Use it as a foundation for your SaaS, a backend for your mobile app, a corporate website, or a personal blog. The possibilities are endless." xml:space="preserve">
     <value>無論是作為您 SaaS 的基礎架構、行動應用程式的後端、企業網站或個人部落格，都能完美適用。可能性永無止境。</value>
   </data>
+  <data name="Use local accounts or OIDC, grant repository permissions, and publish from CI with scoped API keys." xml:space="preserve">
+    <value>使用本機帳戶或 OIDC，授予儲存庫權限，並使用限定範圍的 API 金鑰從 CI 發布。</value>
+  </data>
+  <data name="View jobs" xml:space="preserve">
+    <value>檢視作業</value>
+  </data>
   <data name="View on GitHub" xml:space="preserve">
     <value>在 GitHub 上查看</value>
+  </data>
+  <data name="Web Operations" xml:space="preserve">
+    <value>網頁操作</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>歡迎</value>
