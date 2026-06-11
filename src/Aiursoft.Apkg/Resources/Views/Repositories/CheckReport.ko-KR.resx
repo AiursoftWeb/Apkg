@@ -66,6 +66,9 @@
   <data name="Re-check" xml:space="preserve">
     <value>다시 확인</value>
   </data>
+  <data name="Real" xml:space="preserve">
+    <value>실제</value>
+  </data>
   <data name="Report Age" xml:space="preserve">
     <value>보고서 생성일</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>버전</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>가상</value>
   </data>
 
 </root>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+      <data name="(pending)" xml:space="preserve">
+    <value>(đang chờ)</value>
+  </data>
+  <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
     <value>Bucket là ảnh chụp tức thời có phiên bản của các gói trong kho lưu trữ tại một thời điểm nhất định. Bucket chính là bucket đang hoạt động và được cung cấp cho các máy khách apt.</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>Thời gian tạo</value>
+  </data>
+  <data name="GC Policy:" xml:space="preserve">
+    <value>Chính sách thu gom rác:</value>
   </data>
   <data name="ID" xml:space="preserve">
     <value>ID</value>
@@ -74,6 +80,9 @@
   </data>
   <data name="Tip:" xml:space="preserve">
     <value>Mẹo:</value>
+  </data>
+  <data name="Unreferenced buckets (not primary or secondary in any Mirror/Repository) are immediately pruned on the next GC run. In-progress builds are protected because both SyncJobs set &lt;code&gt;SecondaryBucketId&lt;/code&gt; immediately upon bucket creation." xml:space="preserve">
+    <value>Các bucket không được tham chiếu (không phải chính hay phụ trong bất kỳ Mirror/Repository nào) sẽ bị loại bỏ ngay lập tức trong lần chạy GC tiếp theo. Các bản dựng đang diễn ra được bảo vệ vì cả hai SyncJobs đều thiết lập &lt;code&gt;SecondaryBucketId&lt;/code&gt; ngay khi bucket được tạo.</value>
   </data>
   <data name="What is a Bucket?" xml:space="preserve">
     <value>Bucket là gì?</value>

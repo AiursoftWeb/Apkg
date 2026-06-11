@@ -27,6 +27,15 @@
   <data name="Component" xml:space="preserve">
     <value>Thành phần</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Tiếp tục</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Đã tắt</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>Đang vô hiệu hóa</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Bản phân phối</value>
   </data>
@@ -35,6 +44,9 @@
   </data>
   <data name="File" xml:space="preserve">
     <value>Tệp</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Hoạt động</value>
   </data>
   <data name="My Upload History" xml:space="preserve">
     <value>Lịch sử tải lên của tôi</value>
@@ -48,11 +60,26 @@
   <data name="Packages" xml:space="preserve">
     <value>Gói</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Đang đồng bộ hóa</value>
+  </data>
+  <data name="Staged for Signing" xml:space="preserve">
+    <value>Đã chuẩn bị để ký</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Trạng thái</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Đã thay thế</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>Mẹo:</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>Chưa được liệt kê</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Chưa công bố</value>
   </data>
   <data name="Upload History" xml:space="preserve">
     <value>Lịch sử tải lên</value>

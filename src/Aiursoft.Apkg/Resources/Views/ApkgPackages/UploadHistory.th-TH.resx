@@ -27,6 +27,15 @@
   <data name="Component" xml:space="preserve">
     <value>คอมโพเนนต์</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>ดำเนินการต่อ</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>ถูกปิดใช้งาน</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>กำลังปิดใช้งาน</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>ดิสทริบิวชัน</value>
   </data>
@@ -35,6 +44,9 @@
   </data>
   <data name="File" xml:space="preserve">
     <value>ไฟล์</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>เปิดใช้งานแล้ว</value>
   </data>
   <data name="My Upload History" xml:space="preserve">
     <value>ประวัติการอัปโหลดของฉัน</value>
@@ -48,11 +60,26 @@
   <data name="Packages" xml:space="preserve">
     <value>แพ็กเกจ</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>กำลังซิงค์รอดำเนินการ</value>
+  </data>
+  <data name="Staged for Signing" xml:space="preserve">
+    <value>เตรียมการเซ็นชื่อ</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>สถานะ</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>ถูกแทนที่แล้ว</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>เคล็ดลับ:</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>ไม่ระบุรายการ</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>ไม่ได้เผยแพร่</value>
   </data>
   <data name="Upload History" xml:space="preserve">
     <value>ประวัติการอัปโหลด</value>

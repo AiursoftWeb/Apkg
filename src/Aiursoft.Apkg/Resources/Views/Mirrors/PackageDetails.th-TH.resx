@@ -93,6 +93,9 @@
   <data name="Package Details" xml:space="preserve">
     <value>รายละเอียดแพ็กเกจ</value>
   </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>ชุดซอฟต์แวร์ (package)</value>
+  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>ทางกายภาพ (แคช)</value>
   </data>

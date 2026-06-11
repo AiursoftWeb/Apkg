@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Hành động</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>và tất cả các Gói Local được tạo?</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Kiến trúc</value>
+  </data>
+  <data name="Back to Package" xml:space="preserve">
+    <value>Quay lại Gói</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Hủy</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Đóng</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Xác nhận xóa</value>
+  </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Xác nhận Hủy đăng</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Đã tắt</value>
+  </data>
+  <data name="Generated packages will be disabled." xml:space="preserve">
+    <value>Các gói đã tạo sẽ bị vô hiệu hóa.</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>Mới nhất</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Hiện hành</value>
+  </data>
+  <data name="No versions found for this package." xml:space="preserve">
+    <value>Không tìm thấy phiên bản nào cho gói này.</value>
+  </data>
+  <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
+    <value>Chỉ phiên bản đã kích hoạt mới nhất xuất hiện trong kho APT.</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>gói(tệp)</value>
+  </data>
+  <data name="Permanently delete" xml:space="preserve">
+    <value>Xóa vĩnh viễn</value>
+  </data>
+  <data name="Signing" xml:space="preserve">
+    <value>Đang ký</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Bộ</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Bị thay thế</value>
+  </data>
+  <data name="Superseded — a newer version is live. This deb file remains in CAS storage until the garbage collection job runs (~70 min) and removes unreferenced content." xml:space="preserve">
+    <value>Bị thay thế — một phiên bản mới hơn đang hoạt động. File .deb này vẫn còn trong lưu trữ CAS cho đến khi tác vụ thu gom rác được thực thi (~70 phút) và loại bỏ nội dung không còn tham chiếu.</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Trạng thái đồng bộ</value>
+  </data>
+  <data name="Syncing" xml:space="preserve">
+    <value>Đồng bộ hóa</value>
+  </data>
+  <data name="This page shows all uploaded versions of" xml:space="preserve">
+    <value>Trang này hiển thị tất cả các phiên bản đã tải lên của</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Không xác định</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Bỏ niêm yết</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Đã tải lên</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Người tải lên</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Phiên bản</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>Lịch sử phiên bản</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>Xem trong kho lưu trữ</value>
+  </data>
+
+</root>

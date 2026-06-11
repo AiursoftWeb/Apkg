@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>การดำเนินการ</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>ทั้งหมด</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>และแพ็กเกจท้องถิ่นที่ถูกสร้างขึ้นทั้งหมดหรือไม่?</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>สถาปัตยกรรม</value>
+  </data>
+  <data name="Back to Package" xml:space="preserve">
+    <value>กลับไปยังแพ็คเกจ</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>ยืนยันการลบ</value>
+  </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>ยืนยันการลออกจากรายการ</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>ถูกปิดใช้งาน</value>
+  </data>
+  <data name="Generated packages will be disabled." xml:space="preserve">
+    <value>แพ็กเกจที่สร้างไว้จะถูกปิดใช้งาน</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>ล่าสุด</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>เปิดใช้งาน</value>
+  </data>
+  <data name="No versions found for this package." xml:space="preserve">
+    <value>ไม่พบเวอร์ชันสำหรับแพ็กเกจนี้</value>
+  </data>
+  <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
+    <value>เฉพาะเวอร์ชันที่เปิดใช้งานล่าสุดเท่านั้นที่จะปรากฏใน APT repositories</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>ชุดซอฟต์แวร์ (1 รายการ)</value>
+  </data>
+  <data name="Permanently delete" xml:space="preserve">
+    <value>ลบอย่างถาวร</value>
+  </data>
+  <data name="Signing" xml:space="preserve">
+    <value>กำลังลงลายเซ็น</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>ชุดซอฟต์แวร์</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>ถูกแทนที่แล้ว</value>
+  </data>
+  <data name="Superseded — a newer version is live. This deb file remains in CAS storage until the garbage collection job runs (~70 min) and removes unreferenced content." xml:space="preserve">
+    <value>ถูกแทนที่ — มีเวอร์ชันใหม่แล้ว ไฟล์ deb นี้จะยังคงอยู่ในพื้นที่เก็บข้อมูล CAS จนกว่างานจัดเก็บข้อมูล (garbage collection) จะทำงาน (~70 นาที) และลบเนื้อหาที่อ้างถึงออก</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>สถานะการซิงค์</value>
+  </data>
+  <data name="Syncing" xml:space="preserve">
+    <value>กำลังซิงค์</value>
+  </data>
+  <data name="This page shows all uploaded versions of" xml:space="preserve">
+    <value>หน้านี้แสดงเวอร์ชันทั้งหมดที่อัปโหลดของ</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>ไม่ทราบสถานะ</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>ยกเลิกการเผยแพร่</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>อัปโหลดแล้ว</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>ผู้อัปโหลด</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>เวอร์ชัน</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>ประวัติเวอร์ชัน</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>ดูในคลัง</value>
+  </data>
+
+</root>

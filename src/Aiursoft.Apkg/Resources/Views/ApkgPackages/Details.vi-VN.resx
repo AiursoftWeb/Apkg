@@ -18,23 +18,176 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+      <data name="—" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Thao tác</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>Gói hỗn hợp .apkg là định dạng độc quyền của Apkg, gom nhiều gói .deb và tệp manifest.xml vào một kho lưu trữ tar được nén bằng gzip duy nhất. Máy chủ sẽ giải nén mỗi gói .deb, trích xuất siêu dữ liệu từ tệp điều khiển (control file) của nó và đồng bộ hóa chúng đến các kho APT mục tiêu.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>và TẤT CẢ các phiên bản của nó? Thao tác này không thể hoàn tác.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Kiến trúc</value>
+  </data>
+  <data name="Back to Packages" xml:space="preserve">
+    <value>Quay lại Gói</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>bởi vì bạn không có quyền tải lên các kho đó:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>bởi</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Thành phần</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Đã tạo</value>
   </data>
   <data name="Dead (Invariant) Attributes" xml:space="preserve">
     <value>Thuộc tính Cố định (Bất biến)</value>
   </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>Xóa Gói</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Đã tắt</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>Đang vô hiệu hóa</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Phiên bản</value>
+  </data>
+  <data name="Effective Packages" xml:space="preserve">
+    <value>Các Gói Hiệu Lực</value>
+  </data>
   <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
     <value>Mỗi tệp .apkg có ba &lt;strong&gt;thuộc tính bất biến&lt;/strong&gt; được định nghĩa ở gốc file kê khai (manifest) và áp dụng cho toàn bộ gói: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, và &lt;strong&gt;Component&lt;/strong&gt;. Chúng xác định họ gói và kho lưu trữ đích. Các thuộc tính này không thể thay đổi giữa các mục trong cùng một tệp .apkg.</value>
+  </data>
+  <data name="Go to Preview →" xml:space="preserve">
+    <value>Xem trước →</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Trang chủ</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>Mới nhất</value>
+  </data>
+  <data name="Latest version per (Architecture, Suite) across all uploads. These are the debs that will be sent to APT repositories." xml:space="preserve">
+    <value>Phiên bản mới nhất cho mỗi (Kiến trúc, Gói) trên tất cả các lần tải lên. Đây là các gói deb sẽ được gửi đến kho lưu trữ APT.</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Hoạt động</value>
   </data>
   <data name="Live (Variant) Attributes" xml:space="preserve">
     <value>Thuộc tính động (Biến thể)</value>
   </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Người duy trì</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>Mới nhất</value>
+  </data>
+  <data name="No debs in this upload. The .apkg has not been published yet." xml:space="preserve">
+    <value>Không có tệp deb trong lần tải lên này. Tệp .apkg chưa được xuất bản.</value>
+  </data>
+  <data name="No packages have been uploaded yet." xml:space="preserve">
+    <value>Chưa có gói nào được tải lên.</value>
+  </data>
+  <data name="No packages match this filter." xml:space="preserve">
+    <value>Không có gói nào phù hợp với bộ lọc này.</value>
+  </data>
+  <data name="No upload history yet." xml:space="preserve">
+    <value>Chưa có lịch sử tải lên.</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Tổng quan</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Gói</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>gói(kh)</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Đang chờ đồng bộ</value>
+  </data>
+  <data name="Permanently delete the entire package family" xml:space="preserve">
+    <value>Xóa vĩnh viễn toàn bộ họ gói</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Xuất bản</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Kho lưu trữ</value>
+  </data>
+  <data name="Some repositories were skipped during publish" xml:space="preserve">
+    <value>Một số kho lưu trữ đã bị bỏ qua trong quá trình xuất bản</value>
+  </data>
+  <data name="Staged" xml:space="preserve">
+    <value>Đã chuẩn bị</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Bộ sưu tập</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Thay thế</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Trạng thái đồng bộ</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>Mẹo:</value>
   </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Gỡ bỏ khỏi danh sách</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>Không được liệt kê</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Chưa xuất bản</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>bản tải lên chưa được xuất bản chờ công bố.</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Lịch sử tải lên</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Đã tải lên</value>
+  </data>
+  <data name="Uploaded At" xml:space="preserve">
+    <value>Đã tải lên lúc</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Người tải lên</value>
+  </data>
   <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
     <value>Sử dụng &lt;code&gt;apkg push&lt;/code&gt; từ CLI để tạo và tải lên các tệp .apkg. Các bản tải lên phải được công bố trước khi chúng xuất hiện trong kho APT.</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Phiên bản</value>
+  </data>
+  <data name="Versions" xml:space="preserve">
+    <value>Phiên bản</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>Xem trong kho</value>
   </data>
   <data name="What is an APKG Mixed Package?" xml:space="preserve">
     <value>Gói hỗn hợp APKG là gì?</value>

@@ -18,17 +18,26 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name=".NET Global Tool" xml:space="preserve">
+      <data name=".apkg publishing" xml:space="preserve">
+    <value>.apkg 게시</value>
+  </data>
+  <data name=".NET Global Tool" xml:space="preserve">
     <value>.NET 전역 도구</value>
   </data>
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>오래 실행되는 작업(예: 이메일 또는 AI)에 대한 &quot;Fire-and-forget&quot; 지원, 대기열 관리, 병렬 처리 및 취소 기능이 있는 GUI를 특징으로 합니다.</value>
+  </data>
+  <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
+    <value>&lt;code&gt;Buildd&lt;/code&gt; 팜은 실제 하드웨어에서 네이티브로 컴파일합니다. Cron 기반 &lt;code&gt;apt-ftparchive&lt;/code&gt;가 색인을 재생성하며, 패키지는 게시 전에 &lt;code&gt;incoming&lt;/code&gt;에서 몇 시간 동안 대기합니다.</value>
   </data>
   <data name="&lt;code&gt;sudo apkg&lt;/code&gt; cannot run directly because root&apos;s PATH does not include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works permanently:" xml:space="preserve">
     <value>&lt;code&gt;sudo apkg&lt;/code&gt;는 루트(root)의 PATH에 &lt;code&gt;~/.dotnet/tools&lt;/code&gt;가 포함되지 않아 직접 실행할 수 없습니다. 심볼릭 링크를 한 번 생성하면 영구적으로 사용 가능합니다:</value>
   </data>
   <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
     <value>&lt;code&gt;sudo apkg&lt;/code&gt;은 root의 PATH에 &lt;code&gt;~/.dotnet/tools&lt;/code&gt;가 포함되지 않아 기본 상태에서는 작동하지 않습니다. 심볼릭 링크를 한 번 생성하면 영구적으로 작동합니다:</value>
+  </data>
+  <data name="&lt;strong class=&quot;text-white&quot;&gt;Dak&lt;/strong&gt; is battle-tested infrastructure that has delivered Debian to millions for over two decades. &lt;strong class=&quot;text-primary&quot;&gt;Apkg&lt;/strong&gt; does not aim to replace it — it trades some of that generality for a modern, CI-native, cloud-deployable APT repository that a small team can operate." xml:space="preserve">
+    <value>&lt;strong class=&quot;text-white&quot;&gt;Dak&lt;/strong&gt;은 20년 이상 수백만 명의 사용자에게 Debian을 제공해 온 검증된 인프라입니다. &lt;strong class=&quot;text-primary&quot;&gt;Apkg&lt;/strong&gt;은 이를 대체하려는 목적이 아닙니다. 대신 소규모 팀이 운영할 수 있는 현대식 CI 친화적이며 클라우드에 배포 가능한 APT 리포지토리를 위해 그 보편성 중 일부를 희생합니다.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>세분화된 권한 관리를 위한 내장형 역할 기반 접근 제어(RBAC) 시스템.</value>
@@ -38,6 +47,9 @@
   </data>
   <data name="A complete solution for user authentication and profile management." xml:space="preserve">
     <value>사용자 인증 및 프로필 관리에 대한 완전한 솔루션입니다.</value>
+  </data>
+  <data name="A declarative project file that defines files, folders, scripts, dependencies, systemd services, suites, and architectures — all in one place." xml:space="preserve">
+    <value>파일, 폴더, 스크립트, 종속성, systemd 서비스,_SUITE_, 아키텍처 등을 한곳에서 정의하는 선언형 프로젝트 파일입니다.</value>
   </data>
   <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
     <value>데스크톱과 모바일 기기 모두에서 훌륭하게 보이는 완전 반응형 레이아웃.</value>
@@ -59,6 +71,12 @@
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>관리 사이트 포함됨</value>
+  </data>
+  <data name="Administrators can manage repositories, upstream mirrors, signing certificates, API keys, package upload history, background jobs, permissions, users, and global settings from the web UI." xml:space="preserve">
+    <value>관리자는 웹 UI를 통해 리포지토리, 업스트림 미러, 서명 인증서, API 키, 패키지 업로드 기록, 백그라운드 작업, 권한, 사용자 및 글로벌 설정을 관리할 수 있습니다.</value>
+  </data>
+  <data name="After sync and signing, machines consume the repository with normal APT source files and &lt;code&gt;apt install&lt;/code&gt; commands." xml:space="preserve">
+    <value>동기화 및 서명 후, 시스템은 일반적인 APT 소스 파일과 &lt;code&gt;apt install&lt;/code&gt; 명령을 사용하여 저장소를 사용합니다.</value>
   </data>
   <data name="AI Driven Translation" xml:space="preserve">
     <value>AI 기반 번역</value>
@@ -87,14 +105,38 @@
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
   </data>
+  <data name="AnduinOS ready" xml:space="preserve">
+    <value>AnduinOS 준비 완료</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
   <data name="Apkg brings the full APT repository lifecycle into one server — mirror upstream archives, override packages locally, sign and promote atomically, then serve to client machines worldwide." xml:space="preserve">
     <value>Apkg는 단일 서버에 APT 리포지토리 전체 라이프사이클을 통합합니다 — 상류 아카이브를 미러링하고, 패키지를 로컬에서 오버라이드하며, 원자적 방법으로 서명과 승인을 수행한 후 전 세계 클라이언트 머신에 제공합니다.</value>
+  </data>
+  <data name="Apkg dashboard showing package repository management" xml:space="preserve">
+    <value>Apkg 대시보드(패키지 저장소 관리)</value>
+  </data>
+  <data name="Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots." xml:space="preserve">
+    <value>Apkg는 업스트림 아카이브, 패키지 개발자, 그리고 클라이언트 시스템 사이에 위치합니다. 이 도구는 미러 메타데이터와 업로드된 오버라이드를 조합하여 서명된 안정적인 리포지토리 스냅샷을 생성합니다.</value>
+  </data>
+  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
+    <value>APT 클라이언트는 primary 버킷만 읽습니다. 미완료 동기화, 서명되지 않은 메타데이터 및 스테이징 버킷은 보이지 않도록 유지됩니다.</value>
   </data>
   <data name="APT Package Repository" xml:space="preserve">
     <value>APT 패키지 저장소</value>
   </data>
+  <data name="APT repository server" xml:space="preserve">
+    <value>APT 저장소 서버</value>
+  </data>
+  <data name="Architecture Philosophy" xml:space="preserve">
+    <value>아키텍처 철학</value>
+  </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>인공지능 번역</value>
+  </data>
+  <data name="Atomic snapshot promotion" xml:space="preserve">
+    <value>원자성 스냅샷 승격</value>
   </data>
   <data name="Authentik &amp; Okta" xml:space="preserve">
     <value>Authentik &amp; Okta</value>
@@ -147,8 +189,20 @@
   <data name="Browse All Packages" xml:space="preserve">
     <value>모든 패키지 보기</value>
   </data>
+  <data name="Browse packages" xml:space="preserve">
+    <value>패키지 둘러보기</value>
+  </data>
+  <data name="Build" xml:space="preserve">
+    <value>빌드</value>
+  </data>
+  <data name="Build &amp; Pipeline" xml:space="preserve">
+    <value>빌드 및 파이프라인</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>한 번 빌드하면 어디서나 실행 가능. 완전히 컨테이너화된 아키텍처.</value>
+  </data>
+  <data name="Build safely." xml:space="preserve">
+    <value>안전하게 빌드하세요.</value>
   </data>
   <data name="Build your next big thing," xml:space="preserve">
     <value>당신의 다음 대형 프로젝트를 구축하세요,</value>
@@ -180,6 +234,21 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>내장된 사용자 관리</value>
   </data>
+  <data name="Certificate management" xml:space="preserve">
+    <value>인증서 관리</value>
+  </data>
+  <data name="CI cross-compilation excels on amd64/arm64, but Debian&apos;s native Buildd catches architecture-specific UB that cross-toolchains miss." xml:space="preserve">
+    <value>CI 크로스 컴파일은 amd64/arm64에서 강점을 보이지만, Debain의 네이티브 빌드드(Buildd)는 크로스 툴체인이 놓치는 아키텍처별 UB를 잡아냅니다.</value>
+  </data>
+  <data name="CI cross-compilation with per-arch &lt;code&gt;Condition&lt;/code&gt; attributes. Real-time atomic pipeline — sync, sign, swap via &lt;code&gt;rename(2)&lt;/code&gt;. Clients never see half-written metadata." xml:space="preserve">
+    <value>아키텍처별 &lt;code&gt;Condition&lt;/code&gt; 특성을 활용한 CI 크로스 컴파일. &lt;code&gt;rename(2)&lt;/code&gt;을 통해 동기화, 서명, 스왑을 수행하는 실시간 원자성 파이프라인. 클라이언트는 미완성 메타데이터를 결코 보지 않습니다.</value>
+  </data>
+  <data name="CLI quick start" xml:space="preserve">
+    <value>CLI 빠른 시작</value>
+  </data>
+  <data name="Cloud-native CDN delivers consistent low-latency worldwide. DDoS absorbed at the edge." xml:space="preserve">
+    <value>클라우드 네이티브 CDN은 전 세계적으로 일관된 저지연성을 제공합니다. DDoS 공격은 엣지에서 흡수됩니다.</value>
+  </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>Docker 지원을 제공하여 간편하고 일관된 배포가 가능합니다.</value>
   </data>
@@ -188,6 +257,9 @@
   </data>
   <data name="Comes with strict unit tests, making test-driven development easy." xml:space="preserve">
     <value>엄격한 단위 테스트가 포함되어 있어 테스트 주도 개발이 쉬워집니다.</value>
+  </data>
+  <data name="Command line flow" xml:space="preserve">
+    <value>명령줄 흐름</value>
   </data>
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>포괄적인 문서</value>
@@ -210,11 +282,17 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>편안하게 조율하세요</value>
   </data>
+  <data name="Copy mirror data, apply package overrides, and build release metadata." xml:space="preserve">
+    <value>미러 데이터를 복사하고, 패키지 오버라이드를 적용하며, 릴리스 메타데이터를 빌드합니다.</value>
+  </data>
   <data name="Core Routing &amp; DI" xml:space="preserve">
     <value>핵심 라우팅 및 DI</value>
   </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>커버리지 리포트</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>생성</value>
   </data>
   <data name="Cross Platform" xml:space="preserve">
     <value>크로스 플랫폼</value>
@@ -236,6 +314,12 @@
   </data>
   <data name="Day 1 Ready" xml:space="preserve">
     <value>1일차 준비 완료</value>
+  </data>
+  <data name="Debian&apos;s &lt;code&gt;Dak&lt;/code&gt; has served the community for decades. Apkg takes a different path — shaped by modern CI/CD, cloud infrastructure, and declarative tooling. Both have strengths. Both have trade-offs." xml:space="preserve">
+    <value>Debian의 &lt;code&gt;Dak&lt;/code&gt;는 수십 년 동안 커뮤니티에 기여해 왔습니다. Apkg는 현대식 CI/CD, 클라우드 인프라, 선언적 도구로 구성된 다른 경로를 선택합니다. 둘 다 강점을 가지고 있습니다. 둘 다 트레이드오프가 있습니다.</value>
+  </data>
+  <data name="Declarative &lt;code&gt;.aosproj&lt;/code&gt; files with MSBuild syntax. Files, deps, and scripts in one manifest — if you know &lt;code&gt;.csproj&lt;/code&gt;, you know packaging." xml:space="preserve">
+    <value>MSBuild 구문을 사용한 선언형 &lt;code&gt;.aosproj&lt;/code&gt; 파일. 파일, 종속성 및 스크립트를 하나의 매니페스트에 통합 — &lt;code&gt;.csproj&lt;/code&gt;를 알고 있다면 패키징도 이미 아시는 것입니다.</value>
   </data>
   <data name="Deep integration testing with Authentik. Compatible with Okta." xml:space="preserve">
     <value>Authentik과의 심층 통합 테스트. Okta와 호환 가능.</value>
@@ -264,11 +348,20 @@
   <data name="Developer Experience" xml:space="preserve">
     <value>개발자 경험</value>
   </data>
+  <data name="Developers describe package contents once, build Debian artifacts locally or in CI, push a &lt;code&gt;.apkg&lt;/code&gt; bundle, and let the server route packages into the right repositories." xml:space="preserve">
+    <value>개발자는 패키지 내용을 한 번만 정의하고, 로컬 또는 CI 환경에서 Debian 아티팩트를 빌드한 후 &lt;code&gt;.apkg&lt;/code&gt; 번들을 푸시하며, 서버가 패키지를 올바른 저장소로 라우팅하도록 합니다.</value>
+  </data>
   <data name="DevOps Native" xml:space="preserve">
     <value>DevOps 네이티브</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>토론 페이지</value>
+  </data>
+  <data name="Distribution" xml:space="preserve">
+    <value>배포</value>
+  </data>
+  <data name="Distribution Infrastructure" xml:space="preserve">
+    <value>배포 인프라</value>
   </data>
   <data name="Docker Native" xml:space="preserve">
     <value>Docker Native</value>
@@ -300,6 +393,9 @@
   <data name="Enforced quality gate" xml:space="preserve">
     <value>강제 품질 게이트</value>
   </data>
+  <data name="Enter Dashboard" xml:space="preserve">
+    <value>대시보드로 이동</value>
+  </data>
   <data name="Enterprise C#" xml:space="preserve">
     <value>Enterprise C#</value>
   </data>
@@ -314,6 +410,9 @@
   </data>
   <data name="Entity Framework Core included" xml:space="preserve">
     <value>Entity Framework Core 포함됨</value>
+  </data>
+  <data name="Everything needed to publish an APT repository." xml:space="preserve">
+    <value>APT 리포지토리를 게시하는 데 필요한 모든 것.</value>
   </data>
   <data name="Export static artifacts for nginx, caddy, or rsync to edge nodes. APT clients anywhere get &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — no proprietary agents, no custom tooling." xml:space="preserve">
     <value>엔지니엑스, 캐디 또는 리신크를 통해 에지 노드로 정적 아티팩트를 내보냅니다. 전 세계 어디에 있는 APT 클라이언트든 &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; 명령으로 패키지를 설치할 수 있습니다. 독점 에이전트나 별도의 도구 없이도 활용 가능합니다.</value>
@@ -363,6 +462,9 @@
   <data name="Frequently asked questions" xml:space="preserve">
     <value>자주 묻는 질문</value>
   </data>
+  <data name="From &lt;code&gt;.aosproj&lt;/code&gt; to &lt;code&gt;apt install&lt;/code&gt;." xml:space="preserve">
+    <value>&lt;code&gt;.aosproj&lt;/code&gt;에서 &lt;code&gt;apt install&lt;/code&gt;까지.</value>
+  </data>
   <data name="From the Architect" xml:space="preserve">
     <value>아키텍처에서</value>
   </data>
@@ -377,6 +479,12 @@
   </data>
   <data name="Fully Offline" xml:space="preserve">
     <value>완전 오프라인</value>
+  </data>
+  <data name="Generate &lt;code&gt;.deb&lt;/code&gt; packages with Debian control metadata and maintainer scripts produced from the project file." xml:space="preserve">
+    <value>프로젝트 파일에서 생성된 Debian 제어 메타데이터 및 관리자 스크립트를 포함하는 &lt;code&gt;.deb&lt;/code&gt; 패키지를 생성합니다.</value>
+  </data>
+  <data name="Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes." xml:space="preserve">
+    <value>GPG 서명 인증서를 생성하고 관리한 후, 저장소 친화적인 아티팩트 경로를 통해 공개 키를 노출합니다.</value>
   </data>
   <data name="Generic configuration" xml:space="preserve">
     <value>일반 구성</value>
@@ -402,6 +510,9 @@
   <data name="Go to dashboard" xml:space="preserve">
     <value>대시보드로 이동</value>
   </data>
+  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
+    <value>대면 키 서명 파티(KSP)가 결합된 GPG 웹 오브 트러스트. 신뢰는 완전 분산형으로, 키링을 통제하는 단일 권한 기관은 존재하지 않습니다.</value>
+  </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>정기적인 작업(예: 정리 및 동기화)을 처리하고 실행 이력 및 로그를 모니터링할 수 있는 포괄적인 GUI를 제공합니다.</value>
   </data>
@@ -426,6 +537,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>Horizon 포함됨</value>
   </data>
+  <data name="Host signed Debian package repositories, mirror upstream Ubuntu archives, and publish distribution-specific package overrides without asking client machines to run fragile post-install scripts." xml:space="preserve">
+    <value>서명된 Debian 패키지 저장소를 호스팅하고, Upstream Ubuntu 아카이브를 거울 복사하며, 클라이언트 기계에 불안정한 설치 후 스크립트를 실행하도록 요구하지 않고 배포판별 패키지 덮어쓰기를 게시합니다.</value>
+  </data>
   <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
     <value>.deb 패키지를 현대적인 NuGet 유사 환경에서 호스팅, 관리 및 배포하세요. APKG가 지원합니다.</value>
   </data>
@@ -444,6 +558,9 @@
   <data name="If you have written a &lt;code&gt;.csproj&lt;/code&gt; you already know &lt;code&gt;.aosproj&lt;/code&gt;. XML-based, toolable, and integrated with the Apkg CLI for linting, building, and publishing." xml:space="preserve">
     <value>&lt;code&gt;.csproj&lt;/code&gt; 파일을 작성해 보았다면 &lt;code&gt;.aosproj&lt;/code&gt;도 이미 아실 것입니다. XML 기반이며 도구 연동이 가능하고, 린팅, 빌드, 게시를 위해 Apkg CLI와 통합되어 있습니다.</value>
   </data>
+  <data name="Imperative &lt;code&gt;debian/rules&lt;/code&gt; and dh macros. Mastering Debian packaging takes months of learning arcane shell scripts." xml:space="preserve">
+    <value>명령형 &lt;code&gt;debian/rules&lt;/code&gt; 및 dh 매크로. 복잡한 쉘 스크립트를 익히는 데 수개월이 걸리는 디비안 패키징 마스터하기.</value>
+  </data>
   <data name="Included" xml:space="preserve">
     <value>포함됨</value>
   </data>
@@ -452,6 +569,9 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>튜토리얼 포함</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>설치</value>
   </data>
   <data name="Install .NET SDK" xml:space="preserve">
     <value>.NET SDK 설치</value>
@@ -492,6 +612,9 @@
   <data name="Lint Check" xml:space="preserve">
     <value>라인트 체크</value>
   </data>
+  <data name="Local package overrides" xml:space="preserve">
+    <value>로컬 패키지 재정의</value>
+  </data>
   <data name="Made Simple." xml:space="preserve">
     <value>간편하게.</value>
   </data>
@@ -503,6 +626,12 @@
   </data>
   <data name="Markdown To HTML" xml:space="preserve">
     <value>마크다운을 HTML로 변환</value>
+  </data>
+  <data name="Materialize static artifacts for nginx, caddy, rsync, or edge distribution." xml:space="preserve">
+    <value>nginx, caddy, rsync 또는 에지 배포를 위한 정적 아티팩트 생성</value>
+  </data>
+  <data name="Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared." xml:space="preserve">
+    <value>미러 동기화, 저장소 구성, 서명, 내보내기 및 가비지 컬렉션은 독립적인 작업으로 분리됩니다. 새 메타데이터가 준비되는 동안 게시된 클라이언트는 마지막으로 서명된 기본 버킷을 계속 읽습니다.</value>
   </data>
   <data name="MIT Licence" xml:space="preserve">
     <value>MIT 라이선스</value>
@@ -582,6 +711,9 @@
   <data name="OIDC &amp; SSO" xml:space="preserve">
     <value>OIDC 및 SSO</value>
   </data>
+  <data name="OIDC-backed RBAC with scoped API keys. Teams authenticate via existing SSO, grant per-repo permissions, and revoke access instantly." xml:space="preserve">
+    <value>OIDC 기반 RBAC 및 스코프 지정 API 키. 기존 SSO를 통해 팀 인증, 저장소별 권한 부여, 그리고 즉각적인 접근 권한 회수가 가능합니다.</value>
+  </data>
   <data name="One Click Start" xml:space="preserve">
     <value>한 번 클릭 시작</value>
   </data>
@@ -593,6 +725,9 @@
   </data>
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>OpenID Connect 연동</value>
+  </data>
+  <data name="Operate it from the browser." xml:space="preserve">
+    <value>브라우저에서 운영하세요.</value>
   </data>
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>최적화된 Docker 및 K8s 설정</value>
@@ -606,11 +741,20 @@
   <data name="Out-of-the-box" xml:space="preserve">
     <value>즉시 사용 가능</value>
   </data>
+  <data name="Pack &lt;code&gt;.deb&lt;/code&gt; files into a &lt;code&gt;.apkg&lt;/code&gt; archive and upload it with an API key from a developer shell or CI pipeline." xml:space="preserve">
+    <value>&lt;code&gt;.deb&lt;/code&gt; 파일을 &lt;code&gt;.apkg&lt;/code&gt; 아카이브로 묶고 개발자 셸 또는 CI 파이프라인에서 API 키를 사용하여 업로드합니다.</value>
+  </data>
   <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
     <value>여러 .deb 파일을 매니페스트와 함께 하나의 .apkg 번들로 패키징합니다. 모든 APKG 서버에 푸시합니다.</value>
   </data>
+  <data name="Packaging" xml:space="preserve">
+    <value>패키징</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>권한 검색 및 동기화</value>
+  </data>
+  <data name="Portable publishing bundles with a manifest plus one or more &lt;code&gt;.deb&lt;/code&gt; files for multiple suites and architectures." xml:space="preserve">
+    <value>여러 수트 및 아키텍처에 대한 매니페스트와 하나 이상의 &lt;code&gt;.deb&lt;/code&gt; 파일을 포함하는 휴대용 게시 번들.</value>
   </data>
   <data name="Powered by AnduinOS" xml:space="preserve">
     <value>AnduinOS 제공</value>
@@ -627,17 +771,41 @@
   <data name="Production-hardened on the same infrastructure that powers AnduinOS package delivery. Battle-tested mirror ingestion, signing pipelines, and atomic snapshot promotion." xml:space="preserve">
     <value>AnduinOS 패키지 전송을 구동하는 동일한 인프라에서 프로덕션 수준으로 검증되었습니다. 수백만 번의 실전 테스트를 거친 미러 수집, 서명 파이프라인, 원자적 스냅샷 승인을 지원합니다.</value>
   </data>
+  <data name="Publish atomically." xml:space="preserve">
+    <value>원자성으로 발행하세요.</value>
+  </data>
+  <data name="Publish from any machine with the .NET tool." xml:space="preserve">
+    <value>.NET 도구를 사용하여 모든 컴퓨터에서 게시하세요.</value>
+  </data>
+  <data name="Publishing workflow" xml:space="preserve">
+    <value>패키지 게시 워크플로우</value>
+  </data>
+  <data name="Pull upstream metadata into mirror buckets." xml:space="preserve">
+    <value>업스트림 메타데이터를 미러 버킷으로 가져옵니다.</value>
+  </data>
+  <data name="Push" xml:space="preserve">
+    <value>업로드</value>
+  </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>품질 게이트</value>
   </data>
   <data name="Quick Start" xml:space="preserve">
     <value>빠른 시작</value>
   </data>
+  <data name="RBAC and API keys" xml:space="preserve">
+    <value>RBAC 및 API 키</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC 인증</value>
   </data>
+  <data name="RBAC is ideal for organizations, but Debian&apos;s decentralized WoT remains the gold standard for a trustless global maintainer network." xml:space="preserve">
+    <value>RBAC는 조직에 이상적이지만, Debian의 분산형 WoT는 신뢰 없는 글로벌 메인테이너 네트워크의 최고 표준으로 남아 있습니다.</value>
+  </data>
   <data name="Read the document" xml:space="preserve">
     <value>문서 읽기</value>
+  </data>
+  <data name="Repository Platform" xml:space="preserve">
+    <value>레포지토리 플랫폼</value>
   </data>
   <data name="Requires Laravel Socialite config" xml:space="preserve">
     <value>Laravel Socialite 설정 필요</value>
@@ -654,6 +822,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>강력한 통합 테스트</value>
   </data>
+  <data name="Room to grow:" xml:space="preserve">
+    <value>성장 잠재력:</value>
+  </data>
   <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
     <value>.NET을 통해 Windows, Linux 및 macOS에서 실행됩니다.</value>
   </data>
@@ -669,14 +840,32 @@
   <data name="Search" xml:space="preserve">
     <value>검색</value>
   </data>
+  <data name="Search packages" xml:space="preserve">
+    <value>패키지 검색</value>
+  </data>
   <data name="Search packages..." xml:space="preserve">
     <value>패키지 검색...</value>
+  </data>
+  <data name="Security &amp; Trust" xml:space="preserve">
+    <value>보안 및 신뢰</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>셀프 호스트</value>
+  </data>
+  <data name="Serve &lt;code&gt;InRelease&lt;/code&gt;, &lt;code&gt;Release&lt;/code&gt;, &lt;code&gt;Packages.gz&lt;/code&gt;, &lt;code&gt;Contents&lt;/code&gt;, certificates, and pool files from Debian-style URLs." xml:space="preserve">
+    <value>Debian 스타일의 URL에서 &lt;code&gt;InRelease&lt;/code&gt;, &lt;code&gt;Release&lt;/code&gt;, &lt;code&gt;Packages.gz&lt;/code&gt;, &lt;code&gt;Contents&lt;/code&gt;, 인증서 및 풀(pool) 파일을 제공합니다.</value>
   </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>자신 있게 전환하세요</value>
   </data>
   <data name="Ship Debian packages at scale." xml:space="preserve">
     <value>대규모로 Debian 패키지를 배포하세요.</value>
+  </data>
+  <data name="Sign pending buckets and promote them to primary." xml:space="preserve">
+    <value>보류 중인 버킷에 서명하고 주요 버킷으로 승격합니다.</value>
+  </data>
+  <data name="Signed APT hosting" xml:space="preserve">
+    <value>서명된 APT 호스팅</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>간단하고 쉬운</value>
@@ -699,6 +888,12 @@
   <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>사용자의 시스템 설정에 자동으로 적응하는 스마트 다크 모드.</value>
   </data>
+  <data name="Snapshot Pipeline" xml:space="preserve">
+    <value>스냅샷 파이프라인</value>
+  </data>
+  <data name="Standard Debian repository endpoints for &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG keys, package indexes, and pool downloads." xml:space="preserve">
+    <value>&lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG 키, 패키지 인덱스 및 풀 다운로드를 위한 표준 디비안 리포지토리 엔드포인트입니다.</value>
+  </data>
   <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
     <value>표준 구현. 컴파일 없이 제공자 전환 가능.</value>
   </data>
@@ -708,6 +903,12 @@
   <data name="Start a new project" xml:space="preserve">
     <value>새 프로젝트 시작하기</value>
   </data>
+  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
+    <value>&lt;code&gt;.aosproj&lt;/code&gt;로 패키지 프로젝트를 시작하고, 파일, 폴더, 스크립트, 의존성, 서비스, 수트, 아키텍처를 선언하세요.</value>
+  </data>
+  <data name="Start Publishing" xml:space="preserve">
+    <value>퍼블리싱 시작</value>
+  </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>가치 전달 시작하기</value>
   </data>
@@ -716,6 +917,9 @@
   </data>
   <data name="Starts without any configuration" xml:space="preserve">
     <value>설정 없이 시작</value>
+  </data>
+  <data name="Static export with atomic swap + CDN edge caching + Geo-steering. Shared-nothing edge nodes with built-in WAF before origin." xml:space="preserve">
+    <value>원자성 교체 + CDN 가장자리 캐싱 + 지리적 라우팅과 함께 정적 내보내기. 원본 앞에 내장된 WAF를 갖춘 무공유 가장자리 노드.</value>
   </data>
   <data name="Stop Coding Boilerplate." xml:space="preserve">
     <value>보일러플레이트 코딩 멈추기.</value>
@@ -747,6 +951,9 @@
   <data name="Technical Lead" xml:space="preserve">
     <value>기술 리드</value>
   </data>
+  <data name="The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration." xml:space="preserve">
+    <value>Apkg CLI는 프로젝트 생성, 린트(linting), 패키징 빌드, 번들 게시, 서버 업로드, 로컬 압축 해제, APT 소스 구성 등을 처리합니다.</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>결정적인, 검증된 .NET 엔터프라이즈 기반입니다. 인증(Auth)부터 인공지능(AI)까지, 어려운 부분은 이미 해결했으므로 귀하께서는 그 부분을 신경 쓰지 않아도 됩니다.</value>
   </data>
@@ -768,14 +975,26 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>이것은 템플릿 프로젝트로, 여기서 우리의 항해를 시작합니다...</value>
   </data>
+  <data name="Tiered rsync cascade (T1 → T2) run by volunteers. Decentralized and resilient, but latency varies and DDoS defense depends on each operator." xml:space="preserve">
+    <value>자원봉사자가 운영하는 계층적 rsync 캐스케이드(T1 → T2). 분산화되고 복원력이 뛰어나지만, 지연 시간이 다양하며 DDoS 방어는 각 운영자에 달려 있습니다.</value>
+  </data>
   <data name="Timezone-aware fields" xml:space="preserve">
     <value>시간대 인식 필드</value>
   </data>
   <data name="To use &lt;code&gt;sudo apkg&lt;/code&gt;, make the dotnet tools path available to root:" xml:space="preserve">
     <value>`sudo apkg`를 사용하려면, dotnet 도구 경로를 루트에서 사용할 수 있도록 설정하십시오.</value>
   </data>
+  <data name="Track upstream suites and components as metadata snapshots, then compose downstream repositories from those mirror buckets." xml:space="preserve">
+    <value>메타데이터 스냅샷으로 업스트림 스위트 및 구성 요소를 추적한 후, 해당 미러 버킷에서 다운스트림 저장소를 구성합니다.</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>AnduinOS, StatHub, Warp를 포함한 프로덕션 수준의 애플리케이션들에 의해 신뢰받고 있습니다. 우리는 단지 이 코드를 공유하는 것이 아니라, 우리의 전체 비즈니스를 이 코드 위에 운영하고 있습니다.</value>
+  </data>
+  <data name="Turns packaging from a black art into standard software engineering." xml:space="preserve">
+    <value>패키징을 비전통적인 노하우의 영역에서 표준 소프트웨어 엔지니어링으로 전환합니다.</value>
+  </data>
+  <data name="Two Ways to Run a Repository" xml:space="preserve">
+    <value>리포지토리를 실행하는 두 가지 방법</value>
   </data>
   <data name="Ubuntu:" xml:space="preserve">
     <value>Ubuntu:</value>
@@ -786,14 +1005,29 @@
   <data name="Unified Identity" xml:space="preserve">
     <value>통합 식별자</value>
   </data>
+  <data name="Upload &lt;code&gt;.deb&lt;/code&gt; packages that replace upstream entries by package name and architecture in the final published bucket." xml:space="preserve">
+    <value>최종 게시 버킷에서 패키지 이름과 아키텍처로 업스트림 항목을 대체하는 &lt;code&gt;.deb&lt;/code&gt; 패키지를 업로드하세요.</value>
+  </data>
+  <data name="Upstream mirror ingestion" xml:space="preserve">
+    <value>상류 미러 수집</value>
+  </data>
   <data name="Usage" xml:space="preserve">
     <value>사용법</value>
   </data>
   <data name="Use it as a foundation for your SaaS, a backend for your mobile app, a corporate website, or a personal blog. The possibilities are endless." xml:space="preserve">
     <value>SaaS의 기반, 모바일 앱의 백엔드, 기업 웹사이트 또는 개인 블로그로 활용하세요. 가능성은 무궁무진합니다.</value>
   </data>
+  <data name="Use local accounts or OIDC, grant repository permissions, and publish from CI with scoped API keys." xml:space="preserve">
+    <value>로컬 계정 또는 OIDC를 사용하고, 리포지토리에 대한 권한을 부여하며, 범위 지정된 API 키를 사용하여 CI에서 게시합니다.</value>
+  </data>
+  <data name="View jobs" xml:space="preserve">
+    <value>작업 보기</value>
+  </data>
   <data name="View on GitHub" xml:space="preserve">
     <value>GitHub에서 보기</value>
+  </data>
+  <data name="Web Operations" xml:space="preserve">
+    <value>웹 운영</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>환영합니다</value>
@@ -803,6 +1037,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>개발자들의 평가</value>
+  </data>
+  <data name="Where Apkg shines:" xml:space="preserve">
+    <value>Apkg가 빛나는 부분:</value>
   </data>
   <data name="Why APKG?" xml:space="preserve">
     <value>왜 APKG인가?</value>

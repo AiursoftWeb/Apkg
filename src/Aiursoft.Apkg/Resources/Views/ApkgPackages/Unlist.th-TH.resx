@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Affected Repositories" xml:space="preserve">
+    <value>รายการที่受影响</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>สถาปัตยกรรม</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>ยืนยันการเลิกจัดจำหน่าย</value>
+  </data>
+  <data name="Current Version" xml:space="preserve">
+    <value>เวอร์ชันปัจจุบัน</value>
+  </data>
+  <data name="DISAPPEARS — no other version available" xml:space="preserve">
+    <value>หายไป — ไม่มีเวอร์ชันอื่นให้บริการ</value>
+  </data>
+  <data name="Downgrade to" xml:space="preserve">
+    <value>ลงเวอร์ชันเป็น</value>
+  </data>
+  <data name="I understand the consequences — Unlist" xml:space="preserve">
+    <value>ฉันเข้าใจผลที่ตามมา — ลบล้างรายการ</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>แพ็คเกจ</value>
+  </data>
+  <data name="Replaced by" xml:space="preserve">
+    <value>แทนที่โดย</value>
+  </data>
+  <data name="Replacement" xml:space="preserve">
+    <value>การแทนที่</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>ที่เก็บ</value>
+  </data>
+  <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
+    <value>การดำเนินการนี้จะลบแพ็กเกจต่อไปนี้จากรีพอสิทอรี การยกเลิกการแสดงรายการสามารถย้อนกลับได้โดยผู้ดูแลระบบเท่านั้น</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>เวอร์ชัน</value>
+  </data>
+  <data name="Warning:" xml:space="preserve">
+    <value>คำเตือน:</value>
+  </data>
+  <data name="You are about to unlist" xml:space="preserve">
+    <value>คุณกำลังจะเพิกถอนการจดทะเบียน</value>
+  </data>
+
+</root>

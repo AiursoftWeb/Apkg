@@ -18,23 +18,176 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+      <data name="—" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>การดำเนินการ</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>ทั้งหมด</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>แพ็กเกจแบบผสม .apkg เป็นรูปแบบเฉพาะของ Apkg ที่รวมแพ็กเกจ .deb หลายรายการและไฟล์ manifest.xml ไว้ในไฟล์ tar แบบ gzipped ไฟล์เดียว เซิร์ฟเวอร์จะคลายแพ็กเกจ .deb แต่ละรายการ ดึงข้อมูลเมตาจากไฟล์ control แล้วซิงค์ไปยังที่เก็บ APT เป้าหมาย</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>และเวอร์ชันแก้ไขทั้งหมด? การดำเนินการนี้ไม่สามารถย้อนกลับได้</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>สถาปัตยกรรม</value>
+  </data>
+  <data name="Back to Packages" xml:space="preserve">
+    <value>กลับสู่แพ็กเกจ</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>เนื่องจากคุณไม่มีสิทธิ์อัปโหลดไปยังที่เก็บข้อมูลเหล่านี้:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>โดย</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>คอมโพเนนต์</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>สร้างเมื่อ</value>
   </data>
   <data name="Dead (Invariant) Attributes" xml:space="preserve">
     <value>แอตทริบิวต์ตายตัว (ไม่แปรเปลี่ยน)</value>
   </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>ลบแพ็กเกจ</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>คำอธิบาย</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>ปิดใช้งาน</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>กำลังปิดใช้งาน</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>การแจกจ่าย</value>
+  </data>
+  <data name="Effective Packages" xml:space="preserve">
+    <value>แพ็กเกจที่มีผล</value>
+  </data>
   <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
     <value>ทุกไฟล์ .apkg จะมี &lt;strong&gt;แอตทริบิวต์แบบตายตัว (dead attributes)&lt;/strong&gt; จำนวนสามรายการที่กำหนดไว้ที่ส่วนรากของไฟล์ manifest และใช้กับแพ็กเกจทั้งหมดในบандล์ ได้แก่ &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt; และ &lt;strong&gt;Component&lt;/strong&gt; แอตทริบิวต์เหล่านี้ใช้ระบุกลุ่มแพ็กเกจและที่เก็บเป้าหมาย (target repository) โดยค่าเหล่านี้จะต้องไม่เปลี่ยนแปลงระหว่างรายการต่างๆ ภายในไฟล์ .apkg เดียวกัน</value>
+  </data>
+  <data name="Go to Preview →" xml:space="preserve">
+    <value>ไปที่ตัวอย่าง →</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>โฮมเพจ</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>ใหม่ล่าสุด</value>
+  </data>
+  <data name="Latest version per (Architecture, Suite) across all uploads. These are the debs that will be sent to APT repositories." xml:space="preserve">
+    <value>เวอร์ชันล่าสุดต่อคู่ (สถาปัตยกรรม, ชุด) จากการอัปโหลดทั้งหมด นี่คือไฟล์ deb ที่จะส่งไปยัง repositori APT</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>ใช้งานอยู่</value>
   </data>
   <data name="Live (Variant) Attributes" xml:space="preserve">
     <value>คุณลักษณะแบบเปลี่ยนแปลงได้ (Live)</value>
   </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>ผู้ดูแลแพ็กเกจ</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>ล่าสุด</value>
+  </data>
+  <data name="No debs in this upload. The .apkg has not been published yet." xml:space="preserve">
+    <value>การอัปโหลดนี้ไม่มีไฟล์ deb ไฟล์ .apkg ยังไม่ได้รับการเผยแพร่</value>
+  </data>
+  <data name="No packages have been uploaded yet." xml:space="preserve">
+    <value>ยังไม่มีแพ็กเกจที่ถูกอัปโหลดเลย</value>
+  </data>
+  <data name="No packages match this filter." xml:space="preserve">
+    <value>ไม่มีแพ็กเกจใดตรงตามตัวกรองนี้</value>
+  </data>
+  <data name="No upload history yet." xml:space="preserve">
+    <value>ยังไม่มีประวัติการอัปโหลด</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>ภาพรวม</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>แพ็กเกจ</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>แพ็กเกจ(s)</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>รอดซิงค์อยู่</value>
+  </data>
+  <data name="Permanently delete the entire package family" xml:space="preserve">
+    <value>ลบชุดแพ็กเกจทั้งหมดอย่างถาวร</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>เผยแพร่</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>ที่เก็บ</value>
+  </data>
+  <data name="Some repositories were skipped during publish" xml:space="preserve">
+    <value>ข้าม了一些存储库在发布期间</value>
+  </data>
+  <data name="Staged" xml:space="preserve">
+    <value>รอดำเนินการ</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>ชุดซอฟต์แวร์</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>ถูกแทนที่</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>สถานะการซิงค์</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>เคล็ดลับ:</value>
   </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>เลิกจัดรายการ</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>ไม่ได้ระบุรายการ</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>ยังไม่เผยแพร่</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>อัปโหลดที่ยังไม่เผยแพร่ กำลังรอการเผยแพร่</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>ประวัติการอัปโหลด</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>อัปโหลดแล้ว</value>
+  </data>
+  <data name="Uploaded At" xml:space="preserve">
+    <value>อัปโหลดเมื่อ</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>ผู้อัปโหลด</value>
+  </data>
   <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
     <value>ใช้ &lt;code&gt;apkg push&lt;/code&gt; จาก CLI เพื่อสร้างและอัปโหลดไฟล์ .apkg ต้องตีพิมพ์การอัปโหลดก่อนที่ไฟล์จะปรากฏในแหล่งเก็บข้อมูล APT</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>เวอร์ชัน</value>
+  </data>
+  <data name="Versions" xml:space="preserve">
+    <value>เวอร์ชัน</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>ดูในแหล่งเก็บข้อมูล</value>
   </data>
   <data name="What is an APKG Mixed Package?" xml:space="preserve">
     <value>แพ็กเกจผสม APKG คืออะไร?</value>

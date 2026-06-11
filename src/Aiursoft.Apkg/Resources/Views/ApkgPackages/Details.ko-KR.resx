@@ -18,23 +18,176 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+      <data name="—" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>작업</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>전체</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>.apkg 혼합 패키지는 Apkg의 독점 포맷으로, 여러 .deb 패키지와 manifest.xml을 단일 gzip tar 아카이브로 묶습니다. 서버는 각 .deb를解压하고, 제어 파일에서 메타데이터를 추출한 후 이를 대상 APT 저장소와 동기화합니다.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>그리고 모든 리ビジョン을? 이 작업은 취소할 수 없습니다.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>아키텍처</value>
+  </data>
+  <data name="Back to Packages" xml:space="preserve">
+    <value>패키지로 돌아가기</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>업로드 권한이 없어 대상 저장소에 업로드할 수 없습니다:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>(작업자)</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>구성 요소</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>생성됨</value>
   </data>
   <data name="Dead (Invariant) Attributes" xml:space="preserve">
     <value>정적(불변) 속성</value>
   </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>패키지 삭제</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>설명</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>사용 안함</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>비활성화 중</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>배포판</value>
+  </data>
+  <data name="Effective Packages" xml:space="preserve">
+    <value>유효한 패키지</value>
+  </data>
   <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
     <value>모든 .apkg에는 번들 전체에 적용되는 manifest 루트에서 정의된 세 개의 &lt;strong&gt;불변 속성(dead attributes)&lt;/strong&gt;이 있습니다: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, &lt;strong&gt;Component&lt;/strong&gt;입니다. 이들은 패키지 패밀리와 대상 저장소를 식별합니다. 단일 .apkg 내의 항목 간에는 이러한 속성이 변경될 수 없습니다.</value>
+  </data>
+  <data name="Go to Preview →" xml:space="preserve">
+    <value>미리보기로 이동 →</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>홈페이지</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>최신</value>
+  </data>
+  <data name="Latest version per (Architecture, Suite) across all uploads. These are the debs that will be sent to APT repositories." xml:space="preserve">
+    <value>모든 업로드에서 (아키텍처, 스위트)별 최신 버전입니다. 이 deb 패키지가 APT 리포지토리로 전송됩니다.</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>활성</value>
   </data>
   <data name="Live (Variant) Attributes" xml:space="preserve">
     <value>라이브(가변) 특성</value>
   </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>유지 관리자</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>최신</value>
+  </data>
+  <data name="No debs in this upload. The .apkg has not been published yet." xml:space="preserve">
+    <value>이 업로드에 deb 패키지가 없습니다. .apkg가 아직 게시되지 않았습니다.</value>
+  </data>
+  <data name="No packages have been uploaded yet." xml:space="preserve">
+    <value>아직 패키지가 업로드되지 않았습니다.</value>
+  </data>
+  <data name="No packages match this filter." xml:space="preserve">
+    <value>이 필터와 일치하는 패키지가 없습니다.</value>
+  </data>
+  <data name="No upload history yet." xml:space="preserve">
+    <value>아직 업로드 내역이 없습니다.</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>개요</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>패키지</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>패키지(들)</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>동기화 대기 중</value>
+  </data>
+  <data name="Permanently delete the entire package family" xml:space="preserve">
+    <value>패키지 그룹 전체를 영구적으로 삭제합니다</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>게시하기</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>저장소</value>
+  </data>
+  <data name="Some repositories were skipped during publish" xml:space="preserve">
+    <value>일부 저장소는 게시 중 건너뛰었습니다.</value>
+  </data>
+  <data name="Staged" xml:space="preserve">
+    <value>배정됨</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>수트</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>대체됨</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>동기화 상태</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>팁:</value>
   </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>숨기기</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>등록되지 않음</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>게시되지 않음</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>게시되지 않은 업로드물이 게시를 기다리고 있습니다.</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>업로드 기록</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>업로드됨</value>
+  </data>
+  <data name="Uploaded At" xml:space="preserve">
+    <value>업로드 일시</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>업로더</value>
+  </data>
   <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
     <value>CLI에서 &lt;code&gt;apkg push&lt;/code&gt;를 사용하여 .apkg 파일을 생성하고 업로드하세요. 업로드된 파일은 게시되어야 APT 저장소에 표시됩니다.</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>버전</value>
+  </data>
+  <data name="Versions" xml:space="preserve">
+    <value>버전</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>저장소에서 보기</value>
   </data>
   <data name="What is an APKG Mixed Package?" xml:space="preserve">
     <value>APKG 혼합 패키지가 무엇인가요?</value>
