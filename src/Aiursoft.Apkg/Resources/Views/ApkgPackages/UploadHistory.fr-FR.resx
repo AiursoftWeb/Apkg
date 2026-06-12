@@ -27,6 +27,15 @@
   <data name="Component" xml:space="preserve">
     <value>Composant</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continuer</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Désactivé</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>Désactivation en cours</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribution</value>
   </data>
@@ -35,6 +44,9 @@
   </data>
   <data name="File" xml:space="preserve">
     <value>Fichier</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Actif</value>
   </data>
   <data name="My Upload History" xml:space="preserve">
     <value>Mon historique de téléchargements</value>
@@ -48,11 +60,26 @@
   <data name="Packages" xml:space="preserve">
     <value>Paquets</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Synchronisation en attente</value>
+  </data>
+  <data name="Staged for Signing" xml:space="preserve">
+    <value>Prêt pour la signature</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Statut</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Remplacé</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>Conseil :</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>Non répertorié</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Non publié</value>
   </data>
   <data name="Upload History" xml:space="preserve">
     <value>Historique des téléchargements</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+      <data name="(pending)" xml:space="preserve">
+    <value>(en attente)</value>
+  </data>
+  <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
     <value>Un bucket est un instantané versionné des packages d&apos;un dépôt à un instant donné. Le bucket principal est celui actif servi aux clients apt.</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>Heure de création</value>
+  </data>
+  <data name="GC Policy:" xml:space="preserve">
+    <value>Politique de GC :</value>
   </data>
   <data name="ID" xml:space="preserve">
     <value>ID</value>
@@ -71,6 +77,9 @@
   </data>
   <data name="Tip:" xml:space="preserve">
     <value>Astuce :</value>
+  </data>
+  <data name="Unreferenced buckets (not primary or secondary in any Mirror/Repository) are immediately pruned on the next GC run. In-progress builds are protected because both SyncJobs set &lt;code&gt;SecondaryBucketId&lt;/code&gt; immediately upon bucket creation." xml:space="preserve">
+    <value>Les buckets non référencés (ni principaux ni secondaires dans aucun miroir/dépôt) sont immédiatement supprimés lors de l&apos;exécution suivante du garbage collector. Les builds en cours sont protégés car les deux SyncJobs définissent &lt;code&gt;SecondaryBucketId&lt;/code&gt; immédiatement lors de la création du bucket.</value>
   </data>
   <data name="What is a Bucket?" xml:space="preserve">
     <value>Qu&apos;est-ce qu&apos;un seau ?</value>
