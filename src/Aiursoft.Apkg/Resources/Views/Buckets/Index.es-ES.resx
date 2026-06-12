@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+      <data name="(pending)" xml:space="preserve">
+    <value>(pendiente)</value>
+  </data>
+  <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
     <value>Un «bucket» es una instantánea con control de versiones de los paquetes de un repositorio en un momento determinado. El bucket principal es el activo que se sirve a los clientes de apt.</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>Fecha de creación</value>
+  </data>
+  <data name="GC Policy:" xml:space="preserve">
+    <value>Política de recolección de basura:</value>
   </data>
   <data name="ID" xml:space="preserve">
     <value>ID</value>
@@ -71,6 +77,9 @@
   </data>
   <data name="Tip:" xml:space="preserve">
     <value>Consejo:</value>
+  </data>
+  <data name="Unreferenced buckets (not primary or secondary in any Mirror/Repository) are immediately pruned on the next GC run. In-progress builds are protected because both SyncJobs set &lt;code&gt;SecondaryBucketId&lt;/code&gt; immediately upon bucket creation." xml:space="preserve">
+    <value>Los buckets no referenciados (ni principales ni secundarios en ningún espejo/repositorio) se prueban inmediatamente en la siguiente ejecución de GC. Las compilaciones en curso están protegidas porque ambos trabajos de sincronización establecen &lt;code&gt;SecondaryBucketId&lt;/code&gt; inmediatamente tras la creación del bucket.</value>
   </data>
   <data name="What is a Bucket?" xml:space="preserve">
     <value>¿Qué es un bucket?</value>

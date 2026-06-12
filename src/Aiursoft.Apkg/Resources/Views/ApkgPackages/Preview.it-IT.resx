@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="—" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="Arch" xml:space="preserve">
+    <value>Architettura</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Componente</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descrizione</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distribuzione</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Sito web</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>Licenza</value>
+  </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Manutentore</value>
+  </data>
+  <data name="Manifest" xml:space="preserve">
+    <value>Manifesto</value>
+  </data>
+  <data name="Matching Repos" xml:space="preserve">
+    <value>Repos corrispondenti</value>
+  </data>
+  <data name="No matching repository" xml:space="preserve">
+    <value>Nessun repository corrispondente</value>
+  </data>
+  <data name="No targets matched any repository. Publishing will have no effect." xml:space="preserve">
+    <value>Nessuna destinazione corrisponde a un repository. La pubblicazione non avrà alcun effetto.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Pacchetto</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>Anteprima caricamento APKG</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Pubblica</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Pronto</value>
+  </data>
+  <data name="Some targets do not match any repository. You can still publish, but those targets will be skipped." xml:space="preserve">
+    <value>Alcuni obiettivi non corrispondono a nessun repository. Puoi comunque pubblicare, ma tali obiettivi verranno ignorati.</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stato</value>
+  </data>
+  <data name="Suites" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+  <data name="Target" xml:space="preserve">
+    <value>Obiettivo</value>
+  </data>
+  <data name="Targets" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Attenzione</value>
+  </data>
+
+</root>

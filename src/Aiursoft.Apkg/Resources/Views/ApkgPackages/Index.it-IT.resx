@@ -84,6 +84,9 @@
   <data name="Unlist" xml:space="preserve">
     <value>Rimuovi dalla lista</value>
   </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Non pubblicato</value>
+  </data>
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>Carica pacchetto APKG misto</value>
   </data>

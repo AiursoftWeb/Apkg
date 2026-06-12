@@ -18,23 +18,176 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+      <data name="—" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>Смешанный пакет .apkg — это проприетарный формат Apkg, объединяющий несколько пакетов .deb и файл manifest.xml в единый gzipped tar-архив. Сервер распаковывает каждый файл .deb, извлекает метаданные из его управляющего файла и синхронизирует их с целевыми репозиториями APT.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>и ВСЕ его ревизии? Это действие необратимо.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Архитектура</value>
+  </data>
+  <data name="Back to Packages" xml:space="preserve">
+    <value>Назад к пакетам</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>так как у вас нет прав на загрузку в них:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>от</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Компонент</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Создано</value>
   </data>
   <data name="Dead (Invariant) Attributes" xml:space="preserve">
     <value>«Мёртвые» (неизменяемые) атрибуты</value>
   </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>Удалить пакет</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Отключено</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>Отключение</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Дистрибутив</value>
+  </data>
+  <data name="Effective Packages" xml:space="preserve">
+    <value>Актуальные пакеты</value>
+  </data>
   <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
     <value>В каждом .apkg на корневом уровне манифеста определены три &lt;strong&gt;неизменных атрибута&lt;/strong&gt;, которые применяются ко всему пакету: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt; и &lt;strong&gt;Component&lt;/strong&gt;. Они определяют семейство пакетов и целевой репозиторий. Их значения не могут различаться для разных записей в пределах одного .apkg.</value>
+  </data>
+  <data name="Go to Preview →" xml:space="preserve">
+    <value>Перейти к предпросмотру →</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Домашняя страница</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>Последние</value>
+  </data>
+  <data name="Latest version per (Architecture, Suite) across all uploads. These are the debs that will be sent to APT repositories." xml:space="preserve">
+    <value>Последняя версия для каждой комбинации (Архитектура, Свит) среди всех загрузок. Это deb-пакеты, которые будут отправлены в APT-репозитории.</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Активный</value>
   </data>
   <data name="Live (Variant) Attributes" xml:space="preserve">
     <value>Активные (вариативные) атрибуты</value>
   </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Сопровождающий</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>Новейший</value>
+  </data>
+  <data name="No debs in this upload. The .apkg has not been published yet." xml:space="preserve">
+    <value>В этой загрузке нет deb-пакетов. Файл .apkg ещё не опубликован.</value>
+  </data>
+  <data name="No packages have been uploaded yet." xml:space="preserve">
+    <value>Пакеты еще не загружены.</value>
+  </data>
+  <data name="No packages match this filter." xml:space="preserve">
+    <value>Нет пакетов, соответствующих этому фильтру.</value>
+  </data>
+  <data name="No upload history yet." xml:space="preserve">
+    <value>Истории загрузок пока нет.</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Обзор</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Пакет</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>пакетов</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Синхронизация в ожидании</value>
+  </data>
+  <data name="Permanently delete the entire package family" xml:space="preserve">
+    <value>Безвозвратно удалить всё семейство пакетов</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Опубликовать</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Репозиторий</value>
+  </data>
+  <data name="Some repositories were skipped during publish" xml:space="preserve">
+    <value>Некоторые репозитории были пропущены при публикации</value>
+  </data>
+  <data name="Staged" xml:space="preserve">
+    <value>Размещен</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Репозиторий</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Заменен</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Статус синхронизации</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>Совет:</value>
   </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Убрать из списка</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>Нелогированные</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Неопубликовано</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>неопубликованные загрузки ожидающие публикации.</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>История загрузки</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Загружено</value>
+  </data>
+  <data name="Uploaded At" xml:space="preserve">
+    <value>Дата загрузки</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Загрузчик</value>
+  </data>
   <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
     <value>Используйте команду &lt;code&gt;apkg push&lt;/code&gt; из командной строки для создания и загрузки файлов .apkg. Загруженные пакеты должны быть опубликованы, прежде чем они появятся в репозиториях APT.</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Версия</value>
+  </data>
+  <data name="Versions" xml:space="preserve">
+    <value>Версии</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>Просмотр в репозитории</value>
   </data>
   <data name="What is an APKG Mixed Package?" xml:space="preserve">
     <value>Что такое смешанный пакет APKG?</value>
