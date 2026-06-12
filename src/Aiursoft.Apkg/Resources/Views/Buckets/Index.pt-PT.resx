@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+      <data name="(pending)" xml:space="preserve">
+    <value>(pendente)</value>
+  </data>
+  <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
     <value>Um bucket é uma instantânea versionada dos pacotes de um repositório num determinado momento. O bucket principal é o ativo servido aos clientes apt.</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -41,6 +44,9 @@
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>Data de Criação</value>
+  </data>
+  <data name="GC Policy:" xml:space="preserve">
+    <value>Política de GC:</value>
   </data>
   <data name="ID" xml:space="preserve">
     <value>ID</value>
@@ -74,6 +80,9 @@
   </data>
   <data name="Tip:" xml:space="preserve">
     <value>Dica:</value>
+  </data>
+  <data name="Unreferenced buckets (not primary or secondary in any Mirror/Repository) are immediately pruned on the next GC run. In-progress builds are protected because both SyncJobs set &lt;code&gt;SecondaryBucketId&lt;/code&gt; immediately upon bucket creation." xml:space="preserve">
+    <value>Buckets sem referência (não principais nem secundárias em qualquer Espelho/Repositório) são imediatamente removidos na próxima execução do GC. Compilações em curso estão protegidas porque ambos os SyncJobs definem &lt;code&gt;SecondaryBucketId&lt;/code&gt; imediatamente aquando da criação do bucket.</value>
   </data>
   <data name="What is a Bucket?" xml:space="preserve">
     <value>O que é um Bucket?</value>

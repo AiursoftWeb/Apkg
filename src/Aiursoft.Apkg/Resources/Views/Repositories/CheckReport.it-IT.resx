@@ -66,6 +66,9 @@
   <data name="Re-check" xml:space="preserve">
     <value>Verifica di nuovo</value>
   </data>
+  <data name="Real" xml:space="preserve">
+    <value>Reale</value>
+  </data>
   <data name="Report Age" xml:space="preserve">
     <value>Età del report</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Versione</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtuale</value>
   </data>
 
 </root>

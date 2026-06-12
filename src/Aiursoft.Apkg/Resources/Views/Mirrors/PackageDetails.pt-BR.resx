@@ -87,6 +87,9 @@
   <data name="Package Details" xml:space="preserve">
     <value>Detalhes do Pacote</value>
   </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pacote(s)</value>
+  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>Físico (Em Cache)</value>
   </data>
