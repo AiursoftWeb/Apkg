@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Apkg" xml:space="preserve">
+    <value>Despre Apkg</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>iar parola implicită este:</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg is an APT repository server and Debian package publishing platform. Host it when you need signed repository snapshots, upstream Ubuntu mirror ingestion, API-key package publishing, and browser-based operations for repositories, certificates, users, roles, and jobs." xml:space="preserve">
+    <value>Apkg este un server de repozitorii APT și o platformă de publicare a pachetelor Debian. Utilizați-l atunci când aveți nevoie de instantanee semnate de repozitorii, ingestia de oglinzi Ubuntu upstream, publicarea de pachete prin cheie API și operațiuni bazate pe browser pentru repozitorii, certificate, utilizatori, roluri și sarcini.</value>
+  </data>
+  <data name="Apkg uses SQLite by default. For production MySQL, edit the ConnectionStrings section in appsettings.json and set DbType to MySql with your server connection string." xml:space="preserve">
+    <value>Apkg utilizează SQLite implicit. Pentru MySQL în producție, editați secțiunea ConnectionStrings din appsettings.json și setați DbType la MySql cu șirul de conectare al serverului dvs.</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>Autentificare</value>
+  </data>
+  <data name="Binary path" xml:space="preserve">
+    <value>Cale binar</value>
+  </data>
+  <data name="Change the default administrator password immediately." xml:space="preserve">
+    <value>Schimbați imediat parola administratorului implicită.</value>
+  </data>
+  <data name="Config path" xml:space="preserve">
+    <value>Cale de configurare</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Configurare</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>Contextul containerului</value>
+  </data>
+  <data name="Create repositories for every distro, suite, and architecture that package publishers will target." xml:space="preserve">
+    <value>Creați depozite pentru fiecare distribuție, suită și arhitectură țintă ale editorilor de pachete.</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Panou de control</value>
+  </data>
+  <data name="Data path" xml:space="preserve">
+    <value>Calea datelor</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>Baza de date</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>Dezvoltare și execuție manuală</value>
+  </data>
+  <data name="Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app." xml:space="preserve">
+    <value>Executați `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` pentru a rula aplicația.</value>
+  </data>
+  <data name="Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies." xml:space="preserve">
+    <value>Executați `npm install` în folderul `src/Aiursoft.Apkg/wwwroot` pentru a instala dependențele.</value>
+  </data>
+  <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>În primul rând, instalați Docker. Apoi, rulați următoarele comenzi într-un shell Linux:</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Health check" xml:space="preserve">
+    <value>Verificare stare</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Imagine</value>
+  </data>
+  <data name="Local accounts are enabled by default. Set AppSettings:AuthProvider to OIDC and fill the OIDC section when you want to delegate sign-in to an identity provider." xml:space="preserve">
+    <value>Conturile locale sunt activate implicit. Setati AppSettings:AuthProvider la OIDC si completati sectiunea OIDC atunci cand doriti sa delegati autentificarea unui furnizor de identitate.</value>
+  </data>
+  <data name="Open the `.sln` file in the project path." xml:space="preserve">
+    <value>Deschideți fișierul `.sln` din calea proiectului.</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>Sau cu un port personalizat:</value>
+  </data>
+  <data name="Ports" xml:space="preserve">
+    <value>Porturi</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>Cerințe preliminare</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>Apăsați `F5` pentru a executa aplicația.</value>
+  </data>
+  <data name="Production checklist" xml:space="preserve">
+    <value>Lista de verificare pentru producție</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Proprietate</value>
+  </data>
+  <data name="Put the site behind your normal TLS and network controls." xml:space="preserve">
+    <value>Protejați site-ul utilizând configurările standard TLS și controalele de rețea.</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>Recomandat</value>
+  </data>
+  <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
+    <value>Înlocuiți certificatul de semnare implicit înainte de a servi repozitoare reale.</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>Rulează în Docker</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>Execută în Ubuntu</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>Executare în Visual Studio</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>Rulare manuală</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Gazduire propria</value>
+  </data>
+  <data name="Storage" xml:space="preserve">
+    <value>Stocare</value>
+  </data>
+  <data name="Storage:Path keeps package objects, local packages, avatars, and GPG keyrings. Storage:ExportPath keeps exported static repository artifacts. Both paths should be durable on a real server." xml:space="preserve">
+    <value>Storage:Path stochează obiectele pachetelor, pachetele locale, avatarele și inelele chei GPG. Storage:ExportPath stochează artefactele repozitoriului static exportat. Ambele căi trebuie să fie durabile pe un server real.</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>Aceasta va porni un server web la http://localhost:5000 și puteți testa aplicația.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>Numele de utilizator implicit este:</value>
+  </data>
+  <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
+    <value>Imaginea Docker verifică http://localhost:5000/health. Utilizați același endpoint pentru monitorizarea externă a timpului de funcționare după ce aplicația s-a pornit.</value>
+  </data>
+  <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
+    <value>Imaginea Docker instalează gnupg și ubuntu-keyring pentru semnarea repository-urilor și verificarea semnăturilor de la upstream. Păstrați /data deoarece stochează appsettings.json, baza de date SQLite, obiectele pachetelor, avatarele și cheile GPG.</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>Scriptul de mai jos va instala/actualiza această aplicație pe serverul Ubuntu. Compatibil cu Ubuntu 25.04.</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Valoare</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>Accesați http://localhost:5000.</value>
+  </data>
+
+</root>

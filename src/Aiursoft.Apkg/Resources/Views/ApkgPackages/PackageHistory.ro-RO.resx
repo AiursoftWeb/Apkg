@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Acțiuni</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Toate</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>și toate Pachetele Locale generate?</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitectura</value>
+  </data>
+  <data name="Back to Package" xml:space="preserve">
+    <value>Înapoi la pachet</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anulează</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Închide</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Confirmare Ștergere</value>
+  </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Confirmă delistarea</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Șterge</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Dezactivat</value>
+  </data>
+  <data name="Generated packages will be disabled." xml:space="preserve">
+    <value>Pachetele generate vor fi dezactivate.</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>Cel mai recent</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Activ</value>
+  </data>
+  <data name="No versions found for this package." xml:space="preserve">
+    <value>Nu s-au găsit versiuni pentru acest pachet.</value>
+  </data>
+  <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
+    <value>Doar cea mai recentă versiune activată apare în repozitoarele APT.</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pachet(e)</value>
+  </data>
+  <data name="Permanently delete" xml:space="preserve">
+    <value>Șterge definitiv</value>
+  </data>
+  <data name="Signing" xml:space="preserve">
+    <value>Semnare</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suită</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Învechit</value>
+  </data>
+  <data name="Superseded — a newer version is live. This deb file remains in CAS storage until the garbage collection job runs (~70 min) and removes unreferenced content." xml:space="preserve">
+    <value>Înlocuit — o versiune mai nouă este activă. Acest fișier deb rămâne în stocarea CAS până când rulează sarcina de colectare a-gunoiului (~70 min) și elimină conținutul nereferențiat.</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Starea sincronizării</value>
+  </data>
+  <data name="Syncing" xml:space="preserve">
+    <value>Sincronizare</value>
+  </data>
+  <data name="This page shows all uploaded versions of" xml:space="preserve">
+    <value>Această pagină afișează toate versiunile încărcate ale</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Necunoscut</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Retrage din listă</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Încărcat</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Încărcător</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versiune</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>Istoric versiuni</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>Afișare în depozit</value>
+  </data>
+
+</root>

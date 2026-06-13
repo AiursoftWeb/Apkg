@@ -87,6 +87,9 @@
   <data name="Package Details" xml:space="preserve">
     <value>Detalii pachet</value>
   </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pachet(e)</value>
+  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>Fizic (În cache)</value>
   </data>
