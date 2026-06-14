@@ -27,6 +27,15 @@
   <data name="Component" xml:space="preserve">
     <value>Συστατικό</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Συνέχεια</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Απενεργοποιημένο</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>Απενεργοποίηση</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Κατανομή</value>
   </data>
@@ -35,6 +44,9 @@
   </data>
   <data name="File" xml:space="preserve">
     <value>Αρχείο</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Δημοσιευμένο</value>
   </data>
   <data name="My Upload History" xml:space="preserve">
     <value>Ιστορικό Αναφορών Ανεβάσματος</value>
@@ -48,11 +60,26 @@
   <data name="Packages" xml:space="preserve">
     <value>Πακέτα</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Εν αναμονή συγχρονισμού</value>
+  </data>
+  <data name="Staged for Signing" xml:space="preserve">
+    <value>Ευθυγραμμισμένο για Υπογραφή</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Κατάσταση</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Υπερβαλλόμενο</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>Συμβουλή:</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>Μη καταχωρισμένο</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Μη δημοσιευμένο</value>
   </data>
   <data name="Upload History" xml:space="preserve">
     <value>Ιστορικό Ανεφορτώσεων</value>

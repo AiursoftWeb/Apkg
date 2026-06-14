@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Apkg" xml:space="preserve">
+    <value>Σχετικά με το Apkg</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>και ο προεπιλεγμένος κωδικός πρόσβασης είναι:</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg is an APT repository server and Debian package publishing platform. Host it when you need signed repository snapshots, upstream Ubuntu mirror ingestion, API-key package publishing, and browser-based operations for repositories, certificates, users, roles, and jobs." xml:space="preserve">
+    <value>Το Apkg είναι ένας διακομιστής αποθετηρίου APT και μια πλατφόρμα δημοσίευσης πακέτων Debian. Χρησιμοποιήστε το όταν χρειάζεστε υπογεγραμμένα στιγμιότυπα αποθετηρίων, εισαγωγή καθρέφτη Ubuntu, δημοσίευση πακέτων με κλειδί API και λειτουργίες μέσω προγράμματος περιήγησης για αποθετήρια, πιστοποιητικά, χρήστες, ρόλους και εργασίες.</value>
+  </data>
+  <data name="Apkg uses SQLite by default. For production MySQL, edit the ConnectionStrings section in appsettings.json and set DbType to MySql with your server connection string." xml:space="preserve">
+    <value>Το Apkg χρησιμοποιεί προεπιλεγμένα το SQLite. Για MySQL σε παραγωγή, επεξεργαστείτε την ενότητα ConnectionStrings στο appsettings.json και ορίστε το DbType ως MySql με τη συμβολοσειρά σύνδεσης του διακομιστή σας.</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>Επιβεβαίωση ταυτότητας</value>
+  </data>
+  <data name="Binary path" xml:space="preserve">
+    <value>Μονοπάτι δυαδικού αρχείου</value>
+  </data>
+  <data name="Change the default administrator password immediately." xml:space="preserve">
+    <value>Αλλάξτε τον προεπιλεγμένο κωδικό πρόσβασης του διαχειριστή άμεσα.</value>
+  </data>
+  <data name="Config path" xml:space="preserve">
+    <value>Διαδρομή ρυθμίσεων</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Διαμόρφωση</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>Κontexto Konteinotí</value>
+  </data>
+  <data name="Create repositories for every distro, suite, and architecture that package publishers will target." xml:space="preserve">
+    <value>Δημιουργήστε αποθετήρια για κάθε διανομή, σουίτα και αρχιτεκτονική που θα στοχεύουν οι εκδότες πακέτων.</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Πίνακας Ελέγχου</value>
+  </data>
+  <data name="Data path" xml:space="preserve">
+    <value>Διαδρομή δεδομένων</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>Βάση δεδομένων</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>Ανάπτυξη &amp; Χειροκίνητη Εκτέλεση</value>
+  </data>
+  <data name="Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app." xml:space="preserve">
+    <value>Εκτελέστε τη εντολή `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` για να εκτελέσετε την εφαρμογή.</value>
+  </data>
+  <data name="Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies." xml:space="preserve">
+    <value>Εκτελέστε την εντολή `npm install` στον φάκελο `src/Aiursoft.Apkg/wwwroot` για να εγκατασταθούν οι εξαρτήσεις.</value>
+  </data>
+  <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>Πρώτα, εγκαταστήστε το Docker. Στη συνέχεια, εκτελέστε τις ακόλουθες εντολές σε ένα περίβλημα Linux:</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Health check" xml:space="preserve">
+    <value>Έλεγχος λειτουργίας</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Εικόνα</value>
+  </data>
+  <data name="Local accounts are enabled by default. Set AppSettings:AuthProvider to OIDC and fill the OIDC section when you want to delegate sign-in to an identity provider." xml:space="preserve">
+    <value>Οι τοπικοί λογαριασμοί είναι ενεργοποιημένοι ως προεπιλογή. Ορίστε το AppSettings:AuthProvider σε OIDC και συμπληρώστε την ενότητα OIDC όταν θέλετε να αναθέσετε τη σύνδεση σε einen πάροχο ταυτότητας.</value>
+  </data>
+  <data name="Open the `.sln` file in the project path." xml:space="preserve">
+    <value>Ανοίξτε το αρχείο `.sln` στην διαδρομή του έργου.</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>Ή με ένα προσαρμοσμένο θύρα:</value>
+  </data>
+  <data name="Ports" xml:space="preserve">
+    <value>Θύρες</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>Απαιτούμενα</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>Πατήστε το `F5` για εκτέλεση της εφαρμογής.</value>
+  </data>
+  <data name="Production checklist" xml:space="preserve">
+    <value>Λίστα ελέγχου παραγωγής</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Ιδιότητα</value>
+  </data>
+  <data name="Put the site behind your normal TLS and network controls." xml:space="preserve">
+    <value>Τοποθετήστε τον ιστότοπο πίσω από τους συνηθισμένους ελέγχους TLS και δικτύου σας.</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>Συνιστάται</value>
+  </data>
+  <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
+    <value>Αντικαταστήστε το προκαθορισμένο πιστοποιητικό υπογραφής πριν την εξυπηρέτηση πραγματικών αποθετηρίων.</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>Εκτέλεση στο Docker</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>Εκτέλεση στο Ubuntu</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>Εκτέλεση στο Visual Studio</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>Αντίχειρα εκτέλεση</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Αυτό-Χειρισμός</value>
+  </data>
+  <data name="Storage" xml:space="preserve">
+    <value>Αποθήκευση</value>
+  </data>
+  <data name="Storage:Path keeps package objects, local packages, avatars, and GPG keyrings. Storage:ExportPath keeps exported static repository artifacts. Both paths should be durable on a real server." xml:space="preserve">
+    <value>Το Storage:Path περιέχει αντικείμενα πακέτων, τοπικά πακέτα, εικόνες προφίλ (avatars) και δακτυλίους κλειδιών GPG. Το Storage:ExportPath περιέχει τις εξεγερμένες στατικές δομές αποθετηρίου. Και οι δύο διαδρομές πρέπει να είναι αξιόπιστες σε έναν πραγματικό διακομιστή.</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>Αυτό θα ξεκινήσει έναν διακομιστή ιστού στην http://localhost:5000 και μπορείτε να δοκιμάσετε την εφαρμογή.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>Το προεπιλεγμένο όνομα χρήστη είναι:</value>
+  </data>
+  <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
+    <value>Η εικόνα Docker ελέγχει το http://localhost:5000/health. Χρησιμοποιήστε την ίδια διεύθυνση για την εξωτερική παρακολούθηση διαθεσιμότητας μετά την εκκίνηση της εφαρμογής.</value>
+  </data>
+  <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
+    <value>Η εικόνα Docker εγκαθιστά τα gnupg και ubuntu-keyring για υπογραφή αποθετηρίου και επαλήθευση υπογραφών upstream. Διατηρήστε τον φάκελο /data καθώς αποθηκεύει το appsettings.json, τη βάση δεδομένων SQLite, τα αντικείμενα πακέτων, τα avatars και τα GPG keyrings.</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>Το ακόλουθο σενάριο θα εγκαταστήσει/αναβαθμίσει αυτήν την εφαρμογή στον διακομιστή Ubuntu σας. Υποστηρίζει το Ubuntu 25.04.</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Τιμή</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>Επισκεφθείτε την http://localhost:5000.</value>
+  </data>
+
+</root>
