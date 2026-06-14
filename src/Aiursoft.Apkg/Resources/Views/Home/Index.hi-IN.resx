@@ -27,6 +27,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>लंबे समय तक चलने वाले कार्यों (जैसे ईमेल या AI) के लिए &quot;Fire-and-forget&quot; समर्थन, जिसमें कतार प्रबंधन, समानांतर प्रसंस्करण और रद्द करने के लिए GUI शामिल है।</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>परंपरागत डेबियन पैकेजिंग पैकेज परिभाषा को आधा दर्जन फ़ाइलों में फैला देती है — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — प्रत्येक अपनी अद्वितीय और जटिल भाषा में। मैंने &lt;code&gt;.aosproj&lt;/code&gt; को इस सब की जगह लेने और इसे एकमात्र घोषणात्मक मैनिफेस्ट के साथ प्रतिस्थापित करने के लिए डिज़ाइन किया है। संरचित XML निर्भरता ग्राफ़ों को मानव और CI मशीनों दोनों द्वारा आसानी से विश्लेषण योग्य बनाता है। CI पाइपलाइन केवल &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt; तक सीमित हो जाती है। यह लिनक्स डिस्ट्रीब्यूशन पैकेजिंग को एक अज्ञात कला से मानक सॉफ्टवेयर इंजीनियरिंग में बदल देता है।</value>
+  </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>&lt;code&gt;Buildd&lt;/code&gt; फार्म वास्तविक हार्डवेयर पर नेटिवली कम्पाइल करता है। क्राउन-संचालित &lt;code&gt;apt-ftparchive&lt;/code&gt; सूचकांकों को पुनर्जनित करता है — पुरावें प्रकाशन से पहले घंटों तक &lt;code&gt;incoming&lt;/code&gt; में प्रतीक्षा करती हैं।</value>
   </data>
@@ -443,6 +446,9 @@
   </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>संस्थापक और वास्तुकार, Aiursoft में</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>आइरसॉफ्ट के संस्थापक एवं वास्तुकला विशेषज्ञ</value>
   </data>
   <data name="Framework vs. Solution" xml:space="preserve">
     <value>फ्रेमवर्क बनाम समाधान</value>

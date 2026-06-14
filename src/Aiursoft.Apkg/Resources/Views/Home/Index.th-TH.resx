@@ -27,6 +27,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>การสนับสนุนแบบ &quot;Fire-and-forget&quot; สำหรับงานที่ใช้เวลานาน (เช่น อีเมลหรือ AI) พร้อมด้วย GUI สำหรับการจัดการคิว การประมวลผลแบบขนาน และการยกเลิก</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>การสร้างแพ็กเกจแบบดั้งเดิมของ Debian กระจายนิยามแพ็กเกจข้ามไฟล์กว่าครึ่งโหล — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — ซึ่งแต่ละไฟล์มีภาษาของตนเองที่เข้าใจยาก ฉันออกแบบ &lt;code&gt;.aosproj&lt;/code&gt; เพื่อแทนที่สิ่งทั้งหมดด้วยแมนิเฟสต์แบบ Declarative เพียงไฟล์เดียว โครงสร้าง XML ช่วยให้กราฟการพึ่งพาการพึ่งพาสามารถวิเคราะห์ได้อย่างง่ายดายทั้งโดยมนุษย์และเครื่อง CI ไพรเซิล CI ลดเหลือเพียงคำสั่ง &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt; สิ่งนี้เปลี่ยนการสร้างแพ็กเกจการกระจาย Linux จากศาสตร์มืดให้เป็นวิศวกรรมซอฟต์แวร์มาตรฐาน</value>
+  </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>ฟาร์ม &lt;code&gt;Buildd&lt;/code&gt; ทำการคอมไพล์แบบเนทีฟบนฮาร์ดแวร์จริง &lt;code&gt;apt-ftparchive&lt;/code&gt; ที่ทำงานด้วย Cron จะสร้างดัชนีใหม่ — แพ็กเกจจะต้องรอหลายชั่วโมงใน &lt;code&gt;incoming&lt;/code&gt; ก่อนที่จะได้รับการเผยแพร่</value>
   </data>
@@ -446,6 +449,9 @@
   </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>ผู้ก่อตั้งและสถาปนิกที่ Aiursoft</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>ผู้ก่อตั้งและสถาปนิกซอฟต์แวร์ที่ Aiursoft</value>
   </data>
   <data name="Framework vs. Solution" xml:space="preserve">
     <value>เฟรมเวิร์ก เทียบกับ โซลูชัน</value>

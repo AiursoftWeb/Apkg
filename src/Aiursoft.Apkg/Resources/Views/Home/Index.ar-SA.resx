@@ -27,6 +27,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>دعم &quot;Fire-and-forget&quot; للمهام الطويلة (مثل البريد الإلكتروني أو الذكاء الاصطناعي)، مع ميزة واجهة مستخدم رسومية لإدارة الطابور، والمعالجة المتوازية، والإلغاء.</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>يشتت التغليف التقليدي لـ Debian تعريف الحزمة عبر بضع ملفات — &lt;code&gt;control&lt;/code&gt;، &lt;code&gt;rules&lt;/code&gt;، &lt;code&gt;install&lt;/code&gt;، &lt;code&gt;changelog&lt;/code&gt;، &lt;code&gt;compat&lt;/code&gt; — كل منها بلهجة غامضة خاصة به. صممت &lt;code&gt;.aosproj&lt;/code&gt; لاستبدال كل ذلك ببيان إعلاني واحد. تجعل من XML المُهيكلة رسوميات التبعيات قابلة للتحليل ببساطة من قبل البشر وآلات CI. تنكمش خطوط أنابيب CI إلى &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. وهو يحول تغليف توزيعات لينكس من فن أسود إلى هندسة برمجية قياسية.</value>
+  </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>تقوم مزرعة &lt;code&gt;Buildd&lt;/code&gt; بالتجميع بشكل أصلي على أجهزة حقيقية. يعيد &lt;code&gt;apt-ftparchive&lt;/code&gt; الذي يعمل بنظام Cron إنشاء الفهارس — تنتظر الحزم لساعات في &lt;code&gt;incoming&lt;/code&gt; قبل النشر.</value>
   </data>
@@ -443,6 +446,9 @@
   </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>مؤسس ومهندس في Aiursoft</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>المؤسس والمهندس المعماري في Aiursoft</value>
   </data>
   <data name="Framework vs. Solution" xml:space="preserve">
     <value>الإطار مقابل الحل</value>

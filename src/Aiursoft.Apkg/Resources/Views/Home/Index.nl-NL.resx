@@ -27,6 +27,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>&quot;Fire-and-forget&quot;-ondersteuning voor langdurige taken (zoals e-mails of AI), met een GUI voor wachtrijbeheer, parallelle verwerking en annulering.</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>Traditionele Debian-pakketindeling verspreidt de pakketdefinitie over een half dozijn bestanden — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — elk in zijn eigen obscure dialect. Ik ontwierp &lt;code&gt;.aosproj&lt;/code&gt; om al dat te vervangen door een enkele declaratieve manifest. Gestructureerde XML maakt afhankelijkheidsggrafieven triviaal parsebaar voor zowel mensen als CI-systemen. CI-pijplijnen worden teruggebracht tot &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. Het verandert Linux-distributiepakketindeling van een zwartkunst in standaardsoftware-engineering.</value>
+  </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>&lt;code&gt;Buildd&lt;/code&gt;-boer compileert natief op echte hardware. Cron-gedreven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenereert indexen — pakketten wachten uren in &lt;code&gt;incoming&lt;/code&gt; voor publicatie.</value>
   </data>
@@ -443,6 +446,9 @@
   </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Stichter &amp; Architect bij Aiursoft</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>Oprichter &amp; Architect bij Aiursoft</value>
   </data>
   <data name="Framework vs. Solution" xml:space="preserve">
     <value>Framework vs. Oplossing</value>

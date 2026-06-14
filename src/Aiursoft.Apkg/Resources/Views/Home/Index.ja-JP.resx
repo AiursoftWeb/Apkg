@@ -27,6 +27,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>長時間実行タスク（メールやAIなど）に対する「Fire-and-forget」サポート。キュー管理、並列処理、キャンセルを備えたGUIを備えています。</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>従来の Debian パッケージングでは、パッケージ定義が &lt;code&gt;control&lt;/code&gt;、&lt;code&gt;rules&lt;/code&gt;、&lt;code&gt;install&lt;/code&gt;、&lt;code&gt;changelog&lt;/code&gt;、&lt;code&gt;compat&lt;/code&gt; など、十数種類ものファイルに散在しており、それぞれが独自の難解な方言を持っています。私はそれら全てを単一の宣言型マニフェストである &lt;code&gt;.aosproj&lt;/code&gt; に置き換えるためにこれを設計しました。構造化された XML により、依存関係グラフは人間と CI マシンの両方で容易に解析可能になります。CI パイプラインは &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt; に集約されます。これにより、Linux ディストリビューションのパッケージングは黒魔術から標準的なソフトウェア工学へと変化します。</value>
+  </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>&lt;code&gt;Buildd&lt;/code&gt; ファームは実ハードウェア上でネイティブにコンパイルします。Cron で駆動される &lt;code&gt;apt-ftparchive&lt;/code&gt; がインデックスを再生成するため、パッケージは公開前に &lt;code&gt;incoming&lt;/code&gt; で数時間待たされます。</value>
   </data>
@@ -446,6 +449,9 @@
   </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Founder &amp; Architect at Aiursoft</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>Aiursoft 創設者＆アーキテクト</value>
   </data>
   <data name="Framework vs. Solution" xml:space="preserve">
     <value>フレームワーク vs ソリューション</value>

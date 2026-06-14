@@ -27,6 +27,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Tuki pitkäkestoisille tehtäville (esimerkiksi sähköposteille tai AI:lle), jossa on käyttöliittymä jonon hallintaan, rinnakkaisprosessointiin ja peruutukseen.</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>Perinteinen Debian-paketoiminen hajauttaa paketin määritelmän useampaan kuin puoli dosen tiedostoon — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — joissa kukin käyttää omaa mystistä kieltään. Olen suunnitellut &lt;code&gt;.aosproj&lt;/code&gt;:n korvaamaan kaiken sen yhdellä deklaratiivisella manifestilla. Rakennekerran XML tekee riippuvuuskaavioista ihmisille ja CI-koneille erittäin helppoja jäsentää. CI-muuntolinjat supistuvat muotoon &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. Se muuttaa Linux-jakeluiden paketoimisen mustasta taikasta vakiintuneeksi ohjelmistotuotannoksi.</value>
+  </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>&lt;code&gt;Buildd&lt;/code&gt;-farmi kääntää natiivisti aidolla laitteistolla. Cron-pohjainen &lt;code&gt;apt-ftparchive&lt;/code&gt; regeneroi hakemistot — paketit odottavat tunteja &lt;code&gt;incoming&lt;/code&gt;-kansiossa ennen julkaisua.</value>
   </data>
@@ -443,6 +446,9 @@
   </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Perustaja ja arkkitehti Aiursoftissa</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>Perustaja ja arkkitehti yrityksessä Aiursoft</value>
   </data>
   <data name="Framework vs. Solution" xml:space="preserve">
     <value>Kehys vs. Ratkaisu</value>

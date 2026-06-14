@@ -27,6 +27,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>오래 실행되는 작업(예: 이메일 또는 AI)에 대한 &quot;Fire-and-forget&quot; 지원, 대기열 관리, 병렬 처리 및 취소 기능이 있는 GUI를 특징으로 합니다.</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>전통적인 Debian 패키징은 패키지를 정의하는 정보를 &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; 등 무려 여섯 가지 이상의 파일로 분산시켜 각 파일마다 난해한 문법을 요구합니다. 저는 이러한 모든 것을 단일 선언형 매니페스트로 대체하기 위해 &lt;code&gt;.aosproj&lt;/code&gt;를 설계했습니다. 구조화된 XML은 의존성 그래프를 사람과 CI 시스템 모두에게 쉽게 해석 가능하게 만듭니다. CI 파이프라인은 &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt; 하나로 단순화됩니다. 이는 리눅스 배포판 패키징을 검은 마법에서 표준 소프트웨어 엔지니어링으로 변화시킵니다.</value>
+  </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>&lt;code&gt;Buildd&lt;/code&gt; 팜은 실제 하드웨어에서 네이티브로 컴파일합니다. Cron 기반 &lt;code&gt;apt-ftparchive&lt;/code&gt;가 색인을 재생성하며, 패키지는 게시 전에 &lt;code&gt;incoming&lt;/code&gt;에서 몇 시간 동안 대기합니다.</value>
   </data>
@@ -446,6 +449,9 @@
   </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Aiursoft의 설립자이자 아키텍트</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>Aiursoft 설립자 및 아키텍트</value>
   </data>
   <data name="Framework vs. Solution" xml:space="preserve">
     <value>프레임워크 대 솔루션</value>

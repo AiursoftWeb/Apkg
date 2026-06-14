@@ -27,6 +27,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Dukungan &quot;Fire-and-forget&quot; untuk tugas berjalan panjang (seperti email atau AI), dilengkapi antarmuka GUI untuk manajemen antrian, pemrosesan paralel, dan pembatalan.</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>Pengemasan Debian tradisional menyebarkan definisi paket di lebih dari selusin file — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — masing-masing dengan dialeknya yang rumit. Saya merancang &lt;code&gt;.aosproj&lt;/code&gt; untuk menggantikan semuanya dengan satu manifest deklaratif. XML terstruktur membuat grafik dependensi sangat mudah diparsing oleh manusia dan mesin CI. Pipeline CI disederhanakan menjadi &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. Hal ini mengubah pengemasan distribusi Linux dari seni gelap menjadi teknik perangkat lunak standar.</value>
+  </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>Kebun &lt;code&gt;Buildd&lt;/code&gt; mengkompilasi secara native pada perangkat keras nyata. &lt;code&gt;apt-ftparchive&lt;/code&gt; yang dijalankan oleh Cron menghasilkan ulang indeks — paket menunggu selama berjam-jam di &lt;code&gt;incoming&lt;/code&gt; sebelum diterbitkan.</value>
   </data>
@@ -442,6 +445,9 @@
     <value>untuk pertanyaan apa pun atau untuk melaporkan masalah.</value>
   </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
+    <value>Pendiri &amp; Arsitek di Aiursoft</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
     <value>Pendiri &amp; Arsitek di Aiursoft</value>
   </data>
   <data name="Framework vs. Solution" xml:space="preserve">

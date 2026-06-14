@@ -27,6 +27,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>「Fire-and-forget」支援長時間執行的作業（例如電子郵件或 AI），並提供圖形使用者介面以進行佇列管理、平行處理和取消。</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>傳統的 Debian 套件打包方式將套件定義分散在數個檔案中——&lt;code&gt;control&lt;/code&gt;、&lt;code&gt;rules&lt;/code&gt;、&lt;code&gt;install&lt;/code&gt;、&lt;code&gt;changelog&lt;/code&gt;、&lt;code&gt;compat&lt;/code&gt;——每個檔案都使用各自晦澀的語法。我設計了 &lt;code&gt;.aosproj&lt;/code&gt; 以單一宣告式清單取代所有這些檔案。結構化的 XML 使得人類和 CI 機器都能輕鬆解析相依性圖表。CI 流程簡化為 &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;。這將 Linux 發行版的套件打包從玄學轉變為標準軟體工程。</value>
+  </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>&lt;code&gt;Buildd&lt;/code&gt; 叢集在實體硬體上進行原生編譯。由 Cron 驅動的 &lt;code&gt;apt-ftparchive&lt;/code&gt; 重新生成索引 — 套件在發布前需在 &lt;code&gt;incoming&lt;/code&gt; 佇列中等待數小時。</value>
   </data>
@@ -446,6 +449,9 @@
   </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>創辦人兼架構師，Aiursoft</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>Aiursoft 創辦人暨架構師</value>
   </data>
   <data name="Framework vs. Solution" xml:space="preserve">
     <value>框架 vs. 解決方案</value>

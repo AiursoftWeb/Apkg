@@ -27,6 +27,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Підтримка &quot;Fire-and-forget&quot; для довготривалих завдань (наприклад, електронні листи або штучний інтелект), із графічним інтерфейсом для управління чергою, паралельною обробкою та відміною.</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>Традиційне пакування Debian розкидає визначення пакета між півдюжиною файлів — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — кожен зі своїм незрозумілим діалектом. Я створив &lt;code&gt;.aosproj&lt;/code&gt;, щоб замінити все це на єдиний декларативний маніфест. Структурований XML робить графи залежностей тривіально парсатими як для людей, так і для CI-машин. CI-пайплайни скорочуються до &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. Це перетворює пакування дистрибутивів Linux з чорної магії на стандартну інженерію програмного забезпечення.</value>
+  </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>&lt;code&gt;Buildd&lt;/code&gt; збирає пакунки нативно на справжньому «залізі». Завантажена через cron утиліта &lt;code&gt;apt-ftparchive&lt;/code&gt; оновлює індекси — пакунки можуть лежати в &lt;code&gt;incoming&lt;/code&gt; годинами перед публікацією.</value>
   </data>
@@ -443,6 +446,9 @@
   </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Засновник та архітектор компанії Aiursoft</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>Засновник та архітектор у Aiursoft</value>
   </data>
   <data name="Framework vs. Solution" xml:space="preserve">
     <value>Фреймворк проти готового рішення</value>

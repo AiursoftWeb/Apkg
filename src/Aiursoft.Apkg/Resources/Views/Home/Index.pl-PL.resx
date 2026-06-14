@@ -27,6 +27,9 @@
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Obsługa „Fire-and-forget” dla długotrwałych zadań (np. e-maile lub AI), z funkcjonalnością interfejsu graficznego do zarządzania kolejką, przetwarzania równoległego i anulowania.</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>Tradycyjne pakietowanie Debiana rozprasza definicję pakietu między półtuzin plików — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — każdy w swoim tajemniczym dialekcie. Zaprojektowałem &lt;code&gt;.aosproj&lt;/code&gt;, aby zastąpić wszystko tym jednym deklaracyjnym manifestem. Zstructuryzowany XML sprawia, że grafy zależności są trywialnie parsowalne zarówno przez ludzi, jak i maszyny CI. Potoki CI redukują się do &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. Zamienia to pakietowanie dystrybucji Linuksa z czarnej magii w standardową inżynierię oprogramowania.</value>
+  </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>Farma &lt;code&gt;Buildd&lt;/code&gt; kompiluje natywnie na prawdziwym sprzęcie. Sterowane przez cron narzędzie &lt;code&gt;apt-ftparchive&lt;/code&gt; odtwarza indeksy — pakiety czekają godziny w &lt;code&gt;incoming&lt;/code&gt; przed opublikowaniem.</value>
   </data>
@@ -443,6 +446,9 @@
   </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Założyciel i Architekt w Aiursoft</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>Założyciel i architekt w Aiursoft</value>
   </data>
   <data name="Framework vs. Solution" xml:space="preserve">
     <value>Framework vs. Rozwiązanie</value>
