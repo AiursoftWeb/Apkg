@@ -66,6 +66,9 @@
   <data name="Re-check" xml:space="preserve">
     <value>पुनः जाँचें</value>
   </data>
+  <data name="Real" xml:space="preserve">
+    <value>वास्तविक</value>
+  </data>
   <data name="Report Age" xml:space="preserve">
     <value>रिपोर्ट की आयु</value>
   </data>
@@ -80,6 +83,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>संस्करण</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>आभासी</value>
   </data>
 
 </root>

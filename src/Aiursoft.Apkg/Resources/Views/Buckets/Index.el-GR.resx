@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+      <data name="(pending)" xml:space="preserve">
+    <value>(σε αναμονή)</value>
+  </data>
+  <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
     <value>Ένα bucket είναι μια ελεγμένη εκδοσιακά στιγμιότυπη αναπαράσταση των πακέτων ενός αποθετηρίου σε μια δεδομένη χρονική στιγμή. Το πρωτεύον bucket είναι το ενεργό, που εξυπηρετεί τους πελάτες apt.</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>Χρόνος Δημιουργίας</value>
+  </data>
+  <data name="GC Policy:" xml:space="preserve">
+    <value>Πολίτικα GC:</value>
   </data>
   <data name="ID" xml:space="preserve">
     <value>Α/Α</value>
@@ -71,6 +77,9 @@
   </data>
   <data name="Tip:" xml:space="preserve">
     <value>Συμβουλή:</value>
+  </data>
+  <data name="Unreferenced buckets (not primary or secondary in any Mirror/Repository) are immediately pruned on the next GC run. In-progress builds are protected because both SyncJobs set &lt;code&gt;SecondaryBucketId&lt;/code&gt; immediately upon bucket creation." xml:space="preserve">
+    <value>Οι άδειοι καταλόγοι (όχι πρωταρχικοί ή δευτερεύοντες σε καμία Αντανάκλαση/Αποθήκη) διαγράφονται αμέσως κατά την επόμενη εκτέλεση της συλλογής απορριμμάτων (GC). Οι εκτέλεσεις κατασκευής σε εξέλιξη προστατεύονται, καθώς και τα δύο SyncJobs ορίζουν το &lt;code&gt;SecondaryBucketId&lt;/code&gt; αμέσως μετά τη δημιουργία του καταλόγου.</value>
   </data>
   <data name="What is a Bucket?" xml:space="preserve">
     <value>Τι είναι ένα Bucket;</value>

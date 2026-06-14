@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Affected Repositories" xml:space="preserve">
+    <value>Προσωπικά Αποθετήρια</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Αρχιτεκτονική</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Ακύρωση</value>
+  </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Επιβεβαίωση απομάκρυνσης από τη λίστα</value>
+  </data>
+  <data name="Current Version" xml:space="preserve">
+    <value>Τρέχουσα Έκδοση</value>
+  </data>
+  <data name="DISAPPEARS — no other version available" xml:space="preserve">
+    <value>ΕΞΑΦΑΝΙΖΕΤΑΙ — δεν υπάρχει διαθέσιμη άλλη έκδοση</value>
+  </data>
+  <data name="Downgrade to" xml:space="preserve">
+    <value>Χαμήλωσε σε</value>
+  </data>
+  <data name="I understand the consequences — Unlist" xml:space="preserve">
+    <value>Κατανοώ τις συνέπειες — Αφαίρεση</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Πακέτο</value>
+  </data>
+  <data name="Replaced by" xml:space="preserve">
+    <value>Αντικαθίσταται από</value>
+  </data>
+  <data name="Replacement" xml:space="preserve">
+    <value>Αντικατάσταση</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Αποθετήριο</value>
+  </data>
+  <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
+    <value>Αυτό θα αφαιρέσει τα παρακάτω πακέτα από τα αποθετήριά τους. Η αφαίρεση από τον κατάλογο μπορεί να αναιρεθεί μόνο από έναν διαχειριστή.</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>έκδοση</value>
+  </data>
+  <data name="Warning:" xml:space="preserve">
+    <value>Προειδοποίηση:</value>
+  </data>
+  <data name="You are about to unlist" xml:space="preserve">
+    <value>Πρόκειται να αφαιρέσετε από τη λίστα</value>
+  </data>
+
+</root>

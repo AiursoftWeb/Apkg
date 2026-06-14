@@ -18,23 +18,176 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+      <data name="—" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Ενέργειες</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Όλα</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>Το μικτό πακέτο .apkg είναι το ιδιόκτητο μορφοποίηση της Apkg, το οποίο συγκεντρώνει πολλαπλά πακέτα .deb και ένα αρχείο manifest.xml σε ένα ενιαίο αρχείο tar που έχει συμπιεστεί με gzip. Ο διακομιστής αποσυμπίεζει κάθε αρχείο .deb, εξάγει μεταδεδομένα από το αρχείο ελέγχου (control) του και τα συγχρονίζει με τα αντίστοιχα αποθετήρια APT προορισμού.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>και ΟΛΕΣ τις εκδόσεις του; Η ενέργεια αυτή δεν μπορεί να ανακληθεί.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Αρχιτεκτονική</value>
+  </data>
+  <data name="Back to Packages" xml:space="preserve">
+    <value>Πίσω στα Πακέτα</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>επειδή δεν έχετε άδεια ανάρτησής τους:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>από</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Συστατικό</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Δημιουργήθηκε</value>
   </data>
   <data name="Dead (Invariant) Attributes" xml:space="preserve">
     <value>Απαραλλάκτες (Μόνιμες) Ιδιότητες</value>
   </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>Διαγραφή Πακέτου</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Περιγραφή</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Ανενεργό</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>Απενεργοποίηση</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Κατανομή</value>
+  </data>
+  <data name="Effective Packages" xml:space="preserve">
+    <value>Ισχύοντα Πακέτα</value>
+  </data>
   <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
     <value>Κάθε .apkg έχει τρία &lt;strong&gt;στατικά χαρακτηριστικά&lt;/strong&gt; που ορίζονται στη ρίζα του αρχείου περιγραφής (manifest) και ισχύουν για όλο το πακέτο: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt; και &lt;strong&gt;Component&lt;/strong&gt;. Αυτά εντοπίζουν την οικογένεια του πακέτου και τον προορισμό του αποθετηρίου. Δεν μπορούν να διαφέρουν μεταξύ των καταχωρίσεων εντός ενός ενιαίου .apkg.</value>
+  </data>
+  <data name="Go to Preview →" xml:space="preserve">
+    <value>Προβολή προεπισκόπησης →</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Ιστοσελίδα</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>Νεότερο</value>
+  </data>
+  <data name="Latest version per (Architecture, Suite) across all uploads. These are the debs that will be sent to APT repositories." xml:space="preserve">
+    <value>Τελευταία έκδοση ανά (Αρχιτεκτονική, Suite) σε όλες τις μεταφορτώσεις. Αυτά είναι τα deb που θα αποσταλούν στα αποθετήρια APT.</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Ενεργό</value>
   </data>
   <data name="Live (Variant) Attributes" xml:space="preserve">
     <value>Ενεργά (Παραλλαγμένα) Χαρακτηριστικά</value>
   </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Διαχειριστής</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>Νεότερο</value>
+  </data>
+  <data name="No debs in this upload. The .apkg has not been published yet." xml:space="preserve">
+    <value>Δεν υπάρχουν αρχεία .deb σε αυτή την αναφορτά. Το αρχείο .apkg δεν έχει δημοσιευτεί ακόμη.</value>
+  </data>
+  <data name="No packages have been uploaded yet." xml:space="preserve">
+    <value>Δεν έχουν ανεβεί ακόμη πακέτα.</value>
+  </data>
+  <data name="No packages match this filter." xml:space="preserve">
+    <value>Κανένα πακέτο δεν ταιριάζει με αυτό το φίλτρο.</value>
+  </data>
+  <data name="No upload history yet." xml:space="preserve">
+    <value>Δεν υπάρχει ακόμη ιστορικό ανεβάσεων.</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Επισκόπηση</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Πακέτο</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>πακέτο(α)</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Εκκρεμεί Συγχρονισμός</value>
+  </data>
+  <data name="Permanently delete the entire package family" xml:space="preserve">
+    <value>Διαγραφή οριστικά ολόκληρης της οικογένειας πακέτων</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Δημοσίευση</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Αποθετήριο</value>
+  </data>
+  <data name="Some repositories were skipped during publish" xml:space="preserve">
+    <value>Πολλά αποθετήρια παραλείφθηκαν κατά τη δημοσίευση</value>
+  </data>
+  <data name="Staged" xml:space="preserve">
+    <value>Ετοιμασμένο</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Συγκρότημα</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Υπεργρασμένο</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Κατάσταση Συγχρονισμού</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>Συμβουλή:</value>
   </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Αφαίρεση από τη λίστα</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>Μη καταχωρημένο</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Μη δημοσιευμένο</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>μη δημοσιευμένη αποστολή(ές) σε αναμονή δημοσίευσης.</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Ιστορικό Ανεβάσματα</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Ανεβασμένα</value>
+  </data>
+  <data name="Uploaded At" xml:space="preserve">
+    <value>Ημερομηνία Αναφορτώσεως</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Φορτωτής</value>
+  </data>
   <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
     <value>Χρησιμοποιήστε τη εντολή &lt;code&gt;apkg push&lt;/code&gt; από τη γραμμή εντολών (CLI) για να δημιουργήσετε και να ανεβάσετε αρχεία .apkg. Τα uploads πρέπει να δημοσιευτούν πριν εμφανιστούν στα αποθετήρια APT.</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Έκδοση</value>
+  </data>
+  <data name="Versions" xml:space="preserve">
+    <value>Έκδοσεις</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>Εμφάνιση στην αποθήκη</value>
   </data>
   <data name="What is an APKG Mixed Package?" xml:space="preserve">
     <value>Τι είναι ένα μικτό πακέτο APKG;</value>

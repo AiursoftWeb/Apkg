@@ -87,6 +87,9 @@
   <data name="Package Details" xml:space="preserve">
     <value>Λεπτομέρειες Πακέτου</value>
   </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>πακέτο/πακέτα</value>
+  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>Φυσικό (Ενθυλακωμένο)</value>
   </data>
