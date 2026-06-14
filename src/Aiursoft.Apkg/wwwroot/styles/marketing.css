@@ -233,6 +233,19 @@
 }
 
 /* =========================================
+   Apkg quote / testimonial
+   ========================================= */
+
+.apkg-quote {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.apkg-quote:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* =========================================
    Apkg landing page
    ========================================= */
 

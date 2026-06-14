@@ -1077,5 +1077,11 @@
   <data name="Zero Tolerance Lint" xml:space="preserve">
     <value>Zero Tolerance Lint</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>The Philosophy</value>
+  </data>
+  <data name="From the Architect" xml:space="preserve">
+    <value>From the Architect</value>
+  </data>
 
 </root>
