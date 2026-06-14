@@ -18,23 +18,176 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+      <data name="—" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Toiminnot</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Kaikki</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>.apkg-sekoituspaketti on Apkg:n oma muodot, joka yhdistää useamman .deb-paketin ja manifest.xml-tiedoston yhteen gzip-pakattuun tar-arkistoon. Palvelin purkaa jokaisen .deb-paketin, poimii metatiedot sen kontrollitiedostosta ja synkronoi ne kohde-APT-varastoille.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>ja KAIKKI sen version? Tätä ei voi perua.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arkkitehtuuri</value>
+  </data>
+  <data name="Back to Packages" xml:space="preserve">
+    <value>Takaisin paketteihin</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>koska sinulla ei ole lupaa ladata niihin:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>käyttäjän</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Komponentti</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Luotu</value>
   </data>
   <data name="Dead (Invariant) Attributes" xml:space="preserve">
     <value>Kuolleet (invariant) attribuutit</value>
   </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>Poista paketti</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Kuvaus</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Pois käytöstä</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>Poistetaan käytöstä</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Jakelujärjestelmä</value>
+  </data>
+  <data name="Effective Packages" xml:space="preserve">
+    <value>Tehtävät paketit</value>
+  </data>
   <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
     <value>Jokaisessa .apkg-tiedostossa on määritelty kolme &lt;strong&gt;kiinteää attribuuttia&lt;/strong&gt; manifestin juuressa, jotka koskevat koko paketin sisältöä: &lt;strong&gt;Nimi&lt;/strong&gt;, &lt;strong&gt;Jakelu&lt;/strong&gt; ja &lt;strong&gt;Komponentti&lt;/strong&gt;. Nämä tunnistavat pakettiperheen ja sen kohdevaraston. Ne eivät voi vaihdella saman .apkg-tiedoston sisällä olevien merkintöjen välillä.</value>
+  </data>
+  <data name="Go to Preview →" xml:space="preserve">
+    <value>Siirry esikatseluun →</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Kotisivu</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>Viimeisin</value>
+  </data>
+  <data name="Latest version per (Architecture, Suite) across all uploads. These are the debs that will be sent to APT repositories." xml:space="preserve">
+    <value>Uusin versio (arkkitehtuuri, pakettisarja) -yhdistelmää kohti kaikista latauksista. Nämä .deb-paketit lähetetään APT-varastoihin.</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Aktiivinen</value>
   </data>
   <data name="Live (Variant) Attributes" xml:space="preserve">
     <value>Aktiiviset (muunneltavat) määritteet</value>
   </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Ylläpitäjä</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>Uusin</value>
+  </data>
+  <data name="No debs in this upload. The .apkg has not been published yet." xml:space="preserve">
+    <value>Tässä latauksessa ei ole debs-pakkauksia. .apkg-tiedostoa ei ole vielä julkaistu.</value>
+  </data>
+  <data name="No packages have been uploaded yet." xml:space="preserve">
+    <value>Paketteja ei ole vielä ladattu.</value>
+  </data>
+  <data name="No packages match this filter." xml:space="preserve">
+    <value>Tätä suodintaa vastaavia paketteja ei ole.</value>
+  </data>
+  <data name="No upload history yet." xml:space="preserve">
+    <value>Ei vielä lähetys historiaa.</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Yleiskatsaus</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Paketti</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pakettia(pakkauksia)</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Synkronointi odottaa</value>
+  </data>
+  <data name="Permanently delete the entire package family" xml:space="preserve">
+    <value>Poista koko paketiperhe pysyvästi</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Julkaise</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Varasto</value>
+  </data>
+  <data name="Some repositories were skipped during publish" xml:space="preserve">
+    <value>Jotkin arkistot ohitettiin julkaisun aikana</value>
+  </data>
+  <data name="Staged" xml:space="preserve">
+    <value>Järjestelty</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Tila</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Sarja</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Kumotettu</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Synkronointitila</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>Vinkki:</value>
   </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Poista listalta</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>Listattu</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Julkaisematon</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>julkaisematon/laitettu päivitys/päivitykset odottaa julkaisua.</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Lataushistoria</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Lähetetty</value>
+  </data>
+  <data name="Uploaded At" xml:space="preserve">
+    <value>Ladattu</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Lähettäjä</value>
+  </data>
   <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
     <value>Käytä komentoriviltä komentoa &lt;code&gt;apkg push&lt;/code&gt; .apkg-tiedostojen luomiseen ja lataamiseen. Lataukset on julkaistava, ennen kuin ne näkyvät APT-varastoissa.</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versio</value>
+  </data>
+  <data name="Versions" xml:space="preserve">
+    <value>Versiot</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>Näytä varastossa</value>
   </data>
   <data name="What is an APKG Mixed Package?" xml:space="preserve">
     <value>Mikä on APKG-sekoituspaketti?</value>

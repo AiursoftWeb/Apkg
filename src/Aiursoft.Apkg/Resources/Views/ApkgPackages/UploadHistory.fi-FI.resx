@@ -27,6 +27,15 @@
   <data name="Component" xml:space="preserve">
     <value>Komponentti</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Jatka</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Poistettu käytöstä</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>Poistetaan käytöstä</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Jakelu</value>
   </data>
@@ -35,6 +44,9 @@
   </data>
   <data name="File" xml:space="preserve">
     <value>Tiedosto</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Julkaisussa</value>
   </data>
   <data name="My Upload History" xml:space="preserve">
     <value>Lataushistoriani</value>
@@ -48,11 +60,26 @@
   <data name="Packages" xml:space="preserve">
     <value>Paketit</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Odottaa synkronointia</value>
+  </data>
+  <data name="Staged for Signing" xml:space="preserve">
+    <value>Valmistautunut allekirjoitukseen</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Tila</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Korvattu</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>Vinkki:</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>Ei listattu</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Julkaisematon</value>
   </data>
   <data name="Upload History" xml:space="preserve">
     <value>Lataushistoria</value>

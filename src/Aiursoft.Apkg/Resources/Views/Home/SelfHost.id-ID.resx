@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Apkg" xml:space="preserve">
+    <value>Tentang Apkg</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>dan kata sandi bawaan adalah:</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg is an APT repository server and Debian package publishing platform. Host it when you need signed repository snapshots, upstream Ubuntu mirror ingestion, API-key package publishing, and browser-based operations for repositories, certificates, users, roles, and jobs." xml:space="preserve">
+    <value>Apkg adalah server repositori APT dan platform publikasi paket Debian. Jalankan di server Anda sendiri saat Anda membutuhkan snapshot repositori yang ditandatangani, impor cermin Ubuntu hulu, publikasi paket dengan kunci API, dan operasi berbasis browser untuk repositori, sertifikat, pengguna, peran, dan pekerjaan.</value>
+  </data>
+  <data name="Apkg uses SQLite by default. For production MySQL, edit the ConnectionStrings section in appsettings.json and set DbType to MySql with your server connection string." xml:space="preserve">
+    <value>Apkg menggunakan SQLite secara default. Untuk MySQL produksi, edit bagian ConnectionStrings di appsettings.json dan atur DbType ke MySql dengan string koneksi server Anda.</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>Autentikasi</value>
+  </data>
+  <data name="Binary path" xml:space="preserve">
+    <value>Jalur biner</value>
+  </data>
+  <data name="Change the default administrator password immediately." xml:space="preserve">
+    <value>Ubah kata sandi administrator default segera.</value>
+  </data>
+  <data name="Config path" xml:space="preserve">
+    <value>Path konfigurasi</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Konfigurasi</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>Kontainer Konteks</value>
+  </data>
+  <data name="Create repositories for every distro, suite, and architecture that package publishers will target." xml:space="preserve">
+    <value>Buat repositori untuk setiap distro, suite, dan arsitektur yang akan ditargetkan oleh penerbit paket.</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dasbor</value>
+  </data>
+  <data name="Data path" xml:space="preserve">
+    <value>Jalur data</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>Basis Data</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>Pengembangan &amp; Jalankan Manual</value>
+  </data>
+  <data name="Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app." xml:space="preserve">
+    <value>Jalankan `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` untuk menjalankan aplikasi.</value>
+  </data>
+  <data name="Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies." xml:space="preserve">
+    <value>Jalankan `npm install` di folder `src/Aiursoft.Apkg/wwwroot` untuk menginstal dependensi.</value>
+  </data>
+  <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>Pertama, instal Docker. Kemudian jalankan perintah berikut di shell Linux:</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Health check" xml:space="preserve">
+    <value>Pemeriksaan Kesehatan</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Gambar</value>
+  </data>
+  <data name="Local accounts are enabled by default. Set AppSettings:AuthProvider to OIDC and fill the OIDC section when you want to delegate sign-in to an identity provider." xml:space="preserve">
+    <value>Akun lokal diaktifkan secara default. Atur AppSettings:AuthProvider ke OIDC dan isi bagian OIDC ketika Anda ingin mendelegasikan masuk ke penyedia identitas.</value>
+  </data>
+  <data name="Open the `.sln` file in the project path." xml:space="preserve">
+    <value>Buka file `.sln` di jalur proyek.</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>Atau dengan port khusus:</value>
+  </data>
+  <data name="Ports" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>Prasyarat</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>Tekan `F5` untuk menjalankan aplikasi.</value>
+  </data>
+  <data name="Production checklist" xml:space="preserve">
+    <value>Daftar periksa produksi</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Properti</value>
+  </data>
+  <data name="Put the site behind your normal TLS and network controls." xml:space="preserve">
+    <value>Lindungi situs dengan kontrol TLS dan jaringan standar Anda.</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>Direkomendasikan</value>
+  </data>
+  <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
+    <value>Ganti sertifikat penandatanganan bawaan sebelum melayani repositori nyata.</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>Jalankan di Docker</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>Jalankan di Ubuntu</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>Jalankan di Visual Studio</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>Jalankan Secara Manual</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Hosting Sendiri</value>
+  </data>
+  <data name="Storage" xml:space="preserve">
+    <value>Penyimpanan</value>
+  </data>
+  <data name="Storage:Path keeps package objects, local packages, avatars, and GPG keyrings. Storage:ExportPath keeps exported static repository artifacts. Both paths should be durable on a real server." xml:space="preserve">
+    <value>Storage:Path menyimpan objek paket, paket lokal, avatar, dan keyring GPG. Storage:ExportPath menyimpan artefak repositori statis yang diekspor. Kedua jalur harus awet di server sebenarnya.</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>Hal ini akan memulai server web di http://localhost:5000 dan Anda dapat menguji aplikasi.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>Nama pengguna default adalah:</value>
+  </data>
+  <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
+    <value>Gambar Docker memeriksa http://localhost:5000/health. Gunakan endpoint yang sama untuk pemantauan waktu aktif eksternal setelah aplikasi dimulai.</value>
+  </data>
+  <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
+    <value>Gambar Docker menginstal gnupg dan ubuntu-keyring untuk penandatanganan repositori dan verifikasi tanda tangan hulu. Persistensikan /data karena menyimpan appsettings.json, database SQLite, objek paket, avatar, dan keyring GPG.</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>Skrip berikut akan menginstal/memperbarui aplikasi ini di server Ubuntu Anda. Mendukung Ubuntu 25.04.</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Nilai</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>Kunjungi http://localhost:5000.</value>
+  </data>
+
+</root>

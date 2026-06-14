@@ -27,6 +27,15 @@
   <data name="Component" xml:space="preserve">
     <value>Komponen</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Lanjutkan</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Nonaktif</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>Menonaktifkan</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>Distribusi</value>
   </data>
@@ -35,6 +44,9 @@
   </data>
   <data name="File" xml:space="preserve">
     <value>Berkas</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Aktif</value>
   </data>
   <data name="My Upload History" xml:space="preserve">
     <value>Riwayat Unggahan Saya</value>
@@ -48,11 +60,26 @@
   <data name="Packages" xml:space="preserve">
     <value>Paket</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Sinkronisasi Tertunda</value>
+  </data>
+  <data name="Staged for Signing" xml:space="preserve">
+    <value>Siap untuk Ditandatangani</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Telah Digantikan</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>Tips:</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>Tidak Tersedia</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Tidak Dipublikasikan</value>
   </data>
   <data name="Upload History" xml:space="preserve">
     <value>Riwayat Unggahan</value>

@@ -18,7 +18,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
+      <data name="(pending)" xml:space="preserve">
+    <value>(odottaa käsiteltäväksi)</value>
+  </data>
+  <data name="A bucket is a versioned snapshot of a repository&apos;s packages at a point in time. The primary bucket is the live one served to apt clients." xml:space="preserve">
     <value>Kauha on versioitu pakeraustilanteen otos varaston paketeista tietyllä aikahetkellä. Pääkauha on se aktiivinen kauha, jota apt-asiakkaat käyttävät.</value>
   </data>
   <data name="Actions" xml:space="preserve">
@@ -38,6 +41,9 @@
   </data>
   <data name="Created Time" xml:space="preserve">
     <value>Luontiaika</value>
+  </data>
+  <data name="GC Policy:" xml:space="preserve">
+    <value>Roskakoriaika:</value>
   </data>
   <data name="ID" xml:space="preserve">
     <value>ID</value>
@@ -71,6 +77,9 @@
   </data>
   <data name="Tip:" xml:space="preserve">
     <value>Vinkki:</value>
+  </data>
+  <data name="Unreferenced buckets (not primary or secondary in any Mirror/Repository) are immediately pruned on the next GC run. In-progress builds are protected because both SyncJobs set &lt;code&gt;SecondaryBucketId&lt;/code&gt; immediately upon bucket creation." xml:space="preserve">
+    <value>Käyttämättömät ämpärit (ei ensisijaisia tai toissijaisia missään peilikopiossa tai varastossa) poistetaan välittömästi seuraavan jätekeruun aikana. Kesken olevat käännökset ovat suojattuja, koska molemmat SyncJobs-asynkronityöt asettavat &lt;code&gt;SecondaryBucketId&lt;/code&gt;-arvon välittömästi ämpärin luomisen yhteydessä.</value>
   </data>
   <data name="What is a Bucket?" xml:space="preserve">
     <value>Mikä on ämpäri?</value>

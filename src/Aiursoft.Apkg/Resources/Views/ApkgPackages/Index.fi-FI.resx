@@ -84,6 +84,9 @@
   <data name="Unlist" xml:space="preserve">
     <value>Ota pois listalta</value>
   </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Julkaisematon</value>
+  </data>
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>Lataa apkg-sekoitettu paketti</value>
   </data>

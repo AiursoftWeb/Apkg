@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Tindakan</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Semua</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>dan semua Paket Lokal yang dihasilkan?</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arsitektur</value>
+  </data>
+  <data name="Back to Package" xml:space="preserve">
+    <value>Kembali ke Paket</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Batal</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Tutup</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Konfirmasi Hapus</value>
+  </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Konfirmasi Penghapusan Daftar</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Hapus</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Nonaktif</value>
+  </data>
+  <data name="Generated packages will be disabled." xml:space="preserve">
+    <value>Paket yang dibuat akan dinonaktifkan.</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>Terbaru</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Aktif</value>
+  </data>
+  <data name="No versions found for this package." xml:space="preserve">
+    <value>Tidak ada versi yang ditemukan untuk paket ini.</value>
+  </data>
+  <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
+    <value>Hanya versi terbaru yang diaktifkan muncul di repositori APT.</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>paket (s)</value>
+  </data>
+  <data name="Permanently delete" xml:space="preserve">
+    <value>Hapus secara permanen</value>
+  </data>
+  <data name="Signing" xml:space="preserve">
+    <value>Penandatanganan</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Ruang Lingkup</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Tersingkir</value>
+  </data>
+  <data name="Superseded — a newer version is live. This deb file remains in CAS storage until the garbage collection job runs (~70 min) and removes unreferenced content." xml:space="preserve">
+    <value>Digantikan — versi terbaru sudah tersedia. File deb ini tetap berada di penyimpanan CAS hingga proses pengumpulan sampah dijalankan (~70 menit) dan menghapus konten yang tidak digunakan lagi.</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Status Sinkronisasi</value>
+  </data>
+  <data name="Syncing" xml:space="preserve">
+    <value>Mensinkronisasi</value>
+  </data>
+  <data name="This page shows all uploaded versions of" xml:space="preserve">
+    <value>Halaman ini menampilkan semua versi yang diunggah dari</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Tidak Diketahui</value>
+  </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Sembunyikan</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Diunggah</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Pengunggah</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versi</value>
+  </data>
+  <data name="Version History" xml:space="preserve">
+    <value>Riwayat Versi</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>Lihat di repositori</value>
+  </data>
+
+</root>

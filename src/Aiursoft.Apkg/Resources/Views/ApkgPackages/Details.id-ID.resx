@@ -18,23 +18,176 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+      <data name="—" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Aksi</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>Semua</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>Paket gabungan .apkg adalah format eksklusif Apkg yang menggabungkan beberapa paket .deb dan manifest.xml ke dalam satu arsip tar yang dikompresi dengan gzip. Server akan mengekstrak setiap .deb, mengambil metadata dari file kontrolnya, dan menyinkronkannya ke repositori APT tujuan masing-masing.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>dan SEMUA revisinya? Tindakan ini tidak dapat dibatalkan.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arsitektur</value>
+  </data>
+  <data name="Back to Packages" xml:space="preserve">
+    <value>Kembali ke Paket</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>karena Anda tidak memiliki izin untuk mengunggah ke repositori tersebut:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>oleh</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Komponen</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Dibuat</value>
   </data>
   <data name="Dead (Invariant) Attributes" xml:space="preserve">
     <value>Atribut Mati (Invariant)</value>
   </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>Hapus Paket</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Deskripsi</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Nonaktif</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>Dimatikan</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Dist</value>
+  </data>
+  <data name="Effective Packages" xml:space="preserve">
+    <value>Paket Efektif</value>
+  </data>
   <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
     <value>Setiap .apkg memiliki tiga &lt;strong&gt;atribut mati&lt;/strong&gt; yang didefinisikan di akar manifest dan berlaku untuk seluruh paket: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, dan &lt;strong&gt;Component&lt;/strong&gt;. Atribut-atribut ini mengidentifikasi keluarga paket dan repositori tujuannya. Atribut-atribut tersebut tidak dapat bervariasi antara entri dalam satu .apkg.</value>
+  </data>
+  <data name="Go to Preview →" xml:space="preserve">
+    <value>Lihat Pratinjau →</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Halaman Utama</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>Terbaru</value>
+  </data>
+  <data name="Latest version per (Architecture, Suite) across all uploads. These are the debs that will be sent to APT repositories." xml:space="preserve">
+    <value>Versi terbaru per (Arsitektur, Suite) di semua unggahan. Ini adalah file .deb yang akan dikirim ke repositori APT.</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>Aktif</value>
   </data>
   <data name="Live (Variant) Attributes" xml:space="preserve">
     <value>Atribut Aktif (Varian)</value>
   </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Pemelihara</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>Terbaru</value>
+  </data>
+  <data name="No debs in this upload. The .apkg has not been published yet." xml:space="preserve">
+    <value>Tidak ada .deb dalam unggahan ini. .apkg belum diterbitkan.</value>
+  </data>
+  <data name="No packages have been uploaded yet." xml:space="preserve">
+    <value>Belum ada paket yang diunggah.</value>
+  </data>
+  <data name="No packages match this filter." xml:space="preserve">
+    <value>Tidak ada paket yang cocok dengan filter ini.</value>
+  </data>
+  <data name="No upload history yet." xml:space="preserve">
+    <value>Belum ada riwayat unggahan.</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Ringkasan</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>paket</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>Menunggu Sinkronisasi</value>
+  </data>
+  <data name="Permanently delete the entire package family" xml:space="preserve">
+    <value>Hapus seluruh keluarga paket secara permanen</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Terbitkan</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Repositori</value>
+  </data>
+  <data name="Some repositories were skipped during publish" xml:space="preserve">
+    <value>Beberapa repositori dilewati saat publikasi</value>
+  </data>
+  <data name="Staged" xml:space="preserve">
+    <value>Dipersiapkan</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>Digantikan</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>Status Sinkronisasi</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>Tips:</value>
   </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>Hapus Daftar</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>Tidak Terdaftar</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Belum Diterbitkan</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>unggah yang belum diterbitkan menunggu publikasi.</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Riwayat Unggah</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>Diunggah</value>
+  </data>
+  <data name="Uploaded At" xml:space="preserve">
+    <value>Diunggah Pada</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>Pengunggah</value>
+  </data>
   <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
     <value>Gunakan &lt;code&gt;apkg push&lt;/code&gt; dari CLI untuk membuat dan mengunggah file .apkg. Unggahan harus dipublikasikan sebelum muncul di repositori APT.</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Versi</value>
+  </data>
+  <data name="Versions" xml:space="preserve">
+    <value>Versi</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>Lihat di repositori</value>
   </data>
   <data name="What is an APKG Mixed Package?" xml:space="preserve">
     <value>Apa itu Paket Campuran APKG?</value>

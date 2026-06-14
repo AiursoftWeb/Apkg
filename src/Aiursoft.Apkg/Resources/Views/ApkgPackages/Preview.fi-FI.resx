@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="—" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="Arch" xml:space="preserve">
+    <value>Arkkitehtuuri</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Komponentti</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Kuvaus</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Jakelu</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Kotisivu</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>Lisenssi</value>
+  </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Ylläpitäjä</value>
+  </data>
+  <data name="Manifest" xml:space="preserve">
+    <value>Manifesti</value>
+  </data>
+  <data name="Matching Repos" xml:space="preserve">
+    <value>Vastaavat varastot</value>
+  </data>
+  <data name="No matching repository" xml:space="preserve">
+    <value>Ei vastaavaa säiliötä</value>
+  </data>
+  <data name="No targets matched any repository. Publishing will have no effect." xml:space="preserve">
+    <value>Yksi kohdekään ei vastannut mitään säilöä. Julkaiseminen ei vaikuta mihinkään.</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Paketti</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>Esikatsele APKG-latausta</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Julkaise</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Valmis</value>
+  </data>
+  <data name="Some targets do not match any repository. You can still publish, but those targets will be skipped." xml:space="preserve">
+    <value>Jotkut kohdeet eivät vastaa yhtään varastoa. Voit silti julkaista, mutta nuo kohteet jätetään väliin.</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Tila</value>
+  </data>
+  <data name="Suites" xml:space="preserve">
+    <value>Sarjat</value>
+  </data>
+  <data name="Target" xml:space="preserve">
+    <value>Kohde</value>
+  </data>
+  <data name="Targets" xml:space="preserve">
+    <value>Kohdeasetukset</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Varoitus</value>
+  </data>
+
+</root>

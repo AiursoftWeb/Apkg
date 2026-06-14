@@ -84,6 +84,9 @@
   <data name="Unlist" xml:space="preserve">
     <value>Nonaktifkan Daftar</value>
   </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>Tidak Dipublikasikan</value>
+  </data>
   <data name="Upload apkg mixed package" xml:space="preserve">
     <value>Unggah paket campuran apkg</value>
   </data>

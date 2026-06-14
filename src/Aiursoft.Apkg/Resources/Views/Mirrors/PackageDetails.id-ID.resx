@@ -87,6 +87,9 @@
   <data name="Package Details" xml:space="preserve">
     <value>Rincian Paket</value>
   </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>paket</value>
+  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>Fisik (Tersimpan di Cache)</value>
   </data>
