@@ -27,6 +27,15 @@
   <data name="Component" xml:space="preserve">
     <value>घटक</value>
   </data>
+  <data name="Continue" xml:space="preserve">
+    <value>जारी रखें</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>अक्षम</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>अक्षम कर रहे हैं</value>
+  </data>
   <data name="Distro" xml:space="preserve">
     <value>विस्त्रो</value>
   </data>
@@ -35,6 +44,9 @@
   </data>
   <data name="File" xml:space="preserve">
     <value>फ़ाइल</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>लाइव</value>
   </data>
   <data name="My Upload History" xml:space="preserve">
     <value>मेरी अपलोड इतिहास</value>
@@ -48,11 +60,26 @@
   <data name="Packages" xml:space="preserve">
     <value>पैकेज</value>
   </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>सिंक लंबित है</value>
+  </data>
+  <data name="Staged for Signing" xml:space="preserve">
+    <value>हस्ताक्षर के लिए तैयार</value>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>स्थिति</value>
   </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>प्रभावहीन</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>सुझाव:</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>अनलिस्टेड</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>अप्रकाशित</value>
   </data>
   <data name="Upload History" xml:space="preserve">
     <value>अपलोड इतिहास</value>

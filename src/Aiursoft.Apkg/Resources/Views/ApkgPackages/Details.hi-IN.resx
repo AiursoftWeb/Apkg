@@ -18,23 +18,176 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
+      <data name="—" xml:space="preserve">
+    <value>—</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>कार्रवाई</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>सभी</value>
+  </data>
+  <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>एक .apkg मिक्स्ड पैकेज Apkg का प्रोप्राइटरी फॉर्मेट है जो कई .deb पैकेज और एक manifest.xml को एकल gzipped tar अर्काइव में बंडल करता है। सर्वर हर .deb को अनपैक करता है, इसके कंट्रोल फाइल से मेटाडाटा निकालता है, और उन्हें उनके टारगेट APT रेपोजिटरी में सिंक करता है।</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>और सभी संशोधनों को? इसे पूर्ववत नहीं किया जा सकता।</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>आर्किटेक्चर</value>
+  </data>
+  <data name="Back to Packages" xml:space="preserve">
+    <value>पैकेज पर वापस जाएं</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>क्योंकि आपको उनमें अपलोड करने की अनुमति नहीं है:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>द्वारा</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>घटक</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>बनाया गया</value>
   </data>
   <data name="Dead (Invariant) Attributes" xml:space="preserve">
     <value>निष्क्रिय (अपरिवर्तनीय) विशेषताएँ</value>
   </data>
+  <data name="Delete Package" xml:space="preserve">
+    <value>पैकेज हटाएं</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>निष्क्रिय</value>
+  </data>
+  <data name="Disabling" xml:space="preserve">
+    <value>अक्षम हो रहा है</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>विश्रृंखला</value>
+  </data>
+  <data name="Effective Packages" xml:space="preserve">
+    <value>प्रभावी पैकेज</value>
+  </data>
   <data name="Every .apkg has three &lt;strong&gt;dead attributes&lt;/strong&gt; defined at the manifest root that apply to the entire bundle: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, and &lt;strong&gt;Component&lt;/strong&gt;. These identify the package family and its target repository. They cannot vary between entries within a single .apkg." xml:space="preserve">
     <value>हर .apkg में मॅनिफेस्ट जड़ पर परिभाषित तीन &lt;strong&gt;निश्चर विशेषताओं&lt;/strong&gt; होते हैं जो पूरे बंडल पर लागू होते हैं: &lt;strong&gt;Name&lt;/strong&gt;, &lt;strong&gt;Distro&lt;/strong&gt;, और &lt;strong&gt;Component&lt;/strong&gt;। ये पैकेज परिवार और इसके लक्ष्य रिपॉजिटरी की पहचान करते हैं। एक ही .apkg के अंदर प्रविष्टियों के बीच ये परिवर्तित नहीं हो सकते।</value>
+  </data>
+  <data name="Go to Preview →" xml:space="preserve">
+    <value>प्रीव्यू पर जाएं →</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>होमपेज</value>
+  </data>
+  <data name="Latest" xml:space="preserve">
+    <value>नवीनतम</value>
+  </data>
+  <data name="Latest version per (Architecture, Suite) across all uploads. These are the debs that will be sent to APT repositories." xml:space="preserve">
+    <value>सभी अपलोड में प्रत्येक (आर्किटेक्चर, सुइट) के लिए नवीनतम संस्करण। ये वे देब्स हैं जिन्हें APT रिपॉजिटरी पर भेजा जाएगा।</value>
+  </data>
+  <data name="Live" xml:space="preserve">
+    <value>लाइव</value>
   </data>
   <data name="Live (Variant) Attributes" xml:space="preserve">
     <value>लाइव (वेरिएंट) विशेषताएं</value>
   </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>संरक्षक</value>
+  </data>
+  <data name="Newest" xml:space="preserve">
+    <value>नवीनतम</value>
+  </data>
+  <data name="No debs in this upload. The .apkg has not been published yet." xml:space="preserve">
+    <value>इस अपलोड में कोई deb पैकेज नहीं है। .apkg फ़ाइल अभी तक प्रकाशित नहीं हुई है।</value>
+  </data>
+  <data name="No packages have been uploaded yet." xml:space="preserve">
+    <value>अभी तक कोई पैकेज अपलोड नहीं किया गया है।</value>
+  </data>
+  <data name="No packages match this filter." xml:space="preserve">
+    <value>कोई पैकेज इस फ़िल्टर से मेल नहीं खाता।</value>
+  </data>
+  <data name="No upload history yet." xml:space="preserve">
+    <value>अभी तक कोई अपलोड इतिहास नहीं।</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>अवलोकन</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>पैकेज</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>सॉफ्टवेयर</value>
+  </data>
+  <data name="Pending Sync" xml:space="preserve">
+    <value>सिंक प्रलंबित है</value>
+  </data>
+  <data name="Permanently delete the entire package family" xml:space="preserve">
+    <value>पूरी पैकेज फैमिली को स्थायी रूप से हटाएं</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>प्रकाशित करें</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>रेपॉजिटरी</value>
+  </data>
+  <data name="Some repositories were skipped during publish" xml:space="preserve">
+    <value>पब्लिश करते समय कुछ रेपोजिटरी को छोड़ दिया गया था</value>
+  </data>
+  <data name="Staged" xml:space="preserve">
+    <value>स्थगित</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>सूट</value>
+  </data>
+  <data name="Superseded" xml:space="preserve">
+    <value>प्रतिस्थापित</value>
+  </data>
+  <data name="Sync Status" xml:space="preserve">
+    <value>सिंक स्थिति</value>
+  </data>
   <data name="Tip:" xml:space="preserve">
     <value>सुझाव:</value>
   </data>
+  <data name="Unlist" xml:space="preserve">
+    <value>अनलिस्ट करें</value>
+  </data>
+  <data name="Unlisted" xml:space="preserve">
+    <value>सूचीबद्ध नहीं</value>
+  </data>
+  <data name="Unpublished" xml:space="preserve">
+    <value>प्रकाशित नहीं</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>प्रकाशित करने के लिए अप्रकाशित अपलोड(स) प्रतीक्षा में हैं।</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>अपलोड इतिहास</value>
+  </data>
+  <data name="Uploaded" xml:space="preserve">
+    <value>अपलोड किया गया</value>
+  </data>
+  <data name="Uploaded At" xml:space="preserve">
+    <value>अपलोड किया गया</value>
+  </data>
+  <data name="Uploader" xml:space="preserve">
+    <value>अपलोडर</value>
+  </data>
   <data name="Use &lt;code&gt;apkg push&lt;/code&gt; from the CLI to create and upload .apkg files. Uploads must be published before they appear in APT repositories." xml:space="preserve">
     <value>.apkg फ़ाइलों को बनाने और अपलोड करने के लिए CLI से &lt;code&gt;apkg push&lt;/code&gt; का उपयोग करें। APT रिपॉज़िटरी में दिखने से पहले अपलोड प्रकाशित होने चाहिए।</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>संस्करण</value>
+  </data>
+  <data name="Versions" xml:space="preserve">
+    <value>संस्करण</value>
+  </data>
+  <data name="View in repository" xml:space="preserve">
+    <value>रेपॉजिटरी में देखें</value>
   </data>
   <data name="What is an APKG Mixed Package?" xml:space="preserve">
     <value>एपीपीकेजी मिक्स्ड पैकेज क्या है?</value>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Apkg" xml:space="preserve">
+    <value>Apkgsta</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>ja oletusarvoinen salasana on:</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg is an APT repository server and Debian package publishing platform. Host it when you need signed repository snapshots, upstream Ubuntu mirror ingestion, API-key package publishing, and browser-based operations for repositories, certificates, users, roles, and jobs." xml:space="preserve">
+    <value>Apkg on APT-varaston palvelin ja Debian-pakettien julkaisualusta. Isännöi sitä, kun tarvitset allekirjoitettuja varaston otoksia, ylväisen Ubuntu-peilin sisäänlukuun, API-avainpohjaista paketinjulkaisua ja selainten avulla suoritettavia toimenpiteitä varastoille, varmenteille, käyttäjille, rooleille ja tehtäville.</value>
+  </data>
+  <data name="Apkg uses SQLite by default. For production MySQL, edit the ConnectionStrings section in appsettings.json and set DbType to MySql with your server connection string." xml:space="preserve">
+    <value>Apkg käyttää oletuksena SQLiteä. Tuotannon MySQL-asetuksissa muokkaa ConnectionStrings-osioita tiedostossa appsettings.json ja aseta DbType-arvoksi MySql sekä syötä palvelimesi yhdistämissarake.</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>Todennus</value>
+  </data>
+  <data name="Binary path" xml:space="preserve">
+    <value>Binäärin polku</value>
+  </data>
+  <data name="Change the default administrator password immediately." xml:space="preserve">
+    <value>Vaihda oletusjärjestelmänvalvojan salasana välittömästi.</value>
+  </data>
+  <data name="Config path" xml:space="preserve">
+    <value>Konfiguraatiopolku</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>Määritys</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>Säiliön konteksti</value>
+  </data>
+  <data name="Create repositories for every distro, suite, and architecture that package publishers will target." xml:space="preserve">
+    <value>Luo varastoja jokaiselle jakelunversiolle, sarjalle ja arkkitehtuurille, joita pakettien julkaisijat käyttävät.</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Tilinpäätös</value>
+  </data>
+  <data name="Data path" xml:space="preserve">
+    <value>Datapolku</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>Tietokanta</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>Kehitys &amp; manuaalinen suoritus</value>
+  </data>
+  <data name="Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app." xml:space="preserve">
+    <value>Suorita `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` käynnISTÄÄKSESI sovelluksen.</value>
+  </data>
+  <data name="Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies." xml:space="preserve">
+    <value>Suorita `npm install` kansiossa `src/Aiursoft.Apkg/wwwroot` asentaksesi riippuvuudet.</value>
+  </data>
+  <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>Asenna ensin Docker. Suorita sitten seuraavat komennot Linux-pihdistä:</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Health check" xml:space="preserve">
+    <value>Tilantarkistus</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Kuva</value>
+  </data>
+  <data name="Local accounts are enabled by default. Set AppSettings:AuthProvider to OIDC and fill the OIDC section when you want to delegate sign-in to an identity provider." xml:space="preserve">
+    <value>Paikalliset tilet ovat käytettävissä oletuksena. Halutessasi delegoida kirjautumisen henkilöllisyydentarjoajalle, aseta AppSettings:AuthProvider-arvoksi OIDC ja täytä OIDC-osio.</value>
+  </data>
+  <data name="Open the `.sln` file in the project path." xml:space="preserve">
+    <value>Avaa `.sln`-tiedosto projektin polusta.</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>Tai mukautetulla portilla:</value>
+  </data>
+  <data name="Ports" xml:space="preserve">
+    <value>Portit</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>Edellytykset</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>Paina `F5` suorittaaksesi sovelluksen.</value>
+  </data>
+  <data name="Production checklist" xml:space="preserve">
+    <value>Tuotannon tarkistuslista</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>Ominaisuus</value>
+  </data>
+  <data name="Put the site behind your normal TLS and network controls." xml:space="preserve">
+    <value>Sijoita sivusto tavallisten TLS- ja verkkoturvatoimiesi taakse.</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>Suositeltu</value>
+  </data>
+  <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
+    <value>Vaihda alkuperäinen allekirjoitusvarmenne ennen kuin aloitat todellisten arkistojen tarjoamisen.</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>Suorita Dockerissa</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>Suorita Ubuntussa</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>Suorita Visual Studiossa</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>Suorita manuaalisesti</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Itse-isännöinti</value>
+  </data>
+  <data name="Storage" xml:space="preserve">
+    <value>Tallennustila</value>
+  </data>
+  <data name="Storage:Path keeps package objects, local packages, avatars, and GPG keyrings. Storage:ExportPath keeps exported static repository artifacts. Both paths should be durable on a real server." xml:space="preserve">
+    <value>Storage:Path säilyttää paketin kohteet, paikalliset paketit, avatarit ja GPG-avainnippu. Storage:ExportPath säilyttää vietyjen staattisten varastojen artefaktit. Molempien polkujen tulisi olla kestävät oikeassa palvelimessa.</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>Tämä käynnistää web-palvelimen osoitteessa http://localhost:5000, josta voit testata sovellusta.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>Oletuskäyttäjänimi on:</value>
+  </data>
+  <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
+    <value>Docker-kuva tarkistaa osoitteen http://localhost:5000/health. Käytä samaa päätepistettä ulkoiseen saatavuuden seurantaan sovelluksen käynnistymisen jälkeen.</value>
+  </data>
+  <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
+    <value>Docker-kuva asentaa gnupg- ja ubuntu-keyring-paketit varaston allekirjoittamiseen ja ylävirtaisten allekirjoitusten varmennukseen. Säilytä /data-polku, sillä se sisältää appsettings.json-tiedoston, SQLite-tietokannan, pakettiobjektien, avatar-kuvien ja GPG-avainrenkaat.</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>Seuraava skripti asentaa tai päivittää tämän sovelluksen Ubuntu-palvelimellesi. Tukee Ubuntu 25.04 -versiota.</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Arvo</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>Siirry osoitteeseen http://localhost:5000.</value>
+  </data>
+
+</root>

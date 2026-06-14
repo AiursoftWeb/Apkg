@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="About Apkg" xml:space="preserve">
+    <value>Apkg के बारे में</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>और डिफ़ॉल्ट पासवर्ड है:</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg is an APT repository server and Debian package publishing platform. Host it when you need signed repository snapshots, upstream Ubuntu mirror ingestion, API-key package publishing, and browser-based operations for repositories, certificates, users, roles, and jobs." xml:space="preserve">
+    <value>Apkg एक APT रिपॉजिटरी सर्वर और डेबियन पैकेज प्रकाशन प्लेटफ़ॉर्म है। तब इसे होस्ट करें जब आपको हस्ताक्षरित रिपॉजिटरी स्नैपशॉट, अपस्ट्रीम उबंटू मिरर इंगेस्ट, API-कुंजी पैकेज प्रकाशन, और रिपॉजिटरी, प्रमाणपत्र, उपयोगकर्ता, भूमिकाओं और नौकरियों के लिए ब्राउज़र-आधारित संक्रियाओं की आवश्यकता हो।</value>
+  </data>
+  <data name="Apkg uses SQLite by default. For production MySQL, edit the ConnectionStrings section in appsettings.json and set DbType to MySql with your server connection string." xml:space="preserve">
+    <value>Apkg डिफ़ॉल्ट रूप से SQLite का उपयोग करता है। प्रोडक्शन MySQL के लिए, appsettings.json में ConnectionStrings अनुभाग को संपादित करें और DbType को MySql के साथ अपने सर्वर कनेक्शन स्ट्रिंग पर सेट करें।</value>
+  </data>
+  <data name="Authentication" xml:space="preserve">
+    <value>प्रमाणीकरण</value>
+  </data>
+  <data name="Binary path" xml:space="preserve">
+    <value>बाइनरी पथ</value>
+  </data>
+  <data name="Change the default administrator password immediately." xml:space="preserve">
+    <value>डिफ़ॉल्ट एडमिनिस्ट्रेटर पासवर्ड को तुरंत बदलें।</value>
+  </data>
+  <data name="Config path" xml:space="preserve">
+    <value>कॉन्फ़िग़ पथ</value>
+  </data>
+  <data name="Configuration" xml:space="preserve">
+    <value>कॉन्फ़िगरेशन</value>
+  </data>
+  <data name="Container Context" xml:space="preserve">
+    <value>कंटेनर संदर्भ</value>
+  </data>
+  <data name="Create repositories for every distro, suite, and architecture that package publishers will target." xml:space="preserve">
+    <value>पैकेज प्रकाशकों के लिए जो लक्षित करेंगे, प्रत्येक डिस्ट्रो, सूट और आर्किटेक्चर के लिए रेपॉजिटरी बनाएं।</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>डैशबोर्ड</value>
+  </data>
+  <data name="Data path" xml:space="preserve">
+    <value>डेटा पथ</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>डेटाबेस</value>
+  </data>
+  <data name="Development &amp; Manual Run" xml:space="preserve">
+    <value>विकास और मैन्युअल रन</value>
+  </data>
+  <data name="Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app." xml:space="preserve">
+    <value>ऐप चला करने के लिए `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` निष्पादित करें।</value>
+  </data>
+  <data name="Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies." xml:space="preserve">
+    <value>`src/Aiursoft.Apkg/wwwroot` फ़ोल्डर पर `npm install` निष्पादित करें ताकि निर्भरताएँ स्थापित हो सकें।</value>
+  </data>
+  <data name="First, install Docker. Then run the following commands in a Linux shell:" xml:space="preserve">
+    <value>सबसे पहले, Docker इंस्टॉल करें। फिर एक लिनक्स शेल में निम्नलिखित कमांड्स चलाएं।</value>
+  </data>
+  <data name="GitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="Health check" xml:space="preserve">
+    <value>स्वास्थ्य जाँच</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>इमेज</value>
+  </data>
+  <data name="Local accounts are enabled by default. Set AppSettings:AuthProvider to OIDC and fill the OIDC section when you want to delegate sign-in to an identity provider." xml:space="preserve">
+    <value>स्थानीय खाते डिफ़ॉल्ट रूप से सक्षम होते हैं। जब आप साइन-इन को एक आइडेंटिटी प्रोवाइडर पर ट्रांसफर करना चाहते हैं तो AppSettings:AuthProvider को OIDC में सेट करें और OIDC सेक्शन को भरें।</value>
+  </data>
+  <data name="Open the `.sln` file in the project path." xml:space="preserve">
+    <value>प्रोजेक्ट पथ में `.sln` फ़ाइल खोलें।</value>
+  </data>
+  <data name="Or with a custom port:" xml:space="preserve">
+    <value>या एक कस्टम पोर्ट के साथ:</value>
+  </data>
+  <data name="Ports" xml:space="preserve">
+    <value>पोर्ट्स</value>
+  </data>
+  <data name="Prerequisites" xml:space="preserve">
+    <value>पूर्व आवश्यकताएँ</value>
+  </data>
+  <data name="Press `F5` to run the app." xml:space="preserve">
+    <value>एप्लिकेशन चलाने के लिए `F5` दबाएँ।</value>
+  </data>
+  <data name="Production checklist" xml:space="preserve">
+    <value>प्रोडक्शन चेकलिस्ट</value>
+  </data>
+  <data name="Property" xml:space="preserve">
+    <value>गुण</value>
+  </data>
+  <data name="Put the site behind your normal TLS and network controls." xml:space="preserve">
+    <value>सайट को अपने सामान्य TLS और नेटवर्क नियंत्रणों के पीछे रखें।</value>
+  </data>
+  <data name="Recommended" xml:space="preserve">
+    <value>अनुशंसित</value>
+  </data>
+  <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
+    <value>वास्तविक रिपॉजिटरीज सर्व करने से पहले सीडेड साइनिंग सर्टिफिकेट बदलें।</value>
+  </data>
+  <data name="Run in Docker" xml:space="preserve">
+    <value>डॉकर में चलाएं</value>
+  </data>
+  <data name="Run in Ubuntu" xml:space="preserve">
+    <value>उबंटू में चलाएँ</value>
+  </data>
+  <data name="Run in Visual Studio" xml:space="preserve">
+    <value>विजुअल स्टूडियो में चलाएं</value>
+  </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>मैन्युअल रूप से चलाएँ</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>स्व-होस्ट</value>
+  </data>
+  <data name="Storage" xml:space="preserve">
+    <value>स्टोरेज</value>
+  </data>
+  <data name="Storage:Path keeps package objects, local packages, avatars, and GPG keyrings. Storage:ExportPath keeps exported static repository artifacts. Both paths should be durable on a real server." xml:space="preserve">
+    <value>Storage:Path पैकेज ऑब्जेक्ट, स्थानीय पैकेज, अवतार, और GPG कीरिंग्स रखता है। Storage:ExportPath निर्यात किए गए स्थैतिक रिपॉजिटरी आर्टिफैक्ट्स रखता है। वास्तविक सर्वर पर दोनों पथ टिकाऊ होने चाहिए।</value>
+  </data>
+  <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
+    <value>यह http://localhost:5000 पर एक वेब सर्वर शुरू कर देगा और आप ऐप का परीक्षण कर सकते हैं।</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>डिफ़ॉल्ट उपयोगकर्ता नाम है:</value>
+  </data>
+  <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
+    <value>डॉकर इमेज http://localhost:5000/health की जाँच करता है। एप्लिकेशन शुरू होने के बाद बाहरी अपटाइम मॉनिटरिंग के लिए उसी एंडपॉइंट का उपयोग करें।</value>
+  </data>
+  <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
+    <value>डॉकर इमेज गणप्रणाली हस्ताक्षरण और अपस्ट्रीम हस्ताक्षर सत्यापन के लिए gnupg और ubuntu-keyring स्थापित करती है। /data को बनाए रखें क्योंकि यह appsettings.json, SQLite डेटाबेस, पैकेज ऑब्जेक्ट्स, अवतारों और GPG कीरिंग्स को संग्रहीत करता है।</value>
+  </data>
+  <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
+    <value>निम्नलिखित स्क्रिप्ट आपके Ubuntu सर्वर पर इस ऐप को इंस्टॉल/अपडेट करेगी। Ubuntu 25.04 का समर्थन करता है।</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>मान</value>
+  </data>
+  <data name="Visit http://localhost:5000." xml:space="preserve">
+    <value>http://localhost:5000 पर जाएं।</value>
+  </data>
+
+</root>

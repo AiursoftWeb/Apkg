@@ -87,6 +87,9 @@
   <data name="Package Details" xml:space="preserve">
     <value>पैकेज विवरण</value>
   </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>पैकेज(स)</value>
+  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>भौतिक (कैश किए गए)</value>
   </data>
