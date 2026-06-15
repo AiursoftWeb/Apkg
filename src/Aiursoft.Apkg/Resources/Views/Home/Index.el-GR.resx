@@ -18,14 +18,29 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name=".NET Global Tool" xml:space="preserve">
+      <data name=".apkg publishing" xml:space="preserve">
+    <value>Δημοσίευση .apkg</value>
+  </data>
+  <data name=".NET Global Tool" xml:space="preserve">
     <value>Κατασκευή Πακέτων dpkg σε απλοποιημένη μορφή</value>
   </data>
   <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Υποστήριξη &quot;Fire-and-forget&quot; για μακροχρόνιες εργασίες (όπως email ή AI), με GUI για διαχείριση ουράς, παράλληλη επεξεργασία και ακύρωση.</value>
   </data>
+  <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>Η παραδοσιακή συσκευασία Debian διασκορπίζει τον ορισμό των πακέτων σε μισή दर्जन αρχεία — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — το καθένα με τη δική του μυστική γλώσσα. Σχεδίασα το &lt;code&gt;.aosproj&lt;/code&gt; για να αντικαταστήσει όλα αυτά με ένα ενιαίο δηλωτικό manifesto. Το δομημένο XML καθιστά τα διαγράμματα εξαρτήσεων ευκολόλυτα για ανθρώπους και μηχανές CI. Οι διαδικασίες CI απλοποιούνται σε &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. Μετατρέπει τη συσκευασία διανομών Linux από μια μαύρη τέχνη σε τυπική μηχανική λογισμικού.</value>
+  </data>
+  <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
+    <value>&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication.</value>
+  </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; cannot run directly because root&apos;s PATH does not include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works permanently:" xml:space="preserve">
+    <value>Το &lt;code&gt;sudo apkg&lt;/code&gt; δεν μπορεί να εκτελεστεί απευθείας επειδή το PATH του root δεν περιλαμβάνει το &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Δημιουργήστε έναν συμβολικό σύνδεσμο μία φορά και θα λειτουργεί μόνιμα:</value>
+  </data>
   <data name="&lt;code&gt;sudo apkg&lt;/code&gt; won&apos;t work out of the box because root&apos;s PATH doesn&apos;t include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works forever:" xml:space="preserve">
     <value>&lt;code&gt;sudo apkg&lt;/code&gt; δεν θα λειτουργήσει άμεσα, καθώς το PATH του root δεν περιλαμβάνει το &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Δημιουργήστε έναν συντόμευση (symlink) μία φορά και θα λειτουργεί μόνιμα:</value>
+  </data>
+  <data name="&lt;strong class=&quot;text-white&quot;&gt;Dak&lt;/strong&gt; is battle-tested infrastructure that has delivered Debian to millions for over two decades. &lt;strong class=&quot;text-primary&quot;&gt;Apkg&lt;/strong&gt; does not aim to replace it — it trades some of that generality for a modern, CI-native, cloud-deployable APT repository that a small team can operate." xml:space="preserve">
+    <value>Το &lt;strong class=&quot;text-white&quot;&gt;Dak&lt;/strong&gt; είναι υποδομή που έχει δοκιμαστεί στο πεδίο και έχει παρέχει το Debian σε εκατομμύρια χρήστες για πάνω από δύο δεκαετίες. Το &lt;strong class=&quot;text-primary&quot;&gt;Apkg&lt;/strong&gt; δεν στοχεύει να το αντικαταστήσει — θυσιάζει μέρος αυτής της γενικότητας για ένα μοντέρνο, CI-native, αναπτύξιμο στο cloud αποθετήριο APT που μπορεί να διαχειριστεί μια μικρή ομάδα.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
     <value>Ένα ενσωματωμένο σύστημα Ελέγχου Πρόσβασης Βάσει Ρόλων (RBAC) για λεπτομερή διαχείριση δικαιωμάτων.</value>
@@ -35,6 +50,9 @@
   </data>
   <data name="A complete solution for user authentication and profile management." xml:space="preserve">
     <value>Μια πλήρης λύση για την πιστοποίηση χρηστών και τη διαχείριση προφίλ.</value>
+  </data>
+  <data name="A declarative project file that defines files, folders, scripts, dependencies, systemd services, suites, and architectures — all in one place." xml:space="preserve">
+    <value>Αρχείο έργου δηλωτικού τύπου που ορίζει αρχεία, φακέλους, σεναρια, εξαρτήσεις, υπηρεσίες systemd, σουίτες και αρχιτεκτονικές — όλα σε ένα μέρος.</value>
   </data>
   <data name="A fully responsive layout that looks great on both desktop and mobile devices." xml:space="preserve">
     <value>Μια πλήρως ανταποκρινόμενη διάταξη που φαίνεται εξαιρετική τόσο σε επιτραπέζιους υπολογιστές όσο και σε κινητές συσκευές.</value>
@@ -53,6 +71,12 @@
   </data>
   <data name="Admin site included" xml:space="preserve">
     <value>Περιλαμβάνεται το διαχειριστικό site</value>
+  </data>
+  <data name="Administrators can manage repositories, upstream mirrors, signing certificates, API keys, package upload history, background jobs, permissions, users, and global settings from the web UI." xml:space="preserve">
+    <value>Οι διαχειριστές μπορούν να διαχειρίζονται αποθετήρια, καθρέφτες προέλευσης, πιστοποιητικά υπογραφής, κλειδιά API, ιστορικό φόρτωσης πακέτων, εργασίες φόντου, δικαιώματα, χρήστες και παγκόσμιες ρυθμίσεις από το περιβάλλον ιστού.</value>
+  </data>
+  <data name="After sync and signing, machines consume the repository with normal APT source files and &lt;code&gt;apt install&lt;/code&gt; commands." xml:space="preserve">
+    <value>Μετά τη συγχρονισμό και την υπογραφή, οι μηχανές καταναλώνουν το αποθετήριο με αρχεία πηγής APT και εντολές &lt;code&gt;apt install&lt;/code&gt;.</value>
   </data>
   <data name="AI Driven Translation" xml:space="preserve">
     <value>Μετάφραση με Βάση την Τεχνητή Νοημοσύνη</value>
@@ -81,11 +105,38 @@
   <data name="Anduin Xue" xml:space="preserve">
     <value>Anduin Xue</value>
   </data>
+  <data name="AnduinOS ready" xml:space="preserve">
+    <value>Έτοιμο για AnduinOS</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg brings the full APT repository lifecycle into one server — mirror upstream archives, override packages locally, sign and promote atomically, then serve to client machines worldwide." xml:space="preserve">
+    <value>Το Apkg ενσωματώνει τον πλήρη κύκλο ζωής του αποθετηρίου APT σε έναν μόνο διακομιστή — διασφαλίζει την καθρέφτιση αρχείων από τις αναπληρωματικές πηγές, εφαρμόζει τοπικές αλλαγές στα πακέτα, υπογράφει και προάγει ατομικά και στη συνέχεια παρέχει υπηρεσίες σε πελάτες παγκοσμίως.</value>
+  </data>
+  <data name="Apkg dashboard showing package repository management" xml:space="preserve">
+    <value>Πίνακας ελέγχου Apkg που δείχνει τη διαχείριση αποθετηρίου πακέτων</value>
+  </data>
+  <data name="Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots." xml:space="preserve">
+    <value>Το Apkg εντοπίζεται ανάμεσα στα αρχεία εκπομπής, τους προγραμματιστές πακέτων και τις πελατικές μηχανές. Μετατρέπει τα μεταδεδομένα του καθρέπτη και τα μεταφορτενωμένα overrides σε υπογεγραμμένα, σταθερά στιγμιότυπα αποθετηρίου.</value>
+  </data>
+  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
+    <value>Τα πελάτες APT διαβάζουν μόνο τις κύριες δεξαμενές. Οι ατελείς συγχρονισμοί, τα μη υπογεγραμμένα μεταδεδομένα και οι δεξαμενές ενδιάμεσης φάσης παραμένουν αόρατες.</value>
+  </data>
   <data name="APT Package Repository" xml:space="preserve">
     <value>Αποθήκη Πακέτων APT</value>
   </data>
+  <data name="APT repository server" xml:space="preserve">
+    <value>Διακομιστής αποθεματικών APT</value>
+  </data>
+  <data name="Architecture Philosophy" xml:space="preserve">
+    <value>Φιλοσοφία Αρχιτεκτονικής</value>
+  </data>
   <data name="Artificial Intelligence Translation" xml:space="preserve">
     <value>Μετάφραση της Τεχνητής Νοημοσύνης</value>
+  </data>
+  <data name="Atomic snapshot promotion" xml:space="preserve">
+    <value>Ατομική προώθηση στιγμιότυπου</value>
   </data>
   <data name="Authentik &amp; Okta" xml:space="preserve">
     <value>Authentik &amp; Okta</value>
@@ -138,14 +189,29 @@
   <data name="Browse All Packages" xml:space="preserve">
     <value>Περιήγηση σε όλα τα πακέτα</value>
   </data>
+  <data name="Browse packages" xml:space="preserve">
+    <value>Αναζήτηση πακέτων</value>
+  </data>
+  <data name="Build" xml:space="preserve">
+    <value>Δημιουργία</value>
+  </data>
+  <data name="Build &amp; Pipeline" xml:space="preserve">
+    <value>Δημιουργία &amp; Pipeline</value>
+  </data>
   <data name="Build once, run anywhere. Fully containerized architecture." xml:space="preserve">
     <value>Κατασκευάστε μία φορά, εκτελέστε παντού. Πλήρως ενσωματωμένη αρχιτεκτονική με δοχεία.</value>
+  </data>
+  <data name="Build safely." xml:space="preserve">
+    <value>Δημιουργήστε με ασφάλεια.</value>
   </data>
   <data name="Build your next big thing," xml:space="preserve">
     <value>Δημιουργήστε το επόμενό σας μεγάλο πράγμα,</value>
   </data>
   <data name="Built for engineers who care about quality." xml:space="preserve">
     <value>Κατασκευασμένο για μηχανικούς που ενδιαφέρονται για ποιότητα.</value>
+  </data>
+  <data name="Built on AnduinOS" xml:space="preserve">
+    <value>Χτισμένο στο AnduinOS</value>
   </data>
   <data name="Built with Aiursoft Template" xml:space="preserve">
     <value>Φτιαγμένο με το Aiursoft Template</value>
@@ -168,6 +234,21 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>Ενσωματωμένη Διαχείριση Χρηστών</value>
   </data>
+  <data name="Certificate management" xml:space="preserve">
+    <value>Διαχείριση πιστοποιητικών</value>
+  </data>
+  <data name="CI cross-compilation excels on amd64/arm64, but Debian&apos;s native Buildd catches architecture-specific UB that cross-toolchains miss." xml:space="preserve">
+    <value>Η σταυροσύνταξη (cross-compilation) μέσω CI ξεχωρίζει στα amd64/arm64, αλλά το native Buildd του Debian εντοπίζει μη καθορισμένη συμπεριφορά (UB) που εξαρτάται από την αρχιτεκτονική και διαφεύγει των cross-toolchains.</value>
+  </data>
+  <data name="CI cross-compilation with per-arch &lt;code&gt;Condition&lt;/code&gt; attributes. Real-time atomic pipeline — sync, sign, swap via &lt;code&gt;rename(2)&lt;/code&gt;. Clients never see half-written metadata." xml:space="preserve">
+    <value>Ανασχολία (CI) διασταυρούμενη μεταγλώττιση με &lt;code&gt;Condition&lt;/code&gt; ανά αρχιτεκτονική. Ατομική ροή εργασιών σε πραγματικό χρόνο — συγχρονισμός, υπογραφή, αντικατάσταση μέσω &lt;code&gt;rename(2)&lt;/code&gt;. Οι πελάτες δεν βλέπουν ποτέ μερικώς εγγεγραμμένα μεταδεδομένα.</value>
+  </data>
+  <data name="CLI quick start" xml:space="preserve">
+    <value>Γρήγορη εκκίνηση CLI</value>
+  </data>
+  <data name="Cloud-native CDN delivers consistent low-latency worldwide. DDoS absorbed at the edge." xml:space="preserve">
+    <value>Η CDN βασισμένη στο cloud παρέχει σταθερά χαμηλή καθυστέρηση παγκοσμίως. Οι επιθέσεις DDoS απορροφώνται στα άκρα του δικτύου.</value>
+  </data>
   <data name="Comes with Docker support for simplified and consistent deployments." xml:space="preserve">
     <value>Διαθέτει υποστήριξη για Docker για απλούς και συνεκτικούς τρόπους μεταφοράς.</value>
   </data>
@@ -176,6 +257,9 @@
   </data>
   <data name="Comes with strict unit tests, making test-driven development easy." xml:space="preserve">
     <value>Περιλαμβάνει αυστηρούς δοκιμαστικούς ελέγχους μονάδας, κάνοντας την ανάπτυξη βασισμένη σε δοκιμές εύκολη.</value>
+  </data>
+  <data name="Command line flow" xml:space="preserve">
+    <value>Ροή εντολών</value>
   </data>
   <data name="Comprehensive Documentation" xml:space="preserve">
     <value>Πληρέστερη Τεκμηρίωση</value>
@@ -198,11 +282,17 @@
   <data name="Coordinate Comfortably" xml:space="preserve">
     <value>Συντονίστε Άνετα</value>
   </data>
+  <data name="Copy mirror data, apply package overrides, and build release metadata." xml:space="preserve">
+    <value>Αντιγραφή δεδομένων καθρέπτη, εφαρμογή καταργήσεων πακέτων και δημιουργία μεταδεδομένων έκδοσης.</value>
+  </data>
   <data name="Core Routing &amp; DI" xml:space="preserve">
     <value>Κεντρική Διαδρομολόγηση &amp; DI</value>
   </data>
   <data name="Coverage Report" xml:space="preserve">
     <value>Αναφορά κάλυψης</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Δημιουργήστε</value>
   </data>
   <data name="Cross Platform" xml:space="preserve">
     <value>Διαπλατφορμικό</value>
@@ -225,6 +315,12 @@
   <data name="Day 1 Ready" xml:space="preserve">
     <value>Έτος 1 έτοιμο</value>
   </data>
+  <data name="Debian&apos;s &lt;code&gt;Dak&lt;/code&gt; has served the community for decades. Apkg takes a different path — shaped by modern CI/CD, cloud infrastructure, and declarative tooling. Both have strengths. Both have trade-offs." xml:space="preserve">
+    <value>Το &lt;code&gt;Dak&lt;/code&gt; του Debian εξυπηρετεί την κοινότητα για δεκαετίες. Το Apkg ακολουθεί διαφορετικό δρόμο — διαμορφωμένο από τη σύγχρονη CI/CD, τη βασική δομή του cloud και τα δηλωτικά εργαλεία. Και τα δύο έχουν πλεονεκτήματα. Και τα δύο έχουν συμβιβασμούς.</value>
+  </data>
+  <data name="Declarative &lt;code&gt;.aosproj&lt;/code&gt; files with MSBuild syntax. Files, deps, and scripts in one manifest — if you know &lt;code&gt;.csproj&lt;/code&gt;, you know packaging." xml:space="preserve">
+    <value>Δηλωτικά αρχεία `&lt;code&gt;.aosproj&lt;/code&gt;` με σύνταξη MSBuild. Αρχεία, εξαρτήσεις και σενάρια σε ένα manifest — αν γνωρίζετε `&lt;code&gt;.csproj&lt;/code&gt;`, γνωρίζετε τη συσκευασία.</value>
+  </data>
   <data name="Deep integration testing with Authentik. Compatible with Okta." xml:space="preserve">
     <value>Ακριβής δοκιμή ενσωμάτωσης με Authentik. Συμβατό με Okta.</value>
   </data>
@@ -233,6 +329,9 @@
   </data>
   <data name="Default SQLite database, no configuration needed." xml:space="preserve">
     <value>Προεπιλεγμένη βάση δεδομένων SQLite, χωρίς ανάγκη ρύθμισης.</value>
+  </data>
+  <data name="Describe packages once in a declarative &lt;code&gt;.aosproj&lt;/code&gt; file. No fragile post-install scripts, no per-distro boilerplate — just files, folders, dependencies, and services." xml:space="preserve">
+    <value>Περιγράψτε τα πακέτα μία φορά σε ένα δηλωτικό αρχείο &lt;code&gt;.aosproj&lt;/code&gt;. Χωρίς εύθραυστα scripts μετα-εγκατάστασης, χωρίς boilerplate ανά διανομή — μόνο αρχεία, φακέλους, εξαρτήσεις και υπηρεσίες.</value>
   </data>
   <data name="Designed for everyone, from beginners to experts." xml:space="preserve">
     <value>Φτιαγμένο για όλους, από αρχάριους μέχρι ειδικούς.</value>
@@ -249,11 +348,20 @@
   <data name="Developer Experience" xml:space="preserve">
     <value>Εμπειρία Ανάπτυξης</value>
   </data>
+  <data name="Developers describe package contents once, build Debian artifacts locally or in CI, push a &lt;code&gt;.apkg&lt;/code&gt; bundle, and let the server route packages into the right repositories." xml:space="preserve">
+    <value>Οι προγραμματιστές περιγράφουν το περιεχόμενο των πακέτων μία φορά, δημιουργούν τα αρтефакτα Debian τοπικά ή μέσω CI, μεταφορτώνουν ένα δεσμευμένο αρχείο &lt;code&gt;.apkg&lt;/code&gt; και επιτρέπουν στον εξυπηρετητή να κατευθύνει τα πακέτα στα κατάλληλα αποθετήρια.</value>
+  </data>
   <data name="DevOps Native" xml:space="preserve">
     <value>DevOps Φυσικός</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>Σελίδα Συζητήσεων</value>
+  </data>
+  <data name="Distribution" xml:space="preserve">
+    <value>Κατανομή</value>
+  </data>
+  <data name="Distribution Infrastructure" xml:space="preserve">
+    <value>Υποδομή Διανομής</value>
   </data>
   <data name="Docker Native" xml:space="preserve">
     <value>Docker Native</value>
@@ -285,6 +393,9 @@
   <data name="Enforced quality gate" xml:space="preserve">
     <value>Υποχρεωτικό φράγμα ποιότητας</value>
   </data>
+  <data name="Enter Dashboard" xml:space="preserve">
+    <value>Είσοδος στον πίνακα ελέγχου</value>
+  </data>
   <data name="Enterprise C#" xml:space="preserve">
     <value>Enterprise C#</value>
   </data>
@@ -299,6 +410,12 @@
   </data>
   <data name="Entity Framework Core included" xml:space="preserve">
     <value>Περιλαμβάνεται το Entity Framework Core</value>
+  </data>
+  <data name="Everything needed to publish an APT repository." xml:space="preserve">
+    <value>Ό,τι χρειάζεται για τη δημοσίευση ενός αποθετηρίου APT.</value>
+  </data>
+  <data name="Export static artifacts for nginx, caddy, or rsync to edge nodes. APT clients anywhere get &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — no proprietary agents, no custom tooling." xml:space="preserve">
+    <value>Εξαγωγή στατικών στοιχείων για nginx, caddy ή rsync σε κόμβους περιφέρειας. Οι πελάτες APT παντού λαμβάνουν &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — χωρίς προπαραγγελιέντες πράκτορες, χωρίς ειδικά εργαλεία.</value>
   </data>
   <data name="FAQ" xml:space="preserve">
     <value>Συχνές Ερωτήσεις</value>
@@ -330,6 +447,9 @@
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Ιδρυτής &amp; Αρχιτέκτονας στο Aiursoft</value>
   </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>Ιδρυτής &amp; Αρχιτέκτονας στην Aiursoft</value>
+  </data>
   <data name="Framework vs. Solution" xml:space="preserve">
     <value>Πλαίσιο vs. Λύση</value>
   </data>
@@ -344,6 +464,9 @@
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>Συχνές ερωτήσεις</value>
+  </data>
+  <data name="From &lt;code&gt;.aosproj&lt;/code&gt; to &lt;code&gt;apt install&lt;/code&gt;." xml:space="preserve">
+    <value>Από το &lt;code&gt;.aosproj&lt;/code&gt; στο &lt;code&gt;apt install&lt;/code&gt;.</value>
   </data>
   <data name="From the Architect" xml:space="preserve">
     <value>Από τον Αρχιτέκτονα</value>
@@ -360,6 +483,12 @@
   <data name="Fully Offline" xml:space="preserve">
     <value>Πλήρως Αποσυνδεδεμένο</value>
   </data>
+  <data name="Generate &lt;code&gt;.deb&lt;/code&gt; packages with Debian control metadata and maintainer scripts produced from the project file." xml:space="preserve">
+    <value>Δημιουργήστε πακέτα &lt;code&gt;.deb&lt;/code&gt; με μεταδεδομένα ελέγχου Debian και σενάρια συντήρησης που παράγονται από το αρχείο του έργου.</value>
+  </data>
+  <data name="Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes." xml:space="preserve">
+    <value>Δημιουργήστε και διαχειριστείτε πιστοποιητικά υπογραφής GPG και εκθέστε δημόσια κλειδιά μέσω διεθνών διαδρομών αρτεφάκτων που ταιριάζουν σε αποθετήρια.</value>
+  </data>
   <data name="Generic configuration" xml:space="preserve">
     <value>Γενική διαμόρφωση</value>
   </data>
@@ -372,6 +501,9 @@
   <data name="GitLab CI/CD Native" xml:space="preserve">
     <value>GitLab CI/CD Native</value>
   </data>
+  <data name="Global Debian delivery" xml:space="preserve">
+    <value>Παγκόσμια παράδοση Debian</value>
+  </data>
   <data name="Global Scale" xml:space="preserve">
     <value>Διεθνές Κλίμακα</value>
   </data>
@@ -380,6 +512,9 @@
   </data>
   <data name="Go to dashboard" xml:space="preserve">
     <value>Μετάβαση στον πίνακα ελέγχου</value>
+  </data>
+  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
+    <value>GPG Web of Trust με εκ των υστέρων συναθροίσεις υπογραφής κλειδιών. Η εμπιστοσύνη είναι πλήρως αποκεντρωμένη — καμία ενιαία αρχή δεν ελέγχει το αρχείο κλειδιών.</value>
   </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Διαχείριση επαναλαμβανόμενων εργασιών όπως καθαρισμός και συγχρονισμός με ολοκληρωμένη διεπαφή χρήστη για την παρακολούθηση της ιστορίας εκτέλεσης και των καταγραφών.</value>
@@ -405,6 +540,9 @@
   <data name="Horizon included" xml:space="preserve">
     <value>Περιλαμβάνεται το Horizon</value>
   </data>
+  <data name="Host signed Debian package repositories, mirror upstream Ubuntu archives, and publish distribution-specific package overrides without asking client machines to run fragile post-install scripts." xml:space="preserve">
+    <value>Εξυπηρετήστε υπογεγραμμένους αποθηκών πακέτων Debian, καθρεφτίστε τις αρχικές αρχειοθετήσεις του Ubuntu και δημοσιεύστε εναλλακτικές πακέτων συγκεκριμένες για την κατανομή, χωρίς να ζητάτε από τις μηχανές πελατών να εκτελούν ασταθή σενάρια μετα-εγκατάστασης.</value>
+  </data>
   <data name="Host, manage, and distribute .deb packages with a modern NuGet-like experience. Powered by APKG." xml:space="preserve">
     <value>Φιλοξενήστε, διαχειριστείτε και κατανείμετε πακέτα .deb με μια σύγχρονη εμπειρία παρόμοια με το NuGet. Υποστηρίζεται από το APKG.</value>
   </data>
@@ -420,6 +558,12 @@
   <data name="IDE Support" xml:space="preserve">
     <value>Υποστήριξη IDE</value>
   </data>
+  <data name="If you have written a &lt;code&gt;.csproj&lt;/code&gt; you already know &lt;code&gt;.aosproj&lt;/code&gt;. XML-based, toolable, and integrated with the Apkg CLI for linting, building, and publishing." xml:space="preserve">
+    <value>Αν έχετε γράψει ποτέ ένα &lt;code&gt;.csproj&lt;/code&gt;, ήδη γνωρίζετε το &lt;code&gt;.aosproj&lt;/code&gt;. Βασίζεται σε XML, υποστηρίζεται από εργαλεία και ενσωματώνεται με την Apkg CLI για έλεγχο κώδικα (linting), κατασκευή (building) και δημοσίευση (publishing).</value>
+  </data>
+  <data name="Imperative &lt;code&gt;debian/rules&lt;/code&gt; and dh macros. Mastering Debian packaging takes months of learning arcane shell scripts." xml:space="preserve">
+    <value>Διατακτικά &lt;code&gt;debian/rules&lt;/code&gt; και μακροεντολές dh. Η εξοικείωση με τη συσκευασία Debian απαιτεί μήνες μελέτης περίπλοκων σεναίων shell.</value>
+  </data>
   <data name="Included" xml:space="preserve">
     <value>Συμπεριλαμβανόμενο</value>
   </data>
@@ -428,6 +572,9 @@
   </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Περιλαμβάνει Οδηγούς</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Εγκατάσταση</value>
   </data>
   <data name="Install .NET SDK" xml:space="preserve">
     <value>Εγκατάσταση .NET SDK</value>
@@ -468,6 +615,9 @@
   <data name="Lint Check" xml:space="preserve">
     <value>Ελέγχους Lint</value>
   </data>
+  <data name="Local package overrides" xml:space="preserve">
+    <value>Επικαλύψεις τοπικών πακέτων</value>
+  </data>
   <data name="Made Simple." xml:space="preserve">
     <value>Απλοποιημένο.</value>
   </data>
@@ -480,6 +630,12 @@
   <data name="Markdown To HTML" xml:space="preserve">
     <value>Markdown σε HTML</value>
   </data>
+  <data name="Materialize static artifacts for nginx, caddy, rsync, or edge distribution." xml:space="preserve">
+    <value>Δημιουργία στατικών αρχείων για nginx, caddy, rsync ή περιφερειακή διανομή.</value>
+  </data>
+  <data name="Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared." xml:space="preserve">
+    <value>Η συγχρονισμένη ανάκλαση, η σύνθεση αποθετηρίου, η υπογραφή, η εξαγωγή και ο καθαρισμός ακέραιων στοιχείων χωρίζονται σε ανεξάρτητα εργασίες. Οι δημοσιευμένοι πελάτες συνεχίζουν να διαβάζουν το τελευταίο υπογεγραμμένο κύριο δοχείο ενώ προετοιμάζονται τα νέα μεταδεδομένα.</value>
+  </data>
   <data name="MIT Licence" xml:space="preserve">
     <value>Άδεια MIT</value>
   </data>
@@ -488,6 +644,9 @@
   </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>Τα μοντέλα ελέγχονται στην πλευρά του πελάτη και του διακομιστή βάσει των σημειώσεων δεδομένων.</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>Σύνταξη ύφους MSBuild</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>Χειρισμός Πολλαπλών Ζωνών Ώρας</value>
@@ -555,6 +714,9 @@
   <data name="OIDC &amp; SSO" xml:space="preserve">
     <value>OIDC &amp; SSO</value>
   </data>
+  <data name="OIDC-backed RBAC with scoped API keys. Teams authenticate via existing SSO, grant per-repo permissions, and revoke access instantly." xml:space="preserve">
+    <value>RBAC με υποστήριξη OIDC και απομονωμένα API keys. Οι ομάδες ελέγχουν την ταυτότητά τους μέσω υπάρχοντος SSO, παραχωρούν δικαιώματα ανά αποθετήριο και ανακαλούν την πρόσβαση αμέσως.</value>
+  </data>
   <data name="One Click Start" xml:space="preserve">
     <value>Μία κλικ για έναρξη</value>
   </data>
@@ -567,6 +729,9 @@
   <data name="OpenID Connect Integration" xml:space="preserve">
     <value>Ενσωμάτωση OpenID Connect</value>
   </data>
+  <data name="Operate it from the browser." xml:space="preserve">
+    <value>Διαχειριστείτε το από τον περιηγητή.</value>
+  </data>
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>Βελτιστοποιημένη διαμόρφωση Docker &amp; K8s</value>
   </data>
@@ -576,11 +741,20 @@
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Έτοιμο προς χρήση</value>
   </data>
+  <data name="Pack &lt;code&gt;.deb&lt;/code&gt; files into a &lt;code&gt;.apkg&lt;/code&gt; archive and upload it with an API key from a developer shell or CI pipeline." xml:space="preserve">
+    <value>Συμπιέστε τα αρχεία &lt;code&gt;.deb&lt;/code&gt; σε ένα αρχείο &lt;code&gt;.apkg&lt;/code&gt; και ανεβάστε το χρησιμοποιώντας ένα κλειδί API από το shell του προγραμματιστή ή τη ροή εργασιών CI.</value>
+  </data>
   <data name="Pack multiple .deb files into one .apkg bundle with a manifest. Push to any APKG server." xml:space="preserve">
     <value>Συσκευάστε πολλαπλά αρχεία .deb σε ένα δεσμευμένο αρχείο .apkg με ένα αρχείο καταλόγου. Αναπτύξτε το σε οποιοδήποτε server APKG.</value>
   </data>
+  <data name="Packaging" xml:space="preserve">
+    <value>Συσκευασία</value>
+  </data>
   <data name="Permission discovery and sync" xml:space="preserve">
     <value>Ανίχνευση και συγχρονισμός δικαιωμάτων</value>
+  </data>
+  <data name="Portable publishing bundles with a manifest plus one or more &lt;code&gt;.deb&lt;/code&gt; files for multiple suites and architectures." xml:space="preserve">
+    <value>Φορητά αρχεία δημοσίευσης με ένα εκφραστή και ένα ή περισσότερα αρχεία &lt;code&gt;.deb&lt;/code&gt; για πολλές εκδόσεις και αρχιτεκτονικές.</value>
   </data>
   <data name="Powered by AnduinOS" xml:space="preserve">
     <value>Διαθέτει AnduinOS</value>
@@ -594,17 +768,44 @@
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>Προκαθορισμένες αλυσίδες για dev/prod</value>
   </data>
+  <data name="Production-hardened on the same infrastructure that powers AnduinOS package delivery. Battle-tested mirror ingestion, signing pipelines, and atomic snapshot promotion." xml:space="preserve">
+    <value>Αποδεδειγμένα ανθεκτικό για παραγωγικό περιβάλλον, στηριζόμενο στην ίδια υποδομή που διαχειρίζεται την παράδοση πακέτων του AnduinOS. Δοκιμασμένη εισαγωγή καθρεπτών, γραμμές υπογραφής και ατομική προαγωγή στιγμιοληπτών.</value>
+  </data>
+  <data name="Publish atomically." xml:space="preserve">
+    <value>Δημοσίευση ατομικά.</value>
+  </data>
+  <data name="Publish from any machine with the .NET tool." xml:space="preserve">
+    <value>Δημοσιεύστε από οποιονδήποτε υπολογιστή με το εργαλείο .NET.</value>
+  </data>
+  <data name="Publishing workflow" xml:space="preserve">
+    <value>Ροή εργασίας δημοσίευσης</value>
+  </data>
+  <data name="Pull upstream metadata into mirror buckets." xml:space="preserve">
+    <value>Εισαγωγή μεταδεδομένων ανάντη σε δοχεία καθρέφτη.</value>
+  </data>
+  <data name="Push" xml:space="preserve">
+    <value>Ανέβασμα</value>
+  </data>
   <data name="Quality Gate" xml:space="preserve">
     <value>Ποιότητα Πύλης</value>
   </data>
   <data name="Quick Start" xml:space="preserve">
     <value>Γρήγορη Ξεκινώντας</value>
   </data>
+  <data name="RBAC and API keys" xml:space="preserve">
+    <value>RBAC και κλειδιά API</value>
+  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Εξουσιοδότηση RBAC</value>
   </data>
+  <data name="RBAC is ideal for organizations, but Debian&apos;s decentralized WoT remains the gold standard for a trustless global maintainer network." xml:space="preserve">
+    <value>Το RBAC είναι ιδανικό για οργανισμούς, αλλά το αποκεντρωμένο WoT του Debian παραμένει το χρυσό πρότυπο για ένα παγκόσμιο δίκτυο συντηρητών χωρίς εμπιστοσύνη.</value>
+  </data>
   <data name="Read the document" xml:space="preserve">
     <value>Διαβάστε το έγγραφο</value>
+  </data>
+  <data name="Repository Platform" xml:space="preserve">
+    <value>Πλατφόρμα Αποθετηρίου</value>
   </data>
   <data name="Requires Laravel Socialite config" xml:space="preserve">
     <value>Απαιτεί ρύθμιση Laravel Socialite</value>
@@ -621,6 +822,9 @@
   <data name="Robust Integration Testing" xml:space="preserve">
     <value>Ενισχυμένος Έλεγχος Ολοκλήρωσης</value>
   </data>
+  <data name="Room to grow:" xml:space="preserve">
+    <value>Χώρος για ανάπτυξη:</value>
+  </data>
   <data name="Runs on Windows, Linux, and macOS via .NET." xml:space="preserve">
     <value>Διατίθεται για Windows, Linux και macOS μέσω .NET.</value>
   </data>
@@ -636,17 +840,41 @@
   <data name="Search" xml:space="preserve">
     <value>Αναζήτηση</value>
   </data>
+  <data name="Search packages" xml:space="preserve">
+    <value>Αναζήτηση πακέτων</value>
+  </data>
   <data name="Search packages..." xml:space="preserve">
     <value>Αναζήτηση πακέτων...</value>
   </data>
+  <data name="Security &amp; Trust" xml:space="preserve">
+    <value>Ασφάλεια και Εμπιστοσύνη</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Αυτοσχεδιασμένη Επικράτηση</value>
+  </data>
+  <data name="Serve &lt;code&gt;InRelease&lt;/code&gt;, &lt;code&gt;Release&lt;/code&gt;, &lt;code&gt;Packages.gz&lt;/code&gt;, &lt;code&gt;Contents&lt;/code&gt;, certificates, and pool files from Debian-style URLs." xml:space="preserve">
+    <value>Διαχείριση των αρχείων &lt;code&gt;InRelease&lt;/code&gt;, &lt;code&gt;Release&lt;/code&gt;, &lt;code&gt;Packages.gz&lt;/code&gt;, &lt;code&gt;Contents&lt;/code&gt;, πιστοποιητικών και pool από διευθύνσεις URL στυλ Debian.</value>
+  </data>
   <data name="Shift with confidence" xml:space="preserve">
     <value>Μετακινηθείτε με αυτοπεποίθηση</value>
+  </data>
+  <data name="Ship Debian packages at scale." xml:space="preserve">
+    <value>Διανείμετε πακέτα Debian σε μεγάλη κλίμακα.</value>
+  </data>
+  <data name="Sign pending buckets and promote them to primary." xml:space="preserve">
+    <value>Υπογράψτε τα εκκρεμή buckets και προβιβάστε τα σε πρωτεύοντα.</value>
+  </data>
+  <data name="Signed APT hosting" xml:space="preserve">
+    <value>Φιλοξενία υπογεγραμμένων APT αποθεμάτων</value>
   </data>
   <data name="Simple &amp; Easy" xml:space="preserve">
     <value>Απλό και εύκολο</value>
   </data>
   <data name="Simplified dpkg Packaging" xml:space="preserve">
     <value>Απλοποιημένη Συσκευασία dpkg</value>
+  </data>
+  <data name="Simplify your distribution" xml:space="preserve">
+    <value>Απλοποιήστε τη διανομή σας</value>
   </data>
   <data name="Single Container" xml:space="preserve">
     <value>Μοναδικός Εγκαταστάτης</value>
@@ -660,6 +888,12 @@
   <data name="Smart dark mode that automatically adapts to the user&apos;s system settings." xml:space="preserve">
     <value>Έξυπνη λειτουργία σκούρου θέματος που προσαρμόζεται αυτόματα στις ρυθμίσεις συστήματος του χρήστη.</value>
   </data>
+  <data name="Snapshot Pipeline" xml:space="preserve">
+    <value>Αλυσοδομία Λήψης Στιγμιότυπου</value>
+  </data>
+  <data name="Standard Debian repository endpoints for &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG keys, package indexes, and pool downloads." xml:space="preserve">
+    <value>Τυπικές συνδέσεις αποθετηρίου Debian για τις εντολές &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, κλειδιά GPG, καταλόγους πακέτων και λήψεις από το pool.</value>
+  </data>
   <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
     <value>Πρότυπη υλοποίηση. Αλλάξτε προμηθευτές χωρίς μεταγλώττιση.</value>
   </data>
@@ -669,6 +903,12 @@
   <data name="Start a new project" xml:space="preserve">
     <value>Ξεκινήστε ένα νέο έργο</value>
   </data>
+  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
+    <value>Ξεκινήστε ένα πρόγραμμα πακέτου με &lt;code&gt;.aosproj&lt;/code&gt;, στη συνέχεια δηλώστε αρχεία, φακέλους, σενάρια, εξαρτήσεις, υπηρεσίες, σουίτες και αρχιτεκτονικές.</value>
+  </data>
+  <data name="Start Publishing" xml:space="preserve">
+    <value>Έναρξη Δημοσίευσης</value>
+  </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>Ξεκινήστε την παραγωγή αξίας.</value>
   </data>
@@ -677,6 +917,9 @@
   </data>
   <data name="Starts without any configuration" xml:space="preserve">
     <value>Ξεκινά χωρίς καμία ρύθμιση</value>
+  </data>
+  <data name="Static export with atomic swap + CDN edge caching + Geo-steering. Shared-nothing edge nodes with built-in WAF before origin." xml:space="preserve">
+    <value>Ακινητική εξαγωγή με ατομική εναλλαγή + ενδιάμεση αποθήκευση CDN + Geo-steering. Ακραίοι κόμβοι χωρίς κοινούς πόρους με ενσωματωμένο WAF πριν την προέλευση.</value>
   </data>
   <data name="Stop Coding Boilerplate." xml:space="preserve">
     <value>Σταματήστε την κωδικοποίηση επαναλαμβανόμενου κώδικα.</value>
@@ -708,6 +951,9 @@
   <data name="Technical Lead" xml:space="preserve">
     <value>Τεχνικός Υπεύθυνος</value>
   </data>
+  <data name="The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration." xml:space="preserve">
+    <value>Το Apkg CLI διαχειρίζεται τη δημιουργία έργου, τον έλεγχο σύνταξης (linting), τη δημιουργία πακέτων, τη δημοσίευση συλλογών, τις αποστολές σε διακομιστή, την τοπική αποσυμπίεση και τη διαμόρφωση πηγών APT.</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>Η αποφασιστική, δοκιμασμένη στην πράξη βάση επιχειρηματικών εφαρμογών .NET. Από την Αυθεντικοποίηση μέχρι την Τεχνητή Νοημοσύνη, έχουμε λύσει τα δύσκολα μέρη, ώστε να μην χρειαστεί να τα κάνετε εσείς.</value>
   </data>
@@ -729,11 +975,23 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Αυτό είναι ένα πρότυπο έργο, από όπου ξεκινάμε το ταξίδι...</value>
   </data>
+  <data name="Tiered rsync cascade (T1 → T2) run by volunteers. Decentralized and resilient, but latency varies and DDoS defense depends on each operator." xml:space="preserve">
+    <value>Κλιμακωτή αλυσίδα rsync (T1 → T2) που διαχειρίζονται εθελοντές. Αποκεντρωμένη και ανθεκτική, αλλά η καθυστέρηση διαφέρει και η προστασία από DDoS εξαρτάται από κάθε λειτουργό.</value>
+  </data>
   <data name="Timezone-aware fields" xml:space="preserve">
     <value>Πεδία με συνειδητότητα ζώνης ώρας</value>
   </data>
+  <data name="Track upstream suites and components as metadata snapshots, then compose downstream repositories from those mirror buckets." xml:space="preserve">
+    <value>Καταγραφή των upstream συλλογών και συνιστωσών ως στιγμιότυπα μεταδεδομένων και στη συνέχεια σύνθεση των downstream αποθετηρίων από αυτά τα buckets καθρέφτη.</value>
+  </data>
   <data name="Trusted by production-grade applications including AnduinOS, StatHub, and Warp. We don&apos;t just share this code; we run our entire business on it." xml:space="preserve">
     <value>Εμπιστεύεται εφαρμογές προσαρμοσμένες για παραγωγή, συμπεριλαμβανομένων AnduinOS, StatHub και Warp. Δεν μοιραζόμαστε απλώς αυτόν τον κώδικα· τρέχουμε την επιχείρησή μας εντελώς με αυτόν.</value>
+  </data>
+  <data name="Turns packaging from a black art into standard software engineering." xml:space="preserve">
+    <value>Μετατρέπει τη δημιουργία πακέτων από μια μαύρη τέχνη σε τυπική μηχανική λογισμικού.</value>
+  </data>
+  <data name="Two Ways to Run a Repository" xml:space="preserve">
+    <value>Δύο τρόποι διαχείρισης ενός αποθετηρίου</value>
   </data>
   <data name="Ubuntu:" xml:space="preserve">
     <value>Ubuntu:</value>
@@ -744,14 +1002,29 @@
   <data name="Unified Identity" xml:space="preserve">
     <value>Ομοιομορφισμός Ταυτότητας</value>
   </data>
+  <data name="Upload &lt;code&gt;.deb&lt;/code&gt; packages that replace upstream entries by package name and architecture in the final published bucket." xml:space="preserve">
+    <value>Ανέβασμα πακέτων &lt;code&gt;.deb&lt;/code&gt; που αντικαθιστούν τις εγγραφές ροής (upstream) με βάση το όνομα πακέτου και την αρχιτεκτονική στο τελικό δημοσιευμένο bucket.</value>
+  </data>
+  <data name="Upstream mirror ingestion" xml:space="preserve">
+    <value>Ανάρρωση ανοιχτών καθρεφτών</value>
+  </data>
   <data name="Usage" xml:space="preserve">
     <value>Χρήση</value>
   </data>
   <data name="Use it as a foundation for your SaaS, a backend for your mobile app, a corporate website, or a personal blog. The possibilities are endless." xml:space="preserve">
     <value>Χρησιμοποιήστε το ως θεμέλιο για το SaaS σας, ως backend για την εφαρμογή του κινητού σας, ως εταιρική ιστοσελίδα ή ως προσωπικό ιστολόγιο. Οι δυνατότητες είναι ατελείωτες.</value>
   </data>
+  <data name="Use local accounts or OIDC, grant repository permissions, and publish from CI with scoped API keys." xml:space="preserve">
+    <value>Χρησιμοποιήστε τοπικούς λογαριασμούς ή OIDC, παραχωρήστε δικαιώματα αποθετηρίου και δημοσιεύστε από το CI με API keys εμβεληمند.</value>
+  </data>
+  <data name="View jobs" xml:space="preserve">
+    <value>Εμφάνιση εργασιών</value>
+  </data>
   <data name="View on GitHub" xml:space="preserve">
     <value>Προβολή στο GitHub</value>
+  </data>
+  <data name="Web Operations" xml:space="preserve">
+    <value>Λειτουργίες Ιστού</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Καλώς ήρθατε</value>
@@ -761,6 +1034,9 @@
   </data>
   <data name="What our developers say" xml:space="preserve">
     <value>Τι λένε οι προγραμματιστές μας</value>
+  </data>
+  <data name="Where Apkg shines:" xml:space="preserve">
+    <value>Πού ξεχωρίζει το Apkg:</value>
   </data>
   <data name="Why APKG?" xml:space="preserve">
     <value>Γιατί το APKG;</value>
