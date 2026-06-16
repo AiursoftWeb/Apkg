@@ -7,8 +7,8 @@ stages:
 
 before_script:
     - "export PATH=$PATH:$HOME/.dotnet/tools"
-    - "which jb || dotnet tool install JetBrains.ReSharper.GlobalTools --global --add-source https://nuget.aiursoft.com/v3/index.json --configfile ./nuget.config -v d"
-    - "which reportgenerator || dotnet tool install dotnet-reportgenerator-globaltool --global --add-source https://nuget.aiursoft.com/v3/index.json --configfile ./nuget.config -v d"
+    - "which jb || dotnet tool install JetBrains.ReSharper.GlobalTools --global --configfile ./nuget.config -v d"
+    - "which reportgenerator || dotnet tool install dotnet-reportgenerator-globaltool --global --configfile ./nuget.config -v d"
     - 'echo "Hostname: $(hostname)"'
     - "dotnet --info"
 

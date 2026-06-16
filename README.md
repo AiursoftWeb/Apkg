@@ -35,7 +35,7 @@ Apkg provides:
 Install the CLI:
 
 ```bash
-dotnet tool install --global Aiursoft.Apkg.Client --add-source https://nuget.aiursoft.com/v3/index.json
+dotnet tool install --global Aiursoft.Apkg.Client
 ```
 
 Create, build, and push a package:
