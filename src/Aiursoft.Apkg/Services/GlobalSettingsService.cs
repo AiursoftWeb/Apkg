@@ -3,6 +3,7 @@ using Aiursoft.Apkg.Configuration;
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Models;
 using Aiursoft.Apkg.Services.FileStorage;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -136,6 +137,29 @@ public class GlobalSettingsService(
 
         await dbContext.SaveChangesAsync();
         cache.Remove(GetCacheKey(key));
+    }
+
+    /// <summary>
+    /// Returns the base URL (scheme + host) that APT clients should use
+    /// to reach the exported static artifact files.
+    ///
+    /// If <see cref="SettingsMap.PublicAptServerDomain"/> is configured,
+    /// it is used (bare domains get the current request scheme prepended).
+    /// Otherwise falls back to the current request's host and scheme.
+    /// </summary>
+    public async Task<string> GetPublicAptBaseUrlAsync(HttpContext httpContext)
+    {
+        var domain = await GetSettingValueAsync(SettingsMap.PublicAptServerDomain);
+        if (!string.IsNullOrWhiteSpace(domain))
+        {
+            domain = domain.Trim().TrimEnd('/');
+            // If the user typed a full URL with scheme, use it as-is;
+            // otherwise prepend the current request scheme.
+            if (domain.Contains("://"))
+                return domain;
+            return $"{httpContext.Request.Scheme}://{domain}";
+        }
+        return $"{httpContext.Request.Scheme}://{httpContext.Request.Host}";
     }
 
     public async Task SeedSettingsAsync()

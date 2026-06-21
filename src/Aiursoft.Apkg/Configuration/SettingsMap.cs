@@ -14,6 +14,7 @@ public class SettingsMap
     public const string Icp = "Icp";
     public const string DummyNumber = "DummyNumber";
     public const string DummyChoice = "DummyChoice";
+    public const string PublicAptServerDomain = "PublicAptServerDomain";
 
     public class FakeLocalizer
     {
@@ -111,6 +112,14 @@ public class SettingsMap
                 { "A", "Option A" },
                 { "B", "Option B" }
             }
+        },
+        new GlobalSettingDefinition
+        {
+            Key = PublicAptServerDomain,
+            Name = Localizer["Public APT Server Domain"],
+            Description = Localizer["The public domain where exported APT static files are served (e.g. apt.example.com). Leave empty to use the current request host. Only needed when rsync export serves from a different machine than the web app."],
+            Type = SettingType.Text,
+            DefaultValue = ""
         }
     };
 }

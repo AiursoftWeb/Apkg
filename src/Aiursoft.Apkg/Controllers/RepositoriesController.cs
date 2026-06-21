@@ -190,7 +190,7 @@ public class RepositoriesController(
         {
             Package = package,
             Repo = repo,
-            BaseUrl = $"{Request.Scheme}://{Request.Host}",
+            BaseUrl = await globalSettingsService.GetPublicAptBaseUrlAsync(HttpContext),
             DepLookup = depLookup,
             PageTitle = $"Package - {package.Package}"
         };
@@ -264,7 +264,8 @@ public class RepositoriesController(
         {
             Repo = repo,
             PackageCount = packageCount,
-            PageTitle = $"Repository - {repo.Name}"
+            PageTitle = $"Repository - {repo.Name}",
+            BaseUrl = await globalSettingsService.GetPublicAptBaseUrlAsync(HttpContext)
         };
         return this.StackView(model);
     }

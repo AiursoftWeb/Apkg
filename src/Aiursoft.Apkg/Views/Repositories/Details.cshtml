@@ -62,7 +62,7 @@
                     <button class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2" onclick="copyToClipboard(this)" title="@Localizer["Copy to clipboard"]">
                         <i class="align-middle" data-lucide="copy" style="width:14px;height:14px;"></i>
                     </button>
-                    <pre class="mb-0"><code>sudo apkg add-source @(Context.Request.Scheme)://@(Context.Request.Host)/api/sources/@Model.Repo.Id</code></pre>
+                    <pre class="mb-0"><code>sudo apkg add-source @Model.BaseUrl/api/sources/@Model.Repo.Id</code></pre>
                 </div>
                 <p class="text-muted small mb-0">
                     @Localizer["Don't have <code>apkg</code>?"]
@@ -79,9 +79,9 @@
                             <i class="align-middle" data-lucide="copy" style="width:14px;height:14px;"></i>
                         </button>
                         <pre class="mb-0" style="white-space: pre-wrap; word-break: break-all;"><code>sudo mkdir -p /usr/share/keyrings && \
-curl -sL @(Context.Request.Scheme)://@(Context.Request.Host)/artifacts/certs/@Model.Repo.Certificate.Name | gpg --dearmor | sudo tee /usr/share/keyrings/@(Model.Repo.Certificate.Name)-archive-keyring.gpg > /dev/null && \
+curl -sL @Model.BaseUrl/artifacts/certs/@Model.Repo.Certificate.Name | gpg --dearmor | sudo tee /usr/share/keyrings/@(Model.Repo.Certificate.Name)-archive-keyring.gpg > /dev/null && \
 echo "Types: deb
-URIs: @(Context.Request.Scheme)://@(Context.Request.Host)/artifacts/@Model.Repo.Distro/
+URIs: @Model.BaseUrl/artifacts/@Model.Repo.Distro/
 Suites: @Model.Repo.Suite
 Components: @((string.IsNullOrWhiteSpace(Model.Repo.Components) ? "main" : Model.Repo.Components).Replace(",", " "))
 Architectures: @Model.Repo.Architecture.Replace(",", " ")
@@ -106,7 +106,7 @@ sudo apt update</code></pre>
                             <i class="align-middle" data-lucide="copy" style="width:14px;height:14px;"></i>
                         </button>
                         <pre class="mb-0" style="white-space: pre-wrap; word-break: break-all;"><code>echo "Types: deb
-URIs: @(Context.Request.Scheme)://@(Context.Request.Host)/artifacts/@Model.Repo.Distro/
+URIs: @Model.BaseUrl/artifacts/@Model.Repo.Distro/
 Suites: @Model.Repo.Suite
 Components: @((string.IsNullOrWhiteSpace(Model.Repo.Components) ? "main" : Model.Repo.Components).Replace(",", " "))
 Architectures: @Model.Repo.Architecture.Replace(",", " ")

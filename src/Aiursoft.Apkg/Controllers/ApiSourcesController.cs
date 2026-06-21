@@ -1,4 +1,5 @@
 using Aiursoft.Apkg.Entities;
+using Aiursoft.Apkg.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,9 @@ namespace Aiursoft.Apkg.Controllers;
 [ApiController]
 [Route("api/sources")]
 [AllowAnonymous]
-public class ApiSourcesController(ApkgDbContext db) : ControllerBase
+public class ApiSourcesController(
+    ApkgDbContext db,
+    GlobalSettingsService globalSettingsService) : ControllerBase
 {
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetSourceConfig(int id)
@@ -20,7 +23,7 @@ public class ApiSourcesController(ApkgDbContext db) : ControllerBase
         if (repo == null)
             return NotFound(new { error = "Repository not found." });
 
-        var baseUrl = $"{Request.Scheme}://{Request.Host}";
+        var baseUrl = await globalSettingsService.GetPublicAptBaseUrlAsync(HttpContext);
         var aptBaseUrl = $"{baseUrl}/artifacts/{repo.Distro}/";
         var components = string.IsNullOrWhiteSpace(repo.Components) ? "main" : repo.Components;
 

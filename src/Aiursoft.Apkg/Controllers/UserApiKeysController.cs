@@ -13,7 +13,8 @@ namespace Aiursoft.Apkg.Controllers;
 [Authorize]
 public class UserApiKeysController(
     ApkgDbContext db,
-    UserManager<User> userManager) : Controller
+    UserManager<User> userManager,
+    GlobalSettingsService globalSettingsService) : Controller
 {
     [RenderInNavBar(
         NavGroupName = "Settings",
@@ -52,7 +53,7 @@ public class UserApiKeysController(
             KeyDisplay = key.KeyPrefix + "...",
             KeyName = key.Name,
             RawKey = TempData["NewApiKey"] as string,
-            BaseUrl = $"{Request.Scheme}://{Request.Host}"
+            BaseUrl = await globalSettingsService.GetPublicAptBaseUrlAsync(HttpContext)
         };
         return this.StackView(model);
     }

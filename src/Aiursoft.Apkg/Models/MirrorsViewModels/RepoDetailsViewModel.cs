@@ -12,4 +12,5 @@ public class RepoDetailsViewModel : UiStackLayoutViewModel
 
     public required AptRepository Repo { get; set; }
     public int PackageCount { get; set; }
+    public string BaseUrl { get; set; } = string.Empty;
 }
