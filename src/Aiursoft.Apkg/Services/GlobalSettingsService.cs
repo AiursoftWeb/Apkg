@@ -161,6 +161,17 @@ public class GlobalSettingsService(
         return $"{httpContext.Request.Scheme}://{httpContext.Request.Host}";
     }
 
+    /// <summary>
+    /// Returns the base URL (scheme + host) for API endpoints (e.g. /api/sources/{id}).
+    /// Always uses the current request's scheme and host, ignoring
+    /// <see cref="SettingsMap.PublicAptServerDomain"/> because /api/ routes
+    /// are NOT exported to the static file server.
+    /// </summary>
+    public static string GetApiBaseUrl(HttpContext httpContext)
+    {
+        return $"{httpContext.Request.Scheme}://{httpContext.Request.Host}";
+    }
+
     public async Task SeedSettingsAsync()
     {
         foreach (var definition in SettingsMap.Definitions)

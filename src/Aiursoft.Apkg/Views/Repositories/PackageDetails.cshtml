@@ -181,7 +181,7 @@
                 <div class="card-body">
                     <p class="text-muted small mb-2">@Localizer["Step 1: Add this APT server"]</p>
                     <p class="text-muted small mb-1">@Localizer["Option A: Using APKG CLI (recommended):"]</p>
-                    <pre class="bg-dark text-white p-2 rounded small text-break mb-2" style="white-space:pre-wrap;"><code>sudo apkg add-source @(Model.BaseUrl)/api/sources/@(Model.Repo.Id)</code></pre>
+                    <pre class="bg-dark text-white p-2 rounded small text-break mb-2" style="white-space:pre-wrap;"><code>sudo apkg add-source @(Model.ApiBaseUrl)/api/sources/@(Model.Repo.Id)</code></pre>
                     <p class="text-muted small mb-0">
                         @Localizer["Don't have <code>apkg</code>?"]
                         <a asp-controller="Home" asp-action="Index" asp-fragment="install-apkg">@Localizer["See how to install APKG CLI."]</a>
