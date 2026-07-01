@@ -103,7 +103,7 @@
 此設定會影響：
   - 存放庫詳細資訊頁面 → 單行 apt 設定指令、GPG 金鑰下載 URL、APT URI
   - 套件詳細資訊頁面 → 安裝說明和 APT 來源 URI
-  - API /api/sources/{id} → 產生的 .sources 檔案內容
+  - API /api/sources/&lt;id&gt; → 產生的 .sources 檔案內容
   - API 金鑰使用頁面 → SDK 設定範例</value>
   </data>
 

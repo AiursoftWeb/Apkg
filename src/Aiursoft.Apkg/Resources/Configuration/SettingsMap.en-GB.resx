@@ -103,7 +103,7 @@ Default (empty): the server uses the current HTTP request&apos;s host and scheme
 What this setting affects:
   - Repository Details page → one-line apt setup commands, GPG key download URL, APT URIs
   - Package Details page → installation instructions and APT source URIs
-  - API /api/sources/{id} → generated .sources file content
+  - API /api/sources/&lt;id&gt; → generated .sources file content
   - API Key Usage page → SDK configuration examples</value>
   </data>
 

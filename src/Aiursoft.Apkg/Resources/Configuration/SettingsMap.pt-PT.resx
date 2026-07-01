@@ -103,7 +103,7 @@ Padrão (vazio): o servidor utiliza o host e o esquema do pedido HTTP atual, o q
 O que esta definição afeta:
   - Página de Detalhes do Repositório → comandos de configuração apt numa linha, URL de download da chave GPG, URIs APT
   - Página de Detalhes do Pacote → instruções de instalação e URIs de origem APT
-  - API /api/sources/{id} → conteúdo do ficheiro .sources gerado
+  - API /api/sources/&lt;id&gt; → conteúdo do ficheiro .sources gerado
   - Página de Utilização da Chave da API → exemplos de configuração do SDK</value>
   </data>
 

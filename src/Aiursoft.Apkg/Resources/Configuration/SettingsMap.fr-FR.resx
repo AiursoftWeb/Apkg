@@ -103,7 +103,7 @@ Par défaut (vide) : le serveur utilise l&apos;hôte et le protocole de la requ�
 Ce que ce paramètre affecte :
   - Page Détails du référentiel → commandes de configuration apt en une ligne, URL de téléchargement de la clé GPG, URI APT
   - Page Détails du paquet → instructions d&apos;installation et URI de sources APT
-  - API /api/sources/{id} → contenu du fichier .sources généré
+  - API /api/sources/&lt;id&gt; → contenu du fichier .sources généré
   - Page Utilisation de la clé API → exemples de configuration du SDK</value>
   </data>
 
