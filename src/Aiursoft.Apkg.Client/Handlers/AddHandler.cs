@@ -78,7 +78,7 @@ public class AddHandler : ExecutableCommandHandlerBuilder
         return command;
     }
 
-    protected override async Task Execute(ParseResult context)
+    protected override Task Execute(ParseResult context)
     {
         var verbose = context.GetValue(CommonOptionsProvider.VerboseOption);
         var source = context.GetValue(SourceArgument)!;
@@ -122,7 +122,7 @@ public class AddHandler : ExecutableCommandHandlerBuilder
             if (modeStr.Length != 3 || modeStr.Any(c => c < '0' || c > '7'))
             {
                 logger.LogError("Invalid --mode value '{Mode}'. Must be exactly 3 octal digits (e.g. 755, 644).", modeStr);
-                return;
+                return Task.CompletedTask;
             }
             newItem.Add(new XAttribute("Mode", modeStr));
         }
@@ -153,5 +153,7 @@ public class AddHandler : ExecutableCommandHandlerBuilder
 
         if (!File.Exists(resolvedSource) && !Directory.Exists(resolvedSource))
             logger.LogWarning("  ⚠ Source path does not exist yet: {Source}", resolvedSource);
+
+        return Task.CompletedTask;
     }
 }

@@ -1090,7 +1090,7 @@ public class ApkgPackagesControllerTests : TestBase
     }
 
     [TestMethod]
-    public async Task PushTwiceSameTriplet_CreatesTwoRevisionsUnderSamePackage()
+    public void PushTwiceSameTriplet_CreatesTwoRevisionsUnderSamePackage()
     {
         var pkg = new ApkgPackage
         {
