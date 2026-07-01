@@ -16,6 +16,9 @@ public class RepoPackageDetailsViewModel : UiStackLayoutViewModel
     /// <summary>Base URL of this server (e.g. "https://apt.example.com").</summary>
     public string BaseUrl { get; set; } = string.Empty;
 
+    /// <summary>Base URL for API endpoints, never uses PublicAptServerDomain.</summary>
+    public string ApiBaseUrl { get; set; } = string.Empty;
+
     /// <summary>
     /// Maps each known package name (from Depends/Recommends/etc.) to its AptPackage.Id
     /// within the same bucket, so the view can render clickable links.

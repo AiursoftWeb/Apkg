@@ -62,7 +62,7 @@
                     <button class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2" onclick="copyToClipboard(this)" title="@Localizer["Copy to clipboard"]">
                         <i class="align-middle" data-lucide="copy" style="width:14px;height:14px;"></i>
                     </button>
-                    <pre class="mb-0"><code>sudo apkg add-source @Model.BaseUrl/api/sources/@Model.Repo.Id</code></pre>
+                    <pre class="mb-0"><code>sudo apkg add-source @Model.ApiBaseUrl/api/sources/@Model.Repo.Id</code></pre>
                 </div>
                 <p class="text-muted small mb-0">
                     @Localizer["Don't have <code>apkg</code>?"]
