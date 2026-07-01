@@ -66,6 +66,9 @@
   <data name="Project Name" xml:space="preserve">
     <value>ชื่อโปรเจกต์</value>
   </data>
+  <data name="Public APT Server Domain" xml:space="preserve">
+    <value>โดเมนเซิร์ฟเวอร์ APT สาธารณะ</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>ชื่อแบรนด์ที่แสดงไว้ในส่วนท้ายหน้า</value>
   </data>
@@ -77,6 +80,31 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>ชื่อโปรเจกต์ที่แสดงในหน้าแสดงผล</value>
+  </data>
+  <data name="The public-facing domain (or full base URL) that APT clients use to reach the static repository files. This domain is stamped into every APT source configuration the server generates — including the one-line install guides on repository detail pages, the .sources file returned by the API, and the SDK usage instructions on API key pages.\n\nWhen rsync export (RepositoryExportJob) materializes the artifacts/ directory onto a separate static file server (nginx, caddy, or a CDN edge node), the domain that APT clients see is different from the web application&apos;s own host. Set this to the static server&apos;s domain so that apt update and apt install requests go directly to the static server, not to the web app.\n\nExamples:\n  apt.example.com          ← bare domain (the current request scheme — http or https — is prepended automatically)\n  https://apt.example.com  ← full URL (scheme included, used as-is)\n\nWhen to configure:\n  - You run RepositoryExportJob and serve the exported artifacts/ directory from a different machine, CDN, or reverse proxy.\n  - You want APT traffic to bypass the web application entirely and hit a lightweight static file server.\n\nWhen to leave empty:\n  - The web application itself serves the /artifacts/ routes directly (no separate static server).\n  - You are not using the rsync export feature.\n\nDefault (empty): the server uses the current HTTP request&apos;s host and scheme, which is correct for single-server deployments.\n\nWhat this setting affects:\n  - Repository Details page → one-line apt setup commands, GPG key download URL, APT URIs\n  - Package Details page → install instructions and APT source URIs\n  - API /api/sources/{id} → generated .sources file content\n  - API Key Usage page → SDK configuration examples" xml:space="preserve">
+    <value>โดเมนสาธารณะ (หรือ URL หลักแบบเต็ม) ที่ไคลเอนต์ APT ใช้ในการเข้าถึงไฟล์ในคลังซอฟต์แวร์แบบคงที่ (static repository files) โดเมนนี้จะถูกฝังอยู่ในทุกการกำหนดค่าแหล่งที่มาของ APT ที่เซิร์ฟเวอร์สร้างขึ้น — รวมถึงคำแนะนำการติดตั้งแบบบรรทัดเดียวบนหน้ารายละเอียดคลังซอฟต์แวร์, ไฟล์ .sources ที่ส่งคืนโดย API, และคำแนะนำการใช้งาน SDK บนหน้ารหัสผ่าน API
+
+เมื่อการส่งออกด้วย rsync (RepositoryExportJob) สร้างไดเรกทอรี artifacts/ บนเซิร์ฟเวอร์ไฟล์คงที่แยกต่างหาก (เช่น nginx, caddy หรือโหนดขอบของ CDN) โดเมนที่ไคลเอนต์ APT เห็นจะแตกต่างจากโฮสต์ของเว็บแอปพลิเคชันเอง กำหนดค่านี้เป็นโดเมนของเซิร์ฟเวอร์แบบคงที่ เพื่อให้คำขอ apt update และ apt install ไปยังเซิร์ฟเวอร์แบบคงที่โดยตรง ไม่ใช่ไปยังเว็บแอป
+
+ตัวอย่าง:
+  apt.example.com          ← โดเมนเปล่า (รูปแบบการร้องขอปัจจุบัน — http หรือ https — จะถูกเติมไว้ข้างหน้าโดยอัตโนมัติ)
+  https://apt.example.com  ← URL แบบเต็ม (รวมรูปแบบแล้ว ใช้งานตามนั้น)
+
+เมื่อใดควรกำหนดค่า:
+  - คุณดำเนินการ RepositoryExportJob และให้บริการไดเรกทอรี artifacts/ ที่ถูกส่งออกจากเครื่องอื่น, CDN หรือ reverse proxy
+  - คุณต้องการให้การรับส่งข้อมูลของ APT ข้ามเว็บแอปพลิเคชันทั้งหมดและเข้าถึงเซิร์ฟเวอร์ไฟล์คงที่แบบเบาๆ
+
+เมื่อใดควรปล่อยว่าง:
+  - เว็บแอปพลิเคชันให้บริการเส้นทาง /artifacts/ โดยตรง (ไม่มีเซิร์ฟเวอร์แบบคงที่แยกต่างหาก)
+  - คุณไม่ใช้คุณสมบัติการส่งออก rsync
+
+ค่าเริ่มต้น (ว่าง): เซิร์ฟเวอร์จะใช้โฮสต์และรูปแบบของคำขอ HTTP ปัจจุบัน ซึ่งถูกต้องสำหรับการติดตั้งแบบเซิร์ฟเวอร์เดียว
+
+การตั้งค่านี้ส่งผลต่อ:
+  - หน้ารายละเอียดคลังซอฟต์แวร์ → คำสั่งตั้งค่า apt แบบบรรทัดเดียว, URL ดาวน์โหลดคีย์ GPG, APT URIs
+  - หน้ารายละเอียดแพ็คเกจ → คำแนะนำการติดตั้งและ APT source URIs
+  - API /api/sources/{id} → เนื้อหาไฟล์ .sources ที่สร้างขึ้น
+  - หน้าการใช้งานรหัสผ่าน API → ตัวอย่างการกำหนดค่า SDK</value>
   </data>
 
 </root>

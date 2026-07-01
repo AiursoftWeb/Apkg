@@ -66,6 +66,9 @@
   <data name="Project Name" xml:space="preserve">
     <value>專案名稱</value>
   </data>
+  <data name="Public APT Server Domain" xml:space="preserve">
+    <value>公開 APT 伺服器網域</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>頁尾顯示的品牌名稱</value>
   </data>
@@ -77,6 +80,31 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>專案在前端顯示的名稱。</value>
+  </data>
+  <data name="The public-facing domain (or full base URL) that APT clients use to reach the static repository files. This domain is stamped into every APT source configuration the server generates — including the one-line install guides on repository detail pages, the .sources file returned by the API, and the SDK usage instructions on API key pages.\n\nWhen rsync export (RepositoryExportJob) materializes the artifacts/ directory onto a separate static file server (nginx, caddy, or a CDN edge node), the domain that APT clients see is different from the web application&apos;s own host. Set this to the static server&apos;s domain so that apt update and apt install requests go directly to the static server, not to the web app.\n\nExamples:\n  apt.example.com          ← bare domain (the current request scheme — http or https — is prepended automatically)\n  https://apt.example.com  ← full URL (scheme included, used as-is)\n\nWhen to configure:\n  - You run RepositoryExportJob and serve the exported artifacts/ directory from a different machine, CDN, or reverse proxy.\n  - You want APT traffic to bypass the web application entirely and hit a lightweight static file server.\n\nWhen to leave empty:\n  - The web application itself serves the /artifacts/ routes directly (no separate static server).\n  - You are not using the rsync export feature.\n\nDefault (empty): the server uses the current HTTP request&apos;s host and scheme, which is correct for single-server deployments.\n\nWhat this setting affects:\n  - Repository Details page → one-line apt setup commands, GPG key download URL, APT URIs\n  - Package Details page → install instructions and APT source URIs\n  - API /api/sources/{id} → generated .sources file content\n  - API Key Usage page → SDK configuration examples" xml:space="preserve">
+    <value>APT 用戶用於存取靜態存放庫檔案的公開網域（或完整基本 URL）。此網域會標示在伺服器產生的所有 APT 來源設定中——包括存放庫詳細資訊頁面上的單行安裝指南、API 回傳的 .sources 檔案，以及 API 金鑰頁面上的 SDK 使用說明。
+
+當 rsync 匯出功能（RepositoryExportJob）將 artifacts/ 目錄部署到獨立的靜態檔案伺服器（nginx、caddy 或 CDN 邊緣節點）時，APT 用戶所見到的網域將與網頁應用程式本身的主機不同。請將此設定為靜態伺服器的網域，以確保 apt update 和 apt install 請求直接指向靜態伺服器，而非網頁應用程式。
+
+範例：
+  apt.example.com          ← 純網域（目前的請求協定 — http 或 https — 會自動在前面加上）
+  https://apt.example.com  ← 完整 URL（包含協定，按原樣使用）
+
+何時需要設定：
+  - 您執行 RepositoryExportJob 並從不同的機器、CDN 或反向代理提供已匯出的 artifacts/ 目錄。
+  - 您希望 APT 流量完全繞過網頁應用程式，直接由輕量級的靜態檔案伺服器處理。
+
+何時留空：
+  - 網頁應用程式本身直接提供 /artifacts/ 路由（沒有獨立的靜態伺服器）。
+  - 您未使用 rsync 匯出功能。
+
+預設值（留空）：伺服器會使用目前 HTTP 請求的主機和協定，這適用於單機部署。
+
+此設定會影響：
+  - 存放庫詳細資訊頁面 → 單行 apt 設定指令、GPG 金鑰下載 URL、APT URI
+  - 套件詳細資訊頁面 → 安裝說明和 APT 來源 URI
+  - API /api/sources/{id} → 產生的 .sources 檔案內容
+  - API 金鑰使用頁面 → SDK 設定範例</value>
   </data>
 
 </root>
