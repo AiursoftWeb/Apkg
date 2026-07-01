@@ -66,6 +66,9 @@
   <data name="Project Name" xml:space="preserve">
     <value>プロジェクト名</value>
   </data>
+  <data name="Public APT Server Domain" xml:space="preserve">
+    <value>公開APTサーバードメイン</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>フッターに表示されるブランド名。</value>
   </data>
@@ -77,6 +80,9 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>フロントエンドに表示されるプロジェクト名</value>
+  </data>
+  <data name="The public-facing domain (or full base URL) that APT clients use to reach the static repository files. This domain is stamped into every APT source configuration the server generates — including the one-line install guides on repository detail pages, the .sources file returned by the API, and the SDK usage instructions on API key pages.\n\nWhen rsync export (RepositoryExportJob) materializes the artifacts/ directory onto a separate static file server (nginx, caddy, or a CDN edge node), the domain that APT clients see is different from the web application&apos;s own host. Set this to the static server&apos;s domain so that apt update and apt install requests go directly to the static server, not to the web app.\n\nExamples:\n  apt.example.com          ← bare domain (the current request scheme — http or https — is prepended automatically)\n  https://apt.example.com  ← full URL (scheme included, used as-is)\n\nWhen to configure:\n  - You run RepositoryExportJob and serve the exported artifacts/ directory from a different machine, CDN, or reverse proxy.\n  - You want APT traffic to bypass the web application entirely and hit a lightweight static file server.\n\nWhen to leave empty:\n  - The web application itself serves the /artifacts/ routes directly (no separate static server).\n  - You are not using the rsync export feature.\n\nDefault (empty): the server uses the current HTTP request&apos;s host and scheme, which is correct for single-server deployments.\n\nWhat this setting affects:\n  - Repository Details page → one-line apt setup commands, GPG key download URL, APT URIs\n  - Package Details page → install instructions and APT source URIs\n  - API /api/sources/{id} → generated .sources file content\n  - API Key Usage page → SDK configuration examples" xml:space="preserve">
+    <value>APT クライアントが静的リポジトリファイルにアクセスするために使用する、外部公開用のドメイン（または完全なベースURL）。このドメインは、サーバーが生成するすべての APT ソース構成（リポジトリ詳細ページのワンライナーインストールガイド、API から返される .sources ファイル、および API キーページの SDK 使用法説明書を含む）に埋め込まれます。\n\nrsync エクスポート（RepositoryExportJob）が artifacts/ ディレクトリを別の静的ファイルサーバー（nginx、caddy、または CDN エッジノード）に展開する場合、APT クライアントが表示するドメインはウェブアプリケーション自身のホストとは異なります。この設定を静的サーバーのドメインに指定することで、apt update および apt install リクエストがウェブアプリケーションではなく、直接静的サーバーに向けられるようになります。\n\n例:\n  apt.example.com          ← ドメインのみ（現在のリクエストスキーマ（http または https）が自動的にプレフィックスとして付加されます）\n  https://apt.example.com  ← 完全なURL（スキーマが含まれ、そのまま使用されます）\n\n設定が必要な場合:\n  - RepositoryExportJob を実行し、エクスポートされた artifacts/ ディレクトリを別のマシン、CDN、またはリバースプロキシから提供している場合。\n  - APT のトラフィックがウェブアプリケーションを完全にバイパスし、軽量な静的ファイルサーバーに直接到達させたい場合。\n\n空のままにする場合:\n  - ウェブアプリケーション自体が /artifacts/ ルートを直接提供している場合（別途静的サーバーなし）。\n  - rsync エクスポート機能を使用していない場合。\n\nデフォルト（空）: サーバーは現在の HTTP リクエストのホストとスキーマを使用します。これは単一サーバーデプロイメントでは正しい設定です。\n\nこの設定が影響する箇所:\n  - リポジトリ詳細ページ → ワンライナー apt 設定コマンド、GPG キーダウンロードURL、APT URI\n  - パッケージ詳細ページ → インストール手順および APT ソースURI\n  - API /api/sources/&lt;id&gt; → 生成される .sources ファイルの内容\n  - API キー使用法ページ → SDK 設定例</value>
   </data>
 
 </root>

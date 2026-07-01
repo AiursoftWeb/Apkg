@@ -66,6 +66,9 @@
   <data name="Project Name" xml:space="preserve">
     <value>Nome do Projeto</value>
   </data>
+  <data name="Public APT Server Domain" xml:space="preserve">
+    <value>Domínio do Servidor APT Público</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>O nome da marca exibido no rodapé.</value>
   </data>
@@ -77,6 +80,31 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>O nome do projeto apresentado na interface de utilizador.</value>
+  </data>
+  <data name="The public-facing domain (or full base URL) that APT clients use to reach the static repository files. This domain is stamped into every APT source configuration the server generates — including the one-line install guides on repository detail pages, the .sources file returned by the API, and the SDK usage instructions on API key pages.\n\nWhen rsync export (RepositoryExportJob) materializes the artifacts/ directory onto a separate static file server (nginx, caddy, or a CDN edge node), the domain that APT clients see is different from the web application&apos;s own host. Set this to the static server&apos;s domain so that apt update and apt install requests go directly to the static server, not to the web app.\n\nExamples:\n  apt.example.com          ← bare domain (the current request scheme — http or https — is prepended automatically)\n  https://apt.example.com  ← full URL (scheme included, used as-is)\n\nWhen to configure:\n  - You run RepositoryExportJob and serve the exported artifacts/ directory from a different machine, CDN, or reverse proxy.\n  - You want APT traffic to bypass the web application entirely and hit a lightweight static file server.\n\nWhen to leave empty:\n  - The web application itself serves the /artifacts/ routes directly (no separate static server).\n  - You are not using the rsync export feature.\n\nDefault (empty): the server uses the current HTTP request&apos;s host and scheme, which is correct for single-server deployments.\n\nWhat this setting affects:\n  - Repository Details page → one-line apt setup commands, GPG key download URL, APT URIs\n  - Package Details page → install instructions and APT source URIs\n  - API /api/sources/{id} → generated .sources file content\n  - API Key Usage page → SDK configuration examples" xml:space="preserve">
+    <value>O domínio público (ou URL base completo) que os clientes APT utilizam para aceder aos ficheiros estáticos do repositório. Este domínio é inserido em todas as configurações de origem APT geradas pelo servidor — incluindo os guias de instalação numa linha nas páginas de detalhes do repositório, o ficheiro .sources devolvido pela API e as instruções de utilização do SDK nas páginas de chaves da API.
+
+Quando a exportação rsync (RepositoryExportJob) coloca o diretório artifacts/ num servidor de ficheiros estáticos separado (nginx, caddy ou um nó de borda de CDN), o domínio que os clientes APT veem é diferente do próprio host da aplicação web. Defina este valor para o domínio do servidor estático para que os pedidos apt update e apt install sejam enviados diretamente para o servidor estático, e não para a aplicação web.
+
+Exemplos:
+  apt.example.com          ← domínio simples (o esquema do pedido atual — http ou https — é adicionado automaticamente)
+  https://apt.example.com  ← URL completa (esquema incluído, utilizada tal como está)
+
+Quando configurar:
+  - Executa o RepositoryExportJob e serve o diretório artifacts/ exportado a partir de uma máquina diferente, CDN ou proxy reverso.
+  - Deseja que o tráfego APT contorne inteiramente a aplicação web e aceda a um servidor de ficheiros estáticos leve.
+
+Quando deixar vazio:
+  - A própria aplicação web serve as rotas /artifacts/ diretamente (sem servidor estático separado).
+  - Não está a utilizar a funcionalidade de exportação rsync.
+
+Padrão (vazio): o servidor utiliza o host e o esquema do pedido HTTP atual, o que está correto para implementações de servidor único.
+
+O que esta definição afeta:
+  - Página de Detalhes do Repositório → comandos de configuração apt numa linha, URL de download da chave GPG, URIs APT
+  - Página de Detalhes do Pacote → instruções de instalação e URIs de origem APT
+  - API /api/sources/&lt;id&gt; → conteúdo do ficheiro .sources gerado
+  - Página de Utilização da Chave da API → exemplos de configuração do SDK</value>
   </data>
 
 </root>

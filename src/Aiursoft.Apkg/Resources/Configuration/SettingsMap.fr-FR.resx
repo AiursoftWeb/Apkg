@@ -66,6 +66,9 @@
   <data name="Project Name" xml:space="preserve">
     <value>Nom du projet</value>
   </data>
+  <data name="Public APT Server Domain" xml:space="preserve">
+    <value>Domaine du serveur APT public</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>Le nom de la marque affiché dans le pied de page.</value>
   </data>
@@ -77,6 +80,31 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>Le nom du projet affiché dans l&apos;interface utilisateur.</value>
+  </data>
+  <data name="The public-facing domain (or full base URL) that APT clients use to reach the static repository files. This domain is stamped into every APT source configuration the server generates — including the one-line install guides on repository detail pages, the .sources file returned by the API, and the SDK usage instructions on API key pages.\n\nWhen rsync export (RepositoryExportJob) materializes the artifacts/ directory onto a separate static file server (nginx, caddy, or a CDN edge node), the domain that APT clients see is different from the web application&apos;s own host. Set this to the static server&apos;s domain so that apt update and apt install requests go directly to the static server, not to the web app.\n\nExamples:\n  apt.example.com          ← bare domain (the current request scheme — http or https — is prepended automatically)\n  https://apt.example.com  ← full URL (scheme included, used as-is)\n\nWhen to configure:\n  - You run RepositoryExportJob and serve the exported artifacts/ directory from a different machine, CDN, or reverse proxy.\n  - You want APT traffic to bypass the web application entirely and hit a lightweight static file server.\n\nWhen to leave empty:\n  - The web application itself serves the /artifacts/ routes directly (no separate static server).\n  - You are not using the rsync export feature.\n\nDefault (empty): the server uses the current HTTP request&apos;s host and scheme, which is correct for single-server deployments.\n\nWhat this setting affects:\n  - Repository Details page → one-line apt setup commands, GPG key download URL, APT URIs\n  - Package Details page → install instructions and APT source URIs\n  - API /api/sources/{id} → generated .sources file content\n  - API Key Usage page → SDK configuration examples" xml:space="preserve">
+    <value>Le domaine public (ou l&apos;URL de base complète) que les clients APT utilisent pour accéder aux fichiers statiques du référentiel. Ce domaine est intégré dans chaque configuration de source APT générée par le serveur — y compris les guides d&apos;installation en une ligne sur les pages de détail du référentiel, le fichier .sources retourné par l&apos;API, et les instructions d&apos;utilisation du SDK sur les pages de clés API.
+
+Lorsque l&apos;exportation rsync (RepositoryExportJob) copie le répertoire artifacts/ sur un serveur de fichiers statiques séparé (nginx, caddy ou un nœud de bord de CDN), le domaine visible par les clients APT est différent de celui de l&apos;application web. Définissez cette valeur sur le domaine du serveur statique afin que les requêtes apt update et apt install soient envoyées directement au serveur statique, et non à l&apos;application web.
+
+Exemples :
+  apt.example.com          ← domaine nu (le protocole de la requête actuelle — http ou https — est ajouté automatiquement)
+  https://apt.example.com  ← URL complète (inclut le protocole, utilisée telle quelle)
+
+Quand configurer :
+  - Vous exécutez RepositoryExportJob et servez le répertoire artifacts/ exporté depuis une machine différente, un CDN ou un proxy inverse.
+  - Vous souhaitez que le trafic APT contourne entièrement l&apos;application web pour atteindre un serveur de fichiers statiques léger.
+
+Quand laisser vide :
+  - L&apos;application web elle-même sert directement les routes /artifacts/ (pas de serveur statique séparé).
+  - Vous n&apos;utilisez pas la fonctionnalité d&apos;exportation rsync.
+
+Par défaut (vide) : le serveur utilise l&apos;hôte et le protocole de la requête HTTP actuelle, ce qui est correct pour les déploiements sur un seul serveur.
+
+Ce que ce paramètre affecte :
+  - Page Détails du référentiel → commandes de configuration apt en une ligne, URL de téléchargement de la clé GPG, URI APT
+  - Page Détails du paquet → instructions d&apos;installation et URI de sources APT
+  - API /api/sources/&lt;id&gt; → contenu du fichier .sources généré
+  - Page Utilisation de la clé API → exemples de configuration du SDK</value>
   </data>
 
 </root>
