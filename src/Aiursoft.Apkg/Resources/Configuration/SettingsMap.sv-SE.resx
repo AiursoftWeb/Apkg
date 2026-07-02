@@ -103,7 +103,7 @@ Standardvärde (tomt): servern använder aktuell HTTP-begärans värd och protok
 Vad denna inställning påverkar:
   - Sidan Lagringsplatsdetaljer → enkla apt-inställningskommandon, GPG-nyckelnedladdnings-URL, APT-URI:er
   - Sidan Paketdetaljer → installationsinstruktioner och APT-källa-URI:er
-  - API /api/sources/{id} → genererat .sources-filinnehåll
+  - API /api/sources/&lt;id&gt; → genererat .sources-filinnehåll
   - Sidan Användning av API-nyckel → exempel på SDK-konfiguration</value>
   </data>
 

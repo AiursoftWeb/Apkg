@@ -103,7 +103,7 @@ Default (kosong): server menggunakan host dan skema dari permintaan HTTP saat in
 Apa yang dipengaruhi oleh pengaturan ini:
   - Halaman Detail Repositori → perintah penyiapan apt satu baris, URL unduhan kunci GPG, URI APT
   - Halaman Detail Paket → petunjuk instalasi dan URI sumber APT
-  - API /api/sources/{id} → konten file .sources yang dihasilkan
+  - API /api/sources/&lt;id&gt; → konten file .sources yang dihasilkan
   - Halaman Penggunaan Kunci API → contoh konfigurasi SDK</value>
   </data>
 

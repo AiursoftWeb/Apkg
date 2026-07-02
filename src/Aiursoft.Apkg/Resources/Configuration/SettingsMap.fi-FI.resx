@@ -103,7 +103,7 @@ Oletus (tyhjä): palvelin käyttää nykyisen HTTP-pyynnön isäntänimeä ja pr
 Tämän asetuksen vaikutus:
   - Arkiston tietosivu → yhden rivin apt-asetuskomennot, GPG-avaimen latausosoite, APT-URI:t
   - Pakettitietosivu → asennusohjeet ja APT-lähteiden URI:t
-  - API /api/sources/{id} → luodun .sources-tiedoston sisältö
+  - API /api/sources/&lt;id&gt; → luodun .sources-tiedoston sisältö
   - API-avaimen käyttö -sivu → SDK-konfiguraatioesimerkit</value>
   </data>
 
