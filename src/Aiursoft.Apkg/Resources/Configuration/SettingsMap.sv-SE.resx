@@ -66,6 +66,9 @@
   <data name="Project Name" xml:space="preserve">
     <value>Projektnamn</value>
   </data>
+  <data name="Public APT Server Domain" xml:space="preserve">
+    <value>Publikt APT-serverdomän</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>Det varumärke som visas i sidfoten.</value>
   </data>
@@ -77,6 +80,31 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>Projektets namn som visas i frontend</value>
+  </data>
+  <data name="The public-facing domain (or full base URL) that APT clients use to reach the static repository files. This domain is stamped into every APT source configuration the server generates — including the one-line install guides on repository detail pages, the .sources file returned by the API, and the SDK usage instructions on API key pages.\n\nWhen rsync export (RepositoryExportJob) materializes the artifacts/ directory onto a separate static file server (nginx, caddy, or a CDN edge node), the domain that APT clients see is different from the web application&apos;s own host. Set this to the static server&apos;s domain so that apt update and apt install requests go directly to the static server, not to the web app.\n\nExamples:\n  apt.example.com          ← bare domain (the current request scheme — http or https — is prepended automatically)\n  https://apt.example.com  ← full URL (scheme included, used as-is)\n\nWhen to configure:\n  - You run RepositoryExportJob and serve the exported artifacts/ directory from a different machine, CDN, or reverse proxy.\n  - You want APT traffic to bypass the web application entirely and hit a lightweight static file server.\n\nWhen to leave empty:\n  - The web application itself serves the /artifacts/ routes directly (no separate static server).\n  - You are not using the rsync export feature.\n\nDefault (empty): the server uses the current HTTP request&apos;s host and scheme, which is correct for single-server deployments.\n\nWhat this setting affects:\n  - Repository Details page → one-line apt setup commands, GPG key download URL, APT URIs\n  - Package Details page → install instructions and APT source URIs\n  - API /api/sources/{id} → generated .sources file content\n  - API Key Usage page → SDK configuration examples" xml:space="preserve">
+    <value>Den offentliga domänen (eller den fullständiga bas-URL:n) som APT-klienter använder för att nå de statiska lagringsplatsfilerna. Denna domän skrivs ut i varje APT-källkonfiguration som servern genererar – inklusive de enkla installationsguiderna på detaljsidorna för lagringsplatser, .sources-filen som returneras av API:et och instruktionerna för SDK-användning på sidorna för API-nycklar.
+
+När rsync-exporten (RepositoryExportJob) materialiserar artifacts/-mappen på en separat statisk filserver (nginx, caddy eller en CDN-kantnod), är domänen som APT-klienterna ser annorladan än webbapplikationens egen värd. Ställ in detta på den statiska serverns domän så att apt update- och apt install-begäranden går direkt till den statiska servern, inte till webbappen.
+
+Exempel:
+  apt.example.com          ← ren domän (aktuell begärans protokoll – http eller https – lägs till automatiskt)
+  https://apt.example.com  ← fullständig URL (protokoll inkluderat, används som det är)
+
+När du ska konfigurera:
+  - Du kör RepositoryExportJob och serverar den exporterade artifacts/-mappen från en annan dator, CDN eller omvänd proxy.
+  - Du vill att APT-trafiken helt ska kringgå webbapplikationen och nå en lättviktig statisk filserver.
+
+När du ska lämna tomt:
+  - Webbapplikationen själv serverar /artifacts/-rutorna direkt (ingen separat statisk server).
+  - Du använder inte rsync-exportfunktionen.
+
+Standardvärde (tomt): servern använder aktuell HTTP-begärans värd och protokoll, vilket är korrekt för enskilda serverdistributioner.
+
+Vad denna inställning påverkar:
+  - Sidan Lagringsplatsdetaljer → enkla apt-inställningskommandon, GPG-nyckelnedladdnings-URL, APT-URI:er
+  - Sidan Paketdetaljer → installationsinstruktioner och APT-källa-URI:er
+  - API /api/sources/&lt;id&gt; → genererat .sources-filinnehåll
+  - Sidan Användning av API-nyckel → exempel på SDK-konfiguration</value>
   </data>
 
 </root>

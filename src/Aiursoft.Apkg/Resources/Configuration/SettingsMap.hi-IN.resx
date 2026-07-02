@@ -66,6 +66,9 @@
   <data name="Project Name" xml:space="preserve">
     <value>प्रोजेक्ट नाम</value>
   </data>
+  <data name="Public APT Server Domain" xml:space="preserve">
+    <value>सार्वजनिक एपीटी सर्वर डोमेन</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>फुटर में दिखाई देने वाला ब्रांड नाम</value>
   </data>
@@ -77,6 +80,31 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>फ्रंटएंड में प्रदर्शित प्रोजेक्ट का नाम।</value>
+  </data>
+  <data name="The public-facing domain (or full base URL) that APT clients use to reach the static repository files. This domain is stamped into every APT source configuration the server generates — including the one-line install guides on repository detail pages, the .sources file returned by the API, and the SDK usage instructions on API key pages.\n\nWhen rsync export (RepositoryExportJob) materializes the artifacts/ directory onto a separate static file server (nginx, caddy, or a CDN edge node), the domain that APT clients see is different from the web application&apos;s own host. Set this to the static server&apos;s domain so that apt update and apt install requests go directly to the static server, not to the web app.\n\nExamples:\n  apt.example.com          ← bare domain (the current request scheme — http or https — is prepended automatically)\n  https://apt.example.com  ← full URL (scheme included, used as-is)\n\nWhen to configure:\n  - You run RepositoryExportJob and serve the exported artifacts/ directory from a different machine, CDN, or reverse proxy.\n  - You want APT traffic to bypass the web application entirely and hit a lightweight static file server.\n\nWhen to leave empty:\n  - The web application itself serves the /artifacts/ routes directly (no separate static server).\n  - You are not using the rsync export feature.\n\nDefault (empty): the server uses the current HTTP request&apos;s host and scheme, which is correct for single-server deployments.\n\nWhat this setting affects:\n  - Repository Details page → one-line apt setup commands, GPG key download URL, APT URIs\n  - Package Details page → install instructions and APT source URIs\n  - API /api/sources/{id} → generated .sources file content\n  - API Key Usage page → SDK configuration examples" xml:space="preserve">
+    <value>सार्वजनिक-मुखी डोमेन (या पूरा बेस यूआरएल) जिसका उपयोग APT क्लाइंट स्थैतिक रिपॉज़िटरी फाइलों तक पहुँचने के लिए करते हैं। यह डोमेन सर्वर द्वारा उत्पन्न प्रत्येक APT स्रोत कॉन्फ़िगरेशन में अंकित किया जाता है — जिसमें रिपॉज़िटरी विवरण पृष्ठों पर एक-लाइन इंस्टॉल गाइड, API द्वारा लौटाई गई .sources फाइल, और API की पृष्ठों पर SDK उपयोग निर्देश शामिल हैं।
+
+जब rsync निर्यात (RepositoryExportJob) artifacts/ डायरेक्टरी को अलग स्थैतिक फाइल सर्वर (nginx, caddy, या CDN एज नोड) पर स्थानांतरित करता है, तो APT क्लाइंट द्वारा देखा जाने वाला डोमेन वेब एप्लिकेशन के अपने होस्ट से भिन्न होता है। apt update और apt install अनुरोधों को वेब ऐप के बजाय सीधे स्थैतिक सर्वर पर भेजने के लिए इसे स्थैतिक सर्वर के डोमेन पर सेट करें।
+
+उदाहरण:
+  apt.example.com          ← बाले डोमेन (वर्तमान अनुरोध योजना — http या https — स्वचालित रूप से उपसर्ग के रूप में जोड़ा जाता है)
+  https://apt.example.com  ← पूर्ण यूआरएल (योजना शामिल है, जैसे का तैसा उपयोग किया जाता है)
+
+कब कॉन्फ़िगर करें:
+  - आप RepositoryExportJob चलाते हैं और निर्यातित artifacts/ डायरेक्टरी को एक अलग मशीन, CDN, या रिवर्स प्रॉक्सी से सर्व करते हैं।
+  - आप चाहते हैं कि APT ट्रैफिक पूरी तरह से वेब एप्लिकेशन को बायपास करे और हल्के स्थैतिक फाइल सर्वर को हिट करे।
+
+कब खाली छोड़ें:
+  - वेब एप्लिकेशन स्वयं /artifacts/ रूट्स को सीधे सर्व करता है (कोई अलग स्थैतिक सर्वर नहीं)।
+  - आप rsync निर्यात सुविधा का उपयोग नहीं कर रहे हैं।
+
+डिफ़ॉल्ट (खाली): सर्वर वर्तमान HTTP अनुरोध के होस्ट और योजना का उपयोग करता है, जो सिंगल-सर्वर डिप्लॉयमेंट के लिए सही है।
+
+इस सेटिंग का क्या प्रभाव पड़ता है:
+  - रिपॉज़िटरी विवरण पृष्ठ → एक-लाइन apt सेटअप कमांड, GPG की डाउनलोड यूआरएल, APT URIs
+  - पैकेज विवरण पृष्ठ → इंस्टॉलेशन निर्देश और APT स्रोत URIs
+  - API /api/sources/&lt;id&gt; → उत्पन्न .sources फाइल सामग्री
+  - API की उपयोग पृष्ठ → SDK कॉन्फ़िगरेशन उदाहरण</value>
   </data>
 
 </root>

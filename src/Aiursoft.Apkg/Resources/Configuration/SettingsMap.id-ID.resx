@@ -66,6 +66,9 @@
   <data name="Project Name" xml:space="preserve">
     <value>Nama Proyek</value>
   </data>
+  <data name="Public APT Server Domain" xml:space="preserve">
+    <value>Domain Server APT Publik</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>Nama merek yang ditampilkan di bagian footer.</value>
   </data>
@@ -77,6 +80,31 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>Nama proyek yang ditampilkan di antarmuka pengguna depan</value>
+  </data>
+  <data name="The public-facing domain (or full base URL) that APT clients use to reach the static repository files. This domain is stamped into every APT source configuration the server generates — including the one-line install guides on repository detail pages, the .sources file returned by the API, and the SDK usage instructions on API key pages.\n\nWhen rsync export (RepositoryExportJob) materializes the artifacts/ directory onto a separate static file server (nginx, caddy, or a CDN edge node), the domain that APT clients see is different from the web application&apos;s own host. Set this to the static server&apos;s domain so that apt update and apt install requests go directly to the static server, not to the web app.\n\nExamples:\n  apt.example.com          ← bare domain (the current request scheme — http or https — is prepended automatically)\n  https://apt.example.com  ← full URL (scheme included, used as-is)\n\nWhen to configure:\n  - You run RepositoryExportJob and serve the exported artifacts/ directory from a different machine, CDN, or reverse proxy.\n  - You want APT traffic to bypass the web application entirely and hit a lightweight static file server.\n\nWhen to leave empty:\n  - The web application itself serves the /artifacts/ routes directly (no separate static server).\n  - You are not using the rsync export feature.\n\nDefault (empty): the server uses the current HTTP request&apos;s host and scheme, which is correct for single-server deployments.\n\nWhat this setting affects:\n  - Repository Details page → one-line apt setup commands, GPG key download URL, APT URIs\n  - Package Details page → install instructions and APT source URIs\n  - API /api/sources/{id} → generated .sources file content\n  - API Key Usage page → SDK configuration examples" xml:space="preserve">
+    <value>Domain (atau URL dasar lengkap) yang menghadap publik dan digunakan klien APT untuk mengakses file repositori statis. Domain ini dicantumkan dalam setiap konfigurasi sumber APT yang dihasilkan server — termasuk panduan instalasi satu baris di halaman detail repositori, file .sources yang dikembalikan oleh API, dan petunjuk penggunaan SDK di halaman kunci API.
+
+Ketika ekspor rsync (RepositoryExportJob) menyalin direktori artifacts/ ke server file statis terpisah (nginx, caddy, atau node tepi CDN), domain yang dilihat klien APT berbeda dari host aplikasi web itu sendiri. Tetapkan ini ke domain server statis agar permintaan apt update dan apt install langsung menuju ke server statis, bukan ke aplikasi web.
+
+Contoh:
+  apt.example.com          ← domain polos (skema permintaan saat ini — http atau https — ditambahkan secara otomatis di depan)
+  https://apt.example.com  ← URL lengkap (skema disertakan, digunakan apa adanya)
+
+Kapan harus dikonfigurasi:
+  - Anda menjalankan RepositoryExportJob dan melayani direktori artifacts/ yang diekspor dari mesin, CDN, atau proxy terbalik yang berbeda.
+  - Anda ingin lalu lintas APT sepenuhnya melewati aplikasi web dan menuju ke server file statis yang ringan.
+
+Kapan dibiarkan kosong:
+  - Aplikasi web itu sendiri melayani rute /artifacts/ secara langsung (tanpa server statis terpisah).
+  - Anda tidak menggunakan fitur ekspor rsync.
+
+Default (kosong): server menggunakan host dan skema dari permintaan HTTP saat ini, yang benar untuk penempatan server tunggal.
+
+Apa yang dipengaruhi oleh pengaturan ini:
+  - Halaman Detail Repositori → perintah penyiapan apt satu baris, URL unduhan kunci GPG, URI APT
+  - Halaman Detail Paket → petunjuk instalasi dan URI sumber APT
+  - API /api/sources/&lt;id&gt; → konten file .sources yang dihasilkan
+  - Halaman Penggunaan Kunci API → contoh konfigurasi SDK</value>
   </data>
 
 </root>
