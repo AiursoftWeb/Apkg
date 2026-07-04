@@ -29,7 +29,13 @@ public static class Extensions
 
     public static IServiceCollection AddApkgPush(this IServiceCollection services)
     {
-        services.AddHttpClient<ApkgPushService>();
+        services.AddHttpClient<ApkgPushService>(client =>
+        {
+            // Default 100s is too short for large .apkg files (e.g. anduinos-why-ai is ~17GB).
+            // The server-side /complete endpoint must merge chunks, verify SHA256, extract
+            // .deb entries, and process each one — which can take several minutes.
+            client.Timeout = TimeSpan.FromMinutes(30);
+        });
         return services;
     }
 
