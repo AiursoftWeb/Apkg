@@ -266,6 +266,13 @@ public class PostRemoveScriptItem : BaseItem { }
 public class SystemdUnitItem : BaseItem
 {
     public bool AutoEnable { get; set; } = true;
+    /// <summary>
+    /// When true, postinst uses <c>systemctl preset</c> instead of <c>systemctl enable</c>.
+    /// Use this when the package also ships a systemd preset file
+    /// (e.g. <c>/usr/lib/systemd/system-preset/90-*.preset</c>) that defines the enable policy.
+    /// Defaults to false — most packages should use the standard <c>systemctl enable</c> path.
+    /// </summary>
+    public bool UsePreset { get; set; } = false;
 }
 
 /// <summary>

@@ -3914,4 +3914,232 @@ public class DebBuilderTests
                 Directory.Delete(tempDir, recursive: true);
             }
         }
-}
+
+        // ── SystemdUnit UsePreset ────────────────────────────────────────────
+
+        [TestMethod]
+        public async Task BuildAsync_SystemdUnit_UsePreset_GeneratesPresetCommand()
+        {
+            var tempDir = CreateTestDirectory();
+            try
+            {
+                var projectDir = Path.Combine(tempDir, "project");
+                var outputDir = Path.Combine(tempDir, "output");
+                Directory.CreateDirectory(projectDir);
+
+                var deployDir = Path.Combine(projectDir, "deploy");
+                Directory.CreateDirectory(deployDir);
+                await File.WriteAllTextAsync(Path.Combine(deployDir, "zram.service"),
+                    "[Unit]\nDescription=Zram\n\n[Service]\nExecStart=/bin/true\n\n[Install]\nWantedBy=multi-user.target\n");
+
+                var project = new AosprojProject
+                {
+                    PackageName = "zram-pkg",
+                    PackageVersion = "1.0.0",
+                    PackageDescription = "Zram package with preset",
+                    Maintainer = "Test <test@example.com>",
+                    TargetSuites = "jammy",
+                    SystemdUnits =
+                    {
+                        new SystemdUnitItem
+                        {
+                            Source = "deploy/zram.service",
+                            AutoEnable = true,
+                            UsePreset = true
+                        }
+                    }
+                };
+
+                await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+                var staging = Path.Combine(projectDir, "obj", "jammy_amd64");
+                var postinst = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "postinst"));
+
+                // UsePreset=true → postinst should contain systemctl preset, NOT systemctl enable
+                Assert.IsTrue(postinst.Contains("systemctl preset zram.service"),
+                    $"Expected systemctl preset, got:\n{postinst}");
+                Assert.IsFalse(postinst.Contains("systemctl enable zram.service"),
+                    "UsePreset=true should NOT generate systemctl enable");
+                Assert.IsTrue(postinst.Contains("systemctl start zram.service"),
+                    "start should still be present even with preset");
+            }
+            finally
+            {
+                Directory.Delete(tempDir, recursive: true);
+            }
+        }
+
+        [TestMethod]
+        public async Task BuildAsync_SystemdUnit_UsePresetFalse_UsesEnable()
+        {
+            var tempDir = CreateTestDirectory();
+            try
+            {
+                var projectDir = Path.Combine(tempDir, "project");
+                var outputDir = Path.Combine(tempDir, "output");
+                Directory.CreateDirectory(projectDir);
+
+                var deployDir = Path.Combine(projectDir, "deploy");
+                Directory.CreateDirectory(deployDir);
+                await File.WriteAllTextAsync(Path.Combine(deployDir, "app.service"),
+                    "[Unit]\nDescription=App\n\n[Service]\nExecStart=/usr/bin/app\n\n[Install]\nWantedBy=multi-user.target\n");
+
+                var project = new AosprojProject
+                {
+                    PackageName = "app-pkg",
+                    PackageVersion = "1.0.0",
+                    PackageDescription = "App package",
+                    Maintainer = "Test <test@example.com>",
+                    TargetSuites = "jammy",
+                    SystemdUnits =
+                    {
+                        new SystemdUnitItem
+                        {
+                            Source = "deploy/app.service",
+                            AutoEnable = true,
+                            UsePreset = false
+                        }
+                    }
+                };
+
+                await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+                var staging = Path.Combine(projectDir, "obj", "jammy_amd64");
+                var postinst = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "postinst"));
+
+                // UsePreset=false (default) → systemctl enable
+                Assert.IsTrue(postinst.Contains("systemctl enable app.service"),
+                    $"Expected systemctl enable, got:\n{postinst}");
+                Assert.IsFalse(postinst.Contains("systemctl preset app.service"),
+                    "UsePreset=false should NOT generate systemctl preset");
+            }
+            finally
+            {
+                Directory.Delete(tempDir, recursive: true);
+            }
+        }
+
+        [TestMethod]
+        public async Task BuildAsync_ImplicitSystemdUnit_FromIncludeFile_GeneratesPostinst()
+        {
+            var tempDir = CreateTestDirectory();
+            try
+            {
+                var projectDir = Path.Combine(tempDir, "project");
+                var outputDir = Path.Combine(tempDir, "output");
+                Directory.CreateDirectory(projectDir);
+
+                var deployDir = Path.Combine(projectDir, "deploy");
+                Directory.CreateDirectory(deployDir);
+                await File.WriteAllTextAsync(Path.Combine(deployDir, "mysvc.service"),
+                    "[Unit]\nDescription=MySvc\n\n[Service]\nExecStart=/usr/bin/mysvc\n\n[Install]\nWantedBy=multi-user.target\n");
+
+                // Using IncludeFile (NOT SystemdUnit) to install a .service —
+                // the SDK should auto-detect it and generate postinst anyway.
+                var project = new AosprojProject
+                {
+                    PackageName = "mysvc-pkg",
+                    PackageVersion = "1.0.0",
+                    PackageDescription = "Service installed via IncludeFile",
+                    Maintainer = "Test <test@example.com>",
+                    TargetSuites = "jammy",
+                    IncludeFiles =
+                    {
+                        new IncludeFileItem
+                        {
+                            Source = "deploy/mysvc.service",
+                            Target = "/lib/systemd/system/mysvc.service"
+                        }
+                    }
+                };
+
+                await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+                var staging = Path.Combine(projectDir, "obj", "jammy_amd64");
+
+                // The .service file should be copied
+                Assert.IsTrue(File.Exists(Path.Combine(staging, "lib", "systemd", "system", "mysvc.service")),
+                    "Service file should be copied to /lib/systemd/system/");
+
+                // postinst must be auto-generated for the implicit detection
+                var postinstPath = Path.Combine(staging, "DEBIAN", "postinst");
+                Assert.IsTrue(File.Exists(postinstPath),
+                    "postinst should be auto-generated for implicit systemd unit from IncludeFile");
+                var postinst = await File.ReadAllTextAsync(postinstPath);
+                Assert.IsTrue(postinst.Contains("systemctl enable mysvc.service"),
+                    $"Expected systemctl enable in auto-generated postinst:\n{postinst}");
+                Assert.IsTrue(postinst.Contains("systemctl start mysvc.service"),
+                    "Expected systemctl start in auto-generated postinst");
+
+                // prerm should also be generated
+                Assert.IsTrue(File.Exists(Path.Combine(staging, "DEBIAN", "prerm")),
+                    "prerm should be generated for implicit systemd unit");
+                // postrm should also be generated
+                Assert.IsTrue(File.Exists(Path.Combine(staging, "DEBIAN", "postrm")),
+                    "postrm should be generated for implicit systemd unit");
+            }
+            finally
+            {
+                Directory.Delete(tempDir, recursive: true);
+            }
+        }
+
+        [TestMethod]
+        public async Task BuildAsync_ImplicitSystemdUnit_DeduplicatesExplicit()
+        {
+            // When the same unit is declared both as IncludeFile and SystemdUnit,
+            // the implicit detection should not duplicate it.
+            var tempDir = CreateTestDirectory();
+            try
+            {
+                var projectDir = Path.Combine(tempDir, "project");
+                var outputDir = Path.Combine(tempDir, "output");
+                Directory.CreateDirectory(projectDir);
+
+                var deployDir = Path.Combine(projectDir, "deploy");
+                Directory.CreateDirectory(deployDir);
+                await File.WriteAllTextAsync(Path.Combine(deployDir, "dedup.service"),
+                    "[Unit]\nDescription=Dedup\n\n[Service]\nExecStart=/bin/true\n\n[Install]\nWantedBy=multi-user.target\n");
+
+                var project = new AosprojProject
+                {
+                    PackageName = "dedup-pkg",
+                    PackageVersion = "1.0.0",
+                    PackageDescription = "Dedup test",
+                    Maintainer = "Test <test@example.com>",
+                    TargetSuites = "jammy",
+                    // Both explicit SystemdUnit and IncludeFile for the same service
+                    SystemdUnits =
+                    {
+                        new SystemdUnitItem
+                        {
+                            Source = "deploy/dedup.service",
+                            AutoEnable = true
+                        }
+                    },
+                    IncludeFiles =
+                    {
+                        new IncludeFileItem
+                        {
+                            Source = "deploy/dedup.service",
+                            Target = "/lib/systemd/system/dedup.service"
+                        }
+                    }
+                };
+
+                await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "amd64", outputDir);
+
+                var staging = Path.Combine(projectDir, "obj", "jammy_amd64");
+                var postinst = await File.ReadAllTextAsync(Path.Combine(staging, "DEBIAN", "postinst"));
+
+                // "systemctl enable dedup.service" should appear exactly once
+                var count = System.Text.RegularExpressions.Regex.Matches(postinst, "systemctl enable dedup.service").Count;
+                Assert.AreEqual(1, count,
+                    $"systemctl enable should appear exactly once, found {count}:\n{postinst}");
+            }
+            finally
+            {
+                Directory.Delete(tempDir, recursive: true);
+            }
+        }
+    }

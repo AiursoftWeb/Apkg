@@ -225,6 +225,56 @@ public class AosprojSerializerTests
     }
 
     [TestMethod]
+    public void RoundTrip_SystemdUnitUsePreset()
+    {
+        var original = new AosprojProject
+        {
+            PackageName = "test",
+            SystemdUnits =
+            {
+                new SystemdUnitItem
+                {
+                    Source = "deploy/zram.service",
+                    AutoEnable = true,
+                    UsePreset = true
+                }
+            }
+        };
+
+        var doc = _serializer.Serialize(original);
+        var roundTripped = _serializer.Deserialize(doc);
+
+        Assert.AreEqual(1, roundTripped.SystemdUnits.Count);
+        Assert.AreEqual("deploy/zram.service", roundTripped.SystemdUnits[0].Source);
+        Assert.IsTrue(roundTripped.SystemdUnits[0].UsePreset,
+            "UsePreset=true should survive serializer round-trip");
+    }
+
+    [TestMethod]
+    public void RoundTrip_SystemdUnitUsePresetDefaultFalse()
+    {
+        var original = new AosprojProject
+        {
+            PackageName = "test",
+            SystemdUnits =
+            {
+                new SystemdUnitItem
+                {
+                    Source = "deploy/app.service",
+                    AutoEnable = true
+                    // UsePreset defaults to false
+                }
+            }
+        };
+
+        var doc = _serializer.Serialize(original);
+        var roundTripped = _serializer.Deserialize(doc);
+
+        Assert.IsFalse(roundTripped.SystemdUnits[0].UsePreset,
+            "UsePreset should default to false when not explicitly set");
+    }
+
+    [TestMethod]
     public void RoundTrip_PostInstallScript()
     {
         var original = new AosprojProject

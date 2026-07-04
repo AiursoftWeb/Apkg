@@ -188,11 +188,13 @@ public class AosprojSerializer
                     break;
                 case "SystemdUnit":
                     var autoEnableAttr = (string?)el.Attribute("AutoEnable");
+                    var usePresetAttr = (string?)el.Attribute("UsePreset");
                     project.SystemdUnits.Add(new SystemdUnitItem
                     {
                         Source = (string?)el.Attribute("Include")  ?? el.Value,
                         Condition = condition,
-                        AutoEnable = autoEnableAttr == null || bool.Parse(autoEnableAttr)
+                        AutoEnable = autoEnableAttr == null || bool.Parse(autoEnableAttr),
+                        UsePreset = usePresetAttr != null && bool.Parse(usePresetAttr)
                     });
                     break;
                 case "DependencyCheckSource":
@@ -318,7 +320,8 @@ public class AosprojSerializer
         scriptItems.AddRange(project.SystemdUnits.Select(u =>
             (object)ItemElem("SystemdUnit", u.Condition,
                 new XAttribute("Include", u.Source),
-                new XAttribute("AutoEnable", u.AutoEnable.ToString().ToLowerInvariant()))));
+                new XAttribute("AutoEnable", u.AutoEnable.ToString().ToLowerInvariant()),
+                new XAttribute("UsePreset", u.UsePreset.ToString().ToLowerInvariant()))));
 
         if (scriptItems.Count > 0)
             itemGroups.Add(new XElement("ItemGroup", scriptItems));

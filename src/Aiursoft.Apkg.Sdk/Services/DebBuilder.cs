@@ -307,6 +307,45 @@ public class DebBuilder
             _logger.LogDebug("  + /lib/systemd/system/{Unit}", unitName);
         }
 
+        // ── Auto-detect .service files installed via IncludeFile ──────────────
+        // If a packager accidentally uses IncludeFile to ship a .service file
+        // instead of the dedicated SystemdUnit element, warn and auto-promote
+        // it so that postinst/prerm/postrm scripts are still generated.
+        // This mirrors dh_installsystemd's auto-detection behavior.
+        var systemdDirs = new[] { "/lib/systemd/system/", "/usr/lib/systemd/system/" };
+        foreach (var item in project.IncludeFiles.Where(f => Include(f.Condition)))
+        {
+            var itemTarget = item.Target;
+            if (!itemTarget.StartsWith('/'))
+                itemTarget = "/" + itemTarget;
+            if (!itemTarget.EndsWith(".service", StringComparison.OrdinalIgnoreCase))
+                continue;
+            if (!systemdDirs.Any(d => itemTarget.StartsWith(d, StringComparison.OrdinalIgnoreCase)))
+                continue;
+
+            var unitName = Path.GetFileName(itemTarget);
+            // Avoid duplicate if the same unit is already declared via SystemdUnit
+            if (autoEnableUnits.Any(u => Path.GetFileName(u.Source).Equals(unitName, StringComparison.OrdinalIgnoreCase)))
+                continue;
+
+            _logger.LogWarning(
+                "IncludeFile '{Target}' installs a .service file but was not declared as " +
+                "<SystemdUnit>. Consider using <SystemdUnit Include=\"{Source}\" AutoEnable=\"true\" /> " +
+                "instead for automatic postinst/prerm/postrm generation.",
+                item.Target, item.Source);
+
+            // Synthesize an implicit SystemdUnit so the unit still gets
+            // enable+start on install. UsePreset defaults to false.
+            var implicitUnit = new SystemdUnitItem
+            {
+                Source = item.Source,
+                AutoEnable = true,
+                Condition = item.Condition
+            };
+            activeUnits.Add(implicitUnit);
+            autoEnableUnits.Add(implicitUnit);
+        }
+
         // ── PreInstallScript → DEBIAN/preinst ─────────────────────────────────
         var preinstLines = new StringBuilder("#!/bin/sh\nset -e\n");
         bool hasPreinst = false;
@@ -359,7 +398,14 @@ public class DebBuilder
             foreach (var unit in autoEnableUnits)
             {
                 var un = Path.GetFileName(unit.Source);
-                postinstLines.AppendLine($"            systemctl enable {un}");
+                if (unit.UsePreset)
+                {
+                    postinstLines.AppendLine($"            systemctl preset {un}");
+                }
+                else
+                {
+                    postinstLines.AppendLine($"            systemctl enable {un}");
+                }
                 postinstLines.AppendLine($"            systemctl start {un} || true");
             }
             postinstLines.AppendLine("        else");
