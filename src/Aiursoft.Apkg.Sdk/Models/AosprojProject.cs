@@ -272,7 +272,7 @@ public class SystemdUnitItem : BaseItem
     /// (e.g. <c>/usr/lib/systemd/system-preset/90-*.preset</c>) that defines the enable policy.
     /// Defaults to false — most packages should use the standard <c>systemctl enable</c> path.
     /// </summary>
-    public bool UsePreset { get; set; } = false;
+    public bool UsePreset { get; set; }
 }
 
 /// <summary>
