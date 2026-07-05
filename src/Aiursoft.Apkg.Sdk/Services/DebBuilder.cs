@@ -388,29 +388,33 @@ public class DebBuilder
             hasPostinst = true;
         }
 
-        // Systemd postinst: enable+start on fresh install, try-restart on upgrade
+        // Systemd postinst: enable+start on fresh install, try-restart on upgrade.
+        // Skip when systemd is not running (e.g. Docker containers) — /run/systemd/system
+        // only exists when systemd is PID 1.
         if (autoEnableUnits.Count > 0)
         {
             postinstLines.AppendLine("case \"$1\" in");
             postinstLines.AppendLine("    configure)");
-            postinstLines.AppendLine("        systemctl daemon-reload");
-            postinstLines.AppendLine("        if [ -z \"$2\" ]; then");
+            postinstLines.AppendLine("        if [ -d /run/systemd/system ]; then");
+            postinstLines.AppendLine("            systemctl daemon-reload");
+            postinstLines.AppendLine("            if [ -z \"$2\" ]; then");
             foreach (var unit in autoEnableUnits)
             {
                 var un = Path.GetFileName(unit.Source);
                 if (unit.UsePreset)
                 {
-                    postinstLines.AppendLine($"            systemctl preset {un}");
+                    postinstLines.AppendLine($"                systemctl preset {un}");
                 }
                 else
                 {
-                    postinstLines.AppendLine($"            systemctl enable {un}");
+                    postinstLines.AppendLine($"                systemctl enable {un}");
                 }
-                postinstLines.AppendLine($"            systemctl start {un} || true");
+                postinstLines.AppendLine($"                systemctl start {un} || true");
             }
-            postinstLines.AppendLine("        else");
+            postinstLines.AppendLine("            else");
             foreach (var unit in autoEnableUnits)
-                postinstLines.AppendLine($"            systemctl try-restart {Path.GetFileName(unit.Source)} || true");
+                postinstLines.AppendLine($"                systemctl try-restart {Path.GetFileName(unit.Source)} || true");
+            postinstLines.AppendLine("            fi");
             postinstLines.AppendLine("        fi");
             postinstLines.AppendLine("    ;;");
             postinstLines.AppendLine("esac");
@@ -441,13 +445,16 @@ public class DebBuilder
             hasPrerm = true;
         }
 
-        // Systemd prerm: stop only on remove, skip on upgrade
+        // Systemd prerm: stop only on remove, skip on upgrade.
+        // Skip when systemd is not running (e.g. Docker containers).
         if (autoEnableUnits.Count > 0)
         {
             prermLines.AppendLine("case \"$1\" in");
             prermLines.AppendLine("    remove|deconfigure)");
+            prermLines.AppendLine("        if [ -d /run/systemd/system ]; then");
             foreach (var unit in autoEnableUnits)
-                prermLines.AppendLine($"        systemctl stop {Path.GetFileName(unit.Source)} || true");
+                prermLines.AppendLine($"            systemctl stop {Path.GetFileName(unit.Source)} || true");
+            prermLines.AppendLine("        fi");
             prermLines.AppendLine("    ;;");
             prermLines.AppendLine("esac");
             hasPrerm = true;
@@ -477,13 +484,17 @@ public class DebBuilder
             hasPostrm = true;
         }
 
+        // Systemd postrm: disable on remove/purge.
+        // Skip when systemd is not running (e.g. Docker containers).
         if (autoEnableUnits.Count > 0)
         {
             postrmLines.AppendLine("case \"$1\" in");
             postrmLines.AppendLine("    remove|purge)");
+            postrmLines.AppendLine("        if [ -d /run/systemd/system ]; then");
             foreach (var unit in autoEnableUnits)
-                postrmLines.AppendLine($"        systemctl disable {Path.GetFileName(unit.Source)} || true");
-            postrmLines.AppendLine("        systemctl daemon-reload || true");
+                postrmLines.AppendLine($"            systemctl disable {Path.GetFileName(unit.Source)} || true");
+            postrmLines.AppendLine("            systemctl daemon-reload || true");
+            postrmLines.AppendLine("        fi");
             postrmLines.AppendLine("    ;;");
             postrmLines.AppendLine("esac");
             hasPostrm = true;
