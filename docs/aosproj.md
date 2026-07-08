@@ -116,6 +116,7 @@
 | `UpstreamSignedBy` | — | 上游 APT 仓库的 GPG 公钥文件路径（相对于 .aosproj 所在目录）。设置后，`apt-get update` 会通过 `[signed-by=…]` 选项用该公钥验证上游仓库签名；未设置时 `file://` URL 自动使用 `[trusted=yes]`，其他 URL 使用系统信任库。详见 [§上游派生-GPG 签名验证](#上游派生gpg-签名验证) |
 | `SuppressUpstreamScripts` | — | 设为 `true` 时，不继承上游包的 maintainer scripts（preinst/postinst/prerm/postrm），仅继承其数据载荷。适用于仅需上游文件但需完全自控安装脚本的场景。默认为 `false` |
 | `SuppressUpstreamDependencies` | — | 空格/逗号分隔的上游包名列表，在合并本地依赖前从上游继承的 `Depends` 中移除。例如 `"ubuntu-pro-client ubuntu-advantage-desktop-daemon"`。移除时仅匹配基础包名（忽略版本约束），大小写不敏感 |
+| `AutoConvertUpstreamExactVersions` | — | 设为 `true`（默认值）时，自动将从上游继承的严格版本锁定（`= version`）转换为大于等于（`>= version`）。适用于 `Depends`、`Recommends` 和 `Suggests` 字段。这能解决因为上游包安全更新导致严格版本锁定的包阻断系统级更新的问题。设为 `false` 可保留上游的严格绑定 |
 
 ### 上游派生（UpstreamSource）
 
@@ -127,6 +128,7 @@
 4. **合并**：本地条目（`IncludeFile`、`IncludeScript`、`IncludeFolder`）覆盖到暂存区
 5. **合并 control 字段**：
    - **Version**：若 `PackageVersion` 包含 `$(UpstreamVersion)`，则替换为上游的实际版本号（如 `13.1ubuntu1`）。这使得派生包的版本自动跟随上游
+   - `Depends`、`Recommends`、`Suggests`：默认情况下，继承自上游控制文件中的严格版本锁定（`= version`）会自动转换为松散的（`>= version`），由 `AutoConvertUpstreamExactVersions` 控制。
    - `Depends`：上游依赖在前，本地 `Dependency` 附录在后。以基础包名去重（如上游有 `libc6 (>= 2.34)` 而本地声明 `libc6`，保留上游版本）。设置 `SuppressUpstreamDependencies` 可在合并前按包名移除上游依赖
    - `Provides`、`Conflicts`、`Replaces`、`Breaks`、`Recommends`、`Suggests`：本地优先，未填时回退到上游值
    - `Homepage`：本地优先，未填时回退到上游值

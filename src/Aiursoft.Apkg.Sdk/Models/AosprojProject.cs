@@ -105,6 +105,13 @@ public class AosprojProject
     /// e.g. "ubuntu-pro-client ubuntu-advantage-desktop-daemon".
     /// </summary>
     public string SuppressUpstreamDependencies { get; set; } = string.Empty;
+    /// <summary>
+    /// When true, automatically converts exact version dependencies (=) inherited from upstream
+    /// to greater-than-or-equal (>=) dependencies. This solves cross-source package exact version
+    /// pinning issues where an inherited exact version blocks system upgrades when upstream patches are released.
+    /// Defaults to true.
+    /// </summary>
+    public bool AutoConvertUpstreamExactVersions { get; set; } = true;
 
     // ── Dependency check ─────────────────────────────────────────────────────
     /// <summary>

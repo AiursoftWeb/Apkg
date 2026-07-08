@@ -1,0 +1,4 @@
+<Project>
+  <!-- The Apkg SDK processes .aosproj files via its own XDocument serializer.
+       Standard MSBuild targets (Build, Clean, etc.) are redirected through the SDK's tasks. -->
+</Project>

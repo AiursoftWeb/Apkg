@@ -78,6 +78,9 @@ public class AosprojSerializer
                 case "SuppressUpstreamDependencies":
                     project.SuppressUpstreamDependencies = el.Value;
                     break;
+                case "AutoConvertUpstreamExactVersions":
+                    if (bool.TryParse(el.Value, out var b)) project.AutoConvertUpstreamExactVersions = b;
+                    break;
                 case "UpstreamSuiteMapping": project.UpstreamSuiteMapping = el.Value; break;
                 case "SuiteShortNameMap": project.SuiteShortNameMap = el.Value; break;
             }
@@ -257,6 +260,7 @@ public class AosprojSerializer
             Elem("UpstreamSignedBy", project.UpstreamSignedBy),
             Elem("UpstreamSuiteMapping", project.UpstreamSuiteMapping),
             Elem("SuppressUpstreamDependencies", project.SuppressUpstreamDependencies),
+            Elem("AutoConvertUpstreamExactVersions", project.AutoConvertUpstreamExactVersions.ToString().ToLowerInvariant()),
             Elem("SuiteShortNameMap", project.SuiteShortNameMap)
         );
 

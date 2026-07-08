@@ -1421,6 +1421,49 @@ public class DebBuilderTests
         Assert.AreEqual("ubuntu-pro-client", result[1]);
     }
 
+    // ── AutoConvertUpstreamExactVersions ──────────────────────────────────────
+
+    [TestMethod]
+    public void AutoConvertUpstreamExactVersions_ConvertsExactToGreaterOrEqual()
+    {
+        var upstream = new Dictionary<string, string>
+        {
+            ["Depends"] = "python3-software-properties (= 0.99.22)",
+            ["Recommends"] = "python3-software-properties (= 0.99.22)"
+        };
+        
+        DebBuilder.ConvertExactVersionsToGreaterOrEqual(upstream);
+
+        Assert.AreEqual("python3-software-properties (>= 0.99.22)", upstream["Depends"]);
+        Assert.AreEqual("python3-software-properties (>= 0.99.22)", upstream["Recommends"]);
+    }
+
+    [TestMethod]
+    public void AutoConvertUpstreamExactVersions_DoesNotAffectGreaterOrEqual()
+    {
+        var upstream = new Dictionary<string, string>
+        {
+            ["Depends"] = "python3-software-properties (>= 0.99.22)"
+        };
+        
+        DebBuilder.ConvertExactVersionsToGreaterOrEqual(upstream);
+
+        Assert.AreEqual("python3-software-properties (>= 0.99.22)", upstream["Depends"]);
+    }
+
+    [TestMethod]
+    public void AutoConvertUpstreamExactVersions_HandlesMultipleExactDeps()
+    {
+        var upstream = new Dictionary<string, string>
+        {
+            ["Depends"] = "python3-software-properties (= 0.99.22), libc6 ( = 2.34 ), libssl (>= 3.0)"
+        };
+        
+        DebBuilder.ConvertExactVersionsToGreaterOrEqual(upstream);
+
+        Assert.AreEqual("python3-software-properties (>= 0.99.22), libc6 (>= 2.34 ), libssl (>= 3.0)", upstream["Depends"]);
+    }
+
     // ── Error paths ───────────────────────────────────────────────────────────
 
     [TestMethod]

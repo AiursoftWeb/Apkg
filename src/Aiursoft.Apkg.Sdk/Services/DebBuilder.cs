@@ -202,6 +202,11 @@ public class DebBuilder
             }
         }
 
+        if (upstreamControl != null && project.AutoConvertUpstreamExactVersions)
+        {
+            ConvertExactVersionsToGreaterOrEqual(upstreamControl, _logger);
+        }
+
         var mergedDepends = MergeDepends(localDepends, upstreamControl);
 
         var localRecommends = project.Recommends
@@ -830,6 +835,23 @@ public class DebBuilder
         }
 
         return sb.ToString();
+    }
+
+    internal static void ConvertExactVersionsToGreaterOrEqual(Dictionary<string, string> upstreamControl, ILogger? logger = null)
+    {
+        var fieldsToConvert = new[] { "Depends", "Recommends", "Suggests" };
+        foreach (var field in fieldsToConvert)
+        {
+            if (upstreamControl.TryGetValue(field, out var val) && !string.IsNullOrWhiteSpace(val))
+            {
+                var converted = System.Text.RegularExpressions.Regex.Replace(val, @"\(\s*=\s*", "(>= ");
+                if (converted != val)
+                {
+                    logger?.LogInformation("AutoConvertUpstreamExactVersions: converted '{Original}' to '{Converted}' in {Field}", val, converted, field);
+                    upstreamControl[field] = converted;
+                }
+            }
+        }
     }
 
     /// <summary>

@@ -1,0 +1,8 @@
+<Project>
+  <!-- Declare custom item types so MSBuild recognizes them before the SDK runs -->
+  <ItemGroup>
+    <DependencyCheckSource />
+    <DpkgTrigger />
+    <PrebuildCommand />
+  </ItemGroup>
+</Project>
