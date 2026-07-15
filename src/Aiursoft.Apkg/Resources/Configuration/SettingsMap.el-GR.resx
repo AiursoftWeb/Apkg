@@ -66,6 +66,9 @@
   <data name="Project Name" xml:space="preserve">
     <value>Όνομα Έργου</value>
   </data>
+  <data name="Public APT Server Domain" xml:space="preserve">
+    <value>Δημόσια Διεύθυνση Server APT</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>Το όνομα της εταιρείας που εμφανίζεται στον ποδόσκαλο.</value>
   </data>
@@ -77,6 +80,31 @@
   </data>
   <data name="The name of the project displayed in the frontend." xml:space="preserve">
     <value>Το όνομα του έργου που εμφανίζεται στον προβολέα</value>
+  </data>
+  <data name="The public-facing domain (or full base URL) that APT clients use to reach the static repository files. This domain is stamped into every APT source configuration the server generates — including the one-line install guides on repository detail pages, the .sources file returned by the API, and the SDK usage instructions on API key pages.\n\nWhen rsync export (RepositoryExportJob) materializes the artifacts/ directory onto a separate static file server (nginx, caddy, or a CDN edge node), the domain that APT clients see is different from the web application&apos;s own host. Set this to the static server&apos;s domain so that apt update and apt install requests go directly to the static server, not to the web app.\n\nExamples:\n  apt.example.com          ← bare domain (the current request scheme — http or https — is prepended automatically)\n  https://apt.example.com  ← full URL (scheme included, used as-is)\n\nWhen to configure:\n  - You run RepositoryExportJob and serve the exported artifacts/ directory from a different machine, CDN, or reverse proxy.\n  - You want APT traffic to bypass the web application entirely and hit a lightweight static file server.\n\nWhen to leave empty:\n  - The web application itself serves the /artifacts/ routes directly (no separate static server).\n  - You are not using the rsync export feature.\n\nDefault (empty): the server uses the current HTTP request&apos;s host and scheme, which is correct for single-server deployments.\n\nWhat this setting affects:\n  - Repository Details page → one-line apt setup commands, GPG key download URL, APT URIs\n  - Package Details page → install instructions and APT source URIs\n  - API /api/sources/{id} → generated .sources file content\n  - API Key Usage page → SDK configuration examples" xml:space="preserve">
+    <value>Η δημόσια καθολική διεύθυνση domain (ή η πλήρης βασική URL) που χρησιμοποιούν οι πελάτες APT για να φτάσουν τα στατικά αρχεία του αποθετηρίου. Αυτή η διεύθυνση domain εγγράφεται σε κάθε διαμόρφωση πηγής APT που δημιουργεί ο διακομιστής — συμπεριλαμβανομένων των οδηγιών εγκατάστασης μίας γραμμής στις σελίδες λεπτομερειών του αποθετηρίου, του αρχείου .sources που επιστρέφεται από το API και των οδηγιών χρήσης SDK στις σελίδες κλειδιών API.
+
+Όταν η εξαγωγή rsync (RepositoryExportJob) υλοποιεί τον κατάλογο artifacts/ σε έναν ξεχωριστό διακομιστή στατικών αρχείων (nginx, caddy ή κόμβο άκρης CDN), η διεύθυνση domain που βλέπουν οι πελάτες APT διαφέρει από τη δική του οικοδέσποια του web application. Ορίστε αυτό στη διεύθυνση domain του διακομιστή στατικών αρχείων ώστε τα αιτήματα apt update και apt install να πηγαίνουν απευθείας στον διακομιστή στατικών αρχείων, όχι στο web app.
+
+Παραδείγματα:
+  apt.example.com          ← γυμνή διεύθυνση domain (το τρέχον σχήμα αίτησης — http ή https, προσαρτάται αυτόματα)
+  https://apt.example.com  ← πλήρης URL (το σχήμα περιλαμβάνεται, χρησιμοποιείται ως έχει)
+
+Πότε να ρυθμίσετε:
+  - Τρέχετε το RepositoryExportJob και παρέχετε τον εξαγόμενο κατάλογο artifacts/ από διαφορετικό μηχάνημα, CDN ή αντίστροφο proxy.
+  - Θέλετε η κίνηση APT να παρακάμπτει το web application εντελώς και να φτάνει σε έναν ελαφρύ διακομιστή στατικών αρχείων.
+
+Πότε να αφήσετε κενό:
+  - Το ίδιο το web application σερβίρει απευθείας τις διαδρομές /artifacts/ (χωρίς ξεχωριστό διακομιστή στατικών αρχείων).
+  - Δεν χρησιμοποιείτε τη λειτουργία εξαγωγής rsync.
+
+Προεπιλογή (κενό): ο διακομιστής χρησιμοποιεί τον οικοδέσποια και το σχήμα του τρέχοντος αιτήματος HTTP, το οποίο είναι σωστό για αναπτυξεις μονού διακομιστή.
+
+Τι επηρεάζει αυτή η ρύθμιση:
+  - Σελίδα Λεπτομερειών Αποθετηρίου → εντολές ρύθμισης apt μίας γραμμής, URL λήψης κλειδιού GPG, URIs APT
+  - Σελίδα Λεπτομερειών Πακέτου → οδηγίες εγκατάστασης και URIs πηγής APT
+  - API /api/sources/{{id}} → περιεχόμενο που δημιουργείται στο αρχείο .sources
+  - Σελίδα Χρήσης Κλειδιού API → παραδείγματα διαμόρφωσης SDK</value>
   </data>
 
 </root>
