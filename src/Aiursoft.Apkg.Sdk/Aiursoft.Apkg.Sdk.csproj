@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <Version>10.0.20</Version>
+    <Version>10.0.21</Version>
     <TargetFramework>net10.0</TargetFramework>
     <AssemblyName>Aiursoft.Apkg.Sdk</AssemblyName>
     <RootNamespace>Aiursoft.Apkg.Sdk</RootNamespace>
@@ -30,7 +30,7 @@
     </AssemblyAttribute>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Aiursoft.AiurProtocol" Version="10.0.18" />
+    <PackageReference Include="Aiursoft.AiurProtocol" Version="10.0.19" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Aiursoft.AptClient\Aiursoft.AptClient.csproj" />
