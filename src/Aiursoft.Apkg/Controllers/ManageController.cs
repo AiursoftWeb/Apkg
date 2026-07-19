@@ -194,8 +194,16 @@ public class ManageController(
     //
     // GET: /Manage/DeleteAccount
     [HttpGet]
-    public IActionResult DeleteAccount()
+    public async Task<IActionResult> DeleteAccount([FromServices] Aiursoft.Apkg.Entities.ApkgDbContext context)
     {
+        var user = await GetCurrentUserAsync();
+        int ownedPackagesCount = 0;
+        if (user != null)
+        {
+            ownedPackagesCount = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.CountAsync(
+                System.Linq.Queryable.Where(context.ApkgPackages, p => p.OwnerUserId == user.Id));
+        }
+        ViewData["OwnedPackagesCount"] = ownedPackagesCount;
         return this.StackView(new Aiursoft.UiStack.Layout.UiStackLayoutViewModel());
     }
 
@@ -203,11 +211,17 @@ public class ManageController(
     // POST: /Manage/DeleteAccount
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteAccountPost()
+    public async Task<IActionResult> DeleteAccountPost([FromServices] Aiursoft.Apkg.Entities.ApkgDbContext context)
     {
         var user = await GetCurrentUserAsync();
         if (user != null)
         {
+            if (await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AnyAsync(
+                System.Linq.Queryable.Where(context.ApkgPackages, p => p.OwnerUserId == user.Id)))
+            {
+                // Can't delete if owning packages.
+                return RedirectToAction(nameof(DeleteAccount));
+            }
             await signInManager.SignOutAsync();
             await userManager.DeleteAsync(user);
             logger.LogInformation(3, "User deleted their account successfully");

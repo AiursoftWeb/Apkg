@@ -150,6 +150,12 @@ public abstract class ApkgDbContext(DbContextOptions options) : IdentityDbContex
         base.OnModelCreating(builder);
 
         builder.Entity<ApkgPackage>()
+            .HasOne(p => p.OwnerUser)
+            .WithMany()
+            .HasForeignKey(p => p.OwnerUserId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<ApkgPackage>()
             .HasMany(p => p.Revisions)
             .WithOne(r => r.ApkgPackage)
             .HasForeignKey(r => r.ApkgPackageId)
