@@ -1,9 +1,17 @@
-@model dynamic
-@{
-    ViewData["Title"] = Localizer["Delete Account"];
-}
+@using Aiursoft.UiStack.Layout
+@using Microsoft.Extensions.Options
+@using Aiursoft.Apkg.Configuration
+@inject IOptions<AppSettings> AppSettings
+@model UiStackLayoutViewModel
 
-<h1 class="h3 mb-3">@ViewData["Title"]</h1>
+@if (AppSettings.Value.LocalEnabled)
+{
+    <h1 class="h3 mb-3">@Localizer["Delete Account"]</h1>
+}
+else
+{
+    <h1 class="h3 mb-3">@Localizer["Delete Account Data"]</h1>
+}
 
 <div class="card border-danger">
     <div class="card-header bg-danger text-white">
@@ -16,7 +24,7 @@
             {
                 <h5 class="text-danger">@Localizer["Action Required!"]</h5>
                 <p>
-                    @Localizer["You still own {0} package(s).", count] 
+                    @Localizer["You still own "] @count Localizer[" package(s)."] 
                     @Localizer["To prevent breaking downstream dependencies, you must manually delete them or transfer their ownership to another user before you can delete your account."]
                 </p>
                 <a asp-controller="ApkgPackages" asp-action="Index" class="btn btn-primary">@Localizer["Manage My Packages"]</a>
