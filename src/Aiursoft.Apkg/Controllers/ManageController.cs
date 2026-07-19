@@ -3,11 +3,13 @@ using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Models.ManageViewModels;
 using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Services.FileStorage;
+using Aiursoft.UiStack.Layout;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using System.Diagnostics.CodeAnalysis;
@@ -194,30 +196,32 @@ public class ManageController(
     //
     // GET: /Manage/DeleteAccount
     [HttpGet]
-    public async Task<IActionResult> DeleteAccount([FromServices] Aiursoft.Apkg.Entities.ApkgDbContext context)
+    public async Task<IActionResult> DeleteAccount([FromServices] ApkgDbContext context)
     {
         var user = await GetCurrentUserAsync();
         int ownedPackagesCount = 0;
         if (user != null)
         {
-            ownedPackagesCount = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.CountAsync(
-                System.Linq.Queryable.Where(context.ApkgPackages, p => p.OwnerUserId == user.Id));
+            ownedPackagesCount = await context.ApkgPackages
+                .Where(p => p.OwnerUserId == user.Id)
+                .CountAsync();
         }
         ViewData["OwnedPackagesCount"] = ownedPackagesCount;
-        return this.StackView(new Aiursoft.UiStack.Layout.UiStackLayoutViewModel());
+        return this.StackView(new UiStackLayoutViewModel());
     }
 
     //
     // POST: /Manage/DeleteAccount
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteAccountPost([FromServices] Aiursoft.Apkg.Entities.ApkgDbContext context)
+    public async Task<IActionResult> DeleteAccountPost([FromServices] ApkgDbContext context)
     {
         var user = await GetCurrentUserAsync();
         if (user != null)
         {
-            if (await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AnyAsync(
-                System.Linq.Queryable.Where(context.ApkgPackages, p => p.OwnerUserId == user.Id)))
+            if (await context.ApkgPackages
+                .Where(p => p.OwnerUserId == user.Id)
+                .AnyAsync())
             {
                 // Can't delete if owning packages.
                 return RedirectToAction(nameof(DeleteAccount));

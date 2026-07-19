@@ -19,7 +19,7 @@
                     @Localizer["You still own {0} package(s).", count] 
                     @Localizer["To prevent breaking downstream dependencies, you must manually delete them or transfer their ownership to another user before you can delete your account."]
                 </p>
-                <a asp-controller="Packages" asp-action="Mine" class="btn btn-primary">@Localizer["Manage My Packages"]</a>
+                <a asp-controller="ApkgPackages" asp-action="Index" class="btn btn-primary">@Localizer["Manage My Packages"]</a>
                 <a asp-action="Index" class="btn btn-outline-secondary ms-2">@Localizer["Go Back"]</a>
             }
             else
