@@ -138,6 +138,8 @@ public class ViewModelArgsInjector(
         _ = localizer["Confirm Unlist"];
     
         _ = localizer["Apkg"];
+    
+        _ = localizer["Delete Account"];
     }
 
     public void InjectSimple(
