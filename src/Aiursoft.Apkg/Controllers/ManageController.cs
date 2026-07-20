@@ -1,8 +1,10 @@
 using Aiursoft.Apkg.Configuration;
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Models.ManageViewModels;
+using Microsoft.EntityFrameworkCore;
 using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Services.FileStorage;
+using Aiursoft.UiStack.Layout;
 using Aiursoft.UiStack.Navigation;
 using Aiursoft.WebTools.Attributes;
 using Microsoft.AspNetCore.Authorization;
@@ -194,14 +196,13 @@ public class ManageController(
     //
     // GET: /Manage/DeleteAccount
     [HttpGet]
-    public async Task<IActionResult> DeleteAccount([FromServices] Aiursoft.Apkg.Entities.ApkgDbContext context)
+    public async Task<IActionResult> DeleteAccount([FromServices] ApkgDbContext context)
     {
         var user = await GetCurrentUserAsync();
         int ownedPackagesCount = 0;
         if (user != null)
         {
-            ownedPackagesCount = await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.CountAsync(
-                System.Linq.Queryable.Where(context.ApkgPackages, p => p.OwnerUserId == user.Id));
+            ownedPackagesCount = await context.ApkgPackages.CountAsync(p => p.OwnerUserId == user.Id);
         }
         ViewData["OwnedPackagesCount"] = ownedPackagesCount;
         return this.StackView(new UiStackLayoutViewModel { PageTitle = "Delete Account" });
@@ -211,13 +212,12 @@ public class ManageController(
     // POST: /Manage/DeleteAccount
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteAccountPost([FromServices] Aiursoft.Apkg.Entities.ApkgDbContext context)
+    public async Task<IActionResult> DeleteAccountPost([FromServices] ApkgDbContext context)
     {
         var user = await GetCurrentUserAsync();
         if (user != null)
         {
-            if (await Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AnyAsync(
-                System.Linq.Queryable.Where(context.ApkgPackages, p => p.OwnerUserId == user.Id)))
+            if (await context.ApkgPackages.AnyAsync(p => p.OwnerUserId == user.Id))
             {
                 // Can't delete if owning packages.
                 return RedirectToAction(nameof(DeleteAccount));
