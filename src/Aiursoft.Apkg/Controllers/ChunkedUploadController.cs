@@ -97,9 +97,24 @@ public class ChunkedUploadController(
         var sessionDir = GetSessionDirectory(sessionId);
         var chunkPath = Path.Combine(sessionDir, $"chunk_{chunkIndex}");
 
-        await using (var chunkFile = System.IO.File.Create(chunkPath))
+        // Write to a temp file first, then atomically move to the final location.
+        // This prevents "file being used by another process" errors when the client
+        // retries a chunk upload while a previous attempt is still writing.
+        var tempPath = chunkPath + $".tmp.{Guid.NewGuid():N}";
+        try
         {
-            await Request.Body.CopyToAsync(chunkFile);
+            await using (var chunkFile = System.IO.File.Create(tempPath))
+            {
+                await Request.Body.CopyToAsync(chunkFile);
+            }
+
+            System.IO.File.Move(tempPath, chunkPath, overwrite: true);
+        }
+        finally
+        {
+            // Clean up temp file in case Move failed or an exception was thrown
+            if (System.IO.File.Exists(tempPath))
+                System.IO.File.Delete(tempPath);
         }
 
         logger.LogInformation(

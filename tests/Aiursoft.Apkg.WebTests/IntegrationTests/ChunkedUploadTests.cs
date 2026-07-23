@@ -516,4 +516,189 @@ public class ChunkedUploadTests : TestBase
         // Clean up the fresh dir ourselves
         Directory.Delete(freshDir, recursive: true);
     }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Concurrent Retry (File Locking Bug)
+    // ──────────────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Regression test: when the client SDK retries a chunk upload (sending the same
+    /// chunk data again while a previous attempt is still in flight), the server must
+    /// handle the concurrent writes without throwing "file being used by another process".
+    ///
+    /// The fix writes each incoming chunk to a unique temp file and then atomically
+    /// moves it into place, so concurrent uploads of the same chunk never contend on
+    /// the same file handle.
+    /// </summary>
+    [TestMethod]
+    public async Task UploadChunk_ConcurrentRetriesOfSameChunk_AllSucceed_AndMergedContentIsCorrect()
+    {
+        // Arrange — build a valid .apkg and split into 2 chunks
+        var apiKey = await CreateApiKeyAsync(withManageRepos: true);
+
+        var manifestXml = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage>
+              <Name>concurrent-retry-pkg</Name>
+              <Distro>anduinos</Distro>
+              <Component>main</Component>
+              <Entries>
+                <Entry>
+                  <DebFile>concurrent-retry-pkg_1.0.0_noble_amd64.deb</DebFile>
+                  <Suite>noble-addon</Suite>
+                  <Architecture>all</Architecture>
+                </Entry>
+              </Entries>
+            </ApkgPackage>
+            """;
+
+        var apkgBytes = CreateApkgArchive(manifestXml,
+            ("concurrent-retry-pkg_1.0.0_noble_amd64.deb", new byte[64]));
+
+        var chunkSize = apkgBytes.Length / 2;
+        var chunk0 = apkgBytes[..chunkSize];
+        var chunk1 = apkgBytes[chunkSize..];
+
+        var sessionId = await InitSessionAsync(apiKey, apkgBytes, chunkCount: 2);
+
+        // Upload chunk 0 normally
+        await UploadChunkAsync(apiKey, sessionId, 0, chunk0);
+
+        // Act — fire 3 concurrent uploads of the SAME chunk (simulates SDK retry)
+        var retryCount = 3;
+        var concurrentTasks = Enumerable.Range(0, retryCount).Select(async _ =>
+        {
+            // Each request needs its own HttpContent/HttpRequestMessage
+            using var content = new ByteArrayContent(chunk1);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+
+            using var request = new HttpRequestMessage(HttpMethod.Put,
+                $"/api/upload/{sessionId}/chunks/1");
+            request.Content = content;
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+
+            return await Http.SendAsync(request);
+        }).ToArray();
+
+        var responses = await Task.WhenAll(concurrentTasks);
+
+        // Assert — every concurrent upload must succeed (no 500 from file locking)
+        for (var i = 0; i < responses.Length; i++)
+        {
+            var body = await responses[i].Content.ReadAsStringAsync();
+            Assert.AreEqual(HttpStatusCode.OK, responses[i].StatusCode,
+                $"Concurrent chunk upload #{i} must return 200. Got {responses[i].StatusCode}: {body}");
+        }
+
+        // Assert — completing the upload must succeed and the hash must match
+        var completeResponse = await CompleteAsync(apiKey, sessionId);
+        var completeBody = await completeResponse.Content.ReadAsStringAsync();
+        Assert.AreEqual(HttpStatusCode.OK, completeResponse.StatusCode,
+            $"Complete must succeed after concurrent chunk uploads. Body: {completeBody}");
+    }
+
+    /// <summary>
+    /// When a chunk file already exists (from a previous completed attempt) and the
+    /// client retries that same chunk, the server must still accept it and the final
+    /// content must remain correct.
+    ///
+    /// This simulates the case where chunk N succeeded but the client didn't receive
+    /// the 200 response (network hiccup), so it retries. The server must handle this
+    /// idempotently — overwriting the chunk with the same data is harmless.
+    /// </summary>
+    [TestMethod]
+    public async Task UploadChunk_SequentialRetriesOfSameChunk_AllSucceed_AndMergedContentIsCorrect()
+    {
+        var apiKey = await CreateApiKeyAsync(withManageRepos: true);
+
+        var manifestXml = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage>
+              <Name>sequential-retry-pkg</Name>
+              <Distro>anduinos</Distro>
+              <Component>main</Component>
+              <Entries>
+                <Entry>
+                  <DebFile>sequential-retry-pkg_1.0.0_noble_amd64.deb</DebFile>
+                  <Suite>noble-addon</Suite>
+                  <Architecture>all</Architecture>
+                </Entry>
+              </Entries>
+            </ApkgPackage>
+            """;
+
+        var apkgBytes = CreateApkgArchive(manifestXml,
+            ("sequential-retry-pkg_1.0.0_noble_amd64.deb", new byte[64]));
+
+        var sessionId = await InitSessionAsync(apiKey, apkgBytes, chunkCount: 1);
+
+        // Upload the same chunk 3 times sequentially (simulates retry after response lost)
+        for (var attempt = 0; attempt < 3; attempt++)
+        {
+            await UploadChunkAsync(apiKey, sessionId, 0, apkgBytes);
+        }
+
+        // Complete must succeed with correct hash
+        var completeResponse = await CompleteAsync(apiKey, sessionId);
+        var completeBody = await completeResponse.Content.ReadAsStringAsync();
+        Assert.AreEqual(HttpStatusCode.OK, completeResponse.StatusCode,
+            $"Complete must succeed after sequential retries. Body: {completeBody}");
+    }
+
+    /// <summary>
+    /// If a client accidentally sends different data for the same chunk index
+    /// (corrupted retry), the eventual hash check during Complete must catch it
+    /// and return 400.
+    /// </summary>
+    [TestMethod]
+    public async Task UploadChunk_DifferentDataInRetries_CausesHashMismatch()
+    {
+        var apiKey = await CreateApiKeyAsync(withManageRepos: true);
+
+        var manifestXml = """
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage>
+              <Name>corrupted-retry-pkg</Name>
+              <Distro>anduinos</Distro>
+              <Component>main</Component>
+              <Entries>
+                <Entry>
+                  <DebFile>corrupted-retry-pkg_1.0.0_noble_amd64.deb</DebFile>
+                  <Suite>noble-addon</Suite>
+                  <Architecture>all</Architecture>
+                </Entry>
+              </Entries>
+            </ApkgPackage>
+            """;
+
+        var apkgBytes = CreateApkgArchive(manifestXml,
+            ("corrupted-retry-pkg_1.0.0_noble_amd64.deb", new byte[64]));
+
+        var sessionId = await InitSessionAsync(apiKey, apkgBytes, chunkCount: 1);
+
+        // First upload: correct data
+        await UploadChunkAsync(apiKey, sessionId, 0, apkgBytes);
+
+        // Retry: different (corrupted) data — silently overwrites the chunk
+        var corruptedData = new byte[apkgBytes.Length];
+        new Random(42).NextBytes(corruptedData);
+
+        using var content = new ByteArrayContent(corruptedData);
+        content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+        using var request = new HttpRequestMessage(HttpMethod.Put,
+            $"/api/upload/{sessionId}/chunks/0");
+        request.Content = content;
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+        var chunkResponse = await Http.SendAsync(request);
+        Assert.AreEqual(HttpStatusCode.OK, chunkResponse.StatusCode,
+            "Chunk upload should return 200 (server doesn't validate per-chunk hash).");
+
+        // Complete must detect the hash mismatch
+        var completeResponse = await CompleteAsync(apiKey, sessionId);
+        var completeBody = await completeResponse.Content.ReadAsStringAsync();
+        Assert.AreEqual(HttpStatusCode.BadRequest, completeResponse.StatusCode,
+            $"Complete must detect hash mismatch from corrupted retry. Body: {completeBody}");
+        Assert.IsTrue(completeBody.Contains("Hash mismatch"),
+            $"Error should mention hash mismatch. Got: {completeBody}");
+    }
 }
