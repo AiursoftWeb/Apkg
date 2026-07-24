@@ -126,7 +126,7 @@ public class Startup : IWebStartup
         // Delay is set to 30 minutes so RepositorySignJob (25min) has promoted at least one bucket.
         services.RegisterScheduledTask(
             registration: repositoryExportJob,
-            period: TimeSpan.FromMinutes(10),
+            period: TimeSpan.FromHours(1),
             startDelay: TimeSpan.FromMinutes(30));
 
         // So an idea run steps are:
