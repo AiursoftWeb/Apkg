@@ -94,6 +94,65 @@
         <div class="card mb-4">
             <div class="card-header">
                 <h5 class="card-title mb-0"><i class="align-middle me-2"
+                                               data-lucide="hard-drive"></i>@Localizer["Contents Cache"]</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-sm mb-0">
+                    <tr>
+                        <th class="w-50">@Localizer["Cached SHA256 entries"]</th>
+                        <td>@Model.ContentsCacheEntries.ToString("N0")</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Distinct local packages"]</th>
+                        <td>@Model.TotalLocalDebs.ToString("N0")</td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Cache coverage"]</th>
+                        <td>
+                            @if (Model.TotalLocalDebs > 0)
+                            {
+                                var pct = Model.ContentsCacheEntries * 100.0 / Model.TotalLocalDebs;
+                                <span>@pct.ToString("F1")%</span>
+                                @if (pct >= 90)
+                                {
+                                    <span class="badge bg-success ms-2">@Localizer["Healthy"]</span>
+                                }
+                                else if (pct >= 50)
+                                {
+                                    <span class="badge bg-warning text-dark ms-2">@Localizer["Partial"]</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger ms-2">@Localizer["Low"]</span>
+                                }
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["N/A"]</span>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>@Localizer["Estimated I/O saved per sync"]</th>
+                        <td>
+                            @if (Model.ContentsCacheEntries > 0)
+                            {
+                                var savedGB = Model.ContentsCacheEntries * 20.0 / 1024;
+                                <span class="text-success">~@savedGB.ToString("F1") GB</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">@Localizer["N/A"]</span>
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0"><i class="align-middle me-2"
                                                data-lucide="server"></i>@Localizer["Server & Process Information"]</h5>
             </div>
             <div class="table-responsive">

@@ -24,4 +24,6 @@ public class IndexViewModel : UiStackLayoutViewModel
     public List<MigrationEntry> AppliedMigrations { get; init; } = [];
     public int TotalDefinedMigrations { get; init; }
     public List<string> PendingMigrations { get; init; } = [];
+    public int ContentsCacheEntries { get; init; }
+    public int TotalLocalDebs { get; init; }
 }

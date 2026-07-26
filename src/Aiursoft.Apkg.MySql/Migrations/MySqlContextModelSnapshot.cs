@@ -598,6 +598,29 @@ namespace Aiursoft.Apkg.MySql.Migrations
                     b.ToTable("AptRepositories");
                 });
 
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.DebContents", b =>
+                {
+                    b.Property<string>("SHA256")
+                        .HasMaxLength(64)
+                        .HasColumnType("varchar(64)");
+
+                    b.Property<string>("ContentsJson")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("SHA256");
+
+                    b.HasIndex("CreatedAt");
+
+                    b.ToTable("DebContents");
+                });
+
             modelBuilder.Entity("Aiursoft.Apkg.Entities.DependencyCheckReport", b =>
                 {
                     b.Property<int>("Id")

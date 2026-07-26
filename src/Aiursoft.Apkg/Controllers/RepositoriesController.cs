@@ -133,6 +133,15 @@ public class RepositoriesController(
             .OrderBy(c => c)
             .ToListAsync();
 
+        // Bulk-query Contents cache for the current page's packages
+        var pageSha256s = items.Select(p => p.SHA256).Distinct().ToList();
+        var cachedSet = new HashSet<string>(
+            await dbContext.DebContents
+                .Where(c => pageSha256s.Contains(c.SHA256))
+                .Select(c => c.SHA256)
+                .ToListAsync(),
+            StringComparer.OrdinalIgnoreCase);
+
         var model = new RepoPackagesViewModel
         {
             Repo = repo,
@@ -143,6 +152,7 @@ public class RepositoriesController(
             FilterComponent = filterComponent,
             AllArchitectures = allArchitectures,
             AllComponents = allComponents,
+            CachedSha256s = cachedSet,
             Page = page,
             TotalCount = totalCount,
             PageSize = pageSize,

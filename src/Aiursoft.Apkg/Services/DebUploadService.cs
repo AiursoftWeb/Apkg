@@ -2,6 +2,7 @@ using System.Security.Cryptography;
 using Aiursoft.Apkg.Entities;
 using Aiursoft.AptClient;
 using Aiursoft.Apkg.Services.FileStorage;
+using Aiursoft.Apkg.Services.Contents;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.Apkg.Services;
@@ -17,7 +18,9 @@ public class DebUploadService(
     ApkgDbContext db,
     DebPackageParserService debParser,
     FeatureFoldersProvider folders,
-    AptVersionComparisonService versionComparer)
+    AptVersionComparisonService versionComparer,
+    DebContentsService contentsCache,
+    ILogger<DebUploadService> logger)
 {
     private string ObjectsRoot => folders.GetObjectsFolder();
 
@@ -192,6 +195,20 @@ public class DebUploadService(
         };
         db.ApkgDebPackages.Add(lp);
         await db.SaveChangesAsync();
+
+        // ── Populate Contents cache eagerly ────────────────────────────────
+        // dpkg-deb -c is I/O-intensive (decompresses data.tar). Compute once
+        // at upload time so RepositorySyncJob never needs to do it again.
+        try
+        {
+            var contents = await ContentsGeneratorService.GetDebContentsAsync(casPath);
+            await contentsCache.SetAsync(sha256, contents);
+        }
+        catch (Exception ex)
+        {
+            // Non-fatal — cache miss during sync will lazily populate
+            logger.LogWarning(ex, "Failed to populate contents cache for SHA256 {Sha256}", sha256);
+        }
 
         return new DebUploadResult
         {

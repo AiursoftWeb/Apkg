@@ -71,6 +71,7 @@
                         @Localizer["Status"]
                     </a>
                 </th>
+                <th>@Localizer["Cache"]</th>
             </tr>
             </thead>
             <tbody>
@@ -94,6 +95,20 @@
                         else
                         {
                             <span class="badge bg-success">@Localizer["Physical"]</span>
+                        }
+                    </td>
+                    <td>
+                        @if (Model.CachedSha256s.Contains(pkg.SHA256))
+                        {
+                            <span class="badge bg-info-subtle text-info" title="@Localizer["File listing is cached — sync skips dpkg-deb -c for this package"]">
+                                @Localizer["Cached"]
+                            </span>
+                        }
+                        else if (!pkg.IsVirtual)
+                        {
+                            <span class="badge bg-secondary-subtle text-secondary" title="@Localizer["Will be cached on next sync"]">
+                                @Localizer["Uncached"]
+                            </span>
                         }
                     </td>
                 </tr>

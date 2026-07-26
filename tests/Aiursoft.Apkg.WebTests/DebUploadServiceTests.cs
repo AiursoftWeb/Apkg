@@ -119,6 +119,7 @@ public class DebUploadServiceTests
         services.AddSingleton<FeatureFoldersProvider>();
         services.AddTransient<DebPackageParserService>();
         services.AddTransient<AptVersionComparisonService>();
+        services.AddTransient<DebContentsService>();
         services.AddTransient<DebUploadService>();
 
         return services.BuildServiceProvider();

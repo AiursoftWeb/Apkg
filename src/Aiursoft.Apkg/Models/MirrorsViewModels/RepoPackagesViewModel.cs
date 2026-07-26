@@ -18,6 +18,7 @@ public class RepoPackagesViewModel : UiStackLayoutViewModel
     public string? FilterComponent { get; set; }
     public List<string> AllArchitectures { get; set; } = [];
     public List<string> AllComponents { get; set; } = [];
+    public HashSet<string> CachedSha256s { get; set; } = new(StringComparer.OrdinalIgnoreCase);
     public int Page { get; set; } = 1;
     public int TotalCount { get; set; }
     public int PageSize { get; set; } = 100;

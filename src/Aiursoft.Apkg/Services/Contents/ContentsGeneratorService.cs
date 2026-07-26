@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Aiursoft.Apkg.Services.Contents;
 
-public record ContentsPackage(string DebPath, string PackageName, string Section);
+public record ContentsPackage(string DebPath, string PackageName, string Section, string Sha256 = "");
 
 public record ContentsResult(string RawSha256, long RawSize, string GzSha256, long GzSize);
 
@@ -63,11 +63,17 @@ public class ContentsGeneratorService
     /// Generates <c>Contents-{arch}</c> and <c>Contents-{arch}.gz</c> in <paramref name="outputDir"/>
     /// from the given packages. Entries are sorted by file path.
     /// </summary>
+    /// <param name="contentsCache">
+    /// Optional pre-loaded cache mapping SHA256 → file paths. When provided,
+    /// <c>dpkg-deb -c</c> is skipped for any SHA256 present in the cache.
+    /// SHA256s not in the cache fall back to <c>dpkg-deb -c</c> (backward-compatible).
+    /// </param>
     public static async Task<ContentsResult> GenerateContentsFilesAsync(
         string tempDir,
         string arch,
         string outputDir,
-        IReadOnlyList<ContentsPackage> packages)
+        IReadOnlyList<ContentsPackage> packages,
+        IReadOnlyDictionary<string, List<string>>? contentsCache = null)
     {
         // Collect all file entries
         var entries = new List<(string FilePath, string Section, string Package)>();
@@ -77,7 +83,16 @@ public class ContentsGeneratorService
             List<string> files;
             try
             {
-                files = await GetDebContentsAsync(pkg.DebPath);
+                // Check cache first (if provided and this SHA256 is cached)
+                if (contentsCache != null &&
+                    contentsCache.TryGetValue(pkg.Sha256, out var cachedFiles))
+                {
+                    files = cachedFiles;
+                }
+                else
+                {
+                    files = await GetDebContentsAsync(pkg.DebPath);
+                }
             }
             catch
             {
@@ -139,8 +154,10 @@ public class ContentsGeneratorService
 
     /// <summary>
     /// Runs <c>dpkg-deb -c</c> on a .deb file and parses the output.
+    /// Public so <see cref="DebContentsService.ComputeAndCacheAsync"/> can
+    /// reuse the same dpkg-deb invocation logic without code duplication.
     /// </summary>
-    private static async Task<List<string>> GetDebContentsAsync(string debPath)
+    public static async Task<List<string>> GetDebContentsAsync(string debPath)
     {
         if (!File.Exists(debPath))
             throw new FileNotFoundException("Deb file not found.", debPath);
