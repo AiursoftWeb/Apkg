@@ -63,6 +63,10 @@ public class ContentsGeneratorService
     /// Generates <c>Contents-{arch}</c> and <c>Contents-{arch}.gz</c> in <paramref name="outputDir"/>
     /// from the given packages. Entries are sorted by file path.
     /// </summary>
+    /// <param name="tempDir">The temporary directory.</param>
+    /// <param name="arch">The architecture.</param>
+    /// <param name="outputDir">The output directory.</param>
+    /// <param name="packages">The list of packages.</param>
     /// <param name="contentsCache">
     /// Optional pre-loaded cache mapping SHA256 → file paths. When provided,
     /// <c>dpkg-deb -c</c> is skipped for any SHA256 present in the cache.

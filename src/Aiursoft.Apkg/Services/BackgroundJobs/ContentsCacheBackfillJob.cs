@@ -24,7 +24,8 @@ public class ContentsCacheBackfillJob(
     public string Description =>
         "One-time job: computes dpkg-deb -c output for all existing CAS .deb files " +
         "and stores the file listings in the DebContents cache table. " +
-        "Run this once after deploying the Contents cache feature.";
+        "Run this once after upgrading an existing server to the Contents cache feature. " +
+        "New server installations do not need to run this job.";
 
     public async Task ExecuteAsync()
     {

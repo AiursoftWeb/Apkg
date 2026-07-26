@@ -66,7 +66,7 @@ public class DebContentsService(ApkgDbContext db)
         var existing = await db.DebContents.FindAsync(sha256);
         if (existing == null)
         {
-            db.DebContents.Add(new Entities.DebContents
+            db.DebContents.Add(new DebContents
             {
                 SHA256 = sha256,
                 ContentsJson = json,
@@ -124,29 +124,6 @@ public class DebContentsService(ApkgDbContext db)
         return files;
     }
 
-    /// <summary>
-    /// Returns a summary of the cache state.
-    /// </summary>
-    public async Task<DebContentsStats> GetStatsAsync()
-    {
-        var cached = await db.DebContents.CountAsync();
-
-        // Count distinct SHA256s across both sources
-        var localSha256s = await db.ApkgDebPackages
-            .Select(p => p.SHA256)
-            .Distinct()
-            .CountAsync();
-
-        // AptPackages SHA256 count would be huge (across all buckets), so we
-        // only count the distinct SHA256s from local packages for practical UI.
-        // The "hit rate" is a rough guide — mirror packages are counted when
-        // they first go through Contents generation.
-
-        return new DebContentsStats(
-            TotalCached: cached,
-            TotalLocalPackages: localSha256s
-        );
-    }
 
     // ═══════════════════════════════════════════════════════════════════════
     // Private helpers
@@ -201,7 +178,3 @@ public class DebContentsService(ApkgDbContext db)
     }
 }
 
-/// <summary>
-/// Summary statistics for the Contents cache.
-/// </summary>
-public record DebContentsStats(int TotalCached, int TotalLocalPackages);

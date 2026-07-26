@@ -85,6 +85,11 @@ public class Startup : IWebStartup
 
         // Scheduled tasks (attach a schedule to any registered background job)
         services.RegisterScheduledTask(
+            registration: contentsCacheBackfillJob,
+            period: TimeSpan.FromDays(7),
+            startDelay: TimeSpan.FromHours(48));
+
+        services.RegisterScheduledTask(
             registration: orphanAvatarCleanupJob,
             period: TimeSpan.FromHours(6),
             startDelay: TimeSpan.FromMinutes(5));

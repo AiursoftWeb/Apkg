@@ -45,7 +45,7 @@ public class DebContents
 
     /// <summary>
     /// JSON-serialized array of file paths from <c>dpkg-deb -c</c> output, pre-parsed
-    /// via <see cref="Aiursoft.Apkg.Services.Contents.ContentsGeneratorService.ParseDpkgDebContents"/>.
+    /// via parsing logic.
     /// Example: <c>["usr/bin/myapp","etc/myapp.conf","usr/share/doc/myapp/readme"]</c>
     /// </summary>
     [Required]
