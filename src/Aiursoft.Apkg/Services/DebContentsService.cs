@@ -121,9 +121,9 @@ public class DebContentsService(
         {
             await SetAsync(sha256, files);
         }
-        catch
+        catch (Exception ex)
         {
-            // Cache write failure should not block Contents generation
+            logger.LogWarning(ex, "Failed to write contents cache for SHA256 {SHA256}. Cache miss will be retried on next sync.", sha256);
         }
 
         return files;
