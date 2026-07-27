@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>アプリケーションを再起動してもよろしいですか？この操作は元に戻せず、すべてのアクティブな接続が終了します。</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>キャッシュ カバレッジ</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>キャッシュされた SHA256 エントリ</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>キャンセル</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>アプリケーションの再起動を確認</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>コンテンツキャッシュ</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>CPU アーキテクチャ</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>ディレクトリ</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>固有のローカルパッケージ</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Docker コンテナ</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>環境</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>1同期あたりの推定I/O節約量</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>GCメモリ</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>ヘッダー</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>健全</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>ホスト</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>ローカルポート</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>低い</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>マシン名</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>マイグレーション</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>該当なし</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>部分的</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>パス</value>

@@ -30,11 +30,20 @@
   <data name="Back to Repository" xml:space="preserve">
     <value>Επιστροφή στο αποθετήριο</value>
   </data>
+  <data name="Cache" xml:space="preserve">
+    <value>Μεταφρασμένο λεξιλόγιο εδώ...</value>
+  </data>
+  <data name="Cached" xml:space="preserve">
+    <value>Σε cache</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Συστατικό</value>
+  </data>
+  <data name="File listing is cached — sync skips dpkg-deb -c for this package" xml:space="preserve">
+    <value>Η λίστα αρχείων είναι προσωρινά αποθηκευμένη — ο συγχρονισμός παραλείπει την εντολή dpkg-deb -c για αυτό το πακέτο</value>
   </data>
   <data name="Package" xml:space="preserve">
     <value>Πακέτο</value>
@@ -57,6 +66,9 @@
   <data name="Status" xml:space="preserve">
     <value>Κατάσταση</value>
   </data>
+  <data name="Uncached" xml:space="preserve">
+    <value>Μη μετρημένο</value>
+  </data>
   <data name="Version" xml:space="preserve">
     <value>Έκδοση</value>
   </data>
@@ -65,6 +77,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Εικονικό</value>
+  </data>
+  <data name="Will be cached on next sync" xml:space="preserve">
+    <value>Θα αποθηκευτεί στην προσωρινή μνήμη κατά την επόμενη συγχρονισμένη ενημέρωση</value>
   </data>
 
 </root>

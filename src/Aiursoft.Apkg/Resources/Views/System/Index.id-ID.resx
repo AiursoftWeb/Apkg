@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Apakah Anda yakin ingin memulai ulang aplikasi? Tindakan ini tidak dapat dibatalkan dan akan mengakhiri semua koneksi aktif.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>Cakupan Cache</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>Entri SHA256 yang di-cache</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Batal</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>Konfirmasi Restart Aplikasi</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>Cache Konten</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>Arsitektur CPU</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>Direktori</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>Paket lokal unik</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Kontainer Docker</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>Lingkungan</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>Estimasi I/O yang dihemat per sinkronisasi</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>Memori GC</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>Header</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>Sehat</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>Host</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>Port Lokal</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Rendah</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>Nama Mesin</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>Migrasi</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>T/A</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Sebagian</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Jalur</value>

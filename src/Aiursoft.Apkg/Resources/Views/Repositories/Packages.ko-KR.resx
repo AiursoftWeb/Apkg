@@ -30,11 +30,20 @@
   <data name="Back to Repository" xml:space="preserve">
     <value>저장소로 돌아가기</value>
   </data>
+  <data name="Cache" xml:space="preserve">
+    <value>캐시</value>
+  </data>
+  <data name="Cached" xml:space="preserve">
+    <value>캐시됨</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>컴포넌트</value>
+  </data>
+  <data name="File listing is cached — sync skips dpkg-deb -c for this package" xml:space="preserve">
+    <value>파일 목록이 캐시됨 — 동기화 시 이 패키지에 대해 dpkg-deb -c를 건너뜁니다</value>
   </data>
   <data name="Package" xml:space="preserve">
     <value>패키지</value>
@@ -57,6 +66,9 @@
   <data name="Status" xml:space="preserve">
     <value>상태</value>
   </data>
+  <data name="Uncached" xml:space="preserve">
+    <value>캐시되지 않음</value>
+  </data>
   <data name="Version" xml:space="preserve">
     <value>버전</value>
   </data>
@@ -65,6 +77,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>가상</value>
+  </data>
+  <data name="Will be cached on next sync" xml:space="preserve">
+    <value>다음 동기화 시 캐시됩니다</value>
   </data>
 
 </root>

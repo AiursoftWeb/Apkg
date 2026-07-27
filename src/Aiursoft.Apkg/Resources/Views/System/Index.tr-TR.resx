@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Uygulamayı yeniden başlatmak istediğinizden emin misiniz? Bu işlem geri alınamaz ve tüm aktif bağlantıları sonlandıracaktır.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>Önbellek kapsamı</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>Önbelleğe alınmış SHA256 girişleri</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>Uygulama Yeniden Başlatmayı Onayla</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>İçerik Önbelleği</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>İşlemci Mimarisi</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>Dizin</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>Farklı yerel paketler</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Docker Konteyneri</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>Çevre</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>Her senkronizasyonda tahmini olarak tasarruf edilen I/O</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>GC Belleği</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>Başlık</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>Sağlıklı</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>Sunucu</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>Yerel Port</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Düşük</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>Makine Adı</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>Göç</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>YOK</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Kısmi</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Yol</value>

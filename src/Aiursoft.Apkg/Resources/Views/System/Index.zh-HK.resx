@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>你確定要重新啟動應用程式嗎？此操作不可逆轉，並會終止所有現有連接。</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>快取覆蓋率</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>已快取的 SHA256 項目</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>確認應用程式重新啟動</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>內容快取</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>CPU 架構</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>目錄</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>不同本地套件數目</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Docker 容器</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>環境</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>每次同步預計節省 I/O 量</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>GC 記憶體</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>標頭</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>健康</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>主機</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>本機端口</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>低</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>電腦名稱</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>遷移</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>不適用</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>部分</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>路徑</value>

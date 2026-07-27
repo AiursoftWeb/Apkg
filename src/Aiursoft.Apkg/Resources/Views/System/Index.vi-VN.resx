@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Bạn có chắc chắn muốn khởi động lại ứng dụng không? Hành động này không thể hoàn tác và sẽ chấm dứt tất cả các kết nối đang hoạt động.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>Phạm vi bao phủ bộ nhớ đệm</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>Mục nhập SHA256 đã lưu trong bộ nhớ đệm</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Hủy</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>Xác nhận Khởi động lại Ứng dụng</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>Bộ nhớ đệm nội dung</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>Kiến trúc CPU</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>Thư mục</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>Các gói cục bộ khác nhau</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Container Docker</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>Môi trường</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>I/O ước tính tiết kiệm được mỗi lần đồng bộ</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>Bộ nhớ GC</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>Tiêu đề</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>Tốt</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>Máy chủ</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>Cổng nội bộ</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Thấp</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>Tên Máy</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>Chuyển đổi</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Một phần</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Đường dẫn</value>

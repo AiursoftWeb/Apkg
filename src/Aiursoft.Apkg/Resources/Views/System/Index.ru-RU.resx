@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Вы уверены, что хотите перезапустить приложение? Это действие необратимо и завершит все активные подключения.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>Охват кэша</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>Кэшированные записи SHA256</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Отмена</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>Подтвердите перезапуск приложения</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>Кэш содержимого</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>Архитектура ЦП</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>Рабочий каталог</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>Уникальные локальные пакеты</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Контейнер Docker</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>Окружение</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>Примерный объем сэкономленных операций ввода-вывода за синхронизацию</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>Память GC</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>Заголовок</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>Норма</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>Хост</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>Локальный порт</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Низкий</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>Имя компьютера</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>Миграция</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>Н/Д</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Частичный</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Путь</value>

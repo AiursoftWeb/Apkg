@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>¿Estás seguro de que deseas reiniciar la aplicación? Esta acción es irreversible y terminará todas las conexiones activas.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>Cobertura de caché</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>Entradas SHA256 en caché</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>Confirmar reinicio de la aplicación</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>Caché de contenidos</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>Arquitectura de CPU</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>Directorio</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>Paquetes locales distintos</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Contenedor de Docker</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>Entorno</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>E/S estimada ahorrada por sincronización</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>Memoria GC</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>Encabezado</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>Saludable</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>Host</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>Puerto local</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Bajo</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>Nombre de la máquina</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>Migración</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>N/D</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Parcial</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Ruta</value>

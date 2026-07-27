@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Oletko varma, että haluat käynnistää sovelluksen uudelleen? Tämä toiminto on peruuttamaton ja katkaisee kaikki aktiiviset yhteydet.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>Välimuistin kattavuus</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>Välimuistissa olevat SHA256-tietueet</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Peruuta</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>Vahvista sovelluksen uudelleenkäynnistys</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>Sisältövälimuisti</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>Suorittimen arkkitehtuuri</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>Hakemisto</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>Eri paikalliset paketit</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Docker-säiliö</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>Ympäristö</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>Arvioitu synkronointia kohden säästetty I/O</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>GC-muisti</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>Otsikko</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>Terve</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>Isäntä</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>Paikallinen portti</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Matala</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>Koneen nimi</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>Siirto</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>Ei saatavilla</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Osittainen</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Polku</value>

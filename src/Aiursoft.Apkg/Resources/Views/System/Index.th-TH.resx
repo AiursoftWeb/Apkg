@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>คุณแน่ใจหรือไม่ว่าต้องการรีสตาร์ทแอปพลิเคชัน? การดำเนินการนี้ไม่สามารถย้อนกลับได้และจะทำให้การเชื่อมต่อทั้งหมดถูกยกเลิก</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>ความครอบคลุมของแคช</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>รายการ SHA256 ในแคช</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>ยกเลิก</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>ยืนยันการเริ่มต้นแอปพลิเคชันใหม่</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>แคชเนื้อหา</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>สถาปัตยกรรม CPU</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>ไดเรกทอรี</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>แพ็กเกจเฉพาะถิ่นที่ไม่ซ้ำกัน</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>คอนเทนเนอร์ Docker</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>สภาพแวดล้อม</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>ปริมาณ I/O ที่ประหยัดได้โดยประมาณต่อการซิงค์หนึ่งครั้ง</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>หน่วยความจำ GC</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>ส่วนหัว</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>สุขภาพดี</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>โฮสต์</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>พอร์ตภายใน</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>ต่ำ</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>ชื่อเครื่อง</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>การโยกย้าย</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>ข้อมูลไม่พร้อมใช้งาน</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>บางส่วน</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>เส้นทาง</value>
