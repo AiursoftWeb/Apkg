@@ -60,7 +60,7 @@ public class Startup : IWebStartup
         services.AddTransient<IGpgSigningService, GpgSigningService>();
         services.AddScoped<DebUploadService>();
         services.AddScoped<ApkgUploadProcessor>();
-        services.AddTransient<DebContentsService>();
+        services.AddScoped<DebContentsService>();
         services.AddSingleton<NavigationState<Startup>>();
 
         // Explicitly register dependency check services
@@ -86,7 +86,7 @@ public class Startup : IWebStartup
         // Scheduled tasks (attach a schedule to any registered background job)
         services.RegisterScheduledTask(
             registration: contentsCacheBackfillJob,
-            period: TimeSpan.FromDays(7),
+            period: TimeSpan.FromDays(30),
             startDelay: TimeSpan.FromHours(48));
 
         services.RegisterScheduledTask(

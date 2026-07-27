@@ -63,6 +63,12 @@ public class ContentsCacheBackfillJob(
 
         logger.LogInformation("Backfill: {Count} SHA256s need contents caching", uncachedSha256s.Count);
 
+        if (uncachedSha256s.Count == 0)
+        {
+            logger.LogInformation("Backfill: nothing to do, exiting.");
+            return;
+        }
+
         int success = 0;
         int skipped = 0;
         int failed = 0;

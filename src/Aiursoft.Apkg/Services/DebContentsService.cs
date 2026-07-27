@@ -1,6 +1,7 @@
 
 using Aiursoft.Apkg.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Aiursoft.Apkg.Services;
 
@@ -8,7 +9,9 @@ namespace Aiursoft.Apkg.Services;
 /// Manages the <see cref="Entities.DebContents"/> cache table. Provides read-through
 /// caching of <c>dpkg-deb -c</c> output keyed by SHA256.
 /// </summary>
-public class DebContentsService(ApkgDbContext db)
+public class DebContentsService(
+    ApkgDbContext db,
+    ILogger<DebContentsService> logger)
 {
     /// <summary>
     /// Returns cached file paths for a SHA256, or <c>null</c> if not cached.
@@ -22,7 +25,7 @@ public class DebContentsService(ApkgDbContext db)
         if (entry == null)
             return null;
 
-        return DeserializeContents(entry.ContentsJson);
+        return DeserializeContents(entry.ContentsJson, entry.SHA256);
     }
 
     /// <summary>
@@ -36,19 +39,23 @@ public class DebContentsService(ApkgDbContext db)
         if (sha256List.Count == 0)
             return new Dictionary<string, List<string>>();
 
-        var entries = await db.DebContents
-            .AsNoTracking()
-            .Where(c => sha256List.Contains(c.SHA256))
-            .Select(c => new { c.SHA256, c.ContentsJson })
-            .ToListAsync();
+        var result = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
 
-        var result = new Dictionary<string, List<string>>(entries.Count,
-            StringComparer.OrdinalIgnoreCase);
-        foreach (var entry in entries)
+        foreach (var chunk in sha256List.Chunk(150))
         {
-            var paths = DeserializeContents(entry.ContentsJson);
-            if (paths != null)
-                result[entry.SHA256] = paths;
+            var chunkList = chunk.ToList();
+            var entries = await db.DebContents
+                .AsNoTracking()
+                .Where(c => chunkList.Contains(c.SHA256))
+                .Select(c => new { c.SHA256, c.ContentsJson })
+                .ToListAsync();
+
+            foreach (var entry in entries)
+            {
+                var paths = DeserializeContents(entry.ContentsJson, entry.SHA256);
+                if (paths != null)
+                    result[entry.SHA256] = paths;
+            }
         }
 
         return result;
@@ -130,14 +137,15 @@ public class DebContentsService(ApkgDbContext db)
     // ═══════════════════════════════════════════════════════════════════════
 
 
-    private static List<string>? DeserializeContents(string json)
+    private List<string>? DeserializeContents(string json, string sha256)
     {
         try
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<List<string>>(json);
         }
-        catch
+        catch (Exception ex)
         {
+            logger.LogError(ex, "Failed to deserialize cache entry for SHA256 {SHA256}. It will be recomputed.", sha256);
             return null;
         }
     }
