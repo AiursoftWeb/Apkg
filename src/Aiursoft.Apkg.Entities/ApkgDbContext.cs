@@ -132,6 +132,13 @@ public abstract class ApkgDbContext(DbContextOptions options) : IdentityDbContex
     public DbSet<ApkgDebPackage> ApkgDebPackages => Set<ApkgDebPackage>();
 
     /// <summary>
+    /// <b>DebContents</b> — Cached <c>dpkg-deb -c</c> output keyed by SHA256. <br/>
+    /// <b>3NF:</b> ✅ SHA256 is the sole PK. ContentsJson is derived from the .deb binary content. <br/>
+    /// <b>Lifecycle:</b> Populated at upload → read during sync → backfilled for existing packages.
+    /// </summary>
+    public DbSet<DebContents> DebContents => Set<DebContents>();
+
+    /// <summary>
     /// <b>UserApiKeys</b> — API keys for CLI/CI. Only SHA-256 hash stored; raw key shown once. <br/>
     /// <b>3NF:</b> ✅ IsExpired is computed from ExpiresAt (not stored). KeyHash unique index. <br/>
     /// <b>Lifecycle:</b> Created → used via Authorization header → expires or revoked.

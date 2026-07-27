@@ -31,12 +31,15 @@ public class SystemController(ILogger<SystemController> logger, ApkgDbContext db
     {
         var tableCounts = await GetTableCountsAsync();
         var (applied, defined, pending) = await GetMigrationInfoAsync();
+        var (cached, totalDebs) = await GetContentsCacheStatsAsync();
         return this.StackView(new IndexViewModel
         {
             TableCounts = tableCounts,
             AppliedMigrations = applied,
             TotalDefinedMigrations = defined,
             PendingMigrations = pending,
+            ContentsCacheEntries = cached,
+            TotalLocalDebs = totalDebs,
         });
     }
 
@@ -78,6 +81,26 @@ public class SystemController(ILogger<SystemController> logger, ApkgDbContext db
         }
 
         return tableCounts;
+    }
+
+    private async Task<(int cached, int total)> GetContentsCacheStatsAsync()
+    {
+        try
+        {
+            var cached = await dbContext.DebContents
+                .Where(c => dbContext.ApkgDebPackages.Select(p => p.SHA256).Distinct().Contains(c.SHA256))
+                .CountAsync();
+            var total = await dbContext.ApkgDebPackages
+                .Select(p => p.SHA256)
+                .Distinct()
+                .CountAsync();
+            return (cached, total);
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(ex, "Failed to retrieve Contents cache statistics");
+            return (0, 0);
+        }
     }
 
     private async Task<(List<MigrationEntry> applied, int defined, List<string> pending)> GetMigrationInfoAsync()

@@ -61,6 +61,7 @@ public class Startup : IWebStartup
         services.AddTransient<IGpgSigningService, GpgSigningService>();
         services.AddScoped<DebUploadService>();
         services.AddScoped<ApkgUploadProcessor>();
+        services.AddScoped<DebContentsService>();
         services.AddSingleton<NavigationState<Startup>>();
 
         // Explicitly register dependency check services
@@ -81,8 +82,14 @@ public class Startup : IWebStartup
         var repositorySignJob = services.RegisterBackgroundJob<RepositorySignJob>();
         var garbageCollectionJob = services.RegisterBackgroundJob<GarbageCollectionJob>();
         var repositoryExportJob = services.RegisterBackgroundJob<RepositoryExportJob>();
+        var contentsCacheBackfillJob = services.RegisterBackgroundJob<ContentsCacheBackfillJob>();
 
         // Scheduled tasks (attach a schedule to any registered background job)
+        services.RegisterScheduledTask(
+            registration: contentsCacheBackfillJob,
+            period: TimeSpan.FromDays(30),
+            startDelay: TimeSpan.FromHours(48));
+
         services.RegisterScheduledTask(
             registration: orphanAvatarCleanupJob,
             period: TimeSpan.FromHours(6),

@@ -14,7 +14,8 @@ public class RepositorySyncJob(
     AptMetadataService metadataService,
     FeatureFoldersProvider folders,
     ILogger<RepositorySyncJob> logger,
-    DebResolutionService debResolution) : IBackgroundJob
+    DebResolutionService debResolution,
+    DebContentsService contentsCache) : IBackgroundJob
 {
     private string BucketsRoot => folders.GetBucketsFolder();
 
@@ -375,6 +376,8 @@ public class RepositorySyncJob(
 
     /// <summary>
     /// Writes Contents-{arch} + Contents-{arch}.gz for a single (arch, component) pair.
+    /// Consults <see cref="DebContentsService"/> to skip <c>dpkg-deb -c</c> for
+    /// packages whose file listing is already cached by SHA256.
     /// </summary>
     private async Task<(string RawSha256, long RawSize, string GzSha256, long GzSize)>
         WriteContentsFileAsync(int bucketId, string arch, string component)
@@ -389,17 +392,44 @@ public class RepositorySyncJob(
             .Select(p => new { p.SHA256, p.Package, p.Section })
             .ToListAsync();
 
+        // ── Build cache map ─────────────────────────────────────────────────
+        var sha256s = pkgs.Select(p => p.SHA256).Distinct().ToList();
+        var cacheMap = await contentsCache.GetBatchAsync(sha256s);
+
+        // Lazy-populate any uncached SHA256s that have a CAS file on disk
         var objectsRoot = folders.GetObjectsFolder();
+        foreach (var sha256 in sha256s)
+        {
+            if (cacheMap.ContainsKey(sha256))
+                continue;
+
+            var casPath = Path.Combine(objectsRoot, sha256[..2], $"{sha256}.deb");
+            if (!File.Exists(casPath))
+                continue; // IsVirtual — .deb not downloaded yet, can't cache
+
+            try
+            {
+                var paths = await contentsCache.ComputeAndCacheAsync(sha256, casPath);
+                cacheMap[sha256] = paths;
+            }
+            catch
+            {
+                // Skip — ContentsGeneratorService will fall back to dpkg-deb -c
+            }
+        }
+
+        // ── Build ContentsPackage list with SHA256 ──────────────────────────
         var contentsPackages = pkgs
             .Select(p => new ContentsPackage(
                 Path.Combine(objectsRoot, p.SHA256[..2], $"{p.SHA256}.deb"),
                 p.Package,
-                p.Section))
+                p.Section,
+                p.SHA256))
             .ToList();
 
         var tempDir = Path.Combine(contentsDir, "_contents-tmp");
         var result = await ContentsGeneratorService.GenerateContentsFilesAsync(
-            tempDir, arch, contentsDir, contentsPackages);
+            tempDir, arch, contentsDir, contentsPackages, cacheMap);
 
         try { if (Directory.Exists(tempDir)) Directory.Delete(tempDir, recursive: true); }
         catch { /* best-effort */ }
