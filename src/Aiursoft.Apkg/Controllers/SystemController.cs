@@ -87,7 +87,9 @@ public class SystemController(ILogger<SystemController> logger, ApkgDbContext db
     {
         try
         {
-            var cached = await dbContext.DebContents.CountAsync();
+            var cached = await dbContext.DebContents
+                .Where(c => dbContext.ApkgDebPackages.Select(p => p.SHA256).Distinct().Contains(c.SHA256))
+                .CountAsync();
             var total = await dbContext.ApkgDebPackages
                 .Select(p => p.SHA256)
                 .Distinct()

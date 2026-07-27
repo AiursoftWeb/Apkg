@@ -17,6 +17,7 @@ namespace Aiursoft.Apkg.Services.BackgroundJobs;
 public class ContentsCacheBackfillJob(
     ApkgDbContext db,
     FeatureFoldersProvider folders,
+    DebContentsService contentsCache,
     ILogger<ContentsCacheBackfillJob> logger) : IBackgroundJob
 {
     public string Name => "Contents Cache Backfill";
@@ -77,19 +78,7 @@ public class ContentsCacheBackfillJob(
                     continue;
                 }
 
-                var files =
-                    await Contents.ContentsGeneratorService.GetDebContentsAsync(casPath);
-                db.DebContents.Add(new DebContents
-                {
-                    SHA256 = sha256,
-                    ContentsJson = Newtonsoft.Json.JsonConvert.SerializeObject(files),
-                    CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow
-                });
-
-                // Save per-package so partial progress is visible in case of interruption
-                await db.SaveChangesAsync();
-                db.ChangeTracker.Clear();
+                await contentsCache.ComputeAndCacheAsync(sha256, casPath);
                 success++;
 
                 if (success % 50 == 0)

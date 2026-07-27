@@ -201,8 +201,12 @@ public class DebUploadService(
         // at upload time so RepositorySyncJob never needs to do it again.
         try
         {
-            var contents = await ContentsGeneratorService.GetDebContentsAsync(casPath);
-            await contentsCache.SetAsync(sha256, contents);
+            var cached = await contentsCache.GetAsync(sha256);
+            if (cached == null)
+            {
+                var contents = await ContentsGeneratorService.GetDebContentsAsync(casPath);
+                await contentsCache.SetAsync(sha256, contents);
+            }
         }
         catch (Exception ex)
         {

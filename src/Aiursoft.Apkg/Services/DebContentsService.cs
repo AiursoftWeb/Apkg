@@ -1,4 +1,4 @@
-using System.Diagnostics;
+
 using Aiursoft.Apkg.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -109,7 +109,7 @@ public class DebContentsService(ApkgDbContext db)
         if (!File.Exists(casPath))
             throw new FileNotFoundException("Deb file not found for contents computation.", casPath);
 
-        var files = await RunDpkgDebContentsAsync(casPath);
+        var files = await Contents.ContentsGeneratorService.GetDebContentsAsync(casPath);
 
         // Store (best-effort; failure here is non-fatal — next sync will retry)
         try
@@ -129,36 +129,6 @@ public class DebContentsService(ApkgDbContext db)
     // Private helpers
     // ═══════════════════════════════════════════════════════════════════════
 
-    /// <summary>
-    /// Shells out to <c>dpkg-deb -c</c> and parses the output.
-    /// Identical logic to <see cref="Contents.ContentsGeneratorService.GetDebContentsAsync"/>,
-    /// consolidated here to avoid code duplication.
-    /// </summary>
-    private static async Task<List<string>> RunDpkgDebContentsAsync(string debPath)
-    {
-        using var process = new Process();
-        process.StartInfo = new ProcessStartInfo
-        {
-            FileName = "dpkg-deb",
-            ArgumentList = { "-c", debPath },
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        };
-        process.Start();
-        var output = await process.StandardOutput.ReadToEndAsync();
-        await process.WaitForExitAsync();
-
-        if (process.ExitCode != 0)
-        {
-            var err = await process.StandardError.ReadToEndAsync();
-            throw new InvalidOperationException(
-                $"dpkg-deb -c failed (exit {process.ExitCode}): {err}");
-        }
-
-        return Contents.ContentsGeneratorService.ParseDpkgDebContents(output);
-    }
 
     private static List<string>? DeserializeContents(string json)
     {
