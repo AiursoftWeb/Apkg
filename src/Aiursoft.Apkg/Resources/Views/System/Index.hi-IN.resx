@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>क्या आप वाकई एप्लिकेशन को पुनरारंभ करना चाहते हैं? यह क्रिया अपरिवर्तनीय है और सभी सक्रिय कनेक्शनों को समाप्त कर देगी।</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>कैश कवरेज</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>कैश किए गए SHA256 एंट्रीज़</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>रद्द करें</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>एप्लिकेशन पुनरारंभ की पुष्टि करें</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>सामग्री कैश</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>सीपीयू वास्तुकला</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>डायरेक्टरी</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>विशिष्ट स्थानीय पैकेज</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>डॉकर कंटेनर</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>पर्यावरण</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>प्रत्येक सिंक के लिए अनुमानित I/O बचत</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>जीसी मेमोरी</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>शीर्षक</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>स्वस्थ</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>होस्ट</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>स्थानीय पोर्ट</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>कम</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>मशीन का नाम</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>प्रवास</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>अनुपलब्ध</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>आंशिक</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>पथ</value>

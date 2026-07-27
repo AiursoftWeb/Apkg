@@ -30,11 +30,20 @@
   <data name="Back to Repository" xml:space="preserve">
     <value>Zurück zum Repository</value>
   </data>
+  <data name="Cache" xml:space="preserve">
+    <value>Zwischenspeicher</value>
+  </data>
+  <data name="Cached" xml:space="preserve">
+    <value>Zwischengespeichert</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Komponente</value>
+  </data>
+  <data name="File listing is cached — sync skips dpkg-deb -c for this package" xml:space="preserve">
+    <value>Dateiauflistung ist zwischengespeichert — Synchronisierung überspringt dpkg-deb -c für dieses Paket</value>
   </data>
   <data name="Package" xml:space="preserve">
     <value>Paket</value>
@@ -57,6 +66,9 @@
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="Uncached" xml:space="preserve">
+    <value>Nicht zwischengespeichert</value>
+  </data>
   <data name="Version" xml:space="preserve">
     <value>Version</value>
   </data>
@@ -65,6 +77,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Virtuell</value>
+  </data>
+  <data name="Will be cached on next sync" xml:space="preserve">
+    <value>Wird beim nächsten Synchronisieren zwischengespeichert</value>
   </data>
 
 </root>

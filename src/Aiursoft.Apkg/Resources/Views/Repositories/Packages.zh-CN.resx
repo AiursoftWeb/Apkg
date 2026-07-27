@@ -30,11 +30,20 @@
   <data name="Back to Repository" xml:space="preserve">
     <value>返回仓库</value>
   </data>
+  <data name="Cache" xml:space="preserve">
+    <value>缓存</value>
+  </data>
+  <data name="Cached" xml:space="preserve">
+    <value>已缓存</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>清除筛选</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>组件</value>
+  </data>
+  <data name="File listing is cached — sync skips dpkg-deb -c for this package" xml:space="preserve">
+    <value>文件列表已缓存——同步时将跳过此包的 dpkg-deb -c 命令</value>
   </data>
   <data name="Package" xml:space="preserve">
     <value>软件包</value>
@@ -57,6 +66,9 @@
   <data name="Status" xml:space="preserve">
     <value>状态</value>
   </data>
+  <data name="Uncached" xml:space="preserve">
+    <value>未缓存</value>
+  </data>
   <data name="Version" xml:space="preserve">
     <value>版本</value>
   </data>
@@ -65,6 +77,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>虚拟</value>
+  </data>
+  <data name="Will be cached on next sync" xml:space="preserve">
+    <value>将在下次同步时缓存</value>
   </data>
 
 </root>

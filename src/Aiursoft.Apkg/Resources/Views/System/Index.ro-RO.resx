@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Sunteți sigur că doriți să reporniți aplicația? Această acțiune este ireversibilă și va întrerupe toate conexiunile active.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>Acoperire cache</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>Intrări SHA256 în cache</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Anulează</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>Confirmă repornirea aplicației</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>Cache-ul de conținuturi</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>Arhitectura CPU</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>Director</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>Pachete locale distincte</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Container Docker</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>Mediu</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>I/O estimat economisit per sincronizare</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>Memorie GC</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>Antet</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>Sănătos</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>Gazdă</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>Port Local</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Scăzut</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>Nume mașină</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>Migrare</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Parțial</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Cale</value>

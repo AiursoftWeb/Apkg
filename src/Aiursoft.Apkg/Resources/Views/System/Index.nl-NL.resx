@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Weet u zeker dat u de toepassing wilt herstarten? Deze actie kan niet ongedaan worden gemaakt en zal alle actieve verbindingen beëindigen.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>Cache dekking</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>Geocacheerde SHA256-items</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuleren</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>Bevestig applicatieherstart</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>Inhoudscache</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>CPU-architectuur</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>Map</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>Unieke lokale pakketten</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Docker Container</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>Omgeving</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>Geschatte I/O-besparing per synchronisatie</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>GC-geheugen</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>Koptekst</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>Gezond</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>Host</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>Lokale poort</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Laag</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>Computernaam</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>Migratie</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>n.v.t.</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Gedeeltelijk</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Pad</value>

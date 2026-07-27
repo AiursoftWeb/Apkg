@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>애플리케이션을 재시작하시겠습니까? 이 작업은 되돌릴 수 없으며 모든 활성 연결이 종료됩니다.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>캐시 커버리지</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>캐시된 SHA256 항목</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>취소</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>애플리케이션 재시작 확인</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>콘텐츠 캐시</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>CPU 아키텍처</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>작업 디렉터리</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>로컬 패키지 고유 개수</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>도커 컨테이너</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>환경</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>동기화당 추정 I/O 절약량</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>GC 메모리</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>헤더</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>정상</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>호스트</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>로컬 포트</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>낮음</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>컴퓨터 이름</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>마이그레이션</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>해당 사항 없음</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>부분적</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>경로</value>

@@ -30,11 +30,20 @@
   <data name="Back to Repository" xml:space="preserve">
     <value>Повернутися до сховища</value>
   </data>
+  <data name="Cache" xml:space="preserve">
+    <value>Кеш</value>
+  </data>
+  <data name="Cached" xml:space="preserve">
+    <value>Збережено в кеші</value>
+  </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Компонент</value>
+  </data>
+  <data name="File listing is cached — sync skips dpkg-deb -c for this package" xml:space="preserve">
+    <value>Список файлів закешовано — синхронізація пропускає dpkg-deb -c для цього пакету</value>
   </data>
   <data name="Package" xml:space="preserve">
     <value>Пакет</value>
@@ -57,6 +66,9 @@
   <data name="Status" xml:space="preserve">
     <value>Статус</value>
   </data>
+  <data name="Uncached" xml:space="preserve">
+    <value>Некешований</value>
+  </data>
   <data name="Version" xml:space="preserve">
     <value>Версія</value>
   </data>
@@ -65,6 +77,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Віртуальний</value>
+  </data>
+  <data name="Will be cached on next sync" xml:space="preserve">
+    <value>Буде кешуватися під час наступної синхронізації</value>
   </data>
 
 </root>

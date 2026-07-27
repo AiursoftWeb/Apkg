@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Är du säker på att du vill starta om applikationen? Denna åtgärd är oåterkallelig och kommer att avsluta alla aktiva anslutningar.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>Cache-täckning</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>Cachelagrade SHA256-poster</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Avbryt</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>Bekräfta omstart av applikation</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>Innehållscache</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>CPU-arkitektur</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>Katalog</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>Unika lokala paket</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Docker-container</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>Miljö</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>Uppskattad sparad I/O per synkronisering</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>GC-minne</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>Rubrik</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>Frisk</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>Värd</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>Lokal port</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Låg</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>Datornamn</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>Migration</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>Ej tillgänglig</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Delvis</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Sökväg</value>

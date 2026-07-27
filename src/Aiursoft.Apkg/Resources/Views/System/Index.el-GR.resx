@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Είστε σίγουροι ότι θέλετε να επανεκκινήσετε την εφαρμογή; Αυτή η ενέργεια είναι μη αναστρέψιμη και θα τερματίσει όλες τις ενεργές συνδέσεις.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>Κάλυψη ταμείου</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>Εισαγωγές SHA256 στο cache</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Ακύρωση</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>Επιβεβαίωση Επανεκκίνησης Εφαρμογής</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>Μεταφρασμένη λέξη εδώ...</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>Αρχιτεκτονική CPU</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>Κατάλογος</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>Διακριτά τοπικά πακέτα</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>Docker Container</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>Περιβάλλον</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>Εκτιμώμενη εξοικονόμηση I/O ανά συγχρονισμό</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>Μνήμη GC</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>Κεφαλίδα</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>Υγιής</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>Κεντρικός υπολογιστής</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>Τοπική Θύρα</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Χαμηλή</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>Όνομα Μηχανής</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>Μεταφορά</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>Δεν είναι διαθέσιμο</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>Μερική</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Διαδρομή</value>

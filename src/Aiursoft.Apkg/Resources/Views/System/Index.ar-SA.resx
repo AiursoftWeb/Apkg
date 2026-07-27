@@ -30,11 +30,20 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>هل أنت متأكد أنك تريد إعادة تشغيل التطبيق؟ هذا الإجراء لا يمكن التراجع عنه وسيؤدي إلى إنهاء جميع الاتصالات النشطة.</value>
   </data>
+  <data name="Cache coverage" xml:space="preserve">
+    <value>تغطية ذاكرة التخزين المؤقت</value>
+  </data>
+  <data name="Cached SHA256 entries" xml:space="preserve">
+    <value>مدخلات SHA256 المخزنة مؤقتًا</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>إلغاء</value>
   </data>
   <data name="Confirm Application Restart" xml:space="preserve">
     <value>تأكيد إعادة تشغيل التطبيق</value>
+  </data>
+  <data name="Contents Cache" xml:space="preserve">
+    <value>ذاكرة التخزين المؤقت للمحتوى</value>
   </data>
   <data name="CPU Architecture" xml:space="preserve">
     <value>هندسة وحدة المعالجة المركزية</value>
@@ -57,11 +66,17 @@
   <data name="Directory" xml:space="preserve">
     <value>المجلد</value>
   </data>
+  <data name="Distinct local packages" xml:space="preserve">
+    <value>حزم محلية متميزة</value>
+  </data>
   <data name="Docker Container" xml:space="preserve">
     <value>حاوية Docker</value>
   </data>
   <data name="Environment" xml:space="preserve">
     <value>البيئة</value>
+  </data>
+  <data name="Estimated I/O saved per sync" xml:space="preserve">
+    <value>الحد الأقصى للتوفير في عمليات الإدخال/الإخراج لكل مزامنة</value>
   </data>
   <data name="GC Memory" xml:space="preserve">
     <value>ذاكرة GC</value>
@@ -75,6 +90,9 @@
   <data name="Header" xml:space="preserve">
     <value>رأس</value>
   </data>
+  <data name="Healthy" xml:space="preserve">
+    <value>سليم</value>
+  </data>
   <data name="Host" xml:space="preserve">
     <value>المضيف</value>
   </data>
@@ -83,6 +101,9 @@
   </data>
   <data name="Local Port" xml:space="preserve">
     <value>المنفذ المحلي</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>منخفض</value>
   </data>
   <data name="Machine Name" xml:space="preserve">
     <value>اسم الجهاز</value>
@@ -95,6 +116,12 @@
   </data>
   <data name="Migration" xml:space="preserve">
     <value>الهجرة</value>
+  </data>
+  <data name="N/A" xml:space="preserve">
+    <value>غير متاح</value>
+  </data>
+  <data name="Partial" xml:space="preserve">
+    <value>جزئي</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>المسار</value>
