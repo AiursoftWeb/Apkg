@@ -229,7 +229,12 @@ Apkg **自动**在临时 apt source 上附加 `[arch=<构建目标架构>]` 限�
 
 #### 依赖验证
 
-`apkg lint` 会联网验证所有 `<Dependency>` 和 `<Recommend>` 声明中的包名是否在配置的 APT 源中真实存在。通过 `<DependencyCheckSource>` ItemGroup 元素配置一个或多个验证源，**union 语义**——包只要在任意一个源中存在就通过验证。
+`apkg lint` 会联网验证所有适用于当前构建目标的 `<Dependency>` 和
+`<Recommend>` 声明中的包名是否在配置的 APT 源中真实存在。校验会遍历
+`TargetSuites × TargetArchitectures` 完整矩阵，并在每个 suite/architecture
+上下文中计算依赖与验证源的 `Condition`。通过 `<DependencyCheckSource>`
+ItemGroup 元素配置一个或多个验证源，**union 语义**——包只要在任意一个源中
+存在就通过验证。
 
 ```xml
 <ItemGroup>
@@ -254,6 +259,8 @@ Apkg **自动**在临时 apt source 上附加 `[arch=<构建目标架构>]` 限�
 
 **行为**：
 - 不配置任何 `DependencyCheckSource` 则**跳过依赖验证**（opt-out）
+- 每个 suite/architecture 组合只检查其 `Condition` 为真的依赖，并查询对应的 `binary-<arch>` 索引
+- `TargetArchitectures=all` 使用 `binary-amd64` 作为索引入口；APT 会将 `Architecture: all` 包合并到具体架构索引
 - 任一条目中的任一备选包名（`|` 分隔）在任一源中存在即认为通过
 - 版本约束（如 `gnome-shell (>= 46~)`）会被自动剥离，仅验证包名
 - 网络错误 per-source 产生 Warning，不会阻止验证继续或构建中止
@@ -885,4 +892,3 @@ apkg push bin/anduinos-shell-ext.apkg \
   --source https://apkg-dev.aiursoft.com \
   --api-key <你的 API Key>
 ```
-

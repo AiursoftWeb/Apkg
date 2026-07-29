@@ -30,7 +30,8 @@ public class AosprojDependencyValidator
     }
 
     /// <summary>
-    /// Validates all Dependency and Recommend declarations for every target suite.
+    /// Validates all applicable Dependency and Recommend declarations for every
+    /// target suite/architecture pair.
     /// Returns Warnings for packages not found in any configured source.
     /// Returns an empty list when <see cref="AosprojProject.DependencyCheckSources"/> is empty.
     /// </summary>
@@ -43,26 +44,40 @@ public class AosprojDependencyValidator
         if (project.DependencyCheckSources.Count == 0)
             return issues;
 
-        // Collect entries to check (Dependencies + Recommends)
+        // Keep conditions attached until a concrete build target is evaluated.
         var entries = project.Dependencies
-            .Select(d => (Kind: "Dependency", d.Value))
-            .Concat(project.Recommends.Select(r => (Kind: "Recommend", r.Value)))
+            .Select(d => (Kind: "Dependency", Entry: d))
+            .Concat(project.Recommends.Select(r => (Kind: "Recommend", Entry: r)))
             .ToList();
 
         if (entries.Count == 0)
             return issues;
 
-        // Determine target arch for Packages.gz lookup
-        var arch = project.ArchList.FirstOrDefault(a =>
-            !a.Equals("all", StringComparison.OrdinalIgnoreCase)) ?? "amd64";
+        var architectures = project.ArchList.Length > 0
+            ? project.ArchList
+            : ["amd64"];
 
         foreach (var suite in project.SuiteList)
+        foreach (var arch in architectures)
         {
             var ctx = ConditionEvaluator.BuildContext(
                 project.TargetDistro, suite, arch,
                 upstreamDistro: project.UpstreamDistro,
                 upstreamSuite: project.UpstreamSuite,
-                upstreamArch: project.UpstreamArch);
+                upstreamArch: project.UpstreamArch,
+                component: project.Component);
+
+            var applicableEntries = entries
+                .Where(item => _evaluator.Evaluate(item.Entry.Condition, ctx))
+                .ToList();
+            if (applicableEntries.Count == 0)
+                continue;
+
+            // An Architecture: all package is present in each concrete APT
+            // architecture index. amd64 is the conventional lookup fallback.
+            var lookupArch = arch.Equals("all", StringComparison.OrdinalIgnoreCase)
+                ? "amd64"
+                : arch;
 
             var sourceResults = new List<(DependencyCheckSourceItem Source, IReadOnlySet<string> Packages)>();
 
@@ -79,19 +94,20 @@ public class AosprojDependencyValidator
                 try
                 {
                     var packages = await _indexClient.GetAvailablePackagesAsync(
-                        source.Url, checkSuite, arch, ct);
+                        source.Url, checkSuite, lookupArch, ct);
                     sourceResults.Add((source, packages));
                 }
                 catch (Exception ex)
                 {
                     issues.Add(new LintIssue(Severity.Warning,
                         $"Could not fetch package index for suite '{checkSuite}' " +
-                        $"from '{source.Url}': {ex.Message}"));
+                        $"architecture '{lookupArch}' from '{source.Url}': {ex.Message}"));
                 }
             }
 
-            foreach (var (kind, depValue) in entries)
+            foreach (var (kind, entry) in applicableEntries)
             {
+                var depValue = entry.Value;
                 if (string.IsNullOrWhiteSpace(depValue))
                     continue;
 
@@ -109,7 +125,8 @@ public class AosprojDependencyValidator
                     var pkgList = string.Join(" | ", alternatives);
                     issues.Add(new LintIssue(Severity.Warning,
                         $"{kind} '{pkgList}' not found in any configured " +
-                        $"DependencyCheckSource for suite '{suite}'. " +
+                        $"DependencyCheckSource for suite '{suite}', " +
+                        $"architecture '{arch}'. " +
                         "Verify the package name is correct for this suite."));
                 }
             }

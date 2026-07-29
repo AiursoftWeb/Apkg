@@ -41,6 +41,37 @@ internal sealed class NotFoundHandler : HttpMessageHandler
         => Task.FromResult(new HttpResponseMessage(HttpStatusCode.NotFound));
 }
 
+/// <summary>
+/// Returns different package indexes for amd64 and arm64 and records requests.
+/// binary-all is intentionally empty.
+/// </summary>
+internal sealed class ArchitecturePackagesHandler : HttpMessageHandler
+{
+    public List<string> RequestedUrls { get; } = [];
+
+    protected override Task<HttpResponseMessage> SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken)
+    {
+        var url = request.RequestUri!.AbsoluteUri;
+        RequestedUrls.Add(url);
+        var packages = url.Contains("/binary-amd64/", StringComparison.Ordinal)
+            ? "Package: grub-efi-amd64-bin\nVersion: 1\nArchitecture: amd64\n\n"
+            : url.Contains("/binary-arm64/", StringComparison.Ordinal)
+                ? "Package: grub-efi-arm64-bin\nVersion: 1\nArchitecture: arm64\n\n"
+                : string.Empty;
+
+        var bytes = Encoding.UTF8.GetBytes(packages);
+        using var ms = new MemoryStream();
+        using (var gz = new GZipStream(ms, CompressionMode.Compress, leaveOpen: true))
+            gz.Write(bytes);
+        return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)
+        {
+            Content = new ByteArrayContent(ms.ToArray())
+        });
+    }
+}
+
 [TestClass]
 public class AosprojDependencyValidatorTests
 {
@@ -322,5 +353,59 @@ public class AosprojDependencyValidatorTests
         var issues = await validator.ValidateAsync(project);
         Assert.AreEqual(0, issues.Count,
             $"Expected 0 issues when condition filters correctly, got: {string.Join("; ", issues.Select(i => i.Message))}");
+    }
+
+    [TestMethod]
+    public async Task ValidateDependencies_MultiArch_UsesEachArchitectureAndFiltersDependencies()
+    {
+        var handler = new ArchitecturePackagesHandler();
+        var validator = new AosprojDependencyValidator(
+            new AptPackageIndexClient(new HttpClient(handler)),
+            new ConditionEvaluator());
+        var project = BaseProject(suites: "resolute-addon");
+        project.TargetArchitectures = "amd64 arm64";
+        project.DependencyCheckSources[0].SuiteMap = "resolute-addon=resolute";
+        project.Dependencies.Add(new ConditionalValue
+        {
+            Value = "grub-efi-amd64-bin",
+            Condition = "'$(Arch)' == 'amd64'"
+        });
+        project.Dependencies.Add(new ConditionalValue
+        {
+            Value = "grub-efi-arm64-bin",
+            Condition = "'$(Arch)' == 'arm64'"
+        });
+
+        var issues = await validator.ValidateAsync(project);
+
+        Assert.AreEqual(0, issues.Count,
+            $"Expected both architecture-specific dependencies to pass, got: {string.Join("; ", issues.Select(i => i.Message))}");
+        Assert.IsTrue(
+            handler.RequestedUrls.Any(url => url.Contains("/resolute/main/binary-amd64/Packages.gz")),
+            "Expected the amd64 package index to be queried");
+        Assert.IsTrue(
+            handler.RequestedUrls.Any(url => url.Contains("/resolute/main/binary-arm64/Packages.gz")),
+            "Expected the arm64 package index to be queried");
+    }
+
+    [TestMethod]
+    public async Task ValidateDependencies_MultiArch_WarningIdentifiesFailingTarget()
+    {
+        var validator = MakeValidator(MinimalPackages);
+        var project = BaseProject();
+        project.TargetArchitectures = "amd64 arm64";
+        project.Dependencies.Add(new ConditionalValue
+        {
+            Value = "arm64-only-missing",
+            Condition = "'$(Architecture)' == 'arm64'"
+        });
+
+        var issues = await validator.ValidateAsync(project);
+
+        Assert.AreEqual(1, issues.Count);
+        StringAssert.Contains(issues[0].Message, "architecture 'arm64'");
+        Assert.IsFalse(
+            issues[0].Message.Contains("architecture 'amd64'"),
+            "The arm64-only dependency must not be validated for amd64");
     }
 }
