@@ -93,6 +93,27 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
             .Build()
             .Services;
 
+        await PublishAsync(
+            services,
+            pathArg,
+            outputArg,
+            distroArg,
+            suiteArg,
+            archArg,
+            buildAll,
+            noBuild);
+    }
+
+    internal static async Task<string> PublishAsync(
+        IServiceProvider services,
+        string pathArg,
+        string outputArg,
+        string distroArg,
+        string suiteArg,
+        string archArg,
+        bool buildAll,
+        bool noBuild)
+    {
         var logger = services.GetRequiredService<ILogger<PublishHandler>>();
         var aosprojSerializer = services.GetRequiredService<AosprojSerializer>();
         var debBuilder = services.GetRequiredService<DebBuilder>();
@@ -250,37 +271,14 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
         }
 
         logger.LogInformation("Done! Created {ApkgPath}", apkgPath);
+        return apkgPath;
     }
 
     internal static List<(string distro, string suite, string arch)> ResolveBuildTargets(
         AosprojProject project, bool buildAll, string distroArg, string suiteArg, string archArg)
     {
-        if (buildAll || (string.IsNullOrWhiteSpace(suiteArg) && string.IsNullOrWhiteSpace(archArg)))
-        {
-            if (string.IsNullOrWhiteSpace(project.TargetDistro))
-                throw new InvalidOperationException("Project has no <TargetDistro> declared.");
-            if (project.SuiteList.Length == 0)
-                throw new InvalidOperationException("Project has no <TargetSuites> declared.");
-            if (project.ArchList.Length == 0)
-                throw new InvalidOperationException("Project has no <TargetArchitectures> declared.");
-
-            return (
-                from suite in project.SuiteList
-                from arch in project.ArchList
-                select (project.TargetDistro, suite, arch)
-            ).ToList();
-        }
-
-        if (string.IsNullOrWhiteSpace(suiteArg))
-            throw new InvalidOperationException("Specify --suite (e.g. --suite jammy).");
-        if (string.IsNullOrWhiteSpace(archArg))
-            throw new InvalidOperationException("Specify --arch (e.g. --arch amd64).");
-
-        var distro = string.IsNullOrWhiteSpace(distroArg)
-            ? (string.IsNullOrWhiteSpace(project.TargetDistro) ? "ubuntu" : project.TargetDistro)
-            : distroArg;
-
-        return [(distro, suiteArg, archArg)];
+        return PackageBuildPlanResolver.ResolveBuildTargets(
+            project, buildAll, distroArg, suiteArg, archArg);
     }
 
     internal static string DeriveVersionFromDeb(string debPath, string packageName)

@@ -21,6 +21,8 @@ public class IntegrationTests
         .WithFeature(new AddHandler())
         .WithFeature(new PublishHandler())
         .WithFeature(new PushHandler())
+        .WithFeature(new GuessVersionHandler())
+        .WithFeature(new DeployHandler())
         .WithFeature(new InstallHandler())
         .WithFeature(new UnpackHandler())
         .WithFeature(new AddSourceHandler());
@@ -86,6 +88,27 @@ public class IntegrationTests
         Assert.AreEqual(0, result.ProgramReturn);
         Assert.IsTrue(result.StdOut.Contains("--source"));
         Assert.IsTrue(result.StdOut.Contains("--api-key"));
+        Assert.IsTrue(string.IsNullOrWhiteSpace(result.StdErr));
+    }
+
+    [TestMethod]
+    public async Task InvokeGuessVersionHelp()
+    {
+        var result = await Program.TestRunAsync(["guess-version", "--help"]);
+
+        Assert.AreEqual(0, result.ProgramReturn);
+        Assert.IsTrue(result.StdOut.Contains("--json"));
+        Assert.IsTrue(string.IsNullOrWhiteSpace(result.StdErr));
+    }
+
+    [TestMethod]
+    public async Task InvokeDeployHelp()
+    {
+        var result = await Program.TestRunAsync(["deploy", "--help"]);
+
+        Assert.AreEqual(0, result.ProgramReturn);
+        Assert.IsTrue(result.StdOut.Contains("--skip-existing"));
+        Assert.IsTrue(result.StdOut.Contains("--source"));
         Assert.IsTrue(string.IsNullOrWhiteSpace(result.StdErr));
     }
 

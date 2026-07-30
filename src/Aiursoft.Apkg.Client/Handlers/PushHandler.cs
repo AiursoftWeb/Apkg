@@ -85,6 +85,25 @@ public class PushHandler : ExecutableCommandHandlerBuilder
             .Build()
             .Services;
 
+        await PushAsync(
+            services,
+            filePath,
+            source,
+            apiKey,
+            skipDuplicate,
+            allowDowngrade,
+            chunkSize);
+    }
+
+    internal static async Task PushAsync(
+        IServiceProvider services,
+        string filePath,
+        string source,
+        string apiKey,
+        bool skipDuplicate,
+        bool allowDowngrade,
+        long chunkSize)
+    {
         var pushService = services.GetRequiredService<ApkgPushService>();
         var logger = services.GetRequiredService<ILogger<PushHandler>>();
 
@@ -179,4 +198,3 @@ public class PushHandler : ExecutableCommandHandlerBuilder
         return TryGetPropertyIgnoreCase(element, propertyName, out var value) ? value.GetString() : null;
     }
 }
-

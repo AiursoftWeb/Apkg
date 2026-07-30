@@ -48,6 +48,17 @@ apkg publish --path ./my-package
 apkg push ./my-package/bin/my-package.apkg --source https://apkg.example.com --api-key <your-api-key>
 ```
 
+In CI, resolve versions and skip the complete build when every target already
+exists on the destination:
+
+```bash
+apkg guess version --path ./my-package
+apkg deploy --path ./my-package \
+  --source https://apkg.example.com \
+  --api-key <your-api-key> \
+  --skip-existing
+```
+
 Add an Apkg repository to an APT client:
 
 ```bash
@@ -119,6 +130,7 @@ The docker image has the following context:
 - [`.aosproj` format](docs/aosproj.md)
 - [Development notes](docs/development.md)
 - [Operations guide](docs/operations.md)
+- [Build preflight and CI deployment](docs/preflight.md)
 
 ## How to contribute
 

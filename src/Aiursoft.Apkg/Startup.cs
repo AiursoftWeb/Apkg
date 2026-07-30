@@ -61,6 +61,8 @@ public class Startup : IWebStartup
         services.AddTransient<IGpgSigningService, GpgSigningService>();
         services.AddScoped<DebUploadService>();
         services.AddScoped<ApkgUploadProcessor>();
+        services.AddScoped<RepositoryTargetService>();
+        services.AddScoped<PackagePreflightService>();
         services.AddScoped<DebContentsService>();
         services.AddSingleton<NavigationState<Startup>>();
 

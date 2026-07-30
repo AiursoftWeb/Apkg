@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Services.FileStorage;
+using Aiursoft.Apkg.Sdk.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,8 +16,17 @@ namespace Aiursoft.Apkg.Controllers;
 [Authorize(AuthenticationSchemes = "ApiKey,Identity.Application")]
 public class ApiPackagesController(
     ApkgUploadProcessor uploadProcessor,
+    PackagePreflightService preflightService,
     FeatureFoldersProvider folders) : ControllerBase
 {
+    [HttpPost("preflight")]
+    public async Task<ActionResult<PackagePreflightResponse>> Preflight(
+        [FromBody] PackagePreflightRequest request)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
+        return Ok(await preflightService.CheckAsync(request, userId, User));
+    }
+
     [HttpPost("apkg-upload")]
     [RequestSizeLimit(2L * 1024 * 1024 * 1024)]
     [RequestFormLimits(MultipartBodyLengthLimit = 2L * 1024 * 1024 * 1024)]
@@ -79,4 +89,3 @@ public class ApiPackagesController(
         return ApkgUploadProcessor.ArchitectureMatches(repoArchitecture, entryArchitecture);
     }
 }
-

@@ -1124,14 +1124,8 @@ public class ApkgPackagesController(
         return package;
     }
 
-    // KEEP IN SYNC with inline conditions and ApiPackagesController.ArchitectureMatches.
     internal static bool ArchitectureMatches(string repoArchitecture, string entryArchitecture)
     {
-        if (string.Equals(entryArchitecture, "all", StringComparison.OrdinalIgnoreCase))
-            return true;
-
-        return repoArchitecture
-            .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-            .Any(a => string.Equals(a, entryArchitecture, StringComparison.OrdinalIgnoreCase));
+        return RepositoryTargetService.ArchitectureMatches(repoArchitecture, entryArchitecture);
     }
 }

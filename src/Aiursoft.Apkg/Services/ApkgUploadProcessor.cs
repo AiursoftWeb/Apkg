@@ -1,7 +1,6 @@
 using System.Formats.Tar;
 using System.IO.Compression;
 using System.Security.Claims;
-using Aiursoft.Apkg.Authorization;
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Sdk.Models;
 using Aiursoft.Apkg.Sdk.Services;
@@ -52,6 +51,7 @@ public class ApkgUploadProcessor(
     DebUploadService debUploadService,
     FeatureFoldersProvider folders,
     ManifestSerializer manifestSerializer,
+    RepositoryTargetService repositoryTargets,
     ILogger<ApkgUploadProcessor> logger)
 {
     /// <summary>
@@ -165,27 +165,13 @@ public class ApkgUploadProcessor(
             await db.SaveChangesAsync();
             summary.UploadId = revisionRecord.Id;
 
-            var isAdmin = user.HasClaim(AppPermissions.Type, AppPermissionNames.CanManageRepositories);
-            var canUploadRestricted = user.HasClaim(AppPermissions.Type, AppPermissionNames.CanUploadToRestrictedRepositories);
-
             foreach (var entry in manifest.Entries)
             {
                 var archiveDebPath = NormalizeArchiveEntryName(entry.DebFile);
                 var extractedDebSource = extractedEntries[archiveDebPath];
 
-                // KEEP IN SYNC with ArchitectureMatches helper below and ApkgPackagesController
-                var matchingRepositories = (await db.AptRepositories
-                        .Where(r => r.Distro == distro
-                                    && r.Suite == entry.Suite)
-                        .ToListAsync())
-                    .Where(r => r.Components
-                        .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-                        .Contains(component, StringComparer.OrdinalIgnoreCase)
-                        && (r.Architecture
-                                .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-                                .Any(a => string.Equals(a, entry.Architecture, StringComparison.OrdinalIgnoreCase))
-                            || string.Equals(entry.Architecture, "all", StringComparison.OrdinalIgnoreCase)))
-                    .ToList();
+                var matchingRepositories = await repositoryTargets.FindMatchingAsync(
+                    distro, entry.Suite, component, entry.Architecture);
 
                 if (matchingRepositories.Count == 0)
                 {
@@ -197,7 +183,7 @@ public class ApkgUploadProcessor(
 
                 foreach (var repo in matchingRepositories)
                 {
-                    if (!CanUploadToRepository(repo, isAdmin, canUploadRestricted))
+                    if (!RepositoryTargetService.CanUpload(repo, user))
                     {
                         var warning = $"Skipping repository {DebUploadService.GetRepositoryDisplayName(repo)} because you do not have permission to upload to it.";
                         logger.LogWarning("{Warning}", warning);
@@ -320,11 +306,6 @@ public class ApkgUploadProcessor(
         return manifest;
     }
 
-    private static bool CanUploadToRepository(AptRepository repo, bool isAdmin, bool canUploadRestricted)
-    {
-        return repo.AllowAnyoneToUpload || isAdmin || canUploadRestricted;
-    }
-
     private string CreateWorkspaceTempFilePath(string extension)
     {
         if (string.IsNullOrWhiteSpace(extension))
@@ -359,11 +340,6 @@ public class ApkgUploadProcessor(
     // Any change to the inline condition must be mirrored here.
     internal static bool ArchitectureMatches(string repoArchitecture, string entryArchitecture)
     {
-        if (string.Equals(entryArchitecture, "all", StringComparison.OrdinalIgnoreCase))
-            return true;
-
-        return repoArchitecture
-            .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-            .Any(a => string.Equals(a, entryArchitecture, StringComparison.OrdinalIgnoreCase));
+        return RepositoryTargetService.ArchitectureMatches(repoArchitecture, entryArchitecture);
     }
 }

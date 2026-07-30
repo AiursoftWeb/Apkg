@@ -3,6 +3,7 @@ using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using Aiursoft.Apkg.Sdk.Models;
 
 namespace Aiursoft.Apkg.Sdk.Services;
 
@@ -12,6 +13,52 @@ public class ApkgPushService(HttpClient httpClient)
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     };
+
+    /// <summary>
+    /// Checks whether every target in a build plan is already present.
+    /// Returns null when the server does not support preflight yet or has a
+    /// transient 5xx failure, allowing callers to preserve the legacy build
+    /// and push workflow.
+    /// </summary>
+    public async Task<PackagePreflightResponse?> PreflightAsync(
+        PackageBuildPlan plan,
+        string serverUrl,
+        string apiKey)
+    {
+        serverUrl = serverUrl.TrimEnd('/');
+        var body = JsonSerializer.Serialize(
+            PackagePreflightRequest.FromPlan(plan), JsonOptions);
+        using (var request = new HttpRequestMessage(
+                   HttpMethod.Post, $"{serverUrl}/api/packages/preflight"))
+        {
+            request.Content = new StringContent(body, Encoding.UTF8, "application/json");
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+
+            using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(15));
+            using var response = await httpClient.SendAsync(request, timeout.Token);
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            if (response.StatusCode is HttpStatusCode.NotFound or HttpStatusCode.MethodNotAllowed
+                || (int)response.StatusCode >= 500)
+                return null;
+
+            if (response.StatusCode is HttpStatusCode.Unauthorized or HttpStatusCode.Forbidden)
+                throw new UnauthorizedAccessException(
+                    $"Preflight authentication failed ({(int)response.StatusCode}): {responseBody}");
+
+            if (!response.IsSuccessStatusCode)
+                throw new InvalidOperationException(
+                    $"Preflight failed ({(int)response.StatusCode}): {responseBody}");
+
+            return JsonSerializer.Deserialize<PackagePreflightResponse>(
+                       responseBody,
+                       new JsonSerializerOptions(JsonOptions)
+                       {
+                           PropertyNameCaseInsensitive = true
+                       })
+                   ?? throw new InvalidOperationException("Server returned an empty preflight response.");
+        }
+    }
 
     /// <summary>
     /// Pushes an .apkg file to the server using a single multipart upload.
@@ -227,4 +274,3 @@ public class ChunkedUploadProgress
     public int? ChunkIndex { get; init; }
     public int? ChunkCount { get; init; }
 }
-

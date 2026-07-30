@@ -24,6 +24,72 @@ public class DebBuilder
         _logger = logger;
     }
 
+    /// <summary>
+    /// Resolves the exact version that <see cref="BuildAsync"/> would write to
+    /// DEBIAN/control. For upstream-derived projects this reads only APT index
+    /// metadata; it never downloads the upstream .deb.
+    /// </summary>
+    public async Task<string> ResolvePackageVersionAsync(
+        string projectDir,
+        AosprojProject project,
+        string distro,
+        string suite,
+        string arch)
+    {
+        var resolvedVersion = ResolvePackageVersion(
+            project.PackageVersion, suite, project.GetSuiteShortNameMap());
+
+        if (!resolvedVersion.Contains("$(UpstreamVersion)", StringComparison.Ordinal))
+        {
+            EnsureVersionFullyResolved(resolvedVersion);
+            return resolvedVersion;
+        }
+
+        if (!project.HasUpstreamSource)
+            throw new InvalidOperationException(
+                "PackageVersion uses $(UpstreamVersion), but no <UpstreamPackage> is configured.");
+
+        var rawUpstreamSuite = ResolveVariables(project.UpstreamSuite, project, distro, suite, arch);
+        var suiteMap = project.GetUpstreamSuiteMap();
+        var resolvedUpstreamSuite = suiteMap.TryGetValue(rawUpstreamSuite, out var mapped)
+            ? mapped
+            : rawUpstreamSuite;
+        var resolvedUpstreamComponent = ResolveVariables(
+            project.UpstreamComponent, project, distro, suite, arch);
+        var resolvedUpstreamArch = ResolveVariables(
+            project.UpstreamArch, project, distro, suite, arch);
+
+        var ctx = ConditionEvaluator.BuildContext(
+            distro, suite, arch,
+            upstreamDistro: project.UpstreamDistro,
+            upstreamSuite: resolvedUpstreamSuite,
+            upstreamArch: resolvedUpstreamArch,
+            component: project.Component);
+
+        var resolvedUpstreamUrl = project.UpstreamUrls
+            .FirstOrDefault(item => _evaluator.Evaluate(item.Condition, ctx))
+            ?.Value;
+        if (string.IsNullOrWhiteSpace(resolvedUpstreamUrl))
+            throw new InvalidOperationException(
+                $"No valid UpstreamUrl defined for architecture '{arch}' and suite '{suite}'.");
+
+        resolvedUpstreamUrl = ResolveVariables(
+            resolvedUpstreamUrl, project, distro, suite, arch).TrimEnd('/');
+
+        var metadata = await ResolveUpstreamPackageMetadataAsync(
+            project,
+            resolvedUpstreamUrl,
+            resolvedUpstreamSuite,
+            resolvedUpstreamComponent,
+            resolvedUpstreamArch,
+            projectDir);
+
+        resolvedVersion = resolvedVersion.Replace(
+            "$(UpstreamVersion)", metadata.Package.Version, StringComparison.Ordinal);
+        EnsureVersionFullyResolved(resolvedVersion);
+        return resolvedVersion;
+    }
+
     /// <summary>Default permissions for executable files (0755, rwxr-xr-x).</summary>
     private const UnixFileMode ExecutableMode =
         UnixFileMode.UserRead | UnixFileMode.UserWrite | UnixFileMode.UserExecute |
@@ -539,8 +605,13 @@ public class DebBuilder
 
     // ── Helpers ───────────────────────────────────────────────────────────────
 
+    private sealed record ResolvedUpstreamPackageMetadata(
+        DebianPackage Package,
+        UpstreamAptSource? HttpRepository,
+        string? LocalRepositoryPath);
+
     /// <summary>
-    /// Downloads an upstream .deb via HTTP with SHA256 verification.
+    /// Downloads an upstream .deb with SHA256 verification.
     /// Returns the path to the downloaded .deb.
     /// </summary>
     private async Task<string> DownloadUpstreamDebAsync(
@@ -549,7 +620,59 @@ public class DebBuilder
         var downloadDir = Path.Combine(projectDir, "obj");
         Directory.CreateDirectory(downloadDir);
 
-        // Validate keyring file exists (before branching on URL type, consistent with old behavior)
+        _logger.LogInformation("Downloading {Package} from {Url} ({Suite})...",
+            project.UpstreamPackage, resolvedUpstreamUrl, resolvedUpstreamSuite);
+
+        var metadata = await ResolveUpstreamPackageMetadataAsync(
+            project, resolvedUpstreamUrl, resolvedUpstreamSuite,
+            resolvedUpstreamComponent, resolvedUpstreamArch, projectDir);
+        var resolvedPackage = metadata.Package;
+        var destPath = Path.Combine(downloadDir,
+            $"{project.UpstreamPackage}_{resolvedPackage.Version}_{resolvedPackage.Architecture}.deb");
+
+        if (metadata.LocalRepositoryPath != null)
+        {
+            var debSourcePath = Path.Combine(metadata.LocalRepositoryPath, resolvedPackage.Filename);
+            if (!File.Exists(debSourcePath))
+                throw new InvalidOperationException(
+                    $"Referenced .deb file not found at {debSourcePath}.");
+
+            await using var srcStream = File.OpenRead(debSourcePath);
+            await using var dstStream = File.Create(destPath);
+            await srcStream.CopyToAsync(dstStream);
+        }
+        else
+        {
+            var downloadSource = new AptPackageSource(
+                metadata.HttpRepository!,
+                resolvedUpstreamComponent,
+                resolvedPackage.Architecture);
+            await downloadSource.DownloadPackageAsync(resolvedPackage, destPath);
+        }
+
+        if (metadata.LocalRepositoryPath != null)
+        {
+            var actualHash = Convert.ToHexStringLower(
+                System.Security.Cryptography.SHA256.HashData(await File.ReadAllBytesAsync(destPath)));
+            if (!string.Equals(actualHash, resolvedPackage.SHA256, StringComparison.OrdinalIgnoreCase))
+            {
+                File.Delete(destPath);
+                throw new System.Security.SecurityException(
+                    $"SHA256 mismatch for upstream package.\nExpected: {resolvedPackage.SHA256}\nActual:   {actualHash}");
+            }
+        }
+
+        return destPath;
+    }
+
+    private async Task<ResolvedUpstreamPackageMetadata> ResolveUpstreamPackageMetadataAsync(
+        AosprojProject project,
+        string repoUrl,
+        string suite,
+        string component,
+        string upstreamArch,
+        string projectDir)
+    {
         string? keyringPath = null;
         if (!string.IsNullOrWhiteSpace(project.UpstreamSignedBy))
         {
@@ -558,189 +681,132 @@ public class DebBuilder
                 throw new InvalidOperationException(
                     $"UpstreamSignedBy file not found: '{keyringPath}'. " +
                     "The keyring file must be committed alongside the .aosproj file.");
-            _logger.LogInformation("Using GPG keyring {KeyringFile} for upstream verification.",
-                project.UpstreamSignedBy);
         }
 
-        // file:// repos: read directly from disk (HttpClient doesn't support file://)
-        if (resolvedUpstreamUrl.StartsWith("file://", StringComparison.OrdinalIgnoreCase))
+        string? localRepoPath = null;
+        UpstreamAptSource? httpRepo = null;
+        if (repoUrl.StartsWith("file://", StringComparison.OrdinalIgnoreCase))
         {
-            return await DownloadFromFileRepoAsync(
-                project, resolvedUpstreamUrl, resolvedUpstreamSuite,
-                resolvedUpstreamComponent, resolvedUpstreamArch, downloadDir);
+            localRepoPath = repoUrl["file://".Length..].TrimStart('/');
+            if (!Path.IsPathRooted(localRepoPath))
+                localRepoPath = "/" + localRepoPath;
         }
-
-        // HTTPS repos
-        var allowInsecure = keyringPath == null; // trust transport when no explicit keyring
-        var repo = new UpstreamAptSource(resolvedUpstreamUrl, resolvedUpstreamSuite,
-            signedBy: keyringPath, allowInsecure: allowInsecure);
-
-        _logger.LogInformation("Downloading {Package} from {Url} ({Suite})...",
-            project.UpstreamPackage, resolvedUpstreamUrl, resolvedUpstreamSuite);
-
-        // Search by the upstream package's real architecture first, then fall back
-        // to binary-all. When UpstreamArch=all, try binary-all first, then the
-        // host's Debian arch (some mirrors omit binary-all since all packages are
-        // merged into each arch-specific index per Debian convention).
-        var searchArches = resolvedUpstreamArch == "all"
-            ? new[] { "all", HostDebArch() }
-            : new[] { resolvedUpstreamArch, "all" };
-
-        DebianPackage? resolvedPackage = null;
-        var versionComparer = new AptVersionComparisonService();
-        foreach (var searchArch in searchArches)
+        else
         {
-            try
-            {
-                var source = new AptPackageSource(repo, resolvedUpstreamComponent, searchArch);
-                var candidates = new List<DebianPackage>();
-                await foreach (var pkg in source.FetchPackagesAsync())
-                {
-                    if (string.Equals(pkg.Package.Package, project.UpstreamPackage, StringComparison.OrdinalIgnoreCase))
-                    {
-                        candidates.Add(pkg.Package);
-                    }
-                }
-
-                if (candidates.Count > 0)
-                {
-                    candidates.Sort((a, b) => versionComparer.Compare(b.Version, a.Version));
-                    var best = candidates[0];
-                    if (resolvedPackage == null || versionComparer.Compare(best.Version, resolvedPackage.Version) > 0)
-                        resolvedPackage = best;
-                }
-            }
-            catch (Exception ex) when (ex is not InvalidOperationException)
-            {
-                // Mirror may not carry this arch index — try the next one.
-                _logger.LogDebug(ex, "Failed to fetch package index for arch={SearchArch}, trying next.", searchArch);
-            }
+            httpRepo = new UpstreamAptSource(
+                repoUrl, suite, signedBy: keyringPath, allowInsecure: keyringPath == null);
         }
-
-        if (resolvedPackage == null)
-            throw new InvalidOperationException(
-                $"Package '{project.UpstreamPackage}' not found in {resolvedUpstreamUrl} " +
-                $"suite {resolvedUpstreamSuite} component {resolvedUpstreamComponent}.");
-
-        // Download the .deb with SHA256 verification (built into AptPackageSource)
-        var destPath = Path.Combine(downloadDir,
-            $"{project.UpstreamPackage}_{resolvedPackage.Version}_{resolvedPackage.Architecture}.deb");
-        var downloadSource = new AptPackageSource(repo, resolvedUpstreamComponent,
-            resolvedPackage.Architecture);
-        await downloadSource.DownloadPackageAsync(resolvedPackage, destPath);
-
-        return destPath;
-    }
-
-    /// <summary>
-    /// Downloads an upstream .deb from a local <c>file://</c> repository.
-    /// Reads Packages index files directly from disk — no HTTP or GPG needed.
-    /// </summary>
-    private async Task<string> DownloadFromFileRepoAsync(
-        AosprojProject project, string repoUrl, string suite, string component,
-        string upstreamArch, string downloadDir)
-    {
-        var repoPath = repoUrl["file://".Length..].TrimStart('/');
-        // On Unix, file:///path → /path; the TrimStart above handles both file:/// and file://
-        if (!Path.IsPathRooted(repoPath))
-            repoPath = "/" + repoPath;
-
-        _logger.LogInformation("Downloading {Package} from local repo {Path} ({Suite})...",
-            project.UpstreamPackage, repoPath, suite);
 
         var searchArches = upstreamArch == "all"
             ? new[] { "all", HostDebArch() }
             : new[] { upstreamArch, "all" };
-
         DebianPackage? resolvedPackage = null;
         var versionComparer = new AptVersionComparisonService();
+
         foreach (var searchArch in searchArches)
         {
-            var binArch = $"binary-{searchArch}";
-            var distsDir = Path.Combine(repoPath, "dists", suite, component, binArch);
+            var candidates = localRepoPath != null
+                ? ReadLocalPackageCandidates(
+                    localRepoPath, suite, component, searchArch, project.UpstreamPackage)
+                : await ReadHttpPackageCandidatesAsync(
+                    httpRepo!, component, searchArch, project.UpstreamPackage);
 
-            // Try Packages.gz first, then uncompressed Packages
-            foreach (var (fileName, needsDecompress) in new[] { ("Packages.gz", true), ("Packages", false) })
-            {
-                var indexPath = Path.Combine(distsDir, fileName);
-                if (!File.Exists(indexPath)) continue;
+            if (candidates.Count == 0)
+                continue;
 
-                try
-                {
-                    using var fileStream = File.OpenRead(indexPath);
-                    IEnumerable<Dictionary<string, string>> dicts;
-                    if (needsDecompress)
-                    {
-                        using var gzStream = new System.IO.Compression.GZipStream(
-                            fileStream, System.IO.Compression.CompressionMode.Decompress);
-                        dicts = DebianPackageParser.Parse(gzStream).ToList();
-                    }
-                    else
-                    {
-                        dicts = DebianPackageParser.Parse(fileStream).ToList();
-                    }
-
-                    var candidates = new List<DebianPackage>();
-                    foreach (var dict in dicts)
-                    {
-                        var pkg = DebianPackageParser.MapToPackage(dict, suite, component);
-                        if (string.Equals(pkg.Package, project.UpstreamPackage, StringComparison.OrdinalIgnoreCase))
-                        {
-                            candidates.Add(pkg);
-                        }
-                    }
-
-                    if (candidates.Count > 0)
-                    {
-                        candidates.Sort((a, b) => versionComparer.Compare(b.Version, a.Version));
-                        var best = candidates[0];
-                        if (resolvedPackage == null || versionComparer.Compare(best.Version, resolvedPackage.Version) > 0)
-                            resolvedPackage = best;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogDebug(ex, "Failed to parse {File}, trying next.", fileName);
-                }
-
-                if (resolvedPackage != null) break;
-            }
+            candidates.Sort((a, b) => versionComparer.Compare(b.Version, a.Version));
+            var best = candidates[0];
+            if (resolvedPackage == null ||
+                versionComparer.Compare(best.Version, resolvedPackage.Version) > 0)
+                resolvedPackage = best;
         }
 
         if (resolvedPackage == null)
             throw new InvalidOperationException(
-                $"Package '{project.UpstreamPackage}' not found in local repo {repoPath} " +
+                $"Package '{project.UpstreamPackage}' not found in {repoUrl} " +
                 $"suite {suite} component {component}.");
 
-        // Copy the .deb from the local repo and verify SHA256
-        var debSourcePath = Path.Combine(repoPath, resolvedPackage.Filename);
-        if (!File.Exists(debSourcePath))
+        return new ResolvedUpstreamPackageMetadata(
+            resolvedPackage, httpRepo, localRepoPath);
+    }
+
+    private async Task<List<DebianPackage>> ReadHttpPackageCandidatesAsync(
+        UpstreamAptSource repository,
+        string component,
+        string arch,
+        string packageName)
+    {
+        try
+        {
+            var source = new AptPackageSource(repository, component, arch);
+            var candidates = new List<DebianPackage>();
+            await foreach (var package in source.FetchPackagesAsync())
+            {
+                if (string.Equals(
+                        package.Package.Package, packageName,
+                        StringComparison.OrdinalIgnoreCase))
+                    candidates.Add(package.Package);
+            }
+
+            return candidates;
+        }
+        catch (Exception ex) when (ex is not InvalidOperationException)
+        {
+            _logger.LogDebug(ex, "Failed to fetch package index for arch={Arch}.", arch);
+            return [];
+        }
+    }
+
+    private List<DebianPackage> ReadLocalPackageCandidates(
+        string repoPath,
+        string suite,
+        string component,
+        string arch,
+        string packageName)
+    {
+        var distsDir = Path.Combine(repoPath, "dists", suite, component, $"binary-{arch}");
+        foreach (var (fileName, needsDecompress) in new[] { ("Packages.gz", true), ("Packages", false) })
+        {
+            var indexPath = Path.Combine(distsDir, fileName);
+            if (!File.Exists(indexPath))
+                continue;
+
+            try
+            {
+                using var fileStream = File.OpenRead(indexPath);
+                IEnumerable<Dictionary<string, string>> dictionaries;
+                if (needsDecompress)
+                {
+                    using var gzipStream = new System.IO.Compression.GZipStream(
+                        fileStream, System.IO.Compression.CompressionMode.Decompress);
+                    dictionaries = DebianPackageParser.Parse(gzipStream).ToList();
+                }
+                else
+                {
+                    dictionaries = DebianPackageParser.Parse(fileStream).ToList();
+                }
+
+                return dictionaries
+                    .Select(dictionary => DebianPackageParser.MapToPackage(
+                        dictionary, suite, component))
+                    .Where(package => string.Equals(
+                        package.Package, packageName, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogDebug(ex, "Failed to parse {File}, trying next.", fileName);
+            }
+        }
+
+        return [];
+    }
+
+    private static void EnsureVersionFullyResolved(string version)
+    {
+        if (version.Contains("$(", StringComparison.Ordinal))
             throw new InvalidOperationException(
-                $"Referenced .deb file not found at {debSourcePath}.");
-
-        var destPath = Path.Combine(downloadDir,
-            $"{project.UpstreamPackage}_{resolvedPackage.Version}_{resolvedPackage.Architecture}.deb");
-
-        // Copy the file
-        using (var srcStream = File.OpenRead(debSourcePath))
-        using (var dstStream = File.Create(destPath))
-        {
-            await srcStream.CopyToAsync(dstStream);
-        }
-
-        // Verify SHA256
-        var actualHash = BitConverter.ToString(
-            System.Security.Cryptography.SHA256.HashData(await File.ReadAllBytesAsync(destPath)))
-            .Replace("-", "").ToLowerInvariant();
-
-        if (!string.Equals(actualHash, resolvedPackage.SHA256, StringComparison.OrdinalIgnoreCase))
-        {
-            File.Delete(destPath);
-            throw new System.Security.SecurityException(
-                $"SHA256 mismatch for {debSourcePath}.\nExpected: {resolvedPackage.SHA256}\nActual:   {actualHash}");
-        }
-
-        return destPath;
+                $"Package version '{version}' contains an unresolved variable.");
     }
 
     /// <summary>

@@ -12,6 +12,8 @@ return await new NestedCommandApp()
     .WithFeature(new AddHandler())
     .WithFeature(new PublishHandler())
     .WithFeature(new PushHandler())
+    .WithFeature(new GuessVersionHandler())
+    .WithFeature(new DeployHandler())
     .WithFeature(new InstallHandler())
     .WithFeature(new UnpackHandler())
     .WithFeature(new AddSourceHandler())
@@ -21,6 +23,14 @@ static string[] NormalizeArgs(string[] args)
 {
     if (args.Length < 2)
         return args;
+
+    if (string.Equals(args[0], "guess", StringComparison.OrdinalIgnoreCase)
+        && string.Equals(args[1], "version", StringComparison.OrdinalIgnoreCase))
+    {
+        var rewritten = new List<string> { "guess-version" };
+        rewritten.AddRange(args.Skip(2));
+        return rewritten.ToArray();
+    }
 
     if (string.Equals(args[0], "add-source", StringComparison.OrdinalIgnoreCase)
         && !args[1].StartsWith("-", StringComparison.Ordinal))
