@@ -855,6 +855,42 @@ public class AosprojLinterTests
     }
 
     [TestMethod]
+    public void Lint_UpstreamPackageWithoutLocalIncludes_NoEmptyPackageWarning()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            var project = new AosprojProject
+            {
+                PackageName = "firefox-anduinos",
+                PackageVersion = "1.0.0",
+                PackageDescription = "Firefox repackaged from an upstream deb",
+                TargetSuites = "jammy",
+                Maintainer = "Test <test@example.com>",
+                UpstreamPackage = "firefox",
+                UpstreamUrls = [new() { Value = "https://packages.mozilla.org/apt" }],
+                UpstreamDistro = "mozilla",
+                UpstreamSuite = "mozilla",
+                UpstreamComponent = "main",
+                UpstreamArch = "amd64"
+            };
+
+            var issues = _linter.Lint(project, dir);
+
+            Assert.IsFalse(
+                issues.Any(i => i.Message.Contains(
+                    "The package will be empty",
+                    StringComparison.Ordinal)),
+                $"Upstream packages provide their payload from the upstream deb. Issues: " +
+                string.Join("; ", issues.Select(i => i.Message)));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
+    [TestMethod]
     public void Lint_NoUpstreamPackage_NoUpstreamValidation()
     {
         var dir = CreateTempDir();

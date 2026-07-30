@@ -162,7 +162,11 @@ public class AosprojLinter
                         $"<UpstreamSuiteMapping> entry '{outputSuite}' does not match any suite in <TargetSuites>."));
             }
         }
-        if (!project.IncludeFiles.Any() && !project.IncludeFolders.Any() && !project.IncludeScripts.Any() && !project.ConfFiles.Any())
+        if (!project.HasUpstreamSource &&
+            !project.IncludeFiles.Any() &&
+            !project.IncludeFolders.Any() &&
+            !project.IncludeScripts.Any() &&
+            !project.ConfFiles.Any())
             issues.Add(new LintIssue(Severity.Warning, "No files declared to include. The package will be empty."));
 
         // Verify targets exist
