@@ -6,6 +6,7 @@ using Aiursoft.Apkg.Sdk.Models;
 using Aiursoft.AptClient;
 using Aiursoft.AptClient.Abstractions;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Aiursoft.Apkg.Sdk.Services;
 
@@ -17,11 +18,21 @@ public class DebBuilder
 {
     private readonly ConditionEvaluator _evaluator;
     private readonly ILogger<DebBuilder> _logger;
+    private readonly AppStreamMetadataService _appStreamMetadata;
 
     public DebBuilder(ConditionEvaluator evaluator, ILogger<DebBuilder> logger)
+        : this(evaluator, logger, new AppStreamMetadataService(NullLogger<AppStreamMetadataService>.Instance))
+    {
+    }
+
+    public DebBuilder(
+        ConditionEvaluator evaluator,
+        ILogger<DebBuilder> logger,
+        AppStreamMetadataService appStreamMetadata)
     {
         _evaluator = evaluator;
         _logger = logger;
+        _appStreamMetadata = appStreamMetadata;
     }
 
     /// <summary>
@@ -329,6 +340,13 @@ public class DebBuilder
             CopyDirectory(src, dest);
             _logger.LogDebug("  + {Target}/ (folder)", item.Target);
         }
+
+        // ── Install AppStream desktop applications ──────────────────────────
+        await _appStreamMetadata.InstallAsync(
+            projectDir,
+            stagingRoot,
+            project,
+            project.AppStreamApplications.Where(application => Include(application.Condition)));
 
         // ── Copy ConfFile items ───────────────────────────────────────────────
         foreach (var item in project.ConfFiles.Where(f => Include(f.Condition)))

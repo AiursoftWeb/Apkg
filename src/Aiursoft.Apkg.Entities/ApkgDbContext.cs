@@ -131,6 +131,10 @@ public abstract class ApkgDbContext(DbContextOptions options) : IdentityDbContex
     /// </summary>
     public DbSet<ApkgDebPackage> ApkgDebPackages => Set<ApkgDebPackage>();
 
+    public DbSet<ApkgAppStreamApplication> ApkgAppStreamApplications => Set<ApkgAppStreamApplication>();
+
+    public DbSet<ApkgAppStreamAsset> ApkgAppStreamAssets => Set<ApkgAppStreamAsset>();
+
     /// <summary>
     /// <b>DebContents</b> — Cached <c>dpkg-deb -c</c> output keyed by SHA256. <br/>
     /// <b>3NF:</b> ✅ SHA256 is the sole PK. ContentsJson is derived from the .deb binary content. <br/>
@@ -172,6 +176,18 @@ public abstract class ApkgDbContext(DbContextOptions options) : IdentityDbContex
             .HasMany(r => r.ApkgDebPackages)
             .WithOne(lp => lp.ApkgRevision)
             .HasForeignKey(lp => lp.ApkgRevisionId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<ApkgRevision>()
+            .HasMany(r => r.AppStreamApplications)
+            .WithOne(a => a.ApkgRevision)
+            .HasForeignKey(a => a.ApkgRevisionId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<ApkgAppStreamApplication>()
+            .HasMany(a => a.Assets)
+            .WithOne(a => a.ApkgAppStreamApplication)
+            .HasForeignKey(a => a.ApkgAppStreamApplicationId)
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<AptPackage>()

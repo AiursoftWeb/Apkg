@@ -64,6 +64,8 @@ public class Startup : IWebStartup
         services.AddScoped<RepositoryTargetService>();
         services.AddScoped<PackagePreflightService>();
         services.AddScoped<DebContentsService>();
+        services.AddScoped<AppStreamAssetService>();
+        services.AddScoped<AppStreamCatalogService>();
         services.AddSingleton<NavigationState<Startup>>();
 
         // Explicitly register dependency check services

@@ -22,6 +22,101 @@ namespace Aiursoft.Apkg.MySql.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgAppStreamApplication", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ApkgRevisionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ComponentId")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("DesktopId")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("MetainfoPath")
+                        .IsRequired()
+                        .HasMaxLength(512)
+                        .HasColumnType("varchar(512)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApkgRevisionId", "ComponentId")
+                        .IsUnique();
+
+                    b.ToTable("ApkgAppStreamApplications");
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgAppStreamAsset", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ApkgAppStreamApplicationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Caption")
+                        .HasMaxLength(512)
+                        .HasColumnType("varchar(512)");
+
+                    b.Property<string>("Environment")
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
+
+                    b.Property<int>("Height")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDefault")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Locale")
+                        .IsRequired()
+                        .HasMaxLength(35)
+                        .HasColumnType("varchar(35)");
+
+                    b.Property<string>("MediaType")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("varchar(64)");
+
+                    b.Property<string>("ObjectSha256")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("varchar(64)");
+
+                    b.Property<int>("Order")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SourceSha256")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("varchar(64)");
+
+                    b.Property<int>("Width")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ObjectSha256");
+
+                    b.HasIndex("ApkgAppStreamApplicationId", "Order")
+                        .IsUnique();
+
+                    b.ToTable("ApkgAppStreamAssets");
+                });
+
             modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgDebPackage", b =>
                 {
                     b.Property<int>("Id")
@@ -932,6 +1027,28 @@ namespace Aiursoft.Apkg.MySql.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgAppStreamApplication", b =>
+                {
+                    b.HasOne("Aiursoft.Apkg.Entities.ApkgRevision", "ApkgRevision")
+                        .WithMany("AppStreamApplications")
+                        .HasForeignKey("ApkgRevisionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApkgRevision");
+                });
+
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgAppStreamAsset", b =>
+                {
+                    b.HasOne("Aiursoft.Apkg.Entities.ApkgAppStreamApplication", "ApkgAppStreamApplication")
+                        .WithMany("Assets")
+                        .HasForeignKey("ApkgAppStreamApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApkgAppStreamApplication");
+                });
+
             modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgDebPackage", b =>
                 {
                     b.HasOne("Aiursoft.Apkg.Entities.ApkgRevision", "ApkgRevision")
@@ -1114,6 +1231,11 @@ namespace Aiursoft.Apkg.MySql.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgAppStreamApplication", b =>
+                {
+                    b.Navigation("Assets");
+                });
+
             modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgPackage", b =>
                 {
                     b.Navigation("Revisions");
@@ -1122,6 +1244,8 @@ namespace Aiursoft.Apkg.MySql.Migrations
             modelBuilder.Entity("Aiursoft.Apkg.Entities.ApkgRevision", b =>
                 {
                     b.Navigation("ApkgDebPackages");
+
+                    b.Navigation("AppStreamApplications");
                 });
 
             modelBuilder.Entity("Aiursoft.Apkg.Entities.AptBucket", b =>

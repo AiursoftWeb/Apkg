@@ -49,6 +49,8 @@ public class AosprojSerializer
                 case "LicenseType":        project.LicenseType = el.Value; break;
                 case "LicenseFile":        project.LicenseFile = el.Value; break;
                 case "PackageTags":        project.PackageTags = el.Value; break;
+                case "AppStreamDeveloperName": project.AppStreamDeveloperName = el.Value; break;
+                case "AppStreamMetadataLicense": project.AppStreamMetadataLicense = el.Value; break;
                 case "Provides":           project.Provides = el.Value; break;
                 case "Conflicts":          project.Conflicts = el.Value; break;
                 case "Replaces":           project.Replaces = el.Value; break;
@@ -215,6 +217,27 @@ public class AosprojSerializer
                         Name = (string?)el.Attribute("Include") ?? string.Empty,
                     });
                     break;
+                case "AppStreamApplication":
+                    project.AppStreamApplications.Add(new AppStreamApplicationItem
+                    {
+                        Source = (string?)el.Attribute("Include") ?? string.Empty,
+                        Icon = (string?)el.Attribute("Icon") ?? string.Empty,
+                        Metainfo = (string?)el.Attribute("Metainfo") ?? string.Empty,
+                        Condition = condition
+                    });
+                    break;
+                case "AppStreamScreenshot":
+                    project.AppStreamScreenshots.Add(new AppStreamScreenshotItem
+                    {
+                        Source = (string?)el.Attribute("Include") ?? string.Empty,
+                        AppId = (string?)el.Attribute("AppId") ?? string.Empty,
+                        Default = ReadBooleanAttribute(el, "Default"),
+                        Caption = (string?)el.Attribute("Caption") ?? string.Empty,
+                        Locale = (string?)el.Attribute("Locale") ?? "C",
+                        Environment = (string?)el.Attribute("Environment") ?? string.Empty,
+                        Condition = condition
+                    });
+                    break;
             }
         }
     }
@@ -241,6 +264,8 @@ public class AosprojSerializer
             Elem("LicenseType", project.LicenseType),
             Elem("LicenseFile", project.LicenseFile),
             Elem("PackageTags", project.PackageTags),
+            Elem("AppStreamDeveloperName", project.AppStreamDeveloperName),
+            Elem("AppStreamMetadataLicense", project.AppStreamMetadataLicense),
             Elem("Provides", project.Provides),
             Elem("Conflicts", project.Conflicts),
             Elem("Replaces", project.Replaces),
@@ -351,6 +376,39 @@ public class AosprojSerializer
                         new XAttribute("Type", t.Type)))));
         }
 
+        var appStreamItems = new List<object>();
+        appStreamItems.AddRange(project.AppStreamApplications.Select(app =>
+        {
+            var attrs = new List<XAttribute>
+            {
+                new("Include", app.Source),
+                new("Icon", app.Icon)
+            };
+            if (!string.IsNullOrWhiteSpace(app.Metainfo))
+                attrs.Add(new XAttribute("Metainfo", app.Metainfo));
+            return (object)ItemElem("AppStreamApplication", app.Condition, attrs.ToArray());
+        }));
+        appStreamItems.AddRange(project.AppStreamScreenshots.Select(screenshot =>
+        {
+            var attrs = new List<XAttribute>
+            {
+                new("Include", screenshot.Source)
+            };
+            if (!string.IsNullOrWhiteSpace(screenshot.AppId))
+                attrs.Add(new XAttribute("AppId", screenshot.AppId));
+            if (screenshot.Default)
+                attrs.Add(new XAttribute("Default", "true"));
+            if (!string.IsNullOrWhiteSpace(screenshot.Caption))
+                attrs.Add(new XAttribute("Caption", screenshot.Caption));
+            if (!string.IsNullOrWhiteSpace(screenshot.Locale) && screenshot.Locale != "C")
+                attrs.Add(new XAttribute("Locale", screenshot.Locale));
+            if (!string.IsNullOrWhiteSpace(screenshot.Environment))
+                attrs.Add(new XAttribute("Environment", screenshot.Environment));
+            return (object)ItemElem("AppStreamScreenshot", screenshot.Condition, attrs.ToArray());
+        }));
+        if (appStreamItems.Count > 0)
+            itemGroups.Add(new XElement("ItemGroup", appStreamItems));
+
         var root = new XElement("Project",
             new XAttribute("Sdk", "Aiursoft.Apkg.Sdk"),
             pg);
@@ -368,6 +426,12 @@ public class AosprojSerializer
         if (string.IsNullOrWhiteSpace(modeStr))
             return null;
         return UnixFileModeHelper.ParseOctal(modeStr);
+    }
+
+    private static bool ReadBooleanAttribute(XElement el, string name)
+    {
+        var value = (string?)el.Attribute(name);
+        return value != null && bool.TryParse(value, out var parsed) && parsed;
     }
 
     // Returns null for empty/whitespace values so XElement silently skips them.

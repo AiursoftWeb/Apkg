@@ -162,6 +162,24 @@ No repository found for (Distro=anduinos, Suite=questing-addon, Arch=amd64)
 | "`apkg push` 返回 200 就说明所有 deb 都入库了" | 不是。服务端静默跳过无匹配仓库的 Entry，客户端不报错 |
 | "Distro 代表 CPU 架构" | `Distro` 是 OS 家族标识（如 `anduinos`），与 CPU 架构无关 |
 
+## AppStream 截图托管
+
+如果任何 `.aosproj` 声明了 `AppStreamScreenshot`，必须在全局设置中配置
+`PublicAptServerDomain`，例如 `https://packages.anduinos.com`。RepositorySyncJob
+在后台生成 DEP-11，不能从 HTTP request 推断公开域名；缺少该设置时，新 pending
+bucket 会停止发布，旧的已签名仓库继续在线。
+
+生成并签名的文件位于：
+
+```text
+dists/<suite>/<component>/dep11/Components-<arch>.yml.gz
+dists/<suite>/<component>/dep11/icons-48x48.tar.gz
+dists/<suite>/<component>/dep11/icons-64x64.tar.gz
+```
+
+截图媒体发布到 `artifacts/<distro>/media/<suite>/<sha256>.png`。服务端重新编码图片、
+清除元数据并按 SHA-256 去重；GarbageCollectionJob 会清除已经没有 revision 引用的媒体。
+
 ## 生产环境证书
 
 每个 AptRepository 有独立 GPG 签名密钥。生产环境私钥可托管到外部服务（HashiCorp Vault、Azure Key Vault）— Apkg 通过网络调用签名 API，全程不接触私钥。

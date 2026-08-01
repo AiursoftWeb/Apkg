@@ -9,6 +9,50 @@ public class AosprojSerializerTests
 {
     private readonly AosprojSerializer _serializer = new();
 
+    [TestMethod]
+    public void RoundTrip_AppStreamItemsAndProperties()
+    {
+        var original = new AosprojProject
+        {
+            PackageName = "demo",
+            AppStreamDeveloperName = "AnduinOS",
+            AppStreamMetadataLicense = "CC-BY-SA-4.0",
+            AppStreamApplications =
+            {
+                new AppStreamApplicationItem
+                {
+                    Source = "data/com.example.demo.desktop",
+                    Icon = "data/com.example.demo.svg",
+                    Metainfo = "data/com.example.demo.metainfo.xml"
+                }
+            },
+            AppStreamScreenshots =
+            {
+                new AppStreamScreenshotItem
+                {
+                    Source = "screenshots/overview.png",
+                    AppId = "com.example.demo",
+                    Default = true,
+                    Caption = "Overview",
+                    Locale = "zh-CN",
+                    Environment = "GNOME:dark"
+                }
+            }
+        };
+
+        var result = _serializer.Deserialize(_serializer.Serialize(original));
+
+        Assert.AreEqual("AnduinOS", result.AppStreamDeveloperName);
+        Assert.AreEqual("CC-BY-SA-4.0", result.AppStreamMetadataLicense);
+        Assert.AreEqual(1, result.AppStreamApplications.Count);
+        Assert.AreEqual("data/com.example.demo.svg", result.AppStreamApplications[0].Icon);
+        Assert.AreEqual("data/com.example.demo.metainfo.xml", result.AppStreamApplications[0].Metainfo);
+        Assert.AreEqual(1, result.AppStreamScreenshots.Count);
+        Assert.IsTrue(result.AppStreamScreenshots[0].Default);
+        Assert.AreEqual("zh-CN", result.AppStreamScreenshots[0].Locale);
+        Assert.AreEqual("GNOME:dark", result.AppStreamScreenshots[0].Environment);
+    }
+
     // ── Commit c35e691: Elem returns null for empty values ────────────────────
 
     [TestMethod]

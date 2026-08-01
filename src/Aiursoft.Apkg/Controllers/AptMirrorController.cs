@@ -51,14 +51,18 @@ public class AptMirrorController(
         if (path.EndsWith("Release") && bucket.ReleaseContent != null)
             return ConditionalContent(bucket.ReleaseContent, bucket.CreatedAt, "text/plain");
 
-        if (path.Contains("Packages") || path.Contains("Contents"))
+        var bucketRoot = Path.GetFullPath(Path.Combine(BucketsRoot, bucket.Id.ToString()));
+        var localPath = Path.GetFullPath(Path.Combine(bucketRoot, path));
+        if (localPath.StartsWith(bucketRoot + Path.DirectorySeparatorChar, StringComparison.Ordinal) &&
+            System.IO.File.Exists(localPath))
         {
-            var localPath = Path.Combine(BucketsRoot, bucket.Id.ToString(), path);
-            if (System.IO.File.Exists(localPath))
-            {
-                Response.Headers.CacheControl = "no-cache";
-                return PhysicalFile(localPath, localPath.EndsWith(".gz") ? "application/x-gzip" : "text/plain", true);
-            }
+            Response.Headers.CacheControl = "no-cache";
+            var contentType = localPath.EndsWith(".gz", StringComparison.OrdinalIgnoreCase)
+                ? "application/x-gzip"
+                : localPath.EndsWith(".yml", StringComparison.OrdinalIgnoreCase)
+                    ? "application/yaml"
+                    : "text/plain";
+            return PhysicalFile(localPath, contentType, true);
         }
 
         return NotFound();
@@ -95,6 +99,32 @@ public class AptMirrorController(
         if (localPath == null) return NotFound();
 
         return PhysicalFile(localPath, "application/vnd.debian.binary-package", true);
+    }
+
+    [HttpGet]
+    [Route("artifacts/{distro}/media/{suite}/{hash}.png")]
+    public async Task<IActionResult> GetAppStreamMedia(
+        [FromRoute] string distro,
+        [FromRoute] string suite,
+        [FromRoute] string hash)
+    {
+        if (hash.Length != 64 || !hash.All(Uri.IsHexDigit))
+            return NotFound();
+        hash = hash.ToLowerInvariant();
+        var isReferenced = await dbContext.ApkgAppStreamAssets
+            .AsNoTracking()
+            .AnyAsync(asset => asset.ObjectSha256 == hash &&
+                asset.ApkgAppStreamApplication!.ApkgRevision!.ApkgDebPackages.Any(package =>
+                    package.IsEnabled && package.Repository!.Distro == distro && package.Repository.Suite == suite));
+        if (!isReferenced)
+            return NotFound();
+
+        var path = Path.Combine(folders.GetAppStreamObjectsFolder(), hash[..2], $"{hash}.png");
+        if (!System.IO.File.Exists(path))
+            return NotFound();
+        Response.Headers.CacheControl = "public,max-age=31536000,immutable";
+        Response.Headers.ETag = $"\"{hash}\"";
+        return PhysicalFile(path, "image/png", enableRangeProcessing: true);
     }
 
     private IActionResult ConditionalContent(string content, DateTime lastModified, string contentType)

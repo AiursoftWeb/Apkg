@@ -159,21 +159,21 @@ bin/pkgname_1.0.0_resolute_amd64.deb
     │
     ▼
 apkg publish
-    │  扫描 bin/*.deb → 生成 manifest.xml v2 → 打包为 tar.gz (.apkg)
+    │  扫描 bin/*.deb → 生成 manifest.xml v2/v3 → 打包为 tar.gz (.apkg)
     ▼
 bin/pkgname.apkg
 ```
 
 ### 4.2 .aosproj 项目格式 & manifest.xml
 
-完整的 `.aosproj` 语法、ItemGroup 条目类型、`manifest.xml` v2 格式及 CLI 工作流见 **[aosproj.md](aosproj.md)**。
+完整的 `.aosproj` 语法、ItemGroup 条目类型、`manifest.xml` v2/v3 格式及 CLI 工作流见 **[aosproj.md](aosproj.md)**。
 
 核心要点：
 - **构建矩阵**：`TargetSuites × TargetArchitectures` 笛卡尔积，每个组合产出一个 `.deb`
-- **ItemGroup 条目**：`IncludeFile`、`IncludeFolder`、`IncludeScript`（自动 0755）、`ConfFile`（dpkg conffile 保护）、`PreInstallScript`（DEBIAN/preinst）、`PostInstallScript`（DEBIAN/postinst）、`PreRemoveScript`（DEBIAN/prerm）、`PostRemoveScript`（DEBIAN/postrm）、`SystemdUnit`（自动生成 postinst/prerm/postrm）、`DpkgTrigger`（生成 DEBIAN/triggers）、`Dependency`（合并为 Depends）
+- **ItemGroup 条目**：`IncludeFile`、`IncludeFolder`、`IncludeScript`（自动 0755）、`ConfFile`（dpkg conffile 保护）、`PreInstallScript`（DEBIAN/preinst）、`PostInstallScript`（DEBIAN/postinst）、`PreRemoveScript`（DEBIAN/prerm）、`PostRemoveScript`（DEBIAN/postrm）、`SystemdUnit`（自动生成 postinst/prerm/postrm）、`DpkgTrigger`（生成 DEBIAN/triggers）、`Dependency`（合并为 Depends）、`AppStreamApplication`、`AppStreamScreenshot`
 - **Condition 语法**：MSBuild 风格 — `'$(Suite)' == 'resolute'`，可用 `$(Distro)`、`$(Suite)`、`$(Arch)`（别名 `$(Architecture)`）、`$(Component)`、`$(UpstreamDistro)`、`$(UpstreamSuite)`、`$(UpstreamArch)`（别名 `$(UpstreamArchitecture)`）
 - **版本模板变量**：`$(UpstreamVersion)` 可在 `PackageVersion` 中使用，构建时自动替换为上游包的实际版本号
-- **manifest.xml v2**：`apkg publish` 自动生成。根层声明 `Name/Distro/Component`（三死属性，唯一确定包身份）和 `Entries`。每个 Entry 声明 `DebFile/Suite/Architecture`（三活属性）。Version 从 .deb 文件内部解析，不出现在 manifest 中。服务器按 `(Distro, Suite, Architecture)` 三元组路由到目标仓库。详见 **[aosproj.md](aosproj.md)**
+- **manifest.xml v2/v3**：`apkg publish` 自动生成。v2 保存 DEB 构建矩阵；v3 增加 AppStream application 与内容寻址截图资源。Version 仍从 `.deb` 内部解析。详见 **[aosproj.md](aosproj.md)**
 
 构建中间使用 `dpkg-deb --build --root-owner-group`，在 obj/ 目录下完成。全程不出现 DEBIAN/control 手工操作。
 
@@ -264,9 +264,12 @@ InRelease (包含哈希) → 验证 Packages.xz
 Packages.xz (包含哈希) → 验证 chromium.deb
 ```
 
-### 6.3 c-n-f 与辅助元数据（规划中）
+### 6.3 AppStream 与其他辅助元数据
 
-命令未找到提示 (`cnf/Commands-{arch}.xz`)、AppStream (`dep11`) 和翻译 (`i18n`) 数据的同步和路由暂未实现，属于未来规划。
+Apkg 会为本地上传且显式声明了 `AppStreamApplication` 的包生成 DEP-11
+`Components-{arch}.yml[.gz]` 与 48/64px 图标索引，并通过内容寻址路径托管截图。
+第一版不会下载并扫描上游镜像中的虚包。命令未找到提示
+(`cnf/Commands-{arch}.xz`) 和翻译 (`i18n`) 数据仍属于未来规划。
 
 ### 6.4 下载
 

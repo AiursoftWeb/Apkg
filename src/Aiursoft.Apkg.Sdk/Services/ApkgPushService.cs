@@ -1,5 +1,7 @@
 using System.Net;
 using System.Net.Http.Headers;
+using System.Formats.Tar;
+using System.IO.Compression;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
@@ -69,6 +71,7 @@ public class ApkgPushService(HttpClient httpClient)
     public async Task<string> PushAsync(string apkgFilePath, string serverUrl, string apiKey, bool skipDuplicate, bool allowDowngrade = false)
     {
         serverUrl = serverUrl.TrimEnd('/');
+        await EnsureServerSupportsArchiveAsync(apkgFilePath, serverUrl);
 
         using var content = new MultipartFormDataContent();
         await using var fileStream = File.OpenRead(apkgFilePath);
@@ -115,11 +118,13 @@ public class ApkgPushService(HttpClient httpClient)
         if (!fileInfo.Exists)
             throw new FileNotFoundException($".apkg file not found: {apkgFilePath}");
 
+        serverUrl = serverUrl.TrimEnd('/');
+        await EnsureServerSupportsArchiveAsync(apkgFilePath, serverUrl);
+
         // Fall back to single upload for small files
         if (fileInfo.Length <= chunkSize)
-            return await PushAsync(apkgFilePath, serverUrl, apiKey, skipDuplicate, allowDowngrade);
+            return await PushCoreAsync(apkgFilePath, serverUrl, apiKey, skipDuplicate, allowDowngrade);
 
-        serverUrl = serverUrl.TrimEnd('/');
         var totalSize = fileInfo.Length;
         var chunkCount = (int)Math.Ceiling((double)totalSize / chunkSize);
 
@@ -261,6 +266,72 @@ public class ApkgPushService(HttpClient httpClient)
         };
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
         return request;
+    }
+
+    private async Task<string> PushCoreAsync(
+        string apkgFilePath,
+        string serverUrl,
+        string apiKey,
+        bool skipDuplicate,
+        bool allowDowngrade)
+    {
+        using var content = new MultipartFormDataContent();
+        await using var fileStream = File.OpenRead(apkgFilePath);
+        using var fileContent = CreateApkgFileContent(fileStream);
+        content.Add(fileContent, "apkg", Path.GetFileName(apkgFilePath));
+
+        var url = $"{serverUrl}/api/packages/apkg-upload?skipDuplicate={skipDuplicate}&allowDowngrade={allowDowngrade}";
+        using var request = CreateRequest(url, content, apiKey);
+        using var response = await httpClient.SendAsync(request);
+        var body = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode
+            && response.StatusCode != HttpStatusCode.Conflict
+            && response.StatusCode != HttpStatusCode.Forbidden)
+            throw new InvalidOperationException($"Server returned {(int)response.StatusCode}: {body}");
+        return body;
+    }
+
+    private async Task EnsureServerSupportsArchiveAsync(string apkgFilePath, string serverUrl)
+    {
+        var formatVersion = await ReadManifestFormatVersionAsync(apkgFilePath);
+        if (formatVersion < 3)
+            return;
+
+        using var timeout = new CancellationTokenSource(TimeSpan.FromSeconds(15));
+        using var response = await httpClient.GetAsync($"{serverUrl}/api/system/capabilities", timeout.Token);
+        if (response.StatusCode == HttpStatusCode.NotFound)
+            throw new InvalidOperationException(
+                "This .apkg contains AppStream resources, but the target server does not advertise .apkg manifest v3 support. Upgrade the Apkg server first.");
+        var body = await response.Content.ReadAsStringAsync(timeout.Token);
+        if (!response.IsSuccessStatusCode)
+            throw new InvalidOperationException(
+                $"Failed to query server capabilities ({(int)response.StatusCode}): {body}");
+        var capabilities = JsonSerializer.Deserialize<ServerCapabilities>(
+            body,
+            new JsonSerializerOptions(JsonOptions) { PropertyNameCaseInsensitive = true });
+        if (capabilities == null ||
+            !capabilities.ApkgManifestVersions.Contains(formatVersion) ||
+            !capabilities.Features.Contains("appstream-assets-v1", StringComparer.Ordinal))
+            throw new InvalidOperationException(
+                $"The target server does not support AppStream resources in .apkg manifest v{formatVersion}.");
+    }
+
+    private static async Task<int> ReadManifestFormatVersionAsync(string apkgFilePath)
+    {
+        await using var file = File.OpenRead(apkgFilePath);
+        await using var gzip = new GZipStream(file, CompressionMode.Decompress);
+        using var tar = new TarReader(gzip);
+        TarEntry? entry;
+        while ((entry = await tar.GetNextEntryAsync()) != null)
+        {
+            if (!string.Equals(entry.Name.TrimStart('.', '/'), "manifest.xml", StringComparison.OrdinalIgnoreCase) ||
+                entry.DataStream == null)
+                continue;
+            using var reader = new StreamReader(entry.DataStream, Encoding.UTF8);
+            var xml = await reader.ReadToEndAsync();
+            return new ManifestSerializer().DeserializePackageManifest(xml).FormatVersion;
+        }
+        throw new InvalidDataException("manifest.xml was not found in the .apkg archive.");
     }
 }
 

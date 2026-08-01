@@ -93,6 +93,8 @@ public class AosprojLinter
         foreach (var item in project.SystemdUnits)
             CheckSourceExists(issues, projectDir, item.Source, "SystemdUnit");
 
+        LintAppStream(issues, project, projectDir);
+
         // Validate conditions are parseable
         var allConditions = project.Dependencies.Select(d => d.Condition)
             .Concat(project.IncludeFiles.Select(f => f.Condition))
@@ -105,7 +107,9 @@ public class AosprojLinter
             .Concat(project.PostRemoveScripts.Select(s => s.Condition))
             .Concat(project.SystemdUnits.Select(u => u.Condition))
             .Concat(project.PrebuildCommands.Select(c => c.Condition))
-            .Concat(project.DependencyCheckSources.Select(s => s.Condition));
+            .Concat(project.DependencyCheckSources.Select(s => s.Condition))
+            .Concat(project.AppStreamApplications.Select(a => a.Condition))
+            .Concat(project.AppStreamScreenshots.Select(s => s.Condition));
 
         var dummyCtx = ConditionEvaluator.BuildContext("ubuntu", "jammy", "amd64",
             upstreamDistro: project.UpstreamDistro,
@@ -166,7 +170,8 @@ public class AosprojLinter
             !project.IncludeFiles.Any() &&
             !project.IncludeFolders.Any() &&
             !project.IncludeScripts.Any() &&
-            !project.ConfFiles.Any())
+            !project.ConfFiles.Any() &&
+            !project.AppStreamApplications.Any())
             issues.Add(new LintIssue(Severity.Warning, "No files declared to include. The package will be empty."));
 
         // Verify targets exist
@@ -183,6 +188,191 @@ public class AosprojLinter
             RequireField(issues, item.Target, $"ConfFile[@Include='{item.Source}'] Target");
 
         return issues;
+    }
+
+    private static void LintAppStream(
+        List<LintIssue> issues,
+        AosprojProject project,
+        string projectDir)
+    {
+        if (project.AppStreamApplications.Count == 0)
+        {
+            if (project.AppStreamScreenshots.Count > 0)
+                issues.Add(new LintIssue(Severity.Error,
+                    "<AppStreamScreenshot> requires at least one <AppStreamApplication>."));
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(project.AppStreamMetadataLicense))
+            issues.Add(new LintIssue(Severity.Error, "<AppStreamMetadataLicense> must not be empty."));
+
+        var appIds = new HashSet<string>(StringComparer.Ordinal);
+        foreach (var application in project.AppStreamApplications)
+        {
+            if (!string.IsNullOrWhiteSpace(application.Condition))
+                issues.Add(new LintIssue(Severity.Error,
+                    "AppStreamApplication does not support Condition in manifest v3; application metadata is package-wide."));
+            CheckRequiredFile(issues, projectDir, application.Source, "AppStreamApplication Include");
+            CheckRequiredFile(issues, projectDir, application.Icon, "AppStreamApplication Icon");
+            if (!string.IsNullOrWhiteSpace(application.Metainfo))
+                CheckRequiredFile(issues, projectDir, application.Metainfo, "AppStreamApplication Metainfo");
+
+            if (!application.Source.EndsWith(".desktop", StringComparison.OrdinalIgnoreCase))
+                issues.Add(new LintIssue(Severity.Error,
+                    $"AppStream application '{application.Source}' must reference a .desktop file."));
+
+            var appId = AppStreamMetadataService.GetComponentId(application);
+            if (!System.Text.RegularExpressions.Regex.IsMatch(appId, @"^[A-Za-z0-9][A-Za-z0-9._-]+$"))
+                issues.Add(new LintIssue(Severity.Error, $"AppStream component ID '{appId}' is invalid."));
+            if (!appIds.Add(appId))
+                issues.Add(new LintIssue(Severity.Error, $"Duplicate AppStream component ID '{appId}'."));
+
+            var desktopPath = Path.GetFullPath(Path.Combine(projectDir, application.Source));
+            if (File.Exists(desktopPath))
+                LintDesktopEntry(issues, desktopPath, application, appId);
+
+            if (!string.IsNullOrWhiteSpace(application.Metainfo))
+                LintMetainfo(issues, Path.GetFullPath(Path.Combine(projectDir, application.Metainfo)), appId);
+        }
+
+        var screenshotGroups = new Dictionary<string, List<AppStreamScreenshotItem>>(StringComparer.Ordinal);
+        foreach (var screenshot in project.AppStreamScreenshots)
+        {
+            if (!string.IsNullOrWhiteSpace(screenshot.Condition))
+                issues.Add(new LintIssue(Severity.Error,
+                    "AppStreamScreenshot does not support Condition in manifest v3; screenshot metadata is package-wide."));
+            var appId = screenshot.AppId;
+            if (string.IsNullOrWhiteSpace(appId))
+            {
+                if (appIds.Count != 1)
+                {
+                    issues.Add(new LintIssue(Severity.Error,
+                        $"AppStream screenshot '{screenshot.Source}' must set AppId because this package declares multiple applications."));
+                    continue;
+                }
+                appId = appIds.Single();
+            }
+            else if (!appIds.Contains(appId))
+            {
+                issues.Add(new LintIssue(Severity.Error,
+                    $"AppStream screenshot '{screenshot.Source}' references unknown AppId '{appId}'."));
+                continue;
+            }
+
+            if (!screenshotGroups.TryGetValue(appId, out var screenshots))
+                screenshotGroups[appId] = screenshots = [];
+            screenshots.Add(screenshot);
+
+            var screenshotPath = Path.GetFullPath(Path.Combine(projectDir, screenshot.Source));
+            if (!File.Exists(screenshotPath))
+            {
+                issues.Add(new LintIssue(Severity.Error,
+                    $"AppStream screenshot not found: {screenshotPath}"));
+                continue;
+            }
+            if (new FileInfo(screenshotPath).Length > 14 * 1024 * 1024)
+                issues.Add(new LintIssue(Severity.Error,
+                    $"AppStream screenshot '{screenshot.Source}' exceeds the 14 MiB limit."));
+            try
+            {
+                var metadata = ImageMetadataReader.Read(screenshotPath);
+                if (metadata.Width <= 0 || metadata.Height <= 0)
+                    issues.Add(new LintIssue(Severity.Error,
+                        $"AppStream screenshot '{screenshot.Source}' has invalid dimensions."));
+                else
+                {
+                    if (metadata.Width < 620)
+                        issues.Add(new LintIssue(Severity.Warning,
+                            $"AppStream screenshot '{screenshot.Source}' is only {metadata.Width}px wide; 620px or wider is recommended."));
+                    var aspectRatio = (double)metadata.Width / metadata.Height;
+                    if (Math.Abs(aspectRatio - 16.0 / 9.0) > 0.08)
+                        issues.Add(new LintIssue(Severity.Warning,
+                            $"AppStream screenshot '{screenshot.Source}' is {metadata.Width}x{metadata.Height}; a 16:9 image is recommended."));
+                }
+            }
+            catch (Exception ex) when (ex is IOException or InvalidDataException)
+            {
+                issues.Add(new LintIssue(Severity.Error,
+                    $"AppStream screenshot '{screenshot.Source}' is invalid: {ex.Message}"));
+            }
+
+            if (screenshot.Caption.Length > 100)
+                issues.Add(new LintIssue(Severity.Warning,
+                    $"AppStream screenshot '{screenshot.Source}' has a caption longer than 100 characters."));
+        }
+
+        foreach (var (appId, screenshots) in screenshotGroups)
+        {
+            if (screenshots.Count > 10)
+                issues.Add(new LintIssue(Severity.Error,
+                    $"AppStream application '{appId}' has {screenshots.Count} screenshots; at most 10 are supported."));
+            if (screenshots.Count(s => s.Default) > 1)
+                issues.Add(new LintIssue(Severity.Error,
+                    $"AppStream application '{appId}' has more than one default screenshot."));
+        }
+    }
+
+    private static void LintDesktopEntry(
+        List<LintIssue> issues,
+        string desktopPath,
+        AppStreamApplicationItem application,
+        string appId)
+    {
+        var desktop = AppStreamMetadataService.ReadDesktopEntryAsync(desktopPath).GetAwaiter().GetResult();
+        if (!desktop.TryGetValue("Type", out var type) || type != "Application")
+            issues.Add(new LintIssue(Severity.Error,
+                $"AppStream desktop entry '{application.Source}' must contain Type=Application."));
+        if (!desktop.ContainsKey("Name"))
+            issues.Add(new LintIssue(Severity.Error,
+                $"AppStream desktop entry '{application.Source}' must contain Name=."));
+        if (!desktop.ContainsKey("Comment"))
+            issues.Add(new LintIssue(Severity.Warning,
+                $"AppStream desktop entry '{application.Source}' has no Comment=; PackageDescription will be used."));
+        if (desktop.TryGetValue("Icon", out var desktopIcon))
+        {
+            var declaredIcon = Path.GetFileNameWithoutExtension(application.Icon);
+            if (!string.Equals(desktopIcon, declaredIcon, StringComparison.Ordinal) &&
+                !string.Equals(Path.GetFileNameWithoutExtension(desktopIcon), declaredIcon, StringComparison.Ordinal))
+                issues.Add(new LintIssue(Severity.Error,
+                    $"Desktop Icon='{desktopIcon}' does not match AppStreamApplication Icon='{application.Icon}' for '{appId}'."));
+        }
+    }
+
+    private static void LintMetainfo(List<LintIssue> issues, string path, string expectedId)
+    {
+        if (!File.Exists(path))
+            return;
+        try
+        {
+            var document = System.Xml.Linq.XDocument.Load(path);
+            var root = document.Root;
+            var id = root?.Elements().FirstOrDefault(e => e.Name.LocalName == "id")?.Value;
+            if (root?.Name.LocalName != "component")
+                issues.Add(new LintIssue(Severity.Error, $"AppStream metainfo '{path}' must have a <component> root."));
+            if (!string.Equals(id, expectedId, StringComparison.Ordinal))
+                issues.Add(new LintIssue(Severity.Error,
+                    $"AppStream metainfo ID '{id}' does not match desktop component ID '{expectedId}'."));
+        }
+        catch (Exception ex) when (ex is IOException or System.Xml.XmlException)
+        {
+            issues.Add(new LintIssue(Severity.Error, $"AppStream metainfo '{path}' is invalid XML: {ex.Message}"));
+        }
+    }
+
+    private static void CheckRequiredFile(
+        List<LintIssue> issues,
+        string projectDir,
+        string source,
+        string field)
+    {
+        if (string.IsNullOrWhiteSpace(source))
+        {
+            issues.Add(new LintIssue(Severity.Error, $"<{field}> is required but not set."));
+            return;
+        }
+        var path = Path.GetFullPath(Path.Combine(projectDir, source));
+        if (!File.Exists(path))
+            issues.Add(new LintIssue(Severity.Warning, $"<{field}> path not found: {path}"));
     }
 
     private static void RequireField(List<LintIssue> issues, string value, string fieldName)

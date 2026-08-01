@@ -14,6 +14,92 @@ public class AosprojLinterTests
     }
 
     [TestMethod]
+    public void Lint_ValidAppStreamDeclaration_HasNoErrors()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            File.WriteAllText(Path.Combine(dir, "com.example.demo.desktop"),
+                "[Desktop Entry]\nType=Application\nName=Demo\nComment=Demo application\nIcon=com.example.demo\nExec=demo\n");
+            File.WriteAllText(Path.Combine(dir, "com.example.demo.svg"), "<svg/>");
+            File.WriteAllBytes(Path.Combine(dir, "overview.png"), Convert.FromBase64String(
+                "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9WlR8Z8AAAAASUVORK5CYII="));
+            var project = new AosprojProject
+            {
+                PackageName = "demo",
+                PackageVersion = "1.0.0",
+                PackageDescription = "A useful demo application",
+                TargetSuites = "resolute",
+                Maintainer = "Test <test@example.com>",
+                AppStreamApplications =
+                {
+                    new AppStreamApplicationItem
+                    {
+                        Source = "com.example.demo.desktop",
+                        Icon = "com.example.demo.svg"
+                    }
+                },
+                AppStreamScreenshots =
+                {
+                    new AppStreamScreenshotItem
+                    {
+                        Source = "overview.png",
+                        Default = true,
+                        Caption = "Overview"
+                    }
+                }
+            };
+
+            var issues = _linter.Lint(project, dir);
+            Assert.IsFalse(issues.Any(issue => issue.Level == AosprojLinter.Severity.Error),
+                string.Join("; ", issues.Select(issue => issue.Message)));
+            Assert.IsFalse(issues.Any(issue => issue.Message.Contains("package will be empty")));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public void Lint_MultipleApplicationsRequireScreenshotAppId()
+    {
+        var dir = CreateTempDir();
+        try
+        {
+            foreach (var id in new[] { "com.example.one", "com.example.two" })
+            {
+                File.WriteAllText(Path.Combine(dir, $"{id}.desktop"),
+                    $"[Desktop Entry]\nType=Application\nName={id}\nComment=Demo\nIcon={id}\nExec=demo\n");
+                File.WriteAllText(Path.Combine(dir, $"{id}.svg"), "<svg/>");
+            }
+            File.WriteAllBytes(Path.Combine(dir, "overview.png"), Convert.FromBase64String(
+                "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9WlR8Z8AAAAASUVORK5CYII="));
+            var project = new AosprojProject
+            {
+                PackageName = "demo",
+                PackageDescription = "Demo",
+                TargetSuites = "resolute",
+                Maintainer = "Test",
+                AppStreamApplications =
+                {
+                    new() { Source = "com.example.one.desktop", Icon = "com.example.one.svg" },
+                    new() { Source = "com.example.two.desktop", Icon = "com.example.two.svg" }
+                },
+                AppStreamScreenshots = { new() { Source = "overview.png" } }
+            };
+
+            var issues = _linter.Lint(project, dir);
+            Assert.IsTrue(issues.Any(issue =>
+                issue.Level == AosprojLinter.Severity.Error && issue.Message.Contains("must set AppId")));
+        }
+        finally
+        {
+            Directory.Delete(dir, recursive: true);
+        }
+    }
+
+    [TestMethod]
     public void Lint_ValidProject_NoIssues()
     {
         var dir = CreateTempDir();

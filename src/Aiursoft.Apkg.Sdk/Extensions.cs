@@ -21,6 +21,7 @@ public static class Extensions
         services.AddSingleton<AosprojSerializer>();
         services.AddSingleton<ConditionEvaluator>();
         services.AddSingleton<DebBuilder>();
+        services.AddSingleton<AppStreamMetadataService>();
         services.AddSingleton<PackageBuildPlanResolver>();
         services.AddSingleton<AosprojLinter>();
         services.AddSingleton<AosprojDependencyValidator>();

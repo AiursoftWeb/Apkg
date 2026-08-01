@@ -1,11 +1,81 @@
 using Aiursoft.Apkg.Client.Handlers;
+using Aiursoft.Apkg.Sdk;
 using Aiursoft.Apkg.Sdk.Models;
+using Aiursoft.Apkg.Sdk.Services;
+using Microsoft.Extensions.DependencyInjection;
+using System.Formats.Tar;
+using System.IO.Compression;
 
 namespace Aiursoft.Apkg.Client.Tests;
 
 [TestClass]
 public class PublishHandlerTests
 {
+    [TestMethod]
+    public async Task PublishNoBuild_AppStreamResources_UsesManifestV3AndPacksScreenshot()
+    {
+        var root = Path.Combine(Path.GetTempPath(), $"apkg-publish-{Guid.NewGuid():N}");
+        var bin = Path.Combine(root, "bin");
+        Directory.CreateDirectory(bin);
+        try
+        {
+            var project = new AosprojProject
+            {
+                PackageName = "demo-app",
+                PackageVersion = "1.0.0",
+                PackageDescription = "Demo",
+                TargetDistro = "anduinos",
+                TargetSuites = "resolute",
+                TargetArchitectures = "amd64",
+                AppStreamApplications =
+                {
+                    new() { Source = "com.example.demo.desktop", Icon = "com.example.demo.svg" }
+                },
+                AppStreamScreenshots =
+                {
+                    new() { Source = "overview.png", Default = true, Caption = "Overview" }
+                }
+            };
+            await new AosprojSerializer().SerializeToFileAsync(project, Path.Combine(root, "demo.aosproj"));
+            await File.WriteAllBytesAsync(Path.Combine(root, "overview.png"), Convert.FromBase64String(
+                "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAusB9WlR8Z8AAAAASUVORK5CYII="));
+            await File.WriteAllBytesAsync(Path.Combine(bin, "demo-app_1.0.0_resolute_amd64.deb"), [1]);
+            var services = new ServiceCollection()
+                .AddLogging()
+                .AddApkgLocalTools()
+                .BuildServiceProvider();
+
+            var apkgPath = await PublishHandler.PublishAsync(
+                services, root, "", "", "", "", buildAll: false, noBuild: true);
+
+            await using var file = File.OpenRead(apkgPath);
+            await using var gzip = new GZipStream(file, CompressionMode.Decompress);
+            using var tar = new TarReader(gzip);
+            var names = new List<string>();
+            ApkgPackageManifest? manifest = null;
+            TarEntry? entry;
+            while ((entry = await tar.GetNextEntryAsync()) != null)
+            {
+                names.Add(entry.Name);
+                if (entry.Name == "manifest.xml" && entry.DataStream != null)
+                {
+                    using var reader = new StreamReader(entry.DataStream);
+                    manifest = new ManifestSerializer().DeserializePackageManifest(await reader.ReadToEndAsync());
+                }
+            }
+
+            Assert.IsNotNull(manifest);
+            Assert.AreEqual(3, manifest.FormatVersion);
+            Assert.AreEqual("com.example.demo", manifest.AppStreamApplications.Single().Id);
+            Assert.IsTrue(names.Any(name => name.StartsWith(
+                "appstream/com.example.demo/screenshots/", StringComparison.Ordinal)));
+        }
+        finally
+        {
+            Directory.Delete(root, recursive: true);
+        }
+    }
+
     // ── ResolveBuildTargets ───────────────────────────────────────────────────
 
     [TestMethod]

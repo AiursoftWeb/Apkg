@@ -18,6 +18,8 @@ public class FeatureFoldersProvider(StorageRootPathProvider rootPathProvider) : 
 
     public string GetObjectsFolder() => EnsureExists(Path.Combine(BasePath, "Objects"));
 
+    public string GetAppStreamObjectsFolder() => EnsureExists(Path.Combine(BasePath, "AppStreamObjects"));
+
     public string GetBucketsFolder() => EnsureExists(Path.Combine(BasePath, "Buckets"));
 
     public string GetChunkedUploadsFolder() => EnsureExists(Path.Combine(BasePath, "Workspace", "chunked-uploads"));

@@ -3,7 +3,7 @@
 本文档描述两种 DSL 的完整语法：
 
 - **`.aosproj`** — 声明一个包的内容、元信息与构建矩阵，由 `apkg` CLI 消费
-- **`manifest.xml`**（v2）— 嵌入 `.apkg` 归档内的分发清单，由 Apkg 服务器消费
+- **`manifest.xml`**（v2/v3）— 嵌入 `.apkg` 归档内的分发清单，由 Apkg 服务器消费
 
 ---
 
@@ -95,6 +95,8 @@
 | `LicenseType` | — | SPDX 标识符，如 `MIT`、`GPL-2.0` |
 | `LicenseFile` | — | 许可证文件相对路径 |
 | `PackageTags` | — | 逗号分隔的包标签。目前保留为未来使用，暂无后端路由支持 |
+| `AppStreamDeveloperName` | — | 自动生成 AppStream Metainfo 时使用的开发者名称；未设置时回退到 `PackageAuthors` |
+| `AppStreamMetadataLicense` | — | AppStream 元数据本身的许可证，默认 `CC0-1.0`。它不改变应用的 `LicenseType` |
 | `Maintainer` | — | 覆盖 `PackageAuthors` 作为 deb 的 `Maintainer` 字段 |
 | `Provides` | — | deb `Provides` 字段，声明此包提供哪些虚包 |
 | `Conflicts` | — | deb `Conflicts` 字段，声明与哪些包冲突 |
@@ -653,11 +655,79 @@ questing 的 amd64 包 `Depends` 字段将是：
 gnome-shell (>= 42), gir1.2-glib-2.0, libssl3t64
 ```
 
+### AppStream 与 GNOME Software
+
+图形应用可以直接在 `.aosproj` 中声明 Desktop Entry、图标和本地截图。Apkg 会把
+Desktop Entry、图标及 Metainfo 安装进 `.deb`，把截图放进 `.apkg` 资源区并由
+服务器托管，最后生成 GNOME Software 使用的 DEP-11 catalog 和图标索引。
+
+```xml
+<PropertyGroup>
+  <AppStreamDeveloperName>AnduinOS</AppStreamDeveloperName>
+</PropertyGroup>
+
+<ItemGroup>
+  <AppStreamApplication
+      Include="data/com.anduinos.ufwall.desktop"
+      Icon="data/com.anduinos.ufwall.svg" />
+
+  <AppStreamScreenshot
+      Include="screenshots/overview.png"
+      Default="true"
+      Caption="View firewall status and rules" />
+
+  <AppStreamScreenshot
+      Include="screenshots/rules.png"
+      Caption="Create and manage application rules" />
+</ItemGroup>
+```
+
+`AppStreamApplication` 的属性：
+
+| 属性 | 必填 | 说明 |
+|------|------|------|
+| `Include` | 是 | `.desktop` 文件，相对于 `.aosproj` 所在目录 |
+| `Icon` | 是 | SVG、PNG、JPEG 或 WebP 图标。SVG 安装到 hicolor `scalable/apps`，位图安装到 `256x256/apps` |
+| `Metainfo` | 否 | 自定义标准 AppStream Metainfo。省略时由 Apkg 根据 `.desktop` 和项目属性生成 |
+
+`AppStreamScreenshot` 的属性：
+
+| 属性 | 必填 | 说明 |
+|------|------|------|
+| `Include` | 是 | PNG、JPEG 或 WebP 本地图片 |
+| `AppId` | 多应用包必填 | 截图所属 AppStream component ID。单应用包自动推断 |
+| `Default` | 否 | 是否为主截图；同一应用最多一个 `true` |
+| `Caption` | 否 | 截图说明，建议不超过 100 字符 |
+| `Locale` | 否 | Caption 语言，默认 `C`，例如 `zh-CN` |
+| `Environment` | 否 | 可选桌面/主题标记，例如 `GNOME:dark` |
+
+约束和行为：
+
+- Desktop 文件名去掉 `.desktop` 后就是 component ID，例如
+  `com.anduinos.ufwall.desktop` → `com.anduinos.ufwall`。
+- 自动安装目标为 `/usr/share/applications`、`/usr/share/icons/hicolor` 和
+  `/usr/share/metainfo/<component-id>.metainfo.xml`，不需要再重复写 `IncludeFile`。
+- 截图不会进入 `.deb`，避免每个架构重复下载；服务器会验证 SHA-256、真实解码、
+  清除图片元数据并按内容哈希去重。
+- 每个应用最多 10 张截图，单张最大 14 MiB，建议至少 620px 宽、比例为 16:9。
+- AppStream 条目是包级元数据，第一版不支持 `Condition`。
+- Metainfo、Desktop Entry、图标或截图发生变化时，必须提升 `PackageVersion`。
+  `deploy --skip-existing` 将同版本视为不可变，不会单独更新展示资源。
+- 第一版只支持 desktop application 和静态图片，不支持视频或 Store 私有字段。
+
+高级应用可通过 `Metainfo` 提供完整的标准元数据，例如 releases、OARS、provides
+和硬件要求。Apkg 会校验 component ID，并继续负责仓库 catalog、缓存图标和本地截图；
+如果同时声明了本地截图，仓库 catalog 中的 `<screenshots>` 将以 `.aosproj` 声明为准。
+
 ---
 
-## 二、`manifest.xml` 格式（v2）
+## 二、`manifest.xml` 格式（v2/v3）
 
 `manifest.xml` 是 `apkg publish` **自动生成**、嵌入 `.apkg` 归档的分发清单，**不需要手写**。Apkg 服务器读取它来决定把哪个 `.deb` 放进哪个 APT 仓库。
+
+普通包继续使用 v2。声明 `AppStreamApplication` 时使用 v3，并可在归档的
+`appstream/<component-id>/screenshots/` 下携带本地截图。新客户端在上传 v3 前会查询
+`/api/system/capabilities`，防止旧服务器静默忽略资源。
 
 ### 设计原则：六属性铁律
 
@@ -727,7 +797,7 @@ gnome-shell (>= 42), gir1.2-glib-2.0, libssl3t64
 
 | 字段 | 来源（`.aosproj`） | 说明 |
 |------|-------------------|------|
-| `FormatVersion` | 固定 `2` | 格式版本标识 |
+| `FormatVersion` | `2` 或 `3` | 普通包为 v2；包含 AppStream application/resource 声明时为 v3 |
 | `Name` | `PackageName` | 包名。三元组之一，不可变。 |
 | `Distro` | `TargetDistro` | 目标发行版。三元组之一，不可变。 |
 | `Component` | `Component` | APT 组件。三元组之一，不可变。 |

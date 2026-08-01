@@ -6,6 +6,7 @@ using Aiursoft.Apkg.Sdk.Models;
 using Aiursoft.Apkg.Sdk.Services;
 using Aiursoft.Apkg.Services.FileStorage;
 using Microsoft.EntityFrameworkCore;
+using ManifestAppStreamApplication = Aiursoft.Apkg.Sdk.Models.ApkgAppStreamApplication;
 
 namespace Aiursoft.Apkg.Services;
 
@@ -52,6 +53,7 @@ public class ApkgUploadProcessor(
     FeatureFoldersProvider folders,
     ManifestSerializer manifestSerializer,
     RepositoryTargetService repositoryTargets,
+    AppStreamAssetService appStreamAssetService,
     ILogger<ApkgUploadProcessor> logger)
 {
     /// <summary>
@@ -76,6 +78,9 @@ public class ApkgUploadProcessor(
     {
         var summary = new ApkgUploadSummary();
         var extractedEntries = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        var preparedAppStreamAssets = new List<(
+            ManifestAppStreamApplication application,
+            PreparedAppStreamAsset asset)>();
         try
         {
             ApkgPackageManifest manifest;
@@ -92,6 +97,17 @@ public class ApkgUploadProcessor(
 
             var distro = manifest.Distro.Trim().ToLowerInvariant();
             var component = manifest.Component.Trim().ToLowerInvariant();
+
+            if (manifest.FormatVersion is not (2 or 3))
+            {
+                summary.Errors.Add($"Unsupported .apkg manifest format version {manifest.FormatVersion}.");
+                return new ApkgProcessingResult { StatusCode = StatusCodes.Status400BadRequest, Summary = summary };
+            }
+            if (manifest.FormatVersion < 3 && manifest.AppStreamApplications.Count > 0)
+            {
+                summary.Errors.Add("AppStream resources require .apkg manifest format version 3.");
+                return new ApkgProcessingResult { StatusCode = StatusCodes.Status400BadRequest, Summary = summary };
+            }
 
             if (string.IsNullOrWhiteSpace(distro))
             {
@@ -133,6 +149,16 @@ public class ApkgUploadProcessor(
                     summary.Errors.Add($"Archive entry '{entry.DebFile}' was not found for target {distro} {entry.Suite} {entry.Architecture}.");
                     return new ApkgProcessingResult { StatusCode = StatusCodes.Status400BadRequest, Summary = summary };
                 }
+            }
+
+            try
+            {
+                preparedAppStreamAssets.AddRange(await ValidateAppStreamAsync(manifest, extractedEntries));
+            }
+            catch (Exception ex) when (ex is InvalidDataException or IOException)
+            {
+                summary.Errors.Add(ex.Message);
+                return new ApkgProcessingResult { StatusCode = StatusCodes.Status400BadRequest, Summary = summary };
             }
 
             // Find or create ApkgPackage
@@ -246,8 +272,42 @@ public class ApkgUploadProcessor(
 
             if (summary.Uploaded.Count > 0)
             {
+                foreach (var applicationManifest in manifest.AppStreamApplications)
+                {
+                    var application = new Entities.ApkgAppStreamApplication
+                    {
+                        ApkgRevisionId = revisionRecord.Id,
+                        ComponentId = applicationManifest.Id,
+                        DesktopId = applicationManifest.DesktopId,
+                        MetainfoPath = applicationManifest.MetainfoPath
+                    };
+                    foreach (var prepared in preparedAppStreamAssets
+                                 .Where(item => ReferenceEquals(item.application, applicationManifest))
+                                 .Select(item => item.asset))
+                    {
+                        appStreamAssetService.Commit(prepared);
+                        application.Assets.Add(new ApkgAppStreamAsset
+                        {
+                            SourceSha256 = prepared.Manifest.Sha256.ToLowerInvariant(),
+                            ObjectSha256 = prepared.ObjectSha256,
+                            MediaType = "image/png",
+                            Width = prepared.Width,
+                            Height = prepared.Height,
+                            IsDefault = prepared.Manifest.Default,
+                            Order = prepared.Manifest.Order,
+                            Locale = prepared.Manifest.Locale,
+                            Environment = NullIfEmpty(prepared.Manifest.Environment),
+                            Caption = NullIfEmpty(prepared.Manifest.Caption)
+                        });
+                    }
+                    revisionRecord.AppStreamApplications.Add(application);
+                }
+
                 if (summary.Errors.Count > 0 && !skipDuplicate)
+                {
+                    await db.SaveChangesAsync();
                     return new ApkgProcessingResult { StatusCode = StatusCodes.Status409Conflict, Summary = summary };
+                }
 
                 await db.SaveChangesAsync();
                 return new ApkgProcessingResult { StatusCode = StatusCodes.Status200OK, Summary = summary };
@@ -267,7 +327,73 @@ public class ApkgUploadProcessor(
         {
             foreach (var extractedEntry in extractedEntries.Values)
                 DeleteIfExists(extractedEntry);
+            foreach (var prepared in preparedAppStreamAssets)
+                DeleteIfExists(prepared.asset.NormalizedTempPath);
         }
+    }
+
+    private async Task<List<(ManifestAppStreamApplication application, PreparedAppStreamAsset asset)>>
+        ValidateAppStreamAsync(
+            ApkgPackageManifest manifest,
+            IReadOnlyDictionary<string, string> extractedEntries)
+    {
+        var prepared = new List<(ManifestAppStreamApplication, PreparedAppStreamAsset)>();
+        var componentIds = new HashSet<string>(StringComparer.Ordinal);
+        foreach (var application in manifest.AppStreamApplications)
+        {
+            if (string.IsNullOrWhiteSpace(application.Id) ||
+                !System.Text.RegularExpressions.Regex.IsMatch(application.Id, @"^[A-Za-z0-9][A-Za-z0-9._-]+$"))
+                throw new InvalidDataException($"Invalid AppStream component ID '{application.Id}'.");
+            if (!componentIds.Add(application.Id))
+                throw new InvalidDataException($"Duplicate AppStream component ID '{application.Id}'.");
+            if (!application.DesktopId.EndsWith(".desktop", StringComparison.OrdinalIgnoreCase) ||
+                Path.GetFileName(application.DesktopId) != application.DesktopId)
+                throw new InvalidDataException(
+                    $"Invalid AppStream desktop ID '{application.DesktopId}' for '{application.Id}'.");
+            var expectedMetainfoPath = $"/usr/share/metainfo/{application.Id}.metainfo.xml";
+            if (!string.Equals(application.MetainfoPath, expectedMetainfoPath, StringComparison.Ordinal))
+                throw new InvalidDataException(
+                    $"Invalid AppStream metainfo path '{application.MetainfoPath}' for '{application.Id}'.");
+            if (application.Screenshots.Count > 10)
+                throw new InvalidDataException(
+                    $"AppStream application '{application.Id}' has more than 10 screenshots.");
+            if (application.Screenshots.Count(screenshot => screenshot.Default) > 1)
+                throw new InvalidDataException(
+                    $"AppStream application '{application.Id}' has more than one default screenshot.");
+
+            var orders = new HashSet<int>();
+            foreach (var screenshot in application.Screenshots)
+            {
+                if (!orders.Add(screenshot.Order) || screenshot.Order < 0)
+                    throw new InvalidDataException(
+                        $"AppStream application '{application.Id}' has an invalid or duplicate screenshot order.");
+                if (screenshot.Caption.Length > 512 || screenshot.Locale.Length > 35 || screenshot.Environment.Length > 128)
+                    throw new InvalidDataException(
+                        $"AppStream screenshot metadata is too long for '{screenshot.File}'.");
+                if (screenshot.Sha256.Length != 64 || !screenshot.Sha256.All(Uri.IsHexDigit))
+                    throw new InvalidDataException(
+                        $"AppStream screenshot '{screenshot.File}' has an invalid SHA-256 value.");
+
+                var archivePath = NormalizeArchiveEntryName(screenshot.File);
+                if (!IsSafeAppStreamEntry(archivePath, application.Id))
+                    throw new InvalidDataException(
+                        $"AppStream screenshot archive path '{screenshot.File}' is invalid.");
+                if (!extractedEntries.TryGetValue(archivePath, out var extractedPath))
+                    throw new InvalidDataException(
+                        $"AppStream screenshot archive entry '{screenshot.File}' was not found.");
+
+                prepared.Add((application,
+                    await appStreamAssetService.ValidateAndNormalizeAsync(screenshot, extractedPath)));
+            }
+        }
+        return prepared;
+    }
+
+    private static bool IsSafeAppStreamEntry(string path, string appId)
+    {
+        if (path.StartsWith('/') || path.Contains("../", StringComparison.Ordinal) || path.Contains("/..", StringComparison.Ordinal))
+            return false;
+        return path.StartsWith($"appstream/{appId}/screenshots/", StringComparison.Ordinal);
     }
 
     private async Task<ApkgPackageManifest?> ExtractApkgAsync(string apkgPath, Dictionary<string, string> extractedEntries)
@@ -278,8 +404,11 @@ public class ApkgUploadProcessor(
 
         ApkgPackageManifest? manifest = null;
         TarEntry? entry;
+        var entryCount = 0;
         while ((entry = await tarReader.GetNextEntryAsync()) != null)
         {
+            if (++entryCount > 1024)
+                throw new InvalidDataException("The .apkg archive contains more than 1024 entries.");
             if (entry.DataStream == null)
                 continue;
 
@@ -288,8 +417,19 @@ public class ApkgUploadProcessor(
                 continue;
 
             var tempEntryPath = CreateWorkspaceTempFilePath(Path.GetExtension(entryName));
-            await using (var tempStream = File.Create(tempEntryPath))
-                await entry.DataStream.CopyToAsync(tempStream);
+            try
+            {
+                await using var tempStream = File.Create(tempEntryPath);
+                var maximumBytes = entryName.StartsWith("appstream/", StringComparison.OrdinalIgnoreCase)
+                    ? AppStreamAssetService.MaxSourceBytes
+                    : (long?)null;
+                await CopyArchiveEntryAsync(entry.DataStream, tempStream, maximumBytes, entryName);
+            }
+            catch
+            {
+                DeleteIfExists(tempEntryPath);
+                throw;
+            }
 
             if (extractedEntries.Remove(entryName, out var oldEntryPath))
                 DeleteIfExists(oldEntryPath);
@@ -304,6 +444,25 @@ public class ApkgUploadProcessor(
         }
 
         return manifest;
+    }
+
+    private static async Task CopyArchiveEntryAsync(
+        Stream source,
+        Stream destination,
+        long? maximumBytes,
+        string entryName)
+    {
+        var buffer = new byte[81920];
+        long total = 0;
+        int read;
+        while ((read = await source.ReadAsync(buffer)) > 0)
+        {
+            total += read;
+            if (maximumBytes.HasValue && total > maximumBytes.Value)
+                throw new InvalidDataException(
+                    $"Archive entry '{entryName}' exceeds the {maximumBytes.Value / 1024 / 1024} MiB limit.");
+            await destination.WriteAsync(buffer.AsMemory(0, read));
+        }
     }
 
     private string CreateWorkspaceTempFilePath(string extension)

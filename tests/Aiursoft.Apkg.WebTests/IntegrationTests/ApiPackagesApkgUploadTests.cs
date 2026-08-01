@@ -5,6 +5,7 @@ using Aiursoft.Apkg.Authorization;
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Services.Authentication;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
@@ -222,6 +223,55 @@ public class ApiPackagesApkgUploadTests : TestBase
         var uploadCount = _db.ApkgRevisions.Count();
         Assert.AreEqual(0, uploadCount,
             "No upload record should exist when pre-flight validation fails.");
+    }
+
+    [TestMethod]
+    public async Task ApkgUpload_AppStreamHashMismatch_Returns400BeforeRecordCreated()
+    {
+        var rawKey = await CreateApiKeyAsync(withManageRepos: true);
+        var revisionCountBefore = await _db.ApkgRevisions.CountAsync();
+        var manifestXml = $"""
+            <?xml version="1.0" encoding="utf-8"?>
+            <ApkgPackage FormatVersion="3">
+              <Name>appstream-invalid-hash</Name>
+              <Distro>anduinos</Distro>
+              <Component>main</Component>
+              <Entries>
+                <Entry><DebFile>demo.deb</DebFile><Suite>resolute</Suite><Architecture>amd64</Architecture></Entry>
+              </Entries>
+              <AppStream>
+                <Application Id="com.example.demo" DesktopId="com.example.demo.desktop" MetainfoPath="/usr/share/metainfo/com.example.demo.metainfo.xml">
+                  <Screenshot File="appstream/com.example.demo/screenshots/image.png" Sha256="{new string('0', 64)}" MediaType="image/png" Width="1" Height="1" Default="true" Order="0" Locale="C" />
+                </Application>
+              </AppStream>
+            </ApkgPackage>
+            """;
+        var apkgBytes = CreateApkgArchive(
+            manifestXml,
+            ("demo.deb", new byte[64]),
+            ("appstream/com.example.demo/screenshots/image.png", [1, 2, 3]));
+        using var apkgContent = CreateOctetStreamContent(apkgBytes);
+        using var form = new MultipartFormDataContent();
+        form.Add(apkgContent, "apkg", "invalid-appstream.apkg");
+        using var request = CreateAuthedUploadRequest(rawKey, form);
+
+        var response = await Http.SendAsync(request);
+        var body = await response.Content.ReadAsStringAsync();
+
+        Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
+        StringAssert.Contains(body, "SHA-256 mismatch");
+        Assert.AreEqual(revisionCountBefore, await _db.ApkgRevisions.CountAsync());
+    }
+
+    [TestMethod]
+    public async Task Capabilities_Anonymous_AdvertisesAppStreamV3()
+    {
+        var response = await Http.GetAsync("/api/system/capabilities");
+        var body = await response.Content.ReadAsStringAsync();
+
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        StringAssert.Contains(body, "appstream-assets-v1");
+        StringAssert.Contains(body, "3");
     }
 
     [TestMethod]

@@ -15,7 +15,8 @@ public class RepositorySyncJob(
     FeatureFoldersProvider folders,
     ILogger<RepositorySyncJob> logger,
     DebResolutionService debResolution,
-    DebContentsService contentsCache) : IBackgroundJob
+    DebContentsService contentsCache,
+    AppStreamCatalogService? appStreamCatalog = null) : IBackgroundJob
 {
     private string BucketsRoot => folders.GetBucketsFolder();
 
@@ -63,7 +64,7 @@ public class RepositorySyncJob(
         await MergeLocalPackagesAsync(repo.Id, bucketId, repo.Suite);
 
         var (architectures, components) = ParseArchComponents(repo);
-        var releaseContent = await BuildReleaseMetadata(bucketId, repo.Suite, architectures, components);
+        var releaseContent = await BuildReleaseMetadata(repo, bucketId, architectures, components);
 
         await StoreReleaseContent(bucketId, releaseContent);
 
@@ -293,17 +294,17 @@ public class RepositorySyncJob(
     /// files for every arch×component combination.
     /// </summary>
     private async Task<string> BuildReleaseMetadata(
-        int bucketId, string suite, string[] architectures, string[] components)
+        AptRepository repository, int bucketId, string[] architectures, string[] components)
     {
         logger.LogInformation("Generating metadata for Bucket {BucketId}...", bucketId);
 
-        var sb = new StringBuilder(BuildReleasePreamble(suite, architectures, components));
+        var sb = new StringBuilder(BuildReleasePreamble(repository.Suite, architectures, components));
 
         foreach (var arch in architectures)
         foreach (var component in components)
         {
             var (pkgRaw, pkgRawSz, pkgGz, pkgGzSz) =
-                await WritePackagesFileAsync(bucketId, arch, component, suite);
+                await WritePackagesFileAsync(bucketId, arch, component, repository.Suite);
 
             sb.AppendLine(BuildReleaseFileEntry(pkgRaw, pkgRawSz, $"{component}/binary-{arch}/Packages"));
             sb.AppendLine(BuildReleaseFileEntry(pkgGz, pkgGzSz, $"{component}/binary-{arch}/Packages.gz"));
@@ -314,6 +315,12 @@ public class RepositorySyncJob(
             sb.AppendLine(BuildReleaseFileEntry(cntRaw, cntRawSz, $"{component}/Contents-{arch}"));
             sb.AppendLine(BuildReleaseFileEntry(cntGz, cntGzSz, $"{component}/Contents-{arch}.gz"));
         }
+
+        var appStreamFiles = appStreamCatalog == null
+            ? []
+            : await appStreamCatalog.GenerateAsync(repository, bucketId, architectures, components);
+        foreach (var file in appStreamFiles.OrderBy(file => file.RelativePath, StringComparer.Ordinal))
+            sb.AppendLine(BuildReleaseFileEntry(file.Sha256, file.Size, file.RelativePath));
 
         return sb.ToString();
     }

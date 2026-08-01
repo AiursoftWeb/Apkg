@@ -12,6 +12,7 @@ public class GarbageCollectionJob(
 {
     private string BucketsRoot => folders.GetBucketsFolder();
     private string ObjectsRoot => folders.GetObjectsFolder();
+    private string AppStreamObjectsRoot => folders.GetAppStreamObjectsFolder();
 
     public string Name => "APT Garbage Collection";
 
@@ -127,7 +128,28 @@ public class GarbageCollectionJob(
             logger.LogInformation("Deleted {Count} orphaned physical .deb files.", deletedFiles);
         }
 
-        // 5. Clean up expired dependency check reports (older than 72 hours)
+        // 5. Clean up normalized AppStream media objects no longer referenced
+        // by any revision. Assets are content-addressed and may be shared.
+        if (Directory.Exists(AppStreamObjectsRoot))
+        {
+            var referencedAppStreamHashes = new HashSet<string>(
+                await db.ApkgAppStreamAssets
+                    .Select(asset => asset.ObjectSha256)
+                    .Distinct()
+                    .ToListAsync(),
+                StringComparer.OrdinalIgnoreCase);
+            var deletedAssets = 0;
+            foreach (var file in Directory.GetFiles(AppStreamObjectsRoot, "*.png", SearchOption.AllDirectories))
+            {
+                if (referencedAppStreamHashes.Contains(Path.GetFileNameWithoutExtension(file)))
+                    continue;
+                File.Delete(file);
+                deletedAssets++;
+            }
+            logger.LogInformation("Deleted {Count} orphaned AppStream media object(s).", deletedAssets);
+        }
+
+        // 6. Clean up expired dependency check reports (older than 72 hours)
         var expiredReports = await db.DependencyCheckReports
             .Where(r => r.ExpireAt < DateTime.UtcNow)
             .ToListAsync();

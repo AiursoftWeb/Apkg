@@ -27,6 +27,7 @@ Apkg provides:
 - Upstream APT mirror synchronization.
 - Repository snapshot signing and static export.
 - `.apkg` bundle publishing for custom `.deb` packages.
+- AppStream/DEP-11 generation with GNOME Software icons and server-hosted screenshots.
 - A web dashboard for repositories, mirrors, certificates, package uploads, jobs, users, roles, and API keys.
 - A `dotnet` global CLI for creating, building, publishing, pushing, and installing packages.
 

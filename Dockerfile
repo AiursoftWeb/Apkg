@@ -47,7 +47,7 @@ WORKDIR /app
 COPY --from=build-env /app .
 
 # Install gpg and Ubuntu archive keyring for GPG signature verification
-RUN apt-get update && apt-get install -y gnupg ubuntu-keyring && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y appstream gnupg librsvg2-bin ubuntu-keyring && rm -rf /var/lib/apt/lists/*
 
 # Edit appsettings.json
 RUN sed -i 's/DataSource=app.db/DataSource=\/data\/app.db/g' appsettings.json

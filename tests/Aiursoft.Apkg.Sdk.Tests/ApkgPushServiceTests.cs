@@ -1,4 +1,7 @@
 using System.Net;
+using System.Formats.Tar;
+using System.IO.Compression;
+using System.Text;
 using Aiursoft.Apkg.Sdk.Models;
 using Aiursoft.Apkg.Sdk.Services;
 
@@ -72,6 +75,70 @@ public class ApkgPushServiceTests
                 CreatePlan(), "https://apkg.example.com", "bad-key"));
     }
 
+    [TestMethod]
+    public async Task PushAsync_ManifestV3_QueriesCapabilitiesBeforeUploading()
+    {
+        var requests = new List<string>();
+        var service = CreateService(request =>
+        {
+            requests.Add(request.RequestUri!.AbsolutePath);
+            if (request.RequestUri.AbsolutePath == "/api/system/capabilities")
+            {
+                return new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new StringContent("""
+                        {
+                          "apkgManifestVersions": [2, 3],
+                          "features": ["appstream-assets-v1"]
+                        }
+                        """)
+                };
+            }
+
+            return new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new StringContent("{}")
+            };
+        });
+        var archive = await CreateArchiveAsync(3);
+        try
+        {
+            await service.PushAsync(archive, "https://apkg.example.com", "secret-key", true);
+
+            CollectionAssert.AreEqual(
+                new[] { "/api/system/capabilities", "/api/packages/apkg-upload" },
+                requests);
+        }
+        finally
+        {
+            File.Delete(archive);
+        }
+    }
+
+    [TestMethod]
+    public async Task PushAsync_ManifestV3_LegacyServerFailsBeforeUpload()
+    {
+        var requestCount = 0;
+        var service = CreateService(_ =>
+        {
+            requestCount++;
+            return new HttpResponseMessage(HttpStatusCode.NotFound);
+        });
+        var archive = await CreateArchiveAsync(3);
+        try
+        {
+            var error = await Assert.ThrowsExactlyAsync<InvalidOperationException>(() =>
+                service.PushAsync(archive, "https://apkg.example.com", "secret-key", true));
+
+            Assert.AreEqual(1, requestCount);
+            StringAssert.Contains(error.Message, "manifest v3 support");
+        }
+        finally
+        {
+            File.Delete(archive);
+        }
+    }
+
     private static ApkgPushService CreateService(
         Func<HttpRequestMessage, HttpResponseMessage> responseFactory)
     {
@@ -94,6 +161,28 @@ public class ApkgPushServiceTests
             }
         ]
     };
+
+    private static async Task<string> CreateArchiveAsync(int formatVersion)
+    {
+        var path = Path.Combine(Path.GetTempPath(), $"apkg-push-{Guid.NewGuid():N}.apkg");
+        var manifest = Encoding.UTF8.GetBytes($"""
+            <ApkgPackage FormatVersion="{formatVersion}">
+              <Name>sample</Name>
+              <Distro>anduinos</Distro>
+              <Component>main</Component>
+              <Entries />
+            </ApkgPackage>
+            """);
+        await using var output = File.Create(path);
+        await using var gzip = new GZipStream(output, CompressionLevel.Fastest);
+        await using var tar = new TarWriter(gzip, TarEntryFormat.Pax);
+        var entry = new PaxTarEntry(TarEntryType.RegularFile, "manifest.xml")
+        {
+            DataStream = new MemoryStream(manifest)
+        };
+        await tar.WriteEntryAsync(entry);
+        return path;
+    }
 
     private sealed class StubHttpMessageHandler(
         Func<HttpRequestMessage, HttpResponseMessage> responseFactory)

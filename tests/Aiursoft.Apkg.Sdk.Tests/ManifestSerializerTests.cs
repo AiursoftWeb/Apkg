@@ -9,6 +9,51 @@ public class ManifestSerializerTests
     private readonly ManifestSerializer _serializer = new();
 
     [TestMethod]
+    public void DeserializePackageManifest_AppStreamV3RoundTrip()
+    {
+        var manifest = new ApkgPackageManifest
+        {
+            FormatVersion = 3,
+            Name = "demo",
+            AppStreamApplications =
+            {
+                new ApkgAppStreamApplication
+                {
+                    Id = "com.example.demo",
+                    DesktopId = "com.example.demo.desktop",
+                    MetainfoPath = "/usr/share/metainfo/com.example.demo.metainfo.xml",
+                    Screenshots =
+                    {
+                        new ApkgAppStreamScreenshot
+                        {
+                            File = "appstream/com.example.demo/screenshots/hash.png",
+                            Sha256 = new string('a', 64),
+                            MediaType = "image/png",
+                            Width = 1280,
+                            Height = 720,
+                            Default = true,
+                            Order = 0,
+                            Locale = "C",
+                            Caption = "Overview"
+                        }
+                    }
+                }
+            }
+        };
+
+        var serializer = new System.Xml.Serialization.XmlSerializer(typeof(ApkgPackageManifest));
+        using var writer = new StringWriter();
+        serializer.Serialize(writer, manifest);
+        var result = _serializer.DeserializePackageManifest(writer.ToString());
+
+        Assert.AreEqual(3, result.FormatVersion);
+        Assert.AreEqual(1, result.AppStreamApplications.Count);
+        Assert.AreEqual("com.example.demo", result.AppStreamApplications[0].Id);
+        Assert.AreEqual(1280, result.AppStreamApplications[0].Screenshots[0].Width);
+        Assert.IsTrue(result.AppStreamApplications[0].Screenshots[0].Default);
+    }
+
+    [TestMethod]
     public void DeserializePackageManifest_BasicRoundTrip()
     {
         var original = new ApkgPackageManifest

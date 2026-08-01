@@ -1,6 +1,7 @@
 using System.CommandLine;
 using System.Formats.Tar;
 using System.IO.Compression;
+using System.Security.Cryptography;
 using System.Xml.Serialization;
 using Aiursoft.Apkg.Sdk.Models;
 using Aiursoft.Apkg.Sdk.Services;
@@ -226,8 +227,10 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
             }
         }
 
+        var (appStreamApplications, appStreamResources) = await BuildAppStreamManifestAsync(project, projectDir);
         var manifest = new ApkgPackageManifest
         {
+            FormatVersion = appStreamApplications.Count > 0 ? 3 : 2,
             Name = project.PackageName,
             Distro = project.TargetDistro,
             Component = project.Component,
@@ -236,7 +239,8 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
             Homepage = project.PackageHomepage,
             License = project.LicenseType,
             RepositoryUrl = project.RepositoryUrl,
-            Entries = entries
+            Entries = entries,
+            AppStreamApplications = appStreamApplications
         };
 
         var manifestXml = SerializeManifest(manifest);
@@ -268,10 +272,79 @@ public class PublishHandler : ExecutableCommandHandlerBuilder
                 await tar.WriteEntryAsync(debPath, entry.DebFile);
                 logger.LogDebug("  + {File}", entry.DebFile);
             }
+
+            foreach (var resource in appStreamResources
+                         .GroupBy(resource => resource.archivePath, StringComparer.Ordinal)
+                         .Select(group => group.First()))
+            {
+                await tar.WriteEntryAsync(resource.sourcePath, resource.archivePath);
+                logger.LogDebug("  + {File} [AppStream]", resource.archivePath);
+            }
         }
 
         logger.LogInformation("Done! Created {ApkgPath}", apkgPath);
         return apkgPath;
+    }
+
+    private static async Task<(
+        List<ApkgAppStreamApplication> applications,
+        List<(string sourcePath, string archivePath)> resources)> BuildAppStreamManifestAsync(
+        AosprojProject project,
+        string projectDir)
+    {
+        if (project.AppStreamApplications.Count == 0)
+            return ([], []);
+
+        var applications = project.AppStreamApplications.ToDictionary(
+            AppStreamMetadataService.GetComponentId,
+            application => new ApkgAppStreamApplication
+            {
+                Id = AppStreamMetadataService.GetComponentId(application),
+                DesktopId = Path.GetFileName(application.Source),
+                MetainfoPath = $"/usr/share/metainfo/{AppStreamMetadataService.GetComponentId(application)}.metainfo.xml"
+            },
+            StringComparer.Ordinal);
+        if (applications.Count == 0)
+            throw new InvalidOperationException(
+                "AppStream screenshots were declared without an AppStream application.");
+
+        var resources = new List<(string sourcePath, string archivePath)>();
+        foreach (var screenshot in project.AppStreamScreenshots)
+        {
+            var appId = screenshot.AppId;
+            if (string.IsNullOrWhiteSpace(appId))
+            {
+                if (applications.Count != 1)
+                    throw new InvalidOperationException(
+                        $"Screenshot '{screenshot.Source}' must set AppId because multiple applications are declared.");
+                appId = applications.Keys.Single();
+            }
+            if (!applications.TryGetValue(appId, out var application))
+                throw new InvalidOperationException(
+                    $"Screenshot '{screenshot.Source}' references unknown AppId '{appId}'.");
+
+            var sourcePath = Path.GetFullPath(Path.Combine(projectDir, screenshot.Source));
+            var metadata = ImageMetadataReader.Read(sourcePath);
+            await using var image = File.OpenRead(sourcePath);
+            var hash = Convert.ToHexStringLower(await SHA256.HashDataAsync(image));
+            var archivePath = $"appstream/{appId}/screenshots/{hash}{metadata.NormalizedExtension}";
+            application.Screenshots.Add(new ApkgAppStreamScreenshot
+            {
+                File = archivePath,
+                Sha256 = hash,
+                MediaType = metadata.MediaType,
+                Width = metadata.Width,
+                Height = metadata.Height,
+                Default = screenshot.Default,
+                Order = application.Screenshots.Count,
+                Locale = string.IsNullOrWhiteSpace(screenshot.Locale) ? "C" : screenshot.Locale,
+                Environment = screenshot.Environment,
+                Caption = screenshot.Caption
+            });
+            resources.Add((sourcePath, archivePath));
+        }
+
+        return (applications.Values.OrderBy(application => application.Id, StringComparer.Ordinal).ToList(), resources);
     }
 
     internal static List<(string distro, string suite, string arch)> ResolveBuildTargets(

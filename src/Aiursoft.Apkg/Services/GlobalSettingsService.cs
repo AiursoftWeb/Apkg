@@ -162,6 +162,18 @@ public class GlobalSettingsService(
     }
 
     /// <summary>
+    /// Returns the configured public APT base URL for background jobs, where no
+    /// HTTP request is available to provide a fallback host. Bare domains use HTTPS.
+    /// </summary>
+    public async Task<string?> GetConfiguredPublicAptBaseUrlAsync()
+    {
+        var domain = (await GetSettingValueAsync(SettingsMap.PublicAptServerDomain)).Trim().TrimEnd('/');
+        if (string.IsNullOrWhiteSpace(domain))
+            return null;
+        return domain.Contains("://", StringComparison.Ordinal) ? domain : $"https://{domain}";
+    }
+
+    /// <summary>
     /// Returns the base URL (scheme + host) for API endpoints (e.g. /api/sources/{id}).
     /// Always uses the current request's scheme and host, ignoring
     /// <see cref="SettingsMap.PublicAptServerDomain"/> because /api/ routes

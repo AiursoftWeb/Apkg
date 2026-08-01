@@ -17,6 +17,19 @@ public class AosprojProject
     public string LicenseFile { get; set; } = string.Empty;
     public string PackageTags { get; set; } = string.Empty;
 
+    // ── AppStream metadata ──────────────────────────────────────────────────
+    /// <summary>
+    /// Human-readable developer name used when Apkg generates AppStream
+    /// metainfo. Falls back to <see cref="PackageAuthors"/> when empty.
+    /// </summary>
+    public string AppStreamDeveloperName { get; set; } = string.Empty;
+
+    /// <summary>
+    /// License for generated AppStream metadata. This licenses the metadata,
+    /// not the application itself.
+    /// </summary>
+    public string AppStreamMetadataLicense { get; set; } = "CC0-1.0";
+
     // ── APT metadata ─────────────────────────────────────────────────────────
     /// <summary>
     /// One or more Depends strings, each optionally scoped to a Suite via Condition.
@@ -143,6 +156,8 @@ public class AosprojProject
     public List<PostRemoveScriptItem> PostRemoveScripts { get; set; } = [];
     public List<SystemdUnitItem> SystemdUnits { get; set; } = [];
     public List<DpkgTriggerItem> DpkgTriggers { get; set; } = [];
+    public List<AppStreamApplicationItem> AppStreamApplications { get; set; } = [];
+    public List<AppStreamScreenshotItem> AppStreamScreenshots { get; set; } = [];
 
     // ── Computed helpers ─────────────────────────────────────────────────────
     public string[] SuiteList => Split(TargetSuites);
@@ -232,6 +247,27 @@ public class PrebuildCommandItem
 {
     public string Run { get; set; } = string.Empty;
     public string? Condition { get; set; }
+}
+
+/// <summary>
+/// Declares a desktop application that should be discoverable through an
+/// AppStream-aware software center. Desktop entry and icon are installed into
+/// the .deb; local screenshots are carried separately by the .apkg archive.
+/// </summary>
+public class AppStreamApplicationItem : BaseItem
+{
+    public string Icon { get; set; } = string.Empty;
+    public string Metainfo { get; set; } = string.Empty;
+}
+
+/// <summary>A repository-hosted screenshot for an AppStream application.</summary>
+public class AppStreamScreenshotItem : BaseItem
+{
+    public string AppId { get; set; } = string.Empty;
+    public bool Default { get; set; }
+    public string Caption { get; set; } = string.Empty;
+    public string Locale { get; set; } = "C";
+    public string Environment { get; set; } = string.Empty;
 }
 
 /// <summary>An APT repository source for dependency validation during lint.</summary>

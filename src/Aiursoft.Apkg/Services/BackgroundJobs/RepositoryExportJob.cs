@@ -259,6 +259,11 @@ public class RepositoryExportJob(
                 CopyIfExists(Path.Combine(srcContentsDir, $"Contents-{arch}"), Path.Combine(distsBase, component, $"Contents-{arch}"));
                 CopyIfExists(Path.Combine(srcContentsDir, $"Contents-{arch}.gz"), Path.Combine(distsBase, component, $"Contents-{arch}.gz"));
             }
+
+            var sourceDep11 = Path.Combine(bucketDir, component, "dep11");
+            var destinationDep11 = Path.Combine(distsBase, component, "dep11");
+            if (Directory.Exists(sourceDep11))
+                CopyDirectory(sourceDep11, destinationDep11);
         }
 
         // ── pool files (hardlinks from CAS) ────────────────────────────
@@ -271,8 +276,38 @@ public class RepositoryExportJob(
         // We materialize this suite-scoped path:
         //   artifacts/{distro}/pool/{suite}/...
         await ExportPoolFilesAsync(stageDir, repo, bucket);
+        await ExportAppStreamMediaAsync(stageDir, repo, bucket);
 
         logger.LogInformation("Repository {RepoName} exported successfully.", repo.Name);
+    }
+
+    private async Task ExportAppStreamMediaAsync(string stageDir, AptRepository repo, AptBucket bucket)
+    {
+        var packageHashes = await db.AptPackages
+            .AsNoTracking()
+            .Where(package => package.BucketId == bucket.Id)
+            .Select(package => package.SHA256)
+            .Distinct()
+            .ToListAsync();
+        if (packageHashes.Count == 0)
+            return;
+
+        var objectHashes = await db.ApkgDebPackages
+            .AsNoTracking()
+            .Where(package => package.RepositoryId == repo.Id && packageHashes.Contains(package.SHA256))
+            .SelectMany(package => package.ApkgRevision!.AppStreamApplications)
+            .SelectMany(application => application.Assets)
+            .Select(asset => asset.ObjectSha256)
+            .Distinct()
+            .ToListAsync();
+        var objectRoot = folders.GetAppStreamObjectsFolder();
+        var mediaRoot = Path.Combine(stageDir, "artifacts", repo.Distro, "media", repo.Suite);
+        foreach (var hash in objectHashes)
+        {
+            var source = Path.Combine(objectRoot, hash[..2], $"{hash}.png");
+            var destination = Path.Combine(mediaRoot, $"{hash}.png");
+            LinkDebFile(source, destination);
+        }
     }
 
     private async Task ExportPoolFilesAsync(string stageDir, AptRepository repo, AptBucket bucket)
@@ -327,6 +362,15 @@ public class RepositoryExportJob(
             Directory.CreateDirectory(dstDir);
 
         File.Copy(src, dst, overwrite: true);
+    }
+
+    private static void CopyDirectory(string source, string destination)
+    {
+        Directory.CreateDirectory(destination);
+        foreach (var file in Directory.GetFiles(source))
+            File.Copy(file, Path.Combine(destination, Path.GetFileName(file)), overwrite: true);
+        foreach (var directory in Directory.GetDirectories(source))
+            CopyDirectory(directory, Path.Combine(destination, Path.GetFileName(directory)));
     }
 
     private void LinkDebFile(string target, string link, bool skipIfExists = false)

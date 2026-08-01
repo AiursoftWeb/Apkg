@@ -75,4 +75,5 @@ public class ApkgRevision
     public bool IsListed { get; set; } = true;
 
     public ICollection<ApkgDebPackage> ApkgDebPackages { get; set; } = [];
+    public ICollection<ApkgAppStreamApplication> AppStreamApplications { get; set; } = [];
 }
