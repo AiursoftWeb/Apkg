@@ -69,6 +69,9 @@
   <data name="Public APT Server Domain" xml:space="preserve">
     <value>Δημόσια Διεύθυνση Server APT</value>
   </data>
+  <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
+    <value>Δημόσιο βασικό URL που χρησιμοποιείται στις δημιουργημένες πηγές APT και στους συνδέσμους στιγμιότυπων οθόνης AppStream, για παράδειγμα https://packages.example.com. Ορίστε το όταν τα /artifacts εξυπηρετούνται από ξεχωριστό τομέα ή CDN. Μπορεί να αφήσει κενό όταν αυτή η εφαρμογή ιστού εξυπηρετεί άμεσα το αποθετήριο, εκτός αν δημοσιεύονται στιγμιότυπα οθόνης AppStream· η δημιουργία καταλόγου στο παρασκήνιο δεν μπορεί να συμπεράνει τη δημόσια διεύθυνσή τους.</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>Το όνομα της εταιρείας που εμφανίζεται στον ποδόσκαλο.</value>
   </data>
