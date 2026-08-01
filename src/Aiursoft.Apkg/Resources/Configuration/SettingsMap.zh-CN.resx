@@ -69,6 +69,9 @@
   <data name="Public APT Server Domain" xml:space="preserve">
     <value>公共 APT 服务器域名</value>
   </data>
+  <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
+    <value>在生成的 APT 源和 AppStream 屏幕截图链接中使用的公共基础 URL，例如 https://packages.example.com。当 /artifacts 由独立的域名或 CDN 提供服务时请设置此项。如果此 Web 应用直接托管仓库本身（除非发布了 AppStream 屏幕截图），此项可留空；后台目录生成无法推断屏幕截图的公共 URL。</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>页脚中显示的品牌名称。</value>
   </data>

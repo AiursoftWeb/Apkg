@@ -69,6 +69,9 @@
   <data name="Public APT Server Domain" xml:space="preserve">
     <value>Tên miền máy chủ APT công cộng</value>
   </data>
+  <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
+    <value>URL cơ sở công khai được sử dụng trong các nguồn APT và liên kết ảnh chụp màn hình AppStream đã tạo, ví dụ https://packages.example.com. Hãy đặt giá trị này khi /artifacts được phục vụ bởi một tên miền riêng biệt hoặc CDN. Có thể để trống khi ứng dụng web này tự phục vụ kho lưu trữ, trừ khi có đăng tải ảnh chụp màn hình AppStream; vì quá trình tạo danh mục nền không thể suy ra URL công khai của chúng.</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>Tên thương hiệu được hiển thị trong chân trang.</value>
   </data>

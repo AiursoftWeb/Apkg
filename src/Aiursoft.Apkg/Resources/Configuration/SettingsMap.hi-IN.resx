@@ -69,6 +69,9 @@
   <data name="Public APT Server Domain" xml:space="preserve">
     <value>सार्वजनिक एपीटी सर्वर डोमेन</value>
   </data>
+  <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
+    <value>जनरेटेड APT स्रोतों और AppStream स्क्रीनशॉट लिंक्स में उपयोग की जाने वाली पब्लिक बेस URL, उदाहरण के लिए https://packages.example.com। जब /artifacts को एक अलग डोमेन या CDN द्वारा सर्व किया जाता है तो इसे सेट करें। जब यह वेब ऐप स्वयं रिपॉजिटरी सर्व करता है तो इसे खाली छोड़ा जा सकता है, जब तक कि AppStream स्क्रीनशॉट प्रकाशित न हों; बैकग्राउंड कैटलॉग जनरेशन उनका पब्लिक URL अनुमानित नहीं कर सकता।</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>फुटर में दिखाई देने वाला ब्रांड नाम</value>
   </data>

@@ -69,6 +69,9 @@
   <data name="Public APT Server Domain" xml:space="preserve">
     <value>공개 APT 서버 도메인</value>
   </data>
+  <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
+    <value>생성된 APT 소스 및 AppStream 스크린샷 링크에 사용되는 공개 기본 URL입니다. 예: https://packages.example.com. /artifacts가 별도의 도메인 또는 CDN에서 제공될 때 설정합니다. 이 웹 애플리케이션이 저장소를 직접 제공하는 경우 AppStream 스크린샷을 게시하지 않는 한 비워둘 수 있습니다. 백그라운드 카탈로그 생성에서는 해당 공개 URL을 유추할 수 없기 때문입니다.</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>푸터에 표시되는 브랜드 이름</value>
   </data>

@@ -69,6 +69,9 @@
   <data name="Public APT Server Domain" xml:space="preserve">
     <value>โดเมนเซิร์ฟเวอร์ APT สาธารณะ</value>
   </data>
+  <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
+    <value>URL ฐานสาธารณะที่ใช้ในแหล่ง APT ที่สร้างขึ้นและลิงก์ภาพหน้าจอ AppStream เช่น https://packages.example.com กำหนดค่านี้เมื่อ /artifacts ถูกให้บริการโดยโดเมนหรือ CDN แยกต่างหาก อาจเว้นว่างได้หากเว็บแอปพลิเคชันนี้ให้บริการรีพอสิทอรีด้วยตนเอง เว้นแต่จะเผยแพร่ภาพหน้าจอ AppStream เนื่องจากการสร้างแคตตาล็อกในพื้นหลังไม่สามารถอนุมาน URL สาธารณะของพวกมันได้</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>ชื่อแบรนด์ที่แสดงไว้ในส่วนท้ายหน้า</value>
   </data>

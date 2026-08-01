@@ -69,6 +69,9 @@
   <data name="Public APT Server Domain" xml:space="preserve">
     <value>Domínio Público do Servidor APT</value>
   </data>
+  <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
+    <value>URL base pública usada nos repositórios APT gerados e nos links de capturas de tela do AppStream, por exemplo https://packages.example.com. Defina-o quando /artifacts for servido por um domínio ou CDN separado. Pode ser deixado em branco quando este aplicativo web serve o próprio repositório, a menos que as capturas de tela do AppStream sejam publicadas; a geração automática do catálogo não consegue inferir seu URL público.</value>
+  </data>
   <data name="The brand name displayed in the footer." xml:space="preserve">
     <value>O nome da marca exibido no rodapé.</value>
   </data>
