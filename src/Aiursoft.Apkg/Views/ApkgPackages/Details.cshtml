@@ -320,7 +320,7 @@
                                                 @if (deb.Repository != null)
                                                 {
                                                     <a asp-controller="Repositories" asp-action="Details" asp-route-id="@deb.Repository.Id" class="text-decoration-none">
-                                                        <small>@deb.Repository.Name</small>
+                                                        <small>@deb.Repository.Suite</small>
                                                     </a>
                                                 }
                                                 else
@@ -373,8 +373,8 @@
                         .FirstOrDefault(uh => uh.Revision.TempApkgFileInVaultPath == null)?.Revision.Id;
 
                     var versionComparer = new AptVersionComparisonService();
-                    var latestVersionPerArch = Model.AllPackageStatuses
-                        .GroupBy(ps => ps.Package.Architecture)
+                    var latestVersionPerSlot = Model.AllPackageStatuses
+                        .GroupBy(ps => (ps.Package.Architecture, ps.Package.RepositoryId))
                         .ToDictionary(
                             g => g.Key,
                             g => g.OrderByDescending(ps => ps.Package.Version, Comparer<string>.Create(versionComparer.Compare)).First().Package.Version
@@ -440,7 +440,7 @@
                                         var uploadedAt = deb.ApkgRevisionId.HasValue
                                             ? uploadDates.GetValueOrDefault(deb.ApkgRevisionId.Value)
                                             : (DateTime?)null;
-                                        var isFromLatest = latestVersionPerArch.TryGetValue(deb.Architecture, out var latestVer)
+                                        var isFromLatest = latestVersionPerSlot.TryGetValue((deb.Architecture, deb.RepositoryId), out var latestVer)
                                             && versionComparer.Compare(deb.Version, latestVer) == 0;
                                         <tr>
                                             <td>
@@ -455,7 +455,7 @@
                                                 @if (deb.Repository != null)
                                                 {
                                                     <a asp-controller="Repositories" asp-action="Details" asp-route-id="@deb.Repository.Id" class="text-decoration-none">
-                                                        <small>@deb.Repository.Name</small>
+                                                        <small>@deb.Repository.Suite</small>
                                                     </a>
                                                 }
                                                 else

@@ -1822,4 +1822,75 @@ public class ApkgPackagesControllerTests : TestBase
         Assert.AreEqual(2, newestCount,
             "Both amd64 v2.0.0 and arm64 v2.0.0 must show the 'Newest' badge — each is the highest version for its architecture.");
     }
+
+    /// <summary>
+    /// Regression test: suites are independent version slots even when their
+    /// architecture and repository display name are identical.
+    /// </summary>
+    [TestMethod]
+    public async Task Details_MultipleSuites_ShowTheirSuiteAndEachHasNewestVersion()
+    {
+        var packageName = $"multi-suite-{Guid.NewGuid():N}";
+        var package = new ApkgPackage
+        {
+            Name = packageName,
+            Distro = "anduinos",
+            Component = "main",
+            OwnerUserId = _adminUserId
+        };
+        var nobleRepository = new AptRepository
+        {
+            Name = "anduinos-addon",
+            Distro = "anduinos",
+            Suite = "noble-addon",
+            Components = "main",
+            Architecture = "all"
+        };
+        var resoluteRepository = new AptRepository
+        {
+            Name = "anduinos-addon",
+            Distro = "anduinos",
+            Suite = "resolute-addon",
+            Components = "main",
+            Architecture = "all"
+        };
+        _db.AddRange(package, nobleRepository, resoluteRepository);
+        _db.SaveChanges();
+
+        var revision = new ApkgRevision
+        {
+            ApkgPackageId = package.Id,
+            UploadedByUserId = _adminUserId,
+            FileName = "multi-suite.apkg",
+            IsListed = true,
+            UploadedAt = DateTime.UtcNow
+        };
+        _db.ApkgRevisions.Add(revision);
+        _db.SaveChanges();
+
+        var noblePackage = CreateLocalPackage(revision.Id, packageName, "2.0.1-3+noble", "all");
+        noblePackage.RepositoryId = nobleRepository.Id;
+        var resolutePackage = CreateLocalPackage(revision.Id, packageName, "2.0.1-3+resolute", "all");
+        resolutePackage.RepositoryId = resoluteRepository.Id;
+        _db.AddRange(noblePackage, resolutePackage);
+        _db.SaveChanges();
+
+        var versionsResponse = await Http.GetAsync(
+            $"/ApkgPackages/Details/{package.Id}?tab=versions&versionsFilter=latest");
+        var versionsHtml = await versionsResponse.Content.ReadAsStringAsync();
+
+        Assert.AreEqual(HttpStatusCode.OK, versionsResponse.StatusCode);
+        Assert.IsTrue(versionsHtml.Contains("noble-addon"));
+        Assert.IsTrue(versionsHtml.Contains("resolute-addon"));
+        Assert.AreEqual(2,
+            System.Text.RegularExpressions.Regex.Matches(versionsHtml, "badge bg-success ms-1").Count,
+            "Each suite must have its own Newest package for the same architecture.");
+
+        var historyResponse = await Http.GetAsync($"/ApkgPackages/Details/{package.Id}?tab=history");
+        var historyHtml = await historyResponse.Content.ReadAsStringAsync();
+
+        Assert.AreEqual(HttpStatusCode.OK, historyResponse.StatusCode);
+        Assert.IsTrue(historyHtml.Contains("noble-addon"));
+        Assert.IsTrue(historyHtml.Contains("resolute-addon"));
+    }
 }
