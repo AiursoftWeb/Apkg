@@ -95,8 +95,8 @@ public sealed class AppStreamCatalogService(
                         catalog, bucketRoot, component, architecture, tempRoot, mediaBaseUrl));
                 }
 
-                generated.Add(await WriteIconArchiveAsync(bucketRoot, component, 48, icon48));
-                generated.Add(await WriteIconArchiveAsync(bucketRoot, component, 64, icon64));
+                generated.AddRange(await WriteIconArchivesAsync(bucketRoot, component, 48, icon48));
+                generated.AddRange(await WriteIconArchivesAsync(bucketRoot, component, 64, icon64));
             }
         }
         finally
@@ -325,7 +325,7 @@ public sealed class AppStreamCatalogService(
         await File.WriteAllLinesAsync(yamlPath, lines, new UTF8Encoding(false));
     }
 
-    private static async Task<GeneratedRepositoryFile> WriteIconArchiveAsync(
+    private static async Task<IReadOnlyList<GeneratedRepositoryFile>> WriteIconArchivesAsync(
         string bucketRoot,
         string component,
         int size,
@@ -333,10 +333,9 @@ public sealed class AppStreamCatalogService(
     {
         var dep11Dir = Path.Combine(bucketRoot, component, "dep11");
         Directory.CreateDirectory(dep11Dir);
-        var path = Path.Combine(dep11Dir, $"icons-{size}x{size}.tar.gz");
-        await using (var output = File.Create(path))
-        await using (var gzip = new GZipStream(output, CompressionLevel.Optimal))
-        await using (var tar = new TarWriter(gzip, TarEntryFormat.Pax))
+        var tarPath = Path.Combine(dep11Dir, $"icons-{size}x{size}.tar");
+        await using (var output = File.Create(tarPath))
+        await using (var tar = new TarWriter(output, TarEntryFormat.Pax))
         {
             foreach (var (name, source) in icons.OrderBy(icon => icon.Key, StringComparer.Ordinal))
             {
@@ -349,7 +348,18 @@ public sealed class AppStreamCatalogService(
                 await entry.DataStream.DisposeAsync();
             }
         }
-        return await DescribeFileAsync(bucketRoot, path);
+
+        var gzipPath = tarPath + ".gz";
+        await using (var input = File.OpenRead(tarPath))
+        await using (var output = File.Create(gzipPath))
+        await using (var gzip = new GZipStream(output, CompressionLevel.Optimal))
+            await input.CopyToAsync(gzip);
+
+        return
+        [
+            await DescribeFileAsync(bucketRoot, tarPath),
+            await DescribeFileAsync(bucketRoot, gzipPath)
+        ];
     }
 
     private static async Task<GeneratedRepositoryFile> DescribeFileAsync(string bucketRoot, string path)

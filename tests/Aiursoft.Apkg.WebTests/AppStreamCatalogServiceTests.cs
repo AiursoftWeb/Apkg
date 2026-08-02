@@ -142,7 +142,7 @@ public class AppStreamCatalogServiceTests
 
             var files = await service.GenerateAsync(repository, 42, ["amd64"], ["main"]);
 
-            Assert.AreEqual(4, files.Count);
+            Assert.AreEqual(6, files.Count);
             var dep11 = Path.Combine(folders.GetBucketsFolder(), "42", "main", "dep11");
             var yaml = await File.ReadAllTextAsync(Path.Combine(dep11, "Components-amd64.yml"));
             StringAssert.Contains(yaml, "ID: com.example.demo");
@@ -150,17 +150,38 @@ public class AppStreamCatalogServiceTests
             StringAssert.Contains(yaml, "cached:");
             StringAssert.Contains(yaml, "MediaBaseUrl: https://packages.example.com/artifacts/anduinos/media/resolute");
             StringAssert.Contains(yaml, $"url: {screenshotHash}.png");
-            await using var iconArchive = File.OpenRead(Path.Combine(dep11, "icons-64x64.tar.gz"));
-            await using var iconGzip = new GZipStream(iconArchive, CompressionMode.Decompress);
-            using var iconTar = new TarReader(iconGzip);
-            var iconEntry = await iconTar.GetNextEntryAsync();
-            Assert.IsNotNull(iconEntry);
-            Assert.AreEqual("demo-app_com.example.demo.png", iconEntry.Name);
+            CollectionAssert.AreEquivalent(
+                new[]
+                {
+                    "main/dep11/Components-amd64.yml",
+                    "main/dep11/Components-amd64.yml.gz",
+                    "main/dep11/icons-48x48.tar",
+                    "main/dep11/icons-48x48.tar.gz",
+                    "main/dep11/icons-64x64.tar",
+                    "main/dep11/icons-64x64.tar.gz"
+                },
+                files.Select(file => file.RelativePath).ToArray());
+
+            var rawIconPath = Path.Combine(dep11, "icons-64x64.tar");
+            await using var rawIconArchive = File.OpenRead(rawIconPath);
+            await AssertIconArchiveContainsExpectedEntryAsync(rawIconArchive);
+
+            await using var compressedIconArchive = File.OpenRead(rawIconPath + ".gz");
+            await using var iconGzip = new GZipStream(compressedIconArchive, CompressionMode.Decompress);
+            await AssertIconArchiveContainsExpectedEntryAsync(iconGzip);
         }
         finally
         {
             Directory.Delete(root, recursive: true);
         }
+    }
+
+    private static async Task AssertIconArchiveContainsExpectedEntryAsync(Stream stream)
+    {
+        using var iconTar = new TarReader(stream, leaveOpen: true);
+        var iconEntry = await iconTar.GetNextEntryAsync();
+        Assert.IsNotNull(iconEntry);
+        Assert.AreEqual("demo-app_com.example.demo.png", iconEntry.Name);
     }
 
     private static async Task<string> BuildTestDebAsync(string root)
