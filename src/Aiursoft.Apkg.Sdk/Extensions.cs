@@ -19,6 +19,7 @@ public static class Extensions
         services.AddSingleton<ManifestSerializer>();
         services.AddSingleton<SystemInfoProvider>();
         services.AddSingleton<AosprojSerializer>();
+        services.AddSingleton<PackageTestRunner>();
         services.AddSingleton<ConditionEvaluator>();
         services.AddSingleton<DebBuilder>();
         services.AddSingleton<AppStreamMetadataService>();

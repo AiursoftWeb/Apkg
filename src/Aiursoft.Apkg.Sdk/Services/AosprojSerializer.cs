@@ -96,6 +96,19 @@ public class AosprojSerializer
             var condition = (string?)el.Attribute("Condition");
             switch (el.Name.LocalName)
             {
+                case "TestCommand":
+                    if (condition != null || ig.Attribute("Condition") != null)
+                        throw new InvalidDataException("TestCommand uses explicit profiles, not build Conditions.");
+                    if (el.Attributes().Any(a => a.Name.LocalName is not ("Name" or "Profile" or "Run" or "TimeoutSeconds")))
+                        throw new InvalidDataException("Unknown TestCommand attribute. Use Name, Profile, Run and TimeoutSeconds.");
+                    project.TestCommands.Add(new TestCommandItem
+                    {
+                        Name = (string?)el.Attribute("Name") ?? string.Empty,
+                        Profile = (string?)el.Attribute("Profile") ?? string.Empty,
+                        Run = (string?)el.Attribute("Run") ?? el.Value,
+                        TimeoutSeconds = (int?)el.Attribute("TimeoutSeconds") ?? 600
+                    });
+                    break;
                 case "PrebuildCommand":
                     project.PrebuildCommands.Add(new PrebuildCommandItem
                     {
@@ -290,6 +303,16 @@ public class AosprojSerializer
         );
 
         var itemGroups = new List<XElement>();
+
+        if (project.TestCommands.Count > 0)
+        {
+            itemGroups.Add(new XElement("ItemGroup",
+                project.TestCommands.Select(c => new XElement("TestCommand",
+                    new XAttribute("Name", c.Name),
+                    new XAttribute("Profile", c.Profile),
+                    new XAttribute("Run", c.Run),
+                    new XAttribute("TimeoutSeconds", c.TimeoutSeconds)))));
+        }
 
         if (project.PrebuildCommands.Count > 0)
         {

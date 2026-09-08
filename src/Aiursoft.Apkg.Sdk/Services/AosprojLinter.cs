@@ -20,6 +20,8 @@ public class AosprojLinter
     public IReadOnlyList<LintIssue> Lint(AosprojProject project, string projectDir)
     {
         var issues = new List<LintIssue>();
+        issues.AddRange(PackageTestRunner.Validate(project.TestCommands)
+            .Select(message => new LintIssue(Severity.Error, message)));
 
         // Required fields
         RequireField(issues, project.PackageName, "PackageName");

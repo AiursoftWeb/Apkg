@@ -146,6 +146,7 @@ public class AosprojProject
 
     // ── Items ────────────────────────────────────────────────────────────────
     public List<PrebuildCommandItem> PrebuildCommands { get; set; } = [];
+    public List<TestCommandItem> TestCommands { get; set; } = [];
     public List<IncludeFileItem> IncludeFiles { get; set; } = [];
     public List<IncludeFolderItem> IncludeFolders { get; set; } = [];
     public List<IncludeScriptItem> IncludeScripts { get; set; } = [];
@@ -247,6 +248,15 @@ public class PrebuildCommandItem
 {
     public string Run { get; set; } = string.Empty;
     public string? Condition { get; set; }
+}
+
+/// <summary>A framework-independent test entry, separate from package construction.</summary>
+public class TestCommandItem
+{
+    public string Name { get; set; } = string.Empty;
+    public string Profile { get; set; } = string.Empty;
+    public string Run { get; set; } = string.Empty;
+    public int TimeoutSeconds { get; set; } = 600;
 }
 
 /// <summary>

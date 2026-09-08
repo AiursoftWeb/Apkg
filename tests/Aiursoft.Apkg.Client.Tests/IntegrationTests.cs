@@ -18,6 +18,7 @@ public class IntegrationTests
         .WithFeature(new NewHandler())
         .WithFeature(new BuildHandler())
         .WithFeature(new LintHandler())
+        .WithFeature(new TestHandler())
         .WithFeature(new AddHandler())
         .WithFeature(new PublishHandler())
         .WithFeature(new PushHandler())

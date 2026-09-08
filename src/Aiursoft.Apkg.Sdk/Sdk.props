@@ -4,5 +4,6 @@
     <DependencyCheckSource />
     <DpkgTrigger />
     <PrebuildCommand />
+    <TestCommand />
   </ItemGroup>
 </Project>

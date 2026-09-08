@@ -68,6 +68,33 @@ sudo apt update
 sudo apt install my-package
 ```
 
+## Package tests
+
+Declare test entry points separately from build hooks:
+
+```xml
+<ItemGroup>
+  <TestCommand Name="source" Profile="release"
+               Run="bash tests/run.sh" TimeoutSeconds="600" />
+  <TestCommand Name="desktop" Profile="gui"
+               Run="bash tests/gui.sh" TimeoutSeconds="120" />
+</ItemGroup>
+```
+
+```bash
+apkg test --path ./my-package --profile release
+apkg test --path . --recursive --profile release --list
+apkg test --path . --recursive --profile release --report test-results.xml
+```
+
+The profile is mandatory and matched exactly. Entries run in declaration order,
+in their package directory, through `/bin/sh`, with `APKG_TEST_PROFILE` set.
+`Name` is unique within a profile. Names and profiles use letters, digits,
+periods, underscores and hyphens; they must begin with a letter or digit.
+`TimeoutSeconds` defaults to 600 and accepts 1–86400. Build `Condition`
+attributes do not apply to tests: use a separate profile for a different
+environment.
+
 ## Run in Ubuntu
 
 The following script will install or update this app on your Ubuntu server. Supports Ubuntu 25.04.
