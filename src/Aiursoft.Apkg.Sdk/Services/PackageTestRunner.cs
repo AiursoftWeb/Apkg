@@ -148,8 +148,8 @@ public class PackageTestRunner(AosprojSerializer serializer)
             output?.Invoke($"[{command.Profile}/{command.Name}]\n", false);
             started = process.Start();
             readers = Task.WhenAll(
-                ReadAsync(process.StandardOutput, stdout, false),
-                ReadAsync(process.StandardError, stderr, true));
+                ReadAsync(process.StandardOutput, stdout, false, linked.Token),
+                ReadAsync(process.StandardError, stderr, true, linked.Token));
             await Task.WhenAll(process.WaitForExitAsync(linked.Token), readers).WaitAsync(linked.Token);
             exitCode = process.ExitCode;
             status = exitCode == 0 ? PackageTestStatus.Passed : PackageTestStatus.Failed;
@@ -190,11 +190,12 @@ public class PackageTestRunner(AosprojSerializer serializer)
         return new(projectFile, command.Profile, command.Name, status,
             clock.Elapsed.TotalSeconds, exitCode, stdout.ToString(), stderr.ToString());
 
-        async Task ReadAsync(StreamReader reader, StringBuilder buffer, bool isError)
+        async Task ReadAsync(
+            StreamReader reader, StringBuilder buffer, bool isError, CancellationToken readCancellationToken)
         {
             var chunk = new char[4096];
             int length;
-            while ((length = await reader.ReadAsync(chunk.AsMemory(), linked.Token)) > 0)
+            while ((length = await reader.ReadAsync(chunk.AsMemory(), readCancellationToken)) > 0)
             {
                 var text = new string(chunk, 0, length);
                 AppendBounded(buffer, text);

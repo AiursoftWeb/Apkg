@@ -53,9 +53,7 @@ public class TestHandler : ExecutableCommandHandlerBuilder
             context.GetValue(CommonOptionsProvider.VerboseOption)).Build();
         var runner = host.Services.GetRequiredService<PackageTestRunner>();
         var logger = host.Services.GetRequiredService<ILogger<TestHandler>>();
-        using var cancellation = new CancellationTokenSource();
-        ConsoleCancelEventHandler cancel = (_, e) => { e.Cancel = true; cancellation.Cancel(); };
-        Console.CancelKeyPress += cancel;
+        using var cancellation = new ConsoleCancellation();
         var results = new List<PackageTestResult>();
         try
         {
@@ -91,8 +89,8 @@ public class TestHandler : ExecutableCommandHandlerBuilder
             }
             if (report != null)
             {
-                var fullPath = System.IO.Path.GetFullPath(report);
-                Directory.CreateDirectory(System.IO.Path.GetDirectoryName(fullPath)!);
+                var fullPath = Path.GetFullPath(report);
+                Directory.CreateDirectory(Path.GetDirectoryName(fullPath)!);
                 PackageTestRunner.CreateReport(results).Save(fullPath);
             }
             if (!listOnly)
@@ -106,9 +104,37 @@ public class TestHandler : ExecutableCommandHandlerBuilder
             if (results.Any(PackageTestRunner.IsFailure))
                 throw new InvalidOperationException("Package tests failed. See entry results above.");
         }
-        finally
+        finally { cancellation.Unsubscribe(); }
+    }
+
+    private sealed class ConsoleCancellation : IDisposable
+    {
+        private readonly CancellationTokenSource _source = new();
+        private bool _subscribed = true;
+
+        public ConsoleCancellation() => Console.CancelKeyPress += Cancel;
+
+        public CancellationToken Token => _source.Token;
+        public bool IsCancellationRequested => _source.IsCancellationRequested;
+
+        private void Cancel(object? _, ConsoleCancelEventArgs e)
         {
-            Console.CancelKeyPress -= cancel;
+            e.Cancel = true;
+            _source.Cancel();
+        }
+
+        public void Unsubscribe()
+        {
+            if (!_subscribed)
+                return;
+            Console.CancelKeyPress -= Cancel;
+            _subscribed = false;
+        }
+
+        public void Dispose()
+        {
+            Unsubscribe();
+            _source.Dispose();
         }
     }
 }
