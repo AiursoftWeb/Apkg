@@ -1,5 +1,8 @@
 using System.Net;
+using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using Aiursoft.Apkg.Entities;
+using Aiursoft.Apkg.Services.FileStorage;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 
@@ -790,5 +793,36 @@ public class RepositoriesControllerTests : TestBase
         Assert.AreEqual("main,universe", _repo.Components);
         Assert.AreEqual("amd64,arm64", _repo.Architecture);
         Assert.AreEqual("Updated Components Only", _repo.Name);
+    }
+
+    [TestMethod]
+    [DataRow("Repositories")]
+    [DataRow("Mirrors")]
+    public async Task PackageDetails_DownloadButton_ReturnsPackageBytes(string controller)
+    {
+        var pkg = AddPackage($"download-{Guid.NewGuid():N}", isVirtual: false);
+        var bytes = System.Text.Encoding.UTF8.GetBytes($"test deb content {pkg.Package}");
+        pkg.SHA256 = Convert.ToHexStringLower(SHA256.HashData(bytes));
+        _db.SaveChanges();
+        var objectsRoot = GetService<FeatureFoldersProvider>().GetObjectsFolder();
+        var objectPath = Path.Combine(objectsRoot, pkg.SHA256[..2], $"{pkg.SHA256}.deb");
+        Directory.CreateDirectory(Path.GetDirectoryName(objectPath)!);
+        await File.WriteAllBytesAsync(objectPath, bytes);
+        try
+        {
+            var page = await Http.GetAsync($"/{controller}/PackageDetails/{pkg.Id}");
+            Assert.AreEqual(HttpStatusCode.OK, page.StatusCode);
+            var html = await page.Content.ReadAsStringAsync();
+            var link = Regex.Match(html, "href=\"([^\"]+)\" class=\"btn btn-primary\"[ >]?");
+            Assert.IsTrue(link.Success, "The download button must have a link.");
+            var response = await Http.GetAsync(WebUtility.HtmlDecode(link.Groups[1].Value));
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            Assert.AreEqual("application/vnd.debian.binary-package", response.Content.Headers.ContentType?.MediaType);
+            CollectionAssert.AreEqual(bytes, await response.Content.ReadAsByteArrayAsync());
+        }
+        finally
+        {
+            File.Delete(objectPath);
+        }
     }
 }
