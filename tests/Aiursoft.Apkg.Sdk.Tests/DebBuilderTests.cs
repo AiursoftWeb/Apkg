@@ -2056,7 +2056,11 @@ public class DebBuilderTests
     // ── SuppressUpstreamScripts ──────────────────────────────────────────────
 
     [TestMethod]
-    public async Task BuildAsync_SuppressUpstreamScripts_ExcludesUpstreamPostinst()
+    [DataRow(false, false)]
+    [DataRow(true, false)]
+    [DataRow(false, true)]
+    [DataRow(true, true)]
+    public async Task BuildAsync_SuppressUpstreamScripts_ExcludesUpstreamPostinst(bool sha512Only, bool corruptPackage)
     {
         // Verifies that SuppressUpstreamScripts=true prevents the upstream
         // postinst (which ends with exit 0) from being prepended, so the
@@ -2113,14 +2117,16 @@ public class DebBuilderTests
             var debSize = fi.Length;
 
             // Compute hashes
-            string md5, sha256;
+            string md5, checksum;
             using (var fs = fi.OpenRead())
             {
                 using var md5Alg = System.Security.Cryptography.MD5.Create();
                 md5 = Convert.ToHexStringLower(md5Alg.ComputeHash(fs));
                 fs.Position = 0;
-                using var sha256Alg = System.Security.Cryptography.SHA256.Create();
-                sha256 = Convert.ToHexStringLower(sha256Alg.ComputeHash(fs));
+                using System.Security.Cryptography.HashAlgorithm hasher = sha512Only
+                    ? System.Security.Cryptography.SHA512.Create()
+                    : System.Security.Cryptography.SHA256.Create();
+                checksum = Convert.ToHexStringLower(hasher.ComputeHash(fs));
             }
 
             // Manually craft a Packages file (more reliable than dpkg-scanpackages for file:// repos)
@@ -2136,7 +2142,7 @@ public class DebBuilderTests
                 + $"Filename: {upstreamDebName}\n"
                 + $"Size: {debSize}\n"
                 + $"MD5sum: {md5}\n"
-                + $"SHA256: {sha256}\n";
+                + $"{(sha512Only ? "SHA512" : "SHA256")}: {checksum}\n";
             var packagesPath = Path.Combine(distsDir, "Packages");
             await File.WriteAllTextAsync(packagesPath, packagesContent);
             await RunAsync("gzip", ["-kf", packagesPath]);
@@ -2198,6 +2204,14 @@ public class DebBuilderTests
                 }
             };
 
+            if (corruptPackage)
+            {
+                await File.AppendAllTextAsync(Path.Combine(repoDir, upstreamDebName), "tampered");
+                await Assert.ThrowsAsync<System.Security.SecurityException>(() =>
+                    _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "all", outputDir));
+                Assert.IsFalse(File.Exists(Path.Combine(projectDir, "obj", upstreamDebName)));
+                return;
+            }
             await _builder.BuildAsync(projectDir, project, "ubuntu", "jammy", "all", outputDir);
 
             // ── 5. Verify ──

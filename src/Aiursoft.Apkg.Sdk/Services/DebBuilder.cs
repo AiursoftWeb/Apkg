@@ -629,7 +629,7 @@ public class DebBuilder
         string? LocalRepositoryPath);
 
     /// <summary>
-    /// Downloads an upstream .deb with SHA256 verification.
+    /// Downloads an upstream .deb with SHA256 or SHA512 verification.
     /// Returns the path to the downloaded .deb.
     /// </summary>
     private async Task<string> DownloadUpstreamDebAsync(
@@ -670,13 +670,18 @@ public class DebBuilder
 
         if (metadata.LocalRepositoryPath != null)
         {
-            var actualHash = Convert.ToHexStringLower(
-                System.Security.Cryptography.SHA256.HashData(await File.ReadAllBytesAsync(destPath)));
-            if (!string.Equals(actualHash, resolvedPackage.SHA256, StringComparison.OrdinalIgnoreCase))
+            var useSha512 = string.IsNullOrWhiteSpace(resolvedPackage.SHA256);
+            var expectedHash = useSha512 ? resolvedPackage.SHA512 : resolvedPackage.SHA256;
+            using System.Security.Cryptography.HashAlgorithm hasher = useSha512
+                ? System.Security.Cryptography.SHA512.Create()
+                : System.Security.Cryptography.SHA256.Create();
+            using var input = File.OpenRead(destPath);
+            var actualHash = Convert.ToHexStringLower(await hasher.ComputeHashAsync(input));
+            if (!string.Equals(actualHash, expectedHash, StringComparison.OrdinalIgnoreCase))
             {
                 File.Delete(destPath);
                 throw new System.Security.SecurityException(
-                    $"SHA256 mismatch for upstream package.\nExpected: {resolvedPackage.SHA256}\nActual:   {actualHash}");
+                    $"{(useSha512 ? "SHA512" : "SHA256")} mismatch for upstream package.\nExpected: {expectedHash}\nActual:   {actualHash}");
             }
         }
 

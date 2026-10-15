@@ -65,13 +65,16 @@ public static class DebianPackageParser
 
         // The parser returns a list of "paragraphs". InRelease usually has one main paragraph with checksums.
         var paragraphs = Parse(ms).ToList();
-        var mainParagraph = paragraphs.FirstOrDefault(p => p.ContainsKey("SHA256"));
+        var mainParagraph = paragraphs.FirstOrDefault(p => p.ContainsKey("SHA256") || p.ContainsKey("SHA512"));
 
         var result = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         if (mainParagraph == null) return result;
 
-        var sha256Lines = mainParagraph["SHA256"].Split('\n', StringSplitOptions.RemoveEmptyEntries);
-        foreach (var line in sha256Lines)
+        // Preserve SHA256 selection for existing repositories; newer Ubuntu suites
+        // may publish SHA512 alone. The digest length identifies the algorithm.
+        var hashes = mainParagraph.GetValueOrDefault("SHA256") ?? mainParagraph["SHA512"];
+        var hashLines = hashes.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+        foreach (var line in hashLines)
         {
             var parts = line.Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length >= 3)
@@ -88,6 +91,9 @@ public static class DebianPackageParser
     {
         string GetReq(string key) => dict.TryGetValue(key, out var v) ? v : throw new InvalidDataException($"Missing required field '{key}'");
         string? GetOpt(string key) => dict.TryGetValue(key, out var v) ? v : null;
+
+        if (string.IsNullOrWhiteSpace(GetOpt("SHA256")) && string.IsNullOrWhiteSpace(GetOpt("SHA512")))
+            throw new InvalidDataException("Package must contain a SHA256 or SHA512 checksum.");
 
         var pkg = new DebianPackage
         {
@@ -108,7 +114,7 @@ public static class DebianPackageParser
             Size = GetReq("Size"),
             MD5sum = GetOpt("MD5sum") ?? "",
             SHA1 = GetOpt("SHA1") ?? "",
-            SHA256 = GetReq("SHA256"), // We verify files using SHA256 so this should be present, usually.
+            SHA256 = GetOpt("SHA256") ?? "",
             SHA512 = GetOpt("SHA512") ?? "",
             InstalledSize = GetOpt("Installed-Size"),
             OriginalMaintainer = GetOpt("Original-Maintainer"),

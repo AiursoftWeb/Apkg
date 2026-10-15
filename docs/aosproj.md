@@ -993,3 +993,10 @@ apkg push bin/anduinos-shell-ext.apkg \
   --source https://apkg-dev.aiursoft.com \
   --api-key <你的 API Key>
 ```
+
+### Ubuntu SHA512-only repositories
+
+CLI 10.0.64 / SDK 10.0.35 supports upstream repositories that publish only
+SHA512 checksums, including Ubuntu Stonking. Existing SHA256 repositories keep
+the same checksum selection and verification. No project syntax changes are
+needed; repository signatures and downloaded package hashes are still checked.
