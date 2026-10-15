@@ -304,7 +304,7 @@ public class DebBuilder
             ? string.Join(", ", localSuggests)
             : upstreamControl?.GetValueOrDefault("Suggests") ?? string.Empty;
 
-        var control = BuildControl(project, resolvedVersion, arch, mergedDepends, resolvedRecommends, resolvedSuggests, upstreamControl);
+        var control = BuildControl(project, resolvedVersion, arch, mergedDepends, resolvedRecommends, resolvedSuggests, upstreamControl, ctx);
         await File.WriteAllTextAsync(Path.Combine(debianDir, "control"), control);
         _logger.LogDebug("Wrote DEBIAN/control");
 
@@ -848,9 +848,22 @@ public class DebBuilder
     internal static string BuildControl(
         AosprojProject p, string resolvedVersion, string arch, List<string> depends,
         string recommends, string suggests,
-        Dictionary<string, string>? upstreamControl = null)
+        Dictionary<string, string>? upstreamControl = null,
+        IReadOnlyDictionary<string, string>? buildContext = null)
     {
         var sb = new StringBuilder();
+        var evaluator = new ConditionEvaluator();
+        buildContext ??= ConditionEvaluator.BuildContext(p.TargetDistro, string.Empty, arch);
+
+        void AppendRelationship(string name, string property, List<ConditionalValue> overrides)
+        {
+            var value = overrides.LastOrDefault(item => evaluator.Evaluate(item.Condition, buildContext))?.Value ?? property;
+            if (string.IsNullOrWhiteSpace(value))
+                value = upstreamControl?.GetValueOrDefault(name) ?? string.Empty;
+            if (!string.IsNullOrWhiteSpace(value))
+                sb.AppendLine($"{name}: {value}");
+        }
+
         sb.AppendLine($"Package: {p.PackageName}");
         sb.AppendLine($"Version: {resolvedVersion}");
         sb.AppendLine($"Architecture: {arch}");
@@ -870,21 +883,10 @@ public class DebBuilder
         if (!string.IsNullOrWhiteSpace(effectiveSuggests))
             sb.AppendLine($"Suggests: {effectiveSuggests}");
 
-        // Local fields override upstream; fall back to upstream when local is empty
-        var provides = !string.IsNullOrWhiteSpace(p.Provides) ? p.Provides
-            : upstreamControl?.GetValueOrDefault("Provides") ?? string.Empty;
-        if (!string.IsNullOrWhiteSpace(provides))
-            sb.AppendLine($"Provides: {provides}");
-
-        var conflicts = !string.IsNullOrWhiteSpace(p.Conflicts) ? p.Conflicts
-            : upstreamControl?.GetValueOrDefault("Conflicts") ?? string.Empty;
-        if (!string.IsNullOrWhiteSpace(conflicts))
-            sb.AppendLine($"Conflicts: {conflicts}");
-
-        var replaces = !string.IsNullOrWhiteSpace(p.Replaces) ? p.Replaces
-            : upstreamControl?.GetValueOrDefault("Replaces") ?? string.Empty;
-        if (!string.IsNullOrWhiteSpace(replaces))
-            sb.AppendLine($"Replaces: {replaces}");
+        // The last matching local declaration overrides upstream.
+        AppendRelationship("Provides", p.Provides, p.ProvidesOverrides);
+        AppendRelationship("Conflicts", p.Conflicts, p.ConflictsOverrides);
+        AppendRelationship("Replaces", p.Replaces, p.ReplacesOverrides);
 
         if (!string.IsNullOrWhiteSpace(p.PackageHomepage))
             sb.AppendLine($"Homepage: {p.PackageHomepage}");
@@ -903,11 +905,7 @@ public class DebBuilder
             ?? "optional";
         sb.AppendLine($"Priority: {effectivePriority}");
 
-        // Breaks: local → upstream; omit when neither is set
-        var effectiveBreaks = !string.IsNullOrWhiteSpace(p.Breaks) ? p.Breaks
-            : upstreamControl?.GetValueOrDefault("Breaks") ?? string.Empty;
-        if (!string.IsNullOrWhiteSpace(effectiveBreaks))
-            sb.AppendLine($"Breaks: {effectiveBreaks}");
+        AppendRelationship("Breaks", p.Breaks, p.BreaksOverrides);
 
         // Description: first line is short desc, rest is long desc (indented with space)
         var descLines = p.PackageDescription.Split('\n');

@@ -99,6 +99,10 @@ public class AosprojLinter
 
         // Validate conditions are parseable
         var allConditions = project.Dependencies.Select(d => d.Condition)
+            .Concat(project.ProvidesOverrides.Select(p => p.Condition))
+            .Concat(project.ConflictsOverrides.Select(p => p.Condition))
+            .Concat(project.ReplacesOverrides.Select(p => p.Condition))
+            .Concat(project.BreaksOverrides.Select(p => p.Condition))
             .Concat(project.IncludeFiles.Select(f => f.Condition))
             .Concat(project.IncludeFolders.Select(f => f.Condition))
             .Concat(project.IncludeScripts.Select(f => f.Condition))

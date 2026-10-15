@@ -40,6 +40,14 @@ public class AosprojProject
     public string Conflicts { get; set; } = string.Empty;
     public string Replaces { get; set; } = string.Empty;
     public string Breaks { get; set; } = string.Empty;
+    /// <summary>Conditional Provides declarations after the last unconditional value. Last match wins.</summary>
+    public List<ConditionalValue> ProvidesOverrides { get; set; } = [];
+    /// <summary>Conditional Conflicts declarations after the last unconditional value. Last match wins.</summary>
+    public List<ConditionalValue> ConflictsOverrides { get; set; } = [];
+    /// <summary>Conditional Replaces declarations after the last unconditional value. Last match wins.</summary>
+    public List<ConditionalValue> ReplacesOverrides { get; set; } = [];
+    /// <summary>Conditional Breaks declarations after the last unconditional value. Last match wins.</summary>
+    public List<ConditionalValue> BreaksOverrides { get; set; } = [];
     /// <summary>
     /// One or more Recommends strings, each optionally scoped to a Suite via Condition.
     /// Corresponds to the deb control <c>Recommends:</c> field.

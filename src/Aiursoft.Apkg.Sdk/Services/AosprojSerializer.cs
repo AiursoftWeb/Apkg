@@ -51,10 +51,18 @@ public class AosprojSerializer
                 case "PackageTags":        project.PackageTags = el.Value; break;
                 case "AppStreamDeveloperName": project.AppStreamDeveloperName = el.Value; break;
                 case "AppStreamMetadataLicense": project.AppStreamMetadataLicense = el.Value; break;
-                case "Provides":           project.Provides = el.Value; break;
-                case "Conflicts":          project.Conflicts = el.Value; break;
-                case "Replaces":           project.Replaces = el.Value; break;
-                case "Breaks":             project.Breaks = el.Value; break;
+                case "Provides":
+                    project.Provides = ReadRelationship(el, project.ProvidesOverrides, project.Provides);
+                    break;
+                case "Conflicts":
+                    project.Conflicts = ReadRelationship(el, project.ConflictsOverrides, project.Conflicts);
+                    break;
+                case "Replaces":
+                    project.Replaces = ReadRelationship(el, project.ReplacesOverrides, project.Replaces);
+                    break;
+                case "Breaks":
+                    project.Breaks = ReadRelationship(el, project.BreaksOverrides, project.Breaks);
+                    break;
                 case "Section":            project.Section = el.Value; break;
                 case "Priority":           project.Priority = el.Value; break;
                 case "Component":          project.Component = el.Value; break;
@@ -280,9 +288,13 @@ public class AosprojSerializer
             Elem("AppStreamDeveloperName", project.AppStreamDeveloperName),
             Elem("AppStreamMetadataLicense", project.AppStreamMetadataLicense),
             Elem("Provides", project.Provides),
+            ConditionalElems("Provides", project.ProvidesOverrides, preserveEmpty: true),
             Elem("Conflicts", project.Conflicts),
+            ConditionalElems("Conflicts", project.ConflictsOverrides, preserveEmpty: true),
             Elem("Replaces", project.Replaces),
+            ConditionalElems("Replaces", project.ReplacesOverrides, preserveEmpty: true),
             Elem("Breaks", project.Breaks),
+            ConditionalElems("Breaks", project.BreaksOverrides, preserveEmpty: true),
             Elem("Component", project.Component),
             Elem("Section", project.Section),
             Elem("Priority", project.Priority),
@@ -443,6 +455,20 @@ public class AosprojSerializer
 
     // ── Helpers ───────────────────────────────────────────────────────────────
 
+    private static string ReadRelationship(XElement element, List<ConditionalValue> overrides, string currentValue)
+    {
+        var condition = (string?)element.Attribute("Condition");
+        if (string.IsNullOrWhiteSpace(condition))
+        {
+            // An unconditional assignment supersedes every earlier declaration,
+            // including conditional ones from previous PropertyGroups.
+            overrides.Clear();
+            return element.Value;
+        }
+        overrides.Add(new ConditionalValue { Condition = condition, Value = element.Value });
+        return currentValue;
+    }
+
     private static UnixFileMode? ReadModeAttribute(XElement el)
     {
         var modeStr = (string?)el.Attribute("Mode");
@@ -461,11 +487,11 @@ public class AosprojSerializer
     private static XElement? Elem(string name, string value) =>
         string.IsNullOrWhiteSpace(value) ? null : new XElement(name, value);
 
-    private static IEnumerable<XElement> ConditionalElems(string name, IEnumerable<ConditionalValue> values)
+    private static IEnumerable<XElement> ConditionalElems(string name, IEnumerable<ConditionalValue> values, bool preserveEmpty = false)
     {
         foreach (var val in values)
         {
-            if (string.IsNullOrWhiteSpace(val.Value)) continue;
+            if (!preserveEmpty && string.IsNullOrWhiteSpace(val.Value)) continue;
             var el = new XElement(name, val.Value);
             if (!string.IsNullOrWhiteSpace(val.Condition))
                 el.Add(new XAttribute("Condition", val.Condition));

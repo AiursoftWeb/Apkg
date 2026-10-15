@@ -414,6 +414,37 @@ ItemGroup 元素配置一个或多个验证源，**union 语义**——包只要
 <Dependency Include="libssl3t64" Condition="'$(Suite)' == 'questing'" />
 ```
 
+#### Provides / Conflicts / Replaces / Breaks — 条件属性
+
+从 APKG CLI 10.0.63 / SDK 10.0.34 起，这四个原有 `PropertyGroup` 字段支持
+元素级 `Condition`，可按架构或发行版选择完整的包关系值：
+
+```xml
+<PropertyGroup>
+  <Provides Condition="'$(Arch)' == 'amd64'">grub-common (= 2.14), grub-efi-amd64 (= 2.14), grub-pc</Provides>
+  <Provides Condition="'$(Arch)' == 'arm64'">grub-common (= 2.14), grub-efi-arm64 (= 2.14)</Provides>
+  <Conflicts Condition="'$(Arch)' == 'amd64'">grub-efi-amd64, grub-pc</Conflicts>
+  <Conflicts Condition="'$(Arch)' == 'arm64'">grub-efi-arm64</Conflicts>
+  <Replaces Condition="'$(Arch)' == 'amd64'">grub-efi-amd64, grub-pc</Replaces>
+  <Replaces Condition="'$(Arch)' == 'arm64'">grub-efi-arm64</Replaces>
+  <Breaks Condition="'$(Suite)' == 'resolute'">old-boot-helper (&lt;&lt; 2.0)</Breaks>
+</PropertyGroup>
+```
+
+每个字段按文件中的声明顺序计算，跨 `PropertyGroup` 也遵循相同规则：
+
+- 没有条件或条件为空的声明始终匹配，旧的无条件写法保持原样。
+- **最后一个匹配的声明整体替换字段值**，不追加或合并。公共包名需包含在完整值中。
+- 条件不匹配时不赋值；因此可以先写无条件默认值，再写条件覆盖。
+- 匹配到空值会清除之前的本地值。最终本地值为空时仍沿用原有上游回退规则；没有上游值则省略字段。
+
+条件只支持写在字段元素上，`PropertyGroup` 上的条件不参与求值。
+字段值不展开 `$(Arch)` 等变量，架构差异通过条件选择。
+
+**兼容性边界：**旧版会忽略这些字段元素上的 `Condition`，新版会执行它。
+已经这样写的项目需要检查语义；未使用条件的旧项目无需迁移。
+使用条件属性的项目必须用上述版本或更新版本的 APKG 构建。
+
 #### Recommends 与 Suggests — 推荐/可选依赖
 
 `Recommends` 和 `Suggests` 直接作为 `<PropertyGroup>` 里的字符串填写，格式与 `Depends` 相同（逗号分隔，支持版本约束）。
