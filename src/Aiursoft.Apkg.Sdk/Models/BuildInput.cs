@@ -23,7 +23,13 @@ public class BuildInputItem
 
 public sealed record FetchSource(string Url, string Suite, string Component, string SignedBy);
 public sealed record FetchInput(string Id, string Package, string Arch, IReadOnlyList<FetchSource> Sources);
+
+/// <summary>Public manifest contract consumed by build scripts through JSON serialization.</summary>
+// System.Text.Json reads these properties through reflection; their consumers are outside this solution.
+// ReSharper disable NotAccessedPositionalProperty.Global
 public sealed record FetchedInput(
     string Id, string Package, string Version, string Architecture, string RequestedArchitecture,
     string Repository, string Suite, string Component, string Sha256, string DebPath, string? ExtractedPath);
+// ReSharper restore NotAccessedPositionalProperty.Global
+
 public sealed record FetchManifest(string Format, IReadOnlyList<FetchedInput> Inputs);

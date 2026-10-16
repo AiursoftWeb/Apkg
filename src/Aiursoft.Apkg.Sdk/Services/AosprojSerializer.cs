@@ -105,7 +105,7 @@ public class AosprojSerializer
             switch (el.Name.LocalName)
             {
                 case "BuildSource":
-                    CheckBuildAttributes(el, ig, ["Name", "Url", "Suites", "Components", "SignedBy", "Condition"]);
+                    CheckBuildAttributes(el, ["Name", "Url", "Suites", "Components", "SignedBy", "Condition"]);
                     project.BuildSources.Add(new BuildSourceItem
                     {
                         Name = (string?)el.Attribute("Name") ?? "",
@@ -117,7 +117,7 @@ public class AosprojSerializer
                     });
                     break;
                 case "BuildInput":
-                    CheckBuildAttributes(el, ig, ["Include", "Id", "Sources", "Arch", "Condition"]);
+                    CheckBuildAttributes(el, ["Include", "Id", "Sources", "Arch", "Condition"]);
                     project.BuildInputs.Add(new BuildInputItem
                     {
                         Package = (string?)el.Attribute("Include") ?? "",
@@ -288,9 +288,9 @@ public class AosprojSerializer
 
     // ── Serialize ────────────────────────────────────────────────────────────
 
-    private static void CheckBuildAttributes(XElement element, XElement group, string[] allowed)
+    private static void CheckBuildAttributes(XElement element, string[] allowed)
     {
-        if (group.Attribute("Condition") != null)
+        if (element.Parent?.Attribute("Condition") != null)
             throw new InvalidDataException("Put build input/source Condition on each item, not ItemGroup.");
         if (element.Attributes().Any(a => !allowed.Contains(a.Name.ToString())) || element.HasElements || !string.IsNullOrWhiteSpace(element.Value))
             throw new InvalidDataException($"Invalid {element.Name} declaration. Supported attributes: {string.Join(", ", allowed)}.");

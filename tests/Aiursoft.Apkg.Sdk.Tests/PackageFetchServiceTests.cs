@@ -153,6 +153,20 @@ public class PackageFetchServiceTests
         Assert.IsFalse(Directory.Exists(Path.Combine(inputsDir, "extracted/tool/DEBIAN")));
         var manifest = JsonSerializer.Deserialize<FetchManifest>(await File.ReadAllTextAsync(Path.Combine(inputsDir, "manifest.json")))!;
         Assert.AreEqual("arm64", manifest.Inputs.Single().Architecture);
+        using var json = JsonDocument.Parse(await File.ReadAllTextAsync(Path.Combine(inputsDir, "manifest.json")));
+        var entry = json.RootElement.GetProperty("Inputs")[0];
+        Assert.AreEqual("tool", entry.GetProperty("Id").GetString());
+        Assert.AreEqual("tool", entry.GetProperty("Package").GetString());
+        Assert.AreEqual("1.0", entry.GetProperty("Version").GetString());
+        Assert.AreEqual("arm64", entry.GetProperty("Architecture").GetString());
+        Assert.AreEqual("arm64", entry.GetProperty("RequestedArchitecture").GetString());
+        Assert.AreEqual("https://repo.invalid/ubuntu", entry.GetProperty("Repository").GetString());
+        Assert.AreEqual("base", entry.GetProperty("Suite").GetString());
+        Assert.AreEqual("main", entry.GetProperty("Component").GetString());
+        var downloaded = await File.ReadAllBytesAsync(Path.Combine(inputsDir, entry.GetProperty("DebPath").GetString()!));
+        Assert.AreEqual(Hash(downloaded), entry.GetProperty("Sha256").GetString());
+        Assert.AreEqual("payload", await File.ReadAllTextAsync(Path.Combine(inputsDir,
+            entry.GetProperty("ExtractedPath").GetString()!, "usr/share/tool")));
         _responses["/ubuntu/dists/base/InRelease"] = Encoding.UTF8.GetBytes("invalid signature");
         project.PrebuildCommands = [new PrebuildCommandItem { Run = "touch must-not-run" }];
         await Assert.ThrowsExactlyAsync<InvalidOperationException>(() =>
@@ -203,6 +217,9 @@ public class PackageFetchServiceTests
         Assert.ThrowsExactly<InvalidDataException>(() => BuildInputResolver.Resolve(project, _root, "ubuntu", "base", "arm64"));
         Assert.ThrowsExactly<InvalidDataException>(() => serializer.Deserialize(XDocument.Parse(
             "<Project><ItemGroup><BuildInput Include='tool' Architecture='arm64'/></ItemGroup></Project>")));
+        foreach (var item in new[] { "BuildSource", "BuildInput" })
+            Assert.ThrowsExactly<InvalidDataException>(() => serializer.Deserialize(XDocument.Parse(
+                $"<Project><ItemGroup Condition='false'><{item}/></ItemGroup></Project>")));
     }
 
     [TestMethod]
