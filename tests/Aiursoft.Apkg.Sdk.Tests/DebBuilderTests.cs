@@ -1706,6 +1706,20 @@ public class DebBuilderTests
     }
 
     [TestMethod]
+    [DataRow("resolute-addon=resolute", "resolute")]
+    [DataRow("RESOLUTE-ADDON=resolute", "resolute")]
+    [DataRow("", "resolute-addon")]
+    [DataRow("noble-addon=noble", "resolute-addon")]
+    public void ResolveVariables_SuiteShortNameUsesExistingMappingAndFallback(string map, string expected)
+    {
+        var project = new AosprojProject { SuiteShortNameMap = map };
+        var result = DebBuilder.ResolveVariables(
+            "$(Suite)/$(SuiteShortName)/$(SuiteShortName)-updates/$(Arch)/$(Unknown)",
+            project, "ubuntu", "resolute-addon", "arm64");
+        Assert.AreEqual($"resolute-addon/{expected}/{expected}-updates/arm64/$(Unknown)", result);
+    }
+
+    [TestMethod]
     public void ResolveVariables_ReplacesDistro()
     {
         var result = DebBuilder.ResolveVariables("$(Distro)", new(), "ubuntu", "", "");

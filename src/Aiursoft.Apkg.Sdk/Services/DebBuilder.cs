@@ -1007,8 +1007,7 @@ public class DebBuilder
     internal static string ResolveVariables(
         string value, AosprojProject project, string distro, string suite, string arch)
     {
-        return value
-            .Replace("$(Suite)", suite)
+        return ResolvePackageVersion(value, suite, project.GetSuiteShortNameMap())
             .Replace("$(Distro)", distro)
             .Replace("$(Arch)", arch)
             .Replace("$(Architecture)", arch)

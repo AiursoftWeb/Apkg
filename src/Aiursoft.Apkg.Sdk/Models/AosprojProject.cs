@@ -146,7 +146,7 @@ public class AosprojProject
 
     /// <summary>
     /// Maps target suite names to the short suite names used in <c>$(SuiteShortName)</c>
-    /// version placeholder expansion. Same format as upstream suite mapping:
+    /// version and build input placeholder expansion. Same format as upstream suite mapping:
     /// space/comma-separated "target=short" pairs.
     /// e.g. "noble-addon=noble questing-addon=questing resolute-addon=resolute"
     /// </summary>

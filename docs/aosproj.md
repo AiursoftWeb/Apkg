@@ -123,9 +123,30 @@ Depends、维护脚本或包身份，也不自动把原料并入最终 deb。
 每个目标中，启用的来源 `Name` 必须唯一；同名条件分支不能同时匹配。
 原料的每个 `Sources` 引用都必须在该目标中启用。
 
-支持 `$(Distro)`、`$(Suite)`、`$(Arch)`、`$(Architecture)`、`$(Component)` 展开；
+支持 `$(Distro)`、`$(Suite)`、`$(SuiteShortName)`、`$(Arch)`、`$(Architecture)`、`$(Component)` 展开；
 未知变量报错。`UpstreamSuiteMapping` 不应用于构建原料，来源 suite 应显式声明。
 条件写在具体项上；不支持 `ItemGroup Condition`，未知属性也会报错。
+
+如果构建目标叫 `resolute-addon`、上游 Ubuntu suite 叫 `resolute`，复用已有的
+`SuiteShortNameMap`，在来源字段中显式使用 `$(SuiteShortName)`：
+
+```xml
+<PropertyGroup>
+  <TargetSuites>resolute-addon</TargetSuites>
+  <SuiteShortNameMap>resolute-addon=resolute</SuiteShortNameMap>
+</PropertyGroup>
+<ItemGroup>
+  <BuildSource Name="ubuntu" Url="https://ports.ubuntu.com/ubuntu-ports"
+               Suites="$(SuiteShortName) $(SuiteShortName)-updates $(SuiteShortName)-security"
+               Components="main" SignedBy="keys/ubuntu-archive-keyring.gpg" />
+  <BuildInput Include="grub-efi-arm64-bin" Sources="ubuntu" Arch="arm64" />
+</ItemGroup>
+```
+
+`$(Suite)` 和条件中的目标 suite 仍为 `resolute-addon`，输出目录也保留完整目标名；
+上述来源查询 `resolute`、`resolute-updates`、`resolute-security`。
+`$(SuiteShortName)` 在构建原料中复用版本号的映射规则：映射键不区分大小写，
+未设置映射或目标没有对应条目时回退为完整 suite 名，不自动裁剪 `-addon`。
 
 `Id` 未设置时使用展开后的包名，决定稳定的输出子目录。同一个包需要多个架构时，
 请指定不同 `Id`，并显式指定每份原料的架构和对应仓库，例如：
@@ -246,7 +267,7 @@ apkg fetch grub-common --sources ./ubuntu.sources \
 | `Section` | — | deb `Section` 字段（如 `utils`, `admin`, `editors`）。三级回退：本地 → 上游 → Debian 标准默认 `"utils"`。影响 APT 分类搜索 |
 | `Priority` | — | deb `Priority` 字段（如 `optional`, `required`, `important`）。三级回退：本地 → 上游 → Debian 标准默认 `"optional"`。通常保持默认即可 |
 | `DependencyCheckSource` | — | ItemGroup 元素，声明一个用于验证依赖是否存在的 APT 仓库源。支持配置多个源，任一源命中即通过（union 语义）。属性：`Url`（必填，APT 服务器 base URL）、`SuiteMap`（可选，目标 suite → 检查 suite 映射）、`Condition`（可选，MSBuild 风格条件过滤）。**不配置任何源则跳过依赖检查**。详见 [§依赖验证](#依赖验证) |
-| `SuiteShortNameMap` | — | 将目标 suite 名映射为短名，供 `$(SuiteShortName)` 版本占位符使用。格式与 `UpstreamSuiteMapping` 相同：空格/逗号分隔的 `target=short` 对（如 `noble-addon=noble questing-addon=questing`）。若留空则 `$(SuiteShortName)` 回退为完整 suite 名 |
+| `SuiteShortNameMap` | — | 将目标 suite 名映射为短名，供版本号和构建原料声明中的 `$(SuiteShortName)` 使用。格式与 `UpstreamSuiteMapping` 相同：空格/逗号分隔的 `target=short` 对（如 `noble-addon=noble questing-addon=questing`）。若留空或目标未匹配则 `$(SuiteShortName)` 回退为完整 suite 名 |
 | `UpstreamUrl` | ⚠️ | 上游 APT 仓库的 base URL（如 `http://archive.ubuntu.com/ubuntu`）。设置 `UpstreamPackage` 时必填。**支持多条声明**，通过 `Condition` 属性区分架构，实现多架构上游源路由（如 amd64 → archive.ubuntu.com，arm64 → ports.ubuntu.com）。也支持 `$(Arch)` 等变量解析 |
 | `UpstreamDistro` | ⚠️ | 上游仓库的发行版标识（如 `ubuntu`）。设置 `UpstreamPackage` 时必填 |
 | `UpstreamPackage` | — | 上游 .deb 的包名（如 `base-files`）。一旦设置，触发上游派生模式 |

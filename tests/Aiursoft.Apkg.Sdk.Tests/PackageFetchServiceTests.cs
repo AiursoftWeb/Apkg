@@ -243,6 +243,44 @@ public class PackageFetchServiceTests
     }
 
     [TestMethod]
+    public async Task SuiteShortNameFetchesUbuntuPocketsWhilePreservingAddonBuildTarget()
+    {
+        await Repository("resolute", await Package("tool", "1.0", realDeb: true));
+        await Repository("resolute-updates", await Package("tool", "1.1", realDeb: true));
+        await Repository("resolute-security", await Package("tool", "1.2", realDeb: true));
+        var project = Project();
+        project.TargetSuites = "resolute-addon";
+        project.SuiteShortNameMap = "resolute-addon=resolute";
+        project.PackageVersion = "1.0+$(SuiteShortName)";
+        project.BuildSources[0].Suites = "$(SuiteShortName) $(SuiteShortName)-updates $(SuiteShortName)-security";
+        project.BuildSources[0].Condition = "'$(Suite)' == 'resolute-addon'";
+        project.BuildInputs[0].Id = "$(SuiteShortName)-tool";
+        project.BuildInputs[0].Condition = "'$(Suite)' == 'resolute-addon'";
+        project.PrebuildCommands.Add(new PrebuildCommandItem
+        {
+            Run = "mkdir -p \"$APKG_STAGE_DIR/usr/share\" && " +
+                  "cp \"$APKG_INPUTS_DIR/extracted/resolute-tool/usr/share/tool\" \"$APKG_STAGE_DIR/usr/share/selected\""
+        });
+        var serializer = new AosprojSerializer();
+        project = serializer.Deserialize(serializer.Serialize(project));
+
+        // Standalone fetch and build use the same resolved source selection.
+        var inputs = BuildInputResolver.Resolve(project, _root, "ubuntu", "resolute-addon", "arm64");
+        var fetched = await Service.FetchAsync(inputs, Output, extract: true);
+        Assert.AreEqual("resolute-security", fetched.Inputs.Single().Suite);
+        Assert.AreEqual("1.2", fetched.Inputs.Single().Version);
+
+        var builder = new DebBuilder(new ConditionEvaluator(), NullLogger<DebBuilder>.Instance,
+            new AppStreamMetadataService(NullLogger<AppStreamMetadataService>.Instance), Service);
+        var built = await builder.BuildAsync(_root, project, "ubuntu", "resolute-addon", "arm64", Path.Combine(_root, "bin"));
+        Assert.AreEqual("resolute-addon", built.Suite);
+        Assert.AreEqual("1.0+resolute", built.Version);
+        Assert.AreEqual("payload", await File.ReadAllTextAsync(Path.Combine(_root, "obj/resolute-addon_arm64/usr/share/selected")));
+        Assert.IsTrue(File.Exists(Path.Combine(_root, "obj/inputs/ubuntu/resolute-addon/arm64/manifest.json")));
+        Assert.IsFalse(_requests.Any(r => r.Contains("resolute-addon", StringComparison.Ordinal)));
+    }
+
+    [TestMethod]
     public async Task ExtractionFailureAndRemovedInputsDoNotLeaveStalePayloads()
     {
         await Repository("base", await Package("first", "1.0", realDeb: true) + await Package("second", "1.0", realDeb: true));
