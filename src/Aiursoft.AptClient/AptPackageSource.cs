@@ -96,7 +96,6 @@ public class AptPackageSource
 
             var totalBytes = response.Content.Headers.ContentLength ?? 0;
             using var stream = await response.Content.ReadAsStreamAsync();
-            using var fileStream = new FileStream(destinationPath, FileMode.Create, FileAccess.Write, FileShare.None);
 
             // We need to compute hash while saving.
             // But FileStream validation is tricky if we want to stream.

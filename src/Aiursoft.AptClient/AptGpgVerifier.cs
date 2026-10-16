@@ -104,8 +104,8 @@ public class AptGpgVerifier
             var err = await errorTask;
             var log = $"Output:\n{output}\nError:\n{err}";
 
-            // Check for GOODSIG. gpgv might return non-zero if othersigs fail, but GOODSIG means at least one is valid.
-            if (output.Contains("[GNUPG:] GOODSIG")) return (true, log);
+            // A good signature packet alone does not mean verification succeeded.
+            if (process.ExitCode == 0 && output.Contains("[GNUPG:] VALIDSIG")) return (true, log);
 
             // If we are here, verification failed.
             if (!string.IsNullOrWhiteSpace(err))
@@ -140,4 +140,3 @@ public class AptGpgVerifier
         }
     }
 }
-
