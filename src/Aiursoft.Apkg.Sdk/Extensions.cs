@@ -22,6 +22,7 @@ public static class Extensions
         services.AddSingleton<PackageTestRunner>();
         services.AddSingleton<ConditionEvaluator>();
         services.AddSingleton<DebBuilder>();
+        services.AddSingleton<PackageFetchService>();
         services.AddSingleton<AppStreamMetadataService>();
         services.AddSingleton<PackageBuildPlanResolver>();
         services.AddSingleton<AosprojLinter>();

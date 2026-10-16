@@ -104,6 +104,29 @@ public class AosprojSerializer
             var condition = (string?)el.Attribute("Condition");
             switch (el.Name.LocalName)
             {
+                case "BuildSource":
+                    CheckBuildAttributes(el, ig, ["Name", "Url", "Suites", "Components", "SignedBy", "Condition"]);
+                    project.BuildSources.Add(new BuildSourceItem
+                    {
+                        Name = (string?)el.Attribute("Name") ?? "",
+                        Url = (string?)el.Attribute("Url") ?? "",
+                        Suites = (string?)el.Attribute("Suites") ?? "",
+                        Components = (string?)el.Attribute("Components") ?? "",
+                        SignedBy = (string?)el.Attribute("SignedBy") ?? "",
+                        Condition = (string?)el.Attribute("Condition")
+                    });
+                    break;
+                case "BuildInput":
+                    CheckBuildAttributes(el, ig, ["Include", "Id", "Sources", "Arch", "Condition"]);
+                    project.BuildInputs.Add(new BuildInputItem
+                    {
+                        Package = (string?)el.Attribute("Include") ?? "",
+                        Id = (string?)el.Attribute("Id") ?? "",
+                        Sources = (string?)el.Attribute("Sources") ?? "",
+                        Arch = (string?)el.Attribute("Arch") ?? "",
+                        Condition = (string?)el.Attribute("Condition")
+                    });
+                    break;
                 case "TestCommand":
                     if (condition != null || ig.Attribute("Condition") != null)
                         throw new InvalidDataException("TestCommand uses explicit profiles, not build Conditions.");
@@ -265,6 +288,14 @@ public class AosprojSerializer
 
     // ── Serialize ────────────────────────────────────────────────────────────
 
+    private static void CheckBuildAttributes(XElement element, XElement group, string[] allowed)
+    {
+        if (group.Attribute("Condition") != null)
+            throw new InvalidDataException("Put build input/source Condition on each item, not ItemGroup.");
+        if (element.Attributes().Any(a => !allowed.Contains(a.Name.ToString())) || element.HasElements || !string.IsNullOrWhiteSpace(element.Value))
+            throw new InvalidDataException($"Invalid {element.Name} declaration. Supported attributes: {string.Join(", ", allowed)}.");
+    }
+
     public Task SerializeToFileAsync(AosprojProject project, string path)
     {
         var doc = Serialize(project);
@@ -315,6 +346,15 @@ public class AosprojSerializer
         );
 
         var itemGroups = new List<XElement>();
+
+        if (project.BuildSources.Count > 0)
+            itemGroups.Add(new XElement("ItemGroup", project.BuildSources.Select(s => ItemElem("BuildSource", s.Condition,
+                new XAttribute("Name", s.Name), new XAttribute("Url", s.Url), new XAttribute("Suites", s.Suites),
+                new XAttribute("Components", s.Components), new XAttribute("SignedBy", s.SignedBy)))));
+        if (project.BuildInputs.Count > 0)
+            itemGroups.Add(new XElement("ItemGroup", project.BuildInputs.Select(i => ItemElem("BuildInput", i.Condition,
+                new XAttribute("Include", i.Package), new XAttribute("Id", i.Id),
+                new XAttribute("Sources", i.Sources), new XAttribute("Arch", i.Arch)))));
 
         if (project.TestCommands.Count > 0)
         {

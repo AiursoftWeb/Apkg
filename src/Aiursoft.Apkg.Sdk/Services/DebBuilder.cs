@@ -19,6 +19,7 @@ public class DebBuilder
     private readonly ConditionEvaluator _evaluator;
     private readonly ILogger<DebBuilder> _logger;
     private readonly AppStreamMetadataService _appStreamMetadata;
+    private readonly PackageFetchService _packageFetch;
 
     public DebBuilder(ConditionEvaluator evaluator, ILogger<DebBuilder> logger)
         : this(evaluator, logger, new AppStreamMetadataService(NullLogger<AppStreamMetadataService>.Instance))
@@ -29,10 +30,21 @@ public class DebBuilder
         ConditionEvaluator evaluator,
         ILogger<DebBuilder> logger,
         AppStreamMetadataService appStreamMetadata)
+        : this(evaluator, logger, appStreamMetadata,
+            new PackageFetchService(NullLogger<PackageFetchService>.Instance))
+    {
+    }
+
+    public DebBuilder(
+        ConditionEvaluator evaluator,
+        ILogger<DebBuilder> logger,
+        AppStreamMetadataService appStreamMetadata,
+        PackageFetchService packageFetch)
     {
         _evaluator = evaluator;
         _logger = logger;
         _appStreamMetadata = appStreamMetadata;
+        _packageFetch = packageFetch;
     }
 
     /// <summary>
@@ -245,14 +257,21 @@ public class DebBuilder
             }
         }
 
+        var buildEnvironment = new Dictionary<string, string> { ["APKG_STAGE_DIR"] = stagingRoot };
+        if (project.BuildInputs.Count > 0)
+        {
+            var inputs = BuildInputResolver.Resolve(project, Path.GetFullPath(projectDir), distro, suite, arch);
+            // The nested inputs directory survives cleanup of obj/*_* staging directories.
+            var inputsDir = Path.GetFullPath(Path.Combine(projectDir, "obj", "inputs", distro, suite, arch));
+            await _packageFetch.FetchAsync(inputs, inputsDir, extract: true);
+            buildEnvironment["APKG_INPUTS_DIR"] = inputsDir;
+        }
+
         // ── Prebuild commands (runs after upstream extraction so scripts can modify upstream files) ─
         foreach (var cmd in project.PrebuildCommands.Where(c => Include(c.Condition)))
         {
             _logger.LogInformation("Running prebuild command: {Cmd}", cmd.Run);
-            await RunShellAsync(cmd.Run, projectDir, new Dictionary<string, string>
-            {
-                ["APKG_STAGE_DIR"] = stagingRoot
-            });
+            await RunShellAsync(cmd.Run, projectDir, buildEnvironment);
         }
 
         // ── DEBIAN/control ───────────────────────────────────────────────────

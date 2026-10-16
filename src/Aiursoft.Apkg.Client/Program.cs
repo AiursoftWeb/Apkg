@@ -8,6 +8,7 @@ return await new NestedCommandApp()
     .WithGlobalOptions(CommonOptionsProvider.VerboseOption)
     .WithFeature(new NewHandler())
     .WithFeature(new BuildHandler())
+    .WithFeature(new FetchHandler())
     .WithFeature(new LintHandler())
     .WithFeature(new TestHandler())
     .WithFeature(new AddHandler())
@@ -24,6 +25,21 @@ static string[] NormalizeArgs(string[] args)
 {
     if (args.Length < 2)
         return args;
+
+    // As with install/unpack, preserve an ergonomic positional shorthand while
+    // keeping the command framework's explicit option interface available.
+    if (args[0] == "fetch" && !args[1].StartsWith('-'))
+    {
+        var rewritten = new List<string> { "fetch" };
+        var index = 1;
+        while (index < args.Length && !args[index].StartsWith('-'))
+        {
+            rewritten.Add("--package");
+            rewritten.Add(args[index++]);
+        }
+        rewritten.AddRange(args.Skip(index));
+        return rewritten.ToArray();
+    }
 
     if (string.Equals(args[0], "guess", StringComparison.OrdinalIgnoreCase)
         && string.Equals(args[1], "version", StringComparison.OrdinalIgnoreCase))

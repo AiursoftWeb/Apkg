@@ -68,6 +68,47 @@ sudo apt update
 sudo apt install my-package
 ```
 
+## Fetch build inputs
+
+Download explicitly named packages without installing them or changing host APT
+configuration. Repository, suites, components, architecture, keyring and output
+must be supplied; no host settings or extra pockets are inferred:
+
+```bash
+apkg fetch grub-common grub2-common grub-efi-arm64-bin \
+  --repository https://ports.ubuntu.com/ubuntu-ports \
+  --suite resolute --suite resolute-updates --suite resolute-security \
+  --component main --arch arm64 \
+  --signed-by ./keys/ubuntu-archive-keyring.gpg \
+  --output ./grub-inputs --extract
+```
+
+`--package NAME` is the explicit alternative to the leading positional package
+names. Use `--sources ./ubuntu.sources` for multiple repository/pocket pairs;
+this replaces `--repository`, `--suite`, `--component` and `--signed-by`.
+The sources file must explicitly specify `Signed-By` in each enabled stanza.
+Keyrings must already exist and be trusted by the caller.
+
+`fetch` compares Debian versions across every declared source, verifies repository
+signatures and index/package hashes, and writes `manifest.json` plus
+`debs/<input-id>/<package>_<version>_<arch>.deb`. `--extract` also produces
+`extracted/<input-id>/`. No dependencies are automatically downloaded, no
+maintainer scripts are run, and nothing is installed. Extraction requires
+`dpkg-deb`; signature verification requires `gpgv` (and `gpg` for armored keys).
+
+Projects can declare `BuildSource` and `BuildInput` items. Fetch them separately
+for inspection, or let the existing build pipeline prepare them automatically:
+
+```bash
+apkg fetch --path ./my-package --distro ubuntu --suite resolute --arch arm64 \
+  --output ./grub-inputs --extract
+apkg build --path ./my-package --distro ubuntu --suite resolute --arch arm64
+```
+
+Build prepares inputs under `obj/inputs/<distro>/<suite>/<arch>/` and passes
+`APKG_INPUTS_DIR` to prebuild commands. See [the build input reference](docs/aosproj.md#构建原料-buildsource--buildinput)
+for declarations, host/target architectures, source files and failure behavior.
+
 ## Package tests
 
 Declare test entry points separately from build hooks:

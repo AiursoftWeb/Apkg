@@ -78,6 +78,145 @@
 </Project>
 ```
 
+### 构建原料 BuildSource / BuildInput
+
+构建原料独立于 `UpstreamPackage`：只下载指定 deb 并提取数据，不继承
+Depends、维护脚本或包身份，也不自动把原料并入最终 deb。
+
+```xml
+<ItemGroup>
+  <BuildSource Name="ubuntu" Url="https://ports.ubuntu.com/ubuntu-ports"
+               Suites="$(Suite) $(Suite)-updates $(Suite)-security"
+               Components="main" SignedBy="keys/ubuntu-archive-keyring.gpg"
+               Condition="'$(Arch)' == 'arm64'" />
+  <BuildSource Name="ubuntu" Url="https://archive.ubuntu.com/ubuntu"
+               Suites="$(Suite) $(Suite)-updates"
+               Components="main" SignedBy="keys/ubuntu-archive-keyring.gpg"
+               Condition="'$(Arch)' == 'amd64'" />
+  <BuildSource Name="security" Url="https://security.ubuntu.com/ubuntu"
+               Suites="$(Suite)-security"
+               Components="main" SignedBy="keys/ubuntu-archive-keyring.gpg"
+               Condition="'$(Arch)' == 'amd64'" />
+
+  <BuildInput Include="grub-common" Sources="ubuntu" Arch="$(Arch)"
+              Condition="'$(Arch)' == 'arm64'" />
+  <BuildInput Include="grub-common" Sources="ubuntu security" Arch="$(Arch)"
+              Condition="'$(Arch)' == 'amd64'" />
+  <BuildInput Include="grub-efi-arm64-bin" Sources="ubuntu" Arch="arm64"
+              Condition="'$(Arch)' == 'arm64'" />
+  <BuildInput Include="grub-pc-bin" Sources="ubuntu security" Arch="amd64"
+              Condition="'$(Arch)' == 'amd64'" />
+  <PrebuildCommand Run="bash build.sh" />
+</ItemGroup>
+```
+
+这个示例展示来源与架构条件，不是完整的 GRUB 原料列表。
+
+| 声明 | 必填属性 | 可选属性 |
+|---|---|---|
+| `BuildSource` | `Name`, `Url`, `Suites`, `Components`, `SignedBy` | `Condition` |
+| `BuildInput` | `Include`（包名）, `Sources`, `Arch` | `Id`, `Condition` |
+
+`Suites`、`Components`、`Sources` 使用空格或逗号分隔。`SignedBy` 相对项目目录，
+也可指定绝对路径。调用者提供可信 keyring；fetch 不从下载包的仓库自动获取信任密钥。
+来源必须是 HTTP(S) 仓库，当前不支持 flat repository 或 `file://`。
+每个目标中，启用的来源 `Name` 必须唯一；同名条件分支不能同时匹配。
+原料的每个 `Sources` 引用都必须在该目标中启用。
+
+支持 `$(Distro)`、`$(Suite)`、`$(Arch)`、`$(Architecture)`、`$(Component)` 展开；
+未知变量报错。`UpstreamSuiteMapping` 不应用于构建原料，来源 suite 应显式声明。
+条件写在具体项上；不支持 `ItemGroup Condition`，未知属性也会报错。
+
+`Id` 未设置时使用展开后的包名，决定稳定的输出子目录。同一个包需要多个架构时，
+请指定不同 `Id`，并显式指定每份原料的架构和对应仓库，例如：
+
+```xml
+<BuildSource Name="host" Url="https://archive.ubuntu.com/ubuntu"
+             Suites="$(Suite) $(Suite)-updates" Components="main"
+             SignedBy="keys/ubuntu-archive-keyring.gpg" />
+<BuildSource Name="host-security" Url="https://security.ubuntu.com/ubuntu"
+             Suites="$(Suite)-security" Components="main"
+             SignedBy="keys/ubuntu-archive-keyring.gpg" />
+<BuildInput Include="grub-common" Id="host-tools"
+            Sources="host host-security" Arch="amd64" />
+```
+
+这不会推断运行 apkg 的机器架构，也不会保证下载的工具在宿主机上可运行。
+GRUB 工具/模块的版本兼容、工具运行时依赖和 EFI 实际启动仍由构建脚本验证。
+
+构建在预构建命令前准备全部原料，目录为
+`obj/inputs/<distro>/<suite>/<arch>/`，通过 `APKG_INPUTS_DIR` 传递：
+
+```text
+manifest.json
+debs/<id>/<package>_<version>_<arch>.deb
+extracted/<id>/usr/...
+```
+
+脚本显式选择最终要打包的文件，例如：
+
+```sh
+mkdir -p "$APKG_STAGE_DIR/usr/share/my-package"
+cp "$APKG_INPUTS_DIR/extracted/host-tools/usr/bin/grub-mkimage" \
+   "$APKG_STAGE_DIR/usr/share/my-package/grub-mkimage"
+```
+
+`manifest.json` 包含格式标识与 `Inputs` 数组。每项记录 `Id`、`Package`、`Version`、
+`Architecture`、`RequestedArchitecture`、`Repository`、`Suite`、`Component`、`Sha256`、
+`DebPath`、`ExtractedPath`；路径相对原料目录。它记录本次解析结果，不是锁定文件。
+
+独立使用 CLI：
+
+```bash
+apkg fetch --package grub-common --package grub2-common \
+  --repository https://ports.ubuntu.com/ubuntu-ports \
+  --suite resolute --suite resolute-updates --suite resolute-security \
+  --component main --arch arm64 --signed-by ./keys/ubuntu-archive-keyring.gpg \
+  --output ./inputs --extract
+
+apkg fetch --path . --distro ubuntu --suite resolute --arch arm64 \
+  --output ./inputs --extract
+```
+
+独立命令必须指定 `--arch` 和 `--output`，项目模式还必须指定 `--distro` 和恰好一个
+`--suite`。不带 `--extract` 时只下载 deb 并记录清单。位置参数简写仅支持命令后、
+第一个选项前的包名；其他位置使用可重复的 `--package`。
+
+多仓库可使用显式 deb822 文件，来源之间不做隐式笛卡尔组合：
+
+```text
+Types: deb
+URIs: https://archive.ubuntu.com/ubuntu
+Suites: resolute resolute-updates
+Components: main
+Signed-By: keys/ubuntu-archive-keyring.gpg
+
+Types: deb
+URIs: https://security.ubuntu.com/ubuntu
+Suites: resolute-security
+Components: main
+Signed-By: keys/ubuntu-archive-keyring.gpg
+```
+
+```bash
+apkg fetch grub-common --sources ./ubuntu.sources \
+  --arch amd64 --output ./inputs --extract
+```
+
+`Signed-By` 相对 `.sources` 文件。支持字段为 `Types`（必须为 `deb`）、`URIs`、
+`Suites`、`Components`、`Signed-By`（单个本地 keyring 路径）、`Architectures` 和
+`Enabled`。若声明 `Architectures`，必须包含请求架构；`Enabled: no` 跳过该段。
+不支持的字段、内联密钥或缺失字段均报错；不读取宿主 `/etc/apt`。
+`--sources` 与直接指定 URL/suite/component/keyring 的参数互斥。
+
+每次调用重新获取并验证仓库索引，同一索引在本次调用中复用。所有声明来源均查询成功后，
+按 Debian 版本规则选出最新候选，也接受索引中的 `Architecture: all` 包。
+同版本同架构但哈希冲突会报错。不会自动增加 updates/security 或递归下载 Depends。
+有效缓存 deb 在重新校验 SHA256 后复用；提取目录每次重建，避免保留脚本改过的原料。
+签名、索引哈希、deb 哈希、来源读取、缺包、解包任一步失败，均不启动预构建命令。
+全部成功后才替换输出目录，失败保留上一次完整结果；非空且不属于 fetch 的目录会被拒绝。
+输出目录是专用的生成物目录，不应手工存放需要保留的文件。并发写同一目录会报错。
+
 ### PropertyGroup 字段
 
 | 字段 | 必填 | 说明 |

@@ -20,6 +20,8 @@ public class AosprojLinter
     public IReadOnlyList<LintIssue> Lint(AosprojProject project, string projectDir)
     {
         var issues = new List<LintIssue>();
+        issues.AddRange(BuildInputResolver.Validate(project)
+            .Select(message => new LintIssue(Severity.Error, message)));
         issues.AddRange(PackageTestRunner.Validate(project.TestCommands)
             .Select(message => new LintIssue(Severity.Error, message)));
 
@@ -113,6 +115,8 @@ public class AosprojLinter
             .Concat(project.PostRemoveScripts.Select(s => s.Condition))
             .Concat(project.SystemdUnits.Select(u => u.Condition))
             .Concat(project.PrebuildCommands.Select(c => c.Condition))
+            .Concat(project.BuildSources.Select(c => c.Condition))
+            .Concat(project.BuildInputs.Select(c => c.Condition))
             .Concat(project.DependencyCheckSources.Select(s => s.Condition))
             .Concat(project.AppStreamApplications.Select(a => a.Condition))
             .Concat(project.AppStreamScreenshots.Select(s => s.Condition));

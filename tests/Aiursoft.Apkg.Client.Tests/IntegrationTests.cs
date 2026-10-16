@@ -17,6 +17,7 @@ public class IntegrationTests
         .WithGlobalOptions(CommonOptionsProvider.VerboseOption)
         .WithFeature(new NewHandler())
         .WithFeature(new BuildHandler())
+        .WithFeature(new FetchHandler())
         .WithFeature(new LintHandler())
         .WithFeature(new TestHandler())
         .WithFeature(new AddHandler())

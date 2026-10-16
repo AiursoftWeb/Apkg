@@ -154,6 +154,8 @@ public class AosprojProject
 
     // ── Items ────────────────────────────────────────────────────────────────
     public List<PrebuildCommandItem> PrebuildCommands { get; set; } = [];
+    public List<BuildSourceItem> BuildSources { get; set; } = [];
+    public List<BuildInputItem> BuildInputs { get; set; } = [];
     public List<TestCommandItem> TestCommands { get; set; } = [];
     public List<IncludeFileItem> IncludeFiles { get; set; } = [];
     public List<IncludeFolderItem> IncludeFolders { get; set; } = [];
