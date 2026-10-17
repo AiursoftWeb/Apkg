@@ -8,8 +8,10 @@
 
 @if (ViewData.ModelState.ErrorCount > 0)
 {
-    <div class="alert alert-danger">
-        <div asp-validation-summary="All"></div>
+    <div class="alert alert-danger" role="alert">
+        <div class="alert-message">
+            <div asp-validation-summary="All"></div>
+        </div>
     </div>
 }
 
