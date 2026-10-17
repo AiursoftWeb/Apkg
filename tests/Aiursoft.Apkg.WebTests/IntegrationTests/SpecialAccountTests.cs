@@ -2,7 +2,6 @@ using System.Net;
 using Aiursoft.DbTools;
 using Aiursoft.Apkg.Entities;
 using Microsoft.AspNetCore.Identity;
-using Aiursoft.CSTools.Tools;
 using Aiursoft.WebTools.Attributes;
 using static Aiursoft.WebTools.Extends;
 
@@ -20,15 +19,25 @@ public class SpecialAccountTests
     public static async Task ClassSetup(TestContext _)
     {
         LimitPerMin.GlobalEnabled = false;
-        _port = Network.GetAvailablePort();
+        using var reservation = new TestPortReservation();
+        _port = reservation.Port;
 
         // Must be set before AppAsync so Startup reads the value during SeedAsync.
         Environment.SetEnvironmentVariable("AppSettings__DefaultRole", "Administrators");
 
         _server = await AppAsync<Startup>([], port: _port);
-        await _server.UpdateDbAsync<ApkgDbContext>();
-        await _server.SeedAsync();
-        await _server.StartAsync();
+        try
+        {
+            reservation.ConfigureServer(_server);
+            await _server.UpdateDbAsync<ApkgDbContext>();
+            await _server.SeedAsync();
+            await _server.StartAsync();
+        }
+        catch
+        {
+            _server.Dispose();
+            throw;
+        }
     }
 
     [ClassCleanup]

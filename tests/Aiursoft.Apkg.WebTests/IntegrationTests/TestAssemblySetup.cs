@@ -1,6 +1,5 @@
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Services.Authentication;
-using Aiursoft.CSTools.Tools;
 using Aiursoft.DbTools;
 using Aiursoft.WebTools.Attributes;
 using static Aiursoft.WebTools.Extends;
@@ -16,9 +15,6 @@ public class TestAssemblySetup
 {
     private static readonly List<IHost> Hosts = [];
     private static readonly SemaphoreSlim HostListLock = new(1, 1);
-    // Serialises port allocation through StartAsync to prevent TOCTOU
-    // races: GetAvailablePort → AppAsync (configure) → StartAsync (bind).
-    private static readonly SemaphoreSlim PortLock = new(1, 1);
 
     private static string? _gpgPublicKey;
     private static string? _gpgPrivateKey;
@@ -42,7 +38,6 @@ public class TestAssemblySetup
         }
         Hosts.Clear();
         HostListLock.Dispose();
-        PortLock.Dispose();
         GpgLock.Dispose();
     }
 
@@ -50,45 +45,41 @@ public class TestAssemblySetup
     {
         var dbName = $"ApkgTest_{Guid.NewGuid():N}";
 
-        // Lock section: allocate port, configure Kestrel, bind. We hold the
-        // lock until StartAsync because GetAvailablePort does not reserve —
-        // it only queries. StartAsync is where the OS binds the port.
-        IHost host;
-        int port;
-        await PortLock.WaitAsync();
+        using var reservation = new TestPortReservation();
+        var port = reservation.Port;
+        var host = await AppAsync<Startup>(
+        [
+            $"--ConnectionStrings:DefaultConnection={dbName}",
+            $"--Storage:Path=/tmp/data/{dbName}",
+            $"--Storage:ExportPath=/tmp/export/{dbName}"
+        ], port: port);
         try
         {
-            port = Network.GetAvailablePort();
-            host = await AppAsync<Startup>(
-            [
-                $"--ConnectionStrings:DefaultConnection={dbName}",
-                $"--Storage:Path=/tmp/data/{dbName}",
-                $"--Storage:ExportPath=/tmp/export/{dbName}"
-            ], port: port);
+            reservation.ConfigureServer(host);
             await host.StartAsync();
-        }
-        finally
-        {
-            PortLock.Release();
-        }
+            // Everything below is per-class DB work that runs in parallel.
+            await host.UpdateDbAsync<ApkgDbContext>();
+            await EnsureGpgKeysAsync(host);
+            PreInsertGpgCert(host);
+            await host.SeedAsync();
 
-        // Everything below is per-class DB work that runs in parallel.
-        await host.UpdateDbAsync<ApkgDbContext>();
-        await EnsureGpgKeysAsync(host);
-        PreInsertGpgCert(host);
-        await host.SeedAsync();
+            await HostListLock.WaitAsync();
+            try
+            {
+                Hosts.Add(host);
+            }
+            finally
+            {
+                HostListLock.Release();
+            }
 
-        await HostListLock.WaitAsync();
-        try
-        {
-            Hosts.Add(host);
+            return (host, port);
         }
-        finally
+        catch
         {
-            HostListLock.Release();
+            await host.DisposeAsync();
+            throw;
         }
-
-        return (host, port);
     }
 
     private static void PreInsertGpgCert(IHost host)
