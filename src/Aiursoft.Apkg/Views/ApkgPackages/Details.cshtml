@@ -23,23 +23,31 @@
             if (!string.IsNullOrWhiteSpace(successMessage))
             {
                 <div class="alert alert-success d-flex align-items-center gap-2 mb-3" role="alert">
-                    <i data-lucide="check-circle" style="width:18px;height:18px;flex-shrink:0;"></i>
-                    @successMessage
+                    <div class="alert-icon">
+                        <i data-lucide="check-circle" style="width:18px;height:18px;flex-shrink:0;"></i>
+                    </div>
+                    <div class="alert-message">
+                        @successMessage
+                    </div>
                 </div>
             }
             var skippedWarnings = TempData["SkippedRepoWarnings"] as string;
             if (!string.IsNullOrWhiteSpace(skippedWarnings))
             {
                 <div class="alert alert-warning d-flex align-items-start gap-2 mb-3" role="alert">
-                    <i data-lucide="triangle-alert" style="width:18px;height:18px;flex-shrink:0;margin-top:2px;"></i>
-                    <div>
-                        <strong>@Localizer["Some repositories were skipped during publish"]</strong> @Localizer["because you do not have permission to upload to them:"]
-                        <ul class="mb-0 mt-1">
-                            @foreach (var repo in skippedWarnings.Split('|', StringSplitOptions.RemoveEmptyEntries))
-                            {
-                                <li><code>@repo</code></li>
-                            }
-                        </ul>
+                    <div class="alert-icon">
+                        <i data-lucide="triangle-alert" style="width:18px;height:18px;flex-shrink:0;margin-top:2px;"></i>
+                    </div>
+                    <div class="alert-message">
+                        <div>
+                            <strong>@Localizer["Some repositories were skipped during publish"]</strong> @Localizer["because you do not have permission to upload to them:"]
+                            <ul class="mb-0 mt-1">
+                                @foreach (var repo in skippedWarnings.Split('|', StringSplitOptions.RemoveEmptyEntries))
+                                {
+                                    <li><code>@repo</code></li>
+                                }
+                            </ul>
+                        </div>
                     </div>
                 </div>
             }
@@ -81,13 +89,17 @@
                     @if (unpublishedRevisions.Count > 0)
                     {
                         <div class="alert alert-warning d-flex align-items-center gap-2 mb-3" role="alert">
-                            <i data-lucide="clock" style="width:18px;height:18px;flex-shrink:0;"></i>
-                            <div>
-                                @unpublishedRevisions.Count @Localizer["unpublished upload(s) pending publish."]
-                                @foreach (var uh in unpublishedRevisions)
-                                {
-                                    <a asp-action="Preview" asp-route-vaultPath="@uh.Revision.TempApkgFileInVaultPath" class="alert-link ms-1">@Localizer["Go to Preview →"]</a>
-                                }
+                            <div class="alert-icon">
+                                <i data-lucide="clock" style="width:18px;height:18px;flex-shrink:0;"></i>
+                            </div>
+                            <div class="alert-message">
+                                <div>
+                                    @unpublishedRevisions.Count @Localizer["unpublished upload(s) pending publish."]
+                                    @foreach (var uh in unpublishedRevisions)
+                                    {
+                                        <a asp-action="Preview" asp-route-vaultPath="@uh.Revision.TempApkgFileInVaultPath" class="alert-link ms-1">@Localizer["Go to Preview →"]</a>
+                                    }
+                                </div>
                             </div>
                         </div>
                     }
