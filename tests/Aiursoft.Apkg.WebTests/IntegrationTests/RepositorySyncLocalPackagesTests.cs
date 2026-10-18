@@ -1,4 +1,6 @@
+using Aiursoft.Apkg.Configuration;
 using Aiursoft.Apkg.Entities;
+using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Services.BackgroundJobs;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -188,6 +190,41 @@ public class RepositorySyncLocalPackagesTests : TestBase
     // ──────────────────────────────────────────────────────────────────────
     // Core override semantics
     // ──────────────────────────────────────────────────────────────────────
+
+    [TestMethod]
+    [DataRow(false)]
+    [DataRow(true)]
+    public async Task SyncJob_NoAppStreamApplications_StagesAndPromotesRepository(bool includeLocalPackage)
+    {
+        var settings = GetService<GlobalSettingsService>();
+        var previousDomain = await settings.GetSettingValueAsync(SettingsMap.PublicAptServerDomain);
+        await settings.UpdateSettingAsync(SettingsMap.PublicAptServerDomain, "https://packages.example.com");
+        try
+        {
+            if (includeLocalPackage)
+                AddLocalPackage("command-line-tool");
+
+            var bucket = await RunSyncAndGetNewBucket();
+
+            Assert.IsNotNull(bucket);
+            Assert.IsFalse(string.IsNullOrEmpty(bucket.ReleaseContent));
+            StringAssert.Contains(bucket.ReleaseContent, "main/dep11/Components-amd64.yml");
+            StringAssert.Contains(bucket.ReleaseContent, "main/dep11/Components-amd64.yml.gz");
+            Assert.AreEqual(includeLocalPackage ? 1 : 0,
+                await _db.AptPackages.CountAsync(p => p.BucketId == bucket.Id));
+
+            await GetService<RepositorySignJob>().ExecuteAsync();
+
+            _db.ChangeTracker.Clear();
+            var published = await _db.AptRepositories.SingleAsync(r => r.Id == _repo.Id);
+            Assert.AreEqual(bucket.Id, published.PrimaryBucketId);
+            Assert.IsNull(published.SecondaryBucketId);
+        }
+        finally
+        {
+            await settings.UpdateSettingAsync(SettingsMap.PublicAptServerDomain, previousDomain);
+        }
+    }
 
     [TestMethod]
     public async Task SyncJob_EnabledLocalPackage_RemovesUpstreamVersionAndInsertsLocal()
