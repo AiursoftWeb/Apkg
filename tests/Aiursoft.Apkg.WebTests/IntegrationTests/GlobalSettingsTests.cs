@@ -13,6 +13,7 @@ namespace Aiursoft.Apkg.WebTests.IntegrationTests;
 public class GlobalSettingsTests : TestBase
 {
     [TestMethod]
+    [DoNotParallelize]
     public async Task SecretSettingsPreserveLegacyValuesAndHideSavedSecrets()
     {
         const string secretKey = "IntegrationTest_Secret";
