@@ -137,16 +137,9 @@ Cgkyr330gZviGGcQtRQAAPjID/9+ABCDEF1234567890ABCDEF1234567890ABCD
         var sources = AptSourceExtractor.ExtractSources(IntegratedSigned, "amd64", () => new HttpClient(mockHandler));
         var source = sources.First();
 
-        // Act & Assert
-        try
-        {
-            await source.FetchPackagesAsync().ToListAsync();
-            Assert.Fail("Expected exception was not thrown.");
-        }
-        catch (Exception)
-        {
-            // Expected
-        }
+        var exception = await Assert.ThrowsExactlyAsync<Exception>(
+            () => source.FetchPackagesAsync().ToListAsync());
+        StringAssert.StartsWith(exception.Message, "GPG Verification failed for questing");
     }
 
     [TestMethod]
@@ -178,17 +171,9 @@ THIS_IS_TOTAL_GARBAGE_NOT_EVEN_BASE64
         var sources = AptSourceExtractor.ExtractSources(IntegratedSigned, "amd64", () => new HttpClient(mockHandler));
         var source = sources.First();
 
-        // Act & Assert
-        try
-        {
-            await source.FetchPackagesAsync().ToListAsync();
-            Assert.Fail("Expected exception was not thrown.");
-
-        }
-        catch (Exception)
-        {
-            // Expected
-        }
+        var exception = await Assert.ThrowsExactlyAsync<Exception>(
+            () => source.FetchPackagesAsync().ToListAsync());
+        StringAssert.StartsWith(exception.Message, "GPG Verification failed for questing");
     }
 
     [TestMethod]
@@ -214,16 +199,9 @@ SHA256:
         var sources = AptSourceExtractor.ExtractSources(IntegratedSigned, "amd64", () => new HttpClient(mockHandler));
         var source = sources.First();
 
-        // Act & Assert
-        try
-        {
-            await source.FetchPackagesAsync().ToListAsync();
-            Assert.Fail("Expected exception was not thrown.");
-        }
-        catch (Exception)
-        {
-            // Expected
-        }
+        var exception = await Assert.ThrowsExactlyAsync<Exception>(
+            () => source.FetchPackagesAsync().ToListAsync());
+        StringAssert.StartsWith(exception.Message, "GPG Verification failed for questing");
     }
 
     [TestMethod]
@@ -235,8 +213,9 @@ Types: deb
 URIs: http://mock.local/ubuntu/
 Suites: jammy
 Components: main
-Signed-By:
+Allow-Insecure: yes
 ";
+        var mockData = GenerateMockRepoData();
         var mockHandler = new MockHttpMessageHandler(request =>
         {
             var uri = request.RequestUri?.ToString();
@@ -254,7 +233,7 @@ SHA256:
             {
                 return Task.FromResult(new HttpResponseMessage(System.Net.HttpStatusCode.OK)
                 {
-                    Content = new ByteArrayContent(new byte[100])
+                    Content = new ByteArrayContent(mockData.PackagesGz)
                 });
             }
             return Task.FromResult(new HttpResponseMessage(System.Net.HttpStatusCode.NotFound));
@@ -263,16 +242,9 @@ SHA256:
         var sources = AptSourceExtractor.ExtractSources(deb822, "amd64", () => new HttpClient(mockHandler));
         var source = sources.First();
 
-        // Act & Assert
-        try
-        {
-            await source.FetchPackagesAsync().ToListAsync();
-            Assert.Fail("Expected exception was not thrown.");
-        }
-        catch (Exception)
-        {
-            // Expected
-        }
+        var exception = await Assert.ThrowsExactlyAsync<Exception>(
+            () => source.FetchPackagesAsync().ToListAsync());
+        StringAssert.StartsWith(exception.Message, "Hash mismatch for ");
     }
 
     [TestMethod]
