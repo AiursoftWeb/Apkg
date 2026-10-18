@@ -140,9 +140,9 @@ public class AppStreamCatalogServiceTests
                 settings,
                 NullLogger<AppStreamCatalogService>.Instance);
 
-            var files = await service.GenerateAsync(repository, 42, ["amd64"], ["main"]);
+            var files = await service.GenerateAsync(repository, 42, ["amd64", "arm64"], ["main"]);
 
-            Assert.AreEqual(6, files.Count);
+            Assert.AreEqual(8, files.Count);
             var dep11 = Path.Combine(folders.GetBucketsFolder(), "42", "main", "dep11");
             var yaml = await File.ReadAllTextAsync(Path.Combine(dep11, "Components-amd64.yml"));
             StringAssert.Contains(yaml, "ID: com.example.demo");
@@ -155,12 +155,21 @@ public class AppStreamCatalogServiceTests
                 {
                     "main/dep11/Components-amd64.yml",
                     "main/dep11/Components-amd64.yml.gz",
+                    "main/dep11/Components-arm64.yml",
+                    "main/dep11/Components-arm64.yml.gz",
                     "main/dep11/icons-48x48.tar",
                     "main/dep11/icons-48x48.tar.gz",
                     "main/dep11/icons-64x64.tar",
                     "main/dep11/icons-64x64.tar.gz"
                 },
                 files.Select(file => file.RelativePath).ToArray());
+
+            var emptyCatalog = await File.ReadAllTextAsync(Path.Combine(dep11, "Components-arm64.yml"));
+            Assert.AreEqual(string.Empty, emptyCatalog);
+            await using (var emptyArchive = File.OpenRead(Path.Combine(dep11, "Components-arm64.yml.gz")))
+            await using (var emptyGzip = new GZipStream(emptyArchive, CompressionMode.Decompress))
+            using (var reader = new StreamReader(emptyGzip))
+                Assert.AreEqual(string.Empty, await reader.ReadToEndAsync());
 
             var rawIconPath = Path.Combine(dep11, "icons-64x64.tar");
             await using var rawIconArchive = File.OpenRead(rawIconPath);

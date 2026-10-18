@@ -300,7 +300,8 @@ public sealed class AppStreamCatalogService(
 
         var yamlPath = Path.Combine(dep11Dir, $"Components-{architecture}.yml");
         await RunProcessAsync("appstreamcli", ["convert", "--format=yaml", xmlPath, yamlPath]);
-        if (mediaBaseUrl != null)
+        // appstreamcli emits an empty file for a catalog with no applications.
+        if (mediaBaseUrl != null && catalog.Root!.HasElements)
             await AddMediaBaseUrlAsync(yamlPath, mediaBaseUrl);
         var gzipPath = yamlPath + ".gz";
         await using (var input = File.OpenRead(yamlPath))
