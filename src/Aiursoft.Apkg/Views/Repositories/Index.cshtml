@@ -87,7 +87,7 @@
                     <td>
                         @if (item.PrimaryBucket?.SignedAt != null)
                         {
-                            <span class="badge bg-success" title="Signed at @item.PrimaryBucket.SignedAt.Value.ToString("u") UTC">
+                            <span class="badge bg-success">
                                 <i class="align-middle" data-lucide="shield-check"></i>
                                 @Localizer["Signed at"] <label data-utc-time="@item.PrimaryBucket.SignedAt.Value.ToHtmlDateTime()" class="fw-normal mb-0" style="display:inline;"></label>
                             </span>
