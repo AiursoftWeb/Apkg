@@ -132,7 +132,7 @@ public class AppStreamCatalogServiceTests
                 new FileLockProvider(),
                 DataProtectionProvider.Create(Path.Combine(root, "keys")));
             var settings = new GlobalSettingsService(
-                db, configuration, storage, new MemoryCache(new MemoryCacheOptions()));
+                db, configuration, storage, new MemoryCache(new MemoryCacheOptions()), new EphemeralDataProtectionProvider(), NullLogger<GlobalSettingsService>.Instance);
             var service = new AppStreamCatalogService(
                 db,
                 folders,
