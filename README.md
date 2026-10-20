@@ -61,6 +61,15 @@ apkg deploy --path ./my-package \
   --skip-existing
 ```
 
+For build-only CI, query public package indexes without an API key or uploads:
+
+```bash
+apkg build --all --skip-existing --source https://apkg.example.com
+```
+
+The build is skipped only when every exact target version is published. Missing
+versions or an unavailable index fall back to the normal build.
+
 Add an Apkg repository to an APT client:
 
 ```bash
