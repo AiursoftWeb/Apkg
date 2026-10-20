@@ -55,6 +55,17 @@ public class BuildHandler : ExecutableCommandHandlerBuilder
             DefaultValueFactory = _ => false
         };
 
+    private static readonly Option<bool> SkipExistingOption = new("--skip-existing")
+    {
+        Description = "Skip building when every exact target version is published on --source."
+    };
+
+    private static readonly Option<string> SourceOption = new("--source")
+    {
+        Description = "Apkg server URL to query anonymously with --skip-existing.",
+        DefaultValueFactory = _ => string.Empty
+    };
+
     protected override IEnumerable<Option> GetCommandOptions() =>
     [
         PathOption,
@@ -63,6 +74,8 @@ public class BuildHandler : ExecutableCommandHandlerBuilder
         SuiteOption,
         ArchOption,
         AllOption,
+        SkipExistingOption,
+        SourceOption,
     ];
 
     protected override async Task Execute(ParseResult context)
@@ -74,6 +87,10 @@ public class BuildHandler : ExecutableCommandHandlerBuilder
         var suiteArg = context.GetValue(SuiteOption)!;
         var archArg = context.GetValue(ArchOption)!;
         var buildAll = context.GetValue(AllOption);
+        var skipExisting = context.GetValue(SkipExistingOption);
+        var source = context.GetValue(SourceOption)!;
+        if (skipExisting && string.IsNullOrWhiteSpace(source))
+            throw new ArgumentException("--skip-existing requires --source.");
 
         var services = ServiceBuilder
             .CreateCommandHostBuilder<Startup>(verbose)
@@ -110,36 +127,29 @@ public class BuildHandler : ExecutableCommandHandlerBuilder
             ? Path.Combine(projectDir, "bin")
             : Path.GetFullPath(outputArg);
 
-        // Resolve build targets
-        List<(string distro, string suite, string arch)> targets;
-
-        if (buildAll || (string.IsNullOrWhiteSpace(suiteArg) && string.IsNullOrWhiteSpace(archArg)))
+        var targets = PackageBuildPlanResolver.ResolveBuildTargets(
+            project, buildAll, distroArg, suiteArg, archArg);
+        if (skipExisting)
         {
-            if (string.IsNullOrWhiteSpace(project.TargetDistro))
-                throw new InvalidOperationException("Project has no <TargetDistro> declared.");
-            if (project.SuiteList.Length == 0)
-                throw new InvalidOperationException("Project has no <TargetSuites> declared.");
-            if (project.ArchList.Length == 0)
-                throw new InvalidOperationException("Project has no <TargetArchitectures> declared.");
-
-            targets = (
-                from suite in project.SuiteList
-                from arch in project.ArchList
-                select (project.TargetDistro, suite, arch)
-            ).ToList();
-        }
-        else
-        {
-            if (string.IsNullOrWhiteSpace(suiteArg))
-                throw new InvalidOperationException("Specify --suite (e.g. --suite jammy).");
-            if (string.IsNullOrWhiteSpace(archArg))
-                throw new InvalidOperationException("Specify --arch (e.g. --arch amd64).");
-
-            var distro = string.IsNullOrWhiteSpace(distroArg)
-                ? (string.IsNullOrWhiteSpace(project.TargetDistro) ? "ubuntu" : project.TargetDistro)
-                : distroArg;
-
-            targets = [(distro, suiteArg, archArg)];
+            var plan = await services.GetRequiredService<PackageBuildPlanResolver>()
+                .ResolveAsync(projectDir, project, buildAll, distroArg, suiteArg, archArg);
+            try
+            {
+                if (await services.GetRequiredService<AptPackageIndexClient>()
+                        .IsPublishedAsync(plan, source))
+                {
+                    logger.LogInformation(
+                        "All {Count} target version(s) are published on {Source}. Build skipped.",
+                        plan.Targets.Count, source);
+                    return;
+                }
+            }
+            catch (Exception exception) when (
+                exception is HttpRequestException or TaskCanceledException or InvalidDataException)
+            {
+                logger.LogWarning(exception,
+                    "Could not verify published versions. Falling back to the full build.");
+            }
         }
 
         logger.LogInformation("Building {Count} target(s) for {Package} {Version}...",

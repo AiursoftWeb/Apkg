@@ -1,6 +1,9 @@
 using Aiursoft.Apkg.Sdk.Models;
 using Aiursoft.Apkg.Sdk.Services;
 using Microsoft.Extensions.Logging.Abstractions;
+using System.IO.Compression;
+using System.Net;
+using System.Text;
 
 namespace Aiursoft.Apkg.Sdk.Tests;
 
@@ -104,6 +107,84 @@ public class PackageBuildPlanResolverTests
 
         await Assert.ThrowsAsync<InvalidOperationException>(
             () => resolver.ResolveAsync(".", project));
+    }
+
+    [TestMethod]
+    [DataRow("amd64", "1.0", "amd64", true)]
+    [DataRow("amd64", "2.0", "amd64", false)]
+    [DataRow("amd64", "1.0", "arm64", false)]
+    [DataRow("all", "1.0", "all", true)]
+    [DataRow("all", "1.0", "amd64", false)]
+    public async Task PublishedVersions_RequireExactVersionAndArchitecture(
+        string architecture, string publishedVersion, string publishedArchitecture, bool expected)
+    {
+        var indexes = new Dictionary<string, string>
+        {
+            ["/artifacts/anduinos/dists/stable/Release"] = "Architectures: amd64 arm64\n",
+            ["/artifacts/anduinos/dists/stable/main/binary-amd64/Packages.gz"] =
+                PackageParagraph("sample", publishedVersion, publishedArchitecture),
+            ["/artifacts/anduinos/dists/stable/main/binary-arm64/Packages.gz"] =
+                PackageParagraph("sample", publishedVersion, publishedArchitecture)
+        };
+        using var http = new HttpClient(new PublishedIndexHandler(indexes));
+        var plan = new PackageBuildPlan
+        {
+            Name = "sample", Distro = "anduinos", Component = "main",
+            Targets = [new() { Suite = "stable", Architecture = architecture, Version = "1.0" }]
+        };
+
+        Assert.AreEqual(expected, await new AptPackageIndexClient(http)
+            .IsPublishedAsync(plan, "https://apkg.example.com/"));
+    }
+
+    [TestMethod]
+    [DataRow("amd64 arm64")]
+    [DataRow("all")]
+    public async Task PublishedVersions_RequireEverySuiteAndArchitecture(string architectures)
+    {
+        var project = new AosprojProject
+        {
+            PackageName = "sample", PackageVersion = "1.0+$(SuiteShortName)",
+            TargetDistro = "anduinos", TargetSuites = "noble-addon resolute-addon",
+            TargetArchitectures = architectures, Component = "main",
+            SuiteShortNameMap = "noble-addon=noble resolute-addon=resolute"
+        };
+        var plan = await CreateResolver().ResolveAsync(".", project);
+        var indexes = new Dictionary<string, string>();
+        foreach (var suite in project.SuiteList)
+            indexes[$"/artifacts/anduinos/dists/{suite}/Release"] = "Architectures: amd64 arm64\n";
+        using var http = new HttpClient(new PublishedIndexHandler(indexes));
+        var client = new AptPackageIndexClient(http);
+        foreach (var target in plan.Targets)
+        foreach (var architecture in target.Architecture == "all" ? new[] { "amd64", "arm64" } : new[] { target.Architecture })
+        {
+            Assert.IsFalse(await client.IsPublishedAsync(plan, "https://apkg.example.com"));
+            indexes[$"/artifacts/anduinos/dists/{target.Suite}/main/binary-{architecture}/Packages.gz"] =
+                PackageParagraph("sample", target.Version, target.Architecture);
+        }
+        Assert.IsTrue(await client.IsPublishedAsync(plan, "https://apkg.example.com"));
+    }
+
+    private sealed class PublishedIndexHandler(Dictionary<string, string> indexes) : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(
+            HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            Assert.AreEqual(HttpMethod.Get, request.Method);
+            Assert.IsNull(request.Headers.Authorization);
+            var path = request.RequestUri!.AbsolutePath;
+            if (!indexes.TryGetValue(path, out var text))
+                return Task.FromResult(new HttpResponseMessage(HttpStatusCode.NotFound));
+            if (path.EndsWith("/Release", StringComparison.Ordinal))
+                return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent(text) });
+            using var buffer = new MemoryStream();
+            using (var gzip = new GZipStream(buffer, CompressionMode.Compress, leaveOpen: true))
+                gzip.Write(Encoding.UTF8.GetBytes(text));
+            return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK)
+            {
+                Content = new ByteArrayContent(buffer.ToArray())
+            });
+        }
     }
 
     private static PackageBuildPlanResolver CreateResolver()

@@ -104,6 +104,24 @@ public class IntegrationTests
     }
 
     [TestMethod]
+    public async Task InvokeBuildHelp_DescribesSkipExistingWithoutUploadCredentials()
+    {
+        var result = await Program.TestRunAsync(["build", "--help"]);
+        Assert.AreEqual(0, result.ProgramReturn);
+        Assert.IsTrue(result.StdOut.Contains("--skip-existing"));
+        Assert.IsTrue(result.StdOut.Contains("--source"));
+        Assert.IsFalse(result.StdOut.Contains("--api-key"));
+    }
+
+    [TestMethod]
+    public async Task InvokeBuild_SkipExistingRequiresSource()
+    {
+        var result = await Program.TestRunAsync(["build", "--skip-existing"]);
+        Assert.AreNotEqual(0, result.ProgramReturn);
+        Assert.IsTrue((result.StdOut + result.StdErr).Contains("--skip-existing requires --source"));
+    }
+
+    [TestMethod]
     public async Task InvokeDeployHelp()
     {
         var result = await Program.TestRunAsync(["deploy", "--help"]);
