@@ -10,6 +10,22 @@
 
 Apkg is an APT repository server and Debian package publishing platform. It mirrors upstream Ubuntu repositories, signs repository snapshots, accepts `.apkg` package uploads, and serves packages through standard `apt update` and `apt install` workflows.
 
+## CLI & SDK
+
+Install the CLI with the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0):
+
+```bash
+dotnet tool install --global Aiursoft.Apkg.Client --add-source https://nuget.aiursoft.com/v3/index.json
+```
+
+Run `apkg --help` to explore commands. See [Package Publishing](#package-publishing) for examples.
+
+Add the SDK to your .NET project:
+
+```bash
+dotnet add package Aiursoft.Apkg.Sdk --source https://nuget.aiursoft.com/v3/index.json
+```
+
 ![screenshot](./screenshot.png)
 
 Default user name is `admin@default.com` and default password is `Admin@123456!`.
@@ -33,12 +49,6 @@ Apkg provides:
 - A `dotnet` global CLI for creating, building, publishing, pushing, and installing packages.
 
 ## Package Publishing
-
-Install the CLI:
-
-```bash
-dotnet tool install --global Aiursoft.Apkg.Client
-```
 
 Create, build, and push a package:
 
