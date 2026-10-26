@@ -648,7 +648,7 @@ public class DebBuilder
         string? LocalRepositoryPath);
 
     /// <summary>
-    /// Downloads an upstream .deb with SHA256 verification.
+    /// Downloads an upstream .deb with strong checksum verification.
     /// Returns the path to the downloaded .deb.
     /// </summary>
     private async Task<string> DownloadUpstreamDebAsync(
@@ -689,13 +689,18 @@ public class DebBuilder
 
         if (metadata.LocalRepositoryPath != null)
         {
-            var actualHash = Convert.ToHexStringLower(
-                System.Security.Cryptography.SHA256.HashData(await File.ReadAllBytesAsync(destPath)));
-            if (!string.Equals(actualHash, resolvedPackage.SHA256, StringComparison.OrdinalIgnoreCase))
+            var checksum = AptChecksum.ForPackage(resolvedPackage);
+            using var hasher = checksum.CreateHasher();
+            string actualHash;
+            await using (var downloaded = File.OpenRead(destPath))
+            {
+                actualHash = Convert.ToHexStringLower(await hasher.ComputeHashAsync(downloaded));
+            }
+            if (!string.Equals(actualHash, checksum.Value, StringComparison.OrdinalIgnoreCase))
             {
                 File.Delete(destPath);
                 throw new System.Security.SecurityException(
-                    $"SHA256 mismatch for upstream package.\nExpected: {resolvedPackage.SHA256}\nActual:   {actualHash}");
+                    $"{checksum.Algorithm} mismatch for upstream package.\nExpected: {checksum.Value}\nActual:   {actualHash}");
             }
         }
 

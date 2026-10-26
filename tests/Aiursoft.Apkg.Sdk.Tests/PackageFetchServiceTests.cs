@@ -38,7 +38,7 @@ public class PackageFetchServiceTests
     private FetchSource Source(string suite) => new("https://repo.invalid/ubuntu", suite, "main", _key);
     private FetchInput Input(string name, params string[] suites) => new(name, name, "arm64", suites.Select(Source).ToArray());
 
-    private async Task<string> Package(string name, string version, string arch = "arm64", bool realDeb = false)
+    private async Task<string> Package(string name, string version, string arch = "arm64", bool realDeb = false, string algorithm = "SHA256")
     {
         var pool = $"pool/{name}_{version}_{arch}.deb";
         byte[] bytes;
@@ -61,18 +61,77 @@ public class PackageFetchServiceTests
         }
         else bytes = Encoding.UTF8.GetBytes($"{name} {version} {arch}");
         _responses["/ubuntu/" + pool] = bytes;
-        return $"Package: {name}\nVersion: {version}\nArchitecture: {arch}\nMaintainer: Test\nDescription: Test\nSection: utils\nPriority: optional\nFilename: {pool}\nSize: {bytes.Length}\nSHA256: {Hash(bytes)}\n\n";
+        return $"Package: {name}\nVersion: {version}\nArchitecture: {arch}\nMaintainer: Test\nDescription: Test\nSection: utils\nPriority: optional\nFilename: {pool}\nSize: {bytes.Length}\n{algorithm}: {(algorithm == "SHA512" ? Convert.ToHexStringLower(SHA512.HashData(bytes)) : Hash(bytes))}\n\n";
     }
 
-    private async Task Repository(string suite, string packages, string arch = "arm64")
+    private async Task Repository(string suite, string packages, string arch = "arm64", string algorithm = "SHA256")
     {
         var bytes = Encoding.UTF8.GetBytes(packages);
         var index = $"main/binary-{arch}/Packages";
         _responses[$"/ubuntu/dists/{suite}/{index}"] = bytes;
         var release = Path.Combine(_root, "Release");
-        await File.WriteAllTextAsync(release, $"Suite: {suite}\nSHA256:\n {Hash(bytes)} {bytes.Length} {index}\n");
+        await File.WriteAllTextAsync(release, $"Suite: {suite}\n{algorithm}:\n {(algorithm == "SHA512" ? Convert.ToHexStringLower(SHA512.HashData(bytes)) : Hash(bytes))} {bytes.Length} {index}\n");
         await Gpg("--output", release + ".asc", "--clearsign", release);
         _responses[$"/ubuntu/dists/{suite}/InRelease"] = await File.ReadAllBytesAsync(release + ".asc");
+    }
+
+    [TestMethod]
+    [DataRow("SHA256", "SHA256")]
+    [DataRow("SHA512", "SHA512")]
+    [DataRow("SHA512", "SHA256")]
+    [DataRow("SHA256", "SHA512")]
+    public async Task SignedRepositorySupportsBothAlgorithmsAndPreservesManifest(string indexAlgorithm, string packageAlgorithm)
+    {
+        await Repository("base", await Package("tool", "1.0", algorithm: packageAlgorithm), algorithm: indexAlgorithm);
+        var manifest = await Service.FetchAsync([Input("tool", "base")], Output, false);
+        var expected = _responses["/ubuntu/pool/tool_1.0_arm64.deb"];
+        Assert.AreEqual(Hash(expected), manifest.Inputs.Single().Sha256);
+        var deb = Path.Combine(Output, manifest.Inputs.Single().DebPath);
+        CollectionAssert.AreEqual(expected, await File.ReadAllBytesAsync(deb));
+        _requests.Clear();
+        await Service.FetchAsync([Input("tool", "base")], Output, false);
+        Assert.AreEqual(0, _requests.Count(r => r.EndsWith(".deb")));
+        await File.WriteAllTextAsync(deb, "broken cache");
+        await Service.FetchAsync([Input("tool", "base")], Output, false);
+        CollectionAssert.AreEqual(expected, await File.ReadAllBytesAsync(deb));
+    }
+
+    [TestMethod]
+    public async Task BothAdvertisedAlgorithmsRequireValidSha512()
+    {
+        var stanza = await Package("tool", "1.0");
+        // SHA-256 still matches, but the preferred SHA-512 digest does not.
+        stanza = stanza.TrimEnd() + $"\nSHA512: {new string('0', 128)}\n\n";
+        await Repository("base", stanza);
+        await Assert.ThrowsAsync<Exception>(() => Service.FetchAsync([Input("tool", "base")], Output, false));
+        Assert.IsFalse(Directory.Exists(Output));
+    }
+
+    [TestMethod]
+    [DataRow("index")]
+    [DataRow("package")]
+    public async Task Sha512TamperingPreservesPreviousOutput(string target)
+    {
+        await Repository("base", await Package("tool", "1.0", algorithm: "SHA512"), algorithm: "SHA512");
+        await Service.FetchAsync([Input("tool", "base")], Output, false);
+        var previous = await File.ReadAllTextAsync(Path.Combine(Output, "manifest.json"));
+        await Repository("base", await Package("tool", "2.0", algorithm: "SHA512"), algorithm: "SHA512");
+        var path = target == "index" ? "/ubuntu/dists/base/main/binary-arm64/Packages" : "/ubuntu/pool/tool_2.0_arm64.deb";
+        _responses[path] = Encoding.UTF8.GetBytes("tampered");
+        await Assert.ThrowsAsync<Exception>(() => Service.FetchAsync([Input("tool", "base")], Output, false));
+        Assert.AreEqual(previous, await File.ReadAllTextAsync(Path.Combine(Output, "manifest.json")));
+    }
+
+    [TestMethod]
+    [DataRow("SHA512: broken")]
+    [DataRow("SHA1: 0000000000000000000000000000000000000000")]
+    public async Task MissingOrMalformedStrongPackageHashIsRejected(string field)
+    {
+        var stanza = await Package("tool", "1.0");
+        stanza = System.Text.RegularExpressions.Regex.Replace(stanza, "SHA256: [a-f0-9]+", field);
+        await Repository("base", stanza, algorithm: "SHA512");
+        await Assert.ThrowsExactlyAsync<InvalidOperationException>(() => Service.FetchAsync([Input("tool", "base")], Output, false));
+        Assert.IsFalse(Directory.Exists(Output));
     }
 
     [TestMethod]

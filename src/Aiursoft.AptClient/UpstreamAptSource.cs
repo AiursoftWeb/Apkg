@@ -142,8 +142,8 @@ public class UpstreamAptSource
         // Packages.gz can be 10MB+. Memory is fine for modern machines.
         var data = await response.Content.ReadAsByteArrayAsync();
 
-        using var sha256 = SHA256.Create();
-        var actualHashBytes = sha256.ComputeHash(data);
+        using var hasher = AptChecksum.FromDigest(expectedHash).CreateHasher();
+        var actualHashBytes = hasher.ComputeHash(data);
         var actualHash = BitConverter.ToString(actualHashBytes).Replace("-", "").ToLowerInvariant();
 
         if (!string.Equals(actualHash, expectedHash, StringComparison.OrdinalIgnoreCase))

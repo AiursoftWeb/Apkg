@@ -159,6 +159,9 @@ public class MirrorSyncJob(
         await foreach (var pkgFromApt in source.FetchPackagesAsync())
         {
             var pkg = pkgFromApt.Package;
+            // Lazy mirrors still address objects by upstream SHA-256; never store an empty CAS key.
+            if (string.IsNullOrEmpty(pkg.SHA256))
+                throw new InvalidDataException("Lazy mirrors require upstream SHA256 metadata; SHA512-only sources are supported by the build client.");
 
             // Check for duplicates within the current bucket
             var key = $"{pkg.Package}|{pkg.Version}|{pkg.Architecture}|{component}";
