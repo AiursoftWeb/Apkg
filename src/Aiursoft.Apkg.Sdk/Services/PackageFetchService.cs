@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using Aiursoft.Apkg.Sdk.Models;
 using Aiursoft.AptClient;
+using Aiursoft.AptClient.Abstractions;
 using Microsoft.Extensions.Logging;
 
 namespace Aiursoft.Apkg.Sdk.Services;
@@ -95,7 +96,7 @@ public class PackageFetchService(ILogger<PackageFetchService> logger, Func<HttpC
                                 var comparison = best == null ? 1 : comparer.Compare(candidate.Package.Version, best.Value.Candidate.Package.Version);
                                 if (comparison > 0) best = (source, candidate);
                                 else if (comparison == 0 && best!.Value.Candidate.Package.Architecture == candidate.Package.Architecture &&
-                                         !string.Equals(best.Value.Candidate.Package.SHA256, candidate.Package.SHA256, StringComparison.OrdinalIgnoreCase))
+                                         !SamePackageHash(best.Value.Candidate.Package, candidate.Package))
                                     throw new InvalidDataException($"Conflicting hashes for {input.Package} {candidate.Package.Version}; narrow the declared sources.");
                             }
                         }
@@ -114,8 +115,8 @@ public class PackageFetchService(ILogger<PackageFetchService> logger, Func<HttpC
             foreach (var (input, source, candidate) in selected)
             {
                 var package = candidate.Package;
+                var checksum = AptChecksum.ForPackage(package);
                 if (!Regex.IsMatch(package.Version, @"^[0-9][a-zA-Z0-9.+:~\-]*$") ||
-                    !Regex.IsMatch(package.SHA256, @"^[a-fA-F0-9]{64}$") ||
                     !Regex.IsMatch(package.Filename, @"^[a-zA-Z0-9][a-zA-Z0-9_./+%:~\-]*$") ||
                     package.Filename.Split('/').Any(s => s is "." or ".."))
                     throw new InvalidDataException($"Invalid download metadata for '{input.Id}'.");
@@ -123,7 +124,7 @@ public class PackageFetchService(ILogger<PackageFetchService> logger, Func<HttpC
                 var destination = Path.Combine(work, relativeDeb);
                 Directory.CreateDirectory(Path.GetDirectoryName(destination)!);
                 var cached = Path.Combine(output, relativeDeb);
-                if (File.Exists(cached) && await HasHashAsync(cached, package.SHA256))
+                if (File.Exists(cached) && await HasHashAsync(cached, checksum))
                 {
                     File.Copy(cached, destination);
                     logger.LogInformation("Reusing verified package: {Package} {Version} ({Arch})", package.Package, package.Version, package.Architecture);
@@ -139,8 +140,11 @@ public class PackageFetchService(ILogger<PackageFetchService> logger, Func<HttpC
                     extracted = $"extracted/{input.Id}";
                     await ExtractAsync(destination, Path.Combine(work, extracted));
                 }
+                // Keep the v1 manifest's SHA-256 field, computed only after upstream verification.
+                await using var verifiedFile = File.OpenRead(destination);
+                var sha256 = Convert.ToHexStringLower(await SHA256.HashDataAsync(verifiedFile));
                 fetched.Add(new FetchedInput(input.Id, package.Package, package.Version, package.Architecture,
-                    input.Arch, source.Url, source.Suite, source.Component, package.SHA256, relativeDeb, extracted));
+                    input.Arch, source.Url, source.Suite, source.Component, sha256, relativeDeb, extracted));
             }
             var manifest = new FetchManifest(ManifestFormat, fetched);
             await File.WriteAllTextAsync(Path.Combine(work, "manifest.json"), JsonSerializer.Serialize(manifest, JsonOptions));
@@ -153,10 +157,21 @@ public class PackageFetchService(ILogger<PackageFetchService> logger, Func<HttpC
         }
     }
 
-    private static async Task<bool> HasHashAsync(string path, string expected)
+    private static bool SamePackageHash(DebianPackage left,
+        DebianPackage right)
+    {
+        // Prefer a shared algorithm; incomparable metadata must not silently deduplicate.
+        if (!string.IsNullOrEmpty(left.SHA512) && !string.IsNullOrEmpty(right.SHA512))
+            return string.Equals(left.SHA512, right.SHA512, StringComparison.OrdinalIgnoreCase);
+        return !string.IsNullOrEmpty(left.SHA256) && !string.IsNullOrEmpty(right.SHA256) &&
+            string.Equals(left.SHA256, right.SHA256, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static async Task<bool> HasHashAsync(string path, AptChecksum checksum)
     {
         await using var stream = File.OpenRead(path);
-        return string.Equals(Convert.ToHexString(await SHA256.HashDataAsync(stream)), expected, StringComparison.OrdinalIgnoreCase);
+        using var hasher = checksum.CreateHasher();
+        return string.Equals(Convert.ToHexString(await hasher.ComputeHashAsync(stream)), checksum.Value, StringComparison.OrdinalIgnoreCase);
     }
 
     private static async Task ExtractAsync(string deb, string directory)

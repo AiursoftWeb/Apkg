@@ -35,7 +35,9 @@ public class MirrorSyncStatusTests
     }
 
     [TestMethod]
-    public async Task TestMirrorSyncStatusUpdateOnSuccess()
+    [DataRow(false)]
+    [DataRow(true)]
+    public async Task TestMirrorSyncPreservesSha256StorageContract(bool sha512Only)
     {
         var dbName = $@"DataSource=file:{Guid.NewGuid()}?mode=memory&cache=shared";
         using var connection = new Microsoft.Data.Sqlite.SqliteConnection(dbName);
@@ -53,6 +55,12 @@ Size: 100
 Filename: pool/main/t/test-pkg/test-pkg_1.0.0_amd64.deb
 SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ";
+        if (sha512Only)
+        {
+            upstreamPackages = upstreamPackages.Replace(
+                "SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                $"SHA512: {Convert.ToHexString(SHA512.HashData([])).ToLowerInvariant()}");
+        }
         var packagesHash = BitConverter.ToString(SHA256.HashData(Encoding.UTF8.GetBytes(upstreamPackages))).Replace("-", "").ToLower();
 
         var services = new ServiceCollection();
@@ -85,6 +93,14 @@ SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 
         var updatedMirror = await db.AptMirrors.FirstAsync(m => m.Id == mirror.Id);
         Assert.IsNotNull(updatedMirror.LastPullTime);
+        if (sha512Only)
+        {
+            Assert.IsFalse(updatedMirror.LastPullSuccess ?? true);
+            StringAssert.Contains(updatedMirror.LastPullResult, "Lazy mirrors require upstream SHA256 metadata");
+            Assert.IsNull(updatedMirror.PrimaryBucketId);
+            Assert.AreEqual(0, await db.AptPackages.CountAsync());
+            return;
+        }
         Assert.IsTrue(updatedMirror.LastPullSuccess);
         Assert.AreEqual("Successfully pulled 1 packages.", updatedMirror.LastPullResult);
         Assert.IsNull(updatedMirror.LastPullErrorStack);

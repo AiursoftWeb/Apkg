@@ -65,20 +65,19 @@ public static class DebianPackageParser
 
         // The parser returns a list of "paragraphs". InRelease usually has one main paragraph with checksums.
         var paragraphs = Parse(ms).ToList();
-        var mainParagraph = paragraphs.FirstOrDefault(p => p.ContainsKey("SHA256"));
-
         var result = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-        if (mainParagraph == null) return result;
-
-        var sha256Lines = mainParagraph["SHA256"].Split('\n', StringSplitOptions.RemoveEmptyEntries);
-        foreach (var line in sha256Lines)
+        // Read SHA-256 first so SHA-512 wins when both describe the same file.
+        foreach (var algorithm in new[] { "SHA256", "SHA512" })
         {
-            var parts = line.Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-            if (parts.Length >= 3)
+            foreach (var paragraph in paragraphs.Where(p => p.ContainsKey(algorithm)))
             {
-                var hash = parts[0];
-                var path = parts[2];
-                result[path] = hash;
+                foreach (var line in paragraph[algorithm].Split('\n', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    var parts = line.Split((char[]?)null, StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length != 3)
+                        throw new InvalidDataException($"Invalid {algorithm} index entry.");
+                    result[parts[2]] = AptChecksum.Validate(algorithm, parts[0]).Value;
+                }
             }
         }
         return result;
@@ -108,7 +107,7 @@ public static class DebianPackageParser
             Size = GetReq("Size"),
             MD5sum = GetOpt("MD5sum") ?? "",
             SHA1 = GetOpt("SHA1") ?? "",
-            SHA256 = GetReq("SHA256"), // We verify files using SHA256 so this should be present, usually.
+            SHA256 = GetOpt("SHA256") ?? "",
             SHA512 = GetOpt("SHA512") ?? "",
             InstalledSize = GetOpt("Installed-Size"),
             OriginalMaintainer = GetOpt("Original-Maintainer"),
@@ -134,6 +133,7 @@ public static class DebianPackageParser
         foreach (var key in knownKeys) dict.Remove(key);
         foreach (var kvp in dict) pkg.Extras[kvp.Key] = kvp.Value;
 
+        _ = AptChecksum.ForPackage(pkg);
         return pkg;
     }
 }
