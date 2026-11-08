@@ -42,6 +42,18 @@
   <data name="Components" xml:space="preserve">
     <value>組件</value>
   </data>
+  <data name="Copied." xml:space="preserve">
+    <value>已複製。</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>複製</value>
+  </data>
+  <data name="Copy command" xml:space="preserve">
+    <value>複製指令</value>
+  </data>
+  <data name="Copy failed. Copy the selected command manually." xml:space="preserve">
+    <value>複製失敗。請手動複製所選指令。</value>
+  </data>
   <data name="Copy to clipboard" xml:space="preserve">
     <value>複製到剪貼簿</value>
   </data>

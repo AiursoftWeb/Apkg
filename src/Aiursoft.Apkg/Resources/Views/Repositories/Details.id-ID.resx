@@ -42,6 +42,18 @@
   <data name="Components" xml:space="preserve">
     <value>Components</value>
   </data>
+  <data name="Copied." xml:space="preserve">
+    <value>Tersalin.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Salin</value>
+  </data>
+  <data name="Copy command" xml:space="preserve">
+    <value>Salin perintah</value>
+  </data>
+  <data name="Copy failed. Copy the selected command manually." xml:space="preserve">
+    <value>Gagal menyalin. Salin perintah yang dipilih secara manual.</value>
+  </data>
   <data name="Copy to clipboard" xml:space="preserve">
     <value>Salin ke papan klip</value>
   </data>

@@ -42,6 +42,18 @@
   <data name="Components" xml:space="preserve">
     <value>Components</value>
   </data>
+  <data name="Copied." xml:space="preserve">
+    <value>Kopioitu.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopioi</value>
+  </data>
+  <data name="Copy command" xml:space="preserve">
+    <value>Kopioi komento</value>
+  </data>
+  <data name="Copy failed. Copy the selected command manually." xml:space="preserve">
+    <value>Kopiointi epäonnistui. Kopioi valittu komento manuaalisesti.</value>
+  </data>
   <data name="Copy to clipboard" xml:space="preserve">
     <value>Kopioi leikepöydälle</value>
   </data>

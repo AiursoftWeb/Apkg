@@ -42,6 +42,18 @@
   <data name="Components" xml:space="preserve">
     <value>Components</value>
   </data>
+  <data name="Copied." xml:space="preserve">
+    <value>복사됨.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>복사</value>
+  </data>
+  <data name="Copy command" xml:space="preserve">
+    <value>명령어 복사</value>
+  </data>
+  <data name="Copy failed. Copy the selected command manually." xml:space="preserve">
+    <value>복사 실패. 선택한 명령어를 수동으로 복사하세요.</value>
+  </data>
   <data name="Copy to clipboard" xml:space="preserve">
     <value>클립보드에 복사</value>
   </data>
