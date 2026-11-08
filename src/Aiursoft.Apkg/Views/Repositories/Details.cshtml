@@ -58,11 +58,14 @@
             <div class="card-header"><h5 class="card-title mb-0">@Localizer["Client Configuration Guide"]</h5></div>
             <div class="card-body">
                 <h6>@Localizer["Quick Setup with APKG CLI:"]</h6>
-                <div class="bg-dark text-white p-3 rounded mb-4 position-relative">
-                    <button class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2" onclick="copyToClipboard(this)" title="@Localizer["Copy to clipboard"]">
-                        <i class="align-middle" data-lucide="copy" style="width:14px;height:14px;"></i>
-                    </button>
-                    <pre class="mb-0"><code>sudo apkg add-source @Model.ApiBaseUrl/api/sources/@Model.Repo.Id</code></pre>
+                <div class="bg-dark text-white p-3 rounded mb-4" data-command-block>
+                    <div class="d-flex flex-wrap justify-content-end align-items-center gap-2 mb-2">
+                        <span class="small me-auto text-break" data-copy-status role="status"></span>
+                        <button type="button" class="btn btn-sm btn-outline-light flex-shrink-0" data-copy-command aria-label="@Localizer["Copy command"]">
+                            <i class="align-middle me-1" data-lucide="copy" style="width:14px;height:14px;" aria-hidden="true"></i>@Localizer["Copy"]
+                        </button>
+                    </div>
+                    <pre tabindex="-1" class="mb-0" style="white-space: pre-wrap; overflow-wrap: anywhere;"><code>sudo apkg add-source @Model.ApiBaseUrl/api/sources/@Model.Repo.Id</code></pre>
                 </div>
                 <p class="text-muted small mb-0">
                     @Localizer["Don't have <code>apkg</code>?"]
@@ -74,11 +77,14 @@
                 @if (Model.Repo.EnableGpgSign && Model.Repo.Certificate != null)
                 {
                     <h6>@Localizer["One-line Setup:"]</h6>
-                    <div class="bg-dark text-white p-3 rounded mb-4 position-relative">
-                        <button class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2" onclick="copyToClipboard(this)" title="@Localizer["Copy to clipboard"]">
-                            <i class="align-middle" data-lucide="copy" style="width:14px;height:14px;"></i>
-                        </button>
-                        <pre class="mb-0" style="white-space: pre-wrap; word-break: break-all;"><code>sudo mkdir -p /usr/share/keyrings && \
+                    <div class="bg-dark text-white p-3 rounded mb-4" data-command-block>
+                        <div class="d-flex flex-wrap justify-content-end align-items-center gap-2 mb-2">
+                            <span class="small me-auto text-break" data-copy-status role="status"></span>
+                            <button type="button" class="btn btn-sm btn-outline-light flex-shrink-0" data-copy-command aria-label="@Localizer["Copy command"]">
+                                <i class="align-middle me-1" data-lucide="copy" style="width:14px;height:14px;" aria-hidden="true"></i>@Localizer["Copy"]
+                            </button>
+                        </div>
+                        <pre tabindex="-1" class="mb-0" style="white-space: pre-wrap; word-break: break-all;"><code>sudo mkdir -p /usr/share/keyrings && \
 curl -sL @Model.BaseUrl/artifacts/certs/@Model.Repo.Certificate.Name | gpg --dearmor | sudo tee /usr/share/keyrings/@(Model.Repo.Certificate.Name)-archive-keyring.gpg > /dev/null && \
 echo "Types: deb
 URIs: @Model.BaseUrl/artifacts/@Model.Repo.Distro/
@@ -101,11 +107,14 @@ sudo apt update</code></pre>
                 else
                 {
                     <h6>@Localizer["One-line Setup (Unsigned):"]</h6>
-                    <div class="bg-dark text-white p-3 rounded mb-4 position-relative">
-                        <button class="btn btn-sm btn-outline-light position-absolute top-0 end-0 m-2" onclick="copyToClipboard(this)" title="@Localizer["Copy to clipboard"]">
-                            <i class="align-middle" data-lucide="copy" style="width:14px;height:14px;"></i>
-                        </button>
-                        <pre class="mb-0" style="white-space: pre-wrap; word-break: break-all;"><code>echo "Types: deb
+                    <div class="bg-dark text-white p-3 rounded mb-4" data-command-block>
+                        <div class="d-flex flex-wrap justify-content-end align-items-center gap-2 mb-2">
+                            <span class="small me-auto text-break" data-copy-status role="status"></span>
+                            <button type="button" class="btn btn-sm btn-outline-light flex-shrink-0" data-copy-command aria-label="@Localizer["Copy command"]">
+                                <i class="align-middle me-1" data-lucide="copy" style="width:14px;height:14px;" aria-hidden="true"></i>@Localizer["Copy"]
+                            </button>
+                        </div>
+                        <pre tabindex="-1" class="mb-0" style="white-space: pre-wrap; word-break: break-all;"><code>echo "Types: deb
 URIs: @Model.BaseUrl/artifacts/@Model.Repo.Distro/
 Suites: @Model.Repo.Suite
 Components: @((string.IsNullOrWhiteSpace(Model.Repo.Components) ? "main" : Model.Repo.Components).Replace(",", " "))
@@ -159,23 +168,12 @@ sudo apt update</code></pre>
     <a asp-action="Index" class="btn btn-secondary">@Localizer["Back to List"]</a>
 </div>
 
+<div id="repository-copy-messages" hidden>
+    <span data-key="copied">@Localizer["Copied."]</span>
+    <span data-key="failed">@Localizer["Copy failed. Copy the selected command manually."]</span>
+</div>
+
 @* ReSharper disable once Razor.SectionNotResolved *@
 @section scripts {
-    <script>
-        function copyToClipboard(btn) {
-            const pre = btn.nextElementSibling;
-            const code = pre.querySelector('code');
-            const text = code.innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                const icon = btn.querySelector('i');
-                const originalData = icon.getAttribute('data-lucide');
-                icon.setAttribute('data-lucide', 'check');
-                lucide.createIcons();
-                setTimeout(() => {
-                    icon.setAttribute('data-lucide', originalData);
-                    lucide.createIcons();
-                }, 2000);
-            });
-        }
-    </script>
+    <script src="~/scripts/repository-command-copy.js" asp-append-version="true" defer></script>
 }
