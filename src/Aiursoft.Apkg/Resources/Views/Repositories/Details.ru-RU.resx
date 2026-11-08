@@ -42,6 +42,18 @@
   <data name="Components" xml:space="preserve">
     <value>Components</value>
   </data>
+  <data name="Copied." xml:space="preserve">
+    <value>Скопировано.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Копировать</value>
+  </data>
+  <data name="Copy command" xml:space="preserve">
+    <value>Копировать команду</value>
+  </data>
+  <data name="Copy failed. Copy the selected command manually." xml:space="preserve">
+    <value>Не удалось скопировать. Скопируйте выбранную команду вручную.</value>
+  </data>
   <data name="Copy to clipboard" xml:space="preserve">
     <value>Скопировать в буфер обмена</value>
   </data>

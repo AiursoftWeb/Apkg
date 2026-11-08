@@ -42,6 +42,18 @@
   <data name="Components" xml:space="preserve">
     <value>Components</value>
   </data>
+  <data name="Copied." xml:space="preserve">
+    <value>コピーしました。</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>コピー</value>
+  </data>
+  <data name="Copy command" xml:space="preserve">
+    <value>コマンドをコピー</value>
+  </data>
+  <data name="Copy failed. Copy the selected command manually." xml:space="preserve">
+    <value>コピーに失敗しました。選択したコマンドを手動でコピーしてください。</value>
+  </data>
   <data name="Copy to clipboard" xml:space="preserve">
     <value>クリップボードにコピー</value>
   </data>

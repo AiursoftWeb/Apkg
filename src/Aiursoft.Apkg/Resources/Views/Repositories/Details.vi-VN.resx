@@ -42,6 +42,18 @@
   <data name="Components" xml:space="preserve">
     <value>Components</value>
   </data>
+  <data name="Copied." xml:space="preserve">
+    <value>Đã sao chép.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Sao chép</value>
+  </data>
+  <data name="Copy command" xml:space="preserve">
+    <value>Sao chép lệnh</value>
+  </data>
+  <data name="Copy failed. Copy the selected command manually." xml:space="preserve">
+    <value>Sao chép thất bại. Hãy sao chép thủ công lệnh đã chọn.</value>
+  </data>
   <data name="Copy to clipboard" xml:space="preserve">
     <value>Sao chép vào khay nhớ tạm</value>
   </data>

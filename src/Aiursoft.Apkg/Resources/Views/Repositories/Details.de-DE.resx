@@ -42,6 +42,18 @@
   <data name="Components" xml:space="preserve">
     <value>Components</value>
   </data>
+  <data name="Copied." xml:space="preserve">
+    <value>Kopiert.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopieren</value>
+  </data>
+  <data name="Copy command" xml:space="preserve">
+    <value>Befehl kopieren</value>
+  </data>
+  <data name="Copy failed. Copy the selected command manually." xml:space="preserve">
+    <value>Kopieren fehlgeschlagen. Kopieren Sie den ausgewählten Befehl manuell.</value>
+  </data>
   <data name="Copy to clipboard" xml:space="preserve">
     <value>In die Zwischenablage kopieren</value>
   </data>
