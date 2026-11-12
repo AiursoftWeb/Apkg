@@ -76,7 +76,7 @@ public static class PackageSearchService
         {
             ordered = scoreQuery
                 .OrderByDescending(x => x.Score)
-                .ThenBy(x => x.Package.Package, StringComparer.Ordinal)
+                .ThenBy(x => x.Package.Package)
                 .Select(x => x.Package);
         }
         else
