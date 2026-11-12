@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Services;
@@ -143,7 +144,7 @@ public class AptMirrorController(
         Response.Headers.LastModified = lastModified.ToString("R");
         Response.Headers.CacheControl = "no-cache";
 
-        if (DateTime.TryParse(Request.Headers.IfModifiedSince, out var ifModifiedSince))
+        if (DateTime.TryParse(Request.Headers.IfModifiedSince, CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal | DateTimeStyles.AdjustToUniversal, out var ifModifiedSince))
         {
             // Truncate to second precision — HTTP-date has no sub-second resolution
             if (lastModified <= ifModifiedSince.AddSeconds(1))

@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.Apkg.Models.MirrorsViewModels.RepoCheckReportViewModel
 @using System.Text.Json
 @using Aiursoft.Apkg.Authorization
@@ -76,7 +77,7 @@ else if (Model.Report.Status == "Completed")
                                 ? ((Model.Report.TotalPackages - Model.Report.ProblematicPackages) * 100.0 / Model.Report.TotalPackages) 
                                 : 100;
                         }
-                        @healthRate.ToString("F1")%
+                        @healthRate.ToString("F1", CultureInfo.CurrentCulture)%
                     </h2>
                 </div>
             </div>
@@ -90,8 +91,8 @@ else if (Model.Report.Status == "Completed")
                             var age = DateTime.UtcNow - Model.Report.CreatedAt;
                             var expires = Model.Report.ExpireAt - DateTime.UtcNow;
                         }
-                        @age.TotalHours.ToString("F1")h @Localizer["old"]<br>
-                        <small>@Localizer["Expires in"] @expires.TotalHours.ToString("F1")h</small>
+                        @age.TotalHours.ToString("F1", CultureInfo.CurrentCulture)h @Localizer["old"]<br>
+                        <small>@Localizer["Expires in"] @expires.TotalHours.ToString("F1", CultureInfo.CurrentCulture)h</small>
                     </p>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.Apkg.Models.MirrorsViewModels.BucketsIndexViewModel
 
 <div class="row mb-2 mb-xl-3">
@@ -60,7 +61,7 @@
                     </td>
                     <td><label data-utc-time="@bucket.CreatedAt.ToHtmlDateTime()"></label></td>
                     <td class="text-end"><strong>@Model.PackageCounts.GetValueOrDefault(bucket.Id, 0).ToString("N0")</strong></td>
-                    <td class="text-end">@((Model.StorageUsage.GetValueOrDefault(bucket.Id, 0) / 1024.0 / 1024.0).ToString("F2")) MB</td>
+                    <td class="text-end">@((Model.StorageUsage.GetValueOrDefault(bucket.Id, 0) / 1024.0 / 1024.0).ToString("F2", CultureInfo.CurrentCulture)) MB</td>
                     <td>
                         @if (isLive)
                         {

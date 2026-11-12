@@ -61,7 +61,7 @@ SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
                 "SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
                 $"SHA512: {Convert.ToHexString(SHA512.HashData([])).ToLowerInvariant()}");
         }
-        var packagesHash = BitConverter.ToString(SHA256.HashData(Encoding.UTF8.GetBytes(upstreamPackages))).Replace("-", "").ToLower();
+        var packagesHash = BitConverter.ToString(SHA256.HashData(Encoding.UTF8.GetBytes(upstreamPackages))).Replace("-", "").ToLowerInvariant();
 
         var services = new ServiceCollection();
         services.AddLogging();
