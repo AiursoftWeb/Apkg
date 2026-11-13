@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.Apkg.Models.MirrorsViewModels.BucketPackagesViewModel
 
 <div class="row mb-2 mb-xl-3">
@@ -54,7 +55,7 @@
                     <td><code>@pkg.Version</code></td>
                     <td><span class="badge bg-dark">@pkg.Architecture</span></td>
                     <td><span class="badge badge-subtle-primary">@pkg.Component</span></td>
-                    <td class="text-end">@((long.TryParse(pkg.Size, out var sz) ? sz / 1024.0 : 0).ToString("F1")) KB</td>
+                    <td class="text-end">@((long.TryParse(pkg.Size, NumberStyles.Integer, CultureInfo.InvariantCulture, out var sz) ? sz / 1024.0 : 0).ToString("F1", CultureInfo.CurrentCulture)) KB</td>
                     <td>
                         @if (pkg.IsVirtual)
                         {

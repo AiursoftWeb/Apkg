@@ -33,8 +33,8 @@
                     .OrderByDescending(ps => ps.Package.ApkgRevisionId.HasValue
                         ? uploadDates.GetValueOrDefault(ps.Package.ApkgRevisionId.Value)
                         : DateTime.MinValue)
-                    .ThenBy(ps => ps.Package.Architecture)
-                    .ThenBy(ps => ps.Package.Repository?.Suite ?? "")
+                    .ThenBy(ps => ps.Package.Architecture, StringComparer.Ordinal)
+                    .ThenBy(ps => ps.Package.Repository?.Suite ?? "", StringComparer.Ordinal)
                     .ToList();
                 }
 

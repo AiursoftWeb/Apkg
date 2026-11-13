@@ -147,8 +147,8 @@ public class ContentsGeneratorService
                 await gzWriter.FlushAsync();
             }
 
-            rawSha256 = BitConverter.ToString(rawHasher.GetHashAndReset()).Replace("-", "").ToLower();
-            gzSha256 = BitConverter.ToString(gzHasher.GetHashAndReset()).Replace("-", "").ToLower();
+            rawSha256 = BitConverter.ToString(rawHasher.GetHashAndReset()).Replace("-", "").ToLowerInvariant();
+            gzSha256 = BitConverter.ToString(gzHasher.GetHashAndReset()).Replace("-", "").ToLowerInvariant();
             rawSize = rawFs.Length;
             gzSize = gzFs.Length;
         }

@@ -54,7 +54,7 @@ public static class PackageSearchService
         string? sortOrder,
         CancellationToken ct)
     {
-        var termLower = term.ToLower();
+        var termLower = term.ToLowerInvariant();
         var scoreQuery = baseQuery
             .Where(p => p.Package.Contains(term) || p.Description.Contains(term))
             .Select(p => new
@@ -133,22 +133,22 @@ public static class PackageSearchService
         {
             ordered = scored
                 .OrderByDescending(x => x.Score)
-                .ThenBy(x => x.Package.Package)
+                .ThenBy(x => x.Package.Package, StringComparer.Ordinal)
                 .Select(x => x.Package);
         }
         else
         {
             ordered = sortOrder switch
             {
-                "name_asc" => scored.OrderBy(x => x.Package.Package).Select(x => x.Package),
-                "name_desc" => scored.OrderByDescending(x => x.Package.Package).Select(x => x.Package),
-                "size_asc" => scored.OrderBy(x => x.Package.Size.Length).ThenBy(x => x.Package.Size).Select(x => x.Package),
-                "size_desc" => scored.OrderByDescending(x => x.Package.Size.Length).ThenByDescending(x => x.Package.Size).Select(x => x.Package),
-                "component_asc" => scored.OrderBy(x => x.Package.Component).Select(x => x.Package),
-                "component_desc" => scored.OrderByDescending(x => x.Package.Component).Select(x => x.Package),
+                "name_asc" => scored.OrderBy(x => x.Package.Package, StringComparer.Ordinal).Select(x => x.Package),
+                "name_desc" => scored.OrderByDescending(x => x.Package.Package, StringComparer.Ordinal).Select(x => x.Package),
+                "size_asc" => scored.OrderBy(x => x.Package.Size.Length).ThenBy(x => x.Package.Size, StringComparer.Ordinal).Select(x => x.Package),
+                "size_desc" => scored.OrderByDescending(x => x.Package.Size.Length).ThenByDescending(x => x.Package.Size, StringComparer.Ordinal).Select(x => x.Package),
+                "component_asc" => scored.OrderBy(x => x.Package.Component, StringComparer.Ordinal).Select(x => x.Package),
+                "component_desc" => scored.OrderByDescending(x => x.Package.Component, StringComparer.Ordinal).Select(x => x.Package),
                 "status_asc" => scored.OrderBy(x => x.Package.IsVirtual).Select(x => x.Package),
                 "status_desc" => scored.OrderByDescending(x => x.Package.IsVirtual).Select(x => x.Package),
-                _ => scored.OrderBy(x => x.Package.Package).Select(x => x.Package)
+                _ => scored.OrderBy(x => x.Package.Package, StringComparer.Ordinal).Select(x => x.Package)
             };
         }
 
@@ -182,7 +182,7 @@ public static class PackageSearchService
             .Select(p => (Package: p, Score: ComputeScore(p, terms)))
             .Where(x => x.Score > 0)
             .OrderByDescending(x => x.Score)
-            .ThenBy(x => x.Package.Package)
+            .ThenBy(x => x.Package.Package, StringComparer.Ordinal)
             .Select(x => x.Package)
             .ToList();
     }

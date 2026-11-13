@@ -250,7 +250,7 @@ public class RepositoryDependencyCheckJob(
                     }
 
                     // Not satisfied, record best available version
-                    var bestVersion = versions.OrderByDescending(v => v).FirstOrDefault();
+                    var bestVersion = versions.OrderByDescending(v => v, Comparer<string>.Create(versionCompare.Compare)).FirstOrDefault();
                     bestMatchInfo = bestVersion;
                 }
                 else

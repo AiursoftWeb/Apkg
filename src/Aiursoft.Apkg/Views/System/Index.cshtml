@@ -1,3 +1,4 @@
+@using System.Globalization
 @model Aiursoft.Apkg.Models.SystemViewModels.IndexViewModel
 @using System.Diagnostics
 @using Aiursoft.CSTools.Tools
@@ -79,7 +80,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach (var kv in Model.TableCounts.OrderBy(kv => kv.Key))
+                    @foreach (var kv in Model.TableCounts.OrderBy(kv => kv.Key, StringComparer.Ordinal))
                     {
                         <tr>
                             <td>@kv.Key</td>
@@ -112,7 +113,7 @@
                             @if (Model.TotalLocalDebs > 0)
                             {
                                 var pct = Model.ContentsCacheEntries * 100.0 / Model.TotalLocalDebs;
-                                <span>@pct.ToString("F1")%</span>
+                                <span>@pct.ToString("F1", CultureInfo.CurrentCulture)%</span>
                                 @if (pct >= 90)
                                 {
                                     <span class="badge bg-success ms-2">@Localizer["Healthy"]</span>
@@ -138,7 +139,7 @@
                             @if (Model.ContentsCacheEntries > 0)
                             {
                                 var savedGB = Model.ContentsCacheEntries * 20.0 / 1024;
-                                <span class="text-success">~@savedGB.ToString("F1") GB</span>
+                                <span class="text-success">~@savedGB.ToString("F1", CultureInfo.CurrentCulture) GB</span>
                             }
                             else
                             {
