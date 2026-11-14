@@ -30,6 +30,12 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Apakah Anda yakin ingin memulai ulang aplikasi? Tindakan ini tidak dapat dibatalkan dan akan mengakhiri semua koneksi aktif.</value>
   </data>
+  <data name="CPU Architecture" xml:space="preserve">
+    <value>Arsitektur CPU</value>
+  </data>
+  <data name="CPU Cores" xml:space="preserve">
+    <value>Inti CPU</value>
+  </data>
   <data name="Cache coverage" xml:space="preserve">
     <value>Cakupan Cache</value>
   </data>
@@ -44,12 +50,6 @@
   </data>
   <data name="Contents Cache" xml:space="preserve">
     <value>Cache Konten</value>
-  </data>
-  <data name="CPU Architecture" xml:space="preserve">
-    <value>Arsitektur CPU</value>
-  </data>
-  <data name="CPU Cores" xml:space="preserve">
-    <value>Inti CPU</value>
   </data>
   <data name="Created" xml:space="preserve">
     <value>Dibuat</value>

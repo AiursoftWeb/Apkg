@@ -54,9 +54,6 @@
   <data name="Missing Dependencies" xml:space="preserve">
     <value>Puuttuvat riippuvuudet</value>
   </data>
-  <data name="old" xml:space="preserve">
-    <value>vanha</value>
-  </data>
   <data name="Package" xml:space="preserve">
     <value>Paketti</value>
   </data>
@@ -86,6 +83,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Virtuaali</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>vanha</value>
   </data>
 
 </root>

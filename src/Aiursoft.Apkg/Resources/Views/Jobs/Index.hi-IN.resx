@@ -45,12 +45,6 @@
   <data name="Job Name" xml:space="preserve">
     <value>कार्य नाम</value>
   </data>
-  <data name="last 24 hours" xml:space="preserve">
-    <value>पिछले 24 घंटे</value>
-  </data>
-  <data name="last hour" xml:space="preserve">
-    <value>पिछले घंटे</value>
-  </data>
   <data name="Last run" xml:space="preserve">
     <value>अंतिम चाल</value>
   </data>
@@ -113,6 +107,12 @@
   </data>
   <data name="Trigger Now" xml:space="preserve">
     <value>अभी ट्रिगर करें</value>
+  </data>
+  <data name="last 24 hours" xml:space="preserve">
+    <value>पिछले 24 घंटे</value>
+  </data>
+  <data name="last hour" xml:space="preserve">
+    <value>पिछले घंटे</value>
   </data>
 
 </root>

@@ -93,9 +93,6 @@
   <data name="Package Details" xml:space="preserve">
     <value>Chi tiết Gói</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>gói (phần mềm)</value>
-  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>Vật lý (Đã lưu trữ)</value>
   </data>
@@ -134,6 +131,9 @@
   </data>
   <data name="What is a Package?" xml:space="preserve">
     <value>Gói (Package) là gì?</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>gói (phần mềm)</value>
   </data>
 
 </root>

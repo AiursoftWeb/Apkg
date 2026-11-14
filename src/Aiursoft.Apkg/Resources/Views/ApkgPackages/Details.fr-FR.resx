@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>Actions</value>
   </data>
   <data name="All" xml:space="preserve">
@@ -30,20 +27,11 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>Un package mixte .apkg est le format propriétaire d&apos;Apkg qui regroupe plusieurs packages .deb et un fichier manifest.xml dans une seule archive tar compressée au format gzip. Le serveur décompresse chaque package .deb, extrait les métadonnées de son fichier de contrôle, puis les synchronise avec leurs dépôts APT cibles.</value>
   </data>
-  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
-    <value>et TOUTES ses révisions ? Cette action est irréversible.</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Architecture</value>
   </data>
   <data name="Back to Packages" xml:space="preserve">
     <value>Retour aux packages</value>
-  </data>
-  <data name="because you do not have permission to upload to them:" xml:space="preserve">
-    <value>car vous n&apos;avez pas la permission d&apos;y télécharger :</value>
-  </data>
-  <data name="by" xml:space="preserve">
-    <value>par</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Composant</value>
@@ -117,9 +105,6 @@
   <data name="Package" xml:space="preserve">
     <value>Paquet</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>paquet(s)</value>
-  </data>
   <data name="Pending Sync" xml:space="preserve">
     <value>Synchronisation en attente</value>
   </data>
@@ -162,9 +147,6 @@
   <data name="Unpublished" xml:space="preserve">
     <value>Non publié</value>
   </data>
-  <data name="unpublished upload(s) pending publish." xml:space="preserve">
-    <value>téléchargement(s) non publié(s) en attente de publication.</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Historique des téléchargements</value>
   </data>
@@ -194,6 +176,24 @@
   </data>
   <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
     <value>Au sein d&apos;un seul fichier .apkg, chaque entrée peut varier selon trois &lt;strong&gt;attributs dynamiques&lt;/strong&gt; : &lt;strong&gt;Version&lt;/strong&gt; (extraite du binaire .deb, jamais inscrite dans manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt; et &lt;strong&gt;Architecture&lt;/strong&gt;. Cela vous permet de distribuer, par exemple, les versions amd64 et arm64 d&apos;une même release lors d&apos;un seul téléchargement.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>et TOUTES ses révisions ? Cette action est irréversible.</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>car vous n&apos;avez pas la permission d&apos;y télécharger :</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>par</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>paquet(s)</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>téléchargement(s) non publié(s) en attente de publication.</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>

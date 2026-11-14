@@ -102,9 +102,6 @@
   <data name="Package Details" xml:space="preserve">
     <value>패키지 상세 정보</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>패키지(들)</value>
-  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>물리적 (캐시됨)</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="What is a Package?" xml:space="preserve">
     <value>패키지란 무엇인가요?</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>패키지(들)</value>
   </data>
 
 </root>

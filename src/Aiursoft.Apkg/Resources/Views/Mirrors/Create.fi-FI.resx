@@ -51,11 +51,11 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Tallenna muutokset</value>
   </data>
-  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
-    <value>Ylävirran palvelimen perus-URL (esim. &apos;https://mirrors.ubuntu.com/&apos;). Jakelun nimi liitetään automaattisesti.</value>
-  </data>
   <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Tämän peilin URL-etuliite (esim. &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>Ylävirran palvelimen perus-URL (esim. &apos;https://mirrors.ubuntu.com/&apos;). Jakelun nimi liitetään automaattisesti.</value>
   </data>
 
 </root>

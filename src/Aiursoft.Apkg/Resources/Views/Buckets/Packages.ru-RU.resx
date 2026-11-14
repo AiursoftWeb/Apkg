@@ -36,14 +36,8 @@
   <data name="Next" xml:space="preserve">
     <value>Далее</value>
   </data>
-  <data name="of" xml:space="preserve">
-    <value>из</value>
-  </data>
   <data name="Package" xml:space="preserve">
     <value>Пакет</value>
-  </data>
-  <data name="packages" xml:space="preserve">
-    <value>пакетов</value>
   </data>
   <data name="Packages in Bucket" xml:space="preserve">
     <value>Пакеты в контейнере</value>
@@ -71,6 +65,12 @@
   </data>
   <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
     <value>Виртуальный: файл размещён на внешнем зеркале и загружается по требованию клиентами apt. Физический: файл хранится локально на этом сервере.</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>из</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>пакетов</value>
   </data>
 
 </root>

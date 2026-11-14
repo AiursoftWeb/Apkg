@@ -30,6 +30,12 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Oletko varma, että haluat käynnistää sovelluksen uudelleen? Tämä toiminto on peruuttamaton ja katkaisee kaikki aktiiviset yhteydet.</value>
   </data>
+  <data name="CPU Architecture" xml:space="preserve">
+    <value>Suorittimen arkkitehtuuri</value>
+  </data>
+  <data name="CPU Cores" xml:space="preserve">
+    <value>Suorittimen ytimet</value>
+  </data>
   <data name="Cache coverage" xml:space="preserve">
     <value>Välimuistin kattavuus</value>
   </data>
@@ -44,12 +50,6 @@
   </data>
   <data name="Contents Cache" xml:space="preserve">
     <value>Sisältövälimuisti</value>
-  </data>
-  <data name="CPU Architecture" xml:space="preserve">
-    <value>Suorittimen arkkitehtuuri</value>
-  </data>
-  <data name="CPU Cores" xml:space="preserve">
-    <value>Suorittimen ytimet</value>
   </data>
   <data name="Created" xml:space="preserve">
     <value>Luotu</value>

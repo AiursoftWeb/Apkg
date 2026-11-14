@@ -108,14 +108,14 @@
   <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
     <value>La clé GPG utilisée pour signer les fichiers Release de ce dépôt.</value>
   </data>
-  <data name="The internal identifier and part of the URL path." xml:space="preserve">
-    <value>L&apos;identifiant interne et une partie du chemin de l&apos;URL.</value>
-  </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Le préfixe d&apos;URL pour ce dépôt (par ex. &apos;ubuntu&apos;).</value>
   </data>
   <data name="The URL prefix for this repository. Must be a single lowercase identifier (e.g. &apos;anduinos&apos;, &apos;ubuntu&apos;)." xml:space="preserve">
     <value>The URL prefix for this repository. Must be a single lowercase identifier (e.g. &apos;anduinos&apos;, &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>L&apos;identifiant interne et une partie du chemin de l&apos;URL.</value>
   </data>
   <data name="This field accepts multiple values. Separate them with commas." xml:space="preserve">
     <value>This field accepts multiple values. Separate them with commas.</value>

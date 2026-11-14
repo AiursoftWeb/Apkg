@@ -57,14 +57,14 @@
   <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
     <value>Điều này sẽ gỡ bỏ các gói sau khỏi kho của chúng. Việc gỡ danh sách chỉ có thể được đảo ngược bởi một quản trị viên.</value>
   </data>
-  <data name="version" xml:space="preserve">
-    <value>phiên bản</value>
-  </data>
   <data name="Warning:" xml:space="preserve">
     <value>Cảnh báo:</value>
   </data>
   <data name="You are about to unlist" xml:space="preserve">
     <value>Bạn sắp gỡ danh sách</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>phiên bản</value>
   </data>
 
 </root>

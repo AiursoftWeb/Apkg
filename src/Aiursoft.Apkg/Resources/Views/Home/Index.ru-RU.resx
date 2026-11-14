@@ -18,17 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name=".apkg publishing" xml:space="preserve">
-    <value>публикация .apkg</value>
-  </data>
-  <data name=".NET Global Tool" xml:space="preserve">
-    <value>Глобальное средство .NET</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Поддержка &quot;Fire-and-forget&quot; для длительных задач (например, электронные письма или ИИ), с графическим интерфейсом для управления очередями, параллельной обработкой и отменой.</value>
   </data>
   <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
     <value>«Традиционная упаковка Debian размазывает определение пакета по полудюжине файлов — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — каждый на своем архаичном диалекте. Я создал &lt;code&gt;.aosproj&lt;/code&gt;, чтобы заменить всё это единым декларативным манифестом. Структурированный XML позволяет легко разбирать графы зависимостей как людям, так и CI-системам. Конвейеры CI сводятся к командам &lt;code&gt;apkg publish &amp;&amp; apkg push&lt;/code&gt;. Это превращает упаковку пакетов для дистрибутивов Linux из чёрного искусства в стандартную инженерную практику».»</value>
+  </data>
+  <data name=".NET Global Tool" xml:space="preserve">
+    <value>Глобальное средство .NET</value>
+  </data>
+  <data name=".apkg publishing" xml:space="preserve">
+    <value>публикация .apkg</value>
   </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>Ферма &lt;code&gt;Buildd&lt;/code&gt; выполняет нативную компиляцию на реальном оборудовании. Утилита &lt;code&gt;apt-ftparchive&lt;/code&gt;, запускаемая по расписанию (cron), обновляет индексы — пакеты могут находиться в очереди &lt;code&gt;incoming&lt;/code&gt; в течение нескольких часов перед публикацией.</value>
@@ -63,6 +63,24 @@
   <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
     <value>Одна команда для установки клиента APKG и начала управления пакетами APT.</value>
   </data>
+  <data name="AI Driven Translation" xml:space="preserve">
+    <value>Перевод на основе ИИ</value>
+  </data>
+  <data name="AI Readable" xml:space="preserve">
+    <value>AI-читаемый</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Переводы на основе ИИ</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>APT-репозиторий пакетов</value>
+  </data>
+  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
+    <value>Клиенты APT считывают только основные сегменты. Незавершённые синхронизации, неподписанные метаданные и промежуточные сегменты остаются невидимыми.</value>
+  </data>
+  <data name="APT repository server" xml:space="preserve">
+    <value>APT-репозиторий</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Достигайте большего с Aiursoft Template</value>
   </data>
@@ -77,15 +95,6 @@
   </data>
   <data name="After sync and signing, machines consume the repository with normal APT source files and &lt;code&gt;apt install&lt;/code&gt; commands." xml:space="preserve">
     <value>После синхронизации и подписи машины используют репозиторий с обычными APT-источниками и командами &lt;code&gt;apt install&lt;/code&gt;.</value>
-  </data>
-  <data name="AI Driven Translation" xml:space="preserve">
-    <value>Перевод на основе ИИ</value>
-  </data>
-  <data name="AI Readable" xml:space="preserve">
-    <value>AI-читаемый</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Переводы на основе ИИ</value>
   </data>
   <data name="Aiursoft Apkg" xml:space="preserve">
     <value>Aiursoft Apkg</value>
@@ -120,15 +129,6 @@
   <data name="Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots." xml:space="preserve">
     <value>Apkg выступает связующим звеном между исходными архивами, разработчиками пакетов и клиентскими машинами. Он преобразует метаданные зеркал и загруженные переопределения в подписанные, стабильные снимки репозитория.</value>
   </data>
-  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
-    <value>Клиенты APT считывают только основные сегменты. Незавершённые синхронизации, неподписанные метаданные и промежуточные сегменты остаются невидимыми.</value>
-  </data>
-  <data name="APT Package Repository" xml:space="preserve">
-    <value>APT-репозиторий пакетов</value>
-  </data>
-  <data name="APT repository server" xml:space="preserve">
-    <value>APT-репозиторий</value>
-  </data>
   <data name="Architecture Philosophy" xml:space="preserve">
     <value>Философия архитектуры</value>
   </data>
@@ -141,11 +141,11 @@
   <data name="Authentik &amp; Okta" xml:space="preserve">
     <value>Authentik &amp; Okta</value>
   </data>
-  <data name="Auto compression and privacy" xml:space="preserve">
-    <value>Автоматическое сжатие и конфиденциальность</value>
-  </data>
   <data name="Auto Deployment" xml:space="preserve">
     <value>Автоматическая развертка</value>
+  </data>
+  <data name="Auto compression and privacy" xml:space="preserve">
+    <value>Автоматическое сжатие и конфиденциальность</value>
   </data>
   <data name="Automatic AI translation into 28 languages." xml:space="preserve">
     <value>Автоматический перевод с помощью ИИ на 28 языков.</value>
@@ -222,9 +222,6 @@
   <data name="Built-in" xml:space="preserve">
     <value>Встроенная</value>
   </data>
-  <data name="Built-in administration panel" xml:space="preserve">
-    <value>Встроенная панель администрирования</value>
-  </data>
   <data name="Built-in Auth" xml:space="preserve">
     <value>Встроенная аутентификация</value>
   </data>
@@ -234,8 +231,8 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>Встроенное управление пользователями</value>
   </data>
-  <data name="Certificate management" xml:space="preserve">
-    <value>Управление сертификатами</value>
+  <data name="Built-in administration panel" xml:space="preserve">
+    <value>Встроенная панель администрирования</value>
   </data>
   <data name="CI cross-compilation excels on amd64/arm64, but Debian&apos;s native Buildd catches architecture-specific UB that cross-toolchains miss." xml:space="preserve">
     <value>Кросс-компиляция в CI отлично работает для amd64/arm64, но нативные сборки Debian в Buildd выявляют специфичные для архитектуры неопределённые поведения (UB), которые пропускаются кросс-тулчейнами.</value>
@@ -245,6 +242,9 @@
   </data>
   <data name="CLI quick start" xml:space="preserve">
     <value>Быстрый старт CLI</value>
+  </data>
+  <data name="Certificate management" xml:space="preserve">
+    <value>Управление сертификатами</value>
   </data>
   <data name="Cloud-native CDN delivers consistent low-latency worldwide. DDoS absorbed at the edge." xml:space="preserve">
     <value>Облачная CDN обеспечивает стабильную низкую задержку по всему миру. Атаки DDoS отражаются на границе сети.</value>
@@ -303,11 +303,11 @@
   <data name="Custom development required" xml:space="preserve">
     <value>Требуется индивидуальная разработка</value>
   </data>
-  <data name="Dashboard for background tasks" xml:space="preserve">
-    <value>Панель управления фоновыми задачами</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Веб-сайт панели управления</value>
+  </data>
+  <data name="Dashboard for background tasks" xml:space="preserve">
+    <value>Панель управления фоновыми задачами</value>
   </data>
   <data name="Day 1 Compliance &amp; Security." xml:space="preserve">
     <value>Соответствие и безопасность с первого дня</value>
@@ -342,6 +342,9 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>Dev &amp; Prod</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>DevOps-совместимый</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>Разрабатывайте исключительно в UTC, в то время как система автоматически преобразует и отображает даты в локальном времени пользователя.</value>
   </data>
@@ -350,9 +353,6 @@
   </data>
   <data name="Developers describe package contents once, build Debian artifacts locally or in CI, push a &lt;code&gt;.apkg&lt;/code&gt; bundle, and let the server route packages into the right repositories." xml:space="preserve">
     <value>Разработчики описывают содержимое пакета единожды, собирают артефакты Debian локально или в CI, отправляют архив &lt;code&gt;.apkg&lt;/code&gt; и позволяют серверу маршрутизировать пакеты в нужные репозитории.</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>DevOps-совместимый</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>Страница обсуждений</value>
@@ -420,9 +420,6 @@
   <data name="FAQ" xml:space="preserve">
     <value>ЧАВО</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>быстрее</value>
-  </data>
   <data name="Features" xml:space="preserve">
     <value>Возможности</value>
   </data>
@@ -441,9 +438,6 @@
   <data name="Flexible API" xml:space="preserve">
     <value>Гибкая API</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>по любым вопросам или для сообщения о проблемах.</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Основатель и архитектор компании Aiursoft</value>
   </data>
@@ -456,11 +450,11 @@
   <data name="Free" xml:space="preserve">
     <value>Бесплатно</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>Бесплатно для коммерческого использования</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>Свободное программное обеспечение</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>Бесплатно для коммерческого использования</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>Часто задаваемые вопросы</value>
@@ -483,17 +477,20 @@
   <data name="Fully Offline" xml:space="preserve">
     <value>Полностью автономно</value>
   </data>
+  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
+    <value>GPG Web of Trust с очными встречами для подписи ключей. Доверие полностью децентрализовано — ни один орган не контролирует связку ключей.</value>
+  </data>
   <data name="Generate &lt;code&gt;.deb&lt;/code&gt; packages with Debian control metadata and maintainer scripts produced from the project file." xml:space="preserve">
     <value>Создавайте пакеты &lt;code&gt;.deb&lt;/code&gt; с управляющими метаданными Debian и скриптами сопровождающих, сгенерированными из файла проекта.</value>
   </data>
   <data name="Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes." xml:space="preserve">
     <value>Создание и управление сертификатами подписи GPG, а также публикация открытых ключей через удобные для репозитория маршруты артефактов.</value>
   </data>
-  <data name="Generic configuration" xml:space="preserve">
-    <value>Общая конфигурация</value>
-  </data>
   <data name="Generic Dockerfile only" xml:space="preserve">
     <value>Только общий Dockerfile</value>
+  </data>
+  <data name="Generic configuration" xml:space="preserve">
+    <value>Общая конфигурация</value>
   </data>
   <data name="GitLab CI" xml:space="preserve">
     <value>GitLab CI</value>
@@ -512,9 +509,6 @@
   </data>
   <data name="Go to dashboard" xml:space="preserve">
     <value>Перейти в панель управления</value>
-  </data>
-  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
-    <value>GPG Web of Trust с очными встречами для подписи ключей. Доверие полностью децентрализовано — ни один орган не контролирует связку ключей.</value>
   </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Обрабатывайте повторяющиеся задачи, такие как очистка и синхронизация, с помощью комплексного графического интерфейса для мониторинга истории выполнения и журналов.</value>
@@ -567,11 +561,11 @@
   <data name="Included" xml:space="preserve">
     <value>Включено</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Включает обширную документацию и практические примеры для быстрого начала работы.</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Содержит руководства</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Включает обширную документацию и практические примеры для быстрого начала работы.</value>
   </data>
   <data name="Install" xml:space="preserve">
     <value>Установить</value>
@@ -594,9 +588,6 @@
   <data name="Interoperability" xml:space="preserve">
     <value>Взаимодействие</value>
   </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>является бесплатным программным обеспечением</value>
-  </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>Бесплатно ли использовать Aiursoft Template?</value>
   </data>
@@ -618,6 +609,15 @@
   <data name="Local package overrides" xml:space="preserve">
     <value>Переопределения локальных пакетов</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>Лицензия MIT</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>MIT License</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>Синтаксис в стиле MSBuild</value>
+  </data>
   <data name="Made Simple." xml:space="preserve">
     <value>Упрощено.</value>
   </data>
@@ -636,17 +636,8 @@
   <data name="Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared." xml:space="preserve">
     <value>Синхронизация зеркал, составление репозитория, подписание, экспорт и сборка мусора разделены на независимые задачи. Опубликованные клиенты продолжают читать последний подписанный основной бакет, пока готовится новые метаданные.</value>
   </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>Лицензия MIT</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>MIT License</value>
-  </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>Модели проверяются на стороне клиента и сервера на основе аннотаций данных.</value>
-  </data>
-  <data name="MSBuild-style syntax" xml:space="preserve">
-    <value>Синтаксис в стиле MSBuild</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>Работа с несколькими часовыми поясами</value>
@@ -669,12 +660,6 @@
   <data name="Needs Celery + Flower" xml:space="preserve">
     <value>Требуется Celery + Flower</value>
   </data>
-  <data name="Needs complex authentication logic" xml:space="preserve">
-    <value>Требуется сложная логика аутентификации</value>
-  </data>
-  <data name="Needs config/plugins" xml:space="preserve">
-    <value>Требуется настройка/плагины</value>
-  </data>
   <data name="Needs ESLint/Prettier setup" xml:space="preserve">
     <value>Требуется настройка ESLint/Prettier</value>
   </data>
@@ -683,9 +668,6 @@
   </data>
   <data name="Needs Laravel Sail" xml:space="preserve">
     <value>Требуется Laravel Sail</value>
-  </data>
-  <data name="Needs manual configuration" xml:space="preserve">
-    <value>Требуется ручная настройка</value>
   </data>
   <data name="Needs Medialibrary" xml:space="preserve">
     <value>Требуется Medialibrary</value>
@@ -699,23 +681,35 @@
   <data name="Needs Spring Security config" xml:space="preserve">
     <value>Требуется конфигурация Spring Security</value>
   </data>
-  <data name="Needs third-party plugins" xml:space="preserve">
-    <value>Требуется сторонние плагины</value>
-  </data>
   <data name="Needs TypeORM or similar" xml:space="preserve">
     <value>Требуется TypeORM или аналог</value>
   </data>
+  <data name="Needs complex authentication logic" xml:space="preserve">
+    <value>Требуется сложная логика аутентификации</value>
+  </data>
+  <data name="Needs config/plugins" xml:space="preserve">
+    <value>Требуется настройка/плагины</value>
+  </data>
+  <data name="Needs manual configuration" xml:space="preserve">
+    <value>Требуется ручная настройка</value>
+  </data>
+  <data name="Needs third-party plugins" xml:space="preserve">
+    <value>Требуется сторонние плагины</value>
+  </data>
   <data name="No dependency on any cloud vendor. Run anywhere, any time." xml:space="preserve">
     <value>Нет зависимости от любого поставщика облачных услуг. Запускайте где угодно, когда угодно.</value>
-  </data>
-  <data name="Offline Capable" xml:space="preserve">
-    <value>Работа в автономном режиме</value>
   </data>
   <data name="OIDC &amp; SSO" xml:space="preserve">
     <value>OIDC &amp; SSO</value>
   </data>
   <data name="OIDC-backed RBAC with scoped API keys. Teams authenticate via existing SSO, grant per-repo permissions, and revoke access instantly." xml:space="preserve">
     <value>RBAC на базе OIDC с ограниченными по области действия API-ключами. Команды проходят аутентификацию через существующий SSO, предоставляют разрешения для каждого репозитория и могут мгновенно отзывать доступ.</value>
+  </data>
+  <data name="ORM &amp; Migrations" xml:space="preserve">
+    <value>ORM и миграции</value>
+  </data>
+  <data name="Offline Capable" xml:space="preserve">
+    <value>Работа в автономном режиме</value>
   </data>
   <data name="One Click Start" xml:space="preserve">
     <value>Одно нажатие для запуска</value>
@@ -734,9 +728,6 @@
   </data>
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>Оптимизированная конфигурация Docker &amp; K8s</value>
-  </data>
-  <data name="ORM &amp; Migrations" xml:space="preserve">
-    <value>ORM и миграции</value>
   </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Встроенный функционал</value>
@@ -759,11 +750,11 @@
   <data name="Powered by AnduinOS" xml:space="preserve">
     <value>Работает на базе AnduinOS</value>
   </data>
-  <data name="Pre-configured and tested" xml:space="preserve">
-    <value>Предварительно настроено и протестировано</value>
-  </data>
   <data name="Pre-configured CI/CD pipelines specifically for GitLab." xml:space="preserve">
     <value>Преднастроенные пайплайны CI/CD специально для GitLab.</value>
+  </data>
+  <data name="Pre-configured and tested" xml:space="preserve">
+    <value>Предварительно настроено и протестировано</value>
   </data>
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>Готовые конвейеры для dev/prod</value>
@@ -792,11 +783,11 @@
   <data name="Quick Start" xml:space="preserve">
     <value>Быстрый старт</value>
   </data>
-  <data name="RBAC and API keys" xml:space="preserve">
-    <value>RBAC и ключи API</value>
-  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Авторизация RBAC</value>
+  </data>
+  <data name="RBAC and API keys" xml:space="preserve">
+    <value>RBAC и ключи API</value>
   </data>
   <data name="RBAC is ideal for organizations, but Debian&apos;s decentralized WoT remains the gold standard for a trustless global maintainer network." xml:space="preserve">
     <value>RBAC идеально подходит для организаций, однако децентрализованная WoT Debian остается золотым стандартом для глобальной сети сопровождающих, основанной на принципах доверия без посредников.</value>
@@ -894,23 +885,23 @@
   <data name="Standard Debian repository endpoints for &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG keys, package indexes, and pool downloads." xml:space="preserve">
     <value>Стандартные конечные точки репозиториев Debian для &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG-ключей, индексов пакетов и загрузки из пула.</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>Стандартная реализация. Переключение поставщиков без компиляции.</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>Standard OpenID</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>Начать новый проект</value>
-  </data>
-  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
-    <value>Создайте проект пакета с помощью файла &lt;code&gt;.aosproj&lt;/code&gt;, затем объявите файлы, папки, скрипты, зависимости, службы, наборы и архитектуры.</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>Стандартная реализация. Переключение поставщиков без компиляции.</value>
   </data>
   <data name="Start Publishing" xml:space="preserve">
     <value>Начать публикацию</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>Начните доставку ценности.</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>Начать новый проект</value>
+  </data>
+  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
+    <value>Создайте проект пакета с помощью файла &lt;code&gt;.aosproj&lt;/code&gt;, затем объявите файлы, папки, скрипты, зависимости, службы, наборы и архитектуры.</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>Начните с одной команды &apos;docker run&apos;.</value>
@@ -927,23 +918,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>Строгие правила линтинга</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>Строгие юнит-тесты</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>Строгие правила линтинга и нулевое количество предупреждений по умолчанию.</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>Строгие правила линтинга с 0 предупреждений в проекте по умолчанию.</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>Строгие юнит-тесты</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>Сильно согласованный линтинг</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>Поддерживает как переменные среды, так и настройки, хранящиеся в базе данных, при этом переменные среды имеют приоритет для бесшовной замены.</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>Поддерживает JetBrains Rider для простого исправления стиля кода.</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>Поддерживает как переменные среды, так и настройки, хранящиеся в базе данных, при этом переменные среды имеют приоритет для бесшовной замены.</value>
   </data>
   <data name="Task Runner" xml:space="preserve">
     <value>Планировщик задач</value>
@@ -954,6 +945,9 @@
   <data name="The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration." xml:space="preserve">
     <value>CLI инструмента Apkg обеспечивает создание проектов, проверку кода (линтинг), сборку пакетов, публикацию архивов, загрузку на сервер, локальную распаковку и настройку источников APT.</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>Философия</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>Окончательная, проверенная на практике основа для корпоративных решений на .NET. От аутентификации до искусственного интеллекта — мы уже решили сложные задачи, чтобы вы не тратили на это время.</value>
   </data>
@@ -962,9 +956,6 @@
   </data>
   <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
     <value>Официальный менеджер пакетов, выбранный экосистемой AnduinOS.</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>Философия</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>Шаблон создан для простого развертывания. Он включает полную поддержку Docker, что позволяет контейнеризировать ваше приложение и запускать его где угодно. Вы также можете развернуть его напрямую в IIS, Azure App Service или на любом сервере, который поддерживает ASP.NET Core.</value>
@@ -1073,6 +1064,15 @@
   </data>
   <data name="Zero Tolerance Lint" xml:space="preserve">
     <value>Строгий линтинг без исключений</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>быстрее</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>по любым вопросам или для сообщения о проблемах.</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>является бесплатным программным обеспечением</value>
   </data>
 
 </root>

@@ -42,11 +42,11 @@
   <data name="Friendly Name" xml:space="preserve">
     <value>友好名称</value>
   </data>
-  <data name="Generate New Key" xml:space="preserve">
-    <value>生成新密钥</value>
-  </data>
   <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
     <value>GPG 证书会对您的仓库元数据进行签名，以便 apt 客户端能够验证软件包未被篡改。</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>生成新密钥</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>名称</value>

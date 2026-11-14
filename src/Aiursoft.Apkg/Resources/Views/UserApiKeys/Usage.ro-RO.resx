@@ -102,9 +102,6 @@
   <data name="Repository not found." xml:space="preserve">
     <value>Depozit negăsit.</value>
   </data>
-  <data name="required" xml:space="preserve">
-    <value>obligatoriu</value>
-  </data>
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>Fișierul .deb (multipart/form-data, obligatoriu).</value>
   </data>
@@ -128,6 +125,9 @@
   </data>
   <data name="Your account does not have permission to upload to this repository." xml:space="preserve">
     <value>Contul dvs. nu are permisiunea de a încărca în acest depozit.</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>obligatoriu</value>
   </data>
 
 </root>

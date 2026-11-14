@@ -30,17 +30,17 @@
   <data name="Allow Anonymous Browse Repository" xml:space="preserve">
     <value>Cho phép duyệt kho không xác thực</value>
   </data>
-  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
-    <value>Cho phép người dùng ẩn danh duyệt qua các kho lưu trữ và các gói của chúng mà không cần đăng nhập.</value>
-  </data>
-  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
-    <value>Cho phép người dùng ẩn danh xem chi tiết gói mà không cần đăng nhập.</value>
-  </data>
   <data name="Allow Anonymous View Package Details" xml:space="preserve">
     <value>Cho phép xem chi tiết gói không xác thực</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Cho phép người dùng chỉnh sửa biệt danh</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>Cho phép người dùng ẩn danh duyệt qua các kho lưu trữ và các gói của chúng mà không cần đăng nhập.</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>Cho phép người dùng ẩn danh xem chi tiết gói mà không cần đăng nhập.</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Cho phép người dùng điều chỉnh biệt danh của họ trên trang quản lý hồ sơ.</value>
@@ -72,11 +72,11 @@
   <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
     <value>URL cơ sở công khai được sử dụng trong các nguồn APT và liên kết ảnh chụp màn hình AppStream đã tạo, ví dụ https://packages.example.com. Hãy đặt giá trị này khi /artifacts được phục vụ bởi một tên miền riêng biệt hoặc CDN. Có thể để trống khi ứng dụng web này tự phục vụ kho lưu trữ, trừ khi có đăng tải ảnh chụp màn hình AppStream; vì quá trình tạo danh mục nền không thể suy ra URL công khai của chúng.</value>
   </data>
-  <data name="The brand name displayed in the footer." xml:space="preserve">
-    <value>Tên thương hiệu được hiển thị trong chân trang.</value>
-  </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Số giấy phép ICP cho người dùng tại Trung Quốc đại lục. Để trống để ẩn.</value>
+  </data>
+  <data name="The brand name displayed in the footer." xml:space="preserve">
+    <value>Tên thương hiệu được hiển thị trong chân trang.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Logo của dự án được hiển thị trong thanh điều hướng và chân trang. Hỗ trợ định dạng jpg, png, svg.</value>

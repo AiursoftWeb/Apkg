@@ -51,11 +51,11 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Αποθήκευση Αλλαγών</value>
   </data>
-  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
-    <value>Το βασικό URL του upstream server (π.χ. &apos;https://mirrors.ubuntu.com/&apos;). Το όνομα της διανομής θα προσαρτηθεί αυτόματα.</value>
-  </data>
   <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Το πρόθεμα URL για αυτόν τον καθρέφτη (π.χ. &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>Το βασικό URL του upstream server (π.χ. &apos;https://mirrors.ubuntu.com/&apos;). Το όνομα της διανομής θα προσαρτηθεί αυτόματα.</value>
   </data>
 
 </root>

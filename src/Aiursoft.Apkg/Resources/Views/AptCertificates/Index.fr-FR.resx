@@ -42,11 +42,11 @@
   <data name="Friendly Name" xml:space="preserve">
     <value>Nom convivial</value>
   </data>
-  <data name="Generate New Key" xml:space="preserve">
-    <value>Générer une nouvelle clé</value>
-  </data>
   <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
     <value>Les certificats GPG signent les métadonnées de votre dépôt afin que les clients apt puissent vérifier que les paquets n&apos;ont pas été altérés.</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Générer une nouvelle clé</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nom</value>

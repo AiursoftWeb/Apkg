@@ -36,14 +36,8 @@
   <data name="Next" xml:space="preserve">
     <value>Επόμενο</value>
   </data>
-  <data name="of" xml:space="preserve">
-    <value>από</value>
-  </data>
   <data name="Package" xml:space="preserve">
     <value>Πακέτο</value>
-  </data>
-  <data name="packages" xml:space="preserve">
-    <value>πακέτων</value>
   </data>
   <data name="Packages in Bucket" xml:space="preserve">
     <value>Πακέτα στο Bucket</value>
@@ -71,6 +65,12 @@
   </data>
   <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
     <value>Εικονικό: το αρχείο φιλοξενείται στον upstream mirror και κατεβαίνει κατόπιν αιτήματος από τους πελάτες apt. Φυσικό: το αρχείο αποθηκεύεται τοπικά σε αυτόν τον διακομιστή.</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>από</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>πακέτων</value>
   </data>
 
 </root>

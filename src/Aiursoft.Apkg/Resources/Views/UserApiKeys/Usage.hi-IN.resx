@@ -102,9 +102,6 @@
   <data name="Repository not found." xml:space="preserve">
     <value>भंडार नहीं मिला।</value>
   </data>
-  <data name="required" xml:space="preserve">
-    <value>आवश्यक</value>
-  </data>
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>.deb फ़ाइल (multipart/form-data, आवश्यक)।</value>
   </data>
@@ -128,6 +125,9 @@
   </data>
   <data name="Your account does not have permission to upload to this repository." xml:space="preserve">
     <value>आपके खाते में इस रिपॉजिटरी में अपलोड करने की अनुमति नहीं है।</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>आवश्यक</value>
   </data>
 
 </root>

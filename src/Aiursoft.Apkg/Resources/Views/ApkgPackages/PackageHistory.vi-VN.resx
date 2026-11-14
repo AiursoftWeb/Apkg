@@ -24,9 +24,6 @@
   <data name="All" xml:space="preserve">
     <value>Tất cả</value>
   </data>
-  <data name="and all generated Local Packages?" xml:space="preserve">
-    <value>và tất cả các Gói Local được tạo?</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Kiến trúc</value>
   </data>
@@ -65,9 +62,6 @@
   </data>
   <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
     <value>Chỉ phiên bản đã kích hoạt mới nhất xuất hiện trong kho APT.</value>
-  </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>gói(tệp)</value>
   </data>
   <data name="Permanently delete" xml:space="preserve">
     <value>Xóa vĩnh viễn</value>
@@ -113,6 +107,12 @@
   </data>
   <data name="View in repository" xml:space="preserve">
     <value>Xem trong kho lưu trữ</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>và tất cả các Gói Local được tạo?</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>gói(tệp)</value>
   </data>
 
 </root>

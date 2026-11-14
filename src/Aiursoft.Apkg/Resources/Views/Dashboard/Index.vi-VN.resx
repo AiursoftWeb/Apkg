@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ Trước</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Hỗ trợ &quot;Fire-and-forget&quot; cho các tác vụ dài hạn (như email hoặc AI), đi kèm giao diện người dùng (GUI) để quản lý hàng đợi, xử lý song song và hủy bỏ.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Một nền tảng hiện đại, đầy đủ tính năng và có khả năng mở rộng cao cho ứng dụng web tiếp theo của bạn.</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>Thêm một kho lưu trữ vào</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Bản dịch hỗ trợ bởi AI</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Tất cả các dependency đều được tự động đăng ký và luôn sẵn sàng để sử dụng thông qua constructor injection.</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>và duyệt các gói của chúng một cách riêng lẻ.</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>và chạy</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>Tìm kiếm Gói APT</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Thêm một kho lưu trữ vào</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Tất cả các dependency đều được tự động đăng ký và luôn sẵn sàng để sử dụng thông qua constructor injection.</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Chế độ Tối Tự động</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Đây là một dự án mẫu, nơi chúng ta bắt đầu hành trình khám phá...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>để bắt đầu.</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>Hãy thử tên ngắn hơn hoặc kiểm tra chính tả.</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Tại sao nên sử dụng Mẫu Aiursoft?</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>và duyệt các gói của chúng một cách riêng lẻ.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>và chạy</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>để bắt đầu.</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Trước</value>
   </data>
 
 </root>

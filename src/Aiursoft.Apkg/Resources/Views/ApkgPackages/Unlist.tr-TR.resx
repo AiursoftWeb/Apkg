@@ -57,14 +57,14 @@
   <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
     <value>Bu işlem, aşağıdaki paketleri depolarından kaldırır. Listeden çıkarma işlemi yalnızca bir yönetici tarafından geri alınabilir.</value>
   </data>
-  <data name="version" xml:space="preserve">
-    <value>sürüm</value>
-  </data>
   <data name="Warning:" xml:space="preserve">
     <value>Uyarı:</value>
   </data>
   <data name="You are about to unlist" xml:space="preserve">
     <value>Listeyi kaldırma işlemi hakkında bilgilendirilmektesiniz.</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>sürüm</value>
   </data>
 
 </root>

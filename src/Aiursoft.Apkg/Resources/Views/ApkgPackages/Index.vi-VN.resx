@@ -27,9 +27,6 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
     <value>Gói hỗn hợp .apkg là định dạng độc quyền của Apkg, gom nhiều gói .deb thành một lượt tải lên duy nhất. Sau khi xử lý, mỗi gói .deb bên trong sẽ được trích xuất và đồng bộ hóa đến kho APT mục tiêu của nó.</value>
   </data>
-  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
-    <value>và TẤT CẢ các phiên bản sửa đổi và gói cục bộ của nó. Tên gói sẽ được giải phóng cho các người dùng khác. Hành động này không thể hoàn tác.</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Hủy bỏ</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="What is a mixed package?" xml:space="preserve">
     <value>Gói hỗn hợp là gì?</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>và TẤT CẢ các phiên bản sửa đổi và gói cục bộ của nó. Tên gói sẽ được giải phóng cho các người dùng khác. Hành động này không thể hoàn tác.</value>
   </data>
 
 </root>

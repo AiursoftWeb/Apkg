@@ -57,14 +57,14 @@
   <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
     <value>การดำเนินการนี้จะลบแพ็กเกจต่อไปนี้จากรีพอสิทอรี การยกเลิกการแสดงรายการสามารถย้อนกลับได้โดยผู้ดูแลระบบเท่านั้น</value>
   </data>
-  <data name="version" xml:space="preserve">
-    <value>เวอร์ชัน</value>
-  </data>
   <data name="Warning:" xml:space="preserve">
     <value>คำเตือน:</value>
   </data>
   <data name="You are about to unlist" xml:space="preserve">
     <value>คุณกำลังจะเพิกถอนการจดทะเบียน</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>เวอร์ชัน</value>
   </data>
 
 </root>

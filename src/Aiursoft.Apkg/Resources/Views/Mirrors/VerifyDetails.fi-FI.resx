@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>Epäonnistui</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>tiedosto</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>GPG-varmennetiedot</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>GPG-allekirjoitus varmistaa, että paketit ovat luotettavasta lähteestä eikä niitä ole muokattu. Peilin InRelease-tiedosto varmistetaan GPG-avaintaan vastaan.</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>GPG-varmennetiedot</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>Avainrenkaat</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>Mikä on GPG-tarkistus?</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>tiedosto</value>
   </data>
 
 </root>

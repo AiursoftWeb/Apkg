@@ -75,11 +75,11 @@
   <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
     <value>Der zum Signieren der Release-Dateien dieses Repositorys verwendete GPG-Schlüssel.</value>
   </data>
-  <data name="The internal identifier and part of the URL path." xml:space="preserve">
-    <value>Der interne Bezeichner und Teil des URL-Pfads.</value>
-  </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Das URL-Präfix für dieses Repository (z. B. &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>Der interne Bezeichner und Teil des URL-Pfads.</value>
   </data>
   <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
     <value>Wenn aktiviert, wird die Release-Datei nach jedem Repository-Sync mit dem ausgewählten GPG-Schlüssel signiert. Clients, die &apos;signed-by=&apos; in ihrer sources.list verwenden, überprüfen diese Signatur und lehnen nicht signierte oder falsch signierte Repositories ab.</value>

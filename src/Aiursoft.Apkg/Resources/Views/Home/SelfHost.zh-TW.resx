@@ -21,9 +21,6 @@
       <data name="About Apkg" xml:space="preserve">
     <value>關於 Apkg</value>
   </data>
-  <data name="and the default password is:" xml:space="preserve">
-    <value>而預設密碼為：</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
@@ -117,6 +114,9 @@
   <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
     <value>在提供實際儲存庫服務之前，請替換預設的簽署憑證。</value>
   </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>手動執行</value>
+  </data>
   <data name="Run in Docker" xml:space="preserve">
     <value>在 Docker 中執行</value>
   </data>
@@ -125,9 +125,6 @@
   </data>
   <data name="Run in Visual Studio" xml:space="preserve">
     <value>在 Visual Studio 中執行</value>
-  </data>
-  <data name="Run Manually" xml:space="preserve">
-    <value>手動執行</value>
   </data>
   <data name="Self Host" xml:space="preserve">
     <value>自行託管</value>
@@ -141,14 +138,14 @@
   <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
     <value>這將啟動一個 Web 伺服器，位址為 http://localhost:5000，您可以在此測試應用程式。</value>
   </data>
-  <data name="The default username is:" xml:space="preserve">
-    <value>預設使用者名稱為：</value>
-  </data>
   <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
     <value>Docker 映像會檢查 http://localhost:5000/health。在應用程式啟動後，請使用相同的端點進行外部正常運行時間監控。</value>
   </data>
   <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
     <value>Docker 映像會安裝 gnupg 與 ubuntu-keyring，用於儲存庫簽署及上游簽章驗證。請保留 /data 資料夾，因為它存放著 appsettings.json、SQLite 資料庫、套件物件、大頭照以及 GPG 金鑰環。</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>預設使用者名稱為：</value>
   </data>
   <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
     <value>以下指令將在此 Ubuntu 伺服器上安裝／更新此應用程式。支援 Ubuntu 25.04。</value>
@@ -158,6 +155,9 @@
   </data>
   <data name="Visit http://localhost:5000." xml:space="preserve">
     <value>造訪 http://localhost:5000。</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>而預設密碼為：</value>
   </data>
 
 </root>

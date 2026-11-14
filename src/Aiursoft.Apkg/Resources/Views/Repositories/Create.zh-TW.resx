@@ -75,11 +75,11 @@
   <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
     <value>用於簽署此儲存庫 Release 檔案的 GPG 金鑰。</value>
   </data>
-  <data name="The internal identifier and part of the URL path." xml:space="preserve">
-    <value>內部識別碼及 URL 路徑的一部分。</value>
-  </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>此儲存庫的 URL 前綴（例如 &apos;ubuntu&apos;）。</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>內部識別碼及 URL 路徑的一部分。</value>
   </data>
   <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
     <value>啟用後，每次儲存庫同步完成後，Release 檔案都會使用所選的 GPG 金鑰進行簽署。在其 sources.list 中使用 &apos;signed-by=&apos; 的用戶端將驗證此簽章，並拒絕未簽署或錯誤簽署的儲存庫。</value>

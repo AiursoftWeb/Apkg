@@ -42,11 +42,11 @@
   <data name="Friendly Name" xml:space="preserve">
     <value>Visningsnamn</value>
   </data>
-  <data name="Generate New Key" xml:space="preserve">
-    <value>Skapa ny nyckel</value>
-  </data>
   <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
     <value>GPG-certifikat signerar ditt lagermetadata så att apt-klienter kan verifiera att paket inte har förfalskats.</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Skapa ny nyckel</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Namn</value>

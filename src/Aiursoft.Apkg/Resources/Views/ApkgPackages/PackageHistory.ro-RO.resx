@@ -24,9 +24,6 @@
   <data name="All" xml:space="preserve">
     <value>Toate</value>
   </data>
-  <data name="and all generated Local Packages?" xml:space="preserve">
-    <value>și toate Pachetele Locale generate?</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Arhitectura</value>
   </data>
@@ -65,9 +62,6 @@
   </data>
   <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
     <value>Doar cea mai recentă versiune activată apare în repozitoarele APT.</value>
-  </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>pachet(e)</value>
   </data>
   <data name="Permanently delete" xml:space="preserve">
     <value>Șterge definitiv</value>
@@ -113,6 +107,12 @@
   </data>
   <data name="View in repository" xml:space="preserve">
     <value>Afișare în depozit</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>și toate Pachetele Locale generate?</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pachet(e)</value>
   </data>
 
 </root>

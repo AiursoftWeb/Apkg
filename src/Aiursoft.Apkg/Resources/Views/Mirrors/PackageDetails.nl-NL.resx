@@ -87,9 +87,6 @@
   <data name="Package Details" xml:space="preserve">
     <value>Pakketdetails</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>pakket(ten)</value>
-  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>Fysiek (Gecacheerd)</value>
   </data>
@@ -125,6 +122,9 @@
   </data>
   <data name="What is a Package?" xml:space="preserve">
     <value>Wat is een pakket?</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pakket(ten)</value>
   </data>
 
 </root>

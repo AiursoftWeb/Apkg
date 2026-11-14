@@ -30,6 +30,12 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Czy na pewno chcesz zrestartować aplikację? Ta operacja jest nieodwracalna i spowoduje zakończenie wszystkich aktywnych połączeń.</value>
   </data>
+  <data name="CPU Architecture" xml:space="preserve">
+    <value>Architektura procesora</value>
+  </data>
+  <data name="CPU Cores" xml:space="preserve">
+    <value>Rdzeny procesora</value>
+  </data>
   <data name="Cache coverage" xml:space="preserve">
     <value>Zasięg pamięci podręcznej</value>
   </data>
@@ -44,12 +50,6 @@
   </data>
   <data name="Contents Cache" xml:space="preserve">
     <value>Pamięć podręczna treści</value>
-  </data>
-  <data name="CPU Architecture" xml:space="preserve">
-    <value>Architektura procesora</value>
-  </data>
-  <data name="CPU Cores" xml:space="preserve">
-    <value>Rdzeny procesora</value>
   </data>
   <data name="Created" xml:space="preserve">
     <value>Utworzono</value>

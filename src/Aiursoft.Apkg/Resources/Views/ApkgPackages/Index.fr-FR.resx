@@ -27,9 +27,6 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
     <value>Un package mixte .apkg est un format propriétaire d&apos;Apkg qui regroupe plusieurs packages .deb dans un seul téléchargement. Après traitement, chaque .deb contenu est extrait et synchronisé vers son référentiel APT cible.</value>
   </data>
-  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
-    <value>et TOUTES ses révisions et paquets locaux. Le nom du paquet sera libéré pour d&apos;autres utilisateurs. Cette action est irréversible.</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Annuler</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="What is a mixed package?" xml:space="preserve">
     <value>Qu&apos;est-ce qu&apos;un package mixte ?</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>et TOUTES ses révisions et paquets locaux. Le nom du paquet sera libéré pour d&apos;autres utilisateurs. Cette action est irréversible.</value>
   </data>
 
 </root>

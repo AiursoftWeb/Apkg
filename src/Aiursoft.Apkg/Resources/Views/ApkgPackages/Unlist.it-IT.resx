@@ -57,14 +57,14 @@
   <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
     <value>Ciò rimuoverà i seguenti pacchetti dai loro repository. La rimozione dalla lista è reversibile solo da un amministratore.</value>
   </data>
-  <data name="version" xml:space="preserve">
-    <value>versione</value>
-  </data>
   <data name="Warning:" xml:space="preserve">
     <value>Avviso:</value>
   </data>
   <data name="You are about to unlist" xml:space="preserve">
     <value>Stai per rimuovere dalla lista</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>versione</value>
   </data>
 
 </root>

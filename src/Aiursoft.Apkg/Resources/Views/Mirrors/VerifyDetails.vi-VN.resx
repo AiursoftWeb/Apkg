@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>Thất bại</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>tệp</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>Chi tiết xác thực GPG</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>Chữ ký GPG đảm bảo các gói phần mềm đến từ nguồn tin cậy và chưa bị sửa đổi. Tệp InRelease của mirror được xác minh bằng khóa GPG của nó.</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>Chi tiết xác thực GPG</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>Vòng khóa</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>Xác thực GPG là gì?</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>tệp</value>
   </data>
 
 </root>

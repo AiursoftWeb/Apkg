@@ -24,12 +24,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
-  <data name="e.g. anduinos" xml:space="preserve">
-    <value>z. B. Anduinos</value>
-  </data>
-  <data name="e.g. Anduinos Official Key" xml:space="preserve">
-    <value>z. B. Anduinos Official Key</value>
-  </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>Neues Zertifikat generieren</value>
   </data>
@@ -41,6 +35,12 @@
   </data>
   <data name="This name will be embedded in the GPG key as the User ID." xml:space="preserve">
     <value>Dieser Name wird im GPG-Schlüssel als Benutzer-ID eingebettet.</value>
+  </data>
+  <data name="e.g. Anduinos Official Key" xml:space="preserve">
+    <value>z. B. Anduinos Official Key</value>
+  </data>
+  <data name="e.g. anduinos" xml:space="preserve">
+    <value>z. B. Anduinos</value>
   </data>
 
 </root>

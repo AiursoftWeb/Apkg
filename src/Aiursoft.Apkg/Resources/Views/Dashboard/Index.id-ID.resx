@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ Sebelumnya</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Dukungan &quot;fire-and-forget&quot; untuk tugas berjalan lama (seperti email atau AI), dilengkapi antarmuka GUI untuk manajemen antrian, pemrosesan paralel, dan pembatalan.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Sebuah fondasi yang modern, kaya fitur, dan sangat dapat diperluas untuk aplikasi web Anda berikutnya.</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>Tambahkan repositori ke dalam</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Terjemahan Berbasis AI</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Semua dependensi terdaftar secara otomatis dan selalu tersedia melalui constructor injection.</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>dan jelajahi paket mereka secara individual.</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>dan jalankan</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>Pencarian Paket APT</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Tambahkan repositori ke dalam</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Semua dependensi terdaftar secara otomatis dan selalu tersedia melalui constructor injection.</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Mode Gelap Otomatis</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Ini adalah proyek templat, di mana kita memulai perjalanan...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>untuk memulai.</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>Coba gunakan nama yang lebih pendek atau periksa ejaannya.</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Menggunakan Template Aiursoft?</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>dan jelajahi paket mereka secara individual.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>dan jalankan</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>untuk memulai.</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Sebelumnya</value>
   </data>
 
 </root>

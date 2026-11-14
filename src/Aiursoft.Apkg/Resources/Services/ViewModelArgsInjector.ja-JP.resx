@@ -18,7 +18,19 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="API Key Usage" xml:space="preserve">
+    <value>API キーの使用状況</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>APIキー</value>
+  </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>APKG パッケージ詳細</value>
+  </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>APKG アップロード詳細</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>アクセスが拒否されました</value>
   </data>
   <data name="Account Settings" xml:space="preserve">
@@ -39,23 +51,11 @@
   <data name="Anonymous" xml:space="preserve">
     <value>匿名</value>
   </data>
-  <data name="API Key Usage" xml:space="preserve">
-    <value>API キーの使用状況</value>
-  </data>
-  <data name="API Keys" xml:space="preserve">
-    <value>APIキー</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>APKG ハイブリッド</value>
-  </data>
-  <data name="APKG Package Details" xml:space="preserve">
-    <value>APKG パッケージ詳細</value>
-  </data>
-  <data name="APKG Upload Details" xml:space="preserve">
-    <value>APKG アップロード詳細</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>バックグラウンドジョブ</value>
@@ -282,17 +282,17 @@
   <data name="Unauthorized" xml:space="preserve">
     <value>権限がありません</value>
   </data>
-  <data name="Upload apkg mixed package" xml:space="preserve">
-    <value>APKG パッケージをアップロード</value>
-  </data>
-  <data name="Upload deb package" xml:space="preserve">
-    <value>Upload deb package</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>アップロード履歴</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>パッケージをアップロード</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>APKG パッケージをアップロード</value>
+  </data>
+  <data name="Upload deb package" xml:space="preserve">
+    <value>Upload deb package</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>アップストリームミラー</value>

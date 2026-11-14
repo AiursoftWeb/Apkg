@@ -30,6 +30,12 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Вы уверены, что хотите перезапустить приложение? Это действие необратимо и завершит все активные подключения.</value>
   </data>
+  <data name="CPU Architecture" xml:space="preserve">
+    <value>Архитектура ЦП</value>
+  </data>
+  <data name="CPU Cores" xml:space="preserve">
+    <value>Ядра процессора</value>
+  </data>
   <data name="Cache coverage" xml:space="preserve">
     <value>Охват кэша</value>
   </data>
@@ -44,12 +50,6 @@
   </data>
   <data name="Contents Cache" xml:space="preserve">
     <value>Кэш содержимого</value>
-  </data>
-  <data name="CPU Architecture" xml:space="preserve">
-    <value>Архитектура ЦП</value>
-  </data>
-  <data name="CPU Cores" xml:space="preserve">
-    <value>Ядра процессора</value>
   </data>
   <data name="Created" xml:space="preserve">
     <value>Создано</value>

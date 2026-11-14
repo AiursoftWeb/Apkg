@@ -24,9 +24,6 @@
   <data name="All" xml:space="preserve">
     <value>全部</value>
   </data>
-  <data name="and all generated Local Packages?" xml:space="preserve">
-    <value>及所有產生的本地套件？</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>架構</value>
   </data>
@@ -65,9 +62,6 @@
   </data>
   <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
     <value>只有最新已啟用的版本會顯示在 APT 存放庫中。</value>
-  </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>套件</value>
   </data>
   <data name="Permanently delete" xml:space="preserve">
     <value>永久刪除</value>
@@ -113,6 +107,12 @@
   </data>
   <data name="View in repository" xml:space="preserve">
     <value>在儲存庫中查看</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>及所有產生的本地套件？</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>套件</value>
   </data>
 
 </root>

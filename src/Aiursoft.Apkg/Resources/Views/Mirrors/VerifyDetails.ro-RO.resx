@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>Eșuat</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>fișier</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>Detalii verificare GPG</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>Semnarea GPG asigură că pachetele provin dintr-o sursă de încredere și nu au fost alterate. Fișierul InRelease al oglinzii este verificat în raport cu cheia sa GPG.</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>Detalii verificare GPG</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>Inel de chei</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>Ce este verificarea GPG?</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>fișier</value>
   </data>
 
 </root>

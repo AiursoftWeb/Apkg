@@ -42,11 +42,11 @@
   <data name="Friendly Name" xml:space="preserve">
     <value>Nume amical</value>
   </data>
-  <data name="Generate New Key" xml:space="preserve">
-    <value>Generează cheie nouă</value>
-  </data>
   <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
     <value>Certificatele GPG semnează metadatele depozitului dvs., astfel încât clienții apt să poată verifica dacă pachetele nu au fost modificate.</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Generează cheie nouă</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nume</value>

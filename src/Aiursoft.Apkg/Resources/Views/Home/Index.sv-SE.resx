@@ -18,17 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name=".apkg publishing" xml:space="preserve">
-    <value>.apkg-publicering</value>
-  </data>
-  <data name=".NET Global Tool" xml:space="preserve">
-    <value>.NET Globalt verktyg</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>&quot;Fire-and-forget&quot;-stöd för långvariga uppgifter (t.ex. e-post eller AI), med en GUI för köhantering, parallell bearbetning och avbrott.</value>
   </data>
   <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
     <value>Traditionell Debian-packning sprider paketdefinitionen över en halvdelen filer — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — var och en med sitt eget kryptiska dialekt. Jag designade &lt;code&gt;.aosproj&lt;/code&gt; för att ersätta allt detta med ett enda deklarativt manifest. Strukturerat XML gör beroendegrafer enkelt att parsas av både människor och CI-maskiner. CI-pipelines reduceras till &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. Det förvandlar Linux-distributionspackning från en svart konsthantverk till standardiserad mjukvaruteknik.</value>
+  </data>
+  <data name=".NET Global Tool" xml:space="preserve">
+    <value>.NET Globalt verktyg</value>
+  </data>
+  <data name=".apkg publishing" xml:space="preserve">
+    <value>.apkg-publicering</value>
   </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>&lt;code&gt;Buildd&lt;/code&gt;-farmen kompilerar inbyggt på riktig hårdvara. &lt;code&gt;apt-ftparchive&lt;/code&gt;, som styrs av cron, regenererar index — paket väntar i timmar i &lt;code&gt;incoming&lt;/code&gt; innan publicering.</value>
@@ -63,6 +63,24 @@
   <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
     <value>Ett enda kommando för att installera APKG-klienten och börja hantera dina APT-paket.</value>
   </data>
+  <data name="AI Driven Translation" xml:space="preserve">
+    <value>AI-driven översättning</value>
+  </data>
+  <data name="AI Readable" xml:space="preserve">
+    <value>AI-läsbar</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>AI-drivna översättningar</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>APT-paketarkiv</value>
+  </data>
+  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
+    <value>APT-klienter läser endast primära behållare. Ofullständiga synkroniseringar, osignerad metadata och staging-behållare förblir osynliga.</value>
+  </data>
+  <data name="APT repository server" xml:space="preserve">
+    <value>APT-arkivserver</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Uppnå mer med Aiursoft Template</value>
   </data>
@@ -77,15 +95,6 @@
   </data>
   <data name="After sync and signing, machines consume the repository with normal APT source files and &lt;code&gt;apt install&lt;/code&gt; commands." xml:space="preserve">
     <value>Efter synkronisering och signering konsumeras arkivet av maskiner med vanliga APT-källfiler och &lt;code&gt;apt install&lt;/code&gt;-kommandon.</value>
-  </data>
-  <data name="AI Driven Translation" xml:space="preserve">
-    <value>AI-driven översättning</value>
-  </data>
-  <data name="AI Readable" xml:space="preserve">
-    <value>AI-läsbar</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>AI-drivna översättningar</value>
   </data>
   <data name="Aiursoft Apkg" xml:space="preserve">
     <value>Aiursoft Apkg</value>
@@ -120,15 +129,6 @@
   <data name="Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots." xml:space="preserve">
     <value>Apkg befinner sig mellan upstream-arkiv, paketutvecklare och klientdatorer. Det omvandlar spegelmetadata och uppladdade överskrifter till signerade, stabila arkivögonblicksbilder.</value>
   </data>
-  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
-    <value>APT-klienter läser endast primära behållare. Ofullständiga synkroniseringar, osignerad metadata och staging-behållare förblir osynliga.</value>
-  </data>
-  <data name="APT Package Repository" xml:space="preserve">
-    <value>APT-paketarkiv</value>
-  </data>
-  <data name="APT repository server" xml:space="preserve">
-    <value>APT-arkivserver</value>
-  </data>
   <data name="Architecture Philosophy" xml:space="preserve">
     <value>Arkitekturfilosofi</value>
   </data>
@@ -141,11 +141,11 @@
   <data name="Authentik &amp; Okta" xml:space="preserve">
     <value>Authentik &amp; Okta</value>
   </data>
-  <data name="Auto compression and privacy" xml:space="preserve">
-    <value>Automatisk komprimering och integritet</value>
-  </data>
   <data name="Auto Deployment" xml:space="preserve">
     <value>Automatisk distribution</value>
+  </data>
+  <data name="Auto compression and privacy" xml:space="preserve">
+    <value>Automatisk komprimering och integritet</value>
   </data>
   <data name="Automatic AI translation into 28 languages." xml:space="preserve">
     <value>Automatisk AI-översättning till 28 språk.</value>
@@ -222,9 +222,6 @@
   <data name="Built-in" xml:space="preserve">
     <value>Inbyggd</value>
   </data>
-  <data name="Built-in administration panel" xml:space="preserve">
-    <value>Inbyggt administrationspanel</value>
-  </data>
   <data name="Built-in Auth" xml:space="preserve">
     <value>Inbyggd autentisering</value>
   </data>
@@ -234,8 +231,8 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>Inbyggd användarhantering</value>
   </data>
-  <data name="Certificate management" xml:space="preserve">
-    <value>Certifikathantering</value>
+  <data name="Built-in administration panel" xml:space="preserve">
+    <value>Inbyggt administrationspanel</value>
   </data>
   <data name="CI cross-compilation excels on amd64/arm64, but Debian&apos;s native Buildd catches architecture-specific UB that cross-toolchains miss." xml:space="preserve">
     <value>CI-översättning presterar bra på amd64/arm64, men Debians inbyggda Buildd fångar arkitekturspecifik UB som översättningverktygslänkar missar.</value>
@@ -245,6 +242,9 @@
   </data>
   <data name="CLI quick start" xml:space="preserve">
     <value>Kommandoradsguide</value>
+  </data>
+  <data name="Certificate management" xml:space="preserve">
+    <value>Certifikathantering</value>
   </data>
   <data name="Cloud-native CDN delivers consistent low-latency worldwide. DDoS absorbed at the edge." xml:space="preserve">
     <value>Cloud-native CDN levererar konsekvent låg latens över hela världen. DDoS-drev absorberas vid nätverkets kant.</value>
@@ -303,11 +303,11 @@
   <data name="Custom development required" xml:space="preserve">
     <value>Kräver anpassad utveckling</value>
   </data>
-  <data name="Dashboard for background tasks" xml:space="preserve">
-    <value>Dashboard för bakgrundsprocesser</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Instrumentpanelswebbplats</value>
+  </data>
+  <data name="Dashboard for background tasks" xml:space="preserve">
+    <value>Dashboard för bakgrundsprocesser</value>
   </data>
   <data name="Day 1 Compliance &amp; Security." xml:space="preserve">
     <value>Dag 1:s kompatibilitet och säkerhet.</value>
@@ -342,6 +342,9 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>Utveckling &amp; Produktion</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>DevOps-vänlig</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>Utveckla uteslutande i UTC medan systemet automatiskt konverterar och visar datum i användarens lokala tidszon.</value>
   </data>
@@ -350,9 +353,6 @@
   </data>
   <data name="Developers describe package contents once, build Debian artifacts locally or in CI, push a &lt;code&gt;.apkg&lt;/code&gt; bundle, and let the server route packages into the right repositories." xml:space="preserve">
     <value>Utvecklare beskriver paketinnehåll en gång, bygger Debian-artifakter lokalt eller i CI, pushar en &lt;code&gt;.apkg&lt;/code&gt;-bundle och låter servern dirigera paket till rätt arkiv.</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>DevOps-vänlig</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>Diskussionssida</value>
@@ -420,9 +420,6 @@
   <data name="FAQ" xml:space="preserve">
     <value>Vanliga frågor</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>snabbare</value>
-  </data>
   <data name="Features" xml:space="preserve">
     <value>Funktioner</value>
   </data>
@@ -441,9 +438,6 @@
   <data name="Flexible API" xml:space="preserve">
     <value>Flexibel API</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>för frågor eller för att rapportera problem.</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Grundare &amp; arkitekt vid Aiursoft</value>
   </data>
@@ -456,11 +450,11 @@
   <data name="Free" xml:space="preserve">
     <value>Gratis</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>Gratis för kommersiellt bruk</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>Fri mjukvara</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>Gratis för kommersiellt bruk</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>Vanliga frågor</value>
@@ -483,17 +477,20 @@
   <data name="Fully Offline" xml:space="preserve">
     <value>Fullständigt offline</value>
   </data>
+  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
+    <value>GPG Web of Trust med fysiska nyckelsigneringsmöten. Tilliten är helt decentraliserad — ingen enda auktoritet kontrollerar nyckelringen.</value>
+  </data>
   <data name="Generate &lt;code&gt;.deb&lt;/code&gt; packages with Debian control metadata and maintainer scripts produced from the project file." xml:space="preserve">
     <value>Generera &lt;code&gt;.deb&lt;/code&gt;-paket med Debian-kontrollmetadata och underhållsskript genererade från projektfilen.</value>
   </data>
   <data name="Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes." xml:space="preserve">
     <value>Skapa och hantera GPG-signeringscertifikat och exponera sedan offentliga nycklar via artifactvägar som är kompatibla med repositoryer.</value>
   </data>
-  <data name="Generic configuration" xml:space="preserve">
-    <value>Generisk konfiguration</value>
-  </data>
   <data name="Generic Dockerfile only" xml:space="preserve">
     <value>Endast generisk Dockerfile</value>
+  </data>
+  <data name="Generic configuration" xml:space="preserve">
+    <value>Generisk konfiguration</value>
   </data>
   <data name="GitLab CI" xml:space="preserve">
     <value>GitLab CI</value>
@@ -512,9 +509,6 @@
   </data>
   <data name="Go to dashboard" xml:space="preserve">
     <value>Gå till instrumentpanelen</value>
-  </data>
-  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
-    <value>GPG Web of Trust med fysiska nyckelsigneringsmöten. Tilliten är helt decentraliserad — ingen enda auktoritet kontrollerar nyckelringen.</value>
   </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Hantera återkommande jobb som rengöring och synkronisering med en omfattande GUI för att övervaka utförande historik och loggar.</value>
@@ -567,11 +561,11 @@
   <data name="Included" xml:space="preserve">
     <value>Inkluderat</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Inkluderar omfattande dokumentation och praktiska exempel för att du snabbt ska komma igång.</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Innehåller självstudier</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Inkluderar omfattande dokumentation och praktiska exempel för att du snabbt ska komma igång.</value>
   </data>
   <data name="Install" xml:space="preserve">
     <value>Installera</value>
@@ -594,9 +588,6 @@
   <data name="Interoperability" xml:space="preserve">
     <value>Interoperabilitet</value>
   </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>är fri programvara</value>
-  </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>Är det gratis att använda Aiursoft Template?</value>
   </data>
@@ -618,6 +609,15 @@
   <data name="Local package overrides" xml:space="preserve">
     <value>Lokala paketöverskrivningar</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>MIT-licens</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>MIT-licens</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>MSBuild-liknande syntax</value>
+  </data>
   <data name="Made Simple." xml:space="preserve">
     <value>Gjort enkelt.</value>
   </data>
@@ -636,17 +636,8 @@
   <data name="Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared." xml:space="preserve">
     <value>Speglingssynkronisering, lagerkomposition, signering, export och sophämtning delas upp i oberoende jobb. Publicerade klienter fortsätter att läsa den senaste signerade primära behållaren medan ny metadata förbereds.</value>
   </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>MIT-licens</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>MIT-licens</value>
-  </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>Modeller valideras på både klient- och serversidan baserat på dataannotationer.</value>
-  </data>
-  <data name="MSBuild-style syntax" xml:space="preserve">
-    <value>MSBuild-liknande syntax</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>Hantering av flera tidszoner</value>
@@ -669,12 +660,6 @@
   <data name="Needs Celery + Flower" xml:space="preserve">
     <value>Kräver Celery + Flower</value>
   </data>
-  <data name="Needs complex authentication logic" xml:space="preserve">
-    <value>Kräver komplex autentiseringslogik</value>
-  </data>
-  <data name="Needs config/plugins" xml:space="preserve">
-    <value>Kräver konfiguration/tillägg</value>
-  </data>
   <data name="Needs ESLint/Prettier setup" xml:space="preserve">
     <value>Kräver inställning av ESLint/Prettier</value>
   </data>
@@ -683,9 +668,6 @@
   </data>
   <data name="Needs Laravel Sail" xml:space="preserve">
     <value>Kräver Laravel Sail</value>
-  </data>
-  <data name="Needs manual configuration" xml:space="preserve">
-    <value>Kräver manuell konfiguration</value>
   </data>
   <data name="Needs Medialibrary" xml:space="preserve">
     <value>Kräver Medialibrary</value>
@@ -699,23 +681,35 @@
   <data name="Needs Spring Security config" xml:space="preserve">
     <value>Kräver konfiguration av Spring Security</value>
   </data>
-  <data name="Needs third-party plugins" xml:space="preserve">
-    <value>Kräver plugins från tredjepart</value>
-  </data>
   <data name="Needs TypeORM or similar" xml:space="preserve">
     <value>Kräver TypeORM eller liknande</value>
   </data>
+  <data name="Needs complex authentication logic" xml:space="preserve">
+    <value>Kräver komplex autentiseringslogik</value>
+  </data>
+  <data name="Needs config/plugins" xml:space="preserve">
+    <value>Kräver konfiguration/tillägg</value>
+  </data>
+  <data name="Needs manual configuration" xml:space="preserve">
+    <value>Kräver manuell konfiguration</value>
+  </data>
+  <data name="Needs third-party plugins" xml:space="preserve">
+    <value>Kräver plugins från tredjepart</value>
+  </data>
   <data name="No dependency on any cloud vendor. Run anywhere, any time." xml:space="preserve">
     <value>Ingen beroende på någon molnleverantör. Kör överallt, när som helst.</value>
-  </data>
-  <data name="Offline Capable" xml:space="preserve">
-    <value>Offline-förmåga</value>
   </data>
   <data name="OIDC &amp; SSO" xml:space="preserve">
     <value>OIDC &amp; SSO</value>
   </data>
   <data name="OIDC-backed RBAC with scoped API keys. Teams authenticate via existing SSO, grant per-repo permissions, and revoke access instantly." xml:space="preserve">
     <value>OIDC-baserad RBAC med omfångsbestämda API-nycklar. Team autentiseras via befintlig SSO, tilldelar behörigheter per arkiv och återkallar åtkomst omedelbart.</value>
+  </data>
+  <data name="ORM &amp; Migrations" xml:space="preserve">
+    <value>ORM &amp; Migrationer</value>
+  </data>
+  <data name="Offline Capable" xml:space="preserve">
+    <value>Offline-förmåga</value>
   </data>
   <data name="One Click Start" xml:space="preserve">
     <value>Enkelt klick för att starta</value>
@@ -734,9 +728,6 @@
   </data>
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>Optimerad Docker &amp; K8s-konfiguration</value>
-  </data>
-  <data name="ORM &amp; Migrations" xml:space="preserve">
-    <value>ORM &amp; Migrationer</value>
   </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Färdig att använda</value>
@@ -759,11 +750,11 @@
   <data name="Powered by AnduinOS" xml:space="preserve">
     <value>Drivs av AnduinOS</value>
   </data>
-  <data name="Pre-configured and tested" xml:space="preserve">
-    <value>Förkonfigurerat och testat</value>
-  </data>
   <data name="Pre-configured CI/CD pipelines specifically for GitLab." xml:space="preserve">
     <value>Förkonfigurerade CI/CD-pipelines specifikt för GitLab.</value>
+  </data>
+  <data name="Pre-configured and tested" xml:space="preserve">
+    <value>Förkonfigurerat och testat</value>
   </data>
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>Förkonfigurerade pipelines för utveckling/produktion</value>
@@ -792,11 +783,11 @@
   <data name="Quick Start" xml:space="preserve">
     <value>Kom igång</value>
   </data>
-  <data name="RBAC and API keys" xml:space="preserve">
-    <value>RBAC och API-nycklar</value>
-  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-auktorisering</value>
+  </data>
+  <data name="RBAC and API keys" xml:space="preserve">
+    <value>RBAC och API-nycklar</value>
   </data>
   <data name="RBAC is ideal for organizations, but Debian&apos;s decentralized WoT remains the gold standard for a trustless global maintainer network." xml:space="preserve">
     <value>RBAC är idealiskt för organisationer, men Debians decentraliserade WoT förblir guldstandarden för ett förtroendelöst globalt nätverk för underhållsansvariga.</value>
@@ -894,23 +885,23 @@
   <data name="Standard Debian repository endpoints for &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG keys, package indexes, and pool downloads." xml:space="preserve">
     <value>Standard Debian-förrådslänkar för &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG-nycklar, paketindex och poolnedladdningar.</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>Standardimplementering. Byt leverantörer utan kompilering.</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>Standard OpenID</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>Starta ett nytt projekt</value>
-  </data>
-  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
-    <value>Starta ett paketprojekt med &lt;code&gt;.aosproj&lt;/code&gt;, och deklarera därefter filer, mappar, skript, beroenden, tjänster, suiters och arkitekturer.</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>Standardimplementering. Byt leverantörer utan kompilering.</value>
   </data>
   <data name="Start Publishing" xml:space="preserve">
     <value>Börja publicera</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>Börja leverera värde.</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>Starta ett nytt projekt</value>
+  </data>
+  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
+    <value>Starta ett paketprojekt med &lt;code&gt;.aosproj&lt;/code&gt;, och deklarera därefter filer, mappar, skript, beroenden, tjänster, suiters och arkitekturer.</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>Starta med ett enda kommando &apos;docker run&apos;.</value>
@@ -927,23 +918,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>Strikt linterregler</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>Strikt enhetstestning</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>Strikt lint-regler och noll varningar som standard.</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>Strikt linteringsregler med 0 varningar i standardprojektet.</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>Strikt enhetstestning</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>Strängt konsekvent lintering</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>Stöder både miljövariabler och databasbaserade inställningar, med automatisk prioritet till miljövariabler för smidiga åsidosättningar.</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>Stödjer JetBrains Rider för enkla korrigeringar av kodstil.</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>Stöder både miljövariabler och databasbaserade inställningar, med automatisk prioritet till miljövariabler för smidiga åsidosättningar.</value>
   </data>
   <data name="Task Runner" xml:space="preserve">
     <value>Uppgiftsutförare</value>
@@ -954,6 +945,9 @@
   <data name="The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration." xml:space="preserve">
     <value>Apkg CLI sköter projektning, lintering, paketsbygge, publicering av samlingar, uppladdning till server, lokal packning och konfiguration av APT-källor.</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>Filosofin</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>Den definitiva, testade .NET-fundamentet för företag. Från Auth till AI har vi löst de svåra delarna så att du inte behöver göra det.</value>
   </data>
@@ -962,9 +956,6 @@
   </data>
   <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
     <value>Den officiella pakethanteraren vald av AnduinOS-ekosystemet.</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>Filosofin</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>Mallen är byggd för enkel distribution. Den inkluderar fullt Docker-stöd, så du kan containerisera din app och köra den var som helst. Du kan också distribuera den direkt till IIS, Azure App Service eller vilken server som helst som stöder ASP.NET Core.</value>
@@ -1073,6 +1064,15 @@
   </data>
   <data name="Zero Tolerance Lint" xml:space="preserve">
     <value>Lint med noll tolerans</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>snabbare</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>för frågor eller för att rapportera problem.</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>är fri programvara</value>
   </data>
 
 </root>

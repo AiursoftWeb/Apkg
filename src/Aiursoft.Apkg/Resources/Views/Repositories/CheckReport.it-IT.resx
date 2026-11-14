@@ -54,9 +54,6 @@
   <data name="Missing Dependencies" xml:space="preserve">
     <value>Dipendenze mancanti</value>
   </data>
-  <data name="old" xml:space="preserve">
-    <value>vecchio</value>
-  </data>
   <data name="Package" xml:space="preserve">
     <value>Pacchetto</value>
   </data>
@@ -86,6 +83,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Virtuale</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>vecchio</value>
   </data>
 
 </root>

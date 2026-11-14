@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>操作</value>
   </data>
   <data name="All" xml:space="preserve">
@@ -30,20 +27,11 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>.apkg ミックスパッケージは、複数の .deb パッケージと manifest.xml を1つの gzipped tar アーカイブにバンドルする Apkg 独自の形式です。サーバーは各 .deb を解凍し、その control ファイルからメタデータを抽出して、ターゲットの APT リポジトリに同期します。</value>
   </data>
-  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
-    <value>およびすべてのリビジョンも削除しますか？この操作は元に戻せません。</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>アーキテクチャ</value>
   </data>
   <data name="Back to Packages" xml:space="preserve">
     <value>パッケージに戻る</value>
-  </data>
-  <data name="because you do not have permission to upload to them:" xml:space="preserve">
-    <value>それらのリポジトリへのアップロード権限がないため：</value>
-  </data>
-  <data name="by" xml:space="preserve">
-    <value>by</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>コンポーネント</value>
@@ -117,9 +105,6 @@
   <data name="Package" xml:space="preserve">
     <value>パッケージ</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>パッケージ</value>
-  </data>
   <data name="Pending Sync" xml:space="preserve">
     <value>同期保留中</value>
   </data>
@@ -162,9 +147,6 @@
   <data name="Unpublished" xml:space="preserve">
     <value>未公開</value>
   </data>
-  <data name="unpublished upload(s) pending publish." xml:space="preserve">
-    <value>公開されていないアップロードがあります。公開を待機しています。</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>アップロード履歴</value>
   </data>
@@ -194,6 +176,24 @@
   </data>
   <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
     <value>1つの .apkg 内では、各エントリは3つの&lt;strong&gt;ライブ属性&lt;/strong&gt;で異なり得ます：&lt;strong&gt;バージョン&lt;/strong&gt;（.deb バイナリから抽出され、manifest.xml には記録されません）、&lt;strong&gt;スイート&lt;/strong&gt;、および&lt;strong&gt;アーキテクチャ&lt;/strong&gt;。これにより、例えば同じバージョンの amd64 と arm64 ビルドを1回のアップロードで配信できます。</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>およびすべてのリビジョンも削除しますか？この操作は元に戻せません。</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>それらのリポジトリへのアップロード権限がないため：</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>by</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>パッケージ</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>公開されていないアップロードがあります。公開を待機しています。</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>

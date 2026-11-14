@@ -30,17 +30,17 @@
   <data name="Allow Anonymous Browse Repository" xml:space="preserve">
     <value>Anonim Depoyu Gözatmaya İzin Ver</value>
   </data>
-  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
-    <value>Giriş yapmadan anonim kullanıcıların depoları ve paketlerini görüntülemesine izin verin.</value>
-  </data>
-  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
-    <value>Giriş yapmadan paket ayrıntılarını görüntülemeye izin ver.</value>
-  </data>
   <data name="Allow Anonymous View Package Details" xml:space="preserve">
     <value>Anonim Paket Detaylarını Görüntülemeye İzin Ver</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Kullanıcı Adını Ayarlamaya İzin Ver</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>Giriş yapmadan anonim kullanıcıların depoları ve paketlerini görüntülemesine izin verin.</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>Giriş yapmadan paket ayrıntılarını görüntülemeye izin ver.</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Kullanıcıların profil yönetimi sayfasında takma isimlerini ayarlamasına izin ver.</value>
@@ -72,11 +72,11 @@
   <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
     <value>Oluşturulan APT kaynaklarında ve AppStream ekran görüntüsü bağlantılarında kullanılan genel taban URL&apos;si, örneğin https://packages.example.com. /artifacts ayrı bir alan adı veya CDN tarafından sunulduğunda bunu ayarlayın. Bu web uygulaması deposu kendisi sunuyorsa boş bırakılabilir; ancak AppStream ekran görüntüleri yayımlanıyorsa bu geçerli değildir; arka plan kataloğu oluşturma işlemi genel URL&apos;lerini çıkarılamaz.</value>
   </data>
-  <data name="The brand name displayed in the footer." xml:space="preserve">
-    <value>Footer&apos;da gösterilen marka adı.</value>
-  </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Çin ana karasında kullanıcılar için ICP lisans numarası. Gizlemek için boş bırakın.</value>
+  </data>
+  <data name="The brand name displayed in the footer." xml:space="preserve">
+    <value>Footer&apos;da gösterilen marka adı.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Projenin logosu navbar ve footer&apos;da gösterilir. jpg, png, svg desteklenir.</value>

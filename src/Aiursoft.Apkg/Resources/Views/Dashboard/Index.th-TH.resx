@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ ก่อนหน้า</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>การสนับสนุนแบบ &quot;Fire-and-forget&quot; สำหรับงานที่ใช้เวลานาน (เช่น อีเมลหรือปัญญาประดิษฐ์) พร้อมด้วยอินเทอร์เฟซกราฟิกสำหรับการจัดการคิว การประมวลผลแบบขนาน และการยกเลิก</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>พื้นฐานที่ทันสมัย อุดมไปด้วยคุณสมบัติ และสามารถขยายได้สูงสำหรับเว็บแอปพลิเคชันถัดไปของคุณ</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>เพิ่ม repository ลงใน</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>การแปลด้วยพลังปัญญาประดิษฐ์</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>การอ้างอิงทั้งหมดจะถูกลงทะเบียนโดยอัตโนมัติและพร้อมใช้งานเสมอผ่านการฉีดคอนสตรัคเตอร์</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>และเรียกดูแพ็กเกจของแต่ละรายการเป็นรายบุคคล</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>และดำเนินการ</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>ค้นหาแพ็กเกจ APT</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>เพิ่ม repository ลงใน</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>การอ้างอิงทั้งหมดจะถูกลงทะเบียนโดยอัตโนมัติและพร้อมใช้งานเสมอผ่านการฉีดคอนสตรัคเตอร์</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>โหมดมืดอัตโนมัติ</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>นี่คือโปรเจกต์เทมเพลต ซึ่งเป็นจุดเริ่มต้นของการเดินทางของเรา...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>เพื่อเริ่มต้นใช้งาน</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>ลองใช้ชื่อย่อหรือตรวจสอบการสะกดคำ</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>ทำไมต้องใช้ Aiursoft Template?</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>และเรียกดูแพ็กเกจของแต่ละรายการเป็นรายบุคคล</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>และดำเนินการ</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>เพื่อเริ่มต้นใช้งาน</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ ก่อนหน้า</value>
   </data>
 
 </root>

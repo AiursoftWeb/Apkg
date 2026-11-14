@@ -18,7 +18,19 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="API Key Usage" xml:space="preserve">
+    <value>API-avaimen käyttö</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>API-avaimet</value>
+  </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>APKG-paketin tiedot</value>
+  </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>APKG-latauksen tiedot</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>Pääsy estetty</value>
   </data>
   <data name="Add New Mirror" xml:space="preserve">
@@ -36,23 +48,11 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Anonyymi</value>
   </data>
-  <data name="API Key Usage" xml:space="preserve">
-    <value>API-avaimen käyttö</value>
-  </data>
-  <data name="API Keys" xml:space="preserve">
-    <value>API-avaimet</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Apkg Hybrid</value>
-  </data>
-  <data name="APKG Package Details" xml:space="preserve">
-    <value>APKG-paketin tiedot</value>
-  </data>
-  <data name="APKG Upload Details" xml:space="preserve">
-    <value>APKG-latauksen tiedot</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Taustatehtävät</value>
@@ -279,17 +279,17 @@
   <data name="Unauthorized" xml:space="preserve">
     <value>Luvaton</value>
   </data>
-  <data name="Upload apkg mixed package" xml:space="preserve">
-    <value>Lataa APKG-paketti</value>
-  </data>
-  <data name="Upload deb package" xml:space="preserve">
-    <value>Upload deb package</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Lataushistoria</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Lataa paketti</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>Lataa APKG-paketti</value>
+  </data>
+  <data name="Upload deb package" xml:space="preserve">
+    <value>Upload deb package</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Ylävirran peilit</value>

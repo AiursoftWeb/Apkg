@@ -54,9 +54,6 @@
   <data name="Missing Dependencies" xml:space="preserve">
     <value>缺少相依性</value>
   </data>
-  <data name="old" xml:space="preserve">
-    <value>前</value>
-  </data>
   <data name="Package" xml:space="preserve">
     <value>套件</value>
   </data>
@@ -86,6 +83,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>虛擬</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>前</value>
   </data>
 
 </root>

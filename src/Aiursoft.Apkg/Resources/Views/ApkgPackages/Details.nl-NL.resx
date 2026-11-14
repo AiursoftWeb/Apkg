@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>Acties</value>
   </data>
   <data name="All" xml:space="preserve">
@@ -30,20 +27,11 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>Een .apkg-mixed pakket is een proprietair formaat van Apkg dat meerdere .deb-pakketten en een manifest.xml bundelt in een enkel gzipped tar-archief. De server pakt elk .deb uit, haalt de metadata uit het controlebestand en synchroniseert deze met hun doel-APT-repositories.</value>
   </data>
-  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
-    <value>en AL zijn revisies? Dit kan niet ongedaan worden gemaakt.</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Architectuur</value>
   </data>
   <data name="Back to Packages" xml:space="preserve">
     <value>Terug naar pakketten</value>
-  </data>
-  <data name="because you do not have permission to upload to them:" xml:space="preserve">
-    <value>omdat u geen toestemming heeft om daarheen te uploaden:</value>
-  </data>
-  <data name="by" xml:space="preserve">
-    <value>door</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Component</value>
@@ -117,9 +105,6 @@
   <data name="Package" xml:space="preserve">
     <value>Pakket</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>pakket(ten)</value>
-  </data>
   <data name="Pending Sync" xml:space="preserve">
     <value>Wachtend op synchronisatie</value>
   </data>
@@ -162,9 +147,6 @@
   <data name="Unpublished" xml:space="preserve">
     <value>Niet gepubliceerd</value>
   </data>
-  <data name="unpublished upload(s) pending publish." xml:space="preserve">
-    <value>onuitgebrachte upload(s) in afwachting van publicatie.</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Uploadgeschiedenis</value>
   </data>
@@ -194,6 +176,24 @@
   </data>
   <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
     <value>In een enkele .apkg kan elke entry variëren op drie &lt;strong&gt;actieve attributen&lt;/strong&gt;: &lt;strong&gt;Versie&lt;/strong&gt; (uit het .deb-binary gehaald, nooit in manifest.xml geschreven), &lt;strong&gt;Suite&lt;/strong&gt; en &lt;strong&gt;Architecture&lt;/strong&gt;. Dit stelt je in staat om bijvoorbeeld amd64 en arm64 builds van dezelfde versie in één upload te verzenden.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>en AL zijn revisies? Dit kan niet ongedaan worden gemaakt.</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>omdat u geen toestemming heeft om daarheen te uploaden:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>door</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pakket(ten)</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>onuitgebrachte upload(s) in afwachting van publicatie.</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>

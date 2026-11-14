@@ -36,13 +36,7 @@
   <data name="Next" xml:space="preserve">
     <value>次</value>
   </data>
-  <data name="of" xml:space="preserve">
-    <value>の</value>
-  </data>
   <data name="Package" xml:space="preserve">
-    <value>パッケージ</value>
-  </data>
-  <data name="packages" xml:space="preserve">
     <value>パッケージ</value>
   </data>
   <data name="Packages in Bucket" xml:space="preserve">
@@ -71,6 +65,12 @@
   </data>
   <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
     <value>仮想: ファイルはアップストリームのミラーにホストされ、apt クライアントによってオンデマンドでダウンロードされます。物理: ファイルはこのサーバーにローカルに保存されています。</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>の</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>パッケージ</value>
   </data>
 
 </root>

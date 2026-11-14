@@ -36,14 +36,8 @@
   <data name="Next" xml:space="preserve">
     <value>Sonraki</value>
   </data>
-  <data name="of" xml:space="preserve">
-    <value>&apos;ın</value>
-  </data>
   <data name="Package" xml:space="preserve">
     <value>Paket</value>
-  </data>
-  <data name="packages" xml:space="preserve">
-    <value>paket</value>
   </data>
   <data name="Packages in Bucket" xml:space="preserve">
     <value>E Paketleri</value>
@@ -71,6 +65,12 @@
   </data>
   <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
     <value>Sanal: dosya yukarı akış aynasında barındırılır ve apt istemcileri tarafından talep üzerine indirilir. Fiziksel: dosya bu sunucuda yerel olarak saklanır.</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>&apos;ın</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>paket</value>
   </data>
 
 </root>

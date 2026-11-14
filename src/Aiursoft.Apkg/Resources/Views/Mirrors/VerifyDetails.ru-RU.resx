@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>Не пройдено</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>файл</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>Подробности проверки GPG</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>Цифровая подпись GPG гарантирует, что пакеты поступили из проверенного источника и не были изменены. Файл InRelease зеркала проверяется по его GPG-ключу.</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>Подробности проверки GPG</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>Ключевое кольцо</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>Что такое GPG-проверка?</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>файл</value>
   </data>
 
 </root>

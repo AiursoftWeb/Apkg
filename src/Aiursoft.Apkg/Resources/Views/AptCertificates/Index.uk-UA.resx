@@ -42,11 +42,11 @@
   <data name="Friendly Name" xml:space="preserve">
     <value>Зручна назва</value>
   </data>
-  <data name="Generate New Key" xml:space="preserve">
-    <value>Створити новий ключ</value>
-  </data>
   <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
     <value>Сертифікати GPG підписують метадані вашого репозиторію, щоб клієнти apt могли перевірити, що пакунки не були змінені.</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Створити новий ключ</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Ім&apos;я</value>

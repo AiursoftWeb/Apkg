@@ -69,9 +69,6 @@
   <data name="Insecure Source" xml:space="preserve">
     <value>Osäker källa</value>
   </data>
-  <data name="items" xml:space="preserve">
-    <value>artiklar</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Senaste hämtning</value>
   </data>
@@ -149,6 +146,9 @@
   </data>
   <data name="What is a Mirror?" xml:space="preserve">
     <value>Vad är en spegel?</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>artiklar</value>
   </data>
 
 </root>

@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>Дії</value>
   </data>
   <data name="All" xml:space="preserve">
@@ -30,20 +27,11 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>Пакет .apkg — це пропрієтарний формат Apkg, який об’єднує кілька пакетів .deb та файл manifest.xml у єдиний gzipped tar-архів. Сервер розпаковує кожен .deb, витягує метадані з його контрольного файлу та синхронізує їх із відповідними APT-репозиторіями.</value>
   </data>
-  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
-    <value>і ВСІ його ревізії? Цю дію неможливо скасувати.</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Архітектура</value>
   </data>
   <data name="Back to Packages" xml:space="preserve">
     <value>Повернутися до пакетів</value>
-  </data>
-  <data name="because you do not have permission to upload to them:" xml:space="preserve">
-    <value>оскільки у вас немає дозволу на завантаження в них:</value>
-  </data>
-  <data name="by" xml:space="preserve">
-    <value>від</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Компонент</value>
@@ -117,9 +105,6 @@
   <data name="Package" xml:space="preserve">
     <value>Пакет</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>пакет(и)</value>
-  </data>
   <data name="Pending Sync" xml:space="preserve">
     <value>Очікує синхронізації</value>
   </data>
@@ -162,9 +147,6 @@
   <data name="Unpublished" xml:space="preserve">
     <value>Неопубліковано</value>
   </data>
-  <data name="unpublished upload(s) pending publish." xml:space="preserve">
-    <value>неопубліковане завантаження(я) очікують на публікацію.</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Історія завантажень</value>
   </data>
@@ -194,6 +176,24 @@
   </data>
   <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
     <value>В межах одного .apkg кожен запис може відрізнятися трьома &lt;strong&gt;«живими» атрибутами&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (версія, що витягується з бінарного файлу .deb і ніколи не записується в manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt; та &lt;strong&gt;Architecture&lt;/strong&gt;. Це дозволяє, наприклад, надсилати збірки amd64 та arm64 однієї версії в одному пакеті завантаження.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>і ВСІ його ревізії? Цю дію неможливо скасувати.</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>оскільки у вас немає дозволу на завантаження в них:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>від</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>пакет(и)</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>неопубліковане завантаження(я) очікують на публікацію.</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>

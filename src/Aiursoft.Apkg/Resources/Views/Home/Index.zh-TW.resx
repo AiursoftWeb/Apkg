@@ -18,17 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name=".apkg publishing" xml:space="preserve">
-    <value>.apkg 發布</value>
-  </data>
-  <data name=".NET Global Tool" xml:space="preserve">
-    <value>.NET 全域工具</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>「Fire-and-forget」支援長時間執行的作業（例如電子郵件或 AI），並提供圖形使用者介面以進行佇列管理、平行處理和取消。</value>
   </data>
   <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
     <value>傳統的 Debian 套件打包方式將套件定義分散在數個檔案中——&lt;code&gt;control&lt;/code&gt;、&lt;code&gt;rules&lt;/code&gt;、&lt;code&gt;install&lt;/code&gt;、&lt;code&gt;changelog&lt;/code&gt;、&lt;code&gt;compat&lt;/code&gt;——每個檔案都使用各自晦澀的語法。我設計了 &lt;code&gt;.aosproj&lt;/code&gt; 以單一宣告式清單取代所有這些檔案。結構化的 XML 使得人類和 CI 機器都能輕鬆解析相依性圖表。CI 流程簡化為 &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;。這將 Linux 發行版的套件打包從玄學轉變為標準軟體工程。</value>
+  </data>
+  <data name=".NET Global Tool" xml:space="preserve">
+    <value>.NET 全域工具</value>
+  </data>
+  <data name=".apkg publishing" xml:space="preserve">
+    <value>.apkg 發布</value>
   </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>&lt;code&gt;Buildd&lt;/code&gt; 叢集在實體硬體上進行原生編譯。由 Cron 驅動的 &lt;code&gt;apt-ftparchive&lt;/code&gt; 重新生成索引 — 套件在發布前需在 &lt;code&gt;incoming&lt;/code&gt; 佇列中等待數小時。</value>
@@ -63,6 +63,24 @@
   <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
     <value>一個指令即可安裝APKG客戶端並開始管理您的APT套件。</value>
   </data>
+  <data name="AI Driven Translation" xml:space="preserve">
+    <value>AI 驅動翻譯</value>
+  </data>
+  <data name="AI Readable" xml:space="preserve">
+    <value>AI可讀</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>AI 驅動翻譯</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>APT套件庫</value>
+  </data>
+  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
+    <value>APT 用戶端僅讀取主要倉儲。未完成的同步、未簽署的中繼資料以及階段性倉儲將保持不可見。</value>
+  </data>
+  <data name="APT repository server" xml:space="preserve">
+    <value>APT 套件存放庫伺服器</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>使用 Aiursoft Template 成就更多</value>
   </data>
@@ -80,15 +98,6 @@
   </data>
   <data name="After sync and signing, machines consume the repository with normal APT source files and &lt;code&gt;apt install&lt;/code&gt; commands." xml:space="preserve">
     <value>同步並簽署完成後，機器將使用標準 APT 來源檔案與 &lt;code&gt;apt install&lt;/code&gt; 命令來存取存放庫。</value>
-  </data>
-  <data name="AI Driven Translation" xml:space="preserve">
-    <value>AI 驅動翻譯</value>
-  </data>
-  <data name="AI Readable" xml:space="preserve">
-    <value>AI可讀</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>AI 驅動翻譯</value>
   </data>
   <data name="Aiursoft Apkg" xml:space="preserve">
     <value>Aiursoft Apkg</value>
@@ -123,15 +132,6 @@
   <data name="Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots." xml:space="preserve">
     <value>Apkg 介於上游套件庫、套件開發人員與客戶端電腦之間，將鏡像金鑰與上傳的覆寫設定轉換為經過簽署且穩定的套件庫快照。</value>
   </data>
-  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
-    <value>APT 用戶端僅讀取主要倉儲。未完成的同步、未簽署的中繼資料以及階段性倉儲將保持不可見。</value>
-  </data>
-  <data name="APT Package Repository" xml:space="preserve">
-    <value>APT套件庫</value>
-  </data>
-  <data name="APT repository server" xml:space="preserve">
-    <value>APT 套件存放庫伺服器</value>
-  </data>
   <data name="Architecture Philosophy" xml:space="preserve">
     <value>架構理念</value>
   </data>
@@ -144,11 +144,11 @@
   <data name="Authentik &amp; Okta" xml:space="preserve">
     <value>Authentik &amp; Okta</value>
   </data>
-  <data name="Auto compression and privacy" xml:space="preserve">
-    <value>自動壓縮與隱私保護</value>
-  </data>
   <data name="Auto Deployment" xml:space="preserve">
     <value>自動部署</value>
+  </data>
+  <data name="Auto compression and privacy" xml:space="preserve">
+    <value>自動壓縮與隱私保護</value>
   </data>
   <data name="Automatic AI translation into 28 languages." xml:space="preserve">
     <value>自動 AI 翻譯至 28 種語言。</value>
@@ -225,9 +225,6 @@
   <data name="Built-in" xml:space="preserve">
     <value>內建</value>
   </data>
-  <data name="Built-in administration panel" xml:space="preserve">
-    <value>內建管理面板</value>
-  </data>
   <data name="Built-in Auth" xml:space="preserve">
     <value>內建驗證</value>
   </data>
@@ -237,8 +234,8 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>內建使用者管理</value>
   </data>
-  <data name="Certificate management" xml:space="preserve">
-    <value>憑證管理</value>
+  <data name="Built-in administration panel" xml:space="preserve">
+    <value>內建管理面板</value>
   </data>
   <data name="CI cross-compilation excels on amd64/arm64, but Debian&apos;s native Buildd catches architecture-specific UB that cross-toolchains miss." xml:space="preserve">
     <value>CI 交叉編譯在 amd64/arm64 上表現優異，但 Debian 的原生 Buildd 能捕捉到交叉工具鏈會遺漏的特定架構未定義行為（UB）。</value>
@@ -248,6 +245,9 @@
   </data>
   <data name="CLI quick start" xml:space="preserve">
     <value>CLI 快速入門</value>
+  </data>
+  <data name="Certificate management" xml:space="preserve">
+    <value>憑證管理</value>
   </data>
   <data name="Cloud-native CDN delivers consistent low-latency worldwide. DDoS absorbed at the edge." xml:space="preserve">
     <value>雲端原生 CDN 在全球提供穩定低延遲服務。DDoS 攻擊於邊緣層攔截。</value>
@@ -306,11 +306,11 @@
   <data name="Custom development required" xml:space="preserve">
     <value>需自訂開發</value>
   </data>
-  <data name="Dashboard for background tasks" xml:space="preserve">
-    <value>背景工作儀表板</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>儀表板網站</value>
+  </data>
+  <data name="Dashboard for background tasks" xml:space="preserve">
+    <value>背景工作儀表板</value>
   </data>
   <data name="Day 1 Compliance &amp; Security." xml:space="preserve">
     <value>第一天合規與安全。</value>
@@ -345,6 +345,9 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>開發與生產</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>DevOps 原生</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>專注於 UTC 進行開發，而系統會自動將日期轉換並顯示為使用者的本地時間區。</value>
   </data>
@@ -353,9 +356,6 @@
   </data>
   <data name="Developers describe package contents once, build Debian artifacts locally or in CI, push a &lt;code&gt;.apkg&lt;/code&gt; bundle, and let the server route packages into the right repositories." xml:space="preserve">
     <value>開發人員只需一次描述套件內容，即可在當地或 CI 中建構 Debian 產物，上傳 &lt;code&gt;.apkg&lt;/code&gt; 軟體包，並由伺服器自動將套件路由至正確的儲存庫。</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>DevOps 原生</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>討論頁面</value>
@@ -423,9 +423,6 @@
   <data name="FAQ" xml:space="preserve">
     <value>常見問題</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>更快速</value>
-  </data>
   <data name="Features" xml:space="preserve">
     <value>功能特色</value>
   </data>
@@ -444,9 +441,6 @@
   <data name="Flexible API" xml:space="preserve">
     <value>彈性 API</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>如有任何疑問或回報問題。</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>創辦人兼架構師，Aiursoft</value>
   </data>
@@ -459,11 +453,11 @@
   <data name="Free" xml:space="preserve">
     <value>免費</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>商業用途免費</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>自由軟體</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>商業用途免費</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>常見問題</value>
@@ -486,17 +480,20 @@
   <data name="Fully Offline" xml:space="preserve">
     <value>完全離線</value>
   </data>
+  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
+    <value>透過面對面的金鑰簽署派對建立 GPG 信任網。信任機制完全去中心化，沒有任何單一機構能掌控金鑰環。</value>
+  </data>
   <data name="Generate &lt;code&gt;.deb&lt;/code&gt; packages with Debian control metadata and maintainer scripts produced from the project file." xml:space="preserve">
     <value>產生包含由專案檔案生成的 Debian 控制金鑰及維護者指令稿的 &lt;code&gt;.deb&lt;/code&gt; 套件。</value>
   </data>
   <data name="Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes." xml:space="preserve">
     <value>產生並管理 GPG 簽署憑證，然後透過對套件倉庫友善的物件路徑公開金鑰。</value>
   </data>
-  <data name="Generic configuration" xml:space="preserve">
-    <value>通用設定</value>
-  </data>
   <data name="Generic Dockerfile only" xml:space="preserve">
     <value>僅提供通用 Dockerfile</value>
+  </data>
+  <data name="Generic configuration" xml:space="preserve">
+    <value>通用設定</value>
   </data>
   <data name="GitLab CI" xml:space="preserve">
     <value>GitLab CI</value>
@@ -515,9 +512,6 @@
   </data>
   <data name="Go to dashboard" xml:space="preserve">
     <value>前往儀表板</value>
-  </data>
-  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
-    <value>透過面對面的金鑰簽署派對建立 GPG 信任網。信任機制完全去中心化，沒有任何單一機構能掌控金鑰環。</value>
   </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>使用完整的 GUI 來監控執行歷史和記錄，以處理類似清除和同步等重複作業。</value>
@@ -570,11 +564,11 @@
   <data name="Included" xml:space="preserve">
     <value>包含在內</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>包含豐富的文件與實用範例，助您快速上手。</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>包含教學文件</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>包含豐富的文件與實用範例，助您快速上手。</value>
   </data>
   <data name="Install" xml:space="preserve">
     <value>安裝</value>
@@ -597,9 +591,6 @@
   <data name="Interoperability" xml:space="preserve">
     <value>相容性</value>
   </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>是自由軟體</value>
-  </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>使用 Aiursoft Template 是否免費？</value>
   </data>
@@ -621,6 +612,15 @@
   <data name="Local package overrides" xml:space="preserve">
     <value>當地套件覆寫</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>MIT 授權</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>MIT 授權條款</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>類似 MSBuild 的語法</value>
+  </data>
   <data name="Made Simple." xml:space="preserve">
     <value>簡單化</value>
   </data>
@@ -639,17 +639,8 @@
   <data name="Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared." xml:space="preserve">
     <value>鏡像同步、儲存庫組成、簽署、匯出及垃圾回收已拆分為獨立的任務。在準備新的後設資料期間，已發布的客戶端會持續讀取最後簽署的主要儲存桶。</value>
   </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>MIT 授權</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>MIT 授權條款</value>
-  </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>模型會根據資料註解，在用戶端和伺服器端進行驗證。</value>
-  </data>
-  <data name="MSBuild-style syntax" xml:space="preserve">
-    <value>類似 MSBuild 的語法</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>多時區處理</value>
@@ -672,12 +663,6 @@
   <data name="Needs Celery + Flower" xml:space="preserve">
     <value>需要 Celery + Flower</value>
   </data>
-  <data name="Needs complex authentication logic" xml:space="preserve">
-    <value>需要複雜的認證邏輯</value>
-  </data>
-  <data name="Needs config/plugins" xml:space="preserve">
-    <value>需要配置/外掛程式</value>
-  </data>
   <data name="Needs ESLint/Prettier setup" xml:space="preserve">
     <value>需要設定 ESLint/Prettier</value>
   </data>
@@ -686,9 +671,6 @@
   </data>
   <data name="Needs Laravel Sail" xml:space="preserve">
     <value>需要 Laravel Sail</value>
-  </data>
-  <data name="Needs manual configuration" xml:space="preserve">
-    <value>需要手動配置</value>
   </data>
   <data name="Needs Medialibrary" xml:space="preserve">
     <value>需要 Medialibrary</value>
@@ -702,23 +684,35 @@
   <data name="Needs Spring Security config" xml:space="preserve">
     <value>需要 Spring Security 設定</value>
   </data>
-  <data name="Needs third-party plugins" xml:space="preserve">
-    <value>需要第三方外掛程式</value>
-  </data>
   <data name="Needs TypeORM or similar" xml:space="preserve">
     <value>需要 TypeORM 或類似工具</value>
   </data>
+  <data name="Needs complex authentication logic" xml:space="preserve">
+    <value>需要複雜的認證邏輯</value>
+  </data>
+  <data name="Needs config/plugins" xml:space="preserve">
+    <value>需要配置/外掛程式</value>
+  </data>
+  <data name="Needs manual configuration" xml:space="preserve">
+    <value>需要手動配置</value>
+  </data>
+  <data name="Needs third-party plugins" xml:space="preserve">
+    <value>需要第三方外掛程式</value>
+  </data>
   <data name="No dependency on any cloud vendor. Run anywhere, any time." xml:space="preserve">
     <value>無需依賴任何雲端供應商。隨時隨地執行。</value>
-  </data>
-  <data name="Offline Capable" xml:space="preserve">
-    <value>離線可用</value>
   </data>
   <data name="OIDC &amp; SSO" xml:space="preserve">
     <value>OIDC &amp; SSO</value>
   </data>
   <data name="OIDC-backed RBAC with scoped API keys. Teams authenticate via existing SSO, grant per-repo permissions, and revoke access instantly." xml:space="preserve">
     <value>具備作用域 API 金鑰的 OIDC 支援型 RBAC。團隊透過既有 SSO 進行驗證，授予每個倉庫的權限，並能立即撤銷存取權。</value>
+  </data>
+  <data name="ORM &amp; Migrations" xml:space="preserve">
+    <value>物件關聯映射與資料庫遷移</value>
+  </data>
+  <data name="Offline Capable" xml:space="preserve">
+    <value>離線可用</value>
   </data>
   <data name="One Click Start" xml:space="preserve">
     <value>一键啟動</value>
@@ -741,9 +735,6 @@
   <data name="Or configure it permanently:" xml:space="preserve">
     <value>或者永久配置它：</value>
   </data>
-  <data name="ORM &amp; Migrations" xml:space="preserve">
-    <value>物件關聯映射與資料庫遷移</value>
-  </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>開箱即用</value>
   </data>
@@ -765,11 +756,11 @@
   <data name="Powered by AnduinOS" xml:space="preserve">
     <value>由 AnduinOS 提供支援</value>
   </data>
-  <data name="Pre-configured and tested" xml:space="preserve">
-    <value>預先配置並經過測試</value>
-  </data>
   <data name="Pre-configured CI/CD pipelines specifically for GitLab." xml:space="preserve">
     <value>為 GitLab 特別預設的 CI/CD 管線</value>
+  </data>
+  <data name="Pre-configured and tested" xml:space="preserve">
+    <value>預先配置並經過測試</value>
   </data>
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>預先配置的開發/生產環境管道</value>
@@ -798,11 +789,11 @@
   <data name="Quick Start" xml:space="preserve">
     <value>快速入門</value>
   </data>
-  <data name="RBAC and API keys" xml:space="preserve">
-    <value>RBAC 與 API 金鑰</value>
-  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC 授權</value>
+  </data>
+  <data name="RBAC and API keys" xml:space="preserve">
+    <value>RBAC 與 API 金鑰</value>
   </data>
   <data name="RBAC is ideal for organizations, but Debian&apos;s decentralized WoT remains the gold standard for a trustless global maintainer network." xml:space="preserve">
     <value>RBAC 非常適合企業組織，但 Debian 去中心化的信任網路（WoT）仍是無信任全球維護者網路的黃金標準。</value>
@@ -900,23 +891,23 @@
   <data name="Standard Debian repository endpoints for &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG keys, package indexes, and pool downloads." xml:space="preserve">
     <value>適用於 &lt;code&gt;apt update&lt;/code&gt;、&lt;code&gt;apt install&lt;/code&gt;、GPG 金鑰、套件索引及套件下載之標準 Debian 存放庫端點。</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>標準實作。無需重新編譯即可切換提供者。</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>標準 OpenID</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>開始新專案</value>
-  </data>
-  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
-    <value>使用 &lt;code&gt;.aosproj&lt;/code&gt; 建立套件專案，接著宣告檔案、資料夾、指令碼、相依項目、服務、套裝套件與架構。</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>標準實作。無需重新編譯即可切換提供者。</value>
   </data>
   <data name="Start Publishing" xml:space="preserve">
     <value>開始發布</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>開始交付價值。</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>開始新專案</value>
+  </data>
+  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
+    <value>使用 &lt;code&gt;.aosproj&lt;/code&gt; 建立套件專案，接著宣告檔案、資料夾、指令碼、相依項目、服務、套裝套件與架構。</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>從單一的「docker run」指令開始。</value>
@@ -933,23 +924,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>嚴格的程式碼檢查規則</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>嚴格單元測試</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>嚴格的語法檢查規則與預設零警告</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>嚴格的程式碼檢查規則，預設專案中無警告。</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>嚴格單元測試</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>強一致的程式碼檢查</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>支援環境變數和資料庫支援的設定，並自動優先使用環境變數以實現無縫覆蓋。</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>支援 JetBrains Rider，輕鬆修正程式碼風格。</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>支援環境變數和資料庫支援的設定，並自動優先使用環境變數以實現無縫覆蓋。</value>
   </data>
   <data name="Task Runner" xml:space="preserve">
     <value>工作執行器</value>
@@ -960,6 +951,9 @@
   <data name="The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration." xml:space="preserve">
     <value>Apkg CLI 處理專案建立、語法檢查、套件建置、套件集發布、伺服器上傳、本機解壓縮以及 APT 來源設定。</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>哲學</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>最權威、經過實戰考驗的 .NET 企業級基礎架構。從驗證到人工智慧，我們已解決所有困難的問題，讓您無需再煩惱。</value>
   </data>
@@ -968,9 +962,6 @@
   </data>
   <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
     <value>由 AnduinOS 生態系統所選用的官方套件管理器。</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>哲學</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>此模板專為簡化部署流程而設計。它提供完整的 Docker 支援，讓您能將應用程式容器化並隨處執行。您也可以直接部署到 IIS、Azure App Service 或任何支援 ASP.NET Core 的伺服器。</value>
@@ -1082,6 +1073,15 @@
   </data>
   <data name="Zero Tolerance Lint" xml:space="preserve">
     <value>零容忍代碼檢查</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>更快速</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>如有任何疑問或回報問題。</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>是自由軟體</value>
   </data>
 
 </root>

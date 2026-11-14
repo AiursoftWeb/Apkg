@@ -57,14 +57,14 @@
   <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
     <value>다음 패키지가 리포지토리에서 제거됩니다. 공개 중지는 관리자만 되돌릴 수 있습니다.</value>
   </data>
-  <data name="version" xml:space="preserve">
-    <value>버전</value>
-  </data>
   <data name="Warning:" xml:space="preserve">
     <value>경고:</value>
   </data>
   <data name="You are about to unlist" xml:space="preserve">
     <value>목록에서 제외하려고 합니다.</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>버전</value>
   </data>
 
 </root>

@@ -72,9 +72,6 @@
   <data name="Insecure Source" xml:space="preserve">
     <value>แหล่งข้อมูลที่ไม่ปลอดภัย</value>
   </data>
-  <data name="items" xml:space="preserve">
-    <value>รายการ</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>การดึงข้อมูลล่าสุด</value>
   </data>
@@ -152,6 +149,9 @@
   </data>
   <data name="What is a Mirror?" xml:space="preserve">
     <value>Mirror คืออะไร?</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>รายการ</value>
   </data>
 
 </root>

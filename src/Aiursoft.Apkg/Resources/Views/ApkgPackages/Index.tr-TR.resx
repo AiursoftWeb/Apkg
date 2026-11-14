@@ -27,9 +27,6 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
     <value>Bir .apkg karma paketi, çok sayıda .deb paketini tek bir yüklemede birleştiren Apkg&apos;nin tescilli biçimidir. İşlendikten sonra her bir .deb paketi çıkarılır ve hedef APT deposuna senkronize edilir.</value>
   </data>
-  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
-    <value>ve TÜM sürümleri ile yerel paketleri. Paket adı diğer kullanıcılar için açılacaktır. Bu işlem geri alınamaz.</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>İptal</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="What is a mixed package?" xml:space="preserve">
     <value>Karışık paket nedir?</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>ve TÜM sürümleri ile yerel paketleri. Paket adı diğer kullanıcılar için açılacaktır. Bu işlem geri alınamaz.</value>
   </data>
 
 </root>

@@ -27,9 +27,6 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
     <value>.apkg 혼합 패키지는 여러 .deb 패키지를 하나의 업로드로 번들링하는 Apkg의 독자적인 포맷입니다. 처리 후, 포함된 각 .deb가 추출되어 대상 APT 저장소로 동기화됩니다.</value>
   </data>
-  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
-    <value>그리고 모든 수정본 및 로컬 패키지를 영구적으로 삭제합니다. 패키지 이름은 다른 사용자가 사용할 수 있도록 공개됩니다. 이 작업은 되돌릴 수 없습니다.</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>취소</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="What is a mixed package?" xml:space="preserve">
     <value>혼합 패키지란 무엇인가요?</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>그리고 모든 수정본 및 로컬 패키지를 영구적으로 삭제합니다. 패키지 이름은 다른 사용자가 사용할 수 있도록 공개됩니다. 이 작업은 되돌릴 수 없습니다.</value>
   </data>
 
 </root>

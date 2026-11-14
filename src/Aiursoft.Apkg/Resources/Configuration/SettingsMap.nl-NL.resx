@@ -30,17 +30,17 @@
   <data name="Allow Anonymous Browse Repository" xml:space="preserve">
     <value>Sta anonimous doorzoeken van de repository toe</value>
   </data>
-  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
-    <value>Sta anonieme gebruikers toe om repositories en hun pakketten te bekijken zonder inloggen.</value>
-  </data>
-  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
-    <value>Sta anonieme gebruikers toe om pakketdetails te bekijken zonder inloggen.</value>
-  </data>
   <data name="Allow Anonymous View Package Details" xml:space="preserve">
     <value>Sta anonieme weergave van pakketdetails toe</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Gebruiker toestaan om bijnaam aan te passen</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>Sta anonieme gebruikers toe om repositories en hun pakketten te bekijken zonder inloggen.</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>Sta anonieme gebruikers toe om pakketdetails te bekijken zonder inloggen.</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Gebruikers toestaan om hun bijnaam aan te passen op de pagina voor profielbeheer.</value>
@@ -72,11 +72,11 @@
   <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
     <value>Openbare basis-URL gebruikt in gegenereerde APT-bronnen en AppStream-schermafbeeldingslinks, bijvoorbeeld https://packages.example.com. Stel deze in wanneer /artifacts wordt geserveerd door een apart domein of CDN. Dit kan leeg worden gelaten wanneer deze webapp de repository zelf serveert, tenzij AppStream-schermafbeeldingen worden gepubliceerd; achtergrondcatalogusgeneratie kan hun openbare URL niet afleiden.</value>
   </data>
-  <data name="The brand name displayed in the footer." xml:space="preserve">
-    <value>De merknaam die wordt weergegeven in de voettekst.</value>
-  </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>Het ICP-licentienummer voor gebruikers uit het Chinese vasteland. Leeg laten om te verbergen.</value>
+  </data>
+  <data name="The brand name displayed in the footer." xml:space="preserve">
+    <value>De merknaam die wordt weergegeven in de voettekst.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Het logo van het project dat wordt weergegeven in de navigatiebalk en voettekst. Ondersteunt jpg, png, svg.</value>

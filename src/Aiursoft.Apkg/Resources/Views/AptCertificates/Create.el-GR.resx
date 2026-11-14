@@ -24,12 +24,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>Ακύρωση</value>
   </data>
-  <data name="e.g. anduinos" xml:space="preserve">
-    <value>π.χ. anduinos</value>
-  </data>
-  <data name="e.g. Anduinos Official Key" xml:space="preserve">
-    <value>π.χ. Anduinos Official Key</value>
-  </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>Δημιουργία νέου πιστοποιητικού</value>
   </data>
@@ -41,6 +35,12 @@
   </data>
   <data name="This name will be embedded in the GPG key as the User ID." xml:space="preserve">
     <value>Αυτό το όνομα θα ενσωματωθεί στο κλειδί GPG ως το ID Χρήστη.</value>
+  </data>
+  <data name="e.g. Anduinos Official Key" xml:space="preserve">
+    <value>π.χ. Anduinos Official Key</value>
+  </data>
+  <data name="e.g. anduinos" xml:space="preserve">
+    <value>π.χ. anduinos</value>
   </data>
 
 </root>

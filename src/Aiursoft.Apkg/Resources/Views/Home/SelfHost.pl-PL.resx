@@ -21,9 +21,6 @@
       <data name="About Apkg" xml:space="preserve">
     <value>O Apkg</value>
   </data>
-  <data name="and the default password is:" xml:space="preserve">
-    <value>a domyślne hasło to:</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
@@ -117,6 +114,9 @@
   <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
     <value>Zastąp domyślny certyfikat podpisujący przed udostępnianiem rzeczywistych repozytoriów.</value>
   </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>Uruchom ręcznie</value>
+  </data>
   <data name="Run in Docker" xml:space="preserve">
     <value>Uruchom w Dockerze</value>
   </data>
@@ -125,9 +125,6 @@
   </data>
   <data name="Run in Visual Studio" xml:space="preserve">
     <value>Uruchom w programie Visual Studio</value>
-  </data>
-  <data name="Run Manually" xml:space="preserve">
-    <value>Uruchom ręcznie</value>
   </data>
   <data name="Self Host" xml:space="preserve">
     <value>Samodzielne hostowanie</value>
@@ -141,14 +138,14 @@
   <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
     <value>Spowoduje to uruchomienie serwera WWW pod adresem http://localhost:5000, gdzie można przetestować aplikację.</value>
   </data>
-  <data name="The default username is:" xml:space="preserve">
-    <value>Domyślna nazwa użytkownika to:</value>
-  </data>
   <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
     <value>Obraz Docker sprawdza adres http://localhost:5000/health. Użyj tego samego punktu końcowego do zewnętrznego monitorowania czasu bezawaryjnego po uruchomieniu aplikacji.</value>
   </data>
   <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
     <value>Obraz Docker instaluje gnupg oraz ubuntu-keyring do podpisywania repozytoriów i weryfikacji podpisów upstream. Upewnij się, że ścieżka /data jest utrwalana (persistent), ponieważ zawiera plik appsettings.json, bazę danych SQLite, obiekty pakietów, awatary oraz pierścienie kluczy GPG.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>Domyślna nazwa użytkownika to:</value>
   </data>
   <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
     <value>Następujący skrypt zainstaluje/zaktualizuje tę aplikację na serwerze Ubuntu. Wspiera Ubuntu 25.04.</value>
@@ -158,6 +155,9 @@
   </data>
   <data name="Visit http://localhost:5000." xml:space="preserve">
     <value>Przejdź do http://localhost:5000.</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>a domyślne hasło to:</value>
   </data>
 
 </root>

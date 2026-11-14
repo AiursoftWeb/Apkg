@@ -30,6 +30,12 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>क्या आप वाकई एप्लिकेशन को पुनरारंभ करना चाहते हैं? यह क्रिया अपरिवर्तनीय है और सभी सक्रिय कनेक्शनों को समाप्त कर देगी।</value>
   </data>
+  <data name="CPU Architecture" xml:space="preserve">
+    <value>सीपीयू वास्तुकला</value>
+  </data>
+  <data name="CPU Cores" xml:space="preserve">
+    <value>सीपीयू कोर</value>
+  </data>
   <data name="Cache coverage" xml:space="preserve">
     <value>कैश कवरेज</value>
   </data>
@@ -44,12 +50,6 @@
   </data>
   <data name="Contents Cache" xml:space="preserve">
     <value>सामग्री कैश</value>
-  </data>
-  <data name="CPU Architecture" xml:space="preserve">
-    <value>सीपीयू वास्तुकला</value>
-  </data>
-  <data name="CPU Cores" xml:space="preserve">
-    <value>सीपीयू कोर</value>
   </data>
   <data name="Created" xml:space="preserve">
     <value>सृजित</value>

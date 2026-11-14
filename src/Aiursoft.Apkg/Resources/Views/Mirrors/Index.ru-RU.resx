@@ -69,9 +69,6 @@
   <data name="Insecure Source" xml:space="preserve">
     <value>Небезопасный источник</value>
   </data>
-  <data name="items" xml:space="preserve">
-    <value>элементов</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Последнее обновление</value>
   </data>
@@ -149,6 +146,9 @@
   </data>
   <data name="What is a Mirror?" xml:space="preserve">
     <value>Что такое зеркалирование?</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>элементов</value>
   </data>
 
 </root>

@@ -24,11 +24,11 @@
   <data name="Preview" xml:space="preserve">
     <value>Vista previa</value>
   </data>
-  <data name="Upload a .apkg bundle stored in Vault. You will review the manifest before publishing." xml:space="preserve">
-    <value>Cargue un paquete .apkg almacenado en Vault. Revisará el manifiesto antes de publicar.</value>
-  </data>
   <data name="Upload APKG Package" xml:space="preserve">
     <value>Cargar paquete APKG</value>
+  </data>
+  <data name="Upload a .apkg bundle stored in Vault. You will review the manifest before publishing." xml:space="preserve">
+    <value>Cargue un paquete .apkg almacenado en Vault. Revisará el manifiesto antes de publicar.</value>
   </data>
 
 </root>

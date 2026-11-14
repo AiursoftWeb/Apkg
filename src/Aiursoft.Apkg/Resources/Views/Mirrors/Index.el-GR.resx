@@ -69,9 +69,6 @@
   <data name="Insecure Source" xml:space="preserve">
     <value>Ανεπαφής Πηγή</value>
   </data>
-  <data name="items" xml:space="preserve">
-    <value>αντικείμενα</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Τελευταία Εφ&apos;άπαξ</value>
   </data>
@@ -149,6 +146,9 @@
   </data>
   <data name="What is a Mirror?" xml:space="preserve">
     <value>Τι είναι ένα Mirror;</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>αντικείμενα</value>
   </data>
 
 </root>

@@ -21,9 +21,6 @@
       <data name="About Apkg" xml:space="preserve">
     <value>Over Apkg</value>
   </data>
-  <data name="and the default password is:" xml:space="preserve">
-    <value>en het standaardwachtwoord is:</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
@@ -117,6 +114,9 @@
   <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
     <value>Vervang het ingebouwde ondertekeningscertificaat voordat u echte repositories serveert.</value>
   </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>Handmatig uitvoeren</value>
+  </data>
   <data name="Run in Docker" xml:space="preserve">
     <value>Uitvoeren in Docker</value>
   </data>
@@ -125,9 +125,6 @@
   </data>
   <data name="Run in Visual Studio" xml:space="preserve">
     <value>Uitvoeren in Visual Studio</value>
-  </data>
-  <data name="Run Manually" xml:space="preserve">
-    <value>Handmatig uitvoeren</value>
   </data>
   <data name="Self Host" xml:space="preserve">
     <value>Zelf gehost</value>
@@ -141,14 +138,14 @@
   <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
     <value>Hiermee wordt een webserver gestart op http://localhost:5000 en kunt u de app testen.</value>
   </data>
-  <data name="The default username is:" xml:space="preserve">
-    <value>De standaardgebruikersnaam is:</value>
-  </data>
   <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
     <value>De Docker-image controleert http://localhost:5000/health. Gebruik hetzelfde eindpunt voor externe uptime-monitoring nadat de app is gestart.</value>
   </data>
   <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
     <value>Het Docker-image installeert gnupg en ubuntu-keyring voor het ondertekenen van repositories en het verifiëren van upstream-handtekeningen. Bewaar /data omdat deze appsettings.json, de SQLite-database, pakketobjecten, avatars en GPG-keyrings opslaat.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>De standaardgebruikersnaam is:</value>
   </data>
   <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
     <value>Het volgende script installeert/updates deze app op uw Ubuntu-server. Ondersteunt Ubuntu 25.04.</value>
@@ -158,6 +155,9 @@
   </data>
   <data name="Visit http://localhost:5000." xml:space="preserve">
     <value>Bezoek http://localhost:5000.</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>en het standaardwachtwoord is:</value>
   </data>
 
 </root>

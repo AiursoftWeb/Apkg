@@ -93,9 +93,6 @@
   <data name="Package Details" xml:space="preserve">
     <value>パッケージの詳細</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>パッケージ(s)</value>
-  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>物理（キャッシュ済み）</value>
   </data>
@@ -134,6 +131,9 @@
   </data>
   <data name="What is a Package?" xml:space="preserve">
     <value>パッケージとは？</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>パッケージ(s)</value>
   </data>
 
 </root>

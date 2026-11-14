@@ -18,7 +18,19 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="API Key Usage" xml:space="preserve">
+    <value>एपीआई कुंजी उपयोग</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>API कुंजियाँ</value>
+  </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>APKG पैकेज विवरण</value>
+  </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>APKG अपलोड विवरण</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>प्रवेश अस्वीकृत</value>
   </data>
   <data name="Add New Mirror" xml:space="preserve">
@@ -36,23 +48,11 @@
   <data name="Anonymous" xml:space="preserve">
     <value>अनाम</value>
   </data>
-  <data name="API Key Usage" xml:space="preserve">
-    <value>एपीआई कुंजी उपयोग</value>
-  </data>
-  <data name="API Keys" xml:space="preserve">
-    <value>API कुंजियाँ</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>एपीकेजी हाइब्रिड</value>
-  </data>
-  <data name="APKG Package Details" xml:space="preserve">
-    <value>APKG पैकेज विवरण</value>
-  </data>
-  <data name="APKG Upload Details" xml:space="preserve">
-    <value>APKG अपलोड विवरण</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>बैकग्राउंड जॉब्स</value>
@@ -279,17 +279,17 @@
   <data name="Unauthorized" xml:space="preserve">
     <value>अनधिकृत</value>
   </data>
-  <data name="Upload apkg mixed package" xml:space="preserve">
-    <value>APPKG पैकेज अपलोड करें</value>
-  </data>
-  <data name="Upload deb package" xml:space="preserve">
-    <value>Upload deb package</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>अपलोड इतिहास</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>पैकेज अपलोड करें</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>APPKG पैकेज अपलोड करें</value>
+  </data>
+  <data name="Upload deb package" xml:space="preserve">
+    <value>Upload deb package</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>अपस्ट्रीम मिरर</value>

@@ -72,9 +72,6 @@
   <data name="Insecure Source" xml:space="preserve">
     <value>Nguồn không an toàn</value>
   </data>
-  <data name="items" xml:space="preserve">
-    <value>mục</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Lần kéo cuối cùng</value>
   </data>
@@ -152,6 +149,9 @@
   </data>
   <data name="What is a Mirror?" xml:space="preserve">
     <value>Gương chiếu là gì?</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>mục</value>
   </data>
 
 </root>

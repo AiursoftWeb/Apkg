@@ -24,12 +24,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>Batal</value>
   </data>
-  <data name="e.g. anduinos" xml:space="preserve">
-    <value>misalnya anduinos</value>
-  </data>
-  <data name="e.g. Anduinos Official Key" xml:space="preserve">
-    <value>mis. Kunci Resmi Anduinos</value>
-  </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>Buat Sertifikat Baru</value>
   </data>
@@ -41,6 +35,12 @@
   </data>
   <data name="This name will be embedded in the GPG key as the User ID." xml:space="preserve">
     <value>Nama ini akan disematkan dalam kunci GPG sebagai ID Pengguna.</value>
+  </data>
+  <data name="e.g. Anduinos Official Key" xml:space="preserve">
+    <value>mis. Kunci Resmi Anduinos</value>
+  </data>
+  <data name="e.g. anduinos" xml:space="preserve">
+    <value>misalnya anduinos</value>
   </data>
 
 </root>

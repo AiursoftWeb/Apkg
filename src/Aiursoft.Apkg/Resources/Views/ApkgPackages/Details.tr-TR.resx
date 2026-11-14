@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>İşlemler</value>
   </data>
   <data name="All" xml:space="preserve">
@@ -30,20 +27,11 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>.apkg karışık paket, Apkg&apos;nin birden fazla .deb paketini ve bir manifest.xml dosyasını tek bir sıkıştırılmış tar arşivinde birleştiren tescilli formatıdır. Sunucu her .deb paketini açar, kontrol dosyasından meta verileri çıkarır ve bunları hedef APT depolarına senkronize eder.</value>
   </data>
-  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
-    <value>ve TÜM revizyonlarını? Bu işlem geri alınamaz.</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Mimari</value>
   </data>
   <data name="Back to Packages" xml:space="preserve">
     <value>Paketlere Dön</value>
-  </data>
-  <data name="because you do not have permission to upload to them:" xml:space="preserve">
-    <value>onlara yükleme izniniz olmadığı için:</value>
-  </data>
-  <data name="by" xml:space="preserve">
-    <value>tarafından</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Bileşen</value>
@@ -117,9 +105,6 @@
   <data name="Package" xml:space="preserve">
     <value>Paket</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>paket(ler)</value>
-  </data>
   <data name="Pending Sync" xml:space="preserve">
     <value>Senkronizasyon Bekleniyor</value>
   </data>
@@ -162,9 +147,6 @@
   <data name="Unpublished" xml:space="preserve">
     <value>Yayınlanmamış</value>
   </data>
-  <data name="unpublished upload(s) pending publish." xml:space="preserve">
-    <value>yayınlanmayı bekleyen yayınlanmamış yükleme(ler).</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Yükleme Geçmişi</value>
   </data>
@@ -194,6 +176,24 @@
   </data>
   <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
     <value>Tek bir .apkg içinde her giriş üç &lt;strong&gt;canlı öznitelik&lt;/strong&gt; açısından farklılık gösterebilir: &lt;strong&gt;Sürüm&lt;/strong&gt; (.deb ikilisinden çıkarılır, manifest.xml&apos;de asla yazılmaz), &lt;strong&gt;Suite&lt;/strong&gt; ve &lt;strong&gt;Architecture&lt;/strong&gt;. Bu sayede, örneğin aynı sürümden amd64 ve arm64 yapılarını tek bir yükleme ile sunabilirsiniz.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>ve TÜM revizyonlarını? Bu işlem geri alınamaz.</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>onlara yükleme izniniz olmadığı için:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>tarafından</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>paket(ler)</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>yayınlanmayı bekleyen yayınlanmamış yükleme(ler).</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>

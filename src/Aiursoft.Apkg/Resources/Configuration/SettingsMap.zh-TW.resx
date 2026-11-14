@@ -30,17 +30,17 @@
   <data name="Allow Anonymous Browse Repository" xml:space="preserve">
     <value>允許匿名瀏覽存放庫</value>
   </data>
-  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
-    <value>允許匿名用戶在無需登入的情況下瀏覽儲存庫及其套件。</value>
-  </data>
-  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
-    <value>允許未登入的使用者查看套件詳細資訊</value>
-  </data>
   <data name="Allow Anonymous View Package Details" xml:space="preserve">
     <value>允許匿名查看套件詳細資訊</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>允許使用者修改暱稱</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>允許匿名用戶在無需登入的情況下瀏覽儲存庫及其套件。</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>允許未登入的使用者查看套件詳細資訊</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>允許使用者在個人檔案管理頁面中調整其暱稱。</value>
@@ -72,11 +72,11 @@
   <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
     <value>用於產生 APT 來源與 AppStream 截圖連結的公開基本 URL，例如 https://packages.example.com。當 /artifacts 由獨立網域或 CDN 提供服務時請設定此項。若此網頁應用程式直接提供存放庫服務，且未發布 AppStream 截圖，則可留空；因為背景目錄產生程序無法推斷其公開 URL。</value>
   </data>
-  <data name="The brand name displayed in the footer." xml:space="preserve">
-    <value>頁尾顯示的品牌名稱</value>
-  </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>適用於中國大陸使用者的 ICP 備案號碼。留空則隱藏。</value>
+  </data>
+  <data name="The brand name displayed in the footer." xml:space="preserve">
+    <value>頁尾顯示的品牌名稱</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>專案的標誌顯示於導覽列與頁尾。支援 jpg、png、svg 格式。</value>

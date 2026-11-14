@@ -36,14 +36,8 @@
   <data name="Next" xml:space="preserve">
     <value>Tiếp theo</value>
   </data>
-  <data name="of" xml:space="preserve">
-    <value>của</value>
-  </data>
   <data name="Package" xml:space="preserve">
     <value>Gói</value>
-  </data>
-  <data name="packages" xml:space="preserve">
-    <value>gói phần mềm</value>
   </data>
   <data name="Packages in Bucket" xml:space="preserve">
     <value>Gói trong Bucket</value>
@@ -71,6 +65,12 @@
   </data>
   <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
     <value>Virtual: tệp được lưu trữ trên upstream mirror và tải về theo yêu cầu bởi các apt client. Physical: tệp được lưu trữ cục bộ trên máy chủ này.</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>của</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>gói phần mềm</value>
   </data>
 
 </root>

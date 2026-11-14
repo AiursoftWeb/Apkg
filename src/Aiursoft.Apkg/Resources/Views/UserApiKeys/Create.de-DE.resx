@@ -42,9 +42,6 @@
   <data name="Create New API Key" xml:space="preserve">
     <value>Neuen API-Schlüssel erstellen</value>
   </data>
-  <data name="e.g. CI/CD Pipeline, Dev Machine" xml:space="preserve">
-    <value>z. B. CI/CD-Pipeline, Entwicklungsrechner</value>
-  </data>
   <data name="Expiration" xml:space="preserve">
     <value>Ablaufdatum</value>
   </data>
@@ -59,6 +56,9 @@
   </data>
   <data name="New Key Details" xml:space="preserve">
     <value>Neue Schlüssel-Details</value>
+  </data>
+  <data name="e.g. CI/CD Pipeline, Dev Machine" xml:space="preserve">
+    <value>z. B. CI/CD-Pipeline, Entwicklungsrechner</value>
   </data>
 
 </root>

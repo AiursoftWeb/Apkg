@@ -57,14 +57,14 @@
   <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
     <value>此舉將從對應的存放庫中移除下列套件。僅系統管理員可執行復原上架動作。</value>
   </data>
-  <data name="version" xml:space="preserve">
-    <value>版本</value>
-  </data>
   <data name="Warning:" xml:space="preserve">
     <value>警告：</value>
   </data>
   <data name="You are about to unlist" xml:space="preserve">
     <value>您即將將</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>版本</value>
   </data>
 
 </root>

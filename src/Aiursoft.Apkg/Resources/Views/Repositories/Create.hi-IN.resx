@@ -75,11 +75,11 @@
   <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
     <value>इस रिपॉजिटरी के रिलीज़ फ़ाइलों को हस्ताक्षरित करने के लिए उपयोग किया जाने वाला GPG कुंजी।</value>
   </data>
-  <data name="The internal identifier and part of the URL path." xml:space="preserve">
-    <value>आंतरिक पहचानकर्ता और URL पथ का हिस्सा।</value>
-  </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>इस भंडार के लिए URL पूर्वाग्रह (उदाहरण के लिए &apos;ubuntu&apos;)।</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>आंतरिक पहचानकर्ता और URL पथ का हिस्सा।</value>
   </data>
   <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
     <value>सक्षम होने पर, प्रत्येक रिपॉजिटरी सिंक के बाद रिलीज़ फ़ाइल का चयनित GPG कुंजी के साथ हस्ताक्षर किया जाता है। अपने sources.list में &apos;signed-by=&apos; का उपयोग करने वाले क्लाइंट इस हस्ताक्षर की सत्यापन करेंगे और बिना हस्ताक्षर या गलत हस्ताक्षर वाले रिपॉजिटरी को अस्वीकार करेंगे।</value>

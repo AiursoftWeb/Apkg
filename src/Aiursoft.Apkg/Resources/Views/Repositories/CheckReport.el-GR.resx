@@ -54,9 +54,6 @@
   <data name="Missing Dependencies" xml:space="preserve">
     <value>Απουσίζουσες Εξαρτήσεις</value>
   </data>
-  <data name="old" xml:space="preserve">
-    <value>παλιά</value>
-  </data>
   <data name="Package" xml:space="preserve">
     <value>Πακέτο</value>
   </data>
@@ -86,6 +83,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>Εικονικό</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>παλιά</value>
   </data>
 
 </root>

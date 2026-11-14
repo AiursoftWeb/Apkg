@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>Απέτυχε</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>αρχείο</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>Λεπτομέρειες επαλήθευσης GPG</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>Η υπογραφή GPG διασφαλίζει ότι τα πακέτα προέρχονται από αξιόπιστη πηγή και δεν έχουν αλλοιωθεί. Το αρχείο InRelease του καθρέφτη ελέγχεται απέναντι στο κλειδί GPG του.</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>Λεπτομέρειες επαλήθευσης GPG</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>Κλειδαποθήκη</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>Τι είναι ο Επαληθευτής GPG;</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>αρχείο</value>
   </data>
 
 </root>

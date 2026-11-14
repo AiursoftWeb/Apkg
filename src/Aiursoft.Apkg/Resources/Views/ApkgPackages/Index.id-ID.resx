@@ -27,9 +27,6 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
     <value>Paket campuran .apkg adalah format hak milik Apkg yang mengelompokkan beberapa paket .deb ke dalam satu unggahan. Setelah pemrosesan, setiap .deb yang terkandung di dalamnya akan diekstrak dan disinkronkan ke repositori APT targetnya.</value>
   </data>
-  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
-    <value>serta SEMUA revisi dan paket lokalnya. Nama paket akan dilepaskan untuk pengguna lain. Tindakan ini tidak dapat dibatalkan.</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Batal</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="What is a mixed package?" xml:space="preserve">
     <value>Apa itu paket campuran?</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>serta SEMUA revisi dan paket lokalnya. Nama paket akan dilepaskan untuk pengguna lain. Tindakan ini tidak dapat dibatalkan.</value>
   </data>
 
 </root>

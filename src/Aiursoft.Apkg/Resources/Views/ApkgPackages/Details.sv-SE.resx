@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>Åtgärder</value>
   </data>
   <data name="All" xml:space="preserve">
@@ -30,20 +27,11 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>Ett .apkg-blandpaket är Apkgs proprietära format som kapslar in flera .deb-paket och en manifest.xml i ett enda gzippat tar-arkiv. Servern packar upp varje .deb, extraherar metadata från dess kontrollfil och synkroniserar dem till sina mål-APT-arkiv.</value>
   </data>
-  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
-    <value>och ALLA dess versioner? Detta kan inte ångras.</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Arkitektur</value>
   </data>
   <data name="Back to Packages" xml:space="preserve">
     <value>Tillbaka till paket</value>
-  </data>
-  <data name="because you do not have permission to upload to them:" xml:space="preserve">
-    <value>eftersom du inte har behörighet att ladda upp till dem:</value>
-  </data>
-  <data name="by" xml:space="preserve">
-    <value>av</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Komponent</value>
@@ -117,9 +105,6 @@
   <data name="Package" xml:space="preserve">
     <value>Paket</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>paket(t)</value>
-  </data>
   <data name="Pending Sync" xml:space="preserve">
     <value>Väntar på synkronisering</value>
   </data>
@@ -162,9 +147,6 @@
   <data name="Unpublished" xml:space="preserve">
     <value>Opubblicerad</value>
   </data>
-  <data name="unpublished upload(s) pending publish." xml:space="preserve">
-    <value>o publicerade uppladdning(ar) väntar på publicering.</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Uppladdningshistorik</value>
   </data>
@@ -194,6 +176,24 @@
   </data>
   <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
     <value>In en enda .apkg kan varje post variera på tre &lt;strong&gt;dynamiska attribut&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extraherad från .deb-binärfilen, aldrig skriven i manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt; och &lt;strong&gt;Arkitektur&lt;/strong&gt;. Detta gör att du kan skicka t.ex. amd64- och arm64-versioner av samma version i en enda uppladdning.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>och ALLA dess versioner? Detta kan inte ångras.</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>eftersom du inte har behörighet att ladda upp till dem:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>av</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>paket(t)</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>o publicerade uppladdning(ar) väntar på publicering.</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>

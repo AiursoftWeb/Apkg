@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>असफल</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>फ़ाइल</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>GPG सत्यापन विवरण</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>GPG साइनिंग सुनिश्चित करती है कि पैकेज भरोसेमंद स्रोत से आए हैं और उनकी हस्तक्षेप नहीं किया गया है। मिरर का InRelease फ़ाइल इसके GPG कुंजी के खिलाफ सत्यापित किया जाता है।</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>GPG सत्यापन विवरण</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>कीरिंग</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>जीपीजी सत्यापन क्या है?</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>फ़ाइल</value>
   </data>
 
 </root>

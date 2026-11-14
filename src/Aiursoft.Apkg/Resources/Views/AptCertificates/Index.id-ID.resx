@@ -42,11 +42,11 @@
   <data name="Friendly Name" xml:space="preserve">
     <value>Nama yang Mudah</value>
   </data>
-  <data name="Generate New Key" xml:space="preserve">
-    <value>Buat Kunci Baru</value>
-  </data>
   <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
     <value>Sertifikat GPG menandatangani metadata repositori Anda agar klien apt dapat memverifikasi bahwa paket tidak telah dirusak.</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Buat Kunci Baru</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nama</value>

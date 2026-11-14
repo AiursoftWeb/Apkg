@@ -102,9 +102,6 @@
   <data name="Package Details" xml:space="preserve">
     <value>تفاصيل الحزمة</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>حزمة(حزم)</value>
-  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>مادي (مخزن مؤقت)</value>
   </data>
@@ -158,6 +155,9 @@
   </data>
   <data name="What is a Package?" xml:space="preserve">
     <value>ما هي الحزمة؟</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>حزمة(حزم)</value>
   </data>
 
 </root>

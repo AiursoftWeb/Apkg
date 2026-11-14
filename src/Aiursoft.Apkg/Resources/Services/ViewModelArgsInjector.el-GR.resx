@@ -18,7 +18,19 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="API Key Usage" xml:space="preserve">
+    <value>Χρήση Κλειδιού API</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>Κλειδιά API</value>
+  </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>Λεπτομέρειες Πaket APKG</value>
+  </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>Λεπτομέρειες Ανάθεσης APKG</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>Πρόσβαση απαγορευμένη</value>
   </data>
   <data name="Add New Mirror" xml:space="preserve">
@@ -36,23 +48,11 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Ανώνυμος</value>
   </data>
-  <data name="API Key Usage" xml:space="preserve">
-    <value>Χρήση Κλειδιού API</value>
-  </data>
-  <data name="API Keys" xml:space="preserve">
-    <value>Κλειδιά API</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Υβριδικό Apkg</value>
-  </data>
-  <data name="APKG Package Details" xml:space="preserve">
-    <value>Λεπτομέρειες Πaket APKG</value>
-  </data>
-  <data name="APKG Upload Details" xml:space="preserve">
-    <value>Λεπτομέρειες Ανάθεσης APKG</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Ημικυκλικές Εργασίες</value>
@@ -279,17 +279,17 @@
   <data name="Unauthorized" xml:space="preserve">
     <value>Μη Εξουσιοδοτημένος</value>
   </data>
-  <data name="Upload apkg mixed package" xml:space="preserve">
-    <value>Μεταφόρτωση πακέτου APKG</value>
-  </data>
-  <data name="Upload deb package" xml:space="preserve">
-    <value>Upload deb package</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Ιστορικό Εμφάνισης</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Ανέβασμα Πακέτου</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>Μεταφόρτωση πακέτου APKG</value>
+  </data>
+  <data name="Upload deb package" xml:space="preserve">
+    <value>Upload deb package</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Κάτοψη Ανάστροφης Αντιγραφής</value>

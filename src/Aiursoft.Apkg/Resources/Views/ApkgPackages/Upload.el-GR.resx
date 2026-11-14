@@ -24,11 +24,11 @@
   <data name="Preview" xml:space="preserve">
     <value>Προεπισκόπηση</value>
   </data>
-  <data name="Upload a .apkg bundle stored in Vault. You will review the manifest before publishing." xml:space="preserve">
-    <value>Ανέβαστε ένα αρχείο .apkg που αποθηκεύεται στο Vault. Θα εξετάσετε το αρχείο manifest πριν τη δημοσίευση.</value>
-  </data>
   <data name="Upload APKG Package" xml:space="preserve">
     <value>Ανέβασμα πακέτου APKG</value>
+  </data>
+  <data name="Upload a .apkg bundle stored in Vault. You will review the manifest before publishing." xml:space="preserve">
+    <value>Ανέβαστε ένα αρχείο .apkg που αποθηκεύεται στο Vault. Θα εξετάσετε το αρχείο manifest πριν τη δημοσίευση.</value>
   </data>
 
 </root>

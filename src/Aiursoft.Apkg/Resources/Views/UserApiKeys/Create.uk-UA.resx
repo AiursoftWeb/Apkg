@@ -42,9 +42,6 @@
   <data name="Create New API Key" xml:space="preserve">
     <value>Створити новий API-ключ</value>
   </data>
-  <data name="e.g. CI/CD Pipeline, Dev Machine" xml:space="preserve">
-    <value>напр., CI/CD Pipeline, Dev Machine</value>
-  </data>
   <data name="Expiration" xml:space="preserve">
     <value>Термін дії</value>
   </data>
@@ -59,6 +56,9 @@
   </data>
   <data name="New Key Details" xml:space="preserve">
     <value>Нові деталі ключа</value>
+  </data>
+  <data name="e.g. CI/CD Pipeline, Dev Machine" xml:space="preserve">
+    <value>напр., CI/CD Pipeline, Dev Machine</value>
   </data>
 
 </root>

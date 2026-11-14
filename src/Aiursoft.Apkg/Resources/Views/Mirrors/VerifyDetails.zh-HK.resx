@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>失敗</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>檔案</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>GPG 驗證詳情</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>GPG 簽署確保軟件包來自可信來源且未被篡改。鏡像的 InRelease 檔案會根據其 GPG 密鑰進行驗證。</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>GPG 驗證詳情</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>金鑰環</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>什麼是GPG驗證？</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>檔案</value>
   </data>
 
 </root>

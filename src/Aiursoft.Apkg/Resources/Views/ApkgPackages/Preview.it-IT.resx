@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Arch" xml:space="preserve">
+      <data name="Arch" xml:space="preserve">
     <value>Architettura</value>
   </data>
   <data name="Component" xml:space="preserve">
@@ -83,6 +80,9 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Attenzione</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>
