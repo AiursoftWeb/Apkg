@@ -42,11 +42,11 @@
   <data name="Friendly Name" xml:space="preserve">
     <value>Φιλικά Ονομα</value>
   </data>
-  <data name="Generate New Key" xml:space="preserve">
-    <value>Δημιουργία Νέου Κλειδιού</value>
-  </data>
   <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
     <value>Τα πιστοποιητικά GPG υπογράφουν τα μεταδεδομένα του αποθετηρίου σας, ώστε οι πελάτες apt να μπορούν να επαληθεύουν ότι τα πακέτα δεν έχουν τροποποιηθεί.</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Δημιουργία Νέου Κλειδιού</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Όνομα</value>

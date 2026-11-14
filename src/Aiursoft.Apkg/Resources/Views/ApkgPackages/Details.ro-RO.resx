@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>Acțiuni</value>
   </data>
   <data name="All" xml:space="preserve">
@@ -30,20 +27,11 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>Un pachet mixt .apkg este formatul proprietar Apkg care împachetează mai multe pachete .deb și un fișier manifest.xml într-un singur arhivă tar compressată cu gzip. Serverul dezarhivează fiecare .deb, extrage metadatele din fișierul său de control și le sincronizează în repozitoarele APT destinație.</value>
   </data>
-  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
-    <value>și TOATE reviziile sale? Această acțiune nu poate fi anulată.</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Arhitectură</value>
   </data>
   <data name="Back to Packages" xml:space="preserve">
     <value>Înapoi la pachete</value>
-  </data>
-  <data name="because you do not have permission to upload to them:" xml:space="preserve">
-    <value>deoarece nu aveți permisiunea de a încărca în acestea:</value>
-  </data>
-  <data name="by" xml:space="preserve">
-    <value>de</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Componentă</value>
@@ -117,9 +105,6 @@
   <data name="Package" xml:space="preserve">
     <value>Pachet</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>pacote(e)</value>
-  </data>
   <data name="Pending Sync" xml:space="preserve">
     <value>Sincronizare în așteptare</value>
   </data>
@@ -162,9 +147,6 @@
   <data name="Unpublished" xml:space="preserve">
     <value>Nepublicat</value>
   </data>
-  <data name="unpublished upload(s) pending publish." xml:space="preserve">
-    <value>încărcare(i) nepublicată(e) în așteptare pentru publicare.</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Istoricul încărcărilor</value>
   </data>
@@ -194,6 +176,24 @@
   </data>
   <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
     <value>Într-un singur .apkg, fiecare intrare poate varia pe trei &lt;strong&gt;atribute dinamice&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extrase din binarul .deb, niciodată scrise în manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt; și &lt;strong&gt;Architecture&lt;/strong&gt;. Aceasta vă permite să distribuiți, de exemplu, build-urile amd64 și arm64 ale aceleiași versiuni într-o singură încărcare.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>și TOATE reviziile sale? Această acțiune nu poate fi anulată.</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>deoarece nu aveți permisiunea de a încărca în acestea:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>de</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pacote(e)</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>încărcare(i) nepublicată(e) în așteptare pentru publicare.</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>

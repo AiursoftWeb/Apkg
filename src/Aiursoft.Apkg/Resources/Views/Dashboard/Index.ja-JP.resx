@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ 前へ</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>長期実行タスク（メールやAIなど）に対する「ファイア・アンド・フォーゲット」サポート。キュー管理、並列処理、キャンセルに対応するGUIを備えています。</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>モダンで機能豊富、そして高い拡張性を備えた、次世代のWebアプリケーションの基盤。</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>リポジトリをあなたの</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AIによる翻訳</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>すべての依存関係は自動的に登録され、コンストラクタインジェクションを通じて常に利用可能です。</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>各パッケージを個別に閲覧する</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>して実行</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>APT パッケージ検索</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>リポジトリをあなたの</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>すべての依存関係は自動的に登録され、コンストラクタインジェクションを通じて常に利用可能です。</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>自動ダークモード</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>これはテンプレートプロジェクトです。ここから航海が始まります...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>始めましょう。</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>名前を短くするか、スペルを確認してください。</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Aiursoftテンプレートを使用する理由</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>各パッケージを個別に閲覧する</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>して実行</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>始めましょう。</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ 前へ</value>
   </data>
 
 </root>

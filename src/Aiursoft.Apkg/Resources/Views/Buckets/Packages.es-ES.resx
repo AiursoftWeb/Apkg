@@ -36,14 +36,8 @@
   <data name="Next" xml:space="preserve">
     <value>Siguiente</value>
   </data>
-  <data name="of" xml:space="preserve">
-    <value>de</value>
-  </data>
   <data name="Package" xml:space="preserve">
     <value>Paquete</value>
-  </data>
-  <data name="packages" xml:space="preserve">
-    <value>paquetes</value>
   </data>
   <data name="Packages in Bucket" xml:space="preserve">
     <value>Paquetes en el cubo</value>
@@ -71,6 +65,12 @@
   </data>
   <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
     <value>Virtual: el archivo está alojado en el espejo principal y se descarga bajo demanda por los clientes de apt. Physical: el archivo se almacena localmente en este servidor.</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>de</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>paquetes</value>
   </data>
 
 </root>

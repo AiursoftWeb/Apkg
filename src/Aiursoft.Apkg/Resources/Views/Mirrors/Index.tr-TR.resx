@@ -69,9 +69,6 @@
   <data name="Insecure Source" xml:space="preserve">
     <value>Güvensiz Kaynak</value>
   </data>
-  <data name="items" xml:space="preserve">
-    <value>öğe</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Son Çekim</value>
   </data>
@@ -149,6 +146,9 @@
   </data>
   <data name="What is a Mirror?" xml:space="preserve">
     <value>Ayna nedir?</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>öğe</value>
   </data>
 
 </root>

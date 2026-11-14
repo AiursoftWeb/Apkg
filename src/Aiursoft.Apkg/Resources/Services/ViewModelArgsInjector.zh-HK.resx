@@ -18,7 +18,19 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="API Key Usage" xml:space="preserve">
+    <value>API Key 使用情況</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>API 金鑰</value>
+  </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>APKG 套件詳細資料</value>
+  </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>APKG 上傳詳情</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>存取被拒</value>
   </data>
   <data name="Account Settings" xml:space="preserve">
@@ -39,23 +51,11 @@
   <data name="Anonymous" xml:space="preserve">
     <value>匿名</value>
   </data>
-  <data name="API Key Usage" xml:space="preserve">
-    <value>API Key 使用情況</value>
-  </data>
-  <data name="API Keys" xml:space="preserve">
-    <value>API 金鑰</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>APKG 混合模式</value>
-  </data>
-  <data name="APKG Package Details" xml:space="preserve">
-    <value>APKG 套件詳細資料</value>
-  </data>
-  <data name="APKG Upload Details" xml:space="preserve">
-    <value>APKG 上傳詳情</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>背景工作</value>
@@ -282,17 +282,17 @@
   <data name="Unauthorized" xml:space="preserve">
     <value>未獲授權</value>
   </data>
-  <data name="Upload apkg mixed package" xml:space="preserve">
-    <value>上傳 APKG 套件</value>
-  </data>
-  <data name="Upload deb package" xml:space="preserve">
-    <value>Upload deb package</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>上傳歷史</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>上傳套件</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>上傳 APKG 套件</value>
+  </data>
+  <data name="Upload deb package" xml:space="preserve">
+    <value>Upload deb package</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>上游鏡像</value>

@@ -27,9 +27,6 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
     <value>.apkg-sekoituspaketti on Apkg:n oma muodot, joka yhdistää useat .deb-paketit yhteen lähetykseen. Käsittelyn jälkeen kukin sisältyvä .deb-paketti puretaan ja synkronoidaan kohde-APT-varastoon.</value>
   </data>
-  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
-    <value>sekä KAIKKI sen tarkistukset ja paikalliset paketit. Paketin nimi vapautetaan muiden käyttäjien käyttöön. Tätä ei voi peruuttaa.</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Peruuta</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="What is a mixed package?" xml:space="preserve">
     <value>Mikä on sekapaketti?</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>sekä KAIKKI sen tarkistukset ja paikalliset paketit. Paketin nimi vapautetaan muiden käyttäjien käyttöön. Tätä ei voi peruuttaa.</value>
   </data>
 
 </root>

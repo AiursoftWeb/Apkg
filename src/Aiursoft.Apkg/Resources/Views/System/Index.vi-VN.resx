@@ -30,6 +30,12 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Bạn có chắc chắn muốn khởi động lại ứng dụng không? Hành động này không thể hoàn tác và sẽ chấm dứt tất cả các kết nối đang hoạt động.</value>
   </data>
+  <data name="CPU Architecture" xml:space="preserve">
+    <value>Kiến trúc CPU</value>
+  </data>
+  <data name="CPU Cores" xml:space="preserve">
+    <value>Số nhân CPU</value>
+  </data>
   <data name="Cache coverage" xml:space="preserve">
     <value>Phạm vi bao phủ bộ nhớ đệm</value>
   </data>
@@ -44,12 +50,6 @@
   </data>
   <data name="Contents Cache" xml:space="preserve">
     <value>Bộ nhớ đệm nội dung</value>
-  </data>
-  <data name="CPU Architecture" xml:space="preserve">
-    <value>Kiến trúc CPU</value>
-  </data>
-  <data name="CPU Cores" xml:space="preserve">
-    <value>Số nhân CPU</value>
   </data>
   <data name="Created" xml:space="preserve">
     <value>Được tạo</value>

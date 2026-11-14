@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>ล้มเหลว</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>ไฟล์</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>รายละเอียดการตรวจสอบ GPG</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>การลงชื่อ GPG รับประกันว่าแพ็กเกจมาจากแหล่งที่เชื่อถือได้และยังไม่ถูกแก้ไข ไฟล์ InRelease ของมิเรอร์ได้รับการตรวจสอบกับคีย์ GPG ของมัน</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>รายละเอียดการตรวจสอบ GPG</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>กุญแจ</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>การตรวจสอบ GPG คืออะไร?</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>ไฟล์</value>
   </data>
 
 </root>

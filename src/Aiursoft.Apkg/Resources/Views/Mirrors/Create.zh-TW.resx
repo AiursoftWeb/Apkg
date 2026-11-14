@@ -48,11 +48,11 @@
   <data name="Save Changes" xml:space="preserve">
     <value>儲存變更</value>
   </data>
-  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
-    <value>上游伺服器的基礎 URL（例如 &apos;https://mirrors.ubuntu.com/&apos;）。發行版名稱將自動附加。</value>
-  </data>
   <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>此鏡像站的 URL 前綴（例如 &apos;ubuntu&apos;）。</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>上游伺服器的基礎 URL（例如 &apos;https://mirrors.ubuntu.com/&apos;）。發行版名稱將自動附加。</value>
   </data>
 
 </root>

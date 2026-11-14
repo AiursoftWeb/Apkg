@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ السابق</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>دعم &quot;إطلاق ونسي&quot; للمهام الطويلة (مثل البريد الإلكتروني أو الذكاء الاصطناعي)، يشمل واجهة رسومية لإدارة الطابور، والمعالجة المتوازية، والإلغاء.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>أساس حديث، غني بالميزات، وقابل للتوسعة بشكل كبير لتطبيق الويب القادم الخاص بك.</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>أضف مستودعًا إلى</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>الترجمات المدعومة بالذكاء الاصطناعي</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>يتم تسجيل جميع التبعيات تلقائيًا وهي متاحة دائمًا عبر حقن المُنشئ.</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>وتصفح حزمها بشكل فردي.</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>وشغّل</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>البحث عن حزم APT</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>أضف مستودعًا إلى</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>يتم تسجيل جميع التبعيات تلقائيًا وهي متاحة دائمًا عبر حقن المُنشئ.</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>الوضع الداكن التلقائي</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>هذا مشروع قالب، حيث نبدأ رحلة المستكشف...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>للبدء.</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>جرّب اسماً أقصر أو تحقق من الإملاء.</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>لماذا نستخدم قالب Aiursoft؟</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>وتصفح حزمها بشكل فردي.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>وشغّل</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>للبدء.</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ السابق</value>
   </data>
 
 </root>

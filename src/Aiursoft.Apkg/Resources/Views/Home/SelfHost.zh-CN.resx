@@ -21,9 +21,6 @@
       <data name="About Apkg" xml:space="preserve">
     <value>关于 Apkg</value>
   </data>
-  <data name="and the default password is:" xml:space="preserve">
-    <value>默认密码为：</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
@@ -117,6 +114,9 @@
   <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
     <value>在提供真实软件仓库之前，请替换预置的签名证书。</value>
   </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>手动运行</value>
+  </data>
   <data name="Run in Docker" xml:space="preserve">
     <value>在 Docker 中运行</value>
   </data>
@@ -125,9 +125,6 @@
   </data>
   <data name="Run in Visual Studio" xml:space="preserve">
     <value>在 Visual Studio 中运行</value>
-  </data>
-  <data name="Run Manually" xml:space="preserve">
-    <value>手动运行</value>
   </data>
   <data name="Self Host" xml:space="preserve">
     <value>自托管</value>
@@ -141,14 +138,14 @@
   <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
     <value>这将在 http://localhost:5000 启动 Web 服务器，您可以测试该应用。</value>
   </data>
-  <data name="The default username is:" xml:space="preserve">
-    <value>默认用户名为：</value>
-  </data>
   <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
     <value>Docker 镜像会检查 http://localhost:5000/health。在应用启动后，请对相同端点使用外部运行状况监控。</value>
   </data>
   <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
     <value>Docker 镜像安装了 gnupg 和 ubuntu-keyring，用于仓库签名和上游签名验证。请持久化存储 /data 目录，因为它存储了 appsettings.json、SQLite 数据库、包对象、头像和 GPG 密钥环。</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>默认用户名为：</value>
   </data>
   <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
     <value>以下脚本将在您的 Ubuntu 服务器上安装/更新此应用程序。支持 Ubuntu 25.04。</value>
@@ -158,6 +155,9 @@
   </data>
   <data name="Visit http://localhost:5000." xml:space="preserve">
     <value>访问 http://localhost:5000。</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>默认密码为：</value>
   </data>
 
 </root>

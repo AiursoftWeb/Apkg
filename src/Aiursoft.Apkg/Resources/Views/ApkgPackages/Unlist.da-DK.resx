@@ -57,14 +57,14 @@
   <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
     <value>Dette fjerner følgende pakker fra deres pakkerepositorier. Afregistrering kan kun reverseres af en administrator.</value>
   </data>
-  <data name="version" xml:space="preserve">
-    <value>version</value>
-  </data>
   <data name="Warning:" xml:space="preserve">
     <value>Advarsel:</value>
   </data>
   <data name="You are about to unlist" xml:space="preserve">
     <value>Du er ved at fjerneliste</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>version</value>
   </data>
 
 </root>

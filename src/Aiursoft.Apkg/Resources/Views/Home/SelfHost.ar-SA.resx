@@ -21,9 +21,6 @@
       <data name="About Apkg" xml:space="preserve">
     <value>حول Apkg</value>
   </data>
-  <data name="and the default password is:" xml:space="preserve">
-    <value>وكلمة المرور الافتراضية هي:</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
@@ -117,6 +114,9 @@
   <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
     <value>استبدل شهادة التوقيع المُضمَّنة قبل استضافة المستودعات الحقيقية.</value>
   </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>التشغيل يدويًا</value>
+  </data>
   <data name="Run in Docker" xml:space="preserve">
     <value>التشغيل في Docker</value>
   </data>
@@ -125,9 +125,6 @@
   </data>
   <data name="Run in Visual Studio" xml:space="preserve">
     <value>التشغيل في Visual Studio</value>
-  </data>
-  <data name="Run Manually" xml:space="preserve">
-    <value>التشغيل يدويًا</value>
   </data>
   <data name="Self Host" xml:space="preserve">
     <value>الاستضافة الذاتية</value>
@@ -141,14 +138,14 @@
   <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
     <value>سيؤدي ذلك إلى تشغيل خادم ويب على http://localhost:5000 ويمكنك اختبار التطبيق.</value>
   </data>
-  <data name="The default username is:" xml:space="preserve">
-    <value>اسم المستخدم الافتراضي هو:</value>
-  </data>
   <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
     <value>يتحقق صورة دوكير من http://localhost:5000/health. استخدم نفس النهاية لمراقبة وقت التشغيل الخارجي بعد بدء تشغيل التطبيق.</value>
   </data>
   <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
     <value>يقوم صورة Docker بتثبيت gnupg و ubuntu-keyring لتوقيع المستودعات والتحقق من التوقيعات الأصلية. حافظ على /data لأنه يخزن appsettings.json وقاعدة بيانات SQLite و كائنات الحزم والصور الرمزية وحلقات مفاتيح GPG.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>اسم المستخدم الافتراضي هو:</value>
   </data>
   <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
     <value>سيقوم النص البرمجي التالي بتثبيت/تحديث هذا التطبيق على خادم أوبونتو الخاص بك. يدعم أوبونتو 25.04.</value>
@@ -158,6 +155,9 @@
   </data>
   <data name="Visit http://localhost:5000." xml:space="preserve">
     <value>قم بزيارة http://localhost:5000.</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>وكلمة المرور الافتراضية هي:</value>
   </data>
 
 </root>

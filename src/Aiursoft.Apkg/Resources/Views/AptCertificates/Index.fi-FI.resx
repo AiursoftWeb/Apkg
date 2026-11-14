@@ -42,11 +42,11 @@
   <data name="Friendly Name" xml:space="preserve">
     <value>Ystävällinen nimi</value>
   </data>
-  <data name="Generate New Key" xml:space="preserve">
-    <value>Luo uusi avain</value>
-  </data>
   <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
     <value>GPG-sertifikaatit allekirjoittavat pakettilähde Metadata-tiedot, jotta apt-asiakkaat voivat varmistaa, ettei paketteja ole muutettu.</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Luo uusi avain</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Nimi</value>

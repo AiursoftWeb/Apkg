@@ -18,17 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name=".apkg publishing" xml:space="preserve">
-    <value>Xuất bản .apkg</value>
-  </data>
-  <data name=".NET Global Tool" xml:space="preserve">
-    <value>Công cụ toàn cầu .NET</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Hỗ trợ kiểu &quot;Fire-and-forget&quot; cho các tác vụ dài hạn (như email hoặc AI), đi kèm giao diện người dùng đồ họa (GUI) để quản lý hàng đợi, xử lý song song và hủy bỏ.</value>
   </data>
   <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
     <value>Cách đóng gói Debian truyền thống phân tán định nghĩa gói qua hàng tá tệp — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — mỗi tệp có một phương thức riêng biệt và khó hiểu. Tôi thiết kế &lt;code&gt;.aosproj&lt;/code&gt; để thay thế tất cả những thứ đó bằng một tệp kê khai khai báo duy nhất. XML có cấu trúc giúp việc phân tích biểu đồ phụ thuộc trở nên dễ dàng cho cả con người và máy CI. Các luồng CI được rút gọn thành &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. Nó biến việc đóng gói phân phối Linux từ một bí kíp huyền bí thành kỹ thuật phần mềm tiêu chuẩn.</value>
+  </data>
+  <data name=".NET Global Tool" xml:space="preserve">
+    <value>Công cụ toàn cầu .NET</value>
+  </data>
+  <data name=".apkg publishing" xml:space="preserve">
+    <value>Xuất bản .apkg</value>
   </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>&lt;code&gt;Buildd&lt;/code&gt; farm biên dịch bản địa trên phần cứng thật. &lt;code&gt;apt-ftparchive&lt;/code&gt; chạy theo cron tái tạo lại chỉ mục — các gói chờ hàng giờ trong &lt;code&gt;incoming&lt;/code&gt; trước khi công bố.</value>
@@ -63,6 +63,24 @@
   <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
     <value>Chỉ một lệnh để cài đặt máy khách APKG và bắt đầu quản lý các gói APT của bạn.</value>
   </data>
+  <data name="AI Driven Translation" xml:space="preserve">
+    <value>Dịch thuật do AI dẫn dắt</value>
+  </data>
+  <data name="AI Readable" xml:space="preserve">
+    <value>Đọc được bởi AI</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Dịch Thuật Hỗ Trợ Bởi AI</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>Kho gói APT</value>
+  </data>
+  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
+    <value>Các khách hàng APT chỉ đọc các thùng chính. Việc đồng bộ không đầy đủ, siêu dữ liệu không ký và các thùng dàn dựng vẫn ẩn đi.</value>
+  </data>
+  <data name="APT repository server" xml:space="preserve">
+    <value>Máy chủ kho APT</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Đạt được nhiều hơn với Aiursoft Template</value>
   </data>
@@ -80,15 +98,6 @@
   </data>
   <data name="After sync and signing, machines consume the repository with normal APT source files and &lt;code&gt;apt install&lt;/code&gt; commands." xml:space="preserve">
     <value>Sau khi đồng bộ và ký số, các máy sẽ sử dụng kho dữ liệu với các tệp nguồn APT thông thường và lệnh &lt;code&gt;apt install&lt;/code&gt;.</value>
-  </data>
-  <data name="AI Driven Translation" xml:space="preserve">
-    <value>Dịch thuật do AI dẫn dắt</value>
-  </data>
-  <data name="AI Readable" xml:space="preserve">
-    <value>Đọc được bởi AI</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Dịch Thuật Hỗ Trợ Bởi AI</value>
   </data>
   <data name="Aiursoft Apkg" xml:space="preserve">
     <value>Aiursoft Apkg</value>
@@ -123,15 +132,6 @@
   <data name="Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots." xml:space="preserve">
     <value>Apkg nằm giữa các kho lưu trữ nguồn, nhà phát triển gói và máy khách. Nó chuyển đổi siêu dữ liệu của bản sao chép và các ghi đè được tải lên thành các bản chụp kho lưu trữ ổn định, có chữ ký số.</value>
   </data>
-  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
-    <value>Các khách hàng APT chỉ đọc các thùng chính. Việc đồng bộ không đầy đủ, siêu dữ liệu không ký và các thùng dàn dựng vẫn ẩn đi.</value>
-  </data>
-  <data name="APT Package Repository" xml:space="preserve">
-    <value>Kho gói APT</value>
-  </data>
-  <data name="APT repository server" xml:space="preserve">
-    <value>Máy chủ kho APT</value>
-  </data>
   <data name="Architecture Philosophy" xml:space="preserve">
     <value>Triết lý Kiến trúc</value>
   </data>
@@ -144,11 +144,11 @@
   <data name="Authentik &amp; Okta" xml:space="preserve">
     <value>Authentik &amp; Okta</value>
   </data>
-  <data name="Auto compression and privacy" xml:space="preserve">
-    <value>Nén tự động và bảo mật</value>
-  </data>
   <data name="Auto Deployment" xml:space="preserve">
     <value>Triển khai tự động</value>
+  </data>
+  <data name="Auto compression and privacy" xml:space="preserve">
+    <value>Nén tự động và bảo mật</value>
   </data>
   <data name="Automatic AI translation into 28 languages." xml:space="preserve">
     <value>Dịch thuật AI tự động sang 28 ngôn ngữ.</value>
@@ -225,9 +225,6 @@
   <data name="Built-in" xml:space="preserve">
     <value>Tích hợp sẵn</value>
   </data>
-  <data name="Built-in administration panel" xml:space="preserve">
-    <value>Bảng điều khiển quản trị tích hợp</value>
-  </data>
   <data name="Built-in Auth" xml:space="preserve">
     <value>Xác thực tích hợp</value>
   </data>
@@ -237,8 +234,8 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>Quản lý Người dùng Tích hợp sẵn</value>
   </data>
-  <data name="Certificate management" xml:space="preserve">
-    <value>Quản lý chứng chỉ</value>
+  <data name="Built-in administration panel" xml:space="preserve">
+    <value>Bảng điều khiển quản trị tích hợp</value>
   </data>
   <data name="CI cross-compilation excels on amd64/arm64, but Debian&apos;s native Buildd catches architecture-specific UB that cross-toolchains miss." xml:space="preserve">
     <value>Biên dịch chéo trên CI tỏ ra vượt trội trên amd64/arm64, nhưng hệ thống Buildd bản địa của Debian có thể phát hiện các lỗi UB đặc thù cho kiến trúc mà các công cụ biên dịch chéo thường bỏ sót.</value>
@@ -248,6 +245,9 @@
   </data>
   <data name="CLI quick start" xml:space="preserve">
     <value>Bắt đầu nhanh với CLI</value>
+  </data>
+  <data name="Certificate management" xml:space="preserve">
+    <value>Quản lý chứng chỉ</value>
   </data>
   <data name="Cloud-native CDN delivers consistent low-latency worldwide. DDoS absorbed at the edge." xml:space="preserve">
     <value>CDN bản địa đám mây mang lại độ trễ thấp ổn định trên toàn cầu. Tấn công DDoS được hấp thụ tại các nút biên.</value>
@@ -306,11 +306,11 @@
   <data name="Custom development required" xml:space="preserve">
     <value>Yêu cầu phát triển tùy chỉnh</value>
   </data>
-  <data name="Dashboard for background tasks" xml:space="preserve">
-    <value>Bảng điều khiển cho các tác vụ nền</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Trang Tổng quan</value>
+  </data>
+  <data name="Dashboard for background tasks" xml:space="preserve">
+    <value>Bảng điều khiển cho các tác vụ nền</value>
   </data>
   <data name="Day 1 Compliance &amp; Security." xml:space="preserve">
     <value>Tuần lễ 1 Tuân thủ &amp; Bảo mật.</value>
@@ -345,6 +345,9 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>Dev &amp; Prod</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>Phù hợp với DevOps</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>Phát triển chỉ với UTC trong khi hệ thống tự động chuyển đổi và hiển thị ngày tháng theo múi giờ địa phương của người dùng.</value>
   </data>
@@ -353,9 +356,6 @@
   </data>
   <data name="Developers describe package contents once, build Debian artifacts locally or in CI, push a &lt;code&gt;.apkg&lt;/code&gt; bundle, and let the server route packages into the right repositories." xml:space="preserve">
     <value>Nhà phát triển mô tả nội dung gói một lần, xây dựng các thành phần Debian cục bộ hoặc trong CI, đẩy một gói &lt;code&gt;.apkg&lt;/code&gt;, và để máy chủ phân phối gói vào kho chứa phù hợp.</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>Phù hợp với DevOps</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>Trang Thảo luận</value>
@@ -423,9 +423,6 @@
   <data name="FAQ" xml:space="preserve">
     <value>Câu hỏi thường gặp</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>nhanh hơn</value>
-  </data>
   <data name="Features" xml:space="preserve">
     <value>Tính năng</value>
   </data>
@@ -444,9 +441,6 @@
   <data name="Flexible API" xml:space="preserve">
     <value>API linh hoạt</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>để có bất kỳ thắc mắc nào hoặc để báo cáo sự cố.</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Giám đốc sáng lập &amp; Kiến trúc sư tại Aiursoft</value>
   </data>
@@ -459,11 +453,11 @@
   <data name="Free" xml:space="preserve">
     <value>Miễn phí</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>Miễn phí sử dụng cho mục đích thương mại</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>Phần mềm miễn phí</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>Miễn phí sử dụng cho mục đích thương mại</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>Các câu hỏi thường gặp</value>
@@ -486,17 +480,20 @@
   <data name="Fully Offline" xml:space="preserve">
     <value>Hoàn toàn ngoại tuyến</value>
   </data>
+  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
+    <value>GPG Web of Trust với các buổi Ký Khóa trực tiếp. Niềm tin được phi tập trung hoàn toàn — không có cơ quan duy nhất nào kiểm soát kho khóa.</value>
+  </data>
   <data name="Generate &lt;code&gt;.deb&lt;/code&gt; packages with Debian control metadata and maintainer scripts produced from the project file." xml:space="preserve">
     <value>Tạo các gói &lt;code&gt;.deb&lt;/code&gt; với siêu dữ liệu điều khiển Debian và các tập lệnh duy trì được tạo từ tệp dự án.</value>
   </data>
   <data name="Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes." xml:space="preserve">
     <value>Tạo và quản lý chứng chỉ ký GPG, sau đó hiển thị khóa công khai thông qua các tuyến đường artifact thân thiện với kho lưu trữ.</value>
   </data>
-  <data name="Generic configuration" xml:space="preserve">
-    <value>Cấu hình chung</value>
-  </data>
   <data name="Generic Dockerfile only" xml:space="preserve">
     <value>Chỉ có Dockerfile chung chung</value>
+  </data>
+  <data name="Generic configuration" xml:space="preserve">
+    <value>Cấu hình chung</value>
   </data>
   <data name="GitLab CI" xml:space="preserve">
     <value>GitLab CI</value>
@@ -515,9 +512,6 @@
   </data>
   <data name="Go to dashboard" xml:space="preserve">
     <value>Truy cập bảng điều khiển</value>
-  </data>
-  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
-    <value>GPG Web of Trust với các buổi Ký Khóa trực tiếp. Niềm tin được phi tập trung hoàn toàn — không có cơ quan duy nhất nào kiểm soát kho khóa.</value>
   </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Xử lý các công việc lặp lại như dọn dẹp và đồng bộ hóa với một giao diện người dùng toàn diện để theo dõi lịch sử thực thi và nhật ký.</value>
@@ -570,11 +564,11 @@
   <data name="Included" xml:space="preserve">
     <value>Đã bao gồm</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Bao gồm tài liệu phong phú và các ví dụ thực tế để giúp bạn bắt đầu nhanh chóng.</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Bao gồm Hướng dẫn</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Bao gồm tài liệu phong phú và các ví dụ thực tế để giúp bạn bắt đầu nhanh chóng.</value>
   </data>
   <data name="Install" xml:space="preserve">
     <value>Cài đặt</value>
@@ -597,9 +591,6 @@
   <data name="Interoperability" xml:space="preserve">
     <value>Tính tương tác</value>
   </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>là Phần mềm miễn phí</value>
-  </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>Có phải Aiursoft Template được sử dụng miễn phí không?</value>
   </data>
@@ -621,6 +612,15 @@
   <data name="Local package overrides" xml:space="preserve">
     <value>Ghi đè gói cục bộ</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>Giấy phép MIT</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>MIT License</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>Cú pháp kiểu MSBuild</value>
+  </data>
   <data name="Made Simple." xml:space="preserve">
     <value>Đơn giản hóa.</value>
   </data>
@@ -639,17 +639,8 @@
   <data name="Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared." xml:space="preserve">
     <value>Đồng bộ hóa mirror, tổng hợp kho lưu trữ, ký mã số, xuất dữ liệu và thu gom rác được tách thành các công việc độc lập. Các client đã được phát hành tiếp tục đọc primary bucket đã được ký gần nhất trong khi siêu dữ liệu mới đang được chuẩn bị.</value>
   </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>Giấy phép MIT</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>MIT License</value>
-  </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>Các mô hình được xác thực ở cả phía khách và phía máy chủ dựa trên các chú thích dữ liệu.</value>
-  </data>
-  <data name="MSBuild-style syntax" xml:space="preserve">
-    <value>Cú pháp kiểu MSBuild</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>Xử lý đa múi giờ</value>
@@ -672,12 +663,6 @@
   <data name="Needs Celery + Flower" xml:space="preserve">
     <value>Cần Celery + Flower</value>
   </data>
-  <data name="Needs complex authentication logic" xml:space="preserve">
-    <value>Cần logic xác thực phức tạp</value>
-  </data>
-  <data name="Needs config/plugins" xml:space="preserve">
-    <value>Cần cấu hình/phần mở rộng</value>
-  </data>
   <data name="Needs ESLint/Prettier setup" xml:space="preserve">
     <value>Cần thiết lập ESLint/Prettier</value>
   </data>
@@ -686,9 +671,6 @@
   </data>
   <data name="Needs Laravel Sail" xml:space="preserve">
     <value>Cần Laravel Sail</value>
-  </data>
-  <data name="Needs manual configuration" xml:space="preserve">
-    <value>Cần cấu hình thủ công</value>
   </data>
   <data name="Needs Medialibrary" xml:space="preserve">
     <value>Cần thư viện phương tiện</value>
@@ -702,23 +684,35 @@
   <data name="Needs Spring Security config" xml:space="preserve">
     <value>Cần cấu hình Spring Security</value>
   </data>
-  <data name="Needs third-party plugins" xml:space="preserve">
-    <value>Cần các plugin bên thứ ba</value>
-  </data>
   <data name="Needs TypeORM or similar" xml:space="preserve">
     <value>Cần TypeORM hoặc tương tự</value>
   </data>
+  <data name="Needs complex authentication logic" xml:space="preserve">
+    <value>Cần logic xác thực phức tạp</value>
+  </data>
+  <data name="Needs config/plugins" xml:space="preserve">
+    <value>Cần cấu hình/phần mở rộng</value>
+  </data>
+  <data name="Needs manual configuration" xml:space="preserve">
+    <value>Cần cấu hình thủ công</value>
+  </data>
+  <data name="Needs third-party plugins" xml:space="preserve">
+    <value>Cần các plugin bên thứ ba</value>
+  </data>
   <data name="No dependency on any cloud vendor. Run anywhere, any time." xml:space="preserve">
     <value>Không phụ thuộc vào nhà cung cấp dịch vụ đám mây nào. Chạy ở bất kỳ đâu, bất kỳ lúc nào.</value>
-  </data>
-  <data name="Offline Capable" xml:space="preserve">
-    <value>Khả năng hoạt động ngoại tuyến</value>
   </data>
   <data name="OIDC &amp; SSO" xml:space="preserve">
     <value>OIDC &amp; SSO</value>
   </data>
   <data name="OIDC-backed RBAC with scoped API keys. Teams authenticate via existing SSO, grant per-repo permissions, and revoke access instantly." xml:space="preserve">
     <value>RBAC dựa trên OIDC với các khóa API có phạm vi. Các nhóm xác thực thông qua SSO hiện có, cấp quyền theo kho lưu trữ và thu hồi quyền truy cập ngay lập tức.</value>
+  </data>
+  <data name="ORM &amp; Migrations" xml:space="preserve">
+    <value>ORM &amp; Di chuyển dữ liệu</value>
+  </data>
+  <data name="Offline Capable" xml:space="preserve">
+    <value>Khả năng hoạt động ngoại tuyến</value>
   </data>
   <data name="One Click Start" xml:space="preserve">
     <value>Một Click Bắt Đầu</value>
@@ -741,9 +735,6 @@
   <data name="Or configure it permanently:" xml:space="preserve">
     <value>Hoặc cấu hình vĩnh viễn:</value>
   </data>
-  <data name="ORM &amp; Migrations" xml:space="preserve">
-    <value>ORM &amp; Di chuyển dữ liệu</value>
-  </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Sẵn sàng sử dụng ngay</value>
   </data>
@@ -765,11 +756,11 @@
   <data name="Powered by AnduinOS" xml:space="preserve">
     <value>Được cung cấp bởi AnduinOS</value>
   </data>
-  <data name="Pre-configured and tested" xml:space="preserve">
-    <value>Đã được cấu hình sẵn và kiểm tra</value>
-  </data>
   <data name="Pre-configured CI/CD pipelines specifically for GitLab." xml:space="preserve">
     <value>Các pipeline CI/CD đã được cấu hình sẵn dành riêng cho GitLab.</value>
+  </data>
+  <data name="Pre-configured and tested" xml:space="preserve">
+    <value>Đã được cấu hình sẵn và kiểm tra</value>
   </data>
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>Quy trình đã cấu hình sẵn cho môi trường phát triển/sản xuất</value>
@@ -798,11 +789,11 @@
   <data name="Quick Start" xml:space="preserve">
     <value>Bắt đầu nhanh</value>
   </data>
-  <data name="RBAC and API keys" xml:space="preserve">
-    <value>RBAC và Khóa API</value>
-  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Ủy quyền RBAC</value>
+  </data>
+  <data name="RBAC and API keys" xml:space="preserve">
+    <value>RBAC và Khóa API</value>
   </data>
   <data name="RBAC is ideal for organizations, but Debian&apos;s decentralized WoT remains the gold standard for a trustless global maintainer network." xml:space="preserve">
     <value>RBAC là lựa chọn lý tưởng cho các tổ chức, nhưng Mô hình Mạng lưới Ni tin (WoT) phi tập trung của Debian vẫn là tiêu chuẩn vàng cho một mạng lưới người duy trì toàn cầu không dựa trên sự tin tưởng.</value>
@@ -900,23 +891,23 @@
   <data name="Standard Debian repository endpoints for &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG keys, package indexes, and pool downloads." xml:space="preserve">
     <value>Các điểm cuối kho lưu trữ Debian tiêu chuẩn cho &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, khóa GPG, chỉ mục gói và tải xuống pool.</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>Thực thi chuẩn. Chuyển đổi nhà cung cấp mà không cần biên dịch.</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>Standard OpenID</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>Bắt đầu một dự án mới</value>
-  </data>
-  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
-    <value>Bắt đầu dự án gói phần mềm với &lt;code&gt;.aosproj&lt;/code&gt;, sau đó khai báo các tệp, thư mục, kịch bản, phụ thuộc, dịch vụ, bộ sưu tập và kiến trúc.</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>Thực thi chuẩn. Chuyển đổi nhà cung cấp mà không cần biên dịch.</value>
   </data>
   <data name="Start Publishing" xml:space="preserve">
     <value>Bắt đầu Xuất bản</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>Bắt đầu Giao hàng Giá trị.</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>Bắt đầu một dự án mới</value>
+  </data>
+  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
+    <value>Bắt đầu dự án gói phần mềm với &lt;code&gt;.aosproj&lt;/code&gt;, sau đó khai báo các tệp, thư mục, kịch bản, phụ thuộc, dịch vụ, bộ sưu tập và kiến trúc.</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>Bắt đầu với một lệnh &apos;docker run&apos; duy nhất.</value>
@@ -933,23 +924,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>Quy tắc kiểm tra mã nghiêm ngặt</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>Kiểm thử đơn vị nghiêm ngặt</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>Các quy tắc kiểm tra nghiêm ngặt và không có cảnh báo nào theo mặc định.</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>Các quy tắc kiểm tra nghiêm ngặt với 0 cảnh báo trong dự án mặc định.</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>Kiểm thử đơn vị nghiêm ngặt</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>Kiểm tra mã nguồn nghiêm ngặt và nhất quán</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>Hỗ trợ cả biến môi trường và cài đặt dựa trên cơ sở dữ liệu, với ưu tiên tự động cho biến môi trường để ghi đè một cách liền mạch.</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>Hỗ trợ JetBrains Rider để dễ dàng sửa lỗi định dạng mã nguồn.</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>Hỗ trợ cả biến môi trường và cài đặt dựa trên cơ sở dữ liệu, với ưu tiên tự động cho biến môi trường để ghi đè một cách liền mạch.</value>
   </data>
   <data name="Task Runner" xml:space="preserve">
     <value>Trình chạy tác vụ</value>
@@ -960,6 +951,9 @@
   <data name="The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration." xml:space="preserve">
     <value>Apkg CLI xử lý việc tạo dự án, kiểm tra lỗi, xây dựng gói, phát hành gói, tải lên máy chủ, giải nén cục bộ và cấu hình nguồn APT.</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>Triết lý</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>Nền tảng doanh nghiệp .NET chính xác, đã được kiểm chứng qua thực tế. Từ Xác thực đến Trí tuệ nhân tạo, chúng tôi đã giải quyết những phần khó khăn để bạn không phải lo lắng.</value>
   </data>
@@ -968,9 +962,6 @@
   </data>
   <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
     <value>Trình quản lý gói chính thức được hệ sinh thái AnduinOS chọn.</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>Triết lý</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>Mẫu này được xây dựng để triển khai dễ dàng. Nó bao gồm hỗ trợ Docker đầy đủ, vì vậy bạn có thể đóng gói ứng dụng của mình và chạy nó ở bất cứ đâu. Bạn cũng có thể triển khai trực tiếp lên IIS, Azure App Service hoặc bất kỳ máy chủ nào hỗ trợ ASP.NET Core.</value>
@@ -1082,6 +1073,15 @@
   </data>
   <data name="Zero Tolerance Lint" xml:space="preserve">
     <value>Kiểm tra mã nghiêm ngặt không khoan nhượng</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>nhanh hơn</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>để có bất kỳ thắc mắc nào hoặc để báo cáo sự cố.</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>là Phần mềm miễn phí</value>
   </data>
 
 </root>

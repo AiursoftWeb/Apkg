@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>Misslyckades</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>fil</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>GPG-verifieringsdetaljer</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>GPG-signering säkerställer att paketen kommer från en betrodd källa och inte har manipulerats. Spegelns InRelease-fil verifieras mot dess GPG-nyckel.</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>GPG-verifieringsdetaljer</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>Nyckelring</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>Vad är GPG-verifiering?</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>fil</value>
   </data>
 
 </root>

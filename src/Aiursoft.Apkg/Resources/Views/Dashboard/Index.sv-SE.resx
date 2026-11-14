@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ Föregående</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Stöd för &quot;fire-and-forget&quot; för långvariga uppgifter (t.ex. e-post eller AI), med en GUI för köhantering, parallell bearbetning och avbrott.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>En modern, funktionsrik och mycket utbyggbar grund för ditt nästa webbprogram.</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>Lägg till ett arkiv i dina</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AI-drivna översättningar</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Alla beroenden registreras automatiskt och är alltid tillgängliga via konstruktorinjektion.</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>och bläddra igenom deras paket individuellt.</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>och kör</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>Sök i APT-paket</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Lägg till ett arkiv i dina</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Alla beroenden registreras automatiskt och är alltid tillgängliga via konstruktorinjektion.</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Automatiskt mörkt läge</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Det här är ett mallprojekt, där vi börjar resan...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>för att komma igång.</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>Prova ett kortare namn eller kontrollera stavningen.</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Varför använda Aiursoft Template?</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>och bläddra igenom deras paket individuellt.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>och kör</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>för att komma igång.</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Föregående</value>
   </data>
 
 </root>

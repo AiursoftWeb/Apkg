@@ -87,9 +87,6 @@
   <data name="Package Details" xml:space="preserve">
     <value>Paketin tiedot</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>paketti(eja)</value>
-  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>Fyysinen (välimuisti)</value>
   </data>
@@ -125,6 +122,9 @@
   </data>
   <data name="What is a Package?" xml:space="preserve">
     <value>Mikä on paketti?</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>paketti(eja)</value>
   </data>
 
 </root>

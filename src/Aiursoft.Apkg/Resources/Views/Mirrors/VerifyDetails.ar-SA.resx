@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>فشل</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>ملف</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>تفاصيل التحقق من GPG</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>يضمن التوقيع باستخدام GPG أن الحزم قادمة من مصدر موثوق ولم يتم العبث بها. يتم التحقق من ملف InRelease الخاص بالمِرآة ضد مفتاح GPG الخاص بها.</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>تفاصيل التحقق من GPG</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>مجموعة المفاتيح</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>ما هي عملية التحقق بواسطة GPG؟</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>ملف</value>
   </data>
 
 </root>

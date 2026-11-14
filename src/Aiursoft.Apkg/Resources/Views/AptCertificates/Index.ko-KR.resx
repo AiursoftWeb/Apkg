@@ -42,11 +42,11 @@
   <data name="Friendly Name" xml:space="preserve">
     <value>친근한 이름</value>
   </data>
-  <data name="Generate New Key" xml:space="preserve">
-    <value>새 키 생성</value>
-  </data>
   <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
     <value>GPG 인증서는 저장소 메타데이터에 서명하여 apt 클라이언트가 패키지가 변조되지 않았음을 확인할 수 있게 합니다.</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>새 키 생성</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>이름</value>

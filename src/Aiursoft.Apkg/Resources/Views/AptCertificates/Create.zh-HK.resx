@@ -24,12 +24,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
-  <data name="e.g. anduinos" xml:space="preserve">
-    <value>例如 anduinos</value>
-  </data>
-  <data name="e.g. Anduinos Official Key" xml:space="preserve">
-    <value>例如：Anduinos Official Key</value>
-  </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>生成新憑證</value>
   </data>
@@ -41,6 +35,12 @@
   </data>
   <data name="This name will be embedded in the GPG key as the User ID." xml:space="preserve">
     <value>此名稱將作為用戶 ID 嵌入至 GPG 金鑰中。</value>
+  </data>
+  <data name="e.g. Anduinos Official Key" xml:space="preserve">
+    <value>例如：Anduinos Official Key</value>
+  </data>
+  <data name="e.g. anduinos" xml:space="preserve">
+    <value>例如 anduinos</value>
   </data>
 
 </root>

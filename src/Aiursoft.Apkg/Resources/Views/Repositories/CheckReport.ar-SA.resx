@@ -54,9 +54,6 @@
   <data name="Missing Dependencies" xml:space="preserve">
     <value>التبعيات المفقودة</value>
   </data>
-  <data name="old" xml:space="preserve">
-    <value>قديمة</value>
-  </data>
   <data name="Package" xml:space="preserve">
     <value>حزمة</value>
   </data>
@@ -86,6 +83,9 @@
   </data>
   <data name="Virtual" xml:space="preserve">
     <value>افتراضي</value>
+  </data>
+  <data name="old" xml:space="preserve">
+    <value>قديمة</value>
   </data>
 
 </root>

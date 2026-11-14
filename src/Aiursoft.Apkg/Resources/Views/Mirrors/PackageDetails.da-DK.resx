@@ -87,9 +87,6 @@
   <data name="Package Details" xml:space="preserve">
     <value>Pakkeoplysninger</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>pakke(r)</value>
-  </data>
   <data name="Physical (Cached)" xml:space="preserve">
     <value>Fysisk (Cachelagret)</value>
   </data>
@@ -125,6 +122,9 @@
   </data>
   <data name="What is a Package?" xml:space="preserve">
     <value>Hvad er en pakke?</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pakke(r)</value>
   </data>
 
 </root>

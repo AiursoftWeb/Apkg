@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>الإجراءات</value>
   </data>
   <data name="All" xml:space="preserve">
@@ -30,20 +27,11 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>حزمة .apkg المختلطة هي تنسيق Apkg الخاص الذي يجمع بين حزم .deb المتعددة وملف manifest.xml في أرشيف tar مضغوط بـ gzip واحد. يقوم الخادم بفك ضغط كل .deb، واستخراج البيانات الوصفية من ملف التحكم الخاص به، ومزامنتها مع مستودعات APT المستهدفة الخاصة بها.</value>
   </data>
-  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
-    <value>وجميع إصداراته؟ لا يمكن التراجع عن هذا الإجراء.</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>الهيكلية</value>
   </data>
   <data name="Back to Packages" xml:space="preserve">
     <value>العودة إلى الحزم</value>
-  </data>
-  <data name="because you do not have permission to upload to them:" xml:space="preserve">
-    <value>لأنك غير مصرح لك برفع الملفات إليهم:</value>
-  </data>
-  <data name="by" xml:space="preserve">
-    <value>بواسطة</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>مكون</value>
@@ -117,9 +105,6 @@
   <data name="Package" xml:space="preserve">
     <value>حزمة</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>الحزمة/الحزم</value>
-  </data>
   <data name="Pending Sync" xml:space="preserve">
     <value>المزامنة قيد الانتظار</value>
   </data>
@@ -162,9 +147,6 @@
   <data name="Unpublished" xml:space="preserve">
     <value>غير منشور</value>
   </data>
-  <data name="unpublished upload(s) pending publish." xml:space="preserve">
-    <value>عمليات تحميل غير منشورة في انتظار النشر.</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>سجل التحميلات</value>
   </data>
@@ -194,6 +176,24 @@
   </data>
   <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
     <value>داخل ملف `.apkg` واحد، قد يختلف كل إدخال في ثلاثة &lt;strong&gt;سمات متغيرة&lt;/strong&gt;: &lt;strong&gt;الإصدار&lt;/strong&gt; (يُستخرج من الثنائي .deb، ولا يُكتب أبدًا في manifest.xml)، و&lt;strong&gt;السويت&lt;/strong&gt;، و&lt;strong&gt;الهندسة المعمارية&lt;/strong&gt;. هذا يتيح لك شحن مثلاً builds من amd64 و arm64 للإصدار نفسه في عملية رفع واحدة.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>وجميع إصداراته؟ لا يمكن التراجع عن هذا الإجراء.</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>لأنك غير مصرح لك برفع الملفات إليهم:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>بواسطة</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>الحزمة/الحزم</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>عمليات تحميل غير منشورة في انتظار النشر.</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>

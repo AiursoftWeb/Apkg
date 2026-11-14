@@ -42,9 +42,6 @@
   <data name="Create New API Key" xml:space="preserve">
     <value>Buat Kunci API Baru</value>
   </data>
-  <data name="e.g. CI/CD Pipeline, Dev Machine" xml:space="preserve">
-    <value>misalnya, CI/CD Pipeline, Dev Machine</value>
-  </data>
   <data name="Expiration" xml:space="preserve">
     <value>Kedaluwarsa</value>
   </data>
@@ -59,6 +56,9 @@
   </data>
   <data name="New Key Details" xml:space="preserve">
     <value>Detail Kunci Baru</value>
+  </data>
+  <data name="e.g. CI/CD Pipeline, Dev Machine" xml:space="preserve">
+    <value>misalnya, CI/CD Pipeline, Dev Machine</value>
   </data>
 
 </root>

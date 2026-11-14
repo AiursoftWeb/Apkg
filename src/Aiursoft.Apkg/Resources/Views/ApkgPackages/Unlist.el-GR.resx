@@ -57,14 +57,14 @@
   <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
     <value>Αυτό θα αφαιρέσει τα παρακάτω πακέτα από τα αποθετήριά τους. Η αφαίρεση από τον κατάλογο μπορεί να αναιρεθεί μόνο από έναν διαχειριστή.</value>
   </data>
-  <data name="version" xml:space="preserve">
-    <value>έκδοση</value>
-  </data>
   <data name="Warning:" xml:space="preserve">
     <value>Προειδοποίηση:</value>
   </data>
   <data name="You are about to unlist" xml:space="preserve">
     <value>Πρόκειται να αφαιρέσετε από τη λίστα</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>έκδοση</value>
   </data>
 
 </root>

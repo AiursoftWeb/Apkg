@@ -24,9 +24,6 @@
   <data name="All" xml:space="preserve">
     <value>Semua</value>
   </data>
-  <data name="and all generated Local Packages?" xml:space="preserve">
-    <value>dan semua Paket Lokal yang dihasilkan?</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Arsitektur</value>
   </data>
@@ -65,9 +62,6 @@
   </data>
   <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
     <value>Hanya versi terbaru yang diaktifkan muncul di repositori APT.</value>
-  </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>paket (s)</value>
   </data>
   <data name="Permanently delete" xml:space="preserve">
     <value>Hapus secara permanen</value>
@@ -113,6 +107,12 @@
   </data>
   <data name="View in repository" xml:space="preserve">
     <value>Lihat di repositori</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>dan semua Paket Lokal yang dihasilkan?</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>paket (s)</value>
   </data>
 
 </root>

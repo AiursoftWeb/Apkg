@@ -24,12 +24,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>취소</value>
   </data>
-  <data name="e.g. anduinos" xml:space="preserve">
-    <value>예: anduinos</value>
-  </data>
-  <data name="e.g. Anduinos Official Key" xml:space="preserve">
-    <value>예: Anduinos 공식 키</value>
-  </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>새 인증서 생성</value>
   </data>
@@ -41,6 +35,12 @@
   </data>
   <data name="This name will be embedded in the GPG key as the User ID." xml:space="preserve">
     <value>이 이름은 GPG 키의 사용자 ID로 삽입됩니다.</value>
+  </data>
+  <data name="e.g. Anduinos Official Key" xml:space="preserve">
+    <value>예: Anduinos 공식 키</value>
+  </data>
+  <data name="e.g. anduinos" xml:space="preserve">
+    <value>예: anduinos</value>
   </data>
 
 </root>

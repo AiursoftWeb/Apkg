@@ -72,9 +72,6 @@
   <data name="Insecure Source" xml:space="preserve">
     <value>安全でないソース</value>
   </data>
-  <data name="items" xml:space="preserve">
-    <value>アイテム</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>最終プル</value>
   </data>
@@ -152,6 +149,9 @@
   </data>
   <data name="What is a Mirror?" xml:space="preserve">
     <value>ミラーとは？</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>アイテム</value>
   </data>
 
 </root>

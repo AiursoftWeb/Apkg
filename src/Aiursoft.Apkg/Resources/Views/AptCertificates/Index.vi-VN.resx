@@ -42,11 +42,11 @@
   <data name="Friendly Name" xml:space="preserve">
     <value>Tên thân thiện</value>
   </data>
-  <data name="Generate New Key" xml:space="preserve">
-    <value>Tạo Khóa Mới</value>
-  </data>
   <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
     <value>Chứng chỉ GPG ký vào siêu dữ liệu kho lưu trữ của bạn để máy khách apt có thể xác minh rằng các gói phần mềm chưa bị sửa đổi.</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Tạo Khóa Mới</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Tên</value>

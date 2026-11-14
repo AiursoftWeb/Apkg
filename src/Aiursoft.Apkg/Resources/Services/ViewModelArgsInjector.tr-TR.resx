@@ -18,7 +18,19 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="API Key Usage" xml:space="preserve">
+    <value>API Anahtarı Kullanımı</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>API Anahtarları</value>
+  </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>APKG Paket Ayrıntıları</value>
+  </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>APKG Yükleme Detayları</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>Erişim Reddedildi</value>
   </data>
   <data name="Add New Mirror" xml:space="preserve">
@@ -36,23 +48,11 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Anonim</value>
   </data>
-  <data name="API Key Usage" xml:space="preserve">
-    <value>API Anahtarı Kullanımı</value>
-  </data>
-  <data name="API Keys" xml:space="preserve">
-    <value>API Anahtarları</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>APKG Hibrit</value>
-  </data>
-  <data name="APKG Package Details" xml:space="preserve">
-    <value>APKG Paket Ayrıntıları</value>
-  </data>
-  <data name="APKG Upload Details" xml:space="preserve">
-    <value>APKG Yükleme Detayları</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Arka Plan Görevleri</value>
@@ -279,17 +279,17 @@
   <data name="Unauthorized" xml:space="preserve">
     <value>Yetkisiz</value>
   </data>
-  <data name="Upload apkg mixed package" xml:space="preserve">
-    <value>APKG Paketini Yükle</value>
-  </data>
-  <data name="Upload deb package" xml:space="preserve">
-    <value>Upload deb package</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Yükleme Geçmişi</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Paket Yükle</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>APKG Paketini Yükle</value>
+  </data>
+  <data name="Upload deb package" xml:space="preserve">
+    <value>Upload deb package</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Üst Düzey Aynalar</value>

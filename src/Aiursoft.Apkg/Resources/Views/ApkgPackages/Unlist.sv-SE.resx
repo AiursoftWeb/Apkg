@@ -57,14 +57,14 @@
   <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
     <value>Detta tar bort de följande paketen från sina arkiv. Avlistning kan endast återställas av en administratör.</value>
   </data>
-  <data name="version" xml:space="preserve">
-    <value>version</value>
-  </data>
   <data name="Warning:" xml:space="preserve">
     <value>Varning:</value>
   </data>
   <data name="You are about to unlist" xml:space="preserve">
     <value>Du är på väg att avpublisera</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>version</value>
   </data>
 
 </root>

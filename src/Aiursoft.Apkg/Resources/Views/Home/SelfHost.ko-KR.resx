@@ -21,9 +21,6 @@
       <data name="About Apkg" xml:space="preserve">
     <value>Apkg 소개</value>
   </data>
-  <data name="and the default password is:" xml:space="preserve">
-    <value>기본 비밀번호는 다음과 같습니다:</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
@@ -117,6 +114,9 @@
   <data name="Replace the seeded signing certificate before serving real repositories." xml:space="preserve">
     <value>실제 저장소를 제공하기 전에 미리 제공된 서명 인증서를 교체하세요.</value>
   </data>
+  <data name="Run Manually" xml:space="preserve">
+    <value>직접 실행하기</value>
+  </data>
   <data name="Run in Docker" xml:space="preserve">
     <value>Docker에서 실행하기</value>
   </data>
@@ -125,9 +125,6 @@
   </data>
   <data name="Run in Visual Studio" xml:space="preserve">
     <value>Visual Studio에서 실행하기</value>
-  </data>
-  <data name="Run Manually" xml:space="preserve">
-    <value>직접 실행하기</value>
   </data>
   <data name="Self Host" xml:space="preserve">
     <value>셀프 호스팅</value>
@@ -141,14 +138,14 @@
   <data name="That will start a web server at http://localhost:5000 and you can test the app." xml:space="preserve">
     <value>이렇게 하면 http://localhost:5000에서 웹 서버가 시작되어 앱을 테스트할 수 있습니다.</value>
   </data>
-  <data name="The default username is:" xml:space="preserve">
-    <value>기본 사용자 이름은:</value>
-  </data>
   <data name="The Docker image checks http://localhost:5000/health. Use the same endpoint for external uptime monitoring after the app has started." xml:space="preserve">
     <value>Docker 이미지에서 http://localhost:5000/health 엔드포인트를 점검합니다. 앱이 시작된 후 외부 가동 시간 모니터링에는 동일한 엔드포인트를 사용하세요.</value>
   </data>
   <data name="The Docker image installs gnupg and ubuntu-keyring for repository signing and upstream signature verification. Persist /data because it stores appsettings.json, the SQLite database, package objects, avatars, and GPG keyrings." xml:space="preserve">
     <value>Docker 이미지는 저장소 서명 및 업스트림 서명 확인을 위해 gnupg 및 ubuntu-keyring을 설치합니다. appsettings.json, SQLite 데이터베이스, 패키지 객체, 아바타 및 GPG 키링을 저장하므로 /data를 영구적으로 유지하십시오.</value>
+  </data>
+  <data name="The default username is:" xml:space="preserve">
+    <value>기본 사용자 이름은:</value>
   </data>
   <data name="The following script will install/update this app on your Ubuntu server. Supports Ubuntu 25.04." xml:space="preserve">
     <value>다음 스크립트는 Ubuntu 서버에 이 앱을 설치하거나 업데이트합니다. Ubuntu 25.04를 지원합니다.</value>
@@ -158,6 +155,9 @@
   </data>
   <data name="Visit http://localhost:5000." xml:space="preserve">
     <value>http://localhost:5000을(를) 방문하세요.</value>
+  </data>
+  <data name="and the default password is:" xml:space="preserve">
+    <value>기본 비밀번호는 다음과 같습니다:</value>
   </data>
 
 </root>

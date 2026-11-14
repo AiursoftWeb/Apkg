@@ -51,11 +51,11 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Simpan Perubahan</value>
   </data>
-  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
-    <value>URL dasar dari server upstream (misalnya &apos;https://mirrors.ubuntu.com/&apos;). Nama distro akan ditambahkan secara otomatis.</value>
-  </data>
   <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Awalan URL untuk cermin ini (misalnya &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>URL dasar dari server upstream (misalnya &apos;https://mirrors.ubuntu.com/&apos;). Nama distro akan ditambahkan secara otomatis.</value>
   </data>
 
 </root>

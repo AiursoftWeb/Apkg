@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>Toiminnot</value>
   </data>
   <data name="All" xml:space="preserve">
@@ -30,20 +27,11 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>.apkg-sekoituspaketti on Apkg:n oma muodot, joka yhdistää useamman .deb-paketin ja manifest.xml-tiedoston yhteen gzip-pakattuun tar-arkistoon. Palvelin purkaa jokaisen .deb-paketin, poimii metatiedot sen kontrollitiedostosta ja synkronoi ne kohde-APT-varastoille.</value>
   </data>
-  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
-    <value>ja KAIKKI sen version? Tätä ei voi perua.</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Arkkitehtuuri</value>
   </data>
   <data name="Back to Packages" xml:space="preserve">
     <value>Takaisin paketteihin</value>
-  </data>
-  <data name="because you do not have permission to upload to them:" xml:space="preserve">
-    <value>koska sinulla ei ole lupaa ladata niihin:</value>
-  </data>
-  <data name="by" xml:space="preserve">
-    <value>käyttäjän</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Komponentti</value>
@@ -117,9 +105,6 @@
   <data name="Package" xml:space="preserve">
     <value>Paketti</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>pakettia(pakkauksia)</value>
-  </data>
   <data name="Pending Sync" xml:space="preserve">
     <value>Synkronointi odottaa</value>
   </data>
@@ -162,9 +147,6 @@
   <data name="Unpublished" xml:space="preserve">
     <value>Julkaisematon</value>
   </data>
-  <data name="unpublished upload(s) pending publish." xml:space="preserve">
-    <value>julkaisematon/laitettu päivitys/päivitykset odottaa julkaisua.</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Lataushistoria</value>
   </data>
@@ -194,6 +176,24 @@
   </data>
   <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
     <value>Yhden .apkg-paketin sisällä jokainen merkintä voi vaihdella kolmessa &lt;strong&gt;dynaamisessa ominaisuudessa&lt;/strong&gt;: &lt;strong&gt;Versio&lt;/strong&gt; (haetaan .deb-binaarista, ei koskaan kirjoiteta manifest.xml-tiedostoon), &lt;strong&gt;Sarja&lt;/strong&gt; ja &lt;strong&gt;Arsitehtuuri&lt;/strong&gt;. Tämä mahdollistaa esimerkiksi saman version amd64- ja arm64-rakenteluiden lähettämisen yhdellä latauksella.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>ja KAIKKI sen version? Tätä ei voi perua.</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>koska sinulla ei ole lupaa ladata niihin:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>käyttäjän</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pakettia(pakkauksia)</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>julkaisematon/laitettu päivitys/päivitykset odottaa julkaisua.</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>

@@ -27,9 +27,6 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
     <value>Ένα μικτό πακέτο .apkg είναι το ιδιόκτητο формат του Apkg που ομαδοποιεί πολλαπλά πακέτα .deb σε μία ανάρτηση. Μετά την επεξεργασία, κάθε περιλαμβανόμενο .deb εξάγεται και συγχρονίζεται με το στοχευόμενο αποθετήριο APT του.</value>
   </data>
-  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
-    <value>και ΟΛΕΣ τις εκδόσεις και τοπικές πακέτα του. Το όνομα του πακέτου θα απελευθερωθεί για άλλους χρήστες. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Ακύρωση</value>
   </data>
@@ -101,6 +98,9 @@
   </data>
   <data name="What is a mixed package?" xml:space="preserve">
     <value>Τι είναι ένα μικτό πακέτο;</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>και ΟΛΕΣ τις εκδόσεις και τοπικές πακέτα του. Το όνομα του πακέτου θα απελευθερωθεί για άλλους χρήστες. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</value>
   </data>
 
 </root>

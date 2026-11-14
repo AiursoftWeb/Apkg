@@ -27,9 +27,6 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages into a single upload. After processing, each contained .deb is extracted and synced to its target APT repository." xml:space="preserve">
     <value>.apkg 混合包是 Apkg 的专有格式，它将多个 .deb 包捆绑为单个上传文件。处理完成后，每个包含的 .deb 包都会被提取并同步到其目标 APT 仓库。</value>
   </data>
-  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
-    <value>以及其所有修订版本和本地包。该包名将被释放供其他用户使用。此操作无法撤销。</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>取消</value>
   </data>
@@ -107,6 +104,9 @@
   </data>
   <data name="What is a mixed package?" xml:space="preserve">
     <value>什么是混合包？</value>
+  </data>
+  <data name="and ALL its revisions and local packages. The package name will be released for other users. This cannot be undone." xml:space="preserve">
+    <value>以及其所有修订版本和本地包。该包名将被释放供其他用户使用。此操作无法撤销。</value>
   </data>
 
 </root>

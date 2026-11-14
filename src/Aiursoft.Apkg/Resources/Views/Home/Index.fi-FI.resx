@@ -18,17 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name=".apkg publishing" xml:space="preserve">
-    <value>.apkg-julkaisu</value>
-  </data>
-  <data name=".NET Global Tool" xml:space="preserve">
-    <value>.NET:n globaali työkalu</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Tuki pitkäkestoisille tehtäville (esimerkiksi sähköposteille tai AI:lle), jossa on käyttöliittymä jonon hallintaan, rinnakkaisprosessointiin ja peruutukseen.</value>
   </data>
   <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
     <value>Perinteinen Debian-paketoiminen hajauttaa paketin määritelmän useampaan kuin puoli dosen tiedostoon — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — joissa kukin käyttää omaa mystistä kieltään. Olen suunnitellut &lt;code&gt;.aosproj&lt;/code&gt;:n korvaamaan kaiken sen yhdellä deklaratiivisella manifestilla. Rakennekerran XML tekee riippuvuuskaavioista ihmisille ja CI-koneille erittäin helppoja jäsentää. CI-muuntolinjat supistuvat muotoon &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. Se muuttaa Linux-jakeluiden paketoimisen mustasta taikasta vakiintuneeksi ohjelmistotuotannoksi.</value>
+  </data>
+  <data name=".NET Global Tool" xml:space="preserve">
+    <value>.NET:n globaali työkalu</value>
+  </data>
+  <data name=".apkg publishing" xml:space="preserve">
+    <value>.apkg-julkaisu</value>
   </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>&lt;code&gt;Buildd&lt;/code&gt;-farmi kääntää natiivisti aidolla laitteistolla. Cron-pohjainen &lt;code&gt;apt-ftparchive&lt;/code&gt; regeneroi hakemistot — paketit odottavat tunteja &lt;code&gt;incoming&lt;/code&gt;-kansiossa ennen julkaisua.</value>
@@ -63,6 +63,24 @@
   <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
     <value>Yhden komennon asennus APKG-asiakkaalle ja APT-pakettien hallinnan aloittaminen.</value>
   </data>
+  <data name="AI Driven Translation" xml:space="preserve">
+    <value>Tekoälyllä ohjattu kääntäminen</value>
+  </data>
+  <data name="AI Readable" xml:space="preserve">
+    <value>AI-luettava</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Tehokäännökset tekoälyllä</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>APT-pakettivarasto</value>
+  </data>
+  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
+    <value>APT-asiakkaat lukevat vain ensisijaisia säiliöitä. Epäonnistuneet synkronoinnit, allekirjoittamattomat metatiedot ja väliaikaiset säiliöt pysyvät näkymättöminä.</value>
+  </data>
+  <data name="APT repository server" xml:space="preserve">
+    <value>APT-varastopalvelin</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Saavuta enemmän Aiursoft Templatella</value>
   </data>
@@ -77,15 +95,6 @@
   </data>
   <data name="After sync and signing, machines consume the repository with normal APT source files and &lt;code&gt;apt install&lt;/code&gt; commands." xml:space="preserve">
     <value>Synkronoinnin ja allekirjoituksen jälkeen koneet käyttävät varastoa tavallisten APT-lähdetiedostojen ja &lt;code&gt;apt install&lt;/code&gt;-käskyjen avulla.</value>
-  </data>
-  <data name="AI Driven Translation" xml:space="preserve">
-    <value>Tekoälyllä ohjattu kääntäminen</value>
-  </data>
-  <data name="AI Readable" xml:space="preserve">
-    <value>AI-luettava</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Tehokäännökset tekoälyllä</value>
   </data>
   <data name="Aiursoft Apkg" xml:space="preserve">
     <value>Aiursoft Apkg</value>
@@ -120,15 +129,6 @@
   <data name="Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots." xml:space="preserve">
     <value>Apkg toimii ylivirtausarkistojen, pakettikehittäjien ja asiakaskoneiden välissä. Se muuntaa peilin metatiedot ja ladatut korjaukset allekirjoitetuiksi, vakaiksi varaston tilannekuviksi.</value>
   </data>
-  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
-    <value>APT-asiakkaat lukevat vain ensisijaisia säiliöitä. Epäonnistuneet synkronoinnit, allekirjoittamattomat metatiedot ja väliaikaiset säiliöt pysyvät näkymättöminä.</value>
-  </data>
-  <data name="APT Package Repository" xml:space="preserve">
-    <value>APT-pakettivarasto</value>
-  </data>
-  <data name="APT repository server" xml:space="preserve">
-    <value>APT-varastopalvelin</value>
-  </data>
   <data name="Architecture Philosophy" xml:space="preserve">
     <value>Arkkitehtuurifilosofia</value>
   </data>
@@ -141,11 +141,11 @@
   <data name="Authentik &amp; Okta" xml:space="preserve">
     <value>Authentik &amp; Okta</value>
   </data>
-  <data name="Auto compression and privacy" xml:space="preserve">
-    <value>Automaattinen pakkaus ja yksityisyys</value>
-  </data>
   <data name="Auto Deployment" xml:space="preserve">
     <value>Automaattinen käyttöönotto</value>
+  </data>
+  <data name="Auto compression and privacy" xml:space="preserve">
+    <value>Automaattinen pakkaus ja yksityisyys</value>
   </data>
   <data name="Automatic AI translation into 28 languages." xml:space="preserve">
     <value>Automaattinen AI-käännös 28 kielelle.</value>
@@ -222,9 +222,6 @@
   <data name="Built-in" xml:space="preserve">
     <value>Sisäänrakennettu</value>
   </data>
-  <data name="Built-in administration panel" xml:space="preserve">
-    <value>Sisäänrakennettu hallintapaneeli</value>
-  </data>
   <data name="Built-in Auth" xml:space="preserve">
     <value>Sisäänrakennettu käyttäjätunnistus</value>
   </data>
@@ -234,8 +231,8 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>Sisäänrakennettu käyttäjienhallinta</value>
   </data>
-  <data name="Certificate management" xml:space="preserve">
-    <value>Sertifikaattien hallinta</value>
+  <data name="Built-in administration panel" xml:space="preserve">
+    <value>Sisäänrakennettu hallintapaneeli</value>
   </data>
   <data name="CI cross-compilation excels on amd64/arm64, but Debian&apos;s native Buildd catches architecture-specific UB that cross-toolchains miss." xml:space="preserve">
     <value>CI-ristikompilaatio toimii loistavasti amd64/arm64-arkkitehtuureilla, mutta Debianin natiivi Buildd tunnistaa arkkitehtuurikohtaisen määrittelemättömän käytön, jonka ristiinkompilaatiosarjat jättävät huomiotta.</value>
@@ -245,6 +242,9 @@
   </data>
   <data name="CLI quick start" xml:space="preserve">
     <value>CLI-pikakäynnistys</value>
+  </data>
+  <data name="Certificate management" xml:space="preserve">
+    <value>Sertifikaattien hallinta</value>
   </data>
   <data name="Cloud-native CDN delivers consistent low-latency worldwide. DDoS absorbed at the edge." xml:space="preserve">
     <value>Pilvipohjainen CDN tarjoaa yhtenäisen matalan viiveen maailmanlaajuisesti. DDoS-hyökkäykset taltennetaan reunaverkossa.</value>
@@ -303,11 +303,11 @@
   <data name="Custom development required" xml:space="preserve">
     <value>Mukautettu kehitys vaaditaan</value>
   </data>
-  <data name="Dashboard for background tasks" xml:space="preserve">
-    <value>Taustatehtävien ohjauspaneeli</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Kojelauta-sivusto</value>
+  </data>
+  <data name="Dashboard for background tasks" xml:space="preserve">
+    <value>Taustatehtävien ohjauspaneeli</value>
   </data>
   <data name="Day 1 Compliance &amp; Security." xml:space="preserve">
     <value>Päivä 1 täytäntöönpano ja turvallisuus.</value>
@@ -342,6 +342,9 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>Dev &amp; Prod</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>DevOps-ystävällinen</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>Kehitä vain UTC:lla, kunnes järjestelmä muuntaa ja näyttää päivämäärät käyttäjän paikalliseen aikavyöhön automaattisesti.</value>
   </data>
@@ -350,9 +353,6 @@
   </data>
   <data name="Developers describe package contents once, build Debian artifacts locally or in CI, push a &lt;code&gt;.apkg&lt;/code&gt; bundle, and let the server route packages into the right repositories." xml:space="preserve">
     <value>Kehittäjät kuvaavat paketin sisällön kerran, tuottavat Debian-kohteet paikallisesti tai CI-piippolinjassa, lähettävät &lt;code&gt;.apkg&lt;/code&gt;-paketin ja jättävät palvelimen reittimaan paketit oikeisiin arkistoihin.</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>DevOps-ystävällinen</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>Keskustelusivu</value>
@@ -420,9 +420,6 @@
   <data name="FAQ" xml:space="preserve">
     <value>UKK</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>nopeammin</value>
-  </data>
   <data name="Features" xml:space="preserve">
     <value>Ominaisuudet</value>
   </data>
@@ -441,9 +438,6 @@
   <data name="Flexible API" xml:space="preserve">
     <value>Joustava API</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>kaikkiin kyselyihin tai ongelmien ilmoittamiseen.</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Perustaja ja arkkitehti Aiursoftissa</value>
   </data>
@@ -456,11 +450,11 @@
   <data name="Free" xml:space="preserve">
     <value>Ilmainen</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>Ilmainen kaupalliseen käyttöön</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>Vapaa ohjelmisto</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>Ilmainen kaupalliseen käyttöön</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>Usein kysytyt kysymykset</value>
@@ -483,17 +477,20 @@
   <data name="Fully Offline" xml:space="preserve">
     <value>Täysin offline</value>
   </data>
+  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
+    <value>GPG:n luotusketju ja kasvokkain järjestettävät avainten allekirjoitustapahtumat. Luottamus on täysin hajautettu — yksikään tahdot ei hallitse avaimistoa.</value>
+  </data>
   <data name="Generate &lt;code&gt;.deb&lt;/code&gt; packages with Debian control metadata and maintainer scripts produced from the project file." xml:space="preserve">
     <value>Luo &lt;code&gt;.deb&lt;/code&gt;-pakkaukset, jotka sisältävät Debianin valintametadataa ja projektitiedostosta luodut ylläpitäjän skriptit.</value>
   </data>
   <data name="Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes." xml:space="preserve">
     <value>Luo ja hallinnoi GPG-allekirjoitussertifikaatteja sekä julkaise julkisia avaimia varastoystävällisten artefaktireittien kautta.</value>
   </data>
-  <data name="Generic configuration" xml:space="preserve">
-    <value>Yleinen konfiguraatio</value>
-  </data>
   <data name="Generic Dockerfile only" xml:space="preserve">
     <value>Vain yleinen Dockerfile</value>
+  </data>
+  <data name="Generic configuration" xml:space="preserve">
+    <value>Yleinen konfiguraatio</value>
   </data>
   <data name="GitLab CI" xml:space="preserve">
     <value>GitLab CI</value>
@@ -512,9 +509,6 @@
   </data>
   <data name="Go to dashboard" xml:space="preserve">
     <value>Siirry kojelautaan</value>
-  </data>
-  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
-    <value>GPG:n luotusketju ja kasvokkain järjestettävät avainten allekirjoitustapahtumat. Luottamus on täysin hajautettu — yksikään tahdot ei hallitse avaimistoa.</value>
   </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Käsittele toistuvia tehtäviä, kuten siivouksen ja synkronoinnin, laajalla käyttöliittymällä suoritushistorian ja lokien seurantaan.</value>
@@ -567,11 +561,11 @@
   <data name="Included" xml:space="preserve">
     <value>Sisältyy</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Sisältää laajan dokumentaation ja käytännön esimerkit, joiden avulla pääset nopeasti alkuun.</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Sisältää opetusmateriaaleja</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Sisältää laajan dokumentaation ja käytännön esimerkit, joiden avulla pääset nopeasti alkuun.</value>
   </data>
   <data name="Install" xml:space="preserve">
     <value>Asenna</value>
@@ -594,9 +588,6 @@
   <data name="Interoperability" xml:space="preserve">
     <value>Yhteensopivuus</value>
   </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>on vapaata ohjelmistoa</value>
-  </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>Onko Aiursoft Templaten käyttö ilmaista?</value>
   </data>
@@ -618,6 +609,15 @@
   <data name="Local package overrides" xml:space="preserve">
     <value>Paikalliset pakettiyliohitukset</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>MIT-lisenssi</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>MIT-lisenssi</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>MSBuild-tyylinen syntaksi</value>
+  </data>
   <data name="Made Simple." xml:space="preserve">
     <value>Yksinkertaistettu.</value>
   </data>
@@ -636,17 +636,8 @@
   <data name="Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared." xml:space="preserve">
     <value>Peilissynkronointi, varaston koostaminen, allekirjoittaminen, vienti ja romunkeruu jaetaan itsenäisiin tehtäviin. Julkaisut asiakkaat lukevat edelleen viimeistä allekirjoitettua pääsammikkoa, kun uutta metatietoa valmistellaan.</value>
   </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>MIT-lisenssi</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>MIT-lisenssi</value>
-  </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>Mallit tarkistetaan molemmilla puolilla, asiakas- ja palvelinpuolella, tietojen annotaatioiden perusteella.</value>
-  </data>
-  <data name="MSBuild-style syntax" xml:space="preserve">
-    <value>MSBuild-tyylinen syntaksi</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>Monen aikavyöhykkeen käsittely</value>
@@ -669,12 +660,6 @@
   <data name="Needs Celery + Flower" xml:space="preserve">
     <value>Vaatii Celery + Flower</value>
   </data>
-  <data name="Needs complex authentication logic" xml:space="preserve">
-    <value>Vaatii monimutkaista tunnistautumislogiikkaa</value>
-  </data>
-  <data name="Needs config/plugins" xml:space="preserve">
-    <value>Vaatii konfiguraatiota tai lisäosia</value>
-  </data>
   <data name="Needs ESLint/Prettier setup" xml:space="preserve">
     <value>Vaatii ESLint/Prettier-asetukset</value>
   </data>
@@ -683,9 +668,6 @@
   </data>
   <data name="Needs Laravel Sail" xml:space="preserve">
     <value>Vaatii Laravel Sail</value>
-  </data>
-  <data name="Needs manual configuration" xml:space="preserve">
-    <value>Vaatii manuaalista konfigurointia</value>
   </data>
   <data name="Needs Medialibrary" xml:space="preserve">
     <value>Vaatii Medialibraryn</value>
@@ -699,23 +681,35 @@
   <data name="Needs Spring Security config" xml:space="preserve">
     <value>Vaatii Spring Security -konfiguroinnin</value>
   </data>
-  <data name="Needs third-party plugins" xml:space="preserve">
-    <value>Vaatii kolmansien osapuolten lisäosia</value>
-  </data>
   <data name="Needs TypeORM or similar" xml:space="preserve">
     <value>Vaatii TypeORM:n tai vastaavan</value>
   </data>
+  <data name="Needs complex authentication logic" xml:space="preserve">
+    <value>Vaatii monimutkaista tunnistautumislogiikkaa</value>
+  </data>
+  <data name="Needs config/plugins" xml:space="preserve">
+    <value>Vaatii konfiguraatiota tai lisäosia</value>
+  </data>
+  <data name="Needs manual configuration" xml:space="preserve">
+    <value>Vaatii manuaalista konfigurointia</value>
+  </data>
+  <data name="Needs third-party plugins" xml:space="preserve">
+    <value>Vaatii kolmansien osapuolten lisäosia</value>
+  </data>
   <data name="No dependency on any cloud vendor. Run anywhere, any time." xml:space="preserve">
     <value>Ei riippuvuutta mihinkään pilviliittymään. Suorita missä tahansa, milloin tahansa.</value>
-  </data>
-  <data name="Offline Capable" xml:space="preserve">
-    <value>Offline-kelpoisuus</value>
   </data>
   <data name="OIDC &amp; SSO" xml:space="preserve">
     <value>OIDC &amp; SSO</value>
   </data>
   <data name="OIDC-backed RBAC with scoped API keys. Teams authenticate via existing SSO, grant per-repo permissions, and revoke access instantly." xml:space="preserve">
     <value>OIDC-tukeva RBAC alueellistetuilla API-avaimilla. Tiimit todentautuvat olemassa olevan SSO:n kautta, myöntävät varaston spesifit käyttöoikeudet ja peruvat pääsyn välittömästi.</value>
+  </data>
+  <data name="ORM &amp; Migrations" xml:space="preserve">
+    <value>ORM ja migraatiot</value>
+  </data>
+  <data name="Offline Capable" xml:space="preserve">
+    <value>Offline-kelpoisuus</value>
   </data>
   <data name="One Click Start" xml:space="preserve">
     <value>Yksi napsautus käynnistää</value>
@@ -734,9 +728,6 @@
   </data>
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>Optimoitu Docker &amp; K8s-konfiguraatio</value>
-  </data>
-  <data name="ORM &amp; Migrations" xml:space="preserve">
-    <value>ORM ja migraatiot</value>
   </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Valmiina käytettävä</value>
@@ -759,11 +750,11 @@
   <data name="Powered by AnduinOS" xml:space="preserve">
     <value>Toteutettu AnduinOS:lla</value>
   </data>
-  <data name="Pre-configured and tested" xml:space="preserve">
-    <value>Ennalta määritetty ja testattu</value>
-  </data>
   <data name="Pre-configured CI/CD pipelines specifically for GitLab." xml:space="preserve">
     <value>Ennalta määritellyt CI/CD -putkistot erityisesti GitLab:lle.</value>
+  </data>
+  <data name="Pre-configured and tested" xml:space="preserve">
+    <value>Ennalta määritetty ja testattu</value>
   </data>
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>Ennalta määritellyt putket kehitys- ja tuotantoympäristöihin</value>
@@ -792,11 +783,11 @@
   <data name="Quick Start" xml:space="preserve">
     <value>Pika-aloitus</value>
   </data>
-  <data name="RBAC and API keys" xml:space="preserve">
-    <value>RBAC ja API-avaimet</value>
-  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>RBAC-valtuutus</value>
+  </data>
+  <data name="RBAC and API keys" xml:space="preserve">
+    <value>RBAC ja API-avaimet</value>
   </data>
   <data name="RBAC is ideal for organizations, but Debian&apos;s decentralized WoT remains the gold standard for a trustless global maintainer network." xml:space="preserve">
     <value>RBAC on ideaali organisaatioille, mutta Debianin hajautettu WoT pysyy kultastandardina luottamusta vaativattomalle globaalille ylläpitäjöverkostolle.</value>
@@ -894,23 +885,23 @@
   <data name="Standard Debian repository endpoints for &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG keys, package indexes, and pool downloads." xml:space="preserve">
     <value>Vakio Debian-säiliöpätepisteet komennoille &lt;code&gt;apt update&lt;/code&gt; ja &lt;code&gt;apt install&lt;/code&gt;, GPG-avaimille, pakkauksen indekseille ja pool-latauksille.</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>Standardityympäristö. Vaihda tarjoajia ilman käännöstä.</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>Standard OpenID</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>Aloita uusi projekti</value>
-  </data>
-  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
-    <value>Luo paketin projekti &lt;code&gt;.aosproj&lt;/code&gt;:llä ja määritä sen tiedostot, kansiot, skriptit, riippuvuudet, palvelut, sarjat ja arkkitehtuurit.</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>Standardityympäristö. Vaihda tarjoajia ilman käännöstä.</value>
   </data>
   <data name="Start Publishing" xml:space="preserve">
     <value>Aloita julkaisu</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>Aloita arvon toimittaminen.</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>Aloita uusi projekti</value>
+  </data>
+  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
+    <value>Luo paketin projekti &lt;code&gt;.aosproj&lt;/code&gt;:llä ja määritä sen tiedostot, kansiot, skriptit, riippuvuudet, palvelut, sarjat ja arkkitehtuurit.</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>Aloita yhdellä &apos;docker run&apos;-komennolla.</value>
@@ -927,23 +918,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>Tiukat lint-säännöt</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>Tiukat yksikkötestit</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>Tiukat linta-ohjeet ja oletusarvoisesti nolla varoituksia.</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>Tiukat lintausohjeet, 0 varoitusvirhettä oletusprojektissa.</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>Tiukat yksikkötestit</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>Vahvasti yhtenäinen linting</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>Tukee sekä ympäristömuuttujia että tietokantaperustaisia asetuksia, ja ympäristömuuttujilla on automaattinen etusija, jolloin korvaaminen on sujuvaa.</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>Tukee JetBrains Rideria helppoa koodin tyylin korjauksia varten.</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>Tukee sekä ympäristömuuttujia että tietokantaperustaisia asetuksia, ja ympäristömuuttujilla on automaattinen etusija, jolloin korvaaminen on sujuvaa.</value>
   </data>
   <data name="Task Runner" xml:space="preserve">
     <value>Tehtävän suorittaja</value>
@@ -954,6 +945,9 @@
   <data name="The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration." xml:space="preserve">
     <value>Apkg-CLI hoitaa projektien luonnin, tarkistuksen, pakkauksien rakentamisen, niputtamisen, palvelinlähetysten, paikallisen purkamisen ja APT-lähteen määrityksen.</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>Filosofia</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>Määritelmällinen, kovasti testattu .NET-yritysperusta. Autentikoinnista tekoälyyn, olemme ratkaisseet vaikeat osiot, jotta sinun ei tarvitse.</value>
   </data>
@@ -962,9 +956,6 @@
   </data>
   <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
     <value>AnduinOS-ympäristön virallinen pakettienhallintaohjelma.</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>Filosofia</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>Malli on suunniteltu helppokäyttöiseksi käyttöönottoa varten. Se sisältää täyden Docker-tuen, joten voit konttipohjata sovelluksesi ja ajaa sitä missä tahansa. Voit myös ottaa sen käyttöön suoraan IIS:ään, Azure App Serviceen tai mihin tahansa palvelimeen, joka tukee ASP.NET Corea.</value>
@@ -1073,6 +1064,15 @@
   </data>
   <data name="Zero Tolerance Lint" xml:space="preserve">
     <value>Nollasietosyyntä</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>nopeammin</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>kaikkiin kyselyihin tai ongelmien ilmoittamiseen.</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>on vapaata ohjelmistoa</value>
   </data>
 
 </root>

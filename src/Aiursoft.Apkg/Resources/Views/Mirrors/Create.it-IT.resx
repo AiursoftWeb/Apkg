@@ -51,11 +51,11 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Salva modifiche</value>
   </data>
-  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
-    <value>L&apos;URL di base del server upstream (ad es. &apos;https://mirrors.ubuntu.com/&apos;). Il nome della distribuzione verrà aggiunto automaticamente.</value>
-  </data>
   <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Il prefisso URL per questo mirror (ad esempio &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>L&apos;URL di base del server upstream (ad es. &apos;https://mirrors.ubuntu.com/&apos;). Il nome della distribuzione verrà aggiunto automaticamente.</value>
   </data>
 
 </root>

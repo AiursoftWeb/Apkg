@@ -102,9 +102,6 @@
   <data name="Repository not found." xml:space="preserve">
     <value>Không tìm thấy kho lưu trữ.</value>
   </data>
-  <data name="required" xml:space="preserve">
-    <value>bắt buộc</value>
-  </data>
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>File .deb (multipart/form-data, bắt buộc).</value>
   </data>
@@ -128,6 +125,9 @@
   </data>
   <data name="Your account does not have permission to upload to this repository." xml:space="preserve">
     <value>Tài khoản của bạn không có quyền tải lên kho lưu trữ này.</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>bắt buộc</value>
   </data>
 
 </root>

@@ -108,14 +108,14 @@
   <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
     <value>用於簽署此存放庫的 Release 檔案之 GPG 金鑰。</value>
   </data>
-  <data name="The internal identifier and part of the URL path." xml:space="preserve">
-    <value>內部識別碼及 URL 路徑的一部分。</value>
-  </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>此儲存庫的 URL 前綴（例如 &apos;ubuntu&apos;）。</value>
   </data>
   <data name="The URL prefix for this repository. Must be a single lowercase identifier (e.g. &apos;anduinos&apos;, &apos;ubuntu&apos;)." xml:space="preserve">
     <value>此倉庫的 URL 前綴。必須為單個小寫標識符（例如 &apos;anduinos&apos;、&apos;ubuntu&apos;）。</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>內部識別碼及 URL 路徑的一部分。</value>
   </data>
   <data name="This field accepts multiple values. Separate them with commas." xml:space="preserve">
     <value>此欄位接受多個值，請用逗號分隔。</value>

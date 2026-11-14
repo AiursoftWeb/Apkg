@@ -30,6 +30,12 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>คุณแน่ใจหรือไม่ว่าต้องการรีสตาร์ทแอปพลิเคชัน? การดำเนินการนี้ไม่สามารถย้อนกลับได้และจะทำให้การเชื่อมต่อทั้งหมดถูกยกเลิก</value>
   </data>
+  <data name="CPU Architecture" xml:space="preserve">
+    <value>สถาปัตยกรรม CPU</value>
+  </data>
+  <data name="CPU Cores" xml:space="preserve">
+    <value>จำนวนคอร์ CPU</value>
+  </data>
   <data name="Cache coverage" xml:space="preserve">
     <value>ความครอบคลุมของแคช</value>
   </data>
@@ -44,12 +50,6 @@
   </data>
   <data name="Contents Cache" xml:space="preserve">
     <value>แคชเนื้อหา</value>
-  </data>
-  <data name="CPU Architecture" xml:space="preserve">
-    <value>สถาปัตยกรรม CPU</value>
-  </data>
-  <data name="CPU Cores" xml:space="preserve">
-    <value>จำนวนคอร์ CPU</value>
   </data>
   <data name="Created" xml:space="preserve">
     <value>สร้าง</value>

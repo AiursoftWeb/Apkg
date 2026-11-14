@@ -108,14 +108,14 @@
   <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
     <value>กุญแจ GPG ที่ใช้ในการลงนามในไฟล์ Release ของที่เก็บข้อมูลนี้</value>
   </data>
-  <data name="The internal identifier and part of the URL path." xml:space="preserve">
-    <value>ตัวระบุภายในและส่วนหนึ่งของเส้นทาง URL</value>
-  </data>
   <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>คำนำหน้า URL สำหรับที่เก็บข้อมูลนี้ (เช่น &apos;ubuntu&apos;)</value>
   </data>
   <data name="The URL prefix for this repository. Must be a single lowercase identifier (e.g. &apos;anduinos&apos;, &apos;ubuntu&apos;)." xml:space="preserve">
     <value>The URL prefix for this repository. Must be a single lowercase identifier (e.g. &apos;anduinos&apos;, &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="The internal identifier and part of the URL path." xml:space="preserve">
+    <value>ตัวระบุภายในและส่วนหนึ่งของเส้นทาง URL</value>
   </data>
   <data name="This field accepts multiple values. Separate them with commas." xml:space="preserve">
     <value>This field accepts multiple values. Separate them with commas.</value>

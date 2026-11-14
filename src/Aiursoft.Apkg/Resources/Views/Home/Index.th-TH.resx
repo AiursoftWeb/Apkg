@@ -18,17 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name=".apkg publishing" xml:space="preserve">
-    <value>การเผยแพร่ .apkg</value>
-  </data>
-  <data name=".NET Global Tool" xml:space="preserve">
-    <value>เครื่องมือระดับสากล .NET</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>การสนับสนุนแบบ &quot;Fire-and-forget&quot; สำหรับงานที่ใช้เวลานาน (เช่น อีเมลหรือ AI) พร้อมด้วย GUI สำหรับการจัดการคิว การประมวลผลแบบขนาน และการยกเลิก</value>
   </data>
   <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
     <value>การสร้างแพ็กเกจแบบดั้งเดิมของ Debian กระจายนิยามแพ็กเกจข้ามไฟล์กว่าครึ่งโหล — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — ซึ่งแต่ละไฟล์มีภาษาของตนเองที่เข้าใจยาก ฉันออกแบบ &lt;code&gt;.aosproj&lt;/code&gt; เพื่อแทนที่สิ่งทั้งหมดด้วยแมนิเฟสต์แบบ Declarative เพียงไฟล์เดียว โครงสร้าง XML ช่วยให้กราฟการพึ่งพาการพึ่งพาสามารถวิเคราะห์ได้อย่างง่ายดายทั้งโดยมนุษย์และเครื่อง CI ไพรเซิล CI ลดเหลือเพียงคำสั่ง &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt; สิ่งนี้เปลี่ยนการสร้างแพ็กเกจการกระจาย Linux จากศาสตร์มืดให้เป็นวิศวกรรมซอฟต์แวร์มาตรฐาน</value>
+  </data>
+  <data name=".NET Global Tool" xml:space="preserve">
+    <value>เครื่องมือระดับสากล .NET</value>
+  </data>
+  <data name=".apkg publishing" xml:space="preserve">
+    <value>การเผยแพร่ .apkg</value>
   </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>ฟาร์ม &lt;code&gt;Buildd&lt;/code&gt; ทำการคอมไพล์แบบเนทีฟบนฮาร์ดแวร์จริง &lt;code&gt;apt-ftparchive&lt;/code&gt; ที่ทำงานด้วย Cron จะสร้างดัชนีใหม่ — แพ็กเกจจะต้องรอหลายชั่วโมงใน &lt;code&gt;incoming&lt;/code&gt; ก่อนที่จะได้รับการเผยแพร่</value>
@@ -63,6 +63,24 @@
   <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
     <value>คำสั่งเดียวสำหรับติดตั้งไคลเอ็นต์ APKG และเริ่มต้นจัดการแพ็กเกจ APT ของคุณ</value>
   </data>
+  <data name="AI Driven Translation" xml:space="preserve">
+    <value>การแปลที่ขับเคลื่อนด้วย AI</value>
+  </data>
+  <data name="AI Readable" xml:space="preserve">
+    <value>AI อ่านได้</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>การแปลด้วยพลัง AI</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>ที่เก็บแพ็กเก็ต APT</value>
+  </data>
+  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
+    <value>ไคลเอนต์ APT อ่านเฉพาะบัคเก็ตหลักเท่านั้น ซิงค์ที่ไม่สมบูรณ์ เมตาดาตาที่มิได้ลงนาม และบัคเก็ตสเตจซิ่ง จะยังคงไม่ปรากฏให้เห็น</value>
+  </data>
+  <data name="APT repository server" xml:space="preserve">
+    <value>เซิร์ฟเวอร์ที่เก็บแพ็กเกจ APT</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>บรรลุผลได้มากขึ้นด้วย Aiursoft Template</value>
   </data>
@@ -80,15 +98,6 @@
   </data>
   <data name="After sync and signing, machines consume the repository with normal APT source files and &lt;code&gt;apt install&lt;/code&gt; commands." xml:space="preserve">
     <value>หลังจากซิงค์และเซ็นชื่อ ระบบจะดึงข้อมูลจากแหล่งเก็บแพ็กเกจโดยใช้ไฟล์แหล่งข้อมูล APT ปกติและคำสั่ง &lt;code&gt;apt install&lt;/code&gt;</value>
-  </data>
-  <data name="AI Driven Translation" xml:space="preserve">
-    <value>การแปลที่ขับเคลื่อนด้วย AI</value>
-  </data>
-  <data name="AI Readable" xml:space="preserve">
-    <value>AI อ่านได้</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>การแปลด้วยพลัง AI</value>
   </data>
   <data name="Aiursoft Apkg" xml:space="preserve">
     <value>Aiursoft Apkg</value>
@@ -123,15 +132,6 @@
   <data name="Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots." xml:space="preserve">
     <value>Apkg ทำหน้าที่เป็นตัวกลางระหว่างอาร์ไคว์ต้นทาง ผู้พัฒนาแพ็กเกจ และเครื่องไคลเอนต์ โดยแปลงข้อมูลเมตาจากมิเรอร์และค่าโอเวอร์ไรด์ที่อัปโหลดให้เป็นสแนปช็อตนคราปพลิเคชันที่ผ่านการเซ็นชื่อและมีความเสถียร</value>
   </data>
-  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
-    <value>ไคลเอนต์ APT อ่านเฉพาะบัคเก็ตหลักเท่านั้น ซิงค์ที่ไม่สมบูรณ์ เมตาดาตาที่มิได้ลงนาม และบัคเก็ตสเตจซิ่ง จะยังคงไม่ปรากฏให้เห็น</value>
-  </data>
-  <data name="APT Package Repository" xml:space="preserve">
-    <value>ที่เก็บแพ็กเก็ต APT</value>
-  </data>
-  <data name="APT repository server" xml:space="preserve">
-    <value>เซิร์ฟเวอร์ที่เก็บแพ็กเกจ APT</value>
-  </data>
   <data name="Architecture Philosophy" xml:space="preserve">
     <value>ปรัชญาสถาปัตยกรรม</value>
   </data>
@@ -144,11 +144,11 @@
   <data name="Authentik &amp; Okta" xml:space="preserve">
     <value>Authentik &amp; Okta</value>
   </data>
-  <data name="Auto compression and privacy" xml:space="preserve">
-    <value>การบีบอัดอัตโนมัติและความเป็นส่วนตัว</value>
-  </data>
   <data name="Auto Deployment" xml:space="preserve">
     <value>การติดตั้งอัตโนมัติ</value>
+  </data>
+  <data name="Auto compression and privacy" xml:space="preserve">
+    <value>การบีบอัดอัตโนมัติและความเป็นส่วนตัว</value>
   </data>
   <data name="Automatic AI translation into 28 languages." xml:space="preserve">
     <value>การแปลอัตโนมัติด้วยปัญญาประดิษฐ์เป็นภาษา 28 ภาษา</value>
@@ -225,9 +225,6 @@
   <data name="Built-in" xml:space="preserve">
     <value>ในตัว</value>
   </data>
-  <data name="Built-in administration panel" xml:space="preserve">
-    <value>แผงควบคุมการบริหารในตัว</value>
-  </data>
   <data name="Built-in Auth" xml:space="preserve">
     <value>ระบบผู้ใช้ภายใน</value>
   </data>
@@ -237,8 +234,8 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>การจัดการผู้ใช้ในตัว</value>
   </data>
-  <data name="Certificate management" xml:space="preserve">
-    <value>การจัดการใบรับรอง</value>
+  <data name="Built-in administration panel" xml:space="preserve">
+    <value>แผงควบคุมการบริหารในตัว</value>
   </data>
   <data name="CI cross-compilation excels on amd64/arm64, but Debian&apos;s native Buildd catches architecture-specific UB that cross-toolchains miss." xml:space="preserve">
     <value>การคอมไพล์ข้ามสถาปัตยกรรมด้วย CI ทำได้ดีบน amd64/arm64 แต่ระบบ Buildd แบบเนทีฟของ Debian สามารถตรวจจับ UB ที่ขึ้นกับสถาปัตยกรรมซึ่งชุดเครื่องมือคอมไพล์ข้ามสถาปัตยกรรมมักมองข้ามได้</value>
@@ -248,6 +245,9 @@
   </data>
   <data name="CLI quick start" xml:space="preserve">
     <value>เริ่มต้นใช้งาน CLI</value>
+  </data>
+  <data name="Certificate management" xml:space="preserve">
+    <value>การจัดการใบรับรอง</value>
   </data>
   <data name="Cloud-native CDN delivers consistent low-latency worldwide. DDoS absorbed at the edge." xml:space="preserve">
     <value>CDN แบบ Cloud-native ให้ความหน่วงต่ำอย่างต่อเนื่องทั่วโลก การโจมตีแบบ DDoS จะถูกดูดซับที่ขอบเครือข่าย</value>
@@ -306,11 +306,11 @@
   <data name="Custom development required" xml:space="preserve">
     <value>ต้องพัฒนาเพิ่มเติมเอง</value>
   </data>
-  <data name="Dashboard for background tasks" xml:space="preserve">
-    <value>แดชบอร์ดสำหรับงานพื้นหลัง</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>เว็บไซต์แดชบอร์ด</value>
+  </data>
+  <data name="Dashboard for background tasks" xml:space="preserve">
+    <value>แดชบอร์ดสำหรับงานพื้นหลัง</value>
   </data>
   <data name="Day 1 Compliance &amp; Security." xml:space="preserve">
     <value>วันที่ 1 ความสอดคล้องและด้านความปลอดภัย</value>
@@ -345,6 +345,9 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>Dev &amp; Prod</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>รองรับ DevOps โดยธรรมชาติ</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>พัฒนาเฉพาะในเวลา UTC ในขณะที่ระบบจะแปลงและแสดงวันที่โดยอัตโนมัติในเขตเวลาท้องถิ่นของผู้ใช้</value>
   </data>
@@ -353,9 +356,6 @@
   </data>
   <data name="Developers describe package contents once, build Debian artifacts locally or in CI, push a &lt;code&gt;.apkg&lt;/code&gt; bundle, and let the server route packages into the right repositories." xml:space="preserve">
     <value>นักพัฒนาอธิบายเนื้อหาแพ็กเกจเพียงครั้งเดียว สร้างไฟล์ของ Debian ในเครื่องท้องถิ่นหรือใน CI อัปโหลดบандл &lt;code&gt;.apkg&lt;/code&gt; และให้เซิร์ฟเวอร์จัดการเส้นทางแพ็กเกจไปยัง repository ที่ถูกต้อง</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>รองรับ DevOps โดยธรรมชาติ</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>หน้าห้องสนทนา</value>
@@ -423,9 +423,6 @@
   <data name="FAQ" xml:space="preserve">
     <value>คำถามที่พบบ่อย</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>เร็วขึ้น</value>
-  </data>
   <data name="Features" xml:space="preserve">
     <value>คุณสมบัติ</value>
   </data>
@@ -444,9 +441,6 @@
   <data name="Flexible API" xml:space="preserve">
     <value>API ที่ยืดหยุ่น</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>สำหรับข้อสงสัยใดๆ หรือเพื่อรายงานปัญหา</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>ผู้ก่อตั้งและสถาปนิกที่ Aiursoft</value>
   </data>
@@ -459,11 +453,11 @@
   <data name="Free" xml:space="preserve">
     <value>ฟรี</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>ฟรีสำหรับการใช้งานเชิงพาณิชย์</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>ซอฟต์แวร์ฟรี</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>ฟรีสำหรับการใช้งานเชิงพาณิชย์</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>คำถามที่พบบ่อย</value>
@@ -486,17 +480,20 @@
   <data name="Fully Offline" xml:space="preserve">
     <value>ทำงานแบบออฟไลน์ทั้งหมด</value>
   </data>
+  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
+    <value>เครือข่ายความไว้วางใจ GPG พร้อมงานรับรองกุญแจแบบพบหน้า ความไว้วางใจกระจายศูนย์อย่างสมบูรณ์ ไม่มีหน่วยงานใดควบคุมกลุ่มกุญแจเพียงผู้เดียว</value>
+  </data>
   <data name="Generate &lt;code&gt;.deb&lt;/code&gt; packages with Debian control metadata and maintainer scripts produced from the project file." xml:space="preserve">
     <value>สร้างแพ็กเกจ &lt;code&gt;.deb&lt;/code&gt; พร้อมข้อมูลเมตาควบคุม Debian และสคริปต์ของผู้ดูแลที่สร้างจากไฟล์โปรเจกต์</value>
   </data>
   <data name="Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes." xml:space="preserve">
     <value>สร้างและจัดการใบรับรองลายเซ็น GPG จากนั้นเปิดใช้กุญแจสาธารณะผ่านเส้นทางไฟล์ที่เข้ากันได้กับรีโปสิทอรี</value>
   </data>
-  <data name="Generic configuration" xml:space="preserve">
-    <value>การตั้งค่าทั่วไป</value>
-  </data>
   <data name="Generic Dockerfile only" xml:space="preserve">
     <value>มีเฉพาะ Dockerfile แบบทั่วไปเท่านั้น</value>
+  </data>
+  <data name="Generic configuration" xml:space="preserve">
+    <value>การตั้งค่าทั่วไป</value>
   </data>
   <data name="GitLab CI" xml:space="preserve">
     <value>GitLab CI</value>
@@ -515,9 +512,6 @@
   </data>
   <data name="Go to dashboard" xml:space="preserve">
     <value>ไปยังแดชบอร์ด</value>
-  </data>
-  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
-    <value>เครือข่ายความไว้วางใจ GPG พร้อมงานรับรองกุญแจแบบพบหน้า ความไว้วางใจกระจายศูนย์อย่างสมบูรณ์ ไม่มีหน่วยงานใดควบคุมกลุ่มกุญแจเพียงผู้เดียว</value>
   </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>จัดการงานที่เกิดซ้ำ เช่น การทำความสะอาดและซิงค์ข้อมูล พร้อมด้วยอินเทอร์เฟซผู้ใช้ที่ครอบคลุมสำหรับติดตามประวัติการดำเนินงานและบันทึก</value>
@@ -570,11 +564,11 @@
   <data name="Included" xml:space="preserve">
     <value>รวมไว้แล้ว</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>ประกอบด้วยเอกสารที่ครอบคลุมและตัวอย่างเชิงปฏิบัติเพื่อให้คุณเริ่มต้นได้อย่างรวดเร็ว</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>รวมบทช่วยสอน</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>ประกอบด้วยเอกสารที่ครอบคลุมและตัวอย่างเชิงปฏิบัติเพื่อให้คุณเริ่มต้นได้อย่างรวดเร็ว</value>
   </data>
   <data name="Install" xml:space="preserve">
     <value>ติดตั้ง</value>
@@ -597,9 +591,6 @@
   <data name="Interoperability" xml:space="preserve">
     <value>ความเข้ากันได้</value>
   </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>เป็นซอฟต์แวร์เปิด</value>
-  </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>Aiursoft Template ใช้ฟรีหรือไม่?</value>
   </data>
@@ -621,6 +612,15 @@
   <data name="Local package overrides" xml:space="preserve">
     <value>การแทนที่แพ็กเกจท้องถิ่น</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>สัญญาอนุญาต MIT</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>MIT License</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>รูปแบบไวยากรณ์สไตล์ MSBuild</value>
+  </data>
   <data name="Made Simple." xml:space="preserve">
     <value>ใช้งานง่ายเพียงเท่านี้</value>
   </data>
@@ -639,17 +639,8 @@
   <data name="Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared." xml:space="preserve">
     <value>การซิงค์กระจก การประกอบคลังข้อมูล การลงนาม การส่งออก และการจัดเก็บขยะ ถูกแยกออกเป็นงานอิสระ ไคลเอนต์ที่เผยแพร่จะยังคงอ่าน_bucket_หลักที่มีการลงนามล่าสุดขณะเตรียมข้อมูลเมตาดาตาใหม่</value>
   </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>สัญญาอนุญาต MIT</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>MIT License</value>
-  </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>โมเดลจะได้รับการตรวจสอบความถูกต้องทั้งในด้านไคลเอนต์และเซิร์ฟเวอร์โดยอิงจาก annotation ข้อมูล</value>
-  </data>
-  <data name="MSBuild-style syntax" xml:space="preserve">
-    <value>รูปแบบไวยากรณ์สไตล์ MSBuild</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>การจัดการหลายเขตเวลา</value>
@@ -672,12 +663,6 @@
   <data name="Needs Celery + Flower" xml:space="preserve">
     <value>ต้องใช้ Celery + Flower</value>
   </data>
-  <data name="Needs complex authentication logic" xml:space="preserve">
-    <value>ต้องการตรรกะการตรวจสอบสิทธิ์ที่ซับซ้อน</value>
-  </data>
-  <data name="Needs config/plugins" xml:space="preserve">
-    <value>ต้องการการตั้งค่า/ปลั๊กอิน</value>
-  </data>
   <data name="Needs ESLint/Prettier setup" xml:space="preserve">
     <value>ต้องการการตั้งค่า ESLint/Prettier</value>
   </data>
@@ -686,9 +671,6 @@
   </data>
   <data name="Needs Laravel Sail" xml:space="preserve">
     <value>ต้องการ Laravel Sail</value>
-  </data>
-  <data name="Needs manual configuration" xml:space="preserve">
-    <value>ต้องกำหนดค่าด้วยตนเอง</value>
   </data>
   <data name="Needs Medialibrary" xml:space="preserve">
     <value>ต้องการ Medialibrary</value>
@@ -702,23 +684,35 @@
   <data name="Needs Spring Security config" xml:space="preserve">
     <value>ต้องการการกำหนดค่า Spring Security</value>
   </data>
-  <data name="Needs third-party plugins" xml:space="preserve">
-    <value>ต้องการปลั๊กอินจากบุคคลที่สาม</value>
-  </data>
   <data name="Needs TypeORM or similar" xml:space="preserve">
     <value>ต้องการ TypeORM หรือคล้ายกัน</value>
   </data>
+  <data name="Needs complex authentication logic" xml:space="preserve">
+    <value>ต้องการตรรกะการตรวจสอบสิทธิ์ที่ซับซ้อน</value>
+  </data>
+  <data name="Needs config/plugins" xml:space="preserve">
+    <value>ต้องการการตั้งค่า/ปลั๊กอิน</value>
+  </data>
+  <data name="Needs manual configuration" xml:space="preserve">
+    <value>ต้องกำหนดค่าด้วยตนเอง</value>
+  </data>
+  <data name="Needs third-party plugins" xml:space="preserve">
+    <value>ต้องการปลั๊กอินจากบุคคลที่สาม</value>
+  </data>
   <data name="No dependency on any cloud vendor. Run anywhere, any time." xml:space="preserve">
     <value>ไม่มีการพึ่งพาผู้ให้บริการคลาวด์ใด ๆ ใช้งานได้ทุกที่ ทุกเวลา</value>
-  </data>
-  <data name="Offline Capable" xml:space="preserve">
-    <value>รองรับการทำงานแบบออฟไลน์</value>
   </data>
   <data name="OIDC &amp; SSO" xml:space="preserve">
     <value>OIDC &amp; SSO</value>
   </data>
   <data name="OIDC-backed RBAC with scoped API keys. Teams authenticate via existing SSO, grant per-repo permissions, and revoke access instantly." xml:space="preserve">
     <value>RBAC แบบใช้ OIDC รองรับ พร้อม API key ที่กำหนดขอบเขตได้ ทีมงานดำเนินการยืนยันตัวตนผ่าน SSO ที่มีอยู่ ตั้งสิทธิ์เข้าถึงตามแต่ละรีพอ และเพิกถอนสิทธิ์ได้ทันที</value>
+  </data>
+  <data name="ORM &amp; Migrations" xml:space="preserve">
+    <value>ORM และการย้ายฐานข้อมูล</value>
+  </data>
+  <data name="Offline Capable" xml:space="preserve">
+    <value>รองรับการทำงานแบบออฟไลน์</value>
   </data>
   <data name="One Click Start" xml:space="preserve">
     <value>เริ่มต้นด้วยคลิกเดียว</value>
@@ -741,9 +735,6 @@
   <data name="Or configure it permanently:" xml:space="preserve">
     <value>หรือกำหนดค่าให้ถาวร:</value>
   </data>
-  <data name="ORM &amp; Migrations" xml:space="preserve">
-    <value>ORM และการย้ายฐานข้อมูล</value>
-  </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>พร้อมใช้งานทันที</value>
   </data>
@@ -765,11 +756,11 @@
   <data name="Powered by AnduinOS" xml:space="preserve">
     <value>ขับเคลื่อนโดย AnduinOS</value>
   </data>
-  <data name="Pre-configured and tested" xml:space="preserve">
-    <value>ตั้งค่าล่วงหน้าและผ่านการทดสอบแล้ว</value>
-  </data>
   <data name="Pre-configured CI/CD pipelines specifically for GitLab." xml:space="preserve">
     <value>พื้นที่ที่ตั้งค่าล่วงหน้าสำหรับการจัดการ CI/CD โดยเฉพาะสำหรับ GitLab</value>
+  </data>
+  <data name="Pre-configured and tested" xml:space="preserve">
+    <value>ตั้งค่าล่วงหน้าและผ่านการทดสอบแล้ว</value>
   </data>
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>ท่อส่งงานที่พร้อมใช้งานสำหรับ dev/prod</value>
@@ -798,11 +789,11 @@
   <data name="Quick Start" xml:space="preserve">
     <value>เริ่มต้นอย่างรวดเร็ว</value>
   </data>
-  <data name="RBAC and API keys" xml:space="preserve">
-    <value>RBAC และ API keys</value>
-  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>การอนุญาตตามบทบาท RBAC</value>
+  </data>
+  <data name="RBAC and API keys" xml:space="preserve">
+    <value>RBAC และ API keys</value>
   </data>
   <data name="RBAC is ideal for organizations, but Debian&apos;s decentralized WoT remains the gold standard for a trustless global maintainer network." xml:space="preserve">
     <value>RBAC เหมาะสมสำหรับองค์กร แต่ WoT แบบกระจายศูนย์ของ Debian ยังคงเป็นมาตรฐานทองคำสำหรับเครือข่ายผู้ดูแลระบบทั่วโลกที่เชื่อถือได้โดยไม่ต้องพึ่งพาอำนาจกลาง</value>
@@ -900,23 +891,23 @@
   <data name="Standard Debian repository endpoints for &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG keys, package indexes, and pool downloads." xml:space="preserve">
     <value>จุดสิ้นสุดมาตรฐานของคลัง Debian สำหรับ &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, กุญแจ GPG, ดัชนีแพ็กเกจ, และการดาวน์โหลดจาก pool</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>การใช้งานมาตรฐาน สามารถสลับผู้ให้บริการได้โดยไม่ต้องคอมไพล์</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>Standard OpenID</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>เริ่มต้นโปรเจกต์ใหม่</value>
-  </data>
-  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
-    <value>เริ่มต้นโปรเจกต์แพ็คเกจด้วย &lt;code&gt;.aosproj&lt;/code&gt; จากนั้นประกาศไฟล์ โฟลเดอร์ สคริปต์ การพึ่งพา บริการ ซุїต และสถาปัตยกรรม</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>การใช้งานมาตรฐาน สามารถสลับผู้ให้บริการได้โดยไม่ต้องคอมไพล์</value>
   </data>
   <data name="Start Publishing" xml:space="preserve">
     <value>เริ่มเผยแพร่</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>เริ่มส่งมอบคุณค่า</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>เริ่มต้นโปรเจกต์ใหม่</value>
+  </data>
+  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
+    <value>เริ่มต้นโปรเจกต์แพ็คเกจด้วย &lt;code&gt;.aosproj&lt;/code&gt; จากนั้นประกาศไฟล์ โฟลเดอร์ สคริปต์ การพึ่งพา บริการ ซุїต และสถาปัตยกรรม</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>เริ่มต้นด้วยคำสั่ง &apos;docker run&apos; เพียงคำสั่งเดียว</value>
@@ -933,23 +924,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>กฎการตรวจสอบโค้ดที่เข้มงวด</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>การทดสอบหน่วยที่เข้มงวด</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>กฎการตรวจสอบโค้ดอย่างเข้มงวดและไม่มีการแจ้งเตือนใดๆ โดยค่าเริ่มต้น</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>กฎการตรวจสอบโค้ดอย่างเข้มงวด โดยไม่มีคำเตือนใดๆ ในโปรเจกต์เริ่มต้น</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>การทดสอบหน่วยที่เข้มงวด</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>การตรวจสอบโค้ดที่เข้มงวดและสม่ำเสมอ</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>รองรับตัวแปรสภาพแวดล้อมและตั้งค่าที่เก็บไว้ในฐานข้อมูล พร้อมให้ความสำคัญโดยอัตโนมัติแก่ตัวแปรสภาพแวดล้อมเพื่อการแทนที่อย่างราบรื่น</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>รองรับ JetBrains Rider สำหรับการแก้ไขรูปแบบโค้ดอย่างง่าย</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>รองรับตัวแปรสภาพแวดล้อมและตั้งค่าที่เก็บไว้ในฐานข้อมูล พร้อมให้ความสำคัญโดยอัตโนมัติแก่ตัวแปรสภาพแวดล้อมเพื่อการแทนที่อย่างราบรื่น</value>
   </data>
   <data name="Task Runner" xml:space="preserve">
     <value>ผู้จัดการงาน</value>
@@ -960,6 +951,9 @@
   <data name="The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration." xml:space="preserve">
     <value>Apkg CLI รับผิดชอบการจัดการการสร้างโปรเจกต์ การตรวจสอบโค้ด (linting) การสร้างแพ็กเกจ การเผยแพร่ชุดแพ็กเกจ การอัปโหลดไปยังเซิร์ฟเวอร์ การแตกไฟล์ในเครื่อง และแหล่งที่มาของ APT</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>ปรัชญา</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>พื้นฐานองค์กร .NET ที่เป็นที่สุดและผ่านการทดสอบในสนามรบแล้ว ตั้งแต่การยืนยันตัวตน (Auth) ไปจนถึงปัญญาประดิษฐ์ (AI) เราได้แก้ปัญหาที่ยากลำบากแล้ว เพื่อให้คุณไม่ต้องทำเอง</value>
   </data>
@@ -968,9 +962,6 @@
   </data>
   <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
     <value>ตัวจัดการแพ็คเกจทางการที่ได้รับการเลือกใช้งานโดยระบบนิเวศของ AnduinOS</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>ปรัชญา</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>เทมเพลตนี้ถูกสร้างขึ้นเพื่อให้การปรับใช้เป็นเรื่องง่าย โดยมีระบบรองรับ Docker เต็มรูปแบบ ทำให้คุณสามารถสร้างคอนเทนเนอร์สำหรับแอปพลิเคชันและรันได้ทุกที่ นอกจากนี้คุณยังสามารถปรับใช้โดยตรงไปยัง IIS, Azure App Service หรือเซิร์ฟเวอร์ใดๆ ที่รองรับ ASP.NET Core ได้อีกด้วย</value>
@@ -1082,6 +1073,15 @@
   </data>
   <data name="Zero Tolerance Lint" xml:space="preserve">
     <value>การตรวจสอบโค้ดแบบไม่ยอมให้ผิดพลาดเลย</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>เร็วขึ้น</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>สำหรับข้อสงสัยใดๆ หรือเพื่อรายงานปัญหา</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>เป็นซอฟต์แวร์เปิด</value>
   </data>
 
 </root>

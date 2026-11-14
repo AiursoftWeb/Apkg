@@ -24,9 +24,6 @@
   <data name="All" xml:space="preserve">
     <value>Todos</value>
   </data>
-  <data name="and all generated Local Packages?" xml:space="preserve">
-    <value>e todos os Pacotes Locais gerados?</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Arquitetura</value>
   </data>
@@ -65,9 +62,6 @@
   </data>
   <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
     <value>Apenas a versão mais recente habilitada aparece nos repositórios APT.</value>
-  </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>pacote(s)</value>
   </data>
   <data name="Permanently delete" xml:space="preserve">
     <value>Excluir permanentemente</value>
@@ -113,6 +107,12 @@
   </data>
   <data name="View in repository" xml:space="preserve">
     <value>Ver no repositório</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>e todos os Pacotes Locais gerados?</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pacote(s)</value>
   </data>
 
 </root>

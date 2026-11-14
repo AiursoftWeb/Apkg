@@ -24,11 +24,11 @@
   <data name="Preview" xml:space="preserve">
     <value>Попередній перегляд</value>
   </data>
-  <data name="Upload a .apkg bundle stored in Vault. You will review the manifest before publishing." xml:space="preserve">
-    <value>Завантажте архів .apkg з сховища Vault. Ви зможете переглянути маніфест перед публікацією.</value>
-  </data>
   <data name="Upload APKG Package" xml:space="preserve">
     <value>Завантажити пакет APKG</value>
+  </data>
+  <data name="Upload a .apkg bundle stored in Vault. You will review the manifest before publishing." xml:space="preserve">
+    <value>Завантажте архів .apkg з сховища Vault. Ви зможете переглянути маніфест перед публікацією.</value>
   </data>
 
 </root>

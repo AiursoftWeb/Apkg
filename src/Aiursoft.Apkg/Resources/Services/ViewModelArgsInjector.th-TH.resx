@@ -18,7 +18,19 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="API Key Usage" xml:space="preserve">
+    <value>การใช้งานคีย์ API</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>คีย์ API</value>
+  </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>รายละเอียดแพ็คเกจ APKG</value>
+  </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>รายละเอียดการอัปโหลด APKG</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>การเข้าถึงถูกปฏิเสธ</value>
   </data>
   <data name="Account Settings" xml:space="preserve">
@@ -39,23 +51,11 @@
   <data name="Anonymous" xml:space="preserve">
     <value>ไม่ระบุชื่อ</value>
   </data>
-  <data name="API Key Usage" xml:space="preserve">
-    <value>การใช้งานคีย์ API</value>
-  </data>
-  <data name="API Keys" xml:space="preserve">
-    <value>คีย์ API</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Apkg แบบไฮบริด</value>
-  </data>
-  <data name="APKG Package Details" xml:space="preserve">
-    <value>รายละเอียดแพ็คเกจ APKG</value>
-  </data>
-  <data name="APKG Upload Details" xml:space="preserve">
-    <value>รายละเอียดการอัปโหลด APKG</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>งานพื้นหลัง</value>
@@ -282,17 +282,17 @@
   <data name="Unauthorized" xml:space="preserve">
     <value>ไม่ได้รับอนุญาต</value>
   </data>
-  <data name="Upload apkg mixed package" xml:space="preserve">
-    <value>อัปโหลดแพ็กเกจ APKG</value>
-  </data>
-  <data name="Upload deb package" xml:space="preserve">
-    <value>Upload deb package</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>ประวัติการอัปโหลด</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>อัปโหลดแพ็กเกจ</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>อัปโหลดแพ็กเกจ APKG</value>
+  </data>
+  <data name="Upload deb package" xml:space="preserve">
+    <value>Upload deb package</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>กระจกย้อนกลับด้านบน</value>

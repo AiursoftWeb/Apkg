@@ -51,11 +51,11 @@
   <data name="Save Changes" xml:space="preserve">
     <value>Değişiklikleri Kaydet</value>
   </data>
-  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
-    <value>Yukarı akış sunucusunun temel URL&apos;si (örn. &apos;https://mirrors.ubuntu.com/&apos;). Dağıtım adı otomatik olarak eklenecektir.</value>
-  </data>
   <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>Bu ayna için URL ön eki (örn. &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>Yukarı akış sunucusunun temel URL&apos;si (örn. &apos;https://mirrors.ubuntu.com/&apos;). Dağıtım adı otomatik olarak eklenecektir.</value>
   </data>
 
 </root>

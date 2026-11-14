@@ -30,17 +30,17 @@
   <data name="Allow Anonymous Browse Repository" xml:space="preserve">
     <value>Salli nimettömien selata arkistoa</value>
   </data>
-  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
-    <value>Salli nimettömien käyttäjien selata arkistoja ja niiden paketteja kirjautumatta.</value>
-  </data>
-  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
-    <value>Salli nimettömien käyttäjien tarkastella pakettien tietoja kirjautumatta sisään.</value>
-  </data>
   <data name="Allow Anonymous View Package Details" xml:space="preserve">
     <value>Salli nimettömien pakettitietojen katselu</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>Salli käyttäjän muokata nimimerkkiä</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>Salli nimettömien käyttäjien selata arkistoja ja niiden paketteja kirjautumatta.</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>Salli nimettömien käyttäjien tarkastella pakettien tietoja kirjautumatta sisään.</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>Salli käyttäjien muuttaa nimimerkkiään profiilin hallintasivulla.</value>
@@ -72,11 +72,11 @@
   <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
     <value>Julkinen perus-URL, jota käytetään luoduissa APT-lähteissä ja AppStream-kuvakaappauslinkissä, esimerkiksi https://packages.example.com. Määritä se, kun /artifacts-polkua palvelee erillinen verkkotunnus tai CDN. Se voidaan jättää tyhjäksi, jos tämä web-sovellus palvelee arkistoa itse, ellei AppStream-kuvakaappauksia julkaista; taustalla suoritettava luetteloiden luonti ei voi päätellä niiden julkista URL-osoitetta.</value>
   </data>
-  <data name="The brand name displayed in the footer." xml:space="preserve">
-    <value>Brändin nimi, joka näytetään alatunnisteessa.</value>
-  </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>ICP-lisenssinumero Kiinan päävaltakunnan käyttäjille. Jätä tyhjäksi piilottaaksesi.</value>
+  </data>
+  <data name="The brand name displayed in the footer." xml:space="preserve">
+    <value>Brändin nimi, joka näytetään alatunnisteessa.</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>Projektin logo näytetään navigointipalkissa ja alatunnisteessa. Tuki jpg, png, svg.</value>

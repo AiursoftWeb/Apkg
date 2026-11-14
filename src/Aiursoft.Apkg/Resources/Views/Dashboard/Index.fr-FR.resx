@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ Préc.</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Prise en charge « fire-and-forget » des tâches longues (comme les e-mails ou l&apos;IA), avec une interface graphique pour la gestion de file d&apos;attente, le traitement parallèle et l&apos;annulation.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Une base moderne, riche en fonctionnalités et hautement extensible pour votre prochaine application web.</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>Ajoutez un dépôt à votre</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Traductions par IA</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Toutes les dépendances sont automatiquement enregistrées et toujours disponibles via l&apos;injection de constructeur.</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>et consultez leurs packages individuellement.</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>et exécuter</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>Recherche de paquets APT</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Ajoutez un dépôt à votre</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Toutes les dépendances sont automatiquement enregistrées et toujours disponibles via l&apos;injection de constructeur.</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Mode Sombre Automatique</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Ceci est un projet modèle, où nous commençons le voyage...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>pour commencer.</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>Essayez un nom plus court ou vérifiez l&apos;orthographe.</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Pourquoi utiliser le modèle Aiursoft ?</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>et consultez leurs packages individuellement.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>et exécuter</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>pour commencer.</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Préc.</value>
   </data>
 
 </root>

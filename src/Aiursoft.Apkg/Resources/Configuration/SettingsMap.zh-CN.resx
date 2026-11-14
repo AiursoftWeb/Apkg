@@ -30,17 +30,17 @@
   <data name="Allow Anonymous Browse Repository" xml:space="preserve">
     <value>允许匿名浏览仓库</value>
   </data>
-  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
-    <value>允许匿名用户无需登录即可浏览仓库及其软件包。</value>
-  </data>
-  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
-    <value>允许匿名用户在不登录的情况下查看软件包详细信息。</value>
-  </data>
   <data name="Allow Anonymous View Package Details" xml:space="preserve">
     <value>允许匿名查看软件包详情</value>
   </data>
   <data name="Allow User Adjust Nickname" xml:space="preserve">
     <value>允许用户修改昵称</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>允许匿名用户无需登录即可浏览仓库及其软件包。</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>允许匿名用户在不登录的情况下查看软件包详细信息。</value>
   </data>
   <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
     <value>允许用户在个人资料管理页面调整其昵称。</value>
@@ -72,11 +72,11 @@
   <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
     <value>在生成的 APT 源和 AppStream 屏幕截图链接中使用的公共基础 URL，例如 https://packages.example.com。当 /artifacts 由独立的域名或 CDN 提供服务时请设置此项。如果此 Web 应用直接托管仓库本身（除非发布了 AppStream 屏幕截图），此项可留空；后台目录生成无法推断屏幕截图的公共 URL。</value>
   </data>
-  <data name="The brand name displayed in the footer." xml:space="preserve">
-    <value>页脚中显示的品牌名称。</value>
-  </data>
   <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
     <value>中国大陆用户使用的 ICP 备案号。留空以隐藏。</value>
+  </data>
+  <data name="The brand name displayed in the footer." xml:space="preserve">
+    <value>页脚中显示的品牌名称。</value>
   </data>
   <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
     <value>项目在导航栏和页脚中显示的logo。支持jpg、png、svg格式。</value>

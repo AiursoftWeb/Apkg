@@ -24,11 +24,11 @@
   <data name="Preview" xml:space="preserve">
     <value>Pratinjau</value>
   </data>
-  <data name="Upload a .apkg bundle stored in Vault. You will review the manifest before publishing." xml:space="preserve">
-    <value>Unggah paket .apkg yang disimpan di Vault. Anda akan meninjau manifesto sebelum menerbitkan.</value>
-  </data>
   <data name="Upload APKG Package" xml:space="preserve">
     <value>Unggah Paket APKG</value>
+  </data>
+  <data name="Upload a .apkg bundle stored in Vault. You will review the manifest before publishing." xml:space="preserve">
+    <value>Unggah paket .apkg yang disimpan di Vault. Anda akan meninjau manifesto sebelum menerbitkan.</value>
   </data>
 
 </root>

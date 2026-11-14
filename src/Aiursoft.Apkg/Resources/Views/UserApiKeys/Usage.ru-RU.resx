@@ -102,9 +102,6 @@
   <data name="Repository not found." xml:space="preserve">
     <value>Репозиторий не найден.</value>
   </data>
-  <data name="required" xml:space="preserve">
-    <value>обязательный</value>
-  </data>
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>Файл .deb (multipart/form-data, обязательно).</value>
   </data>
@@ -128,6 +125,9 @@
   </data>
   <data name="Your account does not have permission to upload to this repository." xml:space="preserve">
     <value>У вашей учетной записи нет разрешения на загрузку в этот репозиторий.</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>обязательный</value>
   </data>
 
 </root>

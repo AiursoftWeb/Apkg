@@ -30,6 +30,12 @@
   <data name="Are you sure you want to restart the application? This action is irreversible and will terminate all active connections." xml:space="preserve">
     <value>Ви впевнені, що хочете перезапустити застосунок? Ця дія є незворотною та призведе до розриву всіх активних з&apos;єднань.</value>
   </data>
+  <data name="CPU Architecture" xml:space="preserve">
+    <value>Архітектура процесора</value>
+  </data>
+  <data name="CPU Cores" xml:space="preserve">
+    <value>Ядра процесора</value>
+  </data>
   <data name="Cache coverage" xml:space="preserve">
     <value>Покрытие кеша</value>
   </data>
@@ -44,12 +50,6 @@
   </data>
   <data name="Contents Cache" xml:space="preserve">
     <value>Кеш вмісту</value>
-  </data>
-  <data name="CPU Architecture" xml:space="preserve">
-    <value>Архітектура процесора</value>
-  </data>
-  <data name="CPU Cores" xml:space="preserve">
-    <value>Ядра процесора</value>
   </data>
   <data name="Created" xml:space="preserve">
     <value>Створено</value>

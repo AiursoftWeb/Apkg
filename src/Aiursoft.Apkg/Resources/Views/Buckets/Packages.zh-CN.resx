@@ -36,13 +36,7 @@
   <data name="Next" xml:space="preserve">
     <value>下一项</value>
   </data>
-  <data name="of" xml:space="preserve">
-    <value>的</value>
-  </data>
   <data name="Package" xml:space="preserve">
-    <value>软件包</value>
-  </data>
-  <data name="packages" xml:space="preserve">
     <value>软件包</value>
   </data>
   <data name="Packages in Bucket" xml:space="preserve">
@@ -71,6 +65,12 @@
   </data>
   <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
     <value>虚拟：文件托管在上游镜像中，由 apt 客户端按需下载。物理：文件存储在此服务器的本地。</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>的</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>软件包</value>
   </data>
 
 </root>

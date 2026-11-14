@@ -42,9 +42,6 @@
   <data name="Create New API Key" xml:space="preserve">
     <value>새 API 키 생성</value>
   </data>
-  <data name="e.g. CI/CD Pipeline, Dev Machine" xml:space="preserve">
-    <value>예: CI/CD 파이프라인, 개발용 머신</value>
-  </data>
   <data name="Expiration" xml:space="preserve">
     <value>만료</value>
   </data>
@@ -59,6 +56,9 @@
   </data>
   <data name="New Key Details" xml:space="preserve">
     <value>새로운 키 세부 정보</value>
+  </data>
+  <data name="e.g. CI/CD Pipeline, Dev Machine" xml:space="preserve">
+    <value>예: CI/CD 파이프라인, 개발용 머신</value>
   </data>
 
 </root>

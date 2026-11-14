@@ -24,12 +24,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>Скасувати</value>
   </data>
-  <data name="e.g. anduinos" xml:space="preserve">
-    <value>напр., anduinos</value>
-  </data>
-  <data name="e.g. Anduinos Official Key" xml:space="preserve">
-    <value>напр. Офіційний ключ Anduinos</value>
-  </data>
   <data name="Generate New Certificate" xml:space="preserve">
     <value>Створити новий сертифікат</value>
   </data>
@@ -41,6 +35,12 @@
   </data>
   <data name="This name will be embedded in the GPG key as the User ID." xml:space="preserve">
     <value>Це ім&apos;я буде вбудовано у ключ GPG як ідентифікатор користувача.</value>
+  </data>
+  <data name="e.g. Anduinos Official Key" xml:space="preserve">
+    <value>напр. Офіційний ключ Anduinos</value>
+  </data>
+  <data name="e.g. anduinos" xml:space="preserve">
+    <value>напр., anduinos</value>
   </data>
 
 </root>

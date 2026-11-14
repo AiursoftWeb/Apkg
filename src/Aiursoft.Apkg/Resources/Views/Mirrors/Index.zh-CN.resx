@@ -72,9 +72,6 @@
   <data name="Insecure Source" xml:space="preserve">
     <value>不安全源</value>
   </data>
-  <data name="items" xml:space="preserve">
-    <value>项</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>上次拉取</value>
   </data>
@@ -152,6 +149,9 @@
   </data>
   <data name="What is a Mirror?" xml:space="preserve">
     <value>什么是镜像？</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>项</value>
   </data>
 
 </root>

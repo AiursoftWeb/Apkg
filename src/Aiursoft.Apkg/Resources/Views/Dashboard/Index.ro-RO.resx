@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ Înapoi</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Suport „fire-and-forget” pentru sarcini de lungă durată (cum ar fi emailurile sau AI), cu o interfață grafică pentru gestionarea cozii, procesare paralelă și anulare.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>O fundație modernă, bogată în funcționalități și extrem de extensibilă pentru următoarea ta aplicație web.</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>Adăugați un depozit la</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Traduceri alimentate de Inteligență Artificială</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Toate dependențele sunt înregistrate automat și sunt întotdeauna disponibile prin injectare în constructor.</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>și răsfoiți pachetele lor individual.</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>și rulează</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>Căutare pachete APT</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Adăugați un depozit la</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Toate dependențele sunt înregistrate automat și sunt întotdeauna disponibile prin injectare în constructor.</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Mod Întunecat Automat</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Acesta este un proiect tip, de unde începem călătoria...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>pentru a începe.</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>Încercați un nume mai scurt sau verificați ortografia.</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>De ce să folosești Șablonul Aiursoft?</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>și răsfoiți pachetele lor individual.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>și rulează</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>pentru a începe.</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Înapoi</value>
   </data>
 
 </root>

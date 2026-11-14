@@ -51,11 +51,11 @@
   <data name="Save Changes" xml:space="preserve">
     <value>변경 사항 저장</value>
   </data>
-  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
-    <value>업스트림 서버의 기본 URL(예: &apos;https://mirrors.ubuntu.com/&apos;). 디스트로 이름은 자동으로 붙여집니다.</value>
-  </data>
   <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
     <value>이 미러의 URL 접두사 (예: &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>업스트림 서버의 기본 URL(예: &apos;https://mirrors.ubuntu.com/&apos;). 디스트로 이름은 자동으로 붙여집니다.</value>
   </data>
 
 </root>

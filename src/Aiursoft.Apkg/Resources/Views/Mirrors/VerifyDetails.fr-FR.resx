@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>Échec</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>fichier</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>Détails de vérification GPG</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>La signature GPG garantit que les packages proviennent d&apos;une source de confiance et n&apos;ont pas été altérés. Le fichier InRelease du miroir est vérifié par rapport à sa clé GPG.</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>Détails de vérification GPG</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>Trousseau de clés</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>Qu&apos;est-ce que la vérification GPG ?</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>fichier</value>
   </data>
 
 </root>

@@ -57,14 +57,14 @@
   <data name="This will remove the following packages from their repositories. Unlisting is reversible only by an administrator." xml:space="preserve">
     <value>Это приведет к удалению следующих пакетов из репозиториев. Отмена скрытия возможна только администратором.</value>
   </data>
-  <data name="version" xml:space="preserve">
-    <value>версия</value>
-  </data>
   <data name="Warning:" xml:space="preserve">
     <value>Предупреждение:</value>
   </data>
   <data name="You are about to unlist" xml:space="preserve">
     <value>Вы собираетесь скрыть пакет</value>
+  </data>
+  <data name="version" xml:space="preserve">
+    <value>версия</value>
   </data>
 
 </root>

@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>Başarısız</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>dosya</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>GPG Doğrulama Detayları</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>GPG imzalama, paketlerin güvenilir bir kaynaktan geldiğini ve üzerinde oynama yapılmadığını garanti eder. Aynanın InRelease dosyası GPG anahtarıyla karşılaştırılarak doğrulanır.</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>GPG Doğrulama Detayları</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>Anahtarlık</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>GPG Doğrulaması Nedir?</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>dosya</value>
   </data>
 
 </root>

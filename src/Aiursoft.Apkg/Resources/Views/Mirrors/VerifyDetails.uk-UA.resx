@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>Невдача</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>файл</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>Деталі перевірки GPG</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>Підписання GPG гарантує, що пакети походять із надійного джерела та не були змінені. Файл InRelease дзеркала перевіряється за його ключем GPG.</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>Деталі перевірки GPG</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>Ключовий набір</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>Що таке GPG-перевірка?</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>файл</value>
   </data>
 
 </root>

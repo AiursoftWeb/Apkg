@@ -24,9 +24,6 @@
   <data name="All" xml:space="preserve">
     <value>Όλα</value>
   </data>
-  <data name="and all generated Local Packages?" xml:space="preserve">
-    <value>και όλα τα δημιουργημένα Τοπικά Πακέτα;</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Τεχνολογία</value>
   </data>
@@ -65,9 +62,6 @@
   </data>
   <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
     <value>Μόνο η τελευταία ενεργοποιημένη έκδοση εμφανίζεται στα αποθετήρια APT.</value>
-  </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>πακέτο/πακέτα</value>
   </data>
   <data name="Permanently delete" xml:space="preserve">
     <value>Οριστική διαγραφή</value>
@@ -113,6 +107,12 @@
   </data>
   <data name="View in repository" xml:space="preserve">
     <value>Προβολή στο αποθετήριο</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>και όλα τα δημιουργημένα Τοπικά Πακέτα;</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>πακέτο/πακέτα</value>
   </data>
 
 </root>

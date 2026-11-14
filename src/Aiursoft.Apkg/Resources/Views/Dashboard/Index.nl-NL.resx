@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ Vorige</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Ondersteuning voor &quot;fire-and-forget&quot; bij langlopende taken (zoals e-mails of AI), met een GUI voor wachtrijbeheer, parallelle verwerking en annulering.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Een moderne, functierijke en zeer uitbreidbare basis voor uw volgende webapplicatie.</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>Voeg een repository toe aan uw</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AI-gestuurde vertalingen</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Alle afhankelijkheden worden automatisch geregistreerd en zijn altijd beschikbaar via constructorinjectie.</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>en bekijk hun pakketten individueel.</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>en voer</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>APT-pakketzoekopdracht</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Voeg een repository toe aan uw</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Alle afhankelijkheden worden automatisch geregistreerd en zijn altijd beschikbaar via constructorinjectie.</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Automatische Donkere Modus</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Dit is een sjabloonproject, waar we de verkenner starten...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>om aan de slag te gaan.</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>Probeer een kortere naam of controleer de spelling.</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Waarom de Aiursoft Template gebruiken?</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>en bekijk hun pakketten individueel.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>en voer</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>om aan de slag te gaan.</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Vorige</value>
   </data>
 
 </root>

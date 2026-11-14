@@ -102,9 +102,6 @@
   <data name="Repository not found." xml:space="preserve">
     <value>Förvaringen hittades inte.</value>
   </data>
-  <data name="required" xml:space="preserve">
-    <value>obligatorisk</value>
-  </data>
   <data name="The .deb file (multipart/form-data, required)." xml:space="preserve">
     <value>.deb-filen (multipart/form-data, obligatorisk).</value>
   </data>
@@ -128,6 +125,9 @@
   </data>
   <data name="Your account does not have permission to upload to this repository." xml:space="preserve">
     <value>Ditt konto har inte behörighet att ladda upp till detta arkiv.</value>
+  </data>
+  <data name="required" xml:space="preserve">
+    <value>obligatorisk</value>
   </data>
 
 </root>

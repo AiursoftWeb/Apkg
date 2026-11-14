@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ 上一頁</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>「即發即忘」支援長時間執行的工作（如電子郵件或人工智慧），具備圖形使用者介面以管理佇列、平行處理及取消作業。</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>一個現代化、功能豐富且高度可擴展的基礎架構，為您的下一個網路應用程式奠定根基。</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>將套件庫新增至您的</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>AI 驅動翻譯</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>所有相依元件都會自動註冊，並始終可透過建構函式注入使用。</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>並個別瀏覽其套件。</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>並執行</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>APT 套件搜尋</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>將套件庫新增至您的</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>所有相依元件都會自動註冊，並始終可透過建構函式注入使用。</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>自動深色模式</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>這是一個模板專案，我們將在此開啟探索之旅...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>以開始使用。</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>請嘗試使用較短的名稱或檢查拼字。</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>為什麼要使用 Aiursoft 模板？</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>並個別瀏覽其套件。</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>並執行</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>以開始使用。</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ 上一頁</value>
   </data>
 
 </root>

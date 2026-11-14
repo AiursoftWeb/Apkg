@@ -36,14 +36,8 @@
   <data name="Next" xml:space="preserve">
     <value>التالي</value>
   </data>
-  <data name="of" xml:space="preserve">
-    <value>من</value>
-  </data>
   <data name="Package" xml:space="preserve">
     <value>الباقة</value>
-  </data>
-  <data name="packages" xml:space="preserve">
-    <value>الحزم</value>
   </data>
   <data name="Packages in Bucket" xml:space="preserve">
     <value>الحزم في الدلو</value>
@@ -71,6 +65,12 @@
   </data>
   <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
     <value>افتراضي: يتم استضافة الملف على المرآة العلوية ويتم تنزيله عند الطلب بواسطة عملاء apt. مادي: يتم تخزين الملف محليًا على هذا الخادم.</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>من</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>الحزم</value>
   </data>
 
 </root>

@@ -69,9 +69,6 @@
   <data name="Insecure Source" xml:space="preserve">
     <value>Origen inseguro</value>
   </data>
-  <data name="items" xml:space="preserve">
-    <value>elementos</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>Última sincronización</value>
   </data>
@@ -149,6 +146,9 @@
   </data>
   <data name="What is a Mirror?" xml:space="preserve">
     <value>¿Qué es un espejo?</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>elementos</value>
   </data>
 
 </root>

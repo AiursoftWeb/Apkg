@@ -36,13 +36,7 @@
   <data name="Next" xml:space="preserve">
     <value>अगला</value>
   </data>
-  <data name="of" xml:space="preserve">
-    <value>का</value>
-  </data>
   <data name="Package" xml:space="preserve">
-    <value>पैकेज</value>
-  </data>
-  <data name="packages" xml:space="preserve">
     <value>पैकेज</value>
   </data>
   <data name="Packages in Bucket" xml:space="preserve">
@@ -71,6 +65,12 @@
   </data>
   <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
     <value>आभासी: फ़ाइल अपस्ट्रीम मिरर पर होस्ट की गई है और apt क्लाइंट्स द्वारा आवश्यकता के अनुसार डाउनलोड की जाती है। भौतिक: फ़ाइल इस सर्वर पर स्थानीय रूप से संग्रहीत है।</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>का</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>पैकेज</value>
   </data>
 
 </root>

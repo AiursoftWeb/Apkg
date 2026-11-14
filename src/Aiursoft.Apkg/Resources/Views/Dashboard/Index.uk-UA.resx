@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ Попередня</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Підтримка «відстрілюй і забудь» для довготривалих завдань (наприклад, електронних листів або штучного інтелекту), із графічним інтерфейсом для управління чергою, паралельною обробкою та скасуванням.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Сучасна, багатофункціональна та високо розширювана основа для вашої наступної веб-програми.</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>Додайте сховище до вашого</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Переклади на основі ШІ</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Усі залежності автоматично реєструються та завжди доступні через ін&apos;єкцію в конструктор.</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>та переглядати їхні пакунки окремо.</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>та виконайте</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>Пошук пакетів APT</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Додайте сховище до вашого</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Усі залежності автоматично реєструються та завжди доступні через ін&apos;єкцію в конструктор.</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Автоматичний темний режим</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Це шаблонний проект, з якого ми розпочинаємо нашу подорож...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>щоб почати.</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>Спробуйте вказати коротшу назву або перевірте правильність написання.</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Чому варто використовувати шаблон Aiursoft?</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>та переглядати їхні пакунки окремо.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>та виконайте</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>щоб почати.</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Попередня</value>
   </data>
 
 </root>

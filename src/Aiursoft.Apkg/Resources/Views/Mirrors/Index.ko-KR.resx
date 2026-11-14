@@ -72,9 +72,6 @@
   <data name="Insecure Source" xml:space="preserve">
     <value>보안되지 않은 소스</value>
   </data>
-  <data name="items" xml:space="preserve">
-    <value>개</value>
-  </data>
   <data name="Last Pull" xml:space="preserve">
     <value>마지막 풀</value>
   </data>
@@ -152,6 +149,9 @@
   </data>
   <data name="What is a Mirror?" xml:space="preserve">
     <value>미러란 무엇인가요?</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>개</value>
   </data>
 
 </root>

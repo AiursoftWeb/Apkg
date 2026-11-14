@@ -24,9 +24,6 @@
   <data name="All" xml:space="preserve">
     <value>すべて</value>
   </data>
-  <data name="and all generated Local Packages?" xml:space="preserve">
-    <value>生成されたすべてのローカルパッケージも</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>アーキテクチャ</value>
   </data>
@@ -65,9 +62,6 @@
   </data>
   <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
     <value>有効になっている最新バージョンのみがAPTリポジトリに表示されます。</value>
-  </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>パッケージ数</value>
   </data>
   <data name="Permanently delete" xml:space="preserve">
     <value>完全に削除</value>
@@ -113,6 +107,12 @@
   </data>
   <data name="View in repository" xml:space="preserve">
     <value>リポジトリで表示</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>生成されたすべてのローカルパッケージも</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>パッケージ数</value>
   </data>
 
 </root>

@@ -18,17 +18,17 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name=".apkg publishing" xml:space="preserve">
-    <value>publicare .apkg</value>
-  </data>
-  <data name=".NET Global Tool" xml:space="preserve">
-    <value>Uneleune Global .NET</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Sprijin pentru sarcini de lungă durată (cum ar fi e-mailurile sau AI), în stil &quot;Fire-and-forget&quot;, cu interfață grafică pentru gestionarea cozilor, prelucrare paralelă și anulare.</value>
   </data>
   <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
     <value>Packaging-ul tradițional Debian împrăștie definirea pachetelor în peste un duzînă de fișiere — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — fiecare cu propriul său dialect arcan. Am proiectat &lt;code&gt;.aosproj&lt;/code&gt; pentru a înlocui toate acestea cu un singur manifest declarativ. XML-ul structurat face grafurile de dependențe ușor de analizat atât de oameni, cât și de mașinile CI. Pipelines-urile CI se reduc la &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. Aceasta transformă packaging-ul distribuțiilor Linux dintr-o artă neagră în inginerie software standard.</value>
+  </data>
+  <data name=".NET Global Tool" xml:space="preserve">
+    <value>Uneleune Global .NET</value>
+  </data>
+  <data name=".apkg publishing" xml:space="preserve">
+    <value>publicare .apkg</value>
   </data>
   <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
     <value>Ferma &lt;code&gt;Buildd&lt;/code&gt; compilează nativ pe hardware real. Indexurile sunt regenerate de &lt;code&gt;apt-ftparchive&lt;/code&gt; condus de Cron — pachetele așteaptă ore întregi în &lt;code&gt;incoming&lt;/code&gt; înainte de publicare.</value>
@@ -63,6 +63,24 @@
   <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
     <value>O singură comandă pentru a instala clientul APKG și a începe gestionarea pachetelor APT.</value>
   </data>
+  <data name="AI Driven Translation" xml:space="preserve">
+    <value>Traducere condusă de IA</value>
+  </data>
+  <data name="AI Readable" xml:space="preserve">
+    <value>Ușor de citit de către AI</value>
+  </data>
+  <data name="AI-Powered Translations" xml:space="preserve">
+    <value>Traduceri alimentate de IA</value>
+  </data>
+  <data name="APT Package Repository" xml:space="preserve">
+    <value>Depozit de pachete APT</value>
+  </data>
+  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
+    <value>Clienții APT citește doar baloțele primare. Sincronizările incomplete, metadatele nesemnate și baloțele de pregătire rămân invizibile.</value>
+  </data>
+  <data name="APT repository server" xml:space="preserve">
+    <value>server de repoziție APT</value>
+  </data>
   <data name="Achieve more with Aiursoft Template" xml:space="preserve">
     <value>Realizați mai multe cu Aiursoft Template</value>
   </data>
@@ -77,15 +95,6 @@
   </data>
   <data name="After sync and signing, machines consume the repository with normal APT source files and &lt;code&gt;apt install&lt;/code&gt; commands." xml:space="preserve">
     <value>După sincronizare și semnare, mașinile consumă depozitul folosind fișiere normale de surse APT și comenzi &lt;code&gt;apt install&lt;/code&gt;.</value>
-  </data>
-  <data name="AI Driven Translation" xml:space="preserve">
-    <value>Traducere condusă de IA</value>
-  </data>
-  <data name="AI Readable" xml:space="preserve">
-    <value>Ușor de citit de către AI</value>
-  </data>
-  <data name="AI-Powered Translations" xml:space="preserve">
-    <value>Traduceri alimentate de IA</value>
   </data>
   <data name="Aiursoft Apkg" xml:space="preserve">
     <value>Aiursoft Apkg</value>
@@ -120,15 +129,6 @@
   <data name="Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots." xml:space="preserve">
     <value>Apkg se află între arhivele upstream, dezvoltatorii de pachete și calculatoarele cliente. Transformă metadatele mirror și suprascrierile încărcate în instantanee de repository semnate și stabile.</value>
   </data>
-  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
-    <value>Clienții APT citește doar baloțele primare. Sincronizările incomplete, metadatele nesemnate și baloțele de pregătire rămân invizibile.</value>
-  </data>
-  <data name="APT Package Repository" xml:space="preserve">
-    <value>Depozit de pachete APT</value>
-  </data>
-  <data name="APT repository server" xml:space="preserve">
-    <value>server de repoziție APT</value>
-  </data>
   <data name="Architecture Philosophy" xml:space="preserve">
     <value>Filosofia de arhitectură</value>
   </data>
@@ -141,11 +141,11 @@
   <data name="Authentik &amp; Okta" xml:space="preserve">
     <value>Authentik &amp; Okta</value>
   </data>
-  <data name="Auto compression and privacy" xml:space="preserve">
-    <value>Compresie automată și confidențialitate</value>
-  </data>
   <data name="Auto Deployment" xml:space="preserve">
     <value>Implementare automată</value>
+  </data>
+  <data name="Auto compression and privacy" xml:space="preserve">
+    <value>Compresie automată și confidențialitate</value>
   </data>
   <data name="Automatic AI translation into 28 languages." xml:space="preserve">
     <value>Traducere automată AI în 28 de limbi.</value>
@@ -222,9 +222,6 @@
   <data name="Built-in" xml:space="preserve">
     <value>Introdus în mod nativ</value>
   </data>
-  <data name="Built-in administration panel" xml:space="preserve">
-    <value>Panou de administrare integrat</value>
-  </data>
   <data name="Built-in Auth" xml:space="preserve">
     <value>Autentificare integrată</value>
   </data>
@@ -234,8 +231,8 @@
   <data name="Built-in User Management" xml:space="preserve">
     <value>Gestionare Utilizatori Integrată</value>
   </data>
-  <data name="Certificate management" xml:space="preserve">
-    <value>Gestionarea certificatelor</value>
+  <data name="Built-in administration panel" xml:space="preserve">
+    <value>Panou de administrare integrat</value>
   </data>
   <data name="CI cross-compilation excels on amd64/arm64, but Debian&apos;s native Buildd catches architecture-specific UB that cross-toolchains miss." xml:space="preserve">
     <value>Compilarea încrucișată CI excela pe amd64/arm64, dar Buildd nativ Debian detectează UB specific arhitecturii pe care toolkit-urile încrucișate îl omit.</value>
@@ -245,6 +242,9 @@
   </data>
   <data name="CLI quick start" xml:space="preserve">
     <value>Începere rapidă CLI</value>
+  </data>
+  <data name="Certificate management" xml:space="preserve">
+    <value>Gestionarea certificatelor</value>
   </data>
   <data name="Cloud-native CDN delivers consistent low-latency worldwide. DDoS absorbed at the edge." xml:space="preserve">
     <value>CDN nativ în cloud oferă o latență scăzută și constantă la nivel mondial. Atacurile DDoS sunt absorbite la marginea rețelei.</value>
@@ -303,11 +303,11 @@
   <data name="Custom development required" xml:space="preserve">
     <value>Este necesară dezvoltarea personalizată</value>
   </data>
-  <data name="Dashboard for background tasks" xml:space="preserve">
-    <value>Panou de control pentru sarcini în fundal</value>
-  </data>
   <data name="Dashboard Website" xml:space="preserve">
     <value>Site-ul Panoului de Control</value>
+  </data>
+  <data name="Dashboard for background tasks" xml:space="preserve">
+    <value>Panou de control pentru sarcini în fundal</value>
   </data>
   <data name="Day 1 Compliance &amp; Security." xml:space="preserve">
     <value>Conformitate și securitate de ziua 1.</value>
@@ -342,6 +342,9 @@
   <data name="Dev &amp; Prod" xml:space="preserve">
     <value>Dev &amp; Prod</value>
   </data>
+  <data name="DevOps Native" xml:space="preserve">
+    <value>Native DevOps</value>
+  </data>
   <data name="Develop exclusively in UTC while the system automatically converts and displays dates in the user&apos;s local time zone." xml:space="preserve">
     <value>Dezvoltați exclusiv în UTC, în timp ce sistemul convertește automat și afișează datele în fusul orar local al utilizatorului.</value>
   </data>
@@ -350,9 +353,6 @@
   </data>
   <data name="Developers describe package contents once, build Debian artifacts locally or in CI, push a &lt;code&gt;.apkg&lt;/code&gt; bundle, and let the server route packages into the right repositories." xml:space="preserve">
     <value>Dezvoltatorii descriu o singură dată conținutul pachetelor, compilează articolele Debian local sau în CI, încarcă un pachet &lt;code&gt;.apkg&lt;/code&gt; și lasă serverul să direcționeze pachetele către depozitele potrivite.</value>
-  </data>
-  <data name="DevOps Native" xml:space="preserve">
-    <value>Native DevOps</value>
   </data>
   <data name="Discussions page" xml:space="preserve">
     <value>Pagina de discuții</value>
@@ -420,9 +420,6 @@
   <data name="FAQ" xml:space="preserve">
     <value>Întrebări frecvente</value>
   </data>
-  <data name="faster" xml:space="preserve">
-    <value>mai rapid</value>
-  </data>
   <data name="Features" xml:space="preserve">
     <value>Funcționalități</value>
   </data>
@@ -441,9 +438,6 @@
   <data name="Flexible API" xml:space="preserve">
     <value>API flexibilă</value>
   </data>
-  <data name="for any inquiries or to report issues." xml:space="preserve">
-    <value>pentru orice întrebări sau pentru a raporta probleme.</value>
-  </data>
   <data name="Founder &amp; Architect at Aiursoft" xml:space="preserve">
     <value>Founder &amp; Architect la Aiursoft</value>
   </data>
@@ -456,11 +450,11 @@
   <data name="Free" xml:space="preserve">
     <value>Gratuit</value>
   </data>
-  <data name="Free for Commercial Use" xml:space="preserve">
-    <value>Gratuit pentru utilizare comercială</value>
-  </data>
   <data name="Free Software" xml:space="preserve">
     <value>Software Gratuit</value>
+  </data>
+  <data name="Free for Commercial Use" xml:space="preserve">
+    <value>Gratuit pentru utilizare comercială</value>
   </data>
   <data name="Frequently asked questions" xml:space="preserve">
     <value>Întrebări frecvente</value>
@@ -483,17 +477,20 @@
   <data name="Fully Offline" xml:space="preserve">
     <value>Complet Offline</value>
   </data>
+  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
+    <value>GPG Web of Trust cu sesiuni de semnare a cheilor în persoană. Încrederea este complet descentralizată — nicio autoritate unică nu controlează lista de chei.</value>
+  </data>
   <data name="Generate &lt;code&gt;.deb&lt;/code&gt; packages with Debian control metadata and maintainer scripts produced from the project file." xml:space="preserve">
     <value>Generați pachete `&lt;code&gt;.deb&lt;/code&gt;` cu metadate de control Debian și scripturi de întreținere generate din fișierul de proiect.</value>
   </data>
   <data name="Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes." xml:space="preserve">
     <value>Generați și gestionați certificate GPG de seminare, apoi expuneți cheile publice prin rute de artefacte prietenoase cu repository-urile.</value>
   </data>
-  <data name="Generic configuration" xml:space="preserve">
-    <value>Configurație generică</value>
-  </data>
   <data name="Generic Dockerfile only" xml:space="preserve">
     <value>Doar un Dockerfile generic</value>
+  </data>
+  <data name="Generic configuration" xml:space="preserve">
+    <value>Configurație generică</value>
   </data>
   <data name="GitLab CI" xml:space="preserve">
     <value>GitLab CI</value>
@@ -512,9 +509,6 @@
   </data>
   <data name="Go to dashboard" xml:space="preserve">
     <value>Accesează panoul de control</value>
-  </data>
-  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
-    <value>GPG Web of Trust cu sesiuni de semnare a cheilor în persoană. Încrederea este complet descentralizată — nicio autoritate unică nu controlează lista de chei.</value>
   </data>
   <data name="Handle recurring jobs like cleanup and synchronization with a comprehensive GUI for monitoring execution history and logs." xml:space="preserve">
     <value>Gestionați sarcinile periodice precum curățarea și sincronizarea cu o interfață grafică completă pentru monitorizarea istoricului de execuție și a jurnalelor.</value>
@@ -567,11 +561,11 @@
   <data name="Included" xml:space="preserve">
     <value>Inclus</value>
   </data>
-  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
-    <value>Include documentație extinsă și exemple practice pentru a începe rapid.</value>
-  </data>
   <data name="Includes Tutorials" xml:space="preserve">
     <value>Include tutoriale</value>
+  </data>
+  <data name="Includes extensive documentation and practical examples to get you started quickly." xml:space="preserve">
+    <value>Include documentație extinsă și exemple practice pentru a începe rapid.</value>
   </data>
   <data name="Install" xml:space="preserve">
     <value>Instalare</value>
@@ -594,9 +588,6 @@
   <data name="Interoperability" xml:space="preserve">
     <value>Interoperabilitate</value>
   </data>
-  <data name="is Free Software" xml:space="preserve">
-    <value>este Software Liber</value>
-  </data>
   <data name="Is it free to use Aiursoft Template?" xml:space="preserve">
     <value>Este gratuit să folosești Aiursoft Template?</value>
   </data>
@@ -618,6 +609,15 @@
   <data name="Local package overrides" xml:space="preserve">
     <value>Suprascrieri locale ale pachetelor</value>
   </data>
+  <data name="MIT Licence" xml:space="preserve">
+    <value>Licență MIT</value>
+  </data>
+  <data name="MIT License" xml:space="preserve">
+    <value>Licența MIT</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>Sintaxă în stil MSBuild</value>
+  </data>
   <data name="Made Simple." xml:space="preserve">
     <value>Simplificat.</value>
   </data>
@@ -636,17 +636,8 @@
   <data name="Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared." xml:space="preserve">
     <value>Sincronizarea oglinzii, compunerea depozitului, semnarea, exportul și colectarea garbage-ului sunt împărțite în sarcini independente. Clienții publicați continuă să citească ultima găleată primară semnată în timp ce se pregătește metadata nouă.</value>
   </data>
-  <data name="MIT Licence" xml:space="preserve">
-    <value>Licență MIT</value>
-  </data>
-  <data name="MIT License" xml:space="preserve">
-    <value>Licența MIT</value>
-  </data>
   <data name="Models are validated on both client and server sides based on data annotations." xml:space="preserve">
     <value>Modelele sunt validate pe ambele laturi, client și server, pe baza anotărilor de date.</value>
-  </data>
-  <data name="MSBuild-style syntax" xml:space="preserve">
-    <value>Sintaxă în stil MSBuild</value>
   </data>
   <data name="Multi-timezone Handling" xml:space="preserve">
     <value>Gestionarea multiplelor fuse orare</value>
@@ -669,12 +660,6 @@
   <data name="Needs Celery + Flower" xml:space="preserve">
     <value>Necesită Celery + Flower</value>
   </data>
-  <data name="Needs complex authentication logic" xml:space="preserve">
-    <value>Necesită logică complexă de autentificare</value>
-  </data>
-  <data name="Needs config/plugins" xml:space="preserve">
-    <value>Necesită configurare/plugin-uri</value>
-  </data>
   <data name="Needs ESLint/Prettier setup" xml:space="preserve">
     <value>Necesită configurarea ESLint/Prettier</value>
   </data>
@@ -683,9 +668,6 @@
   </data>
   <data name="Needs Laravel Sail" xml:space="preserve">
     <value>Necesită Laravel Sail</value>
-  </data>
-  <data name="Needs manual configuration" xml:space="preserve">
-    <value>Necesită configurare manuală</value>
   </data>
   <data name="Needs Medialibrary" xml:space="preserve">
     <value>Necesită Medialibrary</value>
@@ -699,23 +681,35 @@
   <data name="Needs Spring Security config" xml:space="preserve">
     <value>Necesită configurare Spring Security</value>
   </data>
-  <data name="Needs third-party plugins" xml:space="preserve">
-    <value>Necesită plugin-uri de la terți</value>
-  </data>
   <data name="Needs TypeORM or similar" xml:space="preserve">
     <value>Necesită TypeORM sau similar</value>
   </data>
+  <data name="Needs complex authentication logic" xml:space="preserve">
+    <value>Necesită logică complexă de autentificare</value>
+  </data>
+  <data name="Needs config/plugins" xml:space="preserve">
+    <value>Necesită configurare/plugin-uri</value>
+  </data>
+  <data name="Needs manual configuration" xml:space="preserve">
+    <value>Necesită configurare manuală</value>
+  </data>
+  <data name="Needs third-party plugins" xml:space="preserve">
+    <value>Necesită plugin-uri de la terți</value>
+  </data>
   <data name="No dependency on any cloud vendor. Run anywhere, any time." xml:space="preserve">
     <value>Fără dependență de niciun furnizor de cloud. Rulează oriunde, oricând.</value>
-  </data>
-  <data name="Offline Capable" xml:space="preserve">
-    <value>Capabil offline</value>
   </data>
   <data name="OIDC &amp; SSO" xml:space="preserve">
     <value>OIDC &amp; SSO</value>
   </data>
   <data name="OIDC-backed RBAC with scoped API keys. Teams authenticate via existing SSO, grant per-repo permissions, and revoke access instantly." xml:space="preserve">
     <value>RBAC bazat pe OIDC cu chei API cu domeniu limitat. Echipele se autentifică prin SSO-ul existent, acordă permisiuni pentru fiecare depozit și revocă accesul instantaneu.</value>
+  </data>
+  <data name="ORM &amp; Migrations" xml:space="preserve">
+    <value>ORM și Migrații</value>
+  </data>
+  <data name="Offline Capable" xml:space="preserve">
+    <value>Capabil offline</value>
   </data>
   <data name="One Click Start" xml:space="preserve">
     <value>Un Click Start</value>
@@ -734,9 +728,6 @@
   </data>
   <data name="Optimized Docker &amp; K8s config" xml:space="preserve">
     <value>Configurație Docker &amp; K8s optimizată</value>
-  </data>
-  <data name="ORM &amp; Migrations" xml:space="preserve">
-    <value>ORM și Migrații</value>
   </data>
   <data name="Out-of-the-box" xml:space="preserve">
     <value>Gata de utilizare</value>
@@ -759,11 +750,11 @@
   <data name="Powered by AnduinOS" xml:space="preserve">
     <value>Propulsat de AnduinOS</value>
   </data>
-  <data name="Pre-configured and tested" xml:space="preserve">
-    <value>Pre-configurat și testat</value>
-  </data>
   <data name="Pre-configured CI/CD pipelines specifically for GitLab." xml:space="preserve">
     <value>Pipelines CI/CD preconfigurate specifice pentru GitLab.</value>
+  </data>
+  <data name="Pre-configured and tested" xml:space="preserve">
+    <value>Pre-configurat și testat</value>
   </data>
   <data name="Pre-configured pipelines for dev/prod" xml:space="preserve">
     <value>Pipelines preconfigurate pentru dev/prod</value>
@@ -792,11 +783,11 @@
   <data name="Quick Start" xml:space="preserve">
     <value>Începere rapidă</value>
   </data>
-  <data name="RBAC and API keys" xml:space="preserve">
-    <value>RBAC și chei API</value>
-  </data>
   <data name="RBAC Authorization" xml:space="preserve">
     <value>Autorizare RBAC</value>
+  </data>
+  <data name="RBAC and API keys" xml:space="preserve">
+    <value>RBAC și chei API</value>
   </data>
   <data name="RBAC is ideal for organizations, but Debian&apos;s decentralized WoT remains the gold standard for a trustless global maintainer network." xml:space="preserve">
     <value>RBAC este ideal pentru organizații, dar WoT descentralizat al Debian rămâne standardul de aur pentru o rețea globală de mentenanță fără încredere.</value>
@@ -894,23 +885,23 @@
   <data name="Standard Debian repository endpoints for &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG keys, package indexes, and pool downloads." xml:space="preserve">
     <value>Capete finale pentru depozitele Debian standard pentru &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, cheile GPG, indexele pachetelor și descărcările din pool.</value>
   </data>
-  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
-    <value>Implementare standard. Schimbă furnizorii fără compilare.</value>
-  </data>
   <data name="Standard OpenID" xml:space="preserve">
     <value>OpenID standard</value>
   </data>
-  <data name="Start a new project" xml:space="preserve">
-    <value>Începe un proiect nou</value>
-  </data>
-  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
-    <value>Inițiați un proiect de pachet cu &lt;code&gt;.aosproj&lt;/code&gt;, apoi declarați fișierele, folderele, scripturile, dependențele, serviciile, suitele și arhitecturile.</value>
+  <data name="Standard implementation. Switch providers without compilation." xml:space="preserve">
+    <value>Implementare standard. Schimbă furnizorii fără compilare.</value>
   </data>
   <data name="Start Publishing" xml:space="preserve">
     <value>Începeți publicarea</value>
   </data>
   <data name="Start Shipping Value." xml:space="preserve">
     <value>Începeți livrarea valorii.</value>
+  </data>
+  <data name="Start a new project" xml:space="preserve">
+    <value>Începe un proiect nou</value>
+  </data>
+  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
+    <value>Inițiați un proiect de pachet cu &lt;code&gt;.aosproj&lt;/code&gt;, apoi declarați fișierele, folderele, scripturile, dependențele, serviciile, suitele și arhitecturile.</value>
   </data>
   <data name="Start with a single &apos;docker run&apos; command." xml:space="preserve">
     <value>Începe cu o singură comandă &apos;docker run&apos;.</value>
@@ -927,23 +918,23 @@
   <data name="Strict Lint Rules" xml:space="preserve">
     <value>Reguli Stricte de Lint</value>
   </data>
+  <data name="Strict Unit Testing" xml:space="preserve">
+    <value>Testare unitară strictă</value>
+  </data>
   <data name="Strict linting rules and zero warnings by default." xml:space="preserve">
     <value>Reguli stricte de verificare și zero avertizări implicit.</value>
   </data>
   <data name="Strict linting rules with 0 warnings in the default project." xml:space="preserve">
     <value>Reguli stricte de verificare a codului cu 0 avertizări în proiectul implicit.</value>
   </data>
-  <data name="Strict Unit Testing" xml:space="preserve">
-    <value>Testare unitară strictă</value>
-  </data>
   <data name="Strongly Consistent Linting" xml:space="preserve">
     <value>Linting Strâns Consistent</value>
   </data>
-  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
-    <value>Suportă atât variabilele de mediu, cât și setările stocate în baza de date, cu prioritate automată acordată variabilelor de mediu pentru actualizări fără probleme.</value>
-  </data>
   <data name="Supports JetBrains Rider for easy code style fixes." xml:space="preserve">
     <value>Suportă JetBrains Rider pentru corectarea ușoară a stilului de cod.</value>
+  </data>
+  <data name="Supports both environment variables and database-backed settings, with automatic priority given to environment variables for seamless overrides." xml:space="preserve">
+    <value>Suportă atât variabilele de mediu, cât și setările stocate în baza de date, cu prioritate automată acordată variabilelor de mediu pentru actualizări fără probleme.</value>
   </data>
   <data name="Task Runner" xml:space="preserve">
     <value>Executor de sarcini</value>
@@ -954,6 +945,9 @@
   <data name="The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration." xml:space="preserve">
     <value>CLI-ul Apkg gestionează crearea proiectelor, verificarea codului, construirea pachetelor, publicarea pachetelor, încărcarea pe server, decomprimarea locală și configurarea surselor APT.</value>
   </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>Filosofia</value>
+  </data>
   <data name="The definitive, battle-tested .NET enterprise foundation. From Auth to AI, we&apos;ve solved the hard parts so you don&apos;t have to." xml:space="preserve">
     <value>Fundamentul definitiv, testat în practică pentru întreprinderi în .NET. De la Autentificare până la Inteligență Artificială, am rezolvat părțile dificile, astfel încât să nu aibă nevoie să le rezolvi tu.</value>
   </data>
@@ -962,9 +956,6 @@
   </data>
   <data name="The official package manager chosen by the AnduinOS ecosystem." xml:space="preserve">
     <value>Managerul de pachete oficial ales de ecosistemul AnduinOS.</value>
-  </data>
-  <data name="The Philosophy" xml:space="preserve">
-    <value>Filosofia</value>
   </data>
   <data name="The template is built for easy deployment. It includes full Docker support, so you can containerize your app and run it anywhere. You can also deploy it directly to IIS, Azure App Service, or any server that supports ASP.NET Core." xml:space="preserve">
     <value>Șablonul este construit pentru o implementare ușoară. Include suport complet pentru Docker, astfel încât poți containeriza aplicația și să o rulezi oriunde. De asemenea, îl poți implementa direct pe IIS, Azure App Service sau pe orice server care suportă ASP.NET Core.</value>
@@ -1073,6 +1064,15 @@
   </data>
   <data name="Zero Tolerance Lint" xml:space="preserve">
     <value>Lint cu toleranță zero</value>
+  </data>
+  <data name="faster" xml:space="preserve">
+    <value>mai rapid</value>
+  </data>
+  <data name="for any inquiries or to report issues." xml:space="preserve">
+    <value>pentru orice întrebări sau pentru a raporta probleme.</value>
+  </data>
+  <data name="is Free Software" xml:space="preserve">
+    <value>este Software Liber</value>
   </data>
 
 </root>

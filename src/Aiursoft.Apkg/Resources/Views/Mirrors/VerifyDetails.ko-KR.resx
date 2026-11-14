@@ -36,14 +36,11 @@
   <data name="Failed" xml:space="preserve">
     <value>실패</value>
   </data>
-  <data name="file" xml:space="preserve">
-    <value>파일</value>
+  <data name="GPG Verify Details" xml:space="preserve">
+    <value>GPG 검증 세부 정보</value>
   </data>
   <data name="GPG signing ensures packages came from a trusted source and haven&apos;t been tampered with. The mirror&apos;s InRelease file is verified against its GPG key." xml:space="preserve">
     <value>GPG 서명은 패키지가 신뢰할 수 있는 출처에서 왔으며 변조되지 않았음을 보장합니다. 미러의 InRelease 파일은 해당 GPG 키를 통해 검증됩니다.</value>
-  </data>
-  <data name="GPG Verify Details" xml:space="preserve">
-    <value>GPG 검증 세부 정보</value>
   </data>
   <data name="Keyring" xml:space="preserve">
     <value>키링</value>
@@ -86,6 +83,9 @@
   </data>
   <data name="What is GPG Verification?" xml:space="preserve">
     <value>GPG 검증이란 무엇인가요?</value>
+  </data>
+  <data name="file" xml:space="preserve">
+    <value>파일</value>
   </data>
 
 </root>

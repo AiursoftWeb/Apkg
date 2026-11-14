@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>Azioni</value>
   </data>
   <data name="All" xml:space="preserve">
@@ -30,20 +27,11 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>Un pacchetto misto .apkg è il formato proprietario di Apkg che raggruppa più pacchetti .deb e un manifest.xml in un unico archivio tar compresso con gzip. Il server decomprime ogni pacchetto .deb, estrae i metadati dal relativo file di controllo e li sincronizza con i repository APT di destinazione.</value>
   </data>
-  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
-    <value>e TUTTE le sue revisioni? Questa azione non può essere annullata.</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>Architettura</value>
   </data>
   <data name="Back to Packages" xml:space="preserve">
     <value>Torna ai pacchetti</value>
-  </data>
-  <data name="because you do not have permission to upload to them:" xml:space="preserve">
-    <value>poiché non hai il permesso di caricare sui seguenti:</value>
-  </data>
-  <data name="by" xml:space="preserve">
-    <value>da</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>Componente</value>
@@ -117,9 +105,6 @@
   <data name="Package" xml:space="preserve">
     <value>Pacchetto</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>pacchetto(i)</value>
-  </data>
   <data name="Pending Sync" xml:space="preserve">
     <value>Sincronizzazione in attesa</value>
   </data>
@@ -162,9 +147,6 @@
   <data name="Unpublished" xml:space="preserve">
     <value>Non pubblicato</value>
   </data>
-  <data name="unpublished upload(s) pending publish." xml:space="preserve">
-    <value>caricamento/i non pubblicato/i in attesa di pubblicazione.</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Cronologia caricamenti</value>
   </data>
@@ -194,6 +176,24 @@
   </data>
   <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
     <value>All&apos;interno di un singolo .apkg, ogni voce può variare per tre &lt;strong&gt;attributi dinamici&lt;/strong&gt;: &lt;strong&gt;Versione&lt;/strong&gt; (estratta dal binario .deb, mai scritta in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt; e &lt;strong&gt;Architettura&lt;/strong&gt;. Ciò consente di distribuire, ad esempio, le build amd64 e arm64 della stessa versione in un unico caricamento.</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>e TUTTE le sue revisioni? Questa azione non può essere annullata.</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>poiché non hai il permesso di caricare sui seguenti:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>da</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>pacchetto(i)</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>caricamento/i non pubblicato/i in attesa di pubblicazione.</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>

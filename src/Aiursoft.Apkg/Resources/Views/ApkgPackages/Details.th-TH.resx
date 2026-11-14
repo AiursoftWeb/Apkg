@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="—" xml:space="preserve">
-    <value>—</value>
-  </data>
-  <data name="Actions" xml:space="preserve">
+      <data name="Actions" xml:space="preserve">
     <value>การดำเนินการ</value>
   </data>
   <data name="All" xml:space="preserve">
@@ -30,20 +27,11 @@
   <data name="An .apkg mixed package is Apkg&apos;s proprietary format that bundles multiple .deb packages and a manifest.xml into a single gzipped tar archive. The server unpacks each .deb, extracts metadata from its control file, and syncs them to their target APT repositories." xml:space="preserve">
     <value>แพ็กเกจแบบผสม .apkg เป็นรูปแบบเฉพาะของ Apkg ที่รวมแพ็กเกจ .deb หลายรายการและไฟล์ manifest.xml ไว้ในไฟล์ tar แบบ gzipped ไฟล์เดียว เซิร์ฟเวอร์จะคลายแพ็กเกจ .deb แต่ละรายการ ดึงข้อมูลเมตาจากไฟล์ control แล้วซิงค์ไปยังที่เก็บ APT เป้าหมาย</value>
   </data>
-  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
-    <value>และเวอร์ชันแก้ไขทั้งหมด? การดำเนินการนี้ไม่สามารถย้อนกลับได้</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>สถาปัตยกรรม</value>
   </data>
   <data name="Back to Packages" xml:space="preserve">
     <value>กลับสู่แพ็กเกจ</value>
-  </data>
-  <data name="because you do not have permission to upload to them:" xml:space="preserve">
-    <value>เนื่องจากคุณไม่มีสิทธิ์อัปโหลดไปยังที่เก็บข้อมูลเหล่านี้:</value>
-  </data>
-  <data name="by" xml:space="preserve">
-    <value>โดย</value>
   </data>
   <data name="Component" xml:space="preserve">
     <value>คอมโพเนนต์</value>
@@ -117,9 +105,6 @@
   <data name="Package" xml:space="preserve">
     <value>แพ็กเกจ</value>
   </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>แพ็กเกจ(s)</value>
-  </data>
   <data name="Pending Sync" xml:space="preserve">
     <value>รอดซิงค์อยู่</value>
   </data>
@@ -162,9 +147,6 @@
   <data name="Unpublished" xml:space="preserve">
     <value>ยังไม่เผยแพร่</value>
   </data>
-  <data name="unpublished upload(s) pending publish." xml:space="preserve">
-    <value>อัปโหลดที่ยังไม่เผยแพร่ กำลังรอการเผยแพร่</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>ประวัติการอัปโหลด</value>
   </data>
@@ -194,6 +176,24 @@
   </data>
   <data name="Within a single .apkg, each entry may vary on three &lt;strong&gt;live attributes&lt;/strong&gt;: &lt;strong&gt;Version&lt;/strong&gt; (extracted from the .deb binary, never written in manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, and &lt;strong&gt;Architecture&lt;/strong&gt;. This lets you ship e.g. amd64 and arm64 builds of the same version in one upload." xml:space="preserve">
     <value>ภายในไฟล์ .apkg ไฟล์เดียว แต่ละรายการสามารถแตกต่างกันได้ในด้าน &lt;strong&gt;แอตทริบิวต์แบบไดนามิก&lt;/strong&gt; (live attributes) สามประการ ได้แก่ &lt;strong&gt;Version&lt;/strong&gt; (เวอร์ชัน - ดึงมาจากไฟล์ไบนารี .deb และจะไม่ถูกบันทึกใน manifest.xml), &lt;strong&gt;Suite&lt;/strong&gt;, และ &lt;strong&gt;Architecture&lt;/strong&gt; ซึ่งช่วยให้คุณอัปโหลดการรวบรวม (builds) ของเวอร์ชันเดียวกันสำหรับสถาปัตยกรรมต่าง ๆ เช่น amd64 และ arm64 พร้อมกันในครั้งเดียว</value>
+  </data>
+  <data name="and ALL its revisions? This cannot be undone." xml:space="preserve">
+    <value>และเวอร์ชันแก้ไขทั้งหมด? การดำเนินการนี้ไม่สามารถย้อนกลับได้</value>
+  </data>
+  <data name="because you do not have permission to upload to them:" xml:space="preserve">
+    <value>เนื่องจากคุณไม่มีสิทธิ์อัปโหลดไปยังที่เก็บข้อมูลเหล่านี้:</value>
+  </data>
+  <data name="by" xml:space="preserve">
+    <value>โดย</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>แพ็กเกจ(s)</value>
+  </data>
+  <data name="unpublished upload(s) pending publish." xml:space="preserve">
+    <value>อัปโหลดที่ยังไม่เผยแพร่ กำลังรอการเผยแพร่</value>
+  </data>
+  <data name="—" xml:space="preserve">
+    <value>—</value>
   </data>
 
 </root>

@@ -18,7 +18,19 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="Access Denied" xml:space="preserve">
+      <data name="API Key Usage" xml:space="preserve">
+    <value>Uso da Chave de API</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>Chaves de API</value>
+  </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>Detalhes do Pacote APKG</value>
+  </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>Detalhes do Upload de APKG</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
     <value>Acesso Negado</value>
   </data>
   <data name="Add New Mirror" xml:space="preserve">
@@ -36,23 +48,11 @@
   <data name="Anonymous" xml:space="preserve">
     <value>Anônimo</value>
   </data>
-  <data name="API Key Usage" xml:space="preserve">
-    <value>Uso da Chave de API</value>
-  </data>
-  <data name="API Keys" xml:space="preserve">
-    <value>Chaves de API</value>
-  </data>
   <data name="Apkg" xml:space="preserve">
     <value>Apkg</value>
   </data>
   <data name="Apkg Hybrid" xml:space="preserve">
     <value>Apkg Híbrido</value>
-  </data>
-  <data name="APKG Package Details" xml:space="preserve">
-    <value>Detalhes do Pacote APKG</value>
-  </data>
-  <data name="APKG Upload Details" xml:space="preserve">
-    <value>Detalhes do Upload de APKG</value>
   </data>
   <data name="Background Jobs" xml:space="preserve">
     <value>Trabalhos em Segundo Plano</value>
@@ -279,17 +279,17 @@
   <data name="Unauthorized" xml:space="preserve">
     <value>Não Autorizado</value>
   </data>
-  <data name="Upload apkg mixed package" xml:space="preserve">
-    <value>Upload do pacote APKG</value>
-  </data>
-  <data name="Upload deb package" xml:space="preserve">
-    <value>Upload deb package</value>
-  </data>
   <data name="Upload History" xml:space="preserve">
     <value>Histórico de Uploads</value>
   </data>
   <data name="Upload Package" xml:space="preserve">
     <value>Carregar Pacote</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>Upload do pacote APKG</value>
+  </data>
+  <data name="Upload deb package" xml:space="preserve">
+    <value>Upload deb package</value>
   </data>
   <data name="Upstream Mirrors" xml:space="preserve">
     <value>Espelhos Upstream</value>

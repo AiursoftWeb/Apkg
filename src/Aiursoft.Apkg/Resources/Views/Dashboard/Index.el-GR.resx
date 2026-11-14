@@ -18,10 +18,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-      <data name="‹ Prev" xml:space="preserve">
-    <value>‹ Προηγ.</value>
-  </data>
-  <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
+      <data name="&quot;Fire-and-forget&quot; support for long-running tasks (like emails or AI), featuring a GUI for queue management, parallel processing, and cancellation." xml:space="preserve">
     <value>Υποστήριξη &quot;Fire-and-forget&quot; για μακροχρόνιες εργασίες (όπως email ή ΤΝ), με GUI για διαχείριση ουράς, παράλληλη επεξεργασία και ακύρωση.</value>
   </data>
   <data name="A built-in Role-Based Access Control (RBAC) system for fine-grained permission management." xml:space="preserve">
@@ -39,23 +36,17 @@
   <data name="A modern, feature-rich, and highly extensible foundation for your next web application." xml:space="preserve">
     <value>Μια σύγχρονη, πλούσια σε λειτουργίες και εξαιρετικά επεκτάσιμη βάση για την επόμενη εφαρμογή σας στον ιστό.</value>
   </data>
-  <data name="Add a repository to your" xml:space="preserve">
-    <value>Προσθέστε ένα αποθετήριο στο</value>
-  </data>
   <data name="AI-Powered Translations" xml:space="preserve">
     <value>Μεταφράσεις με Τεχνητή Νοημοσύνη</value>
   </data>
-  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
-    <value>Όλες οι εξαρτήσεις καταχωρούνται αυτόματα και είναι πάντα διαθέσιμες μέσω της εισαγωγής στον κατασκευαστή.</value>
-  </data>
-  <data name="and browse their packages individually." xml:space="preserve">
-    <value>και περιηγηθείτε στα πακέτα τους μεμονωμένα.</value>
-  </data>
-  <data name="and run" xml:space="preserve">
-    <value>και εκτελέστε</value>
-  </data>
   <data name="APT Package Search" xml:space="preserve">
     <value>Αναζήτηση Πακέτων APT</value>
+  </data>
+  <data name="Add a repository to your" xml:space="preserve">
+    <value>Προσθέστε ένα αποθετήριο στο</value>
+  </data>
+  <data name="All dependencies are automatically registered and always available via constructor injection." xml:space="preserve">
+    <value>Όλες οι εξαρτήσεις καταχωρούνται αυτόματα και είναι πάντα διαθέσιμες μέσω της εισαγωγής στον κατασκευαστή.</value>
   </data>
   <data name="Automatic Dark Mode" xml:space="preserve">
     <value>Αυτόματη Λειτουργία Σκούρου Θέματος</value>
@@ -216,9 +207,6 @@
   <data name="This is a template project, where we start the voyager..." xml:space="preserve">
     <value>Αυτό είναι ένα πρότυπο έργο, από όπου ξεκινάμε το ταξίδι...</value>
   </data>
-  <data name="to get started." xml:space="preserve">
-    <value>για να ξεκινήσετε.</value>
-  </data>
   <data name="Try a shorter name or check spelling." xml:space="preserve">
     <value>Δοκιμάστε ένα συντομότερο όνομα ή ελέγξτε τη ορθογραφία.</value>
   </data>
@@ -236,6 +224,18 @@
   </data>
   <data name="Why use the Aiursoft Template?" xml:space="preserve">
     <value>Γιατί να χρησιμοποιήσετε το Πρότυπο Aiursoft;</value>
+  </data>
+  <data name="and browse their packages individually." xml:space="preserve">
+    <value>και περιηγηθείτε στα πακέτα τους μεμονωμένα.</value>
+  </data>
+  <data name="and run" xml:space="preserve">
+    <value>και εκτελέστε</value>
+  </data>
+  <data name="to get started." xml:space="preserve">
+    <value>για να ξεκινήσετε.</value>
+  </data>
+  <data name="‹ Prev" xml:space="preserve">
+    <value>‹ Προηγ.</value>
   </data>
 
 </root>

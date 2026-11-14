@@ -24,9 +24,6 @@
   <data name="All" xml:space="preserve">
     <value>सभी</value>
   </data>
-  <data name="and all generated Local Packages?" xml:space="preserve">
-    <value>और सभी उत्पन्न स्थानीय पैकेज?</value>
-  </data>
   <data name="Architecture" xml:space="preserve">
     <value>आर्किटेक्चर</value>
   </data>
@@ -65,9 +62,6 @@
   </data>
   <data name="Only the latest enabled version appears in APT repositories." xml:space="preserve">
     <value>केवल नवीनतम सक्रिय संस्करण एपीटी रिपॉज़िटरी में दिखाई देता है।</value>
-  </data>
-  <data name="package(s)" xml:space="preserve">
-    <value>पैकेज(ज)</value>
   </data>
   <data name="Permanently delete" xml:space="preserve">
     <value>स्थायी रूप से हटाएं</value>
@@ -113,6 +107,12 @@
   </data>
   <data name="View in repository" xml:space="preserve">
     <value>रेपॉजिटरी में देखें</value>
+  </data>
+  <data name="and all generated Local Packages?" xml:space="preserve">
+    <value>और सभी उत्पन्न स्थानीय पैकेज?</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>पैकेज(ज)</value>
   </data>
 
 </root>
