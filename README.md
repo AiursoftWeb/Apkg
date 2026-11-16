@@ -10,7 +10,7 @@
 
 Apkg is an APT repository server and Debian package publishing platform. It mirrors upstream Ubuntu repositories, signs repository snapshots, accepts `.apkg` package uploads, and serves packages through standard `apt update` and `apt install` workflows.
 
-![screenshot](./screenshot.png)
+![screenshot](https://github.com/aiursoftweb/apkg/blob/master/screenshot.png)
 
 Default user name is `admin@default.com` and default password is `Admin@123456!`.
 
@@ -32,23 +32,41 @@ Apkg provides:
 
 ## CLI & SDK
 
+### CLI
+
 Install the CLI with the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0):
 
 ```bash
-dotnet tool install --global Aiursoft.Apkg.Client --add-source https://nuget.aiursoft.com/v3/index.json
+dotnet tool install --global Aiursoft.Apkg.Client
 ```
 
-Run `apkg --help` to explore commands. See [Package Publishing](#package-publishing) for examples.
+Update an existing installation:
+
+```bash
+dotnet tool update --global Aiursoft.Apkg.Client
+```
+
+Remove the CLI:
+
+```bash
+dotnet tool uninstall --global Aiursoft.Apkg.Client
+```
+
+Run `apkg --help` to explore commands.
+
+See [Package Publishing](#package-publishing) for examples.
+
+### SDK
 
 Add the SDK to your .NET project:
 
 ```bash
-dotnet add package Aiursoft.Apkg.Sdk --source https://nuget.aiursoft.com/v3/index.json
+dotnet add package Aiursoft.Apkg.Sdk
 ```
 
 ## Try
 
-Try a running Apkg instance [here](https://apkg.aiursoft.com).
+Try a running Apkg [here](https://apkg.aiursoft.com).
 
 ## Install with Docker
 
@@ -64,15 +82,15 @@ Installation starts after three seconds; press Ctrl+C to cancel. Then open `http
 
 Requirements about how to run
 
-1. Install [.NET 10 SDK](http://dot.net/) and [Node.js](https://nodejs.org/).
-2. Execute `npm install` at `src/Aiursoft.Apkg/wwwroot` folder to install the dependencies.
-3. Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj` to run the app.
+1. Install [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) and [Node.js](https://nodejs.org/).
+2. Execute `npm ci --prefix src/Aiursoft.Apkg/wwwroot` and `npm run build --prefix src/Aiursoft.Apkg/wwwroot` from the repository root to prepare the frontend assets.
+3. Execute `dotnet run --project src/Aiursoft.Apkg/Aiursoft.Apkg.csproj -- --urls http://localhost:5000` to run the app.
 4. Use your browser to view [http://localhost:5000](http://localhost:5000).
 
 ## Run in Microsoft Visual Studio
 
-1. Open the `.sln` file in the project path.
-2. Press `F5` to run the app.
+1. Prepare the frontend assets as described above.
+2. Open `Aiursoft.Apkg.sln`, select `Aiursoft.Apkg` as the startup project, and press `F5`.
 
 ## Run in Docker
 
@@ -84,20 +102,22 @@ Then run the following commands in a Linux shell:
 image=aiursoft/apkg
 appName=apkg
 sudo docker pull $image
-sudo docker run -d --name $appName --restart unless-stopped -p 5000:5000 -v /var/www/$appName:/data $image
+sudo docker run -d --name $appName --restart unless-stopped -p 5000:5000 --mount type=volume,source=$appName-data,target=/data $image
 ```
 
 That will start a web server at `http://localhost:5000` and you can test the app.
 
 The docker image has the following context:
 
-| Properties  | Value          |
-|-------------|----------------|
-| Image       | aiursoft/apkg  |
-| Ports       | 5000           |
-| Binary path | /app           |
-| Data path   | /data          |
-| Config path | /data/appsettings.json |
+| Properties  | Value                           |
+|-------------|---------------------------------|
+| Image       | aiursoft/apkg               |
+| Ports       | 5000                            |
+| Binary path | /app                            |
+| Data path   | /data                           |
+| Config path | /data/appsettings.json          |
+
+Keep `/data` persistent for configuration, the SQLite database, uploaded files and Data Protection keys. To use a host directory instead of the named volume, replace the mount argument with `-v /var/www/$appName:/data`.
 
 ## Usage
 
@@ -179,7 +199,7 @@ apkg build --path ./my-package --distro ubuntu --suite resolute --arch arm64
 ```
 
 Build prepares inputs under `obj/inputs/<distro>/<suite>/<arch>/` and passes
-`APKG_INPUTS_DIR` to prebuild commands. See [the build input reference](docs/aosproj.md#构建原料-buildsource--buildinput)
+`APKG_INPUTS_DIR` to prebuild commands. See [the build input reference](https://github.com/aiursoftweb/apkg/blob/master/docs/aosproj.md#构建原料-buildsource--buildinput)
 for declarations, host/target architectures, source files and failure behavior.
 
 ### Package tests
@@ -209,13 +229,101 @@ periods, underscores and hyphens; they must begin with a letter or digit.
 attributes do not apply to tests: use a separate profile for a different
 environment.
 
+## Configuration
+
+<a name="configuration-guide"></a>
+
+The defaults run as a standalone application with SQLite, local accounts, local file storage, and no ClickHouse server. Change a setting only after preparing the dependency named in its comment.
+
+The Docker image copies this file to `/data/appsettings.json` on its first start and keeps that copy on later starts. Mount `/data` as a persistent volume. To override a value without editing the file, use an environment variable with double underscores, such as `Storage__Path` or `AppSettings__OIDC__ClientSecret`.
+
+```jsonc
+{
+  "ConnectionStrings": {
+    "AllowCache": "True",
+
+    "DbType": "Sqlite",
+    "DefaultConnection": "DataSource=app.db;Cache=Shared"
+
+    // sudo docker run -d --name db -e MYSQL_RANDOM_ROOT_PASSWORD=true -e MYSQL_DATABASE=template -e MYSQL_USER=template -e MYSQL_PASSWORD=template_password -p 3306:3306 hub.aiursoft.com/mysql
+    //"DbType": "MySql",
+    //"DefaultConnection": "Server=localhost;Database=template;Uid=template;Pwd=template_password;"
+  },
+  "Storage": {
+    "Path": "/tmp/data",
+    "PublicOrigin": "",
+    "RequireDedicatedInlineOrigin": false,
+    "AllowArbitraryInlineOnDedicatedOrigin": false,
+    "SafeInlineMediaExtensions": ["svg"],
+    "SafeInlineSvgSubfolders": ["project-logo"],
+    "UploadPolicy": {
+      "RequireAuthenticatedUser": false,
+      "ReplaceSpacesWithHyphens": false
+    },
+    "ExportPath": "/tmp/export"
+  },
+  "AppSettings": {
+    "AuthProvider": "Local", // OIDC or Local
+    "DefaultRole": "",
+    "PersistsSignIn": false,
+    "OIDC": {
+      // https://auth.aiursoft.com/application/o/template
+      "Authority": "https://auth.aiursoft.com/application/o/template",
+      "ClientId": "",
+      "ClientSecret": "",
+      "RolePropertyName": "groups",
+      "UsernamePropertyName": "preferred_username",
+      "UserDisplayNamePropertyName": "name",
+      "EmailPropertyName": "email",
+      "UserIdentityPropertyName": "sub"
+    },
+    "Local": {
+      "AllowRegister": true,
+      "AllowWeakPassword": true
+    }
+  },
+  "GlobalSettings": {
+    // You can initialize or override global settings here.
+    // "Allow_User_Adjust_Nickname": "True"
+    // "Allow_User_Adjust_Nickname": "True",
+    // "BrandName": "Aiursoft",
+    // "BrandHomeUrl": "https://www.aiursoft.com/",
+    // "Icp": "",
+    // "ProjectName": "Aiursoft Template"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    },
+    "Clickhouse": {
+      "Enabled": false,
+      "ConnectionString": "Host=localhost;Protocol=http;Port=8123;User=default;Password=;Database=AspNetCoreLogs",
+      "TableName": "ApkgLogs"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+
+### Shared settings
+
+- `ConnectionStrings:AllowCache` caches EF Core query results in-process. Choose `Sqlite` for a local file or `MySql` for a prepared external database; change `DefaultConnection` with the provider. Migrations are applied at startup.
+- `Storage:Path` is writable local file storage for Workspace and Vault. `PublicOrigin` is an optional second hostname routed to this same application's downloads, not an object-storage endpoint. Dedicated inline viewing requires its own DNS, TLS and reverse-proxy route; arbitrary inline content must use a cookie-free dedicated origin. Media/SVG allowlists constrain inline rendering, not upload permission. Upload token policy changes apply to newly issued tokens.
+- `AppSettings:AuthProvider` selects `Local` accounts or `OIDC`. OIDC requires a reachable authority, client settings and the HTTPS `/signin-oidc` callback. Configure role, username, display-name, email and immutable `sub` claims; synchronized OIDC roles and `DefaultRole` govern local membership. `PersistsSignIn` controls persistent cookies. Local registration and password requirements follow `AppSettings:Local`.
+- Uncommented `GlobalSettings` values override the database-backed administration UI; commented entries leave its values or built-in defaults in use.
+- `Logging:LogLevel` controls application/framework verbosity. `Logging:Clickhouse` is optional application-log export and requires a prepared reachable database when enabled.
+- `AllowedHosts` is the ASP.NET Core Host-header allowlist, not CORS. Use the intended public hostnames for a deployment.
+
+`Storage:ExportPath` selects the static repository export directory (source default `/tmp/export`). Persist any external export directory separately, or override `Storage__ExportPath` to a path inside the persistent volume.
+
 ## Documentation
 
-- [Design document](docs/design.md)
-- [`.aosproj` format](docs/aosproj.md)
-- [Development notes](docs/development.md)
-- [Operations guide](docs/operations.md)
-- [Build preflight and CI deployment](docs/preflight.md)
+- [Design document](https://github.com/aiursoftweb/apkg/blob/master/docs/design.md)
+- [`.aosproj` format](https://github.com/aiursoftweb/apkg/blob/master/docs/aosproj.md)
+- [Development notes](https://github.com/aiursoftweb/apkg/blob/master/docs/development.md)
+- [Operations guide](https://github.com/aiursoftweb/apkg/blob/master/docs/operations.md)
+- [Build preflight and CI deployment](https://github.com/aiursoftweb/apkg/blob/master/docs/preflight.md)
 
 ## How to contribute
 
@@ -227,4 +335,4 @@ We're also interested in your feedback on the future of this project. You can su
 
 ## License
 
-Apkg is licensed under the [MIT License](LICENSE).
+Licensed under the [MIT License](https://github.com/aiursoftweb/apkg/blob/master/LICENSE).
