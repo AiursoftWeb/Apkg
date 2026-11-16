@@ -10,7 +10,7 @@
 
 Apkg is an APT repository server and Debian package publishing platform. It mirrors upstream Ubuntu repositories, signs repository snapshots, accepts `.apkg` package uploads, and serves packages through standard `apt update` and `apt install` workflows.
 
-![screenshot](https://github.com/aiursoftweb/apkg/blob/master/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/aiursoftweb/apkg/master/screenshot.png)
 
 Default user name is `admin@default.com` and default password is `Admin@123456!`.
 
