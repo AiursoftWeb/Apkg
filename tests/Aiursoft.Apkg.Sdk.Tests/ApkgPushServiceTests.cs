@@ -207,16 +207,37 @@ public class ApkgPushServiceTests
     }
 
     [TestMethod]
-    public async Task PushChunkedAsync_CallerCanCancelWaiting()
+    [DataRow(HttpStatusCode.Unauthorized)]
+    [DataRow(HttpStatusCode.Forbidden)]
+    [DataRow(HttpStatusCode.Conflict)]
+    [DataRow(HttpStatusCode.BadRequest)]
+    public async Task PushChunkedAsync_RejectedSubmission_Fails(HttpStatusCode code)
     {
-        using var cancellation = new CancellationTokenSource();
+        var service = CreateService(request => request.RequestUri!.AbsolutePath.EndsWith("/init")
+            ? JsonResponse(HttpStatusCode.OK, "{\"sessionId\":\"one-session\",\"backgroundCompletion\":true}")
+            : request.RequestUri.AbsolutePath.EndsWith("/complete")
+                ? JsonResponse(code, "{\"error\":\"Rejected\"}")
+                : JsonResponse(HttpStatusCode.OK, "{}"));
+        var archive = await CreateArchiveAsync(2);
+        try
+        {
+            var error = await Assert.ThrowsExactlyAsync<InvalidOperationException>(() =>
+                service.PushChunkedAsync(archive, "https://apkg.example.com", "secret-key", true, false, 100));
+            StringAssert.Contains(error.Message, "Rejected");
+        }
+        finally { File.Delete(archive); }
+    }
+
+    [TestMethod]
+    public async Task PushChunkedAsync_CancelledTokenStopsWaiting()
+    {
+        var cancellationToken = new CancellationToken(canceled: true);
         var service = CreateService(request =>
         {
             if (request.RequestUri!.AbsolutePath.EndsWith("/init"))
                 return JsonResponse(HttpStatusCode.OK, "{\"sessionId\":\"one-session\",\"backgroundCompletion\":true}");
             if (request.RequestUri.AbsolutePath.EndsWith("/complete"))
             {
-                cancellation.Cancel();
                 return JsonResponse(HttpStatusCode.Accepted, "{\"status\":\"Queued\"}");
             }
             return JsonResponse(HttpStatusCode.OK, "{}");
@@ -225,7 +246,7 @@ public class ApkgPushServiceTests
         try
         {
             await Assert.ThrowsAsync<OperationCanceledException>(() =>
-                service.PushChunkedAsync(archive, "https://apkg.example.com", "secret-key", true, false, 100, null, cancellation.Token));
+                service.PushChunkedAsync(archive, "https://apkg.example.com", "secret-key", true, false, 100, null, cancellationToken));
         }
         finally { File.Delete(archive); }
     }

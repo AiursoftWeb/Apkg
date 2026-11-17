@@ -460,7 +460,7 @@ public class ChunkedUploadTests : TestBase
     [TestMethod]
     public async Task CleanupJob_RemovesStaleSessions()
     {
-        var folders = GetService<Aiursoft.Apkg.Services.FileStorage.FeatureFoldersProvider>();
+        var folders = GetService<FeatureFoldersProvider>();
         var chunkedRoot = folders.GetChunkedUploadsFolder();
 
         // Create a "stale" session directory (created 25 hours ago)

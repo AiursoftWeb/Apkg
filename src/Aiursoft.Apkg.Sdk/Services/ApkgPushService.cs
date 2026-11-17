@@ -221,14 +221,7 @@ public class ApkgPushService(HttpClient httpClient)
             $"{serverUrl}/api/upload/{sessionId}/complete?background=true", apiKey, token);
         var body = await response.Content.ReadAsStringAsync(token);
         if (response.StatusCode != HttpStatusCode.Accepted)
-        {
-            // Older servers still return the final summary synchronously.
-            if (!response.IsSuccessStatusCode
-                && response.StatusCode != HttpStatusCode.Conflict
-                && response.StatusCode != HttpStatusCode.Forbidden)
-                throw new InvalidOperationException($"Complete failed ({(int)response.StatusCode}): {body}");
-            return body;
-        }
+            throw new InvalidOperationException($"Complete failed ({(int)response.StatusCode}): {body}");
 
         while (true)
         {
