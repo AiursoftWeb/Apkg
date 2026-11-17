@@ -1,7 +1,5 @@
-using System.Text.Json;
 using Aiursoft.Canon.BackgroundJobs;
 using Aiursoft.Apkg.Entities;
-using Aiursoft.Apkg.Models;
 using Aiursoft.Apkg.Services.FileStorage;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,7 +8,7 @@ namespace Aiursoft.Apkg.Services.BackgroundJobs;
 public class ApkgTempCleanupJob(
     ApkgDbContext db,
     StorageService storageService,
-    FeatureFoldersProvider folders,
+    ChunkedUploadService uploads,
     ILogger<ApkgTempCleanupJob> logger) : IBackgroundJob
 {
     public string Name => "APKG Temp Cleanup";
@@ -20,7 +18,7 @@ public class ApkgTempCleanupJob(
     public async Task ExecuteAsync()
     {
         await CleanupStaleRevisionsAsync();
-        CleanupStaleChunkedUploadSessions();
+        await uploads.CleanupExpiredAsync();
     }
 
     private async Task CleanupStaleRevisionsAsync()
@@ -59,52 +57,4 @@ public class ApkgTempCleanupJob(
         }
     }
 
-    private void CleanupStaleChunkedUploadSessions()
-    {
-        var chunkedUploadsRoot = folders.GetChunkedUploadsFolder();
-        if (!Directory.Exists(chunkedUploadsRoot))
-            return;
-
-        var cutoff = DateTime.UtcNow.AddHours(-24);
-        var deletedCount = 0;
-
-        foreach (var sessionDir in Directory.GetDirectories(chunkedUploadsRoot))
-        {
-            try
-            {
-                var sessionJsonPath = Path.Combine(sessionDir, "session.json");
-                if (!File.Exists(sessionJsonPath))
-                {
-                    // No session.json — check directory creation time instead
-                    var dirInfo = new DirectoryInfo(sessionDir);
-                    if (dirInfo.CreationTimeUtc < cutoff)
-                    {
-                        Directory.Delete(sessionDir, recursive: true);
-                        deletedCount++;
-                    }
-                    continue;
-                }
-
-                var json = File.ReadAllText(sessionJsonPath);
-                var session = JsonSerializer.Deserialize<ChunkedUploadSession>(json,
-                    new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
-
-                if (session == null || session.CreatedAtUtc < cutoff)
-                {
-                    Directory.Delete(sessionDir, recursive: true);
-                    deletedCount++;
-                }
-            }
-            catch (Exception ex)
-            {
-                logger.LogWarning(ex, "Failed to clean up chunked upload session directory: {SessionDir}", sessionDir);
-            }
-        }
-
-        if (deletedCount > 0)
-        {
-            logger.LogInformation("ApkgTempCleanupJob: Deleted {Count} stale chunked upload session(s).", deletedCount);
-        }
-    }
 }
-
