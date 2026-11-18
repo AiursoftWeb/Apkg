@@ -1,9 +1,8 @@
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text.Json;
+using Aiursoft.Apkg.Sdk.Models;
 using Aiursoft.Apkg.Models;
 using Aiursoft.Apkg.Services;
-using Aiursoft.Apkg.Services.FileStorage;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,16 +19,9 @@ namespace Aiursoft.Apkg.Controllers;
 [Route("api/upload")]
 [Authorize(AuthenticationSchemes = "ApiKey,Identity.Application")]
 public class ChunkedUploadController(
-    ApkgUploadProcessor uploadProcessor,
-    FeatureFoldersProvider folders,
+    ChunkedUploadService uploads,
     ILogger<ChunkedUploadController> logger) : ControllerBase
 {
-    private static readonly JsonSerializerOptions JsonOptions = new()
-    {
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        WriteIndented = true
-    };
-
     /// <summary>
     /// Phase 1: Initialize a chunked upload session.
     /// Returns a session ID that the client uses for subsequent chunk uploads.
@@ -42,10 +34,6 @@ public class ChunkedUploadController(
 
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
         var sessionId = Guid.NewGuid().ToString("N");
-        var sessionDir = GetSessionDirectory(sessionId);
-
-        Directory.CreateDirectory(sessionDir);
-
         var session = new ChunkedUploadSession
         {
             SessionId = sessionId,
@@ -59,9 +47,7 @@ public class ChunkedUploadController(
             AllowDowngrade = request.AllowDowngrade
         };
 
-        var sessionJsonPath = Path.Combine(sessionDir, "session.json");
-        await System.IO.File.WriteAllTextAsync(sessionJsonPath,
-            JsonSerializer.Serialize(session, JsonOptions));
+        await uploads.CreateAsync(session);
 
         logger.LogInformation(
             "Chunked upload session {SessionId} initialized by user {UserId}: {FileName} ({TotalSize} bytes, {ChunkCount} chunks)",
@@ -70,6 +56,7 @@ public class ChunkedUploadController(
         return Ok(new
         {
             sessionId,
+            backgroundCompletion = true,
             chunkSize = request.TotalSize / request.ChunkCount
         });
     }
@@ -82,7 +69,7 @@ public class ChunkedUploadController(
     [RequestSizeLimit(200L * 1024 * 1024)] // 200 MB hard cap per chunk to prevent abuse
     public async Task<IActionResult> UploadChunk(string sessionId, int chunkIndex)
     {
-        var session = await LoadSessionAsync(sessionId);
+        var session = await uploads.LoadAsync(sessionId);
         if (session == null)
             return NotFound(new { error = $"Upload session '{sessionId}' not found." });
 
@@ -91,10 +78,13 @@ public class ChunkedUploadController(
             return StatusCode(StatusCodes.Status403Forbidden,
                 new { error = "You are not the owner of this upload session." });
 
+        if (session.Completion != null)
+            return Conflict(new { error = "Upload has already been submitted for processing." });
+
         if (chunkIndex < 0 || chunkIndex >= session.ChunkCount)
             return BadRequest(new { error = $"Chunk index {chunkIndex} is out of range [0, {session.ChunkCount})." });
 
-        var sessionDir = GetSessionDirectory(sessionId);
+        var sessionDir = uploads.GetSessionDirectory(sessionId);
         var chunkPath = Path.Combine(sessionDir, $"chunk_{chunkIndex}");
 
         // Write to a temp file first, then atomically move to the final location.
@@ -108,7 +98,8 @@ public class ChunkedUploadController(
                 await Request.Body.CopyToAsync(chunkFile);
             }
 
-            System.IO.File.Move(tempPath, chunkPath, overwrite: true);
+            if (!await uploads.CommitChunkAsync(sessionId, tempPath, chunkIndex))
+                return Conflict(new { error = "Upload has already been submitted for processing." });
         }
         finally
         {
@@ -120,124 +111,66 @@ public class ChunkedUploadController(
         logger.LogInformation(
             "Chunked upload session {SessionId}: chunk {ChunkIndex}/{ChunkCount} received ({Size} bytes)",
             sessionId, chunkIndex, session.ChunkCount,
-            new FileInfo(chunkPath).Length);
+            Request.ContentLength);
 
         return Ok(new { chunkIndex, received = true });
     }
 
     /// <summary>
-    /// Phase 3: Complete the upload — merge chunks, verify hash, process the .apkg.
+    /// Queues merge, verification and import. New clients request background=true
+    /// and poll status; older clients retain their synchronous summary response.
     /// </summary>
     [HttpPost("{sessionId}/complete")]
-    public async Task<IActionResult> Complete(string sessionId)
+    public async Task<IActionResult> Complete(string sessionId, bool background = false)
     {
-        var session = await LoadSessionAsync(sessionId);
+        var session = await uploads.LoadAsync(sessionId);
         if (session == null)
             return NotFound(new { error = $"Upload session '{sessionId}' not found." });
+        if (session.UserId != User.FindFirstValue(ClaimTypes.NameIdentifier))
+            return StatusCode(403, new { error = "You are not the owner of this upload session." });
 
-        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
-        if (session.UserId != userId)
-            return StatusCode(StatusCodes.Status403Forbidden,
-                new { error = "You are not the owner of this upload session." });
-
-        var sessionDir = GetSessionDirectory(sessionId);
-
-        // Verify all chunks are present
-        var missingChunks = new List<int>();
-        for (var i = 0; i < session.ChunkCount; i++)
-        {
-            if (!System.IO.File.Exists(Path.Combine(sessionDir, $"chunk_{i}")))
-                missingChunks.Add(i);
-        }
-
-        if (missingChunks.Count > 0)
-            return BadRequest(new
-            {
-                error = $"Missing {missingChunks.Count} chunk(s): [{string.Join(", ", missingChunks)}]"
-            });
-
-        // Merge chunks into a single file
-        var mergedFilePath = Path.Combine(folders.GetWorkspaceFolder(),
-            $"chunked-merge-{Guid.NewGuid()}.apkg");
         try
         {
-            using var sha256Hasher = IncrementalHash.CreateHash(HashAlgorithmName.SHA256);
-            await using (var mergedStream = System.IO.File.Create(mergedFilePath))
+            var status = await uploads.QueueAsync(sessionId, User);
+            if (background)
             {
-                for (var i = 0; i < session.ChunkCount; i++)
-                {
-                    var chunkPath = Path.Combine(sessionDir, $"chunk_{i}");
-                    await using var chunkStream = System.IO.File.OpenRead(chunkPath);
-                    var buffer = new byte[81920];
-                    int read;
-                    while ((read = await chunkStream.ReadAsync(buffer)) > 0)
-                    {
-                        sha256Hasher.AppendData(buffer, 0, read);
-                        await mergedStream.WriteAsync(buffer.AsMemory(0, read));
-                    }
-                }
+                Response.Headers.Location = Url.Action(nameof(Status), new { sessionId });
+                return StatusResponse(status, 202);
             }
-
-            // Verify hash
-            var actualHash = Convert.ToHexStringLower(sha256Hasher.GetHashAndReset());
-            if (!string.Equals(actualHash, session.FileHash, StringComparison.OrdinalIgnoreCase))
+            while (status.Status is "Queued" or "Processing")
             {
-                return BadRequest(new
-                {
-                    error = $"Hash mismatch. Expected: {session.FileHash}, Actual: {actualHash}"
-                });
+                await Task.Delay(100, HttpContext.RequestAborted);
+                status = (await uploads.LoadAsync(sessionId))!.Completion!;
             }
-
-            logger.LogInformation(
-                "Chunked upload session {SessionId}: all {ChunkCount} chunks merged, hash verified. Processing .apkg...",
-                sessionId, session.ChunkCount);
-
-            // Process the merged .apkg file using the shared processor
-            var result = await uploadProcessor.ProcessApkgFileAsync(
-                mergedFilePath,
-                session.FileName,
-                userId,
-                User,
-                session.SkipDuplicate,
-                session.AllowDowngrade);
-
-            return StatusCode(result.StatusCode, result.Summary);
+            return new ContentResult
+            {
+                StatusCode = status.StatusCode,
+                ContentType = "application/json",
+                Content = status.Result?.GetRawText()
+            };
         }
-        finally
+        catch (InvalidDataException ex)
         {
-            // Clean up merged file
-            if (System.IO.File.Exists(mergedFilePath))
-                System.IO.File.Delete(mergedFilePath);
-
-            // Clean up session directory
-            try
-            {
-                if (Directory.Exists(sessionDir))
-                    Directory.Delete(sessionDir, recursive: true);
-            }
-            catch (Exception ex)
-            {
-                logger.LogWarning(ex, "Failed to clean up chunked upload session directory: {SessionDir}", sessionDir);
-            }
+            return BadRequest(new { error = ex.Message });
         }
     }
 
-    private string GetSessionDirectory(string sessionId)
+    [HttpGet("{sessionId}/status")]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+    public async Task<IActionResult> Status(string sessionId)
     {
-        return Path.Combine(folders.GetChunkedUploadsFolder(), sessionId);
+        var session = await uploads.LoadAsync(sessionId);
+        if (session == null)
+            return NotFound(new { error = $"Upload session '{sessionId}' not found." });
+        if (session.UserId != User.FindFirstValue(ClaimTypes.NameIdentifier))
+            return StatusCode(403, new { error = "You are not the owner of this upload session." });
+        return StatusResponse(session.Completion ?? new ChunkedUploadStatus { Status = "Uploading" }, 200);
     }
 
-    private async Task<ChunkedUploadSession?> LoadSessionAsync(string sessionId)
+    private static ContentResult StatusResponse(ChunkedUploadStatus status, int statusCode) => new()
     {
-        // Sanitize sessionId to prevent path traversal
-        if (sessionId.Contains('.') || sessionId.Contains('/') || sessionId.Contains('\\'))
-            return null;
-
-        var sessionJsonPath = Path.Combine(GetSessionDirectory(sessionId), "session.json");
-        if (!System.IO.File.Exists(sessionJsonPath))
-            return null;
-
-        var json = await System.IO.File.ReadAllTextAsync(sessionJsonPath);
-        return JsonSerializer.Deserialize<ChunkedUploadSession>(json, JsonOptions);
-    }
+        StatusCode = statusCode,
+        ContentType = "application/json",
+        Content = JsonSerializer.Serialize(status, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase })
+    };
 }

@@ -61,6 +61,7 @@ public class Startup : IWebStartup
         services.AddTransient<IGpgSigningService, GpgSigningService>();
         services.AddScoped<DebUploadService>();
         services.AddScoped<ApkgUploadProcessor>();
+        services.AddSingleton<ChunkedUploadService>();
         services.AddScoped<RepositoryTargetService>();
         services.AddScoped<PackagePreflightService>();
         services.AddScoped<DebContentsService>();

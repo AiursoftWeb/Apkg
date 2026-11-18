@@ -105,6 +105,13 @@ public class ApkgPushService(HttpClient httpClient)
     /// <param name="chunkSize">Maximum size of each upload chunk in bytes.</param>
     /// <param name="progress">Optional progress callback.</param>
     /// <returns>The JSON response body as a string.</returns>
+    public Task<string> PushChunkedAsync(
+        string apkgFilePath, string serverUrl, string apiKey, bool skipDuplicate,
+        bool allowDowngrade, long chunkSize, IProgress<ChunkedUploadProgress>? progress = null) =>
+        PushChunkedAsync(apkgFilePath, serverUrl, apiKey, skipDuplicate, allowDowngrade,
+            chunkSize, progress, CancellationToken.None);
+
+    /// <summary>Uploads a bundle and allows cancelling the wait for its final result.</summary>
     public async Task<string> PushChunkedAsync(
         string apkgFilePath,
         string serverUrl,
@@ -112,7 +119,8 @@ public class ApkgPushService(HttpClient httpClient)
         bool skipDuplicate,
         bool allowDowngrade,
         long chunkSize,
-        IProgress<ChunkedUploadProgress>? progress = null)
+        IProgress<ChunkedUploadProgress>? progress,
+        CancellationToken cancellationToken)
     {
         var fileInfo = new FileInfo(apkgFilePath);
         if (!fileInfo.Exists)
@@ -156,6 +164,8 @@ public class ApkgPushService(HttpClient httpClient)
         using var initDoc = JsonDocument.Parse(initResponseBody);
         var sessionId = initDoc.RootElement.GetProperty("sessionId").GetString()
             ?? throw new InvalidOperationException("Server did not return a sessionId.");
+        var backgroundCompletion = initDoc.RootElement.TryGetProperty("backgroundCompletion", out var capability)
+            && capability.ValueKind == JsonValueKind.True;
 
         // Step 3: Upload chunks sequentially with retry.
         // Re-open the file so the stream position starts at 0. The hash computation above
@@ -189,22 +199,84 @@ public class ApkgPushService(HttpClient httpClient)
             await UploadChunkWithRetryAsync(serverUrl, sessionId, apiKey, i, chunkData);
         }
 
-        // Step 4: Complete
+        // Step 4: Submit once and wait on short status requests. Retrying this
+        // request uses the same session, never another large-file upload.
         progress?.Report(new ChunkedUploadProgress { Phase = "Completing", Message = "Finalizing upload..." });
+        if (!backgroundCompletion)
+        {
+            using var legacyRequest = new HttpRequestMessage(HttpMethod.Post, $"{serverUrl}/api/upload/{sessionId}/complete");
+            legacyRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+            using var legacyResponse = await httpClient.SendAsync(legacyRequest, cancellationToken);
+            var legacyBody = await legacyResponse.Content.ReadAsStringAsync(cancellationToken);
+            if (!legacyResponse.IsSuccessStatusCode
+                && legacyResponse.StatusCode != HttpStatusCode.Conflict
+                && legacyResponse.StatusCode != HttpStatusCode.Forbidden)
+                throw new InvalidOperationException($"Complete failed ({(int)legacyResponse.StatusCode}): {legacyBody}");
+            return legacyBody;
+        }
+        using var completionTimeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+        completionTimeout.CancelAfter(TimeSpan.FromHours(1));
+        var token = completionTimeout.Token;
+        using var response = await SendCompletionRequestAsync(HttpMethod.Post,
+            $"{serverUrl}/api/upload/{sessionId}/complete?background=true", apiKey, token);
+        var body = await response.Content.ReadAsStringAsync(token);
+        if (response.StatusCode != HttpStatusCode.Accepted)
+            throw new InvalidOperationException($"Complete failed ({(int)response.StatusCode}): {body}");
 
-        using var completeRequest = new HttpRequestMessage(HttpMethod.Post,
-            $"{serverUrl}/api/upload/{sessionId}/complete");
-        completeRequest.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+        while (true)
+        {
+            var status = JsonSerializer.Deserialize<ChunkedUploadStatus>(body, JsonOptions)
+                ?? throw new InvalidOperationException($"Empty upload status for {sessionId}.");
+            switch (status.Status)
+            {
+                case "Succeeded" when status.StatusCode is >= 200 and < 300 && status.Result.HasValue:
+                    return status.Result.Value.GetRawText();
+                case "Queued":
+                case "Processing":
+                    progress?.Report(new ChunkedUploadProgress
+                    {
+                        Phase = "Completing", Message = $"Upload {sessionId}: {status.Status.ToLowerInvariant()}..."
+                    });
+                    break;
+                default:
+                    throw new InvalidOperationException(
+                        $"Upload {sessionId} {status.Status} ({status.StatusCode}): {status.Result}");
+            }
+            await Task.Delay(TimeSpan.FromSeconds(2), token);
+            using var statusResponse = await SendCompletionRequestAsync(HttpMethod.Get,
+                $"{serverUrl}/api/upload/{sessionId}/status", apiKey, token);
+            body = await statusResponse.Content.ReadAsStringAsync(token);
+            if (!statusResponse.IsSuccessStatusCode)
+                throw new InvalidOperationException($"Upload {sessionId} status failed ({(int)statusResponse.StatusCode}): {body}");
+        }
+    }
 
-        using var completeResponse = await httpClient.SendAsync(completeRequest);
-        var completeBody = await completeResponse.Content.ReadAsStringAsync();
-
-        if (!completeResponse.IsSuccessStatusCode
-            && completeResponse.StatusCode != HttpStatusCode.Conflict
-            && completeResponse.StatusCode != HttpStatusCode.Forbidden)
-            throw new InvalidOperationException($"Complete failed ({(int)completeResponse.StatusCode}): {completeBody}");
-
-        return completeBody;
+    private async Task<HttpResponseMessage> SendCompletionRequestAsync(
+        HttpMethod method, string url, string apiKey, CancellationToken cancellationToken)
+    {
+        for (var attempt = 1; ; attempt++)
+        {
+            try
+            {
+                using var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+                timeout.CancelAfter(TimeSpan.FromSeconds(30));
+                using var request = new HttpRequestMessage(method, url);
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+                var response = await httpClient.SendAsync(request, timeout.Token);
+                if ((int)response.StatusCode < 500 || attempt == 3)
+                    return response;
+                response.Dispose();
+            }
+            catch (HttpRequestException) when (attempt < 3 && !cancellationToken.IsCancellationRequested)
+            {
+                // Retry short requests only; the session and chunks stay intact.
+            }
+            catch (OperationCanceledException) when (attempt < 3 && !cancellationToken.IsCancellationRequested)
+            {
+                // Per-request timeout, not caller cancellation or the overall limit.
+            }
+            await Task.Delay(TimeSpan.FromSeconds(attempt), cancellationToken);
+        }
     }
 
     private async Task UploadChunkWithRetryAsync(

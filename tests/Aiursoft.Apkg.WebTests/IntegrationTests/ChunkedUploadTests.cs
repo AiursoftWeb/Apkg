@@ -8,6 +8,10 @@ using Aiursoft.Apkg.Authorization;
 using Aiursoft.Apkg.Entities;
 using Aiursoft.Apkg.Models;
 using Aiursoft.Apkg.Services.Authentication;
+using Aiursoft.Apkg.Services;
+using Aiursoft.Apkg.Services.FileStorage;
+using Aiursoft.Canon.TaskQueue;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 
 namespace Aiursoft.Apkg.WebTests.IntegrationTests;
@@ -441,10 +445,12 @@ public class ChunkedUploadTests : TestBase
         var response = await CompleteAsync(apiKey, sessionId);
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
-        // Trying to complete again should return 404 (session cleaned up)
+        // Keep the receipt so a lost response can be safely queried or retried.
         var response2 = await CompleteAsync(apiKey, sessionId);
-        Assert.AreEqual(HttpStatusCode.NotFound, response2.StatusCode,
-            "Session should be cleaned up after successful completion.");
+        Assert.AreEqual(HttpStatusCode.OK, response2.StatusCode);
+        Assert.AreEqual(await response.Content.ReadAsStringAsync(), await response2.Content.ReadAsStringAsync());
+        var dir = GetService<ChunkedUploadService>().GetSessionDirectory(sessionId);
+        CollectionAssert.AreEqual(new[] { "session.json" }, Directory.GetFiles(dir).Select(Path.GetFileName).ToArray());
     }
 
     // ──────────────────────────────────────────────────────────────────────
@@ -454,7 +460,7 @@ public class ChunkedUploadTests : TestBase
     [TestMethod]
     public async Task CleanupJob_RemovesStaleSessions()
     {
-        var folders = GetService<Aiursoft.Apkg.Services.FileStorage.FeatureFoldersProvider>();
+        var folders = GetService<FeatureFoldersProvider>();
         var chunkedRoot = folders.GetChunkedUploadsFolder();
 
         // Create a "stale" session directory (created 25 hours ago)
@@ -700,5 +706,253 @@ public class ChunkedUploadTests : TestBase
             $"Complete must detect hash mismatch from corrupted retry. Body: {completeBody}");
         Assert.IsTrue(completeBody.Contains("Hash mismatch"),
             $"Error should mention hash mismatch. Got: {completeBody}");
+    }
+
+    private async Task<HttpResponseMessage> StatusAsync(string apiKey, string sessionId)
+    {
+        using var request = new HttpRequestMessage(HttpMethod.Get, $"/api/upload/{sessionId}/status");
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+        return await Http.SendAsync(request);
+    }
+
+    private async Task<HttpResponseMessage> SubmitAsync(string apiKey, string sessionId)
+    {
+        using var request = new HttpRequestMessage(HttpMethod.Post, $"/api/upload/{sessionId}/complete?background=true");
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+        return await Http.SendAsync(request);
+    }
+
+    private async Task<JsonElement> WaitForResultAsync(string apiKey, string sessionId)
+    {
+        var timer = Stopwatch.StartNew();
+        while (timer.Elapsed < TimeSpan.FromSeconds(30))
+        {
+            using var response = await StatusAsync(apiKey, sessionId);
+            Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+            using var doc = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+            var status = doc.RootElement.GetProperty("status").GetString();
+            if (status is "Succeeded" or "Failed")
+                return doc.RootElement.Clone();
+            await Task.Delay(50);
+        }
+        Assert.Fail("Background upload did not finish.");
+        return default;
+    }
+
+    [TestMethod]
+    public async Task BackgroundCompletion_ReturnsImmediately_RetriesReuseOneJob_ReceiptSurvivesRestart()
+    {
+        var apiKey = await CreateApiKeyAsync(withManageRepos: true);
+        var archive = CreateApkgArchive("""
+            <ApkgPackage><Name>background-test</Name><Distro>anduinos</Distro><Component>main</Component>
+            <Entries><Entry><DebFile>test.deb</DebFile><Suite>unmatched</Suite><Architecture>all</Architecture></Entry></Entries>
+            </ApkgPackage>
+            """, ("test.deb", new byte[64]));
+        var sessionId = await InitSessionAsync(apiKey, archive, 1);
+        await UploadChunkAsync(apiKey, sessionId, 0, archive);
+        var queue = GetService<ServiceTaskQueue>();
+        var release = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var started = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        queue.QueueWithDependency<FeatureFoldersProvider>("Chunked uploads", "Hold import queue", _ =>
+        {
+            started.SetResult();
+            return release.Task;
+        });
+        await started.Task.WaitAsync(TimeSpan.FromSeconds(10));
+        try
+        {
+            var timer = Stopwatch.StartNew();
+            var submissions = await Task.WhenAll(Enumerable.Range(0, 5).Select(_ => SubmitAsync(apiKey, sessionId)));
+            foreach (var response in submissions)
+            {
+                using (response)
+                {
+                    Assert.AreEqual(HttpStatusCode.Accepted, response.StatusCode);
+                    Assert.IsTrue(response.Headers.Location!.ToString().EndsWith($"/{sessionId}/status"));
+                    using var json = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+                    Assert.AreEqual("Queued", json.RootElement.GetProperty("status").GetString());
+                }
+            }
+            Assert.IsTrue(timer.Elapsed < TimeSpan.FromSeconds(5), "Acceptance must not wait for import.");
+            Assert.AreEqual(1, queue.GetAllTasks().Count(t => t.TaskName == $"Process upload {sessionId}"));
+            using var lateChunk = new HttpRequestMessage(HttpMethod.Put, $"/api/upload/{sessionId}/chunks/0");
+            lateChunk.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+            lateChunk.Content = new ByteArrayContent(archive);
+            using var rejected = await Http.SendAsync(lateChunk);
+            Assert.AreEqual(HttpStatusCode.Conflict, rejected.StatusCode);
+        }
+        finally
+        {
+            release.TrySetResult();
+        }
+        var result = await WaitForResultAsync(apiKey, sessionId);
+        Assert.AreEqual("Succeeded", result.GetProperty("status").GetString());
+        Assert.AreEqual(200, result.GetProperty("statusCode").GetInt32());
+        Assert.AreEqual(JsonValueKind.Array, result.GetProperty("result").GetProperty("warnings").ValueKind);
+        using var restarted = new ChunkedUploadService(GetService<FeatureFoldersProvider>(), new ServiceTaskQueue(),
+            GetService<ILogger<ChunkedUploadService>>());
+        var receipt = await restarted.LoadAsync(sessionId);
+        Assert.AreEqual("Succeeded", receipt!.Completion!.Status);
+        Assert.AreEqual(result.GetProperty("result").GetRawText(), receipt.Completion.Result!.Value.GetRawText());
+    }
+
+    [TestMethod]
+    public async Task BackgroundCompletion_HashFailure_IsDurable_AndCannotBeResubmitted()
+    {
+        var apiKey = await CreateApiKeyAsync();
+        var sessionId = await InitSessionAsync(apiKey, new byte[64], 1);
+        await UploadChunkAsync(apiKey, sessionId, 0, new byte[63]);
+        using var accepted = await SubmitAsync(apiKey, sessionId);
+        Assert.AreEqual(HttpStatusCode.Accepted, accepted.StatusCode);
+        var result = await WaitForResultAsync(apiKey, sessionId);
+        Assert.AreEqual("Failed", result.GetProperty("status").GetString());
+        Assert.AreEqual(400, result.GetProperty("statusCode").GetInt32());
+        StringAssert.Contains(result.GetProperty("result").GetProperty("error").GetString()!, "Hash mismatch");
+        using var repeated = await SubmitAsync(apiKey, sessionId);
+        using var json = JsonDocument.Parse(await repeated.Content.ReadAsStringAsync());
+        Assert.AreEqual(result.GetRawText(), json.RootElement.GetRawText());
+    }
+
+    [TestMethod]
+    public async Task BackgroundStatus_EnforcesOwnership_AndAuthentication()
+    {
+        var owner = await CreateApiKeyAsync();
+        var other = await CreateApiKeyAsync();
+        var sessionId = await InitSessionAsync(owner, new byte[64], 1);
+        using var noAuth = await Http.GetAsync($"/api/upload/{sessionId}/status");
+        Assert.AreEqual(HttpStatusCode.Unauthorized, noAuth.StatusCode);
+        using var denied = await StatusAsync(other, sessionId);
+        Assert.AreEqual(HttpStatusCode.Forbidden, denied.StatusCode);
+        using var submitDenied = await SubmitAsync(other, sessionId);
+        Assert.AreEqual(HttpStatusCode.Forbidden, submitDenied.StatusCode);
+        using var missing = await StatusAsync(owner, Guid.NewGuid().ToString("N"));
+        Assert.AreEqual(HttpStatusCode.NotFound, missing.StatusCode);
+    }
+
+    [TestMethod]
+    public async Task BackgroundStatus_InterruptedProcessing_ReturnsFailureAfterRestart()
+    {
+        var apiKey = await CreateApiKeyAsync();
+        var sessionId = await InitSessionAsync(apiKey, new byte[64], 1);
+        var uploads = GetService<ChunkedUploadService>();
+        var session = (await uploads.LoadAsync(sessionId))!;
+        session.Completion = new Sdk.Models.ChunkedUploadStatus { Status = "Processing" };
+        session.ProcessingInstanceId = Guid.NewGuid();
+        session.JobId = Guid.NewGuid();
+        await File.WriteAllTextAsync(Path.Combine(uploads.GetSessionDirectory(sessionId), "session.json"),
+            JsonSerializer.Serialize(session, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }));
+        using var response = await StatusAsync(apiKey, sessionId);
+        Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        using var json = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+        Assert.AreEqual("Failed", json.RootElement.GetProperty("status").GetString());
+        StringAssert.Contains(json.RootElement.GetProperty("result").GetProperty("error").GetString()!, "interrupted");
+        Assert.AreEqual("Failed", (await uploads.LoadAsync(sessionId))!.Completion!.Status);
+    }
+
+    [TestMethod]
+    public async Task BackgroundCompletion_SdkWaitsForActualImport_AndDuplicateDoesNotWriteAgain()
+    {
+        var apiKey = await CreateApiKeyAsync(withManageRepos: true);
+        var suite = $"background-{Guid.NewGuid():N}";
+        var repo = new AptRepository { Name = suite, Distro = "anduinos", Suite = suite, Components = "main", Architecture = "amd64" };
+        _db.AptRepositories.Add(repo);
+        await _db.SaveChangesAsync();
+        var work = Path.Combine(Path.GetTempPath(), $"apkg-background-{Guid.NewGuid():N}");
+        Directory.CreateDirectory(Path.Combine(work, "stage", "DEBIAN"));
+        var archive = Path.Combine(work, "test.apkg");
+        var release = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var started = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var queue = GetService<ServiceTaskQueue>();
+        queue.QueueWithDependency<FeatureFoldersProvider>("Chunked uploads", "Hold for SDK import test", _ =>
+        {
+            started.SetResult();
+            return release.Task;
+        });
+        await started.Task.WaitAsync(TimeSpan.FromSeconds(10));
+        try
+        {
+            await File.WriteAllTextAsync(Path.Combine(work, "stage", "DEBIAN", "control"),
+                "Package: background-import-test\nVersion: 1.0\nArchitecture: all\nMaintainer: Test <test@example.com>\nDescription: Background import test\n");
+            var start = new ProcessStartInfo("dpkg-deb") { RedirectStandardOutput = true, RedirectStandardError = true };
+            start.ArgumentList.Add("--build");
+            start.ArgumentList.Add("--root-owner-group");
+            start.ArgumentList.Add(Path.Combine(work, "stage"));
+            start.ArgumentList.Add(Path.Combine(work, "test.deb"));
+            using (var process = Process.Start(start)!)
+            {
+                await process.WaitForExitAsync();
+                Assert.AreEqual(0, process.ExitCode, await process.StandardError.ReadToEndAsync());
+            }
+            await File.WriteAllBytesAsync(archive, CreateApkgArchive($"""
+                <ApkgPackage><Name>background-import-test</Name><Distro>anduinos</Distro><Component>main</Component>
+                <Entries><Entry><DebFile>test.deb</DebFile><Suite>{suite}</Suite><Architecture>all</Architecture></Entry></Entries>
+                </ApkgPackage>
+                """, ("test.deb", await File.ReadAllBytesAsync(Path.Combine(work, "test.deb")))));
+            var service = new Sdk.Services.ApkgPushService(Http);
+            var push = service.PushChunkedAsync(archive, Http.BaseAddress!.ToString(), apiKey, true, false, 100);
+            // The upload must not finish while its import is queued.
+            await Task.Delay(300);
+            Assert.IsFalse(push.IsCompleted);
+            Assert.AreEqual(0, _db.ApkgDebPackages.Count(p => p.RepositoryId == repo.Id));
+            release.SetResult();
+            using var result = JsonDocument.Parse(await push.WaitAsync(TimeSpan.FromSeconds(30)));
+            Assert.AreEqual(1, result.RootElement.GetProperty("uploaded").GetArrayLength());
+            var saved = _db.ApkgDebPackages.Single(p => p.RepositoryId == repo.Id);
+            Assert.AreEqual("background-import-test", saved.Package);
+            Assert.AreEqual("1.0", saved.Version);
+            Assert.AreEqual("all", saved.Architecture);
+            using var duplicate = JsonDocument.Parse(await service.PushChunkedAsync(
+                archive, Http.BaseAddress!.ToString(), apiKey, true, false, 100));
+            Assert.AreEqual(0, duplicate.RootElement.GetProperty("uploaded").GetArrayLength());
+            Assert.IsTrue(duplicate.RootElement.GetProperty("warnings").GetArrayLength() > 0);
+            Assert.AreEqual(1, _db.ApkgDebPackages.Count(p => p.RepositoryId == repo.Id));
+        }
+        finally
+        {
+            release.TrySetResult();
+            Directory.Delete(work, recursive: true);
+        }
+    }
+
+    [TestMethod]
+    public async Task CleanupJob_PreservesActiveUploads_AndCancelledJobReportsFailure()
+    {
+        var apiKey = await CreateApiKeyAsync();
+        var sessionId = await InitSessionAsync(apiKey, new byte[64], 1);
+        await UploadChunkAsync(apiKey, sessionId, 0, new byte[64]);
+        var queue = GetService<ServiceTaskQueue>();
+        var release = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        var started = new TaskCompletionSource(TaskCreationOptions.RunContinuationsAsynchronously);
+        queue.QueueWithDependency<FeatureFoldersProvider>("Chunked uploads", "Hold for cleanup test", _ =>
+        {
+            started.SetResult();
+            return release.Task;
+        });
+        await started.Task.WaitAsync(TimeSpan.FromSeconds(10));
+        try
+        {
+            using var submitted = await SubmitAsync(apiKey, sessionId);
+            Assert.AreEqual(HttpStatusCode.Accepted, submitted.StatusCode);
+            var uploads = GetService<ChunkedUploadService>();
+            var dir = uploads.GetSessionDirectory(sessionId);
+            var path = Path.Combine(dir, "session.json");
+            var json = System.Text.Json.Nodes.JsonNode.Parse(await File.ReadAllTextAsync(path))!;
+            json["createdAtUtc"] = DateTime.UtcNow.AddHours(-25);
+            await File.WriteAllTextAsync(path, json.ToJsonString());
+            await uploads.CleanupExpiredAsync();
+            Assert.IsTrue(File.Exists(Path.Combine(dir, "chunk_0")), "An active upload must not be cleaned up.");
+            var session = (await uploads.LoadAsync(sessionId))!;
+            Assert.IsTrue(queue.CancelTask(session.JobId!.Value));
+            var result = await WaitForResultAsync(apiKey, sessionId);
+            Assert.AreEqual("Failed", result.GetProperty("status").GetString());
+            await uploads.CleanupExpiredAsync();
+            Assert.IsTrue(File.Exists(path), "The final receipt is retained for 24 hours after completion.");
+            json = System.Text.Json.Nodes.JsonNode.Parse(await File.ReadAllTextAsync(path))!;
+            json["completion"]!["completedAtUtc"] = DateTime.UtcNow.AddHours(-25);
+            await File.WriteAllTextAsync(path, json.ToJsonString());
+            await uploads.CleanupExpiredAsync();
+            Assert.IsFalse(Directory.Exists(dir));
+        }
+        finally { release.TrySetResult(); }
     }
 }

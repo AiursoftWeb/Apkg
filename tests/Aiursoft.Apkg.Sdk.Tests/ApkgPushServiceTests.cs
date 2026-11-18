@@ -139,6 +139,138 @@ public class ApkgPushServiceTests
         }
     }
 
+    [TestMethod]
+    public async Task PushChunkedAsync_WaitsForFinalReceipt_AndRetriesShortRequestsOnly()
+    {
+        var chunks = 0;
+        var complete = 0;
+        var polls = 0;
+        var service = CreateService(request =>
+        {
+            Assert.AreEqual("secret-key", request.Headers.Authorization!.Parameter);
+            var path = request.RequestUri!.AbsolutePath;
+            if (path.EndsWith("/init"))
+                return JsonResponse(HttpStatusCode.OK, "{\"sessionId\":\"one-session\",\"backgroundCompletion\":true}");
+            if (path.Contains("/chunks/"))
+            {
+                chunks++;
+                return JsonResponse(HttpStatusCode.OK, "{}");
+            }
+            if (path.EndsWith("/complete"))
+            {
+                Assert.AreEqual("?background=true", request.RequestUri.Query);
+                complete++;
+                return complete == 1
+                    ? JsonResponse(HttpStatusCode.BadGateway, "gateway error")
+                    : JsonResponse(HttpStatusCode.Accepted, "{\"status\":\"Queued\"}");
+            }
+            Assert.IsTrue(path.EndsWith("/one-session/status"));
+            polls++;
+            return polls switch
+            {
+                1 => JsonResponse(HttpStatusCode.ServiceUnavailable, "try again"),
+                2 => JsonResponse(HttpStatusCode.OK, "{\"status\":\"Processing\"}"),
+                _ => JsonResponse(HttpStatusCode.OK,
+                    "{\"status\":\"Succeeded\",\"statusCode\":200,\"result\":{\"uploaded\":[],\"warnings\":[],\"errors\":[]}}")
+            };
+        });
+        var archive = await CreateArchiveAsync(2);
+        try
+        {
+            var result = await service.PushChunkedAsync(archive, "https://apkg.example.com", "secret-key", true, false, 100);
+            Assert.AreEqual(2, complete);
+            Assert.AreEqual(3, polls);
+            Assert.AreEqual((int)Math.Ceiling(new FileInfo(archive).Length / 100.0), chunks);
+            StringAssert.Contains(result, "\"uploaded\":[]");
+        }
+        finally { File.Delete(archive); }
+    }
+
+    [TestMethod]
+    [DataRow("{\"status\":\"Failed\",\"statusCode\":400,\"result\":{\"error\":\"Hash mismatch\"}}")]
+    [DataRow("{\"status\":\"Succeeded\"}")]
+    [DataRow("{\"status\":\"Unknown\"}")]
+    public async Task PushChunkedAsync_DoesNotReportAcceptedOrInvalidReceiptAsSuccess(string receipt)
+    {
+        var service = CreateService(request => request.RequestUri!.AbsolutePath.EndsWith("/init")
+            ? JsonResponse(HttpStatusCode.OK, "{\"sessionId\":\"one-session\",\"backgroundCompletion\":true}")
+            : request.RequestUri.AbsolutePath.EndsWith("/complete")
+                ? JsonResponse(HttpStatusCode.Accepted, receipt)
+                : JsonResponse(HttpStatusCode.OK, "{}"));
+        var archive = await CreateArchiveAsync(2);
+        try
+        {
+            await Assert.ThrowsExactlyAsync<InvalidOperationException>(() =>
+                service.PushChunkedAsync(archive, "https://apkg.example.com", "secret-key", true, false, 100));
+        }
+        finally { File.Delete(archive); }
+    }
+
+    [TestMethod]
+    [DataRow(HttpStatusCode.Unauthorized)]
+    [DataRow(HttpStatusCode.Forbidden)]
+    [DataRow(HttpStatusCode.Conflict)]
+    [DataRow(HttpStatusCode.BadRequest)]
+    public async Task PushChunkedAsync_RejectedSubmission_Fails(HttpStatusCode code)
+    {
+        var service = CreateService(request => request.RequestUri!.AbsolutePath.EndsWith("/init")
+            ? JsonResponse(HttpStatusCode.OK, "{\"sessionId\":\"one-session\",\"backgroundCompletion\":true}")
+            : request.RequestUri.AbsolutePath.EndsWith("/complete")
+                ? JsonResponse(code, "{\"error\":\"Rejected\"}")
+                : JsonResponse(HttpStatusCode.OK, "{}"));
+        var archive = await CreateArchiveAsync(2);
+        try
+        {
+            var error = await Assert.ThrowsExactlyAsync<InvalidOperationException>(() =>
+                service.PushChunkedAsync(archive, "https://apkg.example.com", "secret-key", true, false, 100));
+            StringAssert.Contains(error.Message, "Rejected");
+        }
+        finally { File.Delete(archive); }
+    }
+
+    [TestMethod]
+    public async Task PushChunkedAsync_CancelledTokenStopsWaiting()
+    {
+        var cancellationToken = new CancellationToken(canceled: true);
+        var service = CreateService(request =>
+        {
+            if (request.RequestUri!.AbsolutePath.EndsWith("/init"))
+                return JsonResponse(HttpStatusCode.OK, "{\"sessionId\":\"one-session\",\"backgroundCompletion\":true}");
+            if (request.RequestUri.AbsolutePath.EndsWith("/complete"))
+            {
+                return JsonResponse(HttpStatusCode.Accepted, "{\"status\":\"Queued\"}");
+            }
+            return JsonResponse(HttpStatusCode.OK, "{}");
+        });
+        var archive = await CreateArchiveAsync(2);
+        try
+        {
+            await Assert.ThrowsAsync<OperationCanceledException>(() =>
+                service.PushChunkedAsync(archive, "https://apkg.example.com", "secret-key", true, false, 100, null, cancellationToken));
+        }
+        finally { File.Delete(archive); }
+    }
+
+    [TestMethod]
+    public async Task PushChunkedAsync_OlderServer_ReturnsSynchronousSummary()
+    {
+        var service = CreateService(request => request.RequestUri!.AbsolutePath.EndsWith("/init")
+            ? JsonResponse(HttpStatusCode.OK, "{\"sessionId\":\"one-session\"}")
+            : JsonResponse(HttpStatusCode.OK, "{\"uploaded\":[],\"errors\":[]}"));
+        var archive = await CreateArchiveAsync(2);
+        try
+        {
+            var result = await service.PushChunkedAsync(archive, "https://apkg.example.com", "secret-key", true, false, 100);
+            Assert.AreEqual("{\"uploaded\":[],\"errors\":[]}", result);
+        }
+        finally { File.Delete(archive); }
+    }
+
+    private static HttpResponseMessage JsonResponse(HttpStatusCode code, string body) => new(code)
+    {
+        Content = new StringContent(body, Encoding.UTF8, "application/json")
+    };
+
     private static ApkgPushService CreateService(
         Func<HttpRequestMessage, HttpResponseMessage> responseFactory)
     {

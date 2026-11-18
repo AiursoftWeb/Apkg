@@ -1,3 +1,5 @@
+using Aiursoft.Apkg.Sdk.Models;
+
 namespace Aiursoft.Apkg.Models;
 
 /// <summary>
@@ -19,6 +21,10 @@ public class ChunkedUploadSession
     public required string UserId { get; init; }
     public required DateTime CreatedAtUtc { get; init; }
     
+    public Guid? ProcessingInstanceId { get; set; }
+    public Guid? JobId { get; set; }
+    public ChunkedUploadStatus? Completion { get; set; }
+
     public bool SkipDuplicate { get; init; }
     public bool AllowDowngrade { get; init; }
 }

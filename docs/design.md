@@ -177,6 +177,14 @@ bin/pkgname.apkg
 
 构建中间使用 `dpkg-deb --build --root-owner-group`，在 obj/ 目录下完成。全程不出现 DEBIAN/control 手工操作。
 
+### 4.3 大包上传回执
+
+分块上传的 `init` 响应通过 `backgroundCompletion: true` 声明异步完成能力。新版 SDK 上传完分块后调用 `POST /api/upload/{sessionId}/complete?background=true`，获得 HTTP 202，并通过同一上传者授权的 `GET /api/upload/{sessionId}/status` 等待 `Queued → Processing → Succeeded / Failed`。合并、哈希与长度校验、解包及入库均由现有任务队列执行。
+
+重复 Complete 复用同一任务；提交后不再允许覆盖分块。最终 HTTP 处理码与原始上传结果原子写入已有 `session.json`，CLI 只在最终成功后退出成功。短请求使用 30 秒超时和最多三次尝试，整体完成等待上限一小时。服务重启或任务取消后，未完成的任务明确返回失败，提示先检查已经入库的包；不自动重放部分完成的上传。
+
+处理完成后释放大文件，保留回执 24 小时，再由现有清理任务删除。清理不会删除活动任务。旧 CLI 仍获取同步最终结果；新 SDK 访问未声明该能力的旧服务器时保留原同步流程与等待时限。上线时先更新服务端，再更新 CLI；各项目 CI 命令保持不变。
+
 ## 5. LocalPackage 覆盖规则
 
 LocalPackage 是用户手动上传的 .deb，代表对上游 Mirror 包的"最终话语权"。
