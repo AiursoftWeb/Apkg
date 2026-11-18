@@ -55,7 +55,7 @@ SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
                 var pkgHash = BitConverter.ToString(SHA256.HashData(Encoding.UTF8.GetBytes(pkgContent))).Replace("-", "").ToLowerInvariant();
 
                 var response = $@"Codename: focal
-Date: {DateTime.UtcNow}
+Date: Mon, 01 Jun 2026 00:00:00 GMT
 Content: {Content}
 SHA256:
  {pkgHash} {Encoding.UTF8.GetByteCount(pkgContent)} main/binary-amd64/Packages
