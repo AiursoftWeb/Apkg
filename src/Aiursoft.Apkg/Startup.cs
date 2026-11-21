@@ -13,7 +13,6 @@ using Aiursoft.Apkg.Services.Authentication;
 using Aiursoft.Apkg.Services.BackgroundJobs;
 using Aiursoft.Apkg.Services;
 using Aiursoft.Apkg.Sqlite;
-using Aiursoft.UiStack;
 using Aiursoft.Apkg.Sdk;
 using Aiursoft.UiStack.Layout;
 using Aiursoft.UiStack.Navigation;
@@ -166,7 +165,6 @@ public class Startup : IWebStartup
     {
         app.UseExceptionHandler("/Error/Code500");
         app.UseStatusCodePagesWithReExecute("/Error/Code{0}");
-        app.UseUIStack();
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAuthentication();
