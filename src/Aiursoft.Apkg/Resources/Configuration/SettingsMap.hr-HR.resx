@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name=" The link to the brand&apos;s home page." xml:space="preserve">
+    <value>Poveznica na početnu stranicu brenda.</value>
+  </data>
+  <data name="A dummy choice for testing." xml:space="preserve">
+    <value>Lažni izbor za testiranje.</value>
+  </data>
+  <data name="A dummy number for testing." xml:space="preserve">
+    <value>Lažni broj za testiranje.</value>
+  </data>
+  <data name="Allow Anonymous Browse Repository" xml:space="preserve">
+    <value>Dozvoli anonimno pregledavanje repozitorija</value>
+  </data>
+  <data name="Allow Anonymous View Package Details" xml:space="preserve">
+    <value>Dozvoli anonimno pregledavanje detalja paketa</value>
+  </data>
+  <data name="Allow User Adjust Nickname" xml:space="preserve">
+    <value>Dozvoli korisniku prilagodbu nadimka</value>
+  </data>
+  <data name="Allow anonymous users to browse repositories and their packages without login." xml:space="preserve">
+    <value>Dozvoli anonimnim korisnicima da pregledavaju repozitorije i njihove pakete bez prijave.</value>
+  </data>
+  <data name="Allow anonymous users to view package details without login." xml:space="preserve">
+    <value>Dozvoli anonimnim korisnicima da pregledaju detalje paketa bez prijave.</value>
+  </data>
+  <data name="Allow users to adjust their nickname in the profile management page." xml:space="preserve">
+    <value>Dozvolite korisnicima da prilagode svoje nadimke na stranici za upravljanje profilom.</value>
+  </data>
+  <data name="Brand Home URL" xml:space="preserve">
+    <value>URL početne stranice brenda</value>
+  </data>
+  <data name="Brand Name" xml:space="preserve">
+    <value>Naziv brenda</value>
+  </data>
+  <data name="Dummy Choice" xml:space="preserve">
+    <value>Lažni izbor</value>
+  </data>
+  <data name="Dummy Number" xml:space="preserve">
+    <value>Privremeni broj</value>
+  </data>
+  <data name="ICP Number" xml:space="preserve">
+    <value>ICP broj</value>
+  </data>
+  <data name="Project Logo" xml:space="preserve">
+    <value>Logo projekta</value>
+  </data>
+  <data name="Project Name" xml:space="preserve">
+    <value>Naziv projekta</value>
+  </data>
+  <data name="Public APT Server Domain" xml:space="preserve">
+    <value>Javna domena APT poslužitelja</value>
+  </data>
+  <data name="Public base URL used in generated APT sources and AppStream screenshot links, for example https://packages.example.com. Set it when /artifacts is served by a separate domain or CDN. It may be left empty when this web app serves the repository itself, unless AppStream screenshots are published; background catalog generation cannot infer their public URL." xml:space="preserve">
+    <value>Javna osnovna URL adresa koja se koristi u generiranim APT izvorima i AppStream vezama do slika, na primjer https://packages.example.com. Postavite je kada se /artifacts poslužuje s zasebnog domene ili CDN-a. Može se ostaviti praznom kada ova web aplikacija sama poslužuje repozitorij, osim ako se objavljuju AppStream slike; pozadinsko generiranje kataloga ne može zaključiti njihovu javnu URL adresu.</value>
+  </data>
+  <data name="The ICP license number for China mainland users. Leave empty to hide." xml:space="preserve">
+    <value>Broj ICP licence za korisnike u kontinentalnoj Kini. Ostavite prazno za skrivanje.</value>
+  </data>
+  <data name="The brand name displayed in the footer." xml:space="preserve">
+    <value>Naziv brenda prikazan u podnožju.</value>
+  </data>
+  <data name="The logo of the project displayed in the navbar and footer. Support jpg, png, svg." xml:space="preserve">
+    <value>Logotip projekta prikazan u navigacijskoj traci i podnožju. Podržani formati: jpg, png, svg.</value>
+  </data>
+  <data name="The name of the project displayed in the frontend." xml:space="preserve">
+    <value>Naziv projekta prikazan u sučelju.</value>
+  </data>
+
+</root>
