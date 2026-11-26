@@ -271,13 +271,16 @@ public class DebBuilderTests
             Assert.IsTrue(File.Exists(postinst), "postinst should be generated.");
             var postinstContent = await File.ReadAllTextAsync(postinst);
             Assert.IsTrue(postinstContent.Contains("systemctl enable myapp.service"));
-            Assert.IsTrue(postinstContent.Contains("systemctl start myapp.service"));
+            Assert.IsTrue(postinstContent.Contains("deb-systemd-invoke start myapp.service"));
+            Assert.IsTrue(postinstContent.Contains("masked|masked-runtime)"));
+            Assert.IsTrue(postinstContent.Contains("systemctl --quiet is-active myapp.service"));
+            Assert.IsTrue(postinstContent.Contains("deb-systemd-invoke restart myapp.service"));
 
             // Check DEBIAN/prerm exists and has systemd stop
             var prerm = Path.Combine(staging, "DEBIAN", "prerm");
             Assert.IsTrue(File.Exists(prerm), "prerm should be generated.");
             var prermContent = await File.ReadAllTextAsync(prerm);
-            Assert.IsTrue(prermContent.Contains("systemctl stop myapp.service"));
+            Assert.IsTrue(prermContent.Contains("deb-systemd-invoke stop myapp.service"));
 
             // Check DEBIAN/postrm exists and has systemd disable
             var postrm = Path.Combine(staging, "DEBIAN", "postrm");
@@ -4017,7 +4020,7 @@ public class DebBuilderTests
                     $"Expected systemctl preset, got:\n{postinst}");
                 Assert.IsFalse(postinst.Contains("systemctl enable zram.service"),
                     "UsePreset=true should NOT generate systemctl enable");
-                Assert.IsTrue(postinst.Contains("systemctl start zram.service"),
+                Assert.IsTrue(postinst.Contains("deb-systemd-invoke start zram.service"),
                     "start should still be present even with preset");
             }
             finally
@@ -4125,7 +4128,7 @@ public class DebBuilderTests
                 var postinst = await File.ReadAllTextAsync(postinstPath);
                 Assert.IsTrue(postinst.Contains("systemctl enable mysvc.service"),
                     $"Expected systemctl enable in auto-generated postinst:\n{postinst}");
-                Assert.IsTrue(postinst.Contains("systemctl start mysvc.service"),
+                Assert.IsTrue(postinst.Contains("deb-systemd-invoke start mysvc.service"),
                     "Expected systemctl start in auto-generated postinst");
 
                 // prerm should also be generated
