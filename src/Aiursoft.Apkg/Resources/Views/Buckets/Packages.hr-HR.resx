@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Architecture" xml:space="preserve">
+    <value>Arhitektura</value>
+  </data>
+  <data name="Back to Buckets" xml:space="preserve">
+    <value>Natrag na košare</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Komponenta</value>
+  </data>
+  <data name="File is hosted on the upstream mirror. apt clients download it directly from the mirror URL." xml:space="preserve">
+    <value>Datoteka je poslužena s gornjeg ogledala. apt klijenti preuzimaju je izravno s URL-a ogledala.</value>
+  </data>
+  <data name="File is stored locally on this server. apt clients download it from here." xml:space="preserve">
+    <value>Datoteka je pohranjena lokalno na ovom poslužitelju. apt klijenti je preuzimaju odavde.</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Dalje</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="Packages in Bucket" xml:space="preserve">
+    <value>Paketi u spremištu</value>
+  </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fizički</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Prethodna</value>
+  </data>
+  <data name="Showing" xml:space="preserve">
+    <value>Prikazujem</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Veličina</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Verzija</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtuelno</value>
+  </data>
+  <data name="Virtual: file is hosted on the upstream mirror and downloaded on-demand by apt clients. Physical: file is stored locally on this server." xml:space="preserve">
+    <value>Virtuelno: datoteka je smještena na gornjem ogledalu i preuzima se po potrebi od strane apt klijenata. Fizički: datoteka je pohranjena lokalno na ovom poslužitelju.</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>od</value>
+  </data>
+  <data name="packages" xml:space="preserve">
+    <value>paketa</value>
+  </data>
+
+</root>

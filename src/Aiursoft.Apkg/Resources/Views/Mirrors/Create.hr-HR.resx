@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Add New Mirror" xml:space="preserve">
+    <value>Dodaj novi zrcalo</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitektura</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponente</value>
+  </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Uredi ogledalo</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages belonging to one of these components are downloaded and stored. Comma-separated (e.g. main,universe,multiverse,restricted). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Strogi filter primijenjen tijekom Mirror Synca: preuzimaju se i pohranjuju samo paketi koji pripadaju jednom od ovih komponenti. Odvojeno zarezima (npr. main,universe,multiverse,restricted). Promjene stupaju na snagu pri sljedećem pokretanju Mirror Sync posla.</value>
+  </data>
+  <data name="Hard filter applied during Mirror Sync: only packages whose architecture matches one of these values are downloaded and stored. Comma-separated (e.g. amd64,arm64). Changes take effect on the next Mirror Sync job run." xml:space="preserve">
+    <value>Oštar filter primijenjen tijekom Mirror Sync-a: preuzimaju se i spremaju samo paketi čija arhitektura odgovara jednom od ovih vrijednosti. Odvojeno zarezom (npr. amd64,arm64). Promjene stupaju na snagu pri sljedećem pokretanju posla Mirror Sync-a.</value>
+  </data>
+  <data name="If checked, no signature verification will be performed. Use at your own risk." xml:space="preserve">
+    <value>Ako je označeno, provjera potpisa se neće izvoditi. Koristite na vlastitu odgovornost.</value>
+  </data>
+  <data name="Path to the local GPG keyring file for verifying upstream signatures. Leave blank to skip verification." xml:space="preserve">
+    <value>Putanja do lokalne GPG datoteke ključnog prstena za provjeru gornjih potpisa. Ostavite prazno za preskakanje provjere.</value>
+  </data>
+  <data name="Save Changes" xml:space="preserve">
+    <value>Spremi promjene</value>
+  </data>
+  <data name="The URL prefix for this mirror (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>URL prefiks za ovaj ogledalo (npr. &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="The base URL of the upstream server (e.g. &apos;https://mirrors.ubuntu.com/&apos;). Distro name will be appended automatically." xml:space="preserve">
+    <value>Osnovna URL adresa poslužitelja izvora (npr. &apos;https://mirrors.ubuntu.com/&apos;). Ime distribucije bit će automatski dodano.</value>
+  </data>
+
+</root>

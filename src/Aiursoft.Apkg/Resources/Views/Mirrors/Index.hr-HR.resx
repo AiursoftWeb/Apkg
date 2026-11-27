@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Akcije</value>
+  </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Dodaj novi ogledalo</value>
+  </data>
+  <data name="An upstream mirror syncs package metadata from an external APT repository (like Ubuntu) into APKG. It&apos;s the data source for your local repositories." xml:space="preserve">
+    <value>Gornji ogledalo sinkronizira metapodatke paketa iz vanjskog APT repozitorija (poput Ubuntuja) u APKG. To je izvor podataka za vaše lokalne repozitorije.</value>
+  </data>
+  <data name="Arch" xml:space="preserve">
+    <value>Arhitektura</value>
+  </data>
+  <data name="Are you sure you want to delete mirror" xml:space="preserve">
+    <value>Jeste li sigurni da želite obrisati ogledalo</value>
+  </data>
+  <data name="Base URL" xml:space="preserve">
+    <value>Osnovni URL</value>
+  </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Pregledaj pakete</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponente</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Potvrdi brisanje</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Obriši</value>
+  </data>
+  <data name="Delete Mirror" xml:space="preserve">
+    <value>Obriši ogledalo</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distro</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="Error:" xml:space="preserve">
+    <value>Greška:</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Neuspjelo</value>
+  </data>
+  <data name="Insecure Source" xml:space="preserve">
+    <value>Nezajedljiv izvor</value>
+  </data>
+  <data name="Last Pull" xml:space="preserve">
+    <value>Zadnje preuzimanje</value>
+  </data>
+  <data name="Mirrors run on a schedule. Check the &apos;Last Pull&apos; column to see when each mirror was last synchronized." xml:space="preserve">
+    <value>Zrcala rade prema rasporedu. Provjerite stupac &apos;Zadnje preuzimanje&apos; da biste vidjeli kada je svako zrcalo zadnje sinkronizirano.</value>
+  </data>
+  <data name="Never Pull" xml:space="preserve">
+    <value>Nikad nije povučen</value>
+  </data>
+  <data name="Never Synced" xml:space="preserve">
+    <value>Nikad sinkronizirano</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Paketi</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>Na čekanju</value>
+  </data>
+  <data name="Pending Verification" xml:space="preserve">
+    <value>Čekanje provjere</value>
+  </data>
+  <data name="Primary Bucket" xml:space="preserve">
+    <value>Primarni spremnik</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>Sekundarni spremnik</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Uspjeh</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+  <data name="Sync Error Stack Trace" xml:space="preserve">
+    <value>Staz pogreške sinkronizacije</value>
+  </data>
+  <data name="Sync Failed" xml:space="preserve">
+    <value>Neuspjela sinkronizacija</value>
+  </data>
+  <data name="Synced" xml:space="preserve">
+    <value>Sinkronizirano</value>
+  </data>
+  <data name="The live snapshot currently served to apt clients. A new bucket becomes primary only after a Mirror Sync completes successfully." xml:space="preserve">
+    <value>Uživi snimka trenutačno posluživan apt klijentima. Novi spremište postaje primarno tek nakon što se sinkronizacija zrcala uspješno dovrši.</value>
+  </data>
+  <data name="The snapshot being built by a running Mirror Sync job. It replaces the Primary Bucket when the job succeeds; the old primary is then eligible for garbage collection." xml:space="preserve">
+    <value>Snimka koja se izrađuje od strane pokrenutog posla Mirror Sync. Zamjenjuje Primarni spremnik kada posao uspije; stari primarni spremnik tada je sposoban za prikupljanje smeća.</value>
+  </data>
+  <data name="This will also delete all associated packages and buckets!" xml:space="preserve">
+    <value>Time će također izbrisati sve povezane pakete i spremnike!</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Savjet:</value>
+  </data>
+  <data name="Unprotected" xml:space="preserve">
+    <value>Nezaštićeno</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Gornji ogledala</value>
+  </data>
+  <data name="Verification Failed" xml:space="preserve">
+    <value>Neuspjela provjera</value>
+  </data>
+  <data name="Verified" xml:space="preserve">
+    <value>Provjereno</value>
+  </data>
+  <data name="What is a Mirror?" xml:space="preserve">
+    <value>Što je ogledalo?</value>
+  </data>
+  <data name="items" xml:space="preserve">
+    <value>stavke</value>
+  </data>
+
+</root>

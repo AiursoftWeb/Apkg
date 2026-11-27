@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Radnje</value>
+  </data>
+  <data name="An APT repository serves .deb packages to your systems. Think of it as a private app store — you control what packages are available." xml:space="preserve">
+    <value>APT repozitorij isporučuje .deb pakete na vaše sustave. Zamislite ga kao privatnu trgovinu aplikacijama — vi kontrolirate koji su paketi dostupni.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitektura</value>
+  </data>
+  <data name="Are you sure you want to delete repository" xml:space="preserve">
+    <value>Jeste li sigurni da želite izbrisati repozitorij</value>
+  </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Pregled paketa</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>Certifikat</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Potvrdi brisanje</value>
+  </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>Kreiraj novo spremište</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Izbriši</value>
+  </data>
+  <data name="Delete Repository" xml:space="preserve">
+    <value>Izbriši repozitorij</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalji</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distro</value>
+  </data>
+  <data name="Each repository maps to a suite (e.g. questing). Use &lt;code&gt;apkg add-source&lt;/code&gt; to configure a repo on your machine." xml:space="preserve">
+    <value>Svaki repozitorij je preslikan na suitu (npr. questing). Koristite &lt;code&gt;apkg add-source&lt;/code&gt; za konfiguraciju repozitorija na vašem računalu.</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="Live Bucket" xml:space="preserve">
+    <value>Aktivni spremište</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Naziv</value>
+  </data>
+  <data name="No Certificate" xml:space="preserve">
+    <value>Nema certifikata</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Javni repozitoriji</value>
+  </data>
+  <data name="Secondary Bucket" xml:space="preserve">
+    <value>Sekundarni spremnik</value>
+  </data>
+  <data name="Signature" xml:space="preserve">
+    <value>Potpis</value>
+  </data>
+  <data name="Signed" xml:space="preserve">
+    <value>Potpisano</value>
+  </data>
+  <data name="Signed at" xml:space="preserve">
+    <value>Potpisano u</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+  <data name="The active snapshot currently served to apt clients. Becomes live after a Repository Sync completes successfully." xml:space="preserve">
+    <value>Aktivni snimke trenutno poslužene apt klijentima. Postaje aktivna nakon što se Sinkronizacija repozitorija uspješno dovrši.</value>
+  </data>
+  <data name="The snapshot being built by a running Repository Sync job. It replaces the live bucket when the job succeeds." xml:space="preserve">
+    <value>Sniljka koju izrađuje aktivni posao sinkronizacije repozitorija. Zamjenjuje aktivni spremnik kada posao uspije.</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Savjet:</value>
+  </data>
+  <data name="Total Packages" xml:space="preserve">
+    <value>Ukupno paketa</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Što je repozitorij?</value>
+  </data>
+  <data name="Whether the repository&apos;s Release file is GPG-signed. apt clients configured with &apos;signed-by=&apos; in sources.list will reject repositories that are unsigned or signed with the wrong key." xml:space="preserve">
+    <value>Je li datoteka Release repozitorija GPG-potpisana. apt klijenti konfigurirani s &apos;signed-by=&apos; u sources.list odbacit će repozitorije koji nisu potpisani ili su potpisani pogrešnim ključem.</value>
+  </data>
+
+</root>

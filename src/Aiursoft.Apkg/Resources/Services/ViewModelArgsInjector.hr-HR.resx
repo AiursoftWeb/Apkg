@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="API Key Usage" xml:space="preserve">
+    <value>Korištenje API ključa</value>
+  </data>
+  <data name="API Keys" xml:space="preserve">
+    <value>API ključevi</value>
+  </data>
+  <data name="APKG Package Details" xml:space="preserve">
+    <value>APKG Detalji paketa</value>
+  </data>
+  <data name="APKG Upload Details" xml:space="preserve">
+    <value>APKG Detalji učitavanja</value>
+  </data>
+  <data name="Access Denied" xml:space="preserve">
+    <value>Pristup odbijen</value>
+  </data>
+  <data name="Add New Mirror" xml:space="preserve">
+    <value>Dodaj novi ogledalac</value>
+  </data>
+  <data name="Administration" xml:space="preserve">
+    <value>Administracija</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg Hybrid" xml:space="preserve">
+    <value>Apkg Hybrid</value>
+  </data>
+  <data name="Background Jobs" xml:space="preserve">
+    <value>Pozadinske zadaće</value>
+  </data>
+  <data name="Bad Request" xml:space="preserve">
+    <value>Loš zahtjev</value>
+  </data>
+  <data name="Bucket History" xml:space="preserve">
+    <value>Povijest spremišta</value>
+  </data>
+  <data name="Bucket Packages" xml:space="preserve">
+    <value>Paketi spremnika</value>
+  </data>
+  <data name="Buckets" xml:space="preserve">
+    <value>Kante</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Certifikati</value>
+  </data>
+  <data name="Change Avatar" xml:space="preserve">
+    <value>Promijeni avatar</value>
+  </data>
+  <data name="Change Password" xml:space="preserve">
+    <value>Promjena lozinke</value>
+  </data>
+  <data name="Change Profile" xml:space="preserve">
+    <value>Promjena profila</value>
+  </data>
+  <data name="Click to login" xml:space="preserve">
+    <value>Kliknite za prijavu</value>
+  </data>
+  <data name="Confirm Unlist" xml:space="preserve">
+    <value>Potvrdi uklanjanje s popisa</value>
+  </data>
+  <data name="Create Certificate" xml:space="preserve">
+    <value>Kreiranje certifikata</value>
+  </data>
+  <data name="Create Mirror" xml:space="preserve">
+    <value>Kreiraj ogledalo</value>
+  </data>
+  <data name="Create Repository" xml:space="preserve">
+    <value>Kreiraj spremište</value>
+  </data>
+  <data name="Create Role" xml:space="preserve">
+    <value>Kreiraj ulogu</value>
+  </data>
+  <data name="Create User" xml:space="preserve">
+    <value>Kreiraj korisnika</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Nadzorna ploča</value>
+  </data>
+  <data name="Delete Account" xml:space="preserve">
+    <value>Brisanje računa</value>
+  </data>
+  <data name="Delete Role" xml:space="preserve">
+    <value>Izbrisi ulogu</value>
+  </data>
+  <data name="Delete User" xml:space="preserve">
+    <value>Obriši korisnika</value>
+  </data>
+  <data name="Deployment" xml:space="preserve">
+    <value>Postavljanje</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Direktorij</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="Edit Mirror" xml:space="preserve">
+    <value>Uredi ogledalo</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Uredi repozitorij</value>
+  </data>
+  <data name="Edit Role" xml:space="preserve">
+    <value>Uredi ulogu</value>
+  </data>
+  <data name="Edit User" xml:space="preserve">
+    <value>Uredi korisnika</value>
+  </data>
+  <data name="Engine" xml:space="preserve">
+    <value>Pogon</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Greška</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Značajke</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Generiraj novi ključ</value>
+  </data>
+  <data name="Global Settings" xml:space="preserve">
+    <value>Globalna postavka</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Početna</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Početna</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Internal Server Error" xml:space="preserve">
+    <value>Interna greška poslužitelja</value>
+  </data>
+  <data name="Local Packages" xml:space="preserve">
+    <value>Lokalni paketi</value>
+  </data>
+  <data name="Lockout" xml:space="preserve">
+    <value>Zaključavanje</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Prijava</value>
+  </data>
+  <data name="Login to get access to all features." xml:space="preserve">
+    <value>Prijavite se za pristup svim funkcijama.</value>
+  </data>
+  <data name="Manage" xml:space="preserve">
+    <value>Upravljanje</value>
+  </data>
+  <data name="Mirrors" xml:space="preserve">
+    <value>Ogledala</value>
+  </data>
+  <data name="My Packages" xml:space="preserve">
+    <value>Moji paketi</value>
+  </data>
+  <data name="My Packages (APKG)" xml:space="preserve">
+    <value>Moji paketi (APKG)</value>
+  </data>
+  <data name="My Upload History" xml:space="preserve">
+    <value>Moja povijest otpremi</value>
+  </data>
+  <data name="New API Key" xml:space="preserve">
+    <value>Nova API ključ</value>
+  </data>
+  <data name="Not Found" xml:space="preserve">
+    <value>Nije pronađeno</value>
+  </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Detalji paketa</value>
+  </data>
+  <data name="Package Engine" xml:space="preserve">
+    <value>Paketni engine</value>
+  </data>
+  <data name="Package Search" xml:space="preserve">
+    <value>Pretraga paketa</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Paketi</value>
+  </data>
+  <data name="Permission Details" xml:space="preserve">
+    <value>Detalji dozvola</value>
+  </data>
+  <data name="Permissions" xml:space="preserve">
+    <value>Dozvole</value>
+  </data>
+  <data name="Personal" xml:space="preserve">
+    <value>Osobno</value>
+  </data>
+  <data name="Preview APKG Upload" xml:space="preserve">
+    <value>Pregled učitavanja APKG</value>
+  </data>
+  <data name="Primary Bucket Missing" xml:space="preserve">
+    <value>Nedostaje primarni spremnik</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Profile Settings" xml:space="preserve">
+    <value>Postavke profila</value>
+  </data>
+  <data name="Public Repositories" xml:space="preserve">
+    <value>Javni repozitoriji</value>
+  </data>
+  <data name="Recommended local deployment" xml:space="preserve">
+    <value>Preporučeno lokalno razmještavanje</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registracija</value>
+  </data>
+  <data name="Repositories" xml:space="preserve">
+    <value>Repozitoriji</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Detalji repozitorija</value>
+  </data>
+  <data name="Repository Packages" xml:space="preserve">
+    <value>Paketi repozitorija</value>
+  </data>
+  <data name="Role Details" xml:space="preserve">
+    <value>Detalji uloge</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Uloge</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Samostanje</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Postavke</value>
+  </data>
+  <data name="Sign out" xml:space="preserve">
+    <value>Odjava</value>
+  </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Potpisna certifikata</value>
+  </data>
+  <data name="Snapshots history" xml:space="preserve">
+    <value>Povijest snimaka</value>
+  </data>
+  <data name="System" xml:space="preserve">
+    <value>Sustav</value>
+  </data>
+  <data name="System Info" xml:space="preserve">
+    <value>Informacije o sustavu</value>
+  </data>
+  <data name="Unauthorized" xml:space="preserve">
+    <value>Neovlašteno</value>
+  </data>
+  <data name="Upload History" xml:space="preserve">
+    <value>Povijest učitavanja</value>
+  </data>
+  <data name="Upload Package" xml:space="preserve">
+    <value>Prenesi paket</value>
+  </data>
+  <data name="Upload apkg mixed package" xml:space="preserve">
+    <value>Prenesi apkg mješoviti paket</value>
+  </data>
+  <data name="Upload deb package" xml:space="preserve">
+    <value>Prenesi deb paket</value>
+  </data>
+  <data name="Upstream Mirrors" xml:space="preserve">
+    <value>Gornji ogledala</value>
+  </data>
+  <data name="User Details" xml:space="preserve">
+    <value>Detalji korisnika</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Korisnici</value>
+  </data>
+  <data name="Verify Details" xml:space="preserve">
+    <value>Potvrdite pojedinosti</value>
+  </data>
+
+</root>

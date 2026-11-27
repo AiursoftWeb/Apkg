@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="A .deb package is a software bundle ready to install on Debian/Ubuntu systems. It contains binaries, configs, and dependency metadata." xml:space="preserve">
+    <value>.deb paket je softverski paket spreman za instalaciju na Debian/Ubuntu sustavima. Sadrži binarne datoteke, konfiguracijske datoteke i metapodatke o ovisnostima.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitektura</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Natrag</value>
+  </data>
+  <data name="Bugs" xml:space="preserve">
+    <value>Greške</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Komponenta</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Nemate &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
+  <data name="Download .deb" xml:space="preserve">
+    <value>Preuzmi .deb</value>
+  </data>
+  <data name="Download Size" xml:space="preserve">
+    <value>Veličina preuzimanja</value>
+  </data>
+  <data name="Failed to load reverse dependencies." xml:space="preserve">
+    <value>Učitavanje obrnutih ovisnosti nije uspjelo.</value>
+  </data>
+  <data name="First add the APT repository via &lt;code&gt;sudo apkg add-source&lt;/code&gt;, then &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Or download the .deb directly." xml:space="preserve">
+    <value>Prvo dodajte APT repozitorij putem &lt;code&gt;sudo apkg add-source&lt;/code&gt;, zatim &lt;code&gt;sudo apt install @pkg.Package&lt;/code&gt;. Ili preuzmite .deb izravno.</value>
+  </data>
+  <data name="Hashes" xml:space="preserve">
+    <value>Kriptografski otisci</value>
+  </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Početna stranica</value>
+  </data>
+  <data name="How to Install" xml:space="preserve">
+    <value>Kako instalirati</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Kako koristiti:</value>
+  </data>
+  <data name="Installed Size" xml:space="preserve">
+    <value>Veličina nakon instalacije</value>
+  </data>
+  <data name="Loading…" xml:space="preserve">
+    <value>Učitavanje…</value>
+  </data>
+  <data name="Maintainer" xml:space="preserve">
+    <value>Održavatelj</value>
+  </data>
+  <data name="Metadata" xml:space="preserve">
+    <value>Metapodaci</value>
+  </data>
+  <data name="Multi-Arch" xml:space="preserve">
+    <value>Multi-Arch</value>
+  </data>
+  <data name="No packages depend on this package." xml:space="preserve">
+    <value>Nijedni paket ne ovisi o ovom paketu.</value>
+  </data>
+  <data name="No relations." xml:space="preserve">
+    <value>Nema odnosa.</value>
+  </data>
+  <data name="Option A: Using APKG CLI (recommended):" xml:space="preserve">
+    <value>Opcija A: Korištenje APKG CLI-a (preporučeno):</value>
+  </data>
+  <data name="Option B: Manual bash setup:" xml:space="preserve">
+    <value>Opcija B: Ručna bash postavka:</value>
+  </data>
+  <data name="Origin" xml:space="preserve">
+    <value>Podrijetlo</value>
+  </data>
+  <data name="Origin Suite" xml:space="preserve">
+    <value>Podrijetlo Suite</value>
+  </data>
+  <data name="Original Maintainer" xml:space="preserve">
+    <value>Izvorni održavatelj</value>
+  </data>
+  <data name="Package Details" xml:space="preserve">
+    <value>Detalji paketa</value>
+  </data>
+  <data name="Physical (Cached)" xml:space="preserve">
+    <value>Fizički (u kešu)</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Prioritet</value>
+  </data>
+  <data name="Relations" xml:space="preserve">
+    <value>Odnosi</value>
+  </data>
+  <data name="Reverse Dependencies" xml:space="preserve">
+    <value>Obrnute ovisnosti</value>
+  </data>
+  <data name="Reverse Depends" xml:space="preserve">
+    <value>Ovisnosti</value>
+  </data>
+  <data name="Reverse Recommends" xml:space="preserve">
+    <value>Obrnuti preporučeni paketi</value>
+  </data>
+  <data name="Reverse Suggests" xml:space="preserve">
+    <value>Obrnuti prijedlozi</value>
+  </data>
+  <data name="Section" xml:space="preserve">
+    <value>Sekcija</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Pogledajte kako instalirati APKG CLI.</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Izvor</value>
+  </data>
+  <data name="Status &amp; Files" xml:space="preserve">
+    <value>Status i datoteke</value>
+  </data>
+  <data name="Step 1: Add this APT server" xml:space="preserve">
+    <value>Korak 1: Dodajte ovaj APT poslužitelj</value>
+  </data>
+  <data name="Step 2: Install the package" xml:space="preserve">
+    <value>Korak 2: Instalirajte paket</value>
+  </data>
+  <data name="Storage State" xml:space="preserve">
+    <value>Stanje pohrane</value>
+  </data>
+  <data name="Upstream URL" xml:space="preserve">
+    <value>URL izvorne lokacije</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Verzija</value>
+  </data>
+  <data name="Virtual (Lazy Sync)" xml:space="preserve">
+    <value>Virtualno (odloženo sinkroniziranje)</value>
+  </data>
+  <data name="What is a Package?" xml:space="preserve">
+    <value>Što je paket?</value>
+  </data>
+  <data name="package(s)" xml:space="preserve">
+    <value>paketa/paketi</value>
+  </data>
+
+</root>
