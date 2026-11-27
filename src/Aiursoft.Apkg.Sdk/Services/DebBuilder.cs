@@ -505,24 +505,22 @@ public class DebBuilder
             postinstLines.AppendLine("    configure)");
             postinstLines.AppendLine("        if [ -d /run/systemd/system ]; then");
             postinstLines.AppendLine("            systemctl daemon-reload");
-            postinstLines.AppendLine("            if [ -z \"$2\" ]; then");
             foreach (var unit in autoEnableUnits)
             {
-                var un = Path.GetFileName(unit.Source);
-                if (unit.UsePreset)
-                {
-                    postinstLines.AppendLine($"                systemctl preset {un}");
-                }
-                else
-                {
-                    postinstLines.AppendLine($"                systemctl enable {un}");
-                }
-                postinstLines.AppendLine($"                systemctl start {un} || true");
+                var name = Path.GetFileName(unit.Source);
+                var enable = unit.UsePreset ? "preset" : "enable";
+                postinstLines.AppendLine($"            case \"$(systemctl is-enabled {name} 2>/dev/null)\" in");
+                postinstLines.AppendLine("                masked|masked-runtime) ;;");
+                postinstLines.AppendLine("                *)");
+                postinstLines.AppendLine("                    if [ -z \"$2\" ]; then");
+                postinstLines.AppendLine($"                        systemctl {enable} {name}");
+                postinstLines.AppendLine($"                        deb-systemd-invoke start {name} || true");
+                postinstLines.AppendLine($"                    elif systemctl --quiet is-active {name}; then");
+                postinstLines.AppendLine($"                        deb-systemd-invoke restart {name} || true");
+                postinstLines.AppendLine("                    fi");
+                postinstLines.AppendLine("                    ;;");
+                postinstLines.AppendLine("            esac");
             }
-            postinstLines.AppendLine("            else");
-            foreach (var unit in autoEnableUnits)
-                postinstLines.AppendLine($"                systemctl try-restart {Path.GetFileName(unit.Source)} || true");
-            postinstLines.AppendLine("            fi");
             postinstLines.AppendLine("        fi");
             postinstLines.AppendLine("    ;;");
             postinstLines.AppendLine("esac");
@@ -561,7 +559,7 @@ public class DebBuilder
             prermLines.AppendLine("    remove|deconfigure)");
             prermLines.AppendLine("        if [ -d /run/systemd/system ]; then");
             foreach (var unit in autoEnableUnits)
-                prermLines.AppendLine($"            systemctl stop {Path.GetFileName(unit.Source)} || true");
+                prermLines.AppendLine($"            deb-systemd-invoke stop {Path.GetFileName(unit.Source)} || true");
             prermLines.AppendLine("        fi");
             prermLines.AppendLine("    ;;");
             prermLines.AppendLine("esac");

@@ -634,12 +634,12 @@ ItemGroup 元素配置一个或多个验证源，**union 语义**——包只要
 ```xml
 <!--
   安装一个 systemd .service 文件，并自动生成完整的 maintainer scripts：
-    postinst (configure, 新装)  → systemctl enable + systemctl start
+    postinst (configure, 新装)  → systemctl enable + deb-systemd-invoke start
                                     (UsePreset=true 时改用 systemctl preset)
-    postinst (configure, 升级)  → systemctl try-restart
-    prerm    (remove)           → systemctl stop
+    postinst (configure, 升级)  → 对正在运行的服务执行 deb-systemd-invoke restart
+    prerm    (remove)           → deb-systemd-invoke stop
     postrm   (remove/purge)     → systemctl disable + daemon-reload
-  无需手写任何 maintainer scripts。
+  安装和升级保留管理员设置的永久或临时 mask。服务动作遵守 policy-rc.d。
 
   Include    = .service 文件相对于 .aosproj 的路径
   AutoEnable = true（默认）表示安装后立即 enable+start；
