@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- Nijedan (samostalan) --</value>
+  </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>Ljudski čitljiva oznaka za ovaj repozitorij. Ne koristi se uopće u Debian/APT.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitektura</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>Automatski potpišite Release datoteke ovog repozitorija.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponente</value>
+  </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run. Separate multiple architectures with commas (e.g. &quot;amd64,arm64&quot;)." xml:space="preserve">
+    <value>Određuje koje se binary-[arch]/Packages indeksne datoteke generiraju. Paketi s neusklađenim arhitekturama (osim &apos;all&apos;) čuvaju se, ali nisu vidljivi apt klijentima. Također postavlja Architectures: redak u vodiču za postavljanje klijenta. Promjene stupaju na snagu pri sljedećem pokretanju posla Repository Sync. Odvojite više arhitektura zarezima (npr. &quot;amd64,arm64&quot;).</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Određuje koje poddirektorije komponenti su uključeni pri generiranju indeksa Packages. Paketi u komponentama koje nisu navedene spremaju se, ali nisu vidljivi apt klijentima. Također postavlja redak Components: u vodiču za postavljanje klijenta. Promjene stupaju na snagu pri sljedećem pokretanju posla Repository Sync.</value>
+  </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>Kreiraj novo spremište</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Uredi repozitorij</value>
+  </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>Omogući GPG potpisivanje</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>Ako je povezano s ogledalom, ovaj repozitorij će distribuirati pakete iz tog izvornog izvora.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Ako je povezano, indeks Packages za ovaj repozitorij se ispunjava iz ogledala tijekom svakog Repository Sync-a. ApkgDebPackages s istim imenom paketa i arhitekturom nadjačavaju verziju iz ogledala.</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>Zrcalo</value>
+  </data>
+  <data name="Save Repository" xml:space="preserve">
+    <value>Spremi spremište</value>
+  </data>
+  <data name="The APT suite name (e.g. jammy, stable)." xml:space="preserve">
+    <value>Naziv APT suite (npr. jammy, stable).</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>GPG ključ koji se koristi za potpisivanje datoteka Release ovog repozitorija.</value>
+  </data>
+  <data name="The URL prefix for this repository (e.g. &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>Prefiks URL-a za ovaj repozitorij (npr. &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>Kada je omogućeno, datoteka Release potpisuje se odabranim GPG ključem nakon svakog sinkroniziranja repozitorija. Klijenti koji koriste &apos;signed-by=&apos; u svojoj datoteci sources.list provjerit će ovaj potpis i odbaciti nepotpisane ili pogrešno potpisane repozitorije.</value>
+  </data>
+
+</root>

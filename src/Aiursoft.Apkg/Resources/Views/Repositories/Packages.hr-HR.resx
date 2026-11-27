@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="All Architectures" xml:space="preserve">
+    <value>Sve arhitekture</value>
+  </data>
+  <data name="All Components" xml:space="preserve">
+    <value>Svi komponenti</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitektura</value>
+  </data>
+  <data name="Back to Repository" xml:space="preserve">
+    <value>Natrag u repozitorij</value>
+  </data>
+  <data name="Cache" xml:space="preserve">
+    <value>Predmemorija</value>
+  </data>
+  <data name="Cached" xml:space="preserve">
+    <value>U kešu</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Očisti</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Komponenta</value>
+  </data>
+  <data name="File listing is cached — sync skips dpkg-deb -c for this package" xml:space="preserve">
+    <value>Popis datoteka je u međuspremniku — sinkronizacija preskače dpkg-deb -c za ovaj paket</value>
+  </data>
+  <data name="Package" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="Packages in" xml:space="preserve">
+    <value>Paketi u</value>
+  </data>
+  <data name="Physical" xml:space="preserve">
+    <value>Fizički</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pretraži</value>
+  </data>
+  <data name="Search package..." xml:space="preserve">
+    <value>Pretraži paket...</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Veličina</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Uncached" xml:space="preserve">
+    <value>Nepkeširano</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Verzija</value>
+  </data>
+  <data name="View Repository Info" xml:space="preserve">
+    <value>Prikaži informacije o spremištu</value>
+  </data>
+  <data name="Virtual" xml:space="preserve">
+    <value>Virtuelna</value>
+  </data>
+  <data name="Will be cached on next sync" xml:space="preserve">
+    <value>Bit će predmemorirano pri sljedećem sinkroniziranju</value>
+  </data>
+
+</root>

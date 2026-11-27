@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="&quot;Traditional Debian packaging scatters package definition across half a dozen files — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — each in its own arcane dialect. I designed &lt;code&gt;.aosproj&lt;/code&gt; to replace all of that with a single declarative manifest. Structured XML makes dependency graphs trivially parseable by both humans and CI machines. CI pipelines collapse to &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. It turns Linux distribution packaging from a black art into standard software engineering.&quot;" xml:space="preserve">
+    <value>Tradicionalno Debian pakiranje raspršuje definiciju paketa preko polu tucet datoteka — &lt;code&gt;control&lt;/code&gt;, &lt;code&gt;rules&lt;/code&gt;, &lt;code&gt;install&lt;/code&gt;, &lt;code&gt;changelog&lt;/code&gt;, &lt;code&gt;compat&lt;/code&gt; — svaka u vlastitom tajanstvenom dijalektu. Dizajnirao sam &lt;code&gt;.aosproj&lt;/code&gt; da zamijeni sve to jednim deklarativnim manifestom. Strukturirani XML čini grafove ovisnosti trivijalno parsabilnim i za ljude i za CI strojeve. CI cijevi se smanjuju na &lt;code&gt;apkg publish &amp;amp;&amp;amp; apkg push&lt;/code&gt;. Pretvara pakiranje Linux distribucija iz crne magije u standardno softversko inženjerstvo.</value>
+  </data>
+  <data name=".apkg publishing" xml:space="preserve">
+    <value>Objavljivanje .apkg</value>
+  </data>
+  <data name="&lt;code&gt;Buildd&lt;/code&gt; farm compiles natively on real hardware. Cron-driven &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerates indexes — packages wait hours in &lt;code&gt;incoming&lt;/code&gt; before publication." xml:space="preserve">
+    <value>&lt;code&gt;Buildd&lt;/code&gt; farma kompilira nativno na stvarnom hardveru. Cronom pokretani &lt;code&gt;apt-ftparchive&lt;/code&gt; regenerira indekse — paketi čekaju satima u &lt;code&gt;incoming&lt;/code&gt; prije objave.</value>
+  </data>
+  <data name="&lt;code&gt;sudo apkg&lt;/code&gt; cannot run directly because root&apos;s PATH does not include &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Create a symlink once and it works permanently:" xml:space="preserve">
+    <value>&lt;code&gt;sudo apkg&lt;/code&gt; ne može se izravno pokrenuti jer rootov PATH ne uključuje &lt;code&gt;~/.dotnet/tools&lt;/code&gt;. Jednom kreirajte simboličku vezu i trajno će raditi:</value>
+  </data>
+  <data name="&lt;strong class=&quot;text-white&quot;&gt;Dak&lt;/strong&gt; is battle-tested infrastructure that has delivered Debian to millions for over two decades. &lt;strong class=&quot;text-primary&quot;&gt;Apkg&lt;/strong&gt; does not aim to replace it — it trades some of that generality for a modern, CI-native, cloud-deployable APT repository that a small team can operate." xml:space="preserve">
+    <value>&lt;strong class=&quot;text-white&quot;&gt;Dak&lt;/strong&gt; je dokazana infrastruktura koja je desetljećima, više od dvadeset godina, dostavljala Debian milijunima korisnika. &lt;strong class=&quot;text-primary&quot;&gt;Apkg&lt;/strong&gt; ne teži zamijeniti ga — umjesto toga, žrtvuje dio te općenitosti radi moderne, CI-rođene, u oblaku razmještive APT repozitorije koji mali tim može upravljati.</value>
+  </data>
+  <data name="A declarative project file that defines files, folders, scripts, dependencies, systemd services, suites, and architectures — all in one place." xml:space="preserve">
+    <value>Deklarativna datoteka projekta koja definira datoteke, mape, skripte, ovisnosti, systemd usluge, suite i arhitekture — sve na jednom mjestu.</value>
+  </data>
+  <data name="A single command to install the APKG client and start managing your APT packages." xml:space="preserve">
+    <value>Jedna naredba za instalaciju APKG klijenta i početak upravljanja vašim APT paketima.</value>
+  </data>
+  <data name="APT clients only read primary buckets. Incomplete syncs, unsigned metadata, and staging buckets stay invisible." xml:space="preserve">
+    <value>APT klijenti čitaju samo primarne košare. Nepotpune sinkronizacije, nepotpisani metapodaci i košare za pripremu ostaju nevidljive.</value>
+  </data>
+  <data name="APT repository server" xml:space="preserve">
+    <value>APT poslužitelj repozitorija</value>
+  </data>
+  <data name="Add a source" xml:space="preserve">
+    <value>Dodaj izvor</value>
+  </data>
+  <data name="Administrators can manage repositories, upstream mirrors, signing certificates, API keys, package upload history, background jobs, permissions, users, and global settings from the web UI." xml:space="preserve">
+    <value>Administratori mogu upravljati repozitorijima, gornjim ogledalima, certifikatima za potpisivanje, API ključevima, poviješću otpremi paketa, pozadinskim poslovima, dopustima, korisnicima i globalnim postavkama putem web sučelja.</value>
+  </data>
+  <data name="After sync and signing, machines consume the repository with normal APT source files and &lt;code&gt;apt install&lt;/code&gt; commands." xml:space="preserve">
+    <value>Nakon sinkronizacije i potpisivanja, strojevi koriste repozitorij s uobičajenim APT izvorišnim datotekama i &lt;code&gt;apt install&lt;/code&gt; naredbama.</value>
+  </data>
+  <data name="AnduinOS ready" xml:space="preserve">
+    <value>AnduinOS spreman</value>
+  </data>
+  <data name="Apkg" xml:space="preserve">
+    <value>Apkg</value>
+  </data>
+  <data name="Apkg brings the full APT repository lifecycle into one server — mirror upstream archives, override packages locally, sign and promote atomically, then serve to client machines worldwide." xml:space="preserve">
+    <value>Apkg donosi cijeli životni ciklus APT repozitorija na jedan poslužitelj — ogledajte arhive s izvora, lokalno nadjačajte pakete, potpišite i unesite atomski, zatim poslužite klijentskim strojevima diljem svijeta.</value>
+  </data>
+  <data name="Apkg dashboard showing package repository management" xml:space="preserve">
+    <value>Apkg nadzorna ploča koja prikazuje upravljanje spremištima paketa</value>
+  </data>
+  <data name="Apkg sits between upstream archives, package developers, and client machines. It turns mirror metadata and uploaded overrides into signed, stable repository snapshots." xml:space="preserve">
+    <value>Apkg se nalazi između gornjotočnih arhiva, razvijatelja paketa i klijentskih uređaja. Pretvara metapodatke ogledala i učitane izmjene u potpisane, stabilne snimke repozitorija.</value>
+  </data>
+  <data name="Architecture Philosophy" xml:space="preserve">
+    <value>Arhitektonska filozofija</value>
+  </data>
+  <data name="Atomic snapshot promotion" xml:space="preserve">
+    <value>Atomsko unapređenje snimke</value>
+  </data>
+  <data name="Browse packages" xml:space="preserve">
+    <value>Pregledaj pakete</value>
+  </data>
+  <data name="Build" xml:space="preserve">
+    <value>Gradnja</value>
+  </data>
+  <data name="Build &amp; Pipeline" xml:space="preserve">
+    <value>Izgradnja i cijev</value>
+  </data>
+  <data name="Build safely." xml:space="preserve">
+    <value>Izgradite sigurno.</value>
+  </data>
+  <data name="Built on AnduinOS" xml:space="preserve">
+    <value>Izgrađeno na AnduinOS-u</value>
+  </data>
+  <data name="CI cross-compilation excels on amd64/arm64, but Debian&apos;s native Buildd catches architecture-specific UB that cross-toolchains miss." xml:space="preserve">
+    <value>CI prekršćena kompilacija izvrsna je na amd64/arm64, ali Debianov nativni Buildd otkriva arhitekturski specifične nedeterminističke ponašanja (UB) koja prekršćeni alatni lanci propuštaju.</value>
+  </data>
+  <data name="CI cross-compilation with per-arch &lt;code&gt;Condition&lt;/code&gt; attributes. Real-time atomic pipeline — sync, sign, swap via &lt;code&gt;rename(2)&lt;/code&gt;. Clients never see half-written metadata." xml:space="preserve">
+    <value>CI prekršćeno kompiliranje s atributima &lt;code&gt;Condition&lt;/code&gt; po arhitekturi. Atomski pipeline u stvarnom vremenu — sinhronizacija, potpisivanje, zamjena putem &lt;code&gt;rename(2)&lt;/code&gt;. Klijenti nikada ne vide polupisane metapodatke.</value>
+  </data>
+  <data name="CLI quick start" xml:space="preserve">
+    <value>Brzi start CLI</value>
+  </data>
+  <data name="Certificate management" xml:space="preserve">
+    <value>Upravljanje certifikatima</value>
+  </data>
+  <data name="Cloud-native CDN delivers consistent low-latency worldwide. DDoS absorbed at the edge." xml:space="preserve">
+    <value>Cloud-native CDN osigurava dosljedno nisku latenciju širom svijeta. DDoS se upija na rubu mreže.</value>
+  </data>
+  <data name="Command line flow" xml:space="preserve">
+    <value>Tijek naredbenog retka</value>
+  </data>
+  <data name="Configure sudo apkg (one-time setup)" xml:space="preserve">
+    <value>Postavi sudo apkg (jednostruko postavljanje)</value>
+  </data>
+  <data name="Copy mirror data, apply package overrides, and build release metadata." xml:space="preserve">
+    <value>Kopiraj podatke ogledala, primijeni iznimke paketa i izgradi metapodatke izdanja.</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Kreirajte</value>
+  </data>
+  <data name="Debian&apos;s &lt;code&gt;Dak&lt;/code&gt; has served the community for decades. Apkg takes a different path — shaped by modern CI/CD, cloud infrastructure, and declarative tooling. Both have strengths. Both have trade-offs." xml:space="preserve">
+    <value>Debianov &lt;code&gt;Dak&lt;/code&gt; služi zajednicu desetljećima. Apkg ide drugim putem — oblikovan suvremenim CI/CD-om, infrastrukturom oblaka i deklarativnim alatima. Oba imaju prednosti. Oba imaju kompromise.</value>
+  </data>
+  <data name="Declarative &lt;code&gt;.aosproj&lt;/code&gt; files with MSBuild syntax. Files, deps, and scripts in one manifest — if you know &lt;code&gt;.csproj&lt;/code&gt;, you know packaging." xml:space="preserve">
+    <value>Deklarativne &lt;code&gt;.aosproj&lt;/code&gt; datoteke s MSBuild sintaksom. Datoteke, ovisnosti i skripte u jednom manifestu — ako znate &lt;code&gt;.csproj&lt;/code&gt;, znate pakiranje.</value>
+  </data>
+  <data name="Describe packages once in a declarative &lt;code&gt;.aosproj&lt;/code&gt; file. No fragile post-install scripts, no per-distro boilerplate — just files, folders, dependencies, and services." xml:space="preserve">
+    <value>Opišite pakete jednom u deklarativnoj &lt;code&gt;.aosproj&lt;/code&gt; datoteci. Nema krhkih postinstall skripti, nema boilerplatea po distribuciji — samo datoteke, mape, ovisnosti i usluge.</value>
+  </data>
+  <data name="Developers describe package contents once, build Debian artifacts locally or in CI, push a &lt;code&gt;.apkg&lt;/code&gt; bundle, and let the server route packages into the right repositories." xml:space="preserve">
+    <value>Razvojci jednom opišu sadržaj paketa, izgrade Debian artefakte lokalno ili u CI okruženju, pošalju &lt;code&gt;.apkg&lt;/code&gt; paket i pustite da poslužitelj usmjeri pakete u odgovarajuće repozitorije.</value>
+  </data>
+  <data name="Distribution" xml:space="preserve">
+    <value>Distribucija</value>
+  </data>
+  <data name="Distribution Infrastructure" xml:space="preserve">
+    <value>Infrastruktura distribucije</value>
+  </data>
+  <data name="Download .NET SDK" xml:space="preserve">
+    <value>Preuzmi .NET SDK</value>
+  </data>
+  <data name="Enter Dashboard" xml:space="preserve">
+    <value>Uđi u nadzornu ploču</value>
+  </data>
+  <data name="Enterprise Ready" xml:space="preserve">
+    <value>Pripremljeno za poduzeća</value>
+  </data>
+  <data name="Everything needed to publish an APT repository." xml:space="preserve">
+    <value>Sve što je potrebno za objavu APT repozitorija.</value>
+  </data>
+  <data name="Export static artifacts for nginx, caddy, or rsync to edge nodes. APT clients anywhere get &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — no proprietary agents, no custom tooling." xml:space="preserve">
+    <value>Izvozite statičke artefakte za nginx, caddy ili rsync na rubne čvorove. APT klijenti bilo gdje dobivaju &lt;code&gt;apt update &amp;&amp; apt install&lt;/code&gt; — bez proprietarnih agenata, bez prilagođenog alata.</value>
+  </data>
+  <data name="Founder &amp;amp; Architect at Aiursoft" xml:space="preserve">
+    <value>Osnivač i arhitekt u Aiursoftu</value>
+  </data>
+  <data name="From &lt;code&gt;.aosproj&lt;/code&gt; to &lt;code&gt;apt install&lt;/code&gt;." xml:space="preserve">
+    <value>Od &lt;code&gt;.aosproj&lt;/code&gt; do &lt;code&gt;apt install&lt;/code&gt;.</value>
+  </data>
+  <data name="From the Architect" xml:space="preserve">
+    <value>Od arhitekta</value>
+  </data>
+  <data name="GPG Web of Trust with in-person Key Signing Parties. Trust is fully decentralized — no single authority controls the keyring." xml:space="preserve">
+    <value>GPG mreža povjerenja s osobnim strankama za potpisivanje ključeva. Povjerenje je potpuno decentralizirano — nijedna pojedinačna vlast ne kontrolira ključni prsten.</value>
+  </data>
+  <data name="Generate &lt;code&gt;.deb&lt;/code&gt; packages with Debian control metadata and maintainer scripts produced from the project file." xml:space="preserve">
+    <value>Generirajte &lt;code&gt;.deb&lt;/code&gt; pakete s Debian kontrolnim metapodacima i skriptama za održavanje generiranim iz datoteke projekta.</value>
+  </data>
+  <data name="Generate and manage GPG signing certificates, then expose public keys through repository-friendly artifact routes." xml:space="preserve">
+    <value>Generirajte i upravljajte GPG potpisnim certifikatima, zatim izložite javne ključeve putem ruta artefakata prikladnih za repozitorije.</value>
+  </data>
+  <data name="Global Debian delivery" xml:space="preserve">
+    <value>Globalna distribucija Debiana</value>
+  </data>
+  <data name="Host signed Debian package repositories, mirror upstream Ubuntu archives, and publish distribution-specific package overrides without asking client machines to run fragile post-install scripts." xml:space="preserve">
+    <value>Poslužite potpisane Debianove repozitorije paketa, ogledajte nadređene Ubuntuove arhive i objavite nadgradnje paketa specifične za distribuciju bez da tražite od klijentskih strojeva da pokreću krhke skripte nakon instalacije.</value>
+  </data>
+  <data name="If you have written a &lt;code&gt;.csproj&lt;/code&gt; you already know &lt;code&gt;.aosproj&lt;/code&gt;. XML-based, toolable, and integrated with the Apkg CLI for linting, building, and publishing." xml:space="preserve">
+    <value>Ako ste pisali &lt;code&gt;.csproj&lt;/code&gt;, već poznajete &lt;code&gt;.aosproj&lt;/code&gt;. Temeljen na XML-u, alatima i integriran s Apkg CLI-jem za provjeru, izgradnju i objavu.</value>
+  </data>
+  <data name="Imperative &lt;code&gt;debian/rules&lt;/code&gt; and dh macros. Mastering Debian packaging takes months of learning arcane shell scripts." xml:space="preserve">
+    <value>Imperativni &lt;code&gt;debian/rules&lt;/code&gt; i dh makroi. Vladanje Debian pakiranjem zahtijeva mjesecima učenja tajanstvenih shell skripti.</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Instaliraj</value>
+  </data>
+  <data name="Install .NET SDK" xml:space="preserve">
+    <value>Instaliraj .NET SDK</value>
+  </data>
+  <data name="Install APKG CLI" xml:space="preserve">
+    <value>Instaliraj APKG CLI</value>
+  </data>
+  <data name="Local package overrides" xml:space="preserve">
+    <value>Lokalna zamjena paketa</value>
+  </data>
+  <data name="MSBuild-style syntax" xml:space="preserve">
+    <value>MSBuild-ov sintaksa</value>
+  </data>
+  <data name="Materialize static artifacts for nginx, caddy, rsync, or edge distribution." xml:space="preserve">
+    <value>Generirajte statičke artefakte za nginx, caddy, rsync ili distribuciju na rubu mreže.</value>
+  </data>
+  <data name="Mirror sync, repository composition, signing, export, and garbage collection are split into independent jobs. Published clients keep reading the last signed primary bucket while new metadata is being prepared." xml:space="preserve">
+    <value>Sinkronizacija ogledala, sastavljanje repozitorija, potpisivanje, izvoz i sakupljanje smeća podijeljeni su u neovisne poslove. Objavljeni klijenti nastavljaju čitati zadnji potpisan primarni kantić dok se novi metapodaci pripremaju.</value>
+  </data>
+  <data name="OIDC-backed RBAC with scoped API keys. Teams authenticate via existing SSO, grant per-repo permissions, and revoke access instantly." xml:space="preserve">
+    <value>RBAC na temelju OIDC-a s ograničenim API ključevima. Timovi se autenticiraju putem postojećeg SSO-a, dodjeljuju dopuštenja po repozitoriju i trenutno oduzimaju pristup.</value>
+  </data>
+  <data name="Operate it from the browser." xml:space="preserve">
+    <value>Upravljajte njime iz preglednika.</value>
+  </data>
+  <data name="Pack &lt;code&gt;.deb&lt;/code&gt; files into a &lt;code&gt;.apkg&lt;/code&gt; archive and upload it with an API key from a developer shell or CI pipeline." xml:space="preserve">
+    <value>Pakirajte datoteke &lt;code&gt;.deb&lt;/code&gt; u arhivu &lt;code&gt;.apkg&lt;/code&gt; i učitajte je pomoću API ključa iz developerske ljuske ili CI cijevke.</value>
+  </data>
+  <data name="Packaging" xml:space="preserve">
+    <value>Pakiranje</value>
+  </data>
+  <data name="Portable publishing bundles with a manifest plus one or more &lt;code&gt;.deb&lt;/code&gt; files for multiple suites and architectures." xml:space="preserve">
+    <value>Prijenosni objavljujući paketi s manifestom i jednim ili više &lt;code&gt;.deb&lt;/code&gt; datoteka za više suita i arhitektura.</value>
+  </data>
+  <data name="Production-hardened on the same infrastructure that powers AnduinOS package delivery. Battle-tested mirror ingestion, signing pipelines, and atomic snapshot promotion." xml:space="preserve">
+    <value>Proizvodno ojačano na istoj infrastrukturi koja pokreće isporuku paketa AnduinOS sustava. Dokazano u praksi: unos ogledala, potpisne cijene i atomsko unapređenje snimaka.</value>
+  </data>
+  <data name="Publish atomically." xml:space="preserve">
+    <value>Objavite atomski.</value>
+  </data>
+  <data name="Publish from any machine with the .NET tool." xml:space="preserve">
+    <value>Objavite s bilo kojeg računala pomoću .NET alata.</value>
+  </data>
+  <data name="Publishing workflow" xml:space="preserve">
+    <value>Tok objavljivanja</value>
+  </data>
+  <data name="Pull upstream metadata into mirror buckets." xml:space="preserve">
+    <value>Povuci uvodne metapodatke u ogledalske spremnike.</value>
+  </data>
+  <data name="Push" xml:space="preserve">
+    <value>Objavi</value>
+  </data>
+  <data name="Quick Start" xml:space="preserve">
+    <value>Brzi početak</value>
+  </data>
+  <data name="RBAC and API keys" xml:space="preserve">
+    <value>RBAC i API ključevi</value>
+  </data>
+  <data name="RBAC is ideal for organizations, but Debian&apos;s decentralized WoT remains the gold standard for a trustless global maintainer network." xml:space="preserve">
+    <value>RBAC je idealan za organizacije, ali decentralizirani WoT Debiana ostaje zlatni standard za globalno mrežu održavatelja bez povjerenja.</value>
+  </data>
+  <data name="Repository Platform" xml:space="preserve">
+    <value>Platforma repozitorija</value>
+  </data>
+  <data name="Room to grow:" xml:space="preserve">
+    <value>Mjesto za napredak:</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pretraži</value>
+  </data>
+  <data name="Search packages" xml:space="preserve">
+    <value>Pretraži pakete</value>
+  </data>
+  <data name="Search packages..." xml:space="preserve">
+    <value>Pretraži pakete...</value>
+  </data>
+  <data name="Security &amp; Trust" xml:space="preserve">
+    <value>Sigurnost i povjerenje</value>
+  </data>
+  <data name="Self Host" xml:space="preserve">
+    <value>Samostojeći hosting</value>
+  </data>
+  <data name="Serve &lt;code&gt;InRelease&lt;/code&gt;, &lt;code&gt;Release&lt;/code&gt;, &lt;code&gt;Packages.gz&lt;/code&gt;, &lt;code&gt;Contents&lt;/code&gt;, certificates, and pool files from Debian-style URLs." xml:space="preserve">
+    <value>Poslužite &lt;code&gt;InRelease&lt;/code&gt;, &lt;code&gt;Release&lt;/code&gt;, &lt;code&gt;Packages.gz&lt;/code&gt;, &lt;code&gt;Contents&lt;/code&gt;, certifikate i pool datoteke s Debian-stilskih URL-ova.</value>
+  </data>
+  <data name="Ship Debian packages at scale." xml:space="preserve">
+    <value>Dostavljajte Debian pakete u velikim razmjerima.</value>
+  </data>
+  <data name="Sign pending buckets and promote them to primary." xml:space="preserve">
+    <value>Potpišite odlagališta u čekanju i podignite ih u primarno.</value>
+  </data>
+  <data name="Signed APT hosting" xml:space="preserve">
+    <value>Potpisano APT posluživanje</value>
+  </data>
+  <data name="Simplify your distribution" xml:space="preserve">
+    <value>Pojednostavite svoju distribuciju</value>
+  </data>
+  <data name="Snapshot Pipeline" xml:space="preserve">
+    <value>Snapshot Pipeline</value>
+  </data>
+  <data name="Standard Debian repository endpoints for &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG keys, package indexes, and pool downloads." xml:space="preserve">
+    <value>Standardni Debian repozitorijски krajnji točke za &lt;code&gt;apt update&lt;/code&gt;, &lt;code&gt;apt install&lt;/code&gt;, GPG ključeve, indekse paketa i preuzimanja iz poola.</value>
+  </data>
+  <data name="Start Publishing" xml:space="preserve">
+    <value>Započni objavljivanje</value>
+  </data>
+  <data name="Start a package project with &lt;code&gt;.aosproj&lt;/code&gt;, then declare files, folders, scripts, dependencies, services, suites, and architectures." xml:space="preserve">
+    <value>Pokrenite paketni projekt s &lt;code&gt;.aosproj&lt;/code&gt;, a zatim deklarirajte datoteke, mape, skripte, ovisnosti, usluge, suite i arhitekture.</value>
+  </data>
+  <data name="Static export with atomic swap + CDN edge caching + Geo-steering. Shared-nothing edge nodes with built-in WAF before origin." xml:space="preserve">
+    <value>Statički izvoz s atomskim zamjenama + CDN edge predmemoriziranje + Geo-usmjeravanje. Shared-nothing edge čvorovi s ugrađenim WAF-om prije izvora.</value>
+  </data>
+  <data name="The Apkg CLI handles project creation, linting, package builds, bundle publishing, server uploads, local unpacking, and APT source configuration." xml:space="preserve">
+    <value>Apkg CLI obrađuje kreiranje projekata, provjeru koda, izgradnju paketa, objavljivanje snopova, slanje na poslužitelj, lokalno rasterećenje i konfiguraciju izvora APT-a.</value>
+  </data>
+  <data name="The Philosophy" xml:space="preserve">
+    <value>Filozofija</value>
+  </data>
+  <data name="Tiered rsync cascade (T1 → T2) run by volunteers. Decentralized and resilient, but latency varies and DDoS defense depends on each operator." xml:space="preserve">
+    <value>Hierarhijski rsync kaskadni sustav (T1 → T2) koji pokreću volonteri. Decentralizirano i otporno, ali latencija varira, a obrana od DDoS napada ovisi o svakom operatoru.</value>
+  </data>
+  <data name="Track upstream suites and components as metadata snapshots, then compose downstream repositories from those mirror buckets." xml:space="preserve">
+    <value>Pratite upstream suiteove i komponente kao metadata snapshote, zatim sastavite downstream repozitorije iz tih mirror kanti.</value>
+  </data>
+  <data name="Turns packaging from a black art into standard software engineering." xml:space="preserve">
+    <value>Pretvara pakiranje iz crne umjetnosti u standardno softversko inženjerstvo.</value>
+  </data>
+  <data name="Two Ways to Run a Repository" xml:space="preserve">
+    <value>Dva načina pokretanja repozitorija</value>
+  </data>
+  <data name="Ubuntu:" xml:space="preserve">
+    <value>Ubuntu:</value>
+  </data>
+  <data name="Upload &lt;code&gt;.deb&lt;/code&gt; packages that replace upstream entries by package name and architecture in the final published bucket." xml:space="preserve">
+    <value>Učitajte &lt;code&gt;.deb&lt;/code&gt; pakete koji zamjenjuju gornje stavke po nazivu paketa i arhitekturi u konačno objavljenom spremištu.</value>
+  </data>
+  <data name="Upstream mirror ingestion" xml:space="preserve">
+    <value>Uvoz gornjotočnog zrcala</value>
+  </data>
+  <data name="Use local accounts or OIDC, grant repository permissions, and publish from CI with scoped API keys." xml:space="preserve">
+    <value>Koristite lokalne račune ili OIDC, dodijelite dopuštenja repozitorija i objavite iz CI-a s ograničenim API ključevima.</value>
+  </data>
+  <data name="View jobs" xml:space="preserve">
+    <value>Prikaži poslove</value>
+  </data>
+  <data name="View on GitHub" xml:space="preserve">
+    <value>Pogledaj na GitHubu</value>
+  </data>
+  <data name="Web Operations" xml:space="preserve">
+    <value>Web operacije</value>
+  </data>
+  <data name="Where Apkg shines:" xml:space="preserve">
+    <value>Gdje Apkg sjaji:</value>
+  </data>
+
+</root>

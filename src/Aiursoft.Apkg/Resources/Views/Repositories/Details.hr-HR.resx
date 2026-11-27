@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="An APT repository is a collection of .deb packages that your system can install from. Think of it as an app store for your Linux system." xml:space="preserve">
+    <value>APT repozitorij je zbirka .deb paketa koje vaš sustav može instalirati. Zamislite ga kao trgovinu aplikacijama za vaš Linux sustav.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitektura</value>
+  </data>
+  <data name="Back to List" xml:space="preserve">
+    <value>Natrag na popis</value>
+  </data>
+  <data name="Browse Packages" xml:space="preserve">
+    <value>Pregled paketa</value>
+  </data>
+  <data name="Certificate" xml:space="preserve">
+    <value>Certifikat</value>
+  </data>
+  <data name="Check Dependencies" xml:space="preserve">
+    <value>Provjeri ovisnosti</value>
+  </data>
+  <data name="Client Configuration Guide" xml:space="preserve">
+    <value>Priručnik za konfiguraciju klijenta</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponente</value>
+  </data>
+  <data name="Copied." xml:space="preserve">
+    <value>Kopirano.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Kopiraj</value>
+  </data>
+  <data name="Copy command" xml:space="preserve">
+    <value>Kopiraj naredbu</value>
+  </data>
+  <data name="Copy failed. Copy the selected command manually." xml:space="preserve">
+    <value>Kopiranje nije uspjelo. Ručno kopirajte odabranu naredbu.</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distro</value>
+  </data>
+  <data name="Don&apos;t have &lt;code&gt;apkg&lt;/code&gt;?" xml:space="preserve">
+    <value>Nemate &lt;code&gt;apkg&lt;/code&gt;?</value>
+  </data>
+  <data name="GPG Signing" xml:space="preserve">
+    <value>GPG potpisivanje</value>
+  </data>
+  <data name="How to use:" xml:space="preserve">
+    <value>Kako koristiti:</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Informacije</value>
+  </data>
+  <data name="Live Bucket" xml:space="preserve">
+    <value>Živi spremnik</value>
+  </data>
+  <data name="Manual Setup (bash):" xml:space="preserve">
+    <value>Ručna postavljanje (bash):</value>
+  </data>
+  <data name="Mirror Source" xml:space="preserve">
+    <value>Izvor zrcala</value>
+  </data>
+  <data name="One-line Setup (Unsigned):" xml:space="preserve">
+    <value>Postavljanje u jednom retku (nepotpisano):</value>
+  </data>
+  <data name="One-line Setup:" xml:space="preserve">
+    <value>Postavljanje u jednom retku:</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Paketi</value>
+  </data>
+  <data name="Quick Setup with APKG CLI:" xml:space="preserve">
+    <value>Brzi postavljanje s APKG CLI-jem:</value>
+  </data>
+  <data name="Repository Details" xml:space="preserve">
+    <value>Detalji repozitorija</value>
+  </data>
+  <data name="Run the &lt;code&gt;sudo apkg add-source&lt;/code&gt; command on the right to configure this repo, then use &lt;code&gt;sudo apt install&lt;/code&gt; as usual." xml:space="preserve">
+    <value>Pokrenite &lt;code&gt;sudo apkg add-source&lt;/code&gt; naredbu na desnoj strani za konfiguriranje ovog repozitorija, a zatim koristite &lt;code&gt;sudo apt install&lt;/code&gt; kao i obično.</value>
+  </data>
+  <data name="See how to install APKG CLI." xml:space="preserve">
+    <value>Pogledajte kako instalirati APKG CLI.</value>
+  </data>
+  <data name="Staging Bucket" xml:space="preserve">
+    <value>Staging spremište</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+  <data name="This repository is not signed. We are using &apos;Trusted: yes&apos; to bypass security checks. Use with caution!" xml:space="preserve">
+    <value>Ovaj repozitorij nije potpisan. Koristimo &apos;Trusted: yes&apos; za zaobilazak sigurnosnih provjera. Koristite s oprezom!</value>
+  </data>
+  <data name="This uses the modern DEB822 format and a scoped keyring for maximum security and reliability." xml:space="preserve">
+    <value>Ovo koristi moderni DEB822 format i ograničeni ključni prsten za maksimalnu sigurnost i pouzdanost.</value>
+  </data>
+  <data name="Upload Permission" xml:space="preserve">
+    <value>Dovolenje za učitavanje</value>
+  </data>
+  <data name="What is a Repository?" xml:space="preserve">
+    <value>Što je repozitorij?</value>
+  </data>
+
+</root>

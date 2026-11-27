@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="Actions" xml:space="preserve">
+    <value>Akcije</value>
+  </data>
+  <data name="Are you sure you want to delete certificate" xml:space="preserve">
+    <value>Jeste li sigurni da želite izbrisati certifikat</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="Confirm Delete" xml:space="preserve">
+    <value>Potvrdi brisanje</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Kreirano</value>
+  </data>
+  <data name="Delete Forever" xml:space="preserve">
+    <value>Trajno obriši</value>
+  </data>
+  <data name="Fingerprint" xml:space="preserve">
+    <value>Otisak</value>
+  </data>
+  <data name="Friendly Name" xml:space="preserve">
+    <value>Prijateljsko ime</value>
+  </data>
+  <data name="GPG certificates sign your repository metadata so apt clients can verify that packages haven&apos;t been tampered with." xml:space="preserve">
+    <value>GPG certifikati potpisuju metapodatke vašeg repozitorija kako bi apt klijenti mogli provjeriti jesu li paketi netaknuti.</value>
+  </data>
+  <data name="Generate New Key" xml:space="preserve">
+    <value>Generiraj novi ključ</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="Rotate certificates regularly and keep private keys secure. Unsigned repos require &lt;code&gt;Trusted: yes&lt;/code&gt; on the client." xml:space="preserve">
+    <value>Redovito mijenjajte certifikate i čuvajte privatne ključeve sigurno. Nepotpisani repozitoriji zahtijevaju &lt;code&gt;Trusted: yes&lt;/code&gt; na klijentu.</value>
+  </data>
+  <data name="Signing Certificates" xml:space="preserve">
+    <value>Potpisna certifikata</value>
+  </data>
+  <data name="This will break all repositories using it!" xml:space="preserve">
+    <value>Ovo će slomiti sve repozitorije koji ga koriste!</value>
+  </data>
+  <data name="Tip:" xml:space="preserve">
+    <value>Savjet:</value>
+  </data>
+  <data name="What is a Certificate?" xml:space="preserve">
+    <value>Što je certifikat?</value>
+  </data>
+
+</root>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+      <data name="-- None (Standalone) --" xml:space="preserve">
+    <value>-- Nijedan (Samostalan) --</value>
+  </data>
+  <data name="A human-readable label for this repository. Not used by Debian/APT at all." xml:space="preserve">
+    <value>Ljudski čitljiva oznaka za ovaj repozitorij. Debian/APT je uopće ne koristi.</value>
+  </data>
+  <data name="Allow Anyone to Upload" xml:space="preserve">
+    <value>Dozvoli bilo kome da postavi</value>
+  </data>
+  <data name="Allows any logged-in user to upload ApkgDebPackages to this repository." xml:space="preserve">
+    <value>Dopuštava bilo kojem prijavljenom korisniku da prenese ApkgDebPakete u ovaj repozitorij.</value>
+  </data>
+  <data name="Architecture" xml:space="preserve">
+    <value>Arhitektura</value>
+  </data>
+  <data name="Automatically sign the Release files of this repository." xml:space="preserve">
+    <value>Automatski potpišite Release datoteke ovog repozitorija.</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="Comma-separated list. Each value becomes a component subdirectory in the APT repository (e.g. &apos;main,universe,multiverse&apos;)." xml:space="preserve">
+    <value>Popis odvojen zarezima. Svaka vrijednost postaje poddirektorij komponente u APT repozitoriju (npr. &apos;main,universe,multiverse&apos;).</value>
+  </data>
+  <data name="Comma-separated list. Use Debian architecture names (e.g. &apos;amd64,arm64,i386&apos;). &apos;all&apos; packages are always included regardless of this setting." xml:space="preserve">
+    <value>Popis odvojen zarezima. Koristite Debianove nazive arhitekture (npr. &apos;amd64,arm64,i386&apos;). Paketi &apos;all&apos; uvijek su uključeni bez obzira na ovo podešavanje.</value>
+  </data>
+  <data name="Components" xml:space="preserve">
+    <value>Komponente</value>
+  </data>
+  <data name="Controls which binary-[arch]/Packages index files are generated. Packages with non-matching architectures (except &apos;all&apos;) are stored but invisible to apt clients. Also sets the Architectures: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Kontrolira koje se binary-[arch]/Packages indeksne datoteke generiraju. Paketi s neusklađenim arhitekturama (osim &apos;all&apos;) se pohranjuju, ali nisu vidljivi apt klijentima. Također postavlja Architectures: redak u vodiču za postavljanje klijenta. Promjene stupaju na snagu pri sljedećem pokretanju posla Repository Sync.</value>
+  </data>
+  <data name="Controls which component subdirectories are included when generating the Packages index. Packages in unlisted components are stored but invisible to apt clients. Also sets the Components: line in the client setup guide. Changes take effect on the next Repository Sync job run." xml:space="preserve">
+    <value>Određuje koje podmapirke komponenti su uključene pri generiranju indeksa Packages. Paketi u nespomenutim komponentama se spremaju, ali nisu vidljivi apt klijentima. Također postavlja redak Components: u vodiču za postavljanje klijenta. Promjene stupaju na snagu pri sljedećem pokretanju posla Repository Sync.</value>
+  </data>
+  <data name="Create New Repository" xml:space="preserve">
+    <value>Stvori novo spremište</value>
+  </data>
+  <data name="Distro" xml:space="preserve">
+    <value>Distro</value>
+  </data>
+  <data name="Edit Repository" xml:space="preserve">
+    <value>Uredi repozitorij</value>
+  </data>
+  <data name="Enable GPG Signing" xml:space="preserve">
+    <value>Omogući GPG potpisivanje</value>
+  </data>
+  <data name="If linked to a mirror, this repository will serve packages from that upstream source." xml:space="preserve">
+    <value>Ako je povezano s ogledalom, ovaj repozitorij će distribuirati pakete iz tog izvornog izvora.</value>
+  </data>
+  <data name="If linked, this repository&apos;s Packages index is seeded from the mirror during every Repository Sync. ApkgDebPackages for the same package name and architecture override the mirror version." xml:space="preserve">
+    <value>Ako je povezano, indeks Packages ovog skladišta se ispunjava iz ogledala tijekom svakog Sinkronizacije skladišta. ApkgDebPackages za isto ime paketa i arhitekturu nadjačavaju verziju iz ogledala.</value>
+  </data>
+  <data name="If unchecked, only users with the &apos;Upload to Restricted Repositories&apos; permission can publish packages to this repository." xml:space="preserve">
+    <value>Ako nije označeno, samo korisnici s dozvolom &apos;Upload to Restricted Repositories&apos; mogu objaviti pakete u ovaj repozitorij.</value>
+  </data>
+  <data name="Mirror" xml:space="preserve">
+    <value>Ogledalo</value>
+  </data>
+  <data name="Multiple values" xml:space="preserve">
+    <value>Više vrijednosti</value>
+  </data>
+  <data name="Repository Name" xml:space="preserve">
+    <value>Naziv repozitorija</value>
+  </data>
+  <data name="Save Repository" xml:space="preserve">
+    <value>Spremi spremište</value>
+  </data>
+  <data name="Single value" xml:space="preserve">
+    <value>Jedna vrijednost</value>
+  </data>
+  <data name="Suite" xml:space="preserve">
+    <value>Suite</value>
+  </data>
+  <data name="The APT suite name. Must be a single identifier (e.g. &apos;noble&apos;, &apos;stable&apos;, &apos;bookworm&apos;)." xml:space="preserve">
+    <value>Naziv APT suite. Mora biti jedinstveni identifikator (npr. &apos;noble&apos;, &apos;stable&apos;, &apos;bookworm&apos;).</value>
+  </data>
+  <data name="The GPG key used to sign the Release files of this repository." xml:space="preserve">
+    <value>GPG ključ koji se koristi za potpisivanje datoteka Release u ovom repozitoriju.</value>
+  </data>
+  <data name="The URL prefix for this repository. Must be a single lowercase identifier (e.g. &apos;anduinos&apos;, &apos;ubuntu&apos;)." xml:space="preserve">
+    <value>Prefiks URL-a za ovaj repozitorij. Mora biti jedan identifikator malim slovima (npr. &apos;anduinos&apos;, &apos;ubuntu&apos;).</value>
+  </data>
+  <data name="This field accepts multiple values. Separate them with commas." xml:space="preserve">
+    <value>Ovo polje prihvaća više vrijednosti. Razdvojite ih zarezima.</value>
+  </data>
+  <data name="This field accepts only a single value." xml:space="preserve">
+    <value>Ovo polje prihvaća samo jednu vrijednost.</value>
+  </data>
+  <data name="When enabled, the Release file is signed with the selected GPG key after every Repository Sync. Clients that use &apos;signed-by=&apos; in their sources.list will verify this signature and refuse unsigned or wrongly-signed repositories." xml:space="preserve">
+    <value>Kada je omogućeno, datoteka Release potpisuje se odabranim GPG ključem nakon svakog sinkroniziranja repozitorija. Klijenti koji koriste &apos;signed-by=&apos; u svojim sources.list datotekama provjerit će ovaj potpis i odbaciti repozitorije bez potpisa ili s pogrešnim potpisom.</value>
+  </data>
+
+</root>
