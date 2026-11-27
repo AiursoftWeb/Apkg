@@ -165,6 +165,38 @@ public class PackageBuildPlanResolverTests
         Assert.IsTrue(await client.IsPublishedAsync(plan, "https://apkg.example.com"));
     }
 
+    [TestMethod]
+    [DataRow("", "anduinos")]
+    [DataRow("ubuntu", "ubuntu")]
+    public async Task ExplicitBuildTargetChecksPublicationOnlyForTheRequestedSuiteAndArchitecture(
+        string distroOverride, string expectedDistro)
+    {
+        var project = new AosprojProject
+        {
+            PackageName = "sample", PackageVersion = "3.0+$(SuiteShortName)",
+            TargetDistro = "anduinos", Component = "extras",
+            TargetSuites = "noble-addon resolute-addon", TargetArchitectures = "amd64 arm64",
+            SuiteShortNameMap = "noble-addon=noble resolute-addon=resolute"
+        };
+
+        var plan = await CreateResolver().ResolveAsync(".", project,
+            distroArg: distroOverride, suiteArg: "resolute-addon", archArg: "arm64");
+
+        var target = plan.Targets.Single();
+        Assert.AreEqual("resolute-addon", target.Suite);
+        Assert.AreEqual("arm64", target.Architecture);
+        Assert.AreEqual("3.0+resolute", target.Version);
+        Assert.AreEqual(expectedDistro, plan.Distro);
+        var indexes = new Dictionary<string, string>
+        {
+            [$"/artifacts/{expectedDistro}/dists/resolute-addon/Release"] = "Architectures: amd64 arm64\n",
+            [$"/artifacts/{expectedDistro}/dists/resolute-addon/extras/binary-arm64/Packages.gz"] =
+                PackageParagraph("sample", "3.0+resolute", "arm64")
+        };
+        using var http = new HttpClient(new PublishedIndexHandler(indexes));
+        Assert.IsTrue(await new AptPackageIndexClient(http).IsPublishedAsync(plan, "https://apkg.example.com"));
+    }
+
     private sealed class PublishedIndexHandler(Dictionary<string, string> indexes) : HttpMessageHandler
     {
         protected override Task<HttpResponseMessage> SendAsync(
